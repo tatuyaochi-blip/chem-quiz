@@ -40,6 +40,19 @@
       "hero": "有機化学と機器分析を、3択クイズで学ぶ",
       "hero_lead": "反応と立体化学から、IR・NMR・質量分析のスペクトル解析、クロマトグラフィーまで。すべての問題に解説が付いています。",
       "tools_lead": "緩衝液のpH、ランベルト・ベールの法則、クロマトグラフィーの理論段数と分離度など、化学の実験でよく使う計算をブラウザ上で確かめられる無料のツールです。"
+    },
+    "en": {
+      "subject": "organic and analytical chemistry",
+      "subject_title": "Organic and Analytical Chemistry",
+      "site": "Chemistry Room",
+      "site_en": "Chemistry Room",
+      "search_example": "NMR",
+      "tools_example": "buffer pH and plate numbers",
+      "full_title": "Chemistry Room | Practice Questions on Reactions, Stereochemistry, NMR, IR and Chromatography",
+      "scope": "acids and bases, stereochemistry, substitution, elimination and addition reactions, IR, UV, NMR and mass spectrometry, chromatography and elemental analysis",
+      "hero": "Learn organic chemistry and instrumental analysis with quick quizzes",
+      "hero_lead": "From reactions and stereochemistry to reading IR, NMR and mass spectra and chromatography, with an explanation for every question.",
+      "tools_lead": "Free browser calculators for everyday lab work: buffer pH, the Beer–Lambert law, and chromatographic plate number and resolution."
     }
   },
   "icon": {

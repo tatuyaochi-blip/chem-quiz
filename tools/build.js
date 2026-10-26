@@ -49,6 +49,21 @@ const glossary = readJSON('data/glossary.json');
 const gloEn = readOpt('data/i18n/en/glossary.json', {});
 const termSlug = Object.fromEntries(glossary.map(g => [g.term, g.slug
   ?? (gloEn[g.term]?.term ?? g.term).toLowerCase().replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')]));
+// slug が空(英訳も slug もない日本語の語)や重複だと、用語ページのURLがぶつかって上書きされるので止める
+{
+  const bad = [];
+  const seen = new Map();
+  for (const g of glossary) {
+    const s = termSlug[g.term];
+    if (!s) bad.push(`用語「${g.term}」の slug が空です(data/glossary.json に "slug" を書くか、英訳の term を付けてください)`);
+    else if (seen.has(s)) bad.push(`用語「${g.term}」の slug「${s}」が「${seen.get(s)}」と重複しています("slug" で別の値を付けてください)`);
+    else seen.set(s, g.term);
+  }
+  if (bad.length) {
+    console.error(bad.join('\n'));
+    process.exit(1);
+  }
+}
 const catByLang = Object.fromEntries(langs.slice(1).map(x => [x.code, readOpt(`data/i18n/${x.code}/categories.json`, {})]));
 // 用語ページは、訳のある言語でだけ作る(訳のない語を日本語のまま出さない)
 const gloByLang = Object.fromEntries(langs.slice(1).map(x => [x.code, readOpt(`data/i18n/${x.code}/glossary.json`, {})]));
@@ -95,8 +110,10 @@ const careerText = site.careerText ?? {};
 // 日英中の用語対訳表(/glossary/trilingual/)を作る言語と、その文言
 const dictLangs = ['ja', 'en', 'zh-hant'].every(c => langs.some(x => x.code === c)) && glossary.length ? ['ja', 'en', 'zh-hant'] : [];
 const dictText = site.dictText ?? {};
-// 「Numbers Every Chip Engineer Should Know」(英語のみ。/en/numbers/)。各数値に根拠の問題IDを付ける
-const numbers = readOpt('data/numbers.json', []);
+// 覚えておきたい数値のページ(英語のみ。/en/numbers/)。各数値に根拠の問題IDを付ける。
+// 文言は data/site.json の numbersText({ title, description, lead })。なければページを作らない
+const numbersText = site.numbersText ?? null;
+const numbers = numbersText ? readOpt('data/numbers.json', []) : [];
 const numbersLang = 'en';
 const numbersQ = [...new Set(numbers.flatMap(g => g.items.flatMap(x => x.questions ?? [])))];
 // 計算ツール(/tools/{slug}/)。data/tools/*.json に1ツール1ファイル(order 順)。文言は言語ごとで、訳のある言語だけページを作る
@@ -995,11 +1012,11 @@ ${courseLearn(co)}<div class="course-progress" data-course-progress="${esc(t('co
     page({
       path: `${L.path}numbers/`,
       alt: { [code]: `${L.path}numbers/` },
-      title: 'Numbers Every Chip Engineer Should Know',
-      description: 'The orders of magnitude every semiconductor and computer engineer should know: band gaps, thermal voltage, DRAM refresh, EUV wavelength, cache latencies and more, each linked to a practice question.',
+      title: numbersText.title,
+      description: numbersText.description,
       content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
-<h1>Numbers Every Chip Engineer Should Know</h1>
-<p class="lead">The orders of magnitude worth carrying in your head, from silicon's band gap to DRAM latency. Each value links to a practice question with a full explanation. Values are typical figures; the notes give the conditions.</p>
+<h1>${esc(numbersText.title)}</h1>
+<p class="lead">${esc(numbersText.lead)}</p>
 <p><a class="btn btn-primary" href="${home}quiz/?mode=numbers" rel="nofollow">Test yourself: 10 questions</a></p>
 <nav class="glossary-nav" aria-label="Groups"><p>${numbers.map((g, i) => `<a class="chip" href="#n${i + 1}">${esc(g.group)}</a>`).join(' ')}</p></nav>
 ${numbers.map((g, i) => `<section id="n${i + 1}">

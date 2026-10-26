@@ -1,0 +1,17 @@
+<!--
+{
+  "title": "{{brand_subject_title}} Glossary",
+  "description": "A glossary of basic terms in {{brand_scope}}, each with a short explanation. Searchable by keyword.",
+  "scripts": ["glossary.js"]
+}
+-->
+<h1>{{brand_subject_title}} Glossary</h1>
+<p class="lead">Basic terms that come up often when studying {{brand_subject}}, organized by topic. Type a keyword to filter.</p>
+<div class="search">
+  <input id="glossary-q" type="search" placeholder="Search terms (e.g. {{brand_search_example}})" aria-label="Search terms">
+  <span id="glossary-count" class="muted" data-label="{{t_glossary_count}}"></span>
+</div>
+{{newsTermsLink}}
+{{dictLink}}
+{{glossaryList}}
+<div data-ad="glossary"></div>
