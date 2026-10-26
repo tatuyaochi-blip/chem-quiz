@@ -19,6 +19,13 @@
       "htmlLang": "en",
       "locale": "en-US",
       "label": "English"
+    },
+    {
+      "code": "zh-hant",
+      "path": "zh-hant/",
+      "htmlLang": "zh-Hant",
+      "locale": "zh-TW",
+      "label": "繁體中文"
     }
   ],
   "mainLang": "ja",
@@ -73,7 +80,7 @@
       "scope": "酸鹼與立體化學、取代、脫去與加成反應、IR、UV、NMR與質譜，以及層析與元素分析",
       "hero": "用三選一測驗學有機化學與儀器分析",
       "hero_lead": "從反應與立體化學，到IR、NMR與質譜的光譜解析以及層析，每一題都附有解說。",
-      "tools_lead": "免費的瀏覽器計算工具，可確認緩衝溶液的pH、比爾－朗伯定律、層析的理論板數與解析度等化學實驗常用的計算。"
+      "tools_lead": "免費的瀏覽器計算工具，可確認緩衝溶液的pH、比爾-朗伯定律、層析的理論板數與解析度等化學實驗常用的計算。"
     }
   },
   "icon": {

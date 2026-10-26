@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "有機與分析化學",
+    "groups": { "organic-basics": "有機化學基礎", "reactions": "有機反應", "spectroscopy": "光譜分析", "separation": "分離與定量" }
+  }
+}

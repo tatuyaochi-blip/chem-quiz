@@ -14,7 +14,7 @@ try {
   const res = await fetch(`${root.dataset.base}data/${root.dataset.lang}/search.json`);
   const data = await res.json();
   S = data.strings;
-  index = data.items.map(it => ({ ...it, nt: norm(it.n), nx: norm(it.x || '') }));
+  index = data.items.map(it => ({ ...it, nt: norm(it.n), nx: norm(`${it.x || ''} ${it.k || ''}`) }));
 } catch {
   countEl.textContent = 'Search is not available right now.';
 }
