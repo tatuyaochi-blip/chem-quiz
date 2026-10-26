@@ -1,0 +1,25 @@
+<!--
+{
+  "title": "ページが見つかりません",
+  "description": "お探しのページは見つかりませんでした。",
+  "out": "404.html",
+  "noindex": true,
+  "langBanner": false
+}
+-->
+<!-- GitHub Pages では 404 ページが1つだけなので、英語の案内も載せる。/en/ 以下か、ブラウザが日本語でなければ英語だけを出す -->
+<div class="prose" data-nf="ja">
+<h1>ページが見つかりません</h1>
+<p>お探しのページは移動または削除された可能性があります。</p>
+<p><a class="btn btn-primary" href="{{base}}">トップページへ</a></p>
+</div>
+<div class="prose" data-nf="en" lang="en">
+<h1>Page not found</h1>
+<p>The page you are looking for may have been moved or deleted.</p>
+<p><a class="btn btn-primary" href="{{enHome}}">Go to the top page</a></p>
+</div>
+<script>(() => {
+  const en = location.pathname.startsWith('{{base}}en/') || !(navigator.languages || [navigator.language]).some(x => x && x.toLowerCase().startsWith('ja'));
+  document.querySelector(`[data-nf="${en ? 'ja' : 'en'}"]`).remove();
+  if (en) { document.documentElement.lang = 'en'; document.title = 'Page not found | {{siteNameEn}}'; }
+})();</script>

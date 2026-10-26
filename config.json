@@ -1,0 +1,50 @@
+{
+  "baseUrl": "https://tatuyaochi-blip.github.io/chem-quiz/",
+  "siteName": {
+    "ja": "有機・分析化学教室",
+    "en": "Chemistry Room"
+  },
+  "languages": [
+    {
+      "code": "ja",
+      "path": "",
+      "htmlLang": "ja",
+      "locale": "ja-JP",
+      "label": "日本語"
+    }
+  ],
+  "mainLang": "ja",
+  "cname": null,
+  "noindex": true,
+  "onlyReviewed": false,
+  "contactFormUrl": {
+    "ja": "https://forms.gle/VZFqdvB4m1fLpBEg7",
+    "en": "https://forms.gle/2Hmk3GZD2oU8z6b98"
+  },
+  "reportFormUrl": null,
+  "adPlaceholders": false,
+  "adsenseClient": null,
+  "adsenseSlots": null,
+  "amazonTag": null,
+  "amazonDomain": null,
+  "ga4Id": null,
+  "brand": {
+    "ja": {
+      "search_example": "NMR",
+      "tools_example": "pHや理論段数",
+      "subject": "有機化学・分析化学",
+      "site": "有機・分析化学教室",
+      "site_en": "Chemistry Room",
+      "full_title": "有機・分析化学教室｜反応・立体化学・NMR・IR・クロマトグラフィーの練習問題と解説",
+      "scope": "酸塩基と立体化学、置換・脱離・付加反応から、IR・UV・NMR・質量分析、クロマトグラフィーと元素分析",
+      "hero": "有機化学と機器分析を、3択クイズで学ぶ",
+      "hero_lead": "反応と立体化学から、IR・NMR・質量分析のスペクトル解析、クロマトグラフィーまで。すべての問題に解説が付いています。",
+      "tools_lead": "緩衝液のpH、ランベルト・ベールの法則、クロマトグラフィーの理論段数と分離度など、化学の実験でよく使う計算をブラウザ上で確かめられる無料のツールです。"
+    }
+  },
+  "icon": {
+    "c1": "#0b8f72",
+    "c2": "#1d82c8",
+    "glyph": "benzene"
+  }
+}

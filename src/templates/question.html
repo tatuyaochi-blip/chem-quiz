@@ -1,0 +1,38 @@
+<nav class="breadcrumb"><a href="{{home}}">{{t_breadcrumb_top}}</a> <span>›</span> {{groupName}} <span>›</span> <a href="{{catUrl}}">{{catName}}</a></nav>
+
+<article class="q-page"{{qData}}>
+  <p class="q-cat">{{catName}}</p>
+  {{codeBefore}}<h1 class="q-text">{{question}}</h1>{{code}}{{figureBefore}}
+  <ol class="q-choices">
+{{choices}}
+  </ol>
+
+  <details class="q-answer">
+    <summary>{{t_answer_toggle}}</summary>
+    <p class="verdict ok">{{answerIs}}</p>
+    <p class="explanation">{{explanation}}</p>
+    {{figure}}
+    {{choiceNotes}}
+  </details>
+  <p class="q-continue" hidden><a class="btn btn-primary btn-block" href="{{continueUrl}}" rel="nofollow">{{continueLabel}}</a></p>
+  {{report}}
+</article>
+
+{{nextQ}}
+
+<div class="actions">
+  <a class="btn btn-primary" href="{{solveUrl}}" rel="nofollow">{{solveLabel}}</a>
+  <a class="btn btn-ghost" href="{{catUrl}}">{{toCategory}}</a>
+</div>
+
+{{toolLinks}}
+
+{{books}}
+
+<div data-ad="question"></div>
+
+<section>
+  {{related}}
+</section>
+
+{{compareLinks}}

@@ -1,0 +1,154 @@
+// 問題の中身の機械的な検査(validate.js の形式の検査を補う)。単体実行: node tools/check-content.js [--strict]
+// - 翻訳の数値: 日本語の選択肢にある数値(小数か 10 より大きい数)が、各言語の訳の選択肢にもあるか
+// - 小数点の書き方: ドイツ語・オランダ語・フランス語で「3,000」のように、桁区切りのつもりが小数に読める書き方がないか
+// - 正解と解説: 正解の選択肢が数値なら、その数値が解説(か正解の補足)に出てくるか
+// - 正解の位置の偏り: 分野ごとに、正解が同じ位置に偏っていないか
+// - 修正の記録(data/audit-log.json): 問題IDと日付と書式
+// 結果は「注意」として出す。--strict のときは注意が1件でもあれば終了コード1
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+
+const root = path.resolve(import.meta.dirname, '..');
+const readJSON = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
+const exists = p => fs.existsSync(path.join(root, p));
+
+// 「万・億」や million / Milliarden などの単位語も数に直す(billion は言語で大きさが違う)
+const MULT = { 万: 1e4, 億: 1e8, 兆: 1e12, 萬: 1e4, 만: 1e4, 억: 1e8, 조: 1e12, million: 1e6, millions: 1e6, millionen: 1e6, miljoen: 1e6, miljard: 1e9, milliarde: 1e9, milliarden: 1e9, milliard: 1e9, milliards: 1e9, biljoen: 1e12, trillion: 1e12 };
+const DOT_DECIMAL = /(?<![\w.,/])\d+\.\d+(?:[\s-]?(?:%|°|℃|λ|×|wt%|at%|ppm|ppb|ppt|dB[a-zµ]*|[pnµumkMGT]?(?:m|V|A|Ω|eV|Hz|W|F|H|s|Pa|J|g|K|N|bit|B)(?![A-Za-z]))|-?[Ff]ach|\s(?:bis|à|tot|und|et|en|oder|ou|of|fois|keer|mal)\s)/g;
+const BILLION = { en: 1e9, de: 1e12, fr: 1e12 };
+
+// 文字列から数値を取り出す。decimalComma の言語では「,」が小数点、「.」と空白が桁区切り
+export function numbers(text, lang = 'ja') {
+  const decimalComma = ['de', 'nl', 'fr'].includes(lang);
+  // 「7億5000万」「1万3,000」のような日本語の数は1つの数にまとめる
+  const s = String(text ?? '').normalize('NFKC').replace(/\u2212/g, '-')
+    .replace(/(\d+(?:\.\d+)?)億(?:(\d+(?:,\d{3})*)万)?(\d+(?:,\d{3})*)?(?![\d万])/g, (_, a, b = '0', c = '0') => String(a * 1e8 + b.replace(/,/g, '') * 1e4 + +c.replace(/,/g, '')))
+    .replace(/(\d+(?:\.\d+)?)\s*[万萬만]\s*(\d+)\s*[千천]/g, (_, a, b) => String(a * 1e4 + b * 1e3))
+    .replace(/(\d+(?:\.\d+)?)万(\d+(?:,\d{3})*)(?![\d万億])/g, (_, a, b) => String(a * 1e4 + +b.replace(/,/g, '')))
+    .replace(/(\d+(?:\.\d+)?)百万/g, (_, a) => String(a * 1e6))
+    // IPv4 のアドレスとマスク(192.168.1.10)は数ではない。点を桁区切りとする言語で別の数に読めてしまうため、どの言語でも除く
+    .replace(/(?<![\d.])\d{1,3}(?:\.\d{1,3}){3}(?![\d.])/g, ' ');
+  const out = [];
+  for (const m of s.matchAll(/(\d+(?:[.,\u202f\u00a0 ]\d+)*)\s*(万|億|兆|萬|만|억|조|[A-Za-z]+)?/g)) {
+    let t = m[1];
+    t = decimalComma ? t.replace(/[.\u202f\u00a0 ](?=\d{3}(?!\d))/g, '').replace(',', '.') : t.replace(/[,\u202f\u00a0 ](?=\d{3}(?!\d))/g, '');
+    if (/[\s\u202f\u00a0]/.test(t)) continue; // 数の並び(「1 2 3」など)は対象外
+    const w = m[2]?.toLowerCase();
+    const v = parseFloat(t) * (w === 'billion' || w === 'billionen' ? BILLION[lang] ?? 1e9 : MULT[w] ?? 1);
+    if (Number.isFinite(v)) out.push(+v.toPrecision(12));
+  }
+  return out;
+}
+const significant = v => !(Number.isInteger(v) && Math.abs(v) <= 10);
+
+export function checkContent() {
+  const warnings = [];
+  const config = readJSON('config.json');
+  const langs = config.languages.map(l => l.code).slice(1);
+  const commaLangs = new Set(['de', 'nl', 'fr']);
+  const cats = readJSON('data/categories.json').map(c => c.id);
+  const ids = new Set();
+  let total = 0;
+  // 確認したうえで問題ないとした項目: data/qa-ignore.json の [{ "id", "check", "lang"?, "reason" }]
+  const ignore = exists('data/qa-ignore.json') ? readJSON('data/qa-ignore.json') : [];
+  const ignored = (id, check, lang) => ignore.some(x => x.id === id && x.check === check && (!x.lang || x.lang === lang));
+
+  for (const cat of cats) {
+    const qs = readJSON(`data/questions/${cat}.json`);
+    const tr = Object.fromEntries(langs.map(l => [l, exists(`data/i18n/${l}/questions/${cat}.json`) ? readJSON(`data/i18n/${l}/questions/${cat}.json`) : {}]));
+    const pos = [0, 0, 0];
+    for (const q of qs) {
+      ids.add(q.id);
+      total++;
+      pos[q.answer] = (pos[q.answer] ?? 0) + 1;
+      // 正解が数値の選択肢なら、その数値を解説で説明しているはず
+      const ans = numbers(q.choices[q.answer]).filter(significant);
+      const ex = numbers(`${q.explanation} ${q.choiceNotes?.[q.answer] ?? ''}`);
+      const near = v => ex.some(x => Math.abs(x - v) <= Math.abs(v) * 0.06);
+      if (ans.length && !ignored(q.id, 'answer-number') && !ans.some(near)) warnings.push(`${q.id}: 正解「${q.choices[q.answer]}」の数値が解説に出てきません`);
+      for (const l of langs) {
+        const t = tr[l][q.id];
+        if (!t) continue;
+        q.choices.forEach((c, i) => {
+          const got = new Set(numbers(t.choices?.[i], l));
+          const miss = numbers(c).filter(significant).filter(v => !got.has(v));
+          if (miss.length && !ignored(q.id, 'choice-number', l)) warnings.push(`${q.id} [${l}] 選択肢${i + 1}: 日本語の数値 ${miss.join(', ')} が訳にありません(「${t.choices?.[i]}」)`);
+        });
+        // 小数点がコンマの言語で「3,000」と書くと、3.000(小数)と読める
+        if (commaLangs.has(l)) {
+          const all = [t.question, ...(t.choices ?? []), t.explanation, ...(t.choiceNotes ?? [])].filter(Boolean).join('\n');
+          // 日本語で小数(32.768 など)なら正しい。日本語で整数(3,000 / 3000)なら桁区切りの書き間違い
+          const ja = new Set(numbers([q.question, ...q.choices, q.explanation, ...(q.choiceNotes ?? [])].join('\n')));
+          for (const m of all.matchAll(/(?<![\d.,])[1-9]\d{0,2},\d{3}(?![\d,])/g)) {
+            const asInt = Number(m[0].replace(',', '')), asDec = Number(m[0].replace(',', '.'));
+            // 日本語に小数として出てこない「n,nnn」は、整数を桁区切りで書いた疑い(日本語が「10万」のように書いているときも見つける)
+            if (!ja.has(asDec)) warnings.push(`${q.id} [${l}]: 「${m[0]}」は ${asDec} と読めます(整数の ${asInt} なら桁区切りを外してください)`);
+          }
+          // 逆向きの書き間違い: 単位の付いた小数を「0.1 nm」のように点で書いている(この言語では「0,1 nm」)。版番号(PCIe 4.0 など)は単位が付かないので対象外
+          // 単位のない小数(「0.35/BW」「−6.25」)も調べる。版番号・規格名(PCIe 3.0、2.5D)、指数表記(1.0e16)、
+          // プログラムのコードとして書いた式は対象外で、コードの式は data/qa-ignore.json に check: "dot-decimal" で登録する
+          const thousands = n => /^[1-9]\d{0,2}\.\d{3}$/.test(n) && ja.has(Number(n.replace('.', '')));
+          const seen = new Set();
+          // 版番号: 規格名のすぐ後ろの数、または規格の話をしている文の「n.0」
+          const version = (i, n = all.slice(i).match(/\d+\.\d+/)?.[0] ?? '') => /(?:PCIe|PCI Express|USB|UCIe|CXL|TPM|IEEE|TLS|SSL|HTTP|OAuth|[Vv]ersion|Gen)[\s-]*$/.test(all.slice(Math.max(0, i - 16), i))
+            || /\.0$/.test(n) && /PCIe|PCI Express|USB|UCIe|CXL|GT\/s/.test(all);
+          for (const m of all.matchAll(DOT_DECIMAL)) {
+            // 「1.000 µA」のように点が桁区切り(日本語では 1000)なら正しい。「0.001」は桁区切りではない
+            const n = m[0].match(/\d+\.\d+/)[0];
+            seen.add(m.index + m[0].indexOf(n));
+            if (thousands(n) || version(m.index)) continue;
+            warnings.push(`${q.id} [${l}]: 「${m[0].trim()}」は小数点をコンマにしてください`);
+          }
+          if (!ignored(q.id, 'dot-decimal', l)) for (const m of all.matchAll(/(?<![\w.,\/])\d+\.\d+(?![\d.]|e[+-]?\d|D\b)/g)) {
+            if (seen.has(m.index) || thousands(m[0]) || version(m.index, m[0])) continue;
+            warnings.push(`${q.id} [${l}]: 「${m[0]}」は小数点をコンマにしてください(コードや版番号なら qa-ignore に登録)`);
+          }
+        }
+      }
+    }
+    const n = qs.length, max = Math.max(...pos);
+    if (n >= 20 && max / n > 0.5) warnings.push(`${cat}: 正解の位置が偏っています(${pos.join(' / ')})`);
+  }
+
+  // 用語集・比較ページなど問題以外の訳も、小数点がコンマの言語で点を使っていないか確かめる。
+  // 「1.000 °C」のような3桁の桁区切りと、版番号(PCIe などの規格の話で「4.0 à 16 GT/s」のように並ぶもの)は対象外
+  for (const l of commaLangs) {
+    for (const f of ['glossary', 'compare', 'news-terms', 'careers', 'categories']) {
+      const file = `data/i18n/${l}/${f}.json`;
+      if (!exists(file)) continue;
+      const walk = (v, where) => {
+        if (typeof v === 'string') {
+          for (const m of v.matchAll(DOT_DECIMAL)) {
+            const n = m[0].match(/\d+\.\d+/)[0];
+            if (/\.\d{3}$/.test(n) || /\.0$/.test(n) && /PCIe|PCI Express|USB|UCIe|CXL|[Vv]ersion|GT\/s/.test(v)) continue;
+            warnings.push(`${file} ${where}: 「${m[0].trim()}」は小数点をコンマにしてください`);
+          }
+        } else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) walk(x, where ? `${where}/${k}` : k);
+      };
+      walk(readJSON(file), '');
+    }
+  }
+
+  // 修正の記録: { "問題ID": [{ "date": "YYYY-MM-DD", "type": "fix|verify", "summary": "...", "sources": [...] }] }
+  if (exists('data/audit-log.json')) {
+    const log = readJSON('data/audit-log.json');
+    for (const [id, entries] of Object.entries(log)) {
+      if (!ids.has(id)) warnings.push(`audit-log.json: 問題 ${id} がありません`);
+      for (const e of Array.isArray(entries) ? entries : [entries]) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(e?.date ?? '')) warnings.push(`audit-log.json: ${id} の date は YYYY-MM-DD にしてください`);
+        if (!['fix', 'verify'].includes(e?.type)) warnings.push(`audit-log.json: ${id} の type は fix か verify にしてください`);
+        if (!e?.summary) warnings.push(`audit-log.json: ${id} に summary がありません`);
+        if (e?.sources && !Array.isArray(e.sources)) warnings.push(`audit-log.json: ${id} の sources は配列にしてください`);
+      }
+    }
+  }
+  return { warnings, total };
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const { warnings, total } = checkContent();
+  warnings.forEach(w => console.log(`注意: ${w}`));
+  console.log(`${warnings.length ? 'NG' : 'OK'}: 問題 ${total} 問を検査、注意 ${warnings.length} 件`);
+  if (process.argv.includes('--strict') && warnings.length) process.exit(1);
+}

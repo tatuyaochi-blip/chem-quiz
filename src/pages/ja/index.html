@@ -1,0 +1,28 @@
+<!--
+{
+  "fullTitle": "{{brand_full_title}}",
+  "description": "3択の練習問題で{{brand_subject}}を学べる学習サイト「{{siteName}}」。{{brand_scope}}まで、{{categoryTotal}}分野・{{questionTotal}}問を解説つきで無料で解けます。",
+  "scripts": ["progress.js", "course.js"]
+}
+-->
+<section class="hero">
+  <h1>{{brand_hero}}</h1>
+  <p class="lead">{{brand_hero_lead}}</p>
+  <p class="hero-meta">{{categoryTotal}}分野・{{questionTotal}}問 ・ 無料 ・ 登録不要</p>
+  {{startPanel}}
+  {{courseHint}}
+</section>
+<p class="streak" hidden data-streak="{{t_streak}}" data-daily-done="{{t_daily_done}}"></p>
+{{startBack}}
+{{categoryList}}
+
+{{homeFeatures}}
+
+{{courseList}}
+
+<section>
+  <h2>{{t_more_modes}}</h2>
+  {{moreModes}}
+</section>
+
+<div data-ad="top"></div>

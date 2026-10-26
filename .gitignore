@@ -1,0 +1,3 @@
+node_modules/
+# サイトは GitHub Actions(.github/workflows/pages.yml)がビルドして公開する。docs/ は手元での点検用で、コミットしない
+docs/

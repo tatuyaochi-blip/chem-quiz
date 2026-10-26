@@ -1,0 +1,53 @@
+# サイトを GitHub 上でビルドして GitHub Pages に公開する(main に入るたび、または手動実行)。
+# リポジトリの Settings → Pages → Build and deployment の Source は「GitHub Actions」にしておく。docs/ はコミットしない。
+# 更新日(sitemap の lastmod)は data/lastmod.json から決まるので、ローカルでビルドしたときの lastmod.json をコミットしておく
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  # 公開中の実行は止めない(止めると、マージが続いたときに公開まで終わらない)。待っている実行は最新の1つだけ残る
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tools/validate.js
+      - run: node tools/build.js
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      # 公開後の確認: トップとサイトマップが 200 を返すか(反映待ちを見込んで数回試す)
+      - name: Check deployed site
+        run: |
+          base="${{ steps.deployment.outputs.page_url }}"
+          for path in "" "sitemap.xml"; do
+            ok=""
+            for i in 1 2 3 4 5 6; do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "${base}${path}")
+              if [ "$code" = "200" ]; then ok=1; break; fi
+              sleep 20
+            done
+            if [ -z "$ok" ]; then echo "::error::${base}${path} returned ${code}"; exit 1; fi
+            echo "${base}${path} -> 200"
+          done

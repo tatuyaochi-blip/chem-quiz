@@ -1,0 +1,32 @@
+[
+  {
+    "id": "intro",
+    "name": {
+      "ja": "有機化学の基礎から反応まで"
+    },
+    "desc": {
+      "ja": "混成軌道とpKaから始めて、立体化学、置換と脱離、付加・芳香族・カルボニルの反応へと順に進みます。反応のしくみを理屈で説明できるようになりたい人におすすめです。"
+    },
+    "steps": [
+      "bonding-acidbase",
+      "stereochem",
+      "substitution-elimination",
+      "reactions"
+    ]
+  },
+  {
+    "id": "instrumental",
+    "name": {
+      "ja": "機器分析の基礎"
+    },
+    "desc": {
+      "ja": "IR・UV-Vis・蛍光、NMRと質量分析で構造と濃度を読み取り、クロマトグラフィー、電気化学分析と元素分析で分離と定量の基本を身につけます。分析・品質管理の実務の土台になるコースです。"
+    },
+    "steps": [
+      "ir-uv",
+      "nmr-ms",
+      "chromatography",
+      "electro-elemental"
+    ]
+  }
+]

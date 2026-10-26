@@ -1,0 +1,24 @@
+[
+  {
+    "id": "main",
+    "name": "有機・分析化学",
+    "groups": [
+      {
+        "id": "organic-basics",
+        "name": "有機化学の基礎"
+      },
+      {
+        "id": "reactions",
+        "name": "有機反応"
+      },
+      {
+        "id": "spectroscopy",
+        "name": "分光分析"
+      },
+      {
+        "id": "separation",
+        "name": "分離と定量"
+      }
+    ]
+  }
+]

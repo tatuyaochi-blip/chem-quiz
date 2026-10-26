@@ -1,0 +1,15 @@
+<!--
+{
+  "title": "{{t_compare_index_title}}",
+  "description": "{{t_compare_index_desc}}",
+  "scripts": ["glossary.js"]
+}
+-->
+<h1>{{t_compare_index_title}}</h1>
+<p class="lead">{{t_compare_index_desc}}キーワードで絞り込めます。</p>
+<div class="search">
+  <input id="glossary-q" type="search" placeholder="比較を検索（例：DRAM、GPU、エッチング）" aria-label="比較を検索">
+  <span id="glossary-count" class="muted" data-label="{{t_compare_count}}"></span>
+</div>
+{{compareIndex}}
+<div data-ad="compare"></div>

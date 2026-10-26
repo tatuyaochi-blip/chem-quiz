@@ -1,0 +1,15 @@
+{
+  "name": "chem-quiz",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.js",
+    "validate": "node tools/validate.js",
+    "serve": "node tools/serve.js",
+    "check:ui": "node tools/check-ui.js",
+    "i18n:stale": "node tools/i18n-stale.js",
+    "check:content": "node tools/check-content.js",
+    "check:site": "node tools/check-site.js",
+    "test": "node tools/validate.js && node tools/check-content.js --strict && node tools/check-learn.js --strict && node tools/i18n-stale.js"
+  }
+}
