@@ -2,7 +2,9 @@
 const lang = document.documentElement.lang || 'en';
 const PREFIX = [[1e9, 'G'], [1e6, 'M'], [1e3, 'k'], [1, ''], [1e-3, 'm'], [1e-6, 'µ'], [1e-9, 'n'], [1e-12, 'p']];
 
-export const num = (x, d = 3) => (Number.isFinite(x) ? x.toLocaleString(lang, { maximumSignificantDigits: d }) : '–');
+// 負の数はハイフンでなくマイナス記号「−」で出す(丸めて 0 になる −0.0001 などは「0」)
+const minus = t => (/^-0(?:[.,]0*)?$/.test(t) ? t.slice(1) : t.replace(/^-/, '−'));
+export const num = (x, d = 3) => (Number.isFinite(x) ? minus(x.toLocaleString(lang, { maximumSignificantDigits: d })) : '–');
 
 // 値に合う接頭辞を選んで「数値 接頭辞単位」にする(丸めて 1000 になるときは次の接頭辞へ)
 export function si(x, unit, d = 3) {
@@ -36,5 +38,5 @@ export const sci = (x, d = 4) => {
   if (!Number.isFinite(x)) return '–';
   if (x === 0) return '0';
   const [m, e] = x.toExponential(d - 1).split('e');
-  return Number(e) === 0 ? m : `${m} × 10${String(Number(e)).replace(/./g, c => SUP[c])}`;
+  return Number(e) === 0 ? minus(m) : `${minus(m)} × 10${String(Number(e)).replace(/./g, c => SUP[c])}`;
 };
