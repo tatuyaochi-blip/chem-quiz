@@ -7,9 +7,9 @@
       "zh-hant": "從有機化學基礎到反應"
     },
     "desc": {
-      "ja": "混成軌道とpKaから始めて、立体化学、置換と脱離、付加・芳香族・カルボニルの反応へと順に進み、逆合成解析や保護基、カップリング反応を使う有機合成の考え方と、高分子の合成までをまとめます。最後に複素環の芳香族性と塩基性、アミノ酸や糖、核酸などの生体分子の構造を扱います。反応のしくみを理屈で説明できるようになりたい人におすすめです。",
-      "en": "Start with hybrid orbitals and pKa, work through stereochemistry, substitution and elimination, and addition, aromatic and carbonyl reactions, then pull it together with the logic of organic synthesis: retrosynthetic analysis, protecting groups and cross-coupling reactions, and polymer synthesis. Finish with the aromaticity and basicity of heterocycles and the structures of biomolecules such as amino acids, sugars and nucleic acids. Recommended for anyone who wants to explain how reactions work from first principles.",
-      "zh-hant": "從混成軌域與pKa開始，依序學習立體化學、取代與脫去，以及加成、芳香族與羰基的反應，並統整使用逆合成分析、保護基與偶合反應的有機合成思考方式，一直到高分子的合成。最後探討雜環的芳香性與鹼性，以及胺基酸、醣、核酸等生物分子的結構。推薦給想以道理說明反應機構的人。"
+      "ja": "混成軌道とpKaから始めて、立体化学、置換と脱離、付加・芳香族・カルボニルの反応へと順に進み、逆合成解析や保護基、カップリング反応を使う有機合成の考え方と、高分子の合成までをまとめます。さらに複素環の芳香族性と塩基性、アミノ酸や糖、核酸などの生体分子の構造を扱い、仕上げに有機金属錯体による触媒反応と、反応速度論による反応機構の解析へ進みます。反応のしくみを理屈で説明できるようになりたい人におすすめです。",
+      "en": "Start with hybrid orbitals and pKa, work through stereochemistry, substitution and elimination, and addition, aromatic and carbonyl reactions, then pull it together with the logic of organic synthesis: retrosynthetic analysis, protecting groups and cross-coupling reactions, and polymer synthesis. Then study the aromaticity and basicity of heterocycles and the structures of biomolecules such as amino acids, sugars and nucleic acids, and finally move on to catalysis by organometallic complexes and the analysis of reaction mechanisms through kinetics. Recommended for anyone who wants to explain how reactions work from first principles.",
+      "zh-hant": "從混成軌域與pKa開始，依序學習立體化學、取代與脫去，以及加成、芳香族與羰基的反應，並統整使用逆合成分析、保護基與偶合反應的有機合成思考方式，一直到高分子的合成。接著探討雜環的芳香性與鹼性，以及胺基酸、醣、核酸等生物分子的結構，最後再探討有機金屬錯合物的催化反應，以及以反應動力學解析反應機構。推薦給想以道理說明反應機構的人。"
     },
     "steps": [
       "bonding-acidbase",
@@ -18,7 +18,9 @@
       "reactions",
       "synthesis",
       "polymer-chem",
-      "heterocycles-biomolecules"
+      "heterocycles-biomolecules",
+      "organometallic",
+      "kinetics-mechanism"
     ]
   },
   {

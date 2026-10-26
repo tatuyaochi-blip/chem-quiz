@@ -2,6 +2,7 @@
 // - 翻訳の数値: 日本語の選択肢にある数値(小数か 10 より大きい数)が、各言語の訳の選択肢にもあるか
 // - 小数点の書き方: ドイツ語・オランダ語・フランス語で「3,000」のように、桁区切りのつもりが小数に読める書き方がないか
 // - 正解と解説: 正解の選択肢が数値なら、その数値が解説(か正解の補足)に出てくるか
+// - 選択肢を順番で指す解説: 選択肢は並べ替えて出すので「1番目の選択肢」などは画面と合わない
 // - 正解の位置の偏り: 分野ごとに、正解が同じ位置に偏っていないか
 // - 修正の記録(data/audit-log.json): 問題IDと日付と書式
 // 結果は「注意」として出す。--strict のときは注意が1件でもあれば終了コード1
@@ -67,6 +68,10 @@ export function checkContent() {
       const ex = numbers(`${q.explanation} ${q.choiceNotes?.[q.answer] ?? ''}`);
       const near = v => ex.some(x => Math.abs(x - v) <= Math.abs(v) * 0.06);
       if (ans.length && !ignored(q.id, 'answer-number') && !ans.some(near)) warnings.push(`${q.id}: 正解「${q.choices[q.answer]}」の数値が解説に出てきません`);
+      // 選択肢は出題のたびに並べ替わるので、解説で「1番目の選択肢」「first choice」のように順番で指すと画面と合わない
+      const ORDINAL = /(?:[1-3１-３一二三]|最初|最後)(?:番目|つ目)?の選択肢|選択肢\s*[1-3１-３]|(?:first|second|third|last|1st|2nd|3rd) (?:choice|option|answer)|(?:choice|option) [1-3A-C]\b|第\s*[1-3一二三]\s*個?選項|選項\s*[1-3一二三]/i;
+      const ordText = l => (l ? [tr[l][q.id]?.explanation, ...(tr[l][q.id]?.choiceNotes ?? [])] : [q.explanation, ...(q.choiceNotes ?? [])]).filter(Boolean).join('\n');
+      for (const l of [null, ...langs]) if (ORDINAL.test(ordText(l)) && !ignored(q.id, 'ordinal', l ?? undefined)) warnings.push(`${q.id}${l ? ` [${l}]` : ''}: 解説が選択肢を順番で指しています(選択肢は並べ替えて出すので、中身で指す)`);
       for (const l of langs) {
         const t = tr[l][q.id];
         if (!t) continue;
