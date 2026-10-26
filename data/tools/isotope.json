@@ -1,0 +1,245 @@
+{
+  "id": "isotope",
+  "order": 5,
+  "slug": "ms-isotope-pattern-calculator",
+  "cats": [
+    "nmr-ms"
+  ],
+  "cat": "nmr-ms",
+  "terms": [
+    "同位体ピーク",
+    "分子イオンピーク",
+    "高分解能質量分析"
+  ],
+  "questions": [
+    "nmr-ms-009",
+    "nmr-ms-010"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "ip-form",
+    "fields": [
+      {
+        "name": "ncl",
+        "value": 2,
+        "attrs": "min=\"0\" max=\"6\" step=\"1\""
+      },
+      {
+        "name": "nbr",
+        "value": 0,
+        "attrs": "min=\"0\" max=\"6\" step=\"1\""
+      },
+      {
+        "name": "nc",
+        "value": 1,
+        "attrs": "min=\"0\" max=\"200\" step=\"1\""
+      },
+      {
+        "name": "m",
+        "value": 84,
+        "attrs": "min=\"0\" step=\"1\""
+      }
+    ],
+    "outputs": [
+      {
+        "heading": "pat_heading",
+        "stats": [
+          "m0",
+          "m2",
+          "m4",
+          "m6",
+          "m8",
+          "more"
+        ]
+      },
+      {
+        "heading": "c_heading",
+        "stats": [
+          "base",
+          "m1"
+        ]
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "同位体パターン(Cl・Br)",
+      "card": "塩素と臭素の数から質量スペクトルの M、M+2、M+4 のピークの強度比を計算",
+      "title": "質量分析の同位体パターン計算ツール(塩素・臭素の M+2、M+4)",
+      "description": "分子に含まれる塩素原子と臭素原子の数から、天然の同位体存在比を使って、質量スペクトルの分子イオン領域に現れる M、M+2、M+4…のピークの強度比を計算します。炭素数からは ¹³C による M+1 ピークの大きさの目安も求めます。",
+      "h1": "質量分析の同位体パターン計算ツール",
+      "lead": "塩素(³⁵Cl・³⁷Cl)と臭素(⁷⁹Br・⁸¹Br)は質量が2違う同位体を多く含むので、分子イオンのピークが M、M+2、M+4…と並びます。原子の数を入れると、その強度比を最も強いピークを100として示します。既定値はジクロロメタン CH₂Cl₂(M = m/z 84)です。",
+      "in_heading": "入力",
+      "ncl": "塩素原子の数(0〜6)",
+      "nbr": "臭素原子の数(0〜6)",
+      "nc": "炭素原子の数(M+1 の目安に使う)",
+      "m": "M の m/z(³⁵Cl・⁷⁹Br だけを含む分子。0 なら表示しない)",
+      "out_heading": "結果",
+      "pat_heading": "強度比(最も強いピーク = 100)",
+      "m0": "M",
+      "m2": "M+2",
+      "m4": "M+4",
+      "m6": "M+6",
+      "m8": "M+8",
+      "more": "M+10 以降",
+      "c_heading": "そのほかの目安",
+      "base": "最も強いピーク",
+      "m1": "M+1(¹³C)の M に対する強度",
+      "note": "存在比は ³⁵Cl 75.76%、³⁷Cl 24.24%、⁷⁹Br 50.69%、⁸¹Br 49.31%(IUPAC の代表値)を使い、二項分布で計算しています。M+2 以降には ¹³C、¹⁸O、³⁴S などの寄与を含めていないので、炭素の多い分子や硫黄を含む分子では実測の M+2 が少し大きくなります。M+1 は ¹³C(1.07%)だけから求めた目安です。",
+      "practice": "NMRと質量分析の問題を解く",
+      "related": "関連する用語",
+      "sections": [
+        {
+          "h": "同位体ピークが現れるわけ",
+          "p": "質量分析では、同じ分子でも含まれる同位体の組み合わせによって質量が違うイオンが生じ、それぞれ別のピークになります。天然の塩素は ³⁵Cl が約75.8%、³⁷Cl が約24.2%、臭素は ⁷⁹Br が約50.7%、⁸¹Br が約49.3% で、どちらも重い同位体が質量2だけ大きく、しかも多く含まれます。そのため塩素1個の分子では M : M+2 ≈ 3 : 1、臭素1個では約 1 : 1 の目立つ対のピークが現れ、ハロゲンの有無と数を見分ける手がかりになります。例えばクロロベンゼン C₆H₅Cl では m/z 112 と 114 が約 3 : 1 で現れます。"
+        },
+        {
+          "h": "二項分布で強度比を求める",
+          "p": "ハロゲン原子がそれぞれ独立に同位体を選ぶと考えると、塩素が n 個の分子の強度比は (a + b)ⁿ を展開した各項になります(a、b は軽い同位体と重い同位体の存在比)。塩素2個では a² : 2ab : b² から M : M+2 : M+4 = 100 : 64.0 : 10.2(約 9 : 6 : 1)、臭素2個では 51.4 : 100 : 48.6(約 1 : 2 : 1)です。塩素と臭素を1個ずつ含むと、(a + b)(c + d) から 77.4 : 100 : 24.1(約 3 : 4 : 1)になります。臭素2個のように、最も強いピークが M ではなく M+2 になることもあります。"
+        },
+        {
+          "h": "M+1 ピークと炭素の数",
+          "p": "炭素には ¹³C が約1.07% 含まれるので、炭素を n 個もつ分子では、¹³C を1個含む M+1 のピークが M の約 1.1% × n の強さで現れます。クロロベンゼン(炭素6個)なら約6.5% です。逆に M+1 と M の強度比から炭素数を見積もることもできますが、窒素(¹⁵N 0.37%)や水素(²H)の寄与もあり、M+1 が小さいと誤差が大きくなります。塩素や臭素の同位体は質量差が2なので、M+1 ではなく M+2 に現れることに注意します。"
+        },
+        {
+          "h": "計算の前提と限界",
+          "p": "このツールは、分子イオンが十分に観測され、ほかのイオンのピークと重ならないことを前提にしています。硫黄(³⁴S 約4.2%)やケイ素(³⁰Si 約3.1%)も M+2 を少し大きくしますが、塩素ほどではありません。同位体存在比は試料の産地や由来によってわずかに変わり、測定の強度にもばらつきがあるので、実測とは数%ずれることがあります。フラグメントイオンでも、そのイオンに残っている塩素・臭素の数に応じて同じ形のパターンが現れます。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "M+2 が大きければ塩素か臭素と決めてよいですか?",
+          "a": "M : M+2 が約 3 : 1 なら塩素1個、約 1 : 1 なら臭素1個がまず考えられます。M+2 が M の数%程度のときは、硫黄や炭素の多い分子の可能性もあります。高分解能質量分析で精密質量を測ると、組成をより確かに決められます。"
+        },
+        {
+          "q": "分子イオンのピークで最も強いものが M でないのはなぜですか?",
+          "a": "重い同位体の割合が大きい元素を複数含むと、重い同位体を1個以上含む組み合わせの数が多くなるからです。臭素2個では ⁷⁹Br⁸¹Br の組み合わせが2通りあるので M+2 が最も強く、塩素4個でも M+2 が最も強くなります。"
+        },
+        {
+          "q": "ヨウ素やフッ素を含むと、同位体ピークはどうなりますか?",
+          "a": "フッ素(¹⁹F)とヨウ素(¹²⁷I)は天然に安定同位体が1種類しかないので、M+2 のピークを生じません。ヨウ素を含む分子は、同位体ピークではなく、m/z 127 の I⁺ や、質量127の脱離などで見分けます。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Isotope pattern (Cl, Br)",
+      "card": "Calculate the intensity ratio of the M, M+2 and M+4 peaks in a mass spectrum from the numbers of chlorine and bromine atoms",
+      "title": "Mass Spectrometry Isotope Pattern Calculator (M+2 and M+4 for Chlorine and Bromine)",
+      "description": "From the numbers of chlorine and bromine atoms in a molecule, calculate the intensity ratio of the M, M+2, M+4… peaks in the molecular ion region of a mass spectrum using natural isotope abundances. The carbon count also gives an estimate of the size of the M+1 peak from ¹³C.",
+      "h1": "Mass Spectrometry Isotope Pattern Calculator",
+      "lead": "Chlorine (³⁵Cl, ³⁷Cl) and bromine (⁷⁹Br, ⁸¹Br) contain a large share of an isotope 2 mass units heavier, so the molecular ion appears as a series of peaks M, M+2, M+4…. Enter the numbers of atoms to see their intensity ratio with the strongest peak set to 100. The defaults are for dichloromethane, CH₂Cl₂ (M = m/z 84).",
+      "in_heading": "Inputs",
+      "ncl": "Number of chlorine atoms (0–6)",
+      "nbr": "Number of bromine atoms (0–6)",
+      "nc": "Number of carbon atoms (for the M+1 estimate)",
+      "m": "m/z of M (molecule with only ³⁵Cl and ⁷⁹Br; 0 to hide)",
+      "out_heading": "Results",
+      "pat_heading": "Intensity ratio (strongest peak = 100)",
+      "m0": "M",
+      "m2": "M+2",
+      "m4": "M+4",
+      "m6": "M+6",
+      "m8": "M+8",
+      "more": "M+10 and above",
+      "c_heading": "Other estimates",
+      "base": "Strongest peak",
+      "m1": "M+1 (¹³C) relative to M",
+      "note": "The calculation uses a binomial distribution with abundances of ³⁵Cl 75.76%, ³⁷Cl 24.24%, ⁷⁹Br 50.69% and ⁸¹Br 49.31% (IUPAC representative values). Contributions from ¹³C, ¹⁸O, ³⁴S and so on are not included in M+2 and above, so for molecules with many carbons or containing sulfur the measured M+2 is somewhat larger. M+1 is an estimate from ¹³C (1.07%) alone.",
+      "practice": "Practice NMR and mass spectrometry questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Why isotope peaks appear",
+          "p": "In mass spectrometry, molecules of the same compound give ions of different masses depending on which isotopes they contain, and each appears as a separate peak. Natural chlorine is about 75.8% ³⁵Cl and 24.2% ³⁷Cl, and bromine about 50.7% ⁷⁹Br and 49.3% ⁸¹Br; in both, the heavier isotope is 2 mass units heavier and abundant. A molecule with one chlorine therefore shows a prominent pair of peaks with M : M+2 ≈ 3 : 1, and one with one bromine about 1 : 1, which helps identify whether halogens are present and how many. Chlorobenzene, C₆H₅Cl, for example, shows m/z 112 and 114 at about 3 : 1."
+        },
+        {
+          "h": "Finding the ratio with the binomial distribution",
+          "p": "If each halogen atom takes its isotope independently, the intensity ratio for a molecule with n chlorines is given by the terms of the expansion of (a + b)ⁿ, where a and b are the abundances of the light and heavy isotopes. For two chlorines, a² : 2ab : b² gives M : M+2 : M+4 = 100 : 64.0 : 10.2 (about 9 : 6 : 1); for two bromines, 51.4 : 100 : 48.6 (about 1 : 2 : 1). With one chlorine and one bromine, (a + b)(c + d) gives 77.4 : 100 : 24.1 (about 3 : 4 : 1). As with two bromines, the strongest peak can be M+2 rather than M."
+        },
+        {
+          "h": "The M+1 peak and the number of carbons",
+          "p": "Carbon contains about 1.07% ¹³C, so in a molecule with n carbons the M+1 peak, from molecules containing one ¹³C, appears at about 1.1% × n of M. For chlorobenzene (6 carbons) it is about 6.5%. Conversely, the carbon count can be estimated from the M+1 to M intensity ratio, but nitrogen (¹⁵N, 0.37%) and hydrogen (²H) also contribute, and the error is large when M+1 is small. Note that the chlorine and bromine isotopes differ in mass by 2, so they appear at M+2, not M+1."
+        },
+        {
+          "h": "Assumptions and limitations",
+          "p": "This calculator assumes that the molecular ion is clearly observed and does not overlap with the peaks of other ions. Sulfur (³⁴S, about 4.2%) and silicon (³⁰Si, about 3.1%) also make M+2 somewhat larger, though much less than chlorine does. Isotope abundances vary slightly with the source and origin of a sample, and measured intensities scatter, so results can differ from measurements by a few percent. Fragment ions show the same kind of pattern according to the number of chlorine and bromine atoms they retain."
+        }
+      ],
+      "faq": [
+        {
+          "q": "If M+2 is large, can I conclude the compound contains chlorine or bromine?",
+          "a": "An M : M+2 of about 3 : 1 first suggests one chlorine, and about 1 : 1 one bromine. When M+2 is only a few percent of M, the molecule may instead contain sulfur or many carbons. Measuring the exact mass by high-resolution mass spectrometry pins down the composition more reliably."
+        },
+        {
+          "q": "Why is the strongest peak in the molecular ion region not always M?",
+          "a": "When a molecule contains several atoms of an element with a large share of the heavy isotope, there are more combinations containing at least one heavy isotope. With two bromines there are two ways to make ⁷⁹Br⁸¹Br, so M+2 is strongest; with four chlorines, M+2 is also strongest."
+        },
+        {
+          "q": "What happens to isotope peaks with iodine or fluorine?",
+          "a": "Fluorine (¹⁹F) and iodine (¹²⁷I) each have only one stable isotope in nature, so they give no M+2 peak. Iodine-containing molecules are recognized not by isotope peaks but by signs such as I⁺ at m/z 127 or a loss of 127 mass units."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "同位素分布（Cl、Br）",
+      "card": "由氯與溴的原子數計算質譜中 M、M+2、M+4 峰的強度比",
+      "title": "質譜同位素分布計算工具（氯、溴的 M+2、M+4）",
+      "description": "由分子所含的氯原子與溴原子數，使用天然同位素豐度，計算質譜分子離子區出現的 M、M+2、M+4…峰的強度比。由碳數也可求得 ¹³C 造成之 M+1 峰大小的估計。",
+      "h1": "質譜同位素分布計算工具",
+      "lead": "氯（³⁵Cl、³⁷Cl）與溴（⁷⁹Br、⁸¹Br）含有大量質量相差2的同位素，所以分子離子峰會排成 M、M+2、M+4…。輸入原子數，就以最強峰為100顯示其強度比。預設值為二氯甲烷 CH₂Cl₂（M = m/z 84）。",
+      "in_heading": "輸入",
+      "ncl": "氯原子數（0～6）",
+      "nbr": "溴原子數（0～6）",
+      "nc": "碳原子數（用於 M+1 的估計）",
+      "m": "M 的 m/z（只含 ³⁵Cl、⁷⁹Br 的分子；0 則不顯示）",
+      "out_heading": "結果",
+      "pat_heading": "強度比（最強峰 = 100）",
+      "m0": "M",
+      "m2": "M+2",
+      "m4": "M+4",
+      "m6": "M+6",
+      "m8": "M+8",
+      "more": "M+10 以上",
+      "c_heading": "其他估計",
+      "base": "最強峰",
+      "m1": "M+1（¹³C）相對於 M 的強度",
+      "note": "豐度使用 ³⁵Cl 75.76%、³⁷Cl 24.24%、⁷⁹Br 50.69%、⁸¹Br 49.31%（IUPAC 的代表值），以二項分布計算。M+2 以上未包含 ¹³C、¹⁸O、³⁴S 等的貢獻，所以碳多的分子或含硫的分子，實測的 M+2 會稍大。M+1 是只由 ¹³C（1.07%）求得的估計。",
+      "practice": "練習NMR與質譜的題目",
+      "related": "相關名詞",
+      "sections": [
+        {
+          "h": "同位素峰出現的原因",
+          "p": "在質譜中，即使是同一種分子，也會因所含同位素的組合而產生質量不同的離子，各自成為不同的峰。天然的氯 ³⁵Cl 約占75.8%、³⁷Cl 約占24.2%，溴 ⁷⁹Br 約占50.7%、⁸¹Br 約占49.3%，兩者的重同位素都只大2個質量單位，而且含量很多。因此含1個氯的分子會出現 M : M+2 ≈ 3 : 1、含1個溴的分子出現約 1 : 1 的明顯成對峰，成為判斷鹵素有無與數目的線索。例如氯苯 C₆H₅Cl 會以約 3 : 1 出現 m/z 112 與 114。"
+        },
+        {
+          "h": "以二項分布求強度比",
+          "p": "若視各鹵素原子獨立地選擇同位素，含 n 個氯的分子的強度比，就是 (a + b)ⁿ 展開後的各項（a、b 為輕同位素與重同位素的豐度）。含2個氯時由 a² : 2ab : b² 得 M : M+2 : M+4 = 100 : 64.0 : 10.2（約 9 : 6 : 1），含2個溴時為 51.4 : 100 : 48.6（約 1 : 2 : 1）。氯與溴各含1個時，由 (a + b)(c + d) 得 77.4 : 100 : 24.1（約 3 : 4 : 1）。像含2個溴的情形，最強峰也可能不是 M 而是 M+2。"
+        },
+        {
+          "h": "M+1 峰與碳數",
+          "p": "碳含有約1.07% 的 ¹³C，所以含 n 個碳的分子，含1個 ¹³C 的 M+1 峰會以 M 的約 1.1% × n 的強度出現。氯苯（6個碳）約為6.5%。反之也能由 M+1 與 M 的強度比估計碳數，但氮（¹⁵N 0.37%）與氫（²H）也有貢獻，M+1 小時誤差會變大。要注意氯與溴同位素的質量差為2，所以出現在 M+2 而非 M+1。"
+        },
+        {
+          "h": "計算的前提與限制",
+          "p": "本工具的前提是分子離子能充分觀測到，且不與其他離子的峰重疊。硫（³⁴S 約4.2%）與矽（³⁰Si 約3.1%）也會使 M+2 稍大，但遠不及氯。同位素豐度會因樣品的產地與來源而略有不同，測量的強度也有變動，所以可能與實測相差數%。碎片離子也會依該離子所保留的氯、溴數目，出現相同形式的同位素分布。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "M+2 大就可以斷定含氯或溴嗎？",
+          "a": "M : M+2 約 3 : 1 時首先考慮含1個氯，約 1 : 1 時考慮含1個溴。M+2 只有 M 的數%左右時，也可能是含硫或碳多的分子。以高解析質譜測量精確質量，能更確實地決定組成。"
+        },
+        {
+          "q": "為什麼分子離子區最強的峰不一定是 M？",
+          "a": "含有多個重同位素比例大的元素時，含1個以上重同位素的組合數會變多。含2個溴時 ⁷⁹Br⁸¹Br 的組合有2種，所以 M+2 最強；含4個氯時也是 M+2 最強。"
+        },
+        {
+          "q": "含碘或氟時，同位素峰會如何？",
+          "a": "氟（¹⁹F）與碘（¹²⁷I）在天然只有1種穩定同位素，所以不會產生 M+2 峰。含碘的分子不是以同位素峰判別，而是以 m/z 127 的 I⁺ 或失去質量127等來判別。"
+        }
+      ]
+    }
+  }
+}

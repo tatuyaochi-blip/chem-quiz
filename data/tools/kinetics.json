@@ -1,0 +1,318 @@
+{
+  "id": "kinetics",
+  "order": 4,
+  "slug": "reaction-kinetics-calculator",
+  "cats": [
+    "kinetics-mechanism"
+  ],
+  "cat": "kinetics-mechanism",
+  "terms": [
+    "速度式",
+    "アレニウスの式",
+    "擬一次反応"
+  ],
+  "questions": [
+    "kinetics-mechanism-003",
+    "kinetics-mechanism-004",
+    "kinetics-mechanism-005"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "kn-form",
+    "fields": [
+      {
+        "name": "order",
+        "value": "1",
+        "options": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "name": "a0",
+        "value": 0.1,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "k",
+        "value": 0.002,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "t",
+        "value": 600,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "t1",
+        "value": 25,
+        "attrs": "min=\"-273\" step=\"any\""
+      },
+      {
+        "name": "k1",
+        "value": 0.001,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "t2",
+        "value": 35,
+        "attrs": "min=\"-273\" step=\"any\""
+      },
+      {
+        "name": "k2",
+        "value": 0.002,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "conc",
+          "conv",
+          "half",
+          "t90",
+          "unit"
+        ]
+      },
+      {
+        "heading": "arr_heading",
+        "stats": [
+          "ea",
+          "pre",
+          "slope"
+        ]
+      }
+    ],
+    "svg": "kn-chart",
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "反応速度と半減期",
+      "card": "0次・1次・2次反応の濃度変化と半減期、アレニウスの式で活性化エネルギーを計算",
+      "title": "反応速度計算ツール(積分形の速度式・半減期・アレニウスの式)",
+      "description": "反応次数(0次・1次・2次)、初濃度、速度定数から、積分形の速度式で時間 t での濃度、反応率、半減期を計算します。2つの温度での速度定数からは、アレニウスの式で活性化エネルギーと頻度因子を求めます。",
+      "h1": "反応速度と活性化エネルギーの計算ツール",
+      "lead": "反応物Aが1種類の単純な反応について、濃度の時間変化と半減期を求め、グラフで確かめます。既定値は1次反応で、初濃度0.10 mol/L、k = 2.0×10⁻³ s⁻¹、600秒後の濃度です。アレニウスの式の既定値は、25 ℃から35 ℃で速度定数が2倍になる反応です。",
+      "in_heading": "入力",
+      "order": "反応次数",
+      "order_0": "0次(v = k)",
+      "order_1": "1次(v = k[A])",
+      "order_2": "2次(v = k[A]²)",
+      "a0": "初濃度 [A]₀ (mol/L)",
+      "k": "速度定数 k(単位は結果欄を参照)",
+      "t": "経過時間 t (s)",
+      "t1": "温度 T₁ (℃)",
+      "k1": "T₁ での速度定数 k₁",
+      "t2": "温度 T₂ (℃)",
+      "k2": "T₂ での速度定数 k₂",
+      "out_heading": "結果",
+      "conc": "時間 t での濃度 [A]",
+      "conv": "反応率",
+      "half": "半減期 t½([A]₀ から)",
+      "t90": "90% 反応するまでの時間",
+      "unit": "k の単位(時間を秒としたとき)",
+      "arr_heading": "アレニウスの式(2つの温度から)",
+      "ea": "活性化エネルギー Ea",
+      "pre": "頻度因子 A(k と同じ単位)",
+      "slope": "ln k − 1/T プロットの傾き(−Ea/R)",
+      "chart_label": "濃度 [A] の時間変化",
+      "note": "速度は −d[A]/dt = k[A]ⁿ(n は次数)で定義し、温度一定、逆反応や副反応がない場合の式です。2次は 2A → P の形か、A + B → P で A と B の初濃度が等しい場合に使えます。時間は秒以外の単位でも、k と同じ単位にそろえれば成り立ちます。アレニウスの式は Ea と A が温度によらないとし、R = 8.314 J/(mol·K)、T = t + 273.15 K で計算します。",
+      "practice": "反応速度論の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "xlabel": "時間 t (s)",
+        "ylabel": "[A] (mol/L)",
+        "units": [
+          "mol/(L·s)",
+          "s⁻¹",
+          "L/(mol·s)"
+        ]
+      },
+      "sections": [
+        {
+          "h": "積分形の速度式と半減期",
+          "p": "速度式 −d[A]/dt = k[A]ⁿ を時間で積分すると、濃度の時間変化が得られます。0次では [A] = [A]₀ − kt、1次では ln([A]₀/[A]) = kt、つまり [A] = [A]₀ e^(−kt)、2次では 1/[A] = 1/[A]₀ + kt です。[A] = [A]₀/2 を代入すると、半減期は0次で t½ = [A]₀/(2k)、1次で t½ = ln2/k、2次で t½ = 1/(k[A]₀) になります。既定値の1次反応(k = 2.0×10⁻³ s⁻¹)では t½ = 0.693/2.0×10⁻³ ≈ 347 s で、600秒後には [A] = 0.10 × e^(−1.2) ≈ 0.0301 mol/L、反応率は約70%です。"
+        },
+        {
+          "h": "反応次数の見分け方",
+          "p": "反応次数は化学反応式の係数からは決まらず、実験で求めます。濃度の時間変化を測り、[A]、ln[A]、1/[A] を時間に対してプロットして直線になるものを探すと、それぞれ0次、1次、2次と判断できます。半減期の初濃度依存性も手がかりになり、0次では初濃度に比例し、1次では一定で、2次では初濃度に反比例します。例えば2次反応で k = 0.050 L/(mol·s)、[A]₀ = 0.20 mol/L なら t½ = 1/(0.050 × 0.20) = 100 s ですが、初濃度を半分にすると200 sになります。一方の反応物を大過剰にした擬一次反応では、見かけの速度定数 k' = k[過剰な物質] を1次として扱えます。"
+        },
+        {
+          "h": "アレニウスの式と活性化エネルギー",
+          "p": "速度定数の温度依存性はアレニウスの式 k = A exp(−Ea/RT) で表されます。2つの温度での式の比をとると ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂) となり、Ea = R ln(k₂/k₁)/(1/T₁ − 1/T₂) で活性化エネルギーが求まります。既定値の25 ℃(298.15 K)から35 ℃(308.15 K)で2倍になる反応では、Ea = 8.314 × 0.693 ÷ 1.088×10⁻⁴ ≈ 52.9 kJ/mol です。温度は必ずケルビンに直し、自然対数 ln を使います。ln k を 1/T に対してプロットした直線の傾きは −Ea/R で、切片は ln A です。"
+        },
+        {
+          "h": "計算の前提と注意点",
+          "p": "速度定数は、A の減少速度 −d[A]/dt で定義するか、反応式の係数で割った反応速度で定義するかで値が変わることがあり、2A → P では2倍違います。式は温度一定で、逆反応や逐次反応、副反応が無視できる場合のものです。A + B → P の2次反応で初濃度が異なるときは、別の積分式が必要です。アレニウスの式も、Ea と A が温度によらないとみなせる狭い温度範囲での近似です。2点だけから求めた Ea は測定誤差の影響を受けやすいので、実際には多くの温度で速度定数を測り、ln k − 1/T プロットの直線の傾きから求めます。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "1次反応の半減期が初濃度によらないのはなぜですか?",
+          "a": "1次反応では、減る速さが濃度に比例するので、どの時点から数えても濃度が半分になる時間は同じ t½ = ln2/k になります。放射性核種の壊変が代表例です。0次と2次では半減期が初濃度に依存するので、半減期が一定かどうかで1次反応かを確かめられます。"
+        },
+        {
+          "q": "「温度が10 ℃上がると速度は約2倍」はいつも成り立ちますか?",
+          "a": "成り立ちません。室温付近で Ea が約50 kJ/mol の反応についての目安です。Ea が大きい反応ほど温度による速度の変化は大きく、Ea が小さい反応ではあまり変わりません。このツールで2つの温度と速度定数を入れると、どの程度の Ea に当たるかを確かめられます。"
+        },
+        {
+          "q": "速度定数 k の単位は次数でどう変わりますか?",
+          "a": "n 次反応では、k の単位は (mol/L)^(1−n)・s⁻¹ です。0次は mol/(L·s)、1次は s⁻¹、2次は L/(mol·s) になります。単位を見れば次数の取り違えに気づけます。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Reaction rates and half-life",
+      "card": "Concentration over time and half-life for zero-, first- and second-order reactions, and activation energy from the Arrhenius equation",
+      "title": "Reaction Kinetics Calculator (Integrated Rate Laws, Half-Life, Arrhenius Equation)",
+      "description": "From the reaction order (zero, first or second), the initial concentration and the rate constant, calculate the concentration at time t, the conversion and the half-life with the integrated rate laws. From rate constants at two temperatures, find the activation energy and pre-exponential factor with the Arrhenius equation.",
+      "h1": "Reaction Rate and Activation Energy Calculator",
+      "lead": "For a simple reaction of a single reactant A, find how the concentration changes over time and the half-life, and check them on a graph. The defaults are a first-order reaction with an initial concentration of 0.10 mol/L, k = 2.0×10⁻³ s⁻¹ and the concentration after 600 s. The Arrhenius defaults are a reaction whose rate constant doubles from 25 °C to 35 °C.",
+      "in_heading": "Inputs",
+      "order": "Reaction order",
+      "order_0": "Zero order (v = k)",
+      "order_1": "First order (v = k[A])",
+      "order_2": "Second order (v = k[A]²)",
+      "a0": "Initial concentration [A]₀ (mol/L)",
+      "k": "Rate constant k (see results for the unit)",
+      "t": "Elapsed time t (s)",
+      "t1": "Temperature T₁ (°C)",
+      "k1": "Rate constant k₁ at T₁",
+      "t2": "Temperature T₂ (°C)",
+      "k2": "Rate constant k₂ at T₂",
+      "out_heading": "Results",
+      "conc": "Concentration [A] at time t",
+      "conv": "Conversion",
+      "half": "Half-life t½ (from [A]₀)",
+      "t90": "Time to 90% conversion",
+      "unit": "Unit of k (time in seconds)",
+      "arr_heading": "Arrhenius equation (from two temperatures)",
+      "ea": "Activation energy Ea",
+      "pre": "Pre-exponential factor A (same unit as k)",
+      "slope": "Slope of the ln k vs 1/T plot (−Ea/R)",
+      "chart_label": "Concentration [A] over time",
+      "note": "The rate is defined as −d[A]/dt = k[A]ⁿ (n is the order), and the equations assume constant temperature with no reverse or side reactions. The second-order case applies to 2A → P, or to A + B → P when A and B start at equal concentrations. Time can be in units other than seconds as long as k uses the same unit. The Arrhenius calculation takes Ea and A as independent of temperature, with R = 8.314 J/(mol·K) and T = t + 273.15 K.",
+      "practice": "Practice reaction kinetics questions",
+      "related": "Related terms",
+      "js": {
+        "xlabel": "Time t (s)",
+        "ylabel": "[A] (mol/L)",
+        "units": [
+          "mol/(L·s)",
+          "s⁻¹",
+          "L/(mol·s)"
+        ]
+      },
+      "sections": [
+        {
+          "h": "Integrated rate laws and half-life",
+          "p": "Integrating the rate law −d[A]/dt = k[A]ⁿ over time gives the concentration as a function of time. For zero order, [A] = [A]₀ − kt; for first order, ln([A]₀/[A]) = kt, that is, [A] = [A]₀ e^(−kt); and for second order, 1/[A] = 1/[A]₀ + kt. Substituting [A] = [A]₀/2 gives the half-life: t½ = [A]₀/(2k) for zero order, t½ = ln2/k for first order and t½ = 1/(k[A]₀) for second order. For the default first-order reaction (k = 2.0×10⁻³ s⁻¹), t½ = 0.693/2.0×10⁻³ ≈ 347 s, and after 600 s, [A] = 0.10 × e^(−1.2) ≈ 0.0301 mol/L, a conversion of about 70%."
+        },
+        {
+          "h": "Telling reaction orders apart",
+          "p": "The reaction order cannot be read from the coefficients of the chemical equation; it is found by experiment. Measure the concentration over time and plot [A], ln[A] and 1/[A] against time: the one that gives a straight line indicates zero, first or second order, respectively. How the half-life depends on the initial concentration is another clue: it is proportional to the initial concentration for zero order, constant for first order and inversely proportional for second order. For example, a second-order reaction with k = 0.050 L/(mol·s) and [A]₀ = 0.20 mol/L has t½ = 1/(0.050 × 0.20) = 100 s, but halving the initial concentration makes it 200 s. In a pseudo-first-order reaction, with one reactant in large excess, the apparent rate constant k' = k[excess reactant] can be treated as first order."
+        },
+        {
+          "h": "The Arrhenius equation and activation energy",
+          "p": "The temperature dependence of a rate constant is expressed by the Arrhenius equation k = A exp(−Ea/RT). Taking the ratio of the equation at two temperatures gives ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂), so the activation energy is Ea = R ln(k₂/k₁)/(1/T₁ − 1/T₂). For the default reaction, which doubles from 25 °C (298.15 K) to 35 °C (308.15 K), Ea = 8.314 × 0.693 ÷ 1.088×10⁻⁴ ≈ 52.9 kJ/mol. Always convert temperatures to kelvin and use the natural logarithm ln. A plot of ln k against 1/T is a straight line with slope −Ea/R and intercept ln A."
+        },
+        {
+          "h": "Assumptions and caveats",
+          "p": "The value of a rate constant can depend on whether it is defined by the rate of loss of A, −d[A]/dt, or by the reaction rate divided by the stoichiometric coefficient; for 2A → P the two differ by a factor of 2. The equations hold at constant temperature when reverse, consecutive and side reactions are negligible. A second-order reaction A + B → P with unequal initial concentrations needs a different integrated equation. The Arrhenius equation is also an approximation over a temperature range narrow enough that Ea and A can be taken as constant. An Ea found from only two points is sensitive to measurement error, so in practice the rate constant is measured at many temperatures and Ea is found from the slope of the ln k vs 1/T line."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why does the half-life of a first-order reaction not depend on the initial concentration?",
+          "a": "In a first-order reaction the rate of loss is proportional to the concentration, so the time for the concentration to halve is the same t½ = ln2/k no matter when you start counting. Radioactive decay is the classic example. For zero and second order the half-life depends on the initial concentration, so checking whether the half-life is constant tells you whether a reaction is first order."
+        },
+        {
+          "q": "Does \"a 10 °C rise doubles the rate\" always hold?",
+          "a": "No. It is a rule of thumb for reactions with an Ea of about 50 kJ/mol near room temperature. The larger the Ea, the more the rate changes with temperature; reactions with a small Ea change little. Entering two temperatures and rate constants in this calculator shows which Ea a given change corresponds to."
+        },
+        {
+          "q": "How does the unit of the rate constant k change with the order?",
+          "a": "For an n-th-order reaction, k has units of (mol/L)^(1−n)·s⁻¹: mol/(L·s) for zero order, s⁻¹ for first order and L/(mol·s) for second order. Checking the unit helps catch a mix-up in the order."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "反應速率與半衰期",
+      "card": "計算零級、一級、二級反應的濃度變化與半衰期，並以阿瑞尼斯方程式求活化能",
+      "title": "反應速率計算工具（積分速率式、半衰期、阿瑞尼斯方程式）",
+      "description": "由反應級數（零級、一級、二級）、初濃度與速率常數，以積分速率式計算時間 t 時的濃度、轉化率與半衰期。由2個溫度下的速率常數，以阿瑞尼斯方程式求得活化能與頻率因子。",
+      "h1": "反應速率與活化能計算工具",
+      "lead": "針對只有1種反應物A的簡單反應，求出濃度的時間變化與半衰期，並以圖形確認。預設值為一級反應，初濃度0.10 mol/L、k = 2.0×10⁻³ s⁻¹、600秒後的濃度。阿瑞尼斯方程式的預設值，是從25 ℃到35 ℃時速率常數變為2倍的反應。",
+      "in_heading": "輸入",
+      "order": "反應級數",
+      "order_0": "零級（v = k）",
+      "order_1": "一級（v = k[A]）",
+      "order_2": "二級（v = k[A]²）",
+      "a0": "初濃度 [A]₀ (mol/L)",
+      "k": "速率常數 k（單位見結果欄）",
+      "t": "經過時間 t (s)",
+      "t1": "溫度 T₁ (℃)",
+      "k1": "T₁ 時的速率常數 k₁",
+      "t2": "溫度 T₂ (℃)",
+      "k2": "T₂ 時的速率常數 k₂",
+      "out_heading": "結果",
+      "conc": "時間 t 時的濃度 [A]",
+      "conv": "轉化率",
+      "half": "半衰期 t½（從 [A]₀ 起）",
+      "t90": "反應90%所需的時間",
+      "unit": "k 的單位（時間以秒計）",
+      "arr_heading": "阿瑞尼斯方程式（由2個溫度）",
+      "ea": "活化能 Ea",
+      "pre": "頻率因子 A（與 k 同單位）",
+      "slope": "ln k 對 1/T 作圖的斜率（−Ea/R）",
+      "chart_label": "濃度 [A] 的時間變化",
+      "note": "速率以 −d[A]/dt = k[A]ⁿ（n 為級數）定義，是溫度一定、沒有逆反應與副反應時的式子。二級適用於 2A → P 的形式，或 A + B → P 且 A 與 B 初濃度相等的情形。時間用秒以外的單位也成立，只要與 k 的單位一致即可。阿瑞尼斯方程式假設 Ea 與 A 與溫度無關，以 R = 8.314 J/(mol·K)、T = t + 273.15 K 計算。",
+      "practice": "練習反應動力學的題目",
+      "related": "相關名詞",
+      "js": {
+        "xlabel": "時間 t (s)",
+        "ylabel": "[A] (mol/L)",
+        "units": [
+          "mol/(L·s)",
+          "s⁻¹",
+          "L/(mol·s)"
+        ]
+      },
+      "sections": [
+        {
+          "h": "積分速率式與半衰期",
+          "p": "將速率式 −d[A]/dt = k[A]ⁿ 對時間積分，可得濃度的時間變化。零級為 [A] = [A]₀ − kt，一級為 ln([A]₀/[A]) = kt，即 [A] = [A]₀ e^(−kt)，二級為 1/[A] = 1/[A]₀ + kt。代入 [A] = [A]₀/2，半衰期在零級為 t½ = [A]₀/(2k)，一級為 t½ = ln2/k，二級為 t½ = 1/(k[A]₀)。在預設值的一級反應（k = 2.0×10⁻³ s⁻¹）中，t½ = 0.693/2.0×10⁻³ ≈ 347 s，600秒後 [A] = 0.10 × e^(−1.2) ≈ 0.0301 mol/L，轉化率約70%。"
+        },
+        {
+          "h": "反應級數的判別方法",
+          "p": "反應級數無法由化學反應式的係數決定，要由實驗求得。測量濃度的時間變化，將 [A]、ln[A]、1/[A] 對時間作圖，找出成為直線者，即可分別判斷為零級、一級、二級。半衰期與初濃度的關係也是線索：零級與初濃度成正比，一級為一定，二級與初濃度成反比。例如二級反應中 k = 0.050 L/(mol·s)、[A]₀ = 0.20 mol/L 時 t½ = 1/(0.050 × 0.20) = 100 s，但初濃度減半就變成200 s。使一方反應物大量過量的擬一級反應，可將表觀速率常數 k' = k[過量的物質] 當作一級處理。"
+        },
+        {
+          "h": "阿瑞尼斯方程式與活化能",
+          "p": "速率常數的溫度依存性以阿瑞尼斯方程式 k = A exp(−Ea/RT) 表示。取2個溫度下式子的比得 ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂)，以 Ea = R ln(k₂/k₁)/(1/T₁ − 1/T₂) 求得活化能。在預設值從25 ℃（298.15 K）到35 ℃（308.15 K）變為2倍的反應中，Ea = 8.314 × 0.693 ÷ 1.088×10⁻⁴ ≈ 52.9 kJ/mol。溫度一定要換成克耳文，並使用自然對數 ln。ln k 對 1/T 作圖所得直線的斜率為 −Ea/R，截距為 ln A。"
+        },
+        {
+          "h": "計算的前提與注意事項",
+          "p": "速率常數以 A 的減少速率 −d[A]/dt 定義，或以除以反應式係數的反應速率定義，數值可能不同，在 2A → P 中相差2倍。這些式子適用於溫度一定、逆反應、連續反應與副反應可忽略的情形。A + B → P 的二級反應若初濃度不同，需要另一個積分式。阿瑞尼斯方程式也是在可視 Ea 與 A 為定值之狹窄溫度範圍內的近似。只由2點求得的 Ea 容易受測量誤差影響，實際上要在多個溫度測量速率常數，再由 ln k 對 1/T 作圖之直線的斜率求得。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "為什麼一級反應的半衰期與初濃度無關？",
+          "a": "一級反應中減少的速率與濃度成正比，所以無論從哪個時間點開始算，濃度變為一半的時間都是相同的 t½ = ln2/k。放射性核種的衰變是代表例。零級與二級的半衰期與初濃度有關，因此可由半衰期是否一定來確認是否為一級反應。"
+        },
+        {
+          "q": "「溫度升高10 ℃，速率約變2倍」總是成立嗎？",
+          "a": "不一定。這是室溫附近 Ea 約50 kJ/mol 之反應的估計。Ea 越大的反應，速率隨溫度的變化越大，Ea 小的反應則變化不大。在本工具輸入2個溫度與速率常數，就能確認相當於多大的 Ea。"
+        },
+        {
+          "q": "速率常數 k 的單位如何隨級數改變？",
+          "a": "n 級反應中，k 的單位為 (mol/L)^(1−n)·s⁻¹。零級為 mol/(L·s)，一級為 s⁻¹，二級為 L/(mol·s)。看單位就能發現級數是否弄錯。"
+        }
+      ]
+    }
+  }
+}
