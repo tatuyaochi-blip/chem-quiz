@@ -412,6 +412,7 @@
   {
     "term": "化学シフト",
     "slug": "chemical-shift",
+    "noLinkIn": ["thermal-surface"],
     "reading": "かがくしふと",
     "desc": "NMRで、原子核のまわりの電子による遮蔽の違いから生じる共鳴位置のずれ。TMSを基準(δ 0)としてppmで表す。電気陰性度の大きい原子の近くほど大きい。",
     "cat": "nmr-ms",

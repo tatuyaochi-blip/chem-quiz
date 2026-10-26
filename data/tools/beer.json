@@ -112,6 +112,59 @@
           "a": "吸光度は光路長に比例するので、0.1 cmのセルなら同じ濃度でも吸光度は1/10になります。高濃度の試料は短い光路長のセルを使うと、薄めずに測れることがあります。"
         }
       ]
+    },
+    "en": {
+      "nav": "Beer–Lambert law",
+      "card": "Calculate concentration from absorbance or transmittance and the molar absorptivity",
+      "title": "Beer–Lambert Law Calculator: Absorbance, Transmittance and Concentration",
+      "description": "Calculate a sample's concentration from absorbance (or transmittance), the molar absorptivity and the path length with the Beer–Lambert law, A = εcl. It also converts between absorbance and transmittance (%) and gives the mass concentration (mg/L) from the molecular weight.",
+      "h1": "Beer–Lambert Law Calculator",
+      "lead": "Find a sample's concentration from the absorbance measured on a UV-Vis spectrophotometer. Edit either absorbance or transmittance and the other is converted. The defaults are the molar absorptivity of NADH at 340 nm (6220 L/(mol·cm)) and an absorbance of 0.45 measured in a 1 cm cell.",
+      "in_heading": "Inputs",
+      "abs": "Absorbance A",
+      "t": "Transmittance T (%)",
+      "eps": "Molar absorptivity ε (L/(mol·cm))",
+      "l": "Path length l (cm)",
+      "mw": "Molecular weight (g/mol, for mass concentration)",
+      "out_heading": "Results",
+      "c": "Molar concentration c",
+      "cu": "Molar concentration (µmol/L)",
+      "mg": "Mass concentration",
+      "note": "Absorbance is A = −log10(T) = log10(I0/I). On most instruments, errors are smallest when the absorbance is roughly 0.1–1 (transmittance 80–10 %). At high concentrations, intermolecular interactions and stray light can cause deviations from linearity.",
+      "practice": "Practice IR and UV-Vis questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Absorbance and transmittance",
+          "p": "If the intensity of light entering the sample is I0 and the intensity passing through is I, the transmittance is T = I/I0 and the absorbance is A = −log10 T = log10(I0/I). At an absorbance of 1 only 10 % of the light passes through, and at 2 only 1 %. The default absorbance of 0.45 corresponds to a transmittance of about 35.5 %. Because absorbance is logarithmic, when light passes through two samples in a row, their absorbances can simply be added."
+        },
+        {
+          "h": "The Beer–Lambert law",
+          "p": "In dilute solutions, absorbance is proportional to the concentration c and the path length l, written A = εcl. The proportionality constant ε is the molar absorptivity, set by the substance and the wavelength, in units of L/(mol·cm). With the defaults, c = 0.45/(6220 × 1) ≈ 7.23 × 10⁻⁵ mol/L, or about 72.3 µmol/L. Substances with larger ε can be measured down to lower concentrations; allowed transitions such as π→π* exceed 10⁴, while forbidden transitions such as n→π* are 100 or below."
+        },
+        {
+          "h": "Quantitation with a calibration curve",
+          "p": "When ε is not known, or when you want accurate results that include the characteristics of the instrument, measure several standard solutions of known concentration to make a calibration curve and read the concentration from the sample's absorbance. If the calibration curve is a straight line through the origin, its slope is ε·l. If the sample's absorbance exceeds the range of the calibration curve, dilute the sample and measure again. Subtracting the absorption of the solvent and cell with a blank is also essential."
+        },
+        {
+          "h": "Causes of deviation from linearity",
+          "p": "The Beer–Lambert law holds when monochromatic light is used, the solution is dilute, and the absorbing species does not change with concentration. At high concentrations, intermolecular interactions and changes in refractive index cause deviations from linearity, and stray light makes the absorbance level off at high values. For substances whose aggregation, dissociation or acid–base equilibria change with concentration (such as indicators), the apparent ε changes. It is safest to measure in the range of about 0.1–1 absorbance."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How do I get absorbance from transmittance?",
+          "a": "A = −log10(T), with T entered as a fraction (0.5 for 50 %). A transmittance of 50 % is an absorbance of about 0.301, 10 % is 1.0 and 1 % is 2.0."
+        },
+        {
+          "q": "What are the units of molar absorptivity?",
+          "a": "With concentration in mol/L and path length in cm, the units are L/(mol·cm) (= M⁻¹cm⁻¹). If you use an absorption coefficient based on mass concentration (specific absorbance, L/(g·cm)), multiplying by the molecular weight gives the molar absorptivity."
+        },
+        {
+          "q": "What about cells with a path length other than 1 cm?",
+          "a": "Absorbance is proportional to path length, so with a 0.1 cm cell the absorbance is 1/10 for the same concentration. Using a cell with a short path length sometimes lets you measure concentrated samples without diluting them."
+        }
+      ]
     }
   }
 }

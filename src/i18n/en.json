@@ -4,7 +4,7 @@
   "nav_stats": "Progress",
   "nav_glossary": "Glossary",
   "nav_contact": "Contact",
-  "footer_unofficial": "This is a {{brand_subject}} learning site run by an individual.",
+  "footer_unofficial": "This is a learning site for {{brand_subject}}, run by an individual.",
   "footer_about": "About",
   "footer_privacy": "Privacy policy",
   "footer_disclaimer": "Disclaimer",

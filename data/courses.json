@@ -2,10 +2,12 @@
   {
     "id": "intro",
     "name": {
-      "ja": "有機化学の基礎から反応まで"
+      "ja": "有機化学の基礎から反応まで",
+      "en": "From organic fundamentals to reactions"
     },
     "desc": {
-      "ja": "混成軌道とpKaから始めて、立体化学、置換と脱離、付加・芳香族・カルボニルの反応へと順に進み、最後に逆合成解析や保護基、カップリング反応を使う有機合成の考え方をまとめます。反応のしくみを理屈で説明できるようになりたい人におすすめです。"
+      "ja": "混成軌道とpKaから始めて、立体化学、置換と脱離、付加・芳香族・カルボニルの反応へと順に進み、最後に逆合成解析や保護基、カップリング反応を使う有機合成の考え方と、高分子の合成までをまとめます。反応のしくみを理屈で説明できるようになりたい人におすすめです。",
+      "en": "Start with hybrid orbitals and pKa, work through stereochemistry, substitution and elimination, and addition, aromatic and carbonyl reactions, then pull it together with the logic of organic synthesis: retrosynthetic analysis, protecting groups and cross-coupling reactions, and finish with polymer synthesis. Recommended for anyone who wants to explain how reactions work from first principles."
     },
     "steps": [
       "bonding-acidbase",
@@ -19,10 +21,12 @@
   {
     "id": "instrumental",
     "name": {
-      "ja": "機器分析の基礎"
+      "ja": "機器分析の基礎",
+      "en": "Fundamentals of instrumental analysis"
     },
     "desc": {
-      "ja": "IR・UV-Vis・蛍光、NMRと質量分析で構造と濃度を読み取り、クロマトグラフィー、電気化学分析と元素分析、容量分析と化学平衡で分離と定量の基本を身につけます。分析・品質管理の実務の土台になるコースです。"
+      "ja": "IR・UV-Vis・蛍光、NMRと質量分析で構造と濃度を読み取り、クロマトグラフィー、電気化学分析と元素分析、容量分析と化学平衡で分離と定量の基本を身につけます。分析・品質管理の実務の土台になるコースです。",
+      "en": "Read structures and concentrations from IR, UV-Vis and fluorescence, NMR and mass spectrometry, then build the basics of separation and quantitation with chromatography, electroanalytical and elemental analysis, and titrimetric analysis and chemical equilibrium. A foundation for practical work in analysis and quality control."
     },
     "steps": [
       "ir-uv",

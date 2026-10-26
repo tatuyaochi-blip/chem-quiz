@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "Organic and Analytical Chemistry",
+    "groups": { "organic-basics": "Organic chemistry fundamentals", "reactions": "Organic reactions", "spectroscopy": "Spectroscopic analysis", "separation": "Separation and quantitation" }
+  }
+}

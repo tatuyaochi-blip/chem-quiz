@@ -126,6 +126,66 @@
           "a": "使えます。アンモニアと塩化アンモニウムの緩衝液なら、アンモニウムイオンのpKa 9.25を使い、[A⁻]にアンモニア、[HA]にアンモニウムイオンの濃度を入れます。"
         }
       ]
+    },
+    "en": {
+      "nav": "Buffer pH",
+      "card": "Calculate buffer pH and mixing ratios with the Henderson–Hasselbalch equation",
+      "title": "Buffer pH Calculator (Henderson–Hasselbalch Equation)",
+      "description": "Calculate the pH of a buffer with the Henderson–Hasselbalch equation from the pKa of a weak acid and the concentrations of the weak acid (HA) and its conjugate base (A⁻). It also finds the [A⁻]/[HA] ratio needed for a target pH and the concentration of each component for a chosen total concentration.",
+      "h1": "Buffer pH Calculator",
+      "lead": "Find the pH of a buffer made from a weak acid and its salt, and work backward to the mixing ratio for a target pH. The defaults are an acetate buffer (pKa 4.76, 25 °C) with 0.10 mol/L acetic acid and 0.15 mol/L sodium acetate.",
+      "in_heading": "Inputs",
+      "pka": "pKa of the weak acid",
+      "ha": "Weak acid [HA] (mol/L)",
+      "a": "Conjugate base [A⁻] (mol/L)",
+      "target": "Target pH",
+      "total": "Total concentration [HA] + [A⁻] (mol/L)",
+      "out_heading": "Results",
+      "ph": "pH",
+      "range": "Buffer capacity guide",
+      "make_heading": "To reach the target pH",
+      "ratio": "Required ratio [A⁻]/[HA]",
+      "c_a": "Conjugate base [A⁻]",
+      "c_ha": "Weak acid [HA]",
+      "note": "This is an approximation that takes activity coefficients as 1 and ignores the changes in concentration from the autoionization of water and the dissociation of the weak acid itself. It works well at concentrations above about 0.01 mol/L with the pH within pKa ± 1. In solutions of high ionic strength, measured values can differ.",
+      "practice": "Practice acid–base questions",
+      "related": "Related terms",
+      "js": {
+        "inside": "Within pKa ± 1 (adequate buffer capacity)",
+        "outside": "Outside pKa ± 1 (low buffer capacity)"
+      },
+      "sections": [
+        {
+          "h": "The Henderson–Hasselbalch equation",
+          "p": "Taking the logarithm of both sides of the acid dissociation constant Ka = [H⁺][A⁻]/[HA] for the dissociation equilibrium of a weak acid, HA ⇌ H⁺ + A⁻, gives pH = pKa + log10([A⁻]/[HA]). This is the Henderson–Hasselbalch equation. For the defaults of 0.10 mol/L acetic acid and 0.15 mol/L sodium acetate, pH = 4.76 + log10(1.5) ≈ 4.94. When [A⁻] = [HA], pH = pKa, which shows that a buffer's pH is set not by the concentrations themselves but by the ratio of the two components."
+        },
+        {
+          "h": "Matching a target pH",
+          "p": "Rearranging the equation, the required ratio is [A⁻]/[HA] = 10^(pH − pKa). For the default target of pH 5.00 this is 10^0.24 ≈ 1.74, so for a total concentration of 0.10 mol/L you mix about 0.0635 mol/L sodium acetate with about 0.0365 mol/L acetic acid. In actual preparation, after mixing the calculated amounts, check with a pH meter and fine-tune by adding a little strong acid or strong base."
+        },
+        {
+          "h": "Buffer capacity and the usable pH range",
+          "p": "A buffer's ability to resist changes in pH (its buffer capacity) is greatest when [A⁻] = [HA] (pH = pKa) and drops sharply outside pKa ± 1, where the ratio is 10 or 1/10. For this reason, choose a weak acid with a pKa close to the desired pH. Typical examples are acetic acid (pKa 4.76), the second dissociation of phosphoric acid (pKa about 7.2), Tris (pKa about 8.1) and ammonium ion (pKa 9.25). Raising the total concentration increases the buffer capacity at the same ratio."
+        },
+        {
+          "h": "When the approximation breaks down",
+          "p": "This equation is an approximation that treats the concentrations added as the equilibrium concentrations. When concentrations are very low, or when the acid or base is strong, with pKa below 2 or above 12, the dissociation of the weak acid itself and of water cannot be ignored, and an exact answer requires solving the charge balance and mass balance together. At high ionic strength, activity coefficients depart from 1 and the measured pH can differ from the calculation by about 0.1. For buffers whose pKa changes with temperature (Tris, about −0.03/°C), adjust the pH at the temperature of use."
+        }
+      ],
+      "faq": [
+        {
+          "q": "When does pH = pKa?",
+          "a": "When the concentrations of the weak acid and its conjugate base are equal. Because log10(1) = 0, pH = pKa, and the buffer capacity is also greatest there. This is also why the pH at the half-equivalence point equals the pKa when a weak acid is titrated with a strong base."
+        },
+        {
+          "q": "Does diluting a buffer with water change its pH?",
+          "a": "According to the Henderson–Hasselbalch equation, the ratio does not change, so the pH does not either. In practice, dilution lowers the ionic strength and changes the activity coefficients, so the pH changes slightly. With extreme dilution the buffer capacity disappears too."
+        },
+        {
+          "q": "Can it be used for basic buffers?",
+          "a": "Yes. For an ammonia–ammonium chloride buffer, use the pKa of the ammonium ion, 9.25, and enter the ammonia concentration as [A⁻] and the ammonium ion concentration as [HA]."
+        }
+      ]
     }
   }
 }

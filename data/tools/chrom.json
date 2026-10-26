@@ -143,6 +143,71 @@
           "a": "固定相にまったく保持されない成分を注入して、その成分が出てくる時間を測ります。逆相HPLCではウラシルや硝酸ナトリウム、GCではメタンや空気のピークがよく使われます。"
         }
       ]
+    },
+    "en": {
+      "nav": "Retention factor, resolution and plate number",
+      "card": "Calculate retention factor, separation factor, resolution and plate number from a chromatogram",
+      "title": "Chromatography Calculator: Retention Factor k, Separation Factor α, Resolution Rs and Plate Number N",
+      "description": "Calculate the retention factor k, separation factor α, resolution Rs, plate number N and plate height H from the retention times and peak widths of an HPLC or GC chromatogram. It also judges whether two peaks are fully resolved.",
+      "h1": "Chromatography Calculator",
+      "lead": "Calculate measures of separation quality from the retention times and baseline widths of two adjacent peaks and the time at which an unretained component elutes (t0). The defaults are t0 = 1.0 min, retention times of 5.0 and 5.8 min, peak widths of 0.40 and 0.44 min, and a 150 mm column.",
+      "in_heading": "Inputs (all times in the same units)",
+      "t0": "Hold-up time t0",
+      "tr1": "Retention time of peak 1, tR1",
+      "tr2": "Retention time of peak 2, tR2",
+      "w1": "Baseline width of peak 1, W1",
+      "w2": "Baseline width of peak 2, W2",
+      "len": "Column length L (mm)",
+      "out_heading": "Results",
+      "k1": "Retention factor k1",
+      "k2": "Retention factor k2",
+      "alpha": "Separation factor α = k2/k1",
+      "sep_heading": "Separation",
+      "rs": "Resolution Rs",
+      "judge": "Assessment",
+      "eff_heading": "Column efficiency (calculated from peak 2)",
+      "n": "Plate number N",
+      "h": "Plate height H",
+      "note": "The peak width is the width at which tangents drawn at the inflection points on both sides of the peak meet the baseline (the baseline width). When using the width at half height W½, N = 5.54(tR/W½)². Peaks are assumed to be Gaussian.",
+      "practice": "Practice chromatography questions",
+      "related": "Related terms",
+      "js": {
+        "full": "Fully resolved (Rs ≥ 1.5)",
+        "partial": "Nearly resolved (1 ≤ Rs < 1.5, slight overlap)",
+        "poor": "Insufficient separation (Rs < 1)"
+      },
+      "sections": [
+        {
+          "h": "Retention factor and separation factor",
+          "p": "The retention factor k = (tR − t0)/t0 expresses how many times longer a component is held by the stationary phase than it spends in the mobile phase. t0 is the time taken for an unretained component to elute. With the defaults, k1 = (5.0 − 1.0)/1.0 = 4.0 and k2 = 4.8. If k is too small (below 1) there is no margin for separation, and if it is too large (above 10–20) the analysis takes longer and peaks broaden, so the mobile-phase conditions are usually adjusted to give k of about 2–10. The separation factor α = k2/k1 is the difference in retention between two components, 1.2 with the defaults. If α is 1, no column, however efficient, can separate them."
+        },
+        {
+          "h": "Resolution",
+          "p": "The resolution Rs = 2(tR2 − tR1)/(W1 + W2) is the spacing between the centers of two peaks divided by their average width. With the defaults it is 2 × 0.8/0.84 ≈ 1.90. For Gaussian peaks, the overlap is about 2 % at Rs = 1.0 and about 0.1 % at Rs = 1.5, and 1.5 or above is generally regarded as baseline (complete) separation. In pharmaceutical test methods and the like, a minimum resolution is sometimes specified as a system suitability requirement."
+        },
+        {
+          "h": "Plate number and plate height",
+          "p": "The plate number N = 16(tR/W)² expresses the efficiency of the column and is set by how narrow the peak is relative to its retention time. For peak 2 with the defaults, N = 16 × (5.8/0.44)² ≈ 2780. The plate height H = L/N, the column length divided by the plate number, indicates higher efficiency the shorter it is; for the default 150 mm column it is about 54 µm. Packings with smaller particles give smaller H, and about 2–3 times the particle diameter is a rule of thumb."
+        },
+        {
+          "h": "How to improve resolution",
+          "p": "Resolution can be split into three terms, efficiency, selectivity and retention, as Rs = (√N/4)·((α − 1)/α)·(k2/(1 + k2)) (the Purnell equation, also known as the fundamental resolution equation). Quadrupling N only doubles √N, so rather than lengthening the column, increasing α by changing the mobile-phase composition or column type is often more effective. When k is too small, weakening the elution strength of the mobile phase to increase retention raises the resolution."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What resolution is enough?",
+          "a": "For Gaussian peaks of similar height, Rs ≥ 1.5 gives almost complete separation. For quantifying impurities where one peak is very small, 2.0 or more is sometimes required."
+        },
+        {
+          "q": "How do I get the plate number from the width at half height?",
+          "a": "Use N = 5.54(tR/W½)². 5.54 is 8 ln 2. The baseline width is about 1.70 times the width at half height, so for a Gaussian peak either gives the same N."
+        },
+        {
+          "q": "How is t0 measured?",
+          "a": "Inject a component that is not retained at all by the stationary phase and measure the time it takes to elute. In reversed-phase HPLC, uracil or sodium nitrate is often used, and in GC, the peak of methane or air."
+        }
+      ]
     }
   }
 }
