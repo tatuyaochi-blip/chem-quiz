@@ -1,0 +1,17 @@
+<!--
+{
+  "title": "{{brand_subject_title}}名詞解釋",
+  "description": "收錄{{brand_scope}}的基本名詞，並附上簡短解說的名詞解釋。可用關鍵字搜尋。",
+  "scripts": ["glossary.js"]
+}
+-->
+<h1>{{brand_subject_title}}名詞解釋</h1>
+<p class="lead">依領域整理學習{{brand_subject}}時經常出現的基本名詞。輸入關鍵字即可篩選。</p>
+<div class="search">
+  <input id="glossary-q" type="search" placeholder="搜尋名詞（例：{{brand_search_example}}）" aria-label="搜尋名詞">
+  <span id="glossary-count" class="muted" data-label="{{t_glossary_count}}"></span>
+</div>
+{{newsTermsLink}}
+{{dictLink}}
+{{glossaryList}}
+<div data-ad="glossary"></div>

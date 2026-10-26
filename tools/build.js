@@ -108,7 +108,7 @@ const carByLang = Object.fromEntries(langs.slice(1).map(x => [x.code, readOpt(`d
 const carLangs = id => langs.filter(x => careerText[x.code] && (x.code === defLang || carByLang[x.code][id]));
 const careerText = site.careerText ?? {};
 // 日英中の用語対訳表(/glossary/trilingual/)を作る言語と、その文言
-const dictLangs = ['ja', 'en', 'zh-hant'].every(c => langs.some(x => x.code === c)) && glossary.length ? ['ja', 'en', 'zh-hant'] : [];
+const dictLangs = ['ja', 'en', 'zh-hant'].every(c => langs.some(x => x.code === c)) && glossary.length && site.dictText ? ['ja', 'en', 'zh-hant'] : [];
 const dictText = site.dictText ?? {};
 // 覚えておきたい数値のページ(英語のみ。/en/numbers/)。各数値に根拠の問題IDを付ける。
 // 文言は data/site.json の numbersText({ title, description, lead })。なければページを作らない

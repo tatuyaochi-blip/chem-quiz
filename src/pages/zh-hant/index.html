@@ -1,0 +1,28 @@
+<!--
+{
+  "fullTitle": "{{brand_full_title}}",
+  "description": "{{siteName}}免費的{{brand_subject}}選擇題練習：涵蓋{{brand_scope}}，共 {{categoryTotal}} 個領域、{{questionTotal}} 道題目。每道題目都附有解析。",
+  "scripts": ["progress.js", "course.js"]
+}
+-->
+<section class="hero">
+  <h1>{{brand_hero}}</h1>
+  <p class="lead">{{brand_hero_lead}}</p>
+  <p class="hero-meta">{{categoryTotal}}個領域 · {{questionTotal}}題 · 免費 · 免註冊</p>
+  {{startPanel}}
+  {{courseHint}}
+</section>
+<p class="streak" hidden data-streak="{{t_streak}}" data-daily-done="{{t_daily_done}}"></p>
+{{startBack}}
+{{categoryList}}
+
+{{homeFeatures}}
+
+{{courseList}}
+
+<section>
+  <h2>{{t_more_modes}}</h2>
+  {{moreModes}}
+</section>
+
+<div data-ad="top"></div>
