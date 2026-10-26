@@ -12,7 +12,8 @@
       "stereochem",
       "substitution-elimination",
       "reactions",
-      "synthesis"
+      "synthesis",
+      "polymer-chem"
     ]
   },
   {
@@ -28,7 +29,8 @@
       "nmr-ms",
       "chromatography",
       "electro-elemental",
-      "volumetric"
+      "volumetric",
+      "thermal-surface"
     ]
   }
 ]
