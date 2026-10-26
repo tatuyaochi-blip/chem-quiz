@@ -30,7 +30,7 @@ export function termMatcher(terms) {
         const key = k.toLowerCase();
         if (key.length < 2 || keys.has(key)) continue;
         keys.set(key, id);
-        if (/^[A-Z0-9][A-Z0-9-]*$/.test(k) && /[A-Z]/.test(k)) exact.set(key, k);
+        if (/^[A-Z0-9][A-Z0-9⁰¹²³⁴⁵⁶⁷⁸⁹-]*$/.test(k) && /[A-Z]/.test(k)) exact.set(key, k);
       }
     }
   }
