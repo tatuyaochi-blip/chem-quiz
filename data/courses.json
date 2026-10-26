@@ -6,8 +6,8 @@
       "en": "From organic fundamentals to reactions"
     },
     "desc": {
-      "ja": "混成軌道とpKaから始めて、立体化学、置換と脱離、付加・芳香族・カルボニルの反応へと順に進み、最後に逆合成解析や保護基、カップリング反応を使う有機合成の考え方と、高分子の合成までをまとめます。反応のしくみを理屈で説明できるようになりたい人におすすめです。",
-      "en": "Start with hybrid orbitals and pKa, work through stereochemistry, substitution and elimination, and addition, aromatic and carbonyl reactions, then pull it together with the logic of organic synthesis: retrosynthetic analysis, protecting groups and cross-coupling reactions, and finish with polymer synthesis. Recommended for anyone who wants to explain how reactions work from first principles."
+      "ja": "混成軌道とpKaから始めて、立体化学、置換と脱離、付加・芳香族・カルボニルの反応へと順に進み、逆合成解析や保護基、カップリング反応を使う有機合成の考え方と、高分子の合成までをまとめます。最後に複素環の芳香族性と塩基性、アミノ酸や糖、核酸などの生体分子の構造を扱います。反応のしくみを理屈で説明できるようになりたい人におすすめです。",
+      "en": "Start with hybrid orbitals and pKa, work through stereochemistry, substitution and elimination, and addition, aromatic and carbonyl reactions, then pull it together with the logic of organic synthesis: retrosynthetic analysis, protecting groups and cross-coupling reactions, and polymer synthesis. Finish with the aromaticity and basicity of heterocycles and the structures of biomolecules such as amino acids, sugars and nucleic acids. Recommended for anyone who wants to explain how reactions work from first principles."
     },
     "steps": [
       "bonding-acidbase",
@@ -15,7 +15,8 @@
       "substitution-elimination",
       "reactions",
       "synthesis",
-      "polymer-chem"
+      "polymer-chem",
+      "heterocycles-biomolecules"
     ]
   },
   {
@@ -25,8 +26,8 @@
       "en": "Fundamentals of instrumental analysis"
     },
     "desc": {
-      "ja": "IR・UV-Vis・蛍光、NMRと質量分析で構造と濃度を読み取り、クロマトグラフィー、電気化学分析と元素分析、容量分析と化学平衡で分離と定量の基本を身につけます。分析・品質管理の実務の土台になるコースです。",
-      "en": "Read structures and concentrations from IR, UV-Vis and fluorescence, NMR and mass spectrometry, then build the basics of separation and quantitation with chromatography, electroanalytical and elemental analysis, and titrimetric analysis and chemical equilibrium. A foundation for practical work in analysis and quality control."
+      "ja": "IR・UV-Vis・蛍光、NMRと質量分析で構造と濃度を読み取り、クロマトグラフィー、電気化学分析と元素分析、容量分析と化学平衡で分離と定量の基本を身につけます。熱分析・X線・表面分析に加えて、試料前処理と、標準添加法や精度・回収率・不確かさによる分析の品質管理までを扱います。分析・品質管理の実務の土台になるコースです。",
+      "en": "Read structures and concentrations from IR, UV-Vis and fluorescence, NMR and mass spectrometry, then build the basics of separation and quantitation with chromatography, electroanalytical and elemental analysis, and titrimetric analysis and chemical equilibrium. Along with thermal, X-ray and surface analysis, it covers sample preparation and quality control in analysis through standard addition, precision, recovery and uncertainty. A foundation for practical work in analysis and quality control."
     },
     "steps": [
       "ir-uv",
@@ -34,7 +35,8 @@
       "chromatography",
       "electro-elemental",
       "volumetric",
-      "thermal-surface"
+      "thermal-surface",
+      "sample-prep-qa"
     ]
   }
 ]
