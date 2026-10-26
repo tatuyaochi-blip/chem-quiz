@@ -69,7 +69,7 @@ export function checkContent() {
       const near = v => ex.some(x => Math.abs(x - v) <= Math.abs(v) * 0.06);
       if (ans.length && !ignored(q.id, 'answer-number') && !ans.some(near)) warnings.push(`${q.id}: 正解「${q.choices[q.answer]}」の数値が解説に出てきません`);
       // 選択肢は出題のたびに並べ替わるので、解説で「1番目の選択肢」「first choice」のように順番で指すと画面と合わない
-      const ORDINAL = /(?:[1-3１-３一二三]|最初|最後)(?:番目|つ目)?の選択肢|選択肢\s*[1-3１-３]|(?:first|second|third|last|1st|2nd|3rd) (?:choice|option|answer)|(?:choice|option) [1-3A-C]\b|第\s*[1-3一二三]\s*個?選項|選項\s*[1-3一二三]/i;
+      const ORDINAL = /(?:[1-3１-３一二三]|最初|最後)(?:番目|つ[目め])?の選択肢|[1-3１-３]つ[目め](?:は|も)|選択肢\s*[1-3１-３]|(?:first|second|third|last|1st|2nd|3rd) (?:choice|option|answer)|(?:choice|option) [1-3A-C]\b|第\s*[1-3一二三]\s*個?選項|選項\s*[1-3一二三]/i;
       const ordText = l => (l ? [tr[l][q.id]?.explanation, ...(tr[l][q.id]?.choiceNotes ?? [])] : [q.explanation, ...(q.choiceNotes ?? [])]).filter(Boolean).join('\n');
       for (const l of [null, ...langs]) if (ORDINAL.test(ordText(l)) && !ignored(q.id, 'ordinal', l ?? undefined)) warnings.push(`${q.id}${l ? ` [${l}]` : ''}: 解説が選択肢を順番で指しています(選択肢は並べ替えて出すので、中身で指す)`);
       for (const l of langs) {
