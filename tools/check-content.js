@@ -3,6 +3,7 @@
 // - 小数点の書き方: ドイツ語・オランダ語・フランス語・スペイン語・ポルトガル語で「3,000」のように、桁区切りのつもりが小数に読める書き方がないか
 // - 正解と解説: 正解の選択肢が数値なら、その数値が解説(か正解の補足)に出てくるか
 // - 選択肢を順番で指す解説: 選択肢は並べ替えて出すので「1番目の選択肢」などは画面と合わない
+// - 正解だけが長い選択肢: 正解がほかの選択肢より目立って長いと、読まずに当てられる
 // - 正解の位置の偏り: 分野ごとに、正解が同じ位置に偏っていないか
 // - 修正の記録(data/audit-log.json): 問題IDと日付と書式
 // 結果は「注意」として出す。--strict のときは注意が1件でもあれば終了コード1
@@ -73,6 +74,14 @@ export function checkContent() {
       const ORDINAL = /(?:[1-3１-３一二三]|最初|最後)(?:番目|つ[目め])?の選択肢|[1-3１-３]つ[目め](?:は|も)|選択肢\s*[1-3１-３]|(?:first|second|third|last|1st|2nd|3rd) (?:choice|option|answer)|(?:choice|option) [1-3A-C]\b|第\s*[1-3一二三]\s*個?選項|選項\s*[1-3一二三]|(?:첫|두|세|마지막|[1-3]) ?번째 (?:선택지|보기|답)|(?:선택지|보기) ?[1-3]\b(?![,.]\d)|(?:erste|zweite|dritte|letzte)[nrs]? (?:Antwort|Option|Auswahl|Wahlmöglichkeit|Antwortmöglichkeit)|(?:Antwort|Option|Auswahl) [1-3A-C]\b(?![,.]\d)|(?:primer|primera|segund[ao]|tercer|tercera|últim[ao]|primeir[ao]) (?:opción|opção|respuesta|resposta|alternativa)|(?:opción|opção|alternativa|respuesta|resposta) [1-3A-C]\b(?![,.]\d)/i;
       const ordText = l => (l ? [tr[l][q.id]?.explanation, ...(tr[l][q.id]?.choiceNotes ?? [])] : [q.explanation, ...(q.choiceNotes ?? [])]).filter(Boolean).join('\n');
       for (const l of [null, ...langs]) if (ORDINAL.test(ordText(l)) && !ignored(q.id, 'ordinal', l ?? undefined)) warnings.push(`${q.id}${l ? ` [${l}]` : ''}: 解説が選択肢を順番で指しています(選択肢は並べ替えて出すので、中身で指す)`);
+      // 正解だけが目立って長い選択肢は、読まなくても当てられる手がかりになる(ほかの選択肢のいちばん長いものの1.5倍以上で、差も大きいもの)
+      for (const l of [null, ...langs]) {
+        const ch = l ? tr[l][q.id]?.choices : q.choices;
+        if (!ch || ignored(q.id, 'choice-length', l ?? undefined)) continue;
+        const len = ch.map(c => [...String(c)].length), other = Math.max(...len.filter((_, i) => i !== q.answer));
+        const gap = ['ja', 'zh-hant', 'zh', 'ko', null].includes(l) ? 8 : 15;
+        if (len[q.answer] >= other * 1.5 && len[q.answer] - other >= gap) warnings.push(`${q.id}${l ? ` [${l}]` : ''}: 正解の選択肢だけが目立って長い(${len[q.answer]}字、ほかは最長${other}字)。誤りの選択肢も具体的にして長さをそろえる`);
+      }
       for (const l of langs) {
         const t = tr[l][q.id];
         if (!t) continue;
