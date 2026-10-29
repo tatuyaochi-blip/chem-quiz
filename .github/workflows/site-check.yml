@@ -1,0 +1,75 @@
+# 公開中のサイトを外から点検する(毎日1回と手動実行)。独自ドメイン(config.json の cname)がないサイトでは何もしない。
+# DNS、http→https と www→apex の転送、X-Robots-Tag、証明書の期限、robots.txt とトップの meta、サイトマップから抜き取った URL
+name: Site check
+
+on:
+  schedule:
+    - cron: '17 21 * * *' # 毎日 6:17(日本時間)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: cfg
+        run: echo "host=$(node -p "require('./config.json').cname || ''")" >> "$GITHUB_OUTPUT"
+      - name: DNS
+        if: steps.cfg.outputs.host != ''
+        run: |
+          h=${{ steps.cfg.outputs.host }}
+          for n in $h www.$h; do echo "== $n"; dig +short A $n; dig +short AAAA $n; dig +short CNAME $n; done
+          [ -n "$(dig +short A $h)" ] || { echo "::error::$h に A レコードがありません"; exit 1; }
+      - name: Redirects and headers
+        if: steps.cfg.outputs.host != ''
+        run: |
+          h=${{ steps.cfg.outputs.host }}
+          UA='Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+          fail=0
+          for u in http://$h/ https://www.$h/ https://$h/ https://$h/robots.txt https://$h/sitemap.xml https://$h/about/ https://$h/ads.txt; do
+            r=$(curl -sS -o /dev/null -A "$UA" -w '%{http_code} %{url_effective}' -L "$u")
+            echo "$u -> $r"
+            case "$r" in "200 https://$h/"*) ;; *) echo "::error::$u -> $r"; fail=1;; esac
+            curl -sSI -A "$UA" -L "$u" | grep -i '^x-robots-tag' && { echo "::error::$u に X-Robots-Tag があります"; fail=1; } || true
+          done
+          exit $fail
+      - name: Certificate
+        if: steps.cfg.outputs.host != ''
+        run: |
+          h=${{ steps.cfg.outputs.host }}
+          end=$(echo | openssl s_client -servername $h -connect $h:443 2>/dev/null | openssl x509 -noout -enddate | cut -d= -f2)
+          echo "証明書の期限: $end"
+          left=$(( ($(date -d "$end" +%s) - $(date +%s)) / 86400 ))
+          [ $left -ge 14 ] || { echo "::error::証明書の期限まで $left 日"; exit 1; }
+      - name: robots and meta on the top page
+        if: steps.cfg.outputs.host != ''
+        run: |
+          h=${{ steps.cfg.outputs.host }}
+          curl -sS https://$h/robots.txt
+          top=$(curl -sS https://$h/)
+          echo "$top" | grep -oiE '<meta name="robots"[^>]*>|<link rel="canonical"[^>]*>|<title>[^<]*' | head
+          echo "$top" | grep -qi '<meta name="robots" content="[^"]*noindex' && { echo "::error::トップが noindex です"; exit 1; } || true
+      - name: Sample URLs from the sitemaps
+        if: steps.cfg.outputs.host != ''
+        run: |
+          h=${{ steps.cfg.outputs.host }}
+          UA='Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+          curl -sS https://$h/sitemap.xml | grep -o '<loc>[^<]*' | sed 's/<loc>//' > maps.txt
+          cat maps.txt
+          : > urls.txt
+          while read m; do curl -sS "$m" | grep -o '<loc>[^<]*' | sed 's/<loc>//' | shuf -n 5 >> urls.txt; done < maps.txt
+          bad=0; total=0
+          while read u; do
+            total=$((total+1))
+            out=$(curl -sS -A "$UA" -w '\n%{http_code}' "$u")
+            code=$(echo "$out" | tail -1)
+            canon=$(echo "$out" | grep -oiE '<link rel="canonical" href="[^"]*"' | head -1 | sed 's/.*href="//;s/"//')
+            flag=""; [ "$code" != 200 ] && flag="BAD"; echo "$out" | grep -qiE '<meta name="robots" content="[^"]*noindex' && flag="$flag NOINDEX"; [ "$canon" != "$u" ] && flag="$flag CANON=$canon"
+            [ -n "$flag" ] && bad=$((bad+1))
+            echo "$code $u $flag"
+          done < urls.txt
+          echo "checked=$total problems=$bad"
+          [ $bad -eq 0 ] || { echo "::error::サイトマップの URL に問題が $bad 件"; exit 1; }
