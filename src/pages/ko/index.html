@@ -1,0 +1,28 @@
+<!--
+{
+  "fullTitle": "{{brand_full_title}}",
+  "description": "3지선다 연습 문제로 {{brand_subject}} 지식을 익히는 학습 사이트 {{siteName}}. {{brand_scope}} 등 {{categoryTotal}}개 분야, {{questionTotal}}문제를 해설과 함께 무료로 풀 수 있습니다.",
+  "scripts": ["progress.js", "course.js"]
+}
+-->
+<section class="hero">
+  <h1>{{brand_hero}}</h1>
+  <p class="lead">{{brand_hero_lead}}</p>
+  <p class="hero-meta">{{categoryTotal}}개 분야 · {{questionTotal}}문제 · 무료 · 가입 불필요</p>
+  {{startPanel}}
+  {{courseHint}}
+</section>
+<p class="streak" hidden data-streak="{{t_streak}}" data-daily-done="{{t_daily_done}}"></p>
+{{startBack}}
+{{categoryList}}
+
+{{homeFeatures}}
+
+{{courseList}}
+
+<section>
+  <h2>{{t_more_modes}}</h2>
+  {{moreModes}}
+</section>
+
+<div data-ad="top"></div>

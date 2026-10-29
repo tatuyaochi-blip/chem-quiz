@@ -1,6 +1,7 @@
 // サイト内検索(検索ページ)。索引 data/{言語}/search.json を読み込み、比較・用語・分野・図解・問題をキーワードで絞り込む。
-// カタカナ/ひらがな・全角/半角の違いは無視する(用語集の検索と同じ)
-const norm = s => s.normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+// カタカナ/ひらがな・全角/半角の違いは無視する(用語集の検索と同じ)。ラテン文字のアクセント(química と quimica、Lösung と Losung)の違いも無視する
+const norm = s => s.normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60))
+  .replace(/[\u00c0-\u024f]/g, ch => ch.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
 const root = document.documentElement;
 const input = document.getElementById('site-q');
 const out = document.getElementById('search-results');

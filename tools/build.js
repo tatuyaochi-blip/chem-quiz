@@ -177,7 +177,10 @@ modes.sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 // 言語コード → その言語で問題ページを作る問題IDの集合(既定言語はすべて、ほかは翻訳があるものだけ)
 const hasQ = Object.fromEntries(langs.map(L => [L.code, new Set(categories.flatMap(c => L.code === langs[0].code
   ? questions[c.id].map(q => q.id)
-  : Object.keys(readOpt(`data/i18n/${L.code}/questions/${c.id}.json`, {}))))]));
+  : catByLang[L.code][c.id] ? Object.keys(readOpt(`data/i18n/${L.code}/questions/${c.id}.json`, {})) : []))])); // 分野名の訳がなければ問題ページも作らない
+// 問題ページを検索に出す言語。後から足した言語は、訳の質が保てると確かめるまで問題ページを noindex にする
+// (半導体教室で、訳の問題ページを一度に増やしたあとに検索の表示が急に減った教訓から)。未設定ならすべての言語
+const qIndexLangs = config.indexQuestionLangs ?? langs.map(L => L.code);
 // 広告(AdSense)とアクセス解析(GA4)のタグ。config で未設定なら何も出さない
 const adsenseTag = config.adsenseClient
   ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${esc(config.adsenseClient)}" crossorigin="anonymous"></script>`
@@ -272,7 +275,8 @@ function buildLang(L) {
     write(`data/${code}/q/${c.id}.json`, JSON.stringify(qs[c.id]));
   }
   // 問題がまだない分野(準備中)は、一覧・コース・分野数から外す。分野ページだけは「準備中」で作る(noindex)
-  const live = cats.filter(c => qs[c.id].length);
+  // 分野名の訳がない分野は、その言語では一覧に出さない(分野ページも問題ページも作らないので、リンクが切れるのを防ぐ)
+  const live = cats.filter(c => qs[c.id].length && (isDef || catT[c.id]));
   // 用語集。key(既定言語の用語名)を言語共通のアンカーIDにする
   // 詳しい解説(about)とよくある質問(faq)は言語ごとに持つ。既定言語の分がほかの言語のページに混ざらないよう外す
   // 検索結果用のタイトル・説明文(title・description)も言語ごと。書いてある語だけ、決まった形の代わりに使う
@@ -375,7 +379,7 @@ function buildLang(L) {
   <div class="feature-grid">
     ${feature('#topics', S.nav_topics, t('home_feat_topics_desc', { n: live.length }), 'home_feat_topics')}
     ${learnArts.length ? feature(`${home}learn/`, LT.nav, LT.card, 'home_feat_learn') : ''}
-    ${courses.length ? feature('#courses', S.course_heading, t('home_feat_courses_desc'), 'home_feat_courses') : ''}
+    ${courses.some(co => (typeof co.name !== 'object' || co.name[code]) && co.steps.some(id => qs[id]?.length)) ? feature('#courses', S.course_heading, t('home_feat_courses_desc'), 'home_feat_courses') : ''}
     ${feature(`${home}glossary/`, S.nav_glossary, t('home_feat_glossary_desc'), 'home_feat_glossary')}
     ${dictLangs.includes(code) ? feature(`${home}glossary/trilingual/`, dictText[code].nav, dictText[code].card, 'home_feat_dict') : ''}
     ${careerText[code] && careers.some(x => isDef || carByLang[code][x.id]) ? feature(`${home}careers/`, careerText[code].nav, careerText[code].card, 'home_feat_careers') : ''}
@@ -640,20 +644,24 @@ function buildLang(L) {
     amazon: !!config.amazonTag?.[code],
     compare: cmp.length > 0, // 比較ページ・図解集があるか(免責事項などで挙げる)
     figures: figList.length > 0,
+    tools: toolsIn(code).length > 0, // この言語の計算ツールがあるか(訳のない言語では、サイトについてのリンクを出さない)
   };
+  const itemSep = ['ja', 'zh-hant', 'zh'].includes(code) ? '：' : ': ';
   const common = {
     base, home, lang: code, htmlLang: L.htmlLang,
     siteName: esc(siteName),
     year: new Date().getFullYear(),
     // 問い合わせフォーム: 日本語のページは日本語のフォーム、ほかの言語は(その言語のフォームがなければ)英語のフォーム
-    contactFormUrl: esc(config.contactFormUrl && typeof config.contactFormUrl === 'object' ? config.contactFormUrl[code] ?? config.contactFormUrl[code === defLang ? defLang : mainLang] ?? config.contactFormUrl[defLang] : config.contactFormUrl ?? ''),
+    // (英語のフォームもなければ、検索エンジン向けの既定言語(mainLang)のフォーム)
+    contactFormUrl: esc(config.contactFormUrl && typeof config.contactFormUrl === 'object' ? config.contactFormUrl[code] ?? (code === defLang ? null : config.contactFormUrl.en) ?? config.contactFormUrl[code === defLang ? defLang : mainLang] ?? config.contactFormUrl[defLang] : config.contactFormUrl ?? ''),
     categoryList, glossaryList, courseList, compareIndex, figureGallery, figureLd,
     // 404 ページの英語の案内(英語版がなければトップへ)
     enHome: base + (langs.find(x => x.code === 'en')?.path ?? ''),
     siteNameEn: esc(loc(config.siteName, 'en')),
     // サイトについて: 中身のあるコンテンツだけを並べる
-    aboutCompare: cmp.length ? `  <li><strong><a href="${home}compare/">${esc(S.nav_compare)}</a></strong>：${esc(t('about_compare'))}</li>\n` : '',
-    aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>：${esc(t('about_figures'))}</li>\n` : '',
+    // 項目名と説明の区切りは、日本語・中国語は全角のコロン、ほかの言語(韓国語も)は「: 」(固定ページの項目と同じ書き方)
+    aboutCompare: cmp.length ? `  <li><strong><a href="${home}compare/">${esc(S.nav_compare)}</a></strong>${itemSep}${esc(t('about_compare'))}</li>\n` : '',
+    aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
     courseHint: liveCourses.length ? `<p class="hero-note"><a href="#courses">${esc(t('home_course_hint'))} → ${esc(t('course_heading'))}</a></p>` : '',
     topModes: modeCards(modes.filter(m => m.scope.includes('top'))),
@@ -685,6 +693,8 @@ function buildLang(L) {
   function page({ path: p, alt, fallback = x => x.path, out: file, title, fullTitle, description, noindex, scripts = [], ads = true, langBanner = true, jsonld = null, content }) {
     const url = baseUrl + p;
     if (config.noindex) noindex = true; // 確認用の公開: 全ページを検索に載せない
+    // 問題の訳がまだ1問もない言語(languages に先に足した言語)は、中身のないページばかりなので検索に載せない
+    if (!isDef && !live.length) noindex = true;
     const tt = fullTitle || (title ? `${title} | ${siteName}` : siteName);
     const alts = langs.filter(x => alt[x.code] != null);
     if (noindex) noindexPaths.add(p);
@@ -740,7 +750,7 @@ function buildLang(L) {
       langMenuHidden: langs.length < 2 ? ' hidden' : '', // 言語が1つだけのときは切り替えを出さない
       footerFigures: figList.length ? `<a href="${home}figures/">${esc(S.footer_figures)}</a>` : '',
       // 幅の狭いスマートフォンでは言語名を短くして、サイト名の場所を空ける(漢字・ハングルの名前はもともと短い)
-      langShort: esc({ en: 'EN', de: 'DE', nl: 'NL', fr: 'FR' }[code] ?? L.label),
+      langShort: esc({ en: 'EN', de: 'DE', nl: 'NL', fr: 'FR', es: 'ES', pt: 'PT' }[code] ?? L.label),
       headerNav,
       navMenu,
       langBanner: bannerHtml,
@@ -761,7 +771,8 @@ function buildLang(L) {
     const alt = Object.fromEntries(langs.filter(x => pageNames(x.code).includes(name)).map(x => [x.code, pagePath(x, name)]));
     // トップ: 検索結果のサイト名になる WebSite(各言語のサイト名を別名として添える)
     // あわせて運営者の Organization(サイト名で検索した人にトップを示し、ロゴを伝える)
-    const altNames = [...new Set(Object.values(config.siteName))].filter(x => x !== siteName);
+    // 別名は公開している言語(config.languages)のサイト名だけ(siteName に先に書いた、まだ公開していない言語の名前は入れない)
+    const altNames = [...new Set(langs.map(x => loc(config.siteName, x.code)))].filter(x => x !== siteName);
     const jsonld = name === 'index' ? [{ '@context': 'https://schema.org', '@type': 'WebSite', name: siteName, url: abs(L.path),
       alternateName: altNames, inLanguage: L.htmlLang },
       { '@context': 'https://schema.org', '@type': 'Organization', name: siteName, alternateName: altNames, url: abs(''), logo: abs('icon-512.png') }] : null;
@@ -963,6 +974,7 @@ ${main && qs[main.id]?.length ? `<p class="learn-quiz muted">${esc(LT.quizLine)}
         description: qDescription(q),
         jsonld: crumbs([S.nav_home, home], [c.name, `${home}c/${c.id}/`], [short(q.question, 60), `${base}${qUrl(c.id, q.id)}`]),
         scripts: ['answer.js'],
+        noindex: !qIndexLangs.includes(code),
         content: fill(qTpl, {
           ...common,
           catUrl: `${home}c/${c.id}/`,
@@ -2757,8 +2769,9 @@ ${nwFigs.map(x => figureHtml(x.svg, x.id)).join('\n')}` : '';
     const en = !isDef && code !== 'en' && S.term_title_en && enLabel(g.key);
     const withEn = en && !g.term.toLowerCase().includes(en.toLowerCase()) && !/[()（）]/.test(g.term);
     // 英語で複数形の用語(Fick's laws など)は「What are …?」にする。主語は「of」より前の最後の語で判定し、用語に plural を書けばそれを優先する
+    // 語尾の s で複数形と見なすのは英語だけ。ほかの言語(ドイツ語・スペイン語・ポルトガル語など)は、訳の用語に "plural": true と書いたときだけ複数形の文言(_pl)を使う
     const head = g.term.split(/\s+of\s+/)[0].trim().split(/\s+/).pop();
-    const tk = k => (S[`${k}_pl`] && (g.plural ?? (/s$/.test(head) && !/(ss|us|is|ics)$/.test(head))) ? `${k}_pl` : k);
+    const tk = k => (S[`${k}_pl`] && (g.plural ?? (code === 'en' && /s$/.test(head) && !/(ss|us|is|ics)$/.test(head))) ? `${k}_pl` : k);
     page({
       path: `${L.path}term/${termSlug[g.key]}/`,
       alt: Object.fromEntries(termLangs(g.key).map(x => [x.code, `${x.path}term/${termSlug[g.key]}/`])),

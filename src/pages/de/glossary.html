@@ -1,0 +1,17 @@
+<!--
+{
+  "title": "Glossar: {{brand_subject_title}}",
+  "description": "Grundbegriffe mit kurzen Erklärungen aus diesen Gebieten: {{brand_scope}}. Nach Stichwort durchsuchbar.",
+  "scripts": ["glossary.js"]
+}
+-->
+<h1>Glossar: {{brand_subject_title}}</h1>
+<p class="lead">Grundbegriffe, die beim Lernen der {{brand_subject}} häufig vorkommen, nach Themen geordnet. Geben Sie einen Suchbegriff ein, um die Liste zu filtern.</p>
+<div class="search">
+  <input id="glossary-q" type="search" placeholder="Begriffe suchen (z. B. {{brand_search_example}})" aria-label="Begriffe suchen">
+  <span id="glossary-count" class="muted" data-label="{{t_glossary_count}}"></span>
+</div>
+{{newsTermsLink}}
+{{dictLink}}
+{{glossaryList}}
+<div data-ad="glossary"></div>

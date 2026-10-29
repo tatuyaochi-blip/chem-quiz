@@ -1,0 +1,42 @@
+<!--
+{
+  "title": "Datenschutzerklärung",
+  "description": "Wie {{siteName}} mit personenbezogenen Daten, im Browser gespeicherten Daten, Cookies, Werbe- und Analysewerkzeugen sowie an Dritte übermittelten Informationen umgeht."
+}
+-->
+<div class="prose">
+<h1>Datenschutzerklärung</h1>
+
+<p>{{siteName}} („diese Website“) behandelt Informationen über ihre Nutzerinnen und Nutzer wie im Folgenden beschrieben.</p>
+
+<h2>Personenbezogene Daten</h2>
+<p>Diese Website hat keine Benutzerregistrierung und erhebt für das Ansehen der Seiten oder das Beantworten der Fragen keine personenbezogenen Daten wie Namen oder E-Mail-Adressen.</p>
+
+<h2>Im Browser gespeicherte Daten</h2>
+<p>Diese Website speichert Ihre Antwortdaten (richtig oder falsch, Zeitpunkt der Antwort und Verlauf der Durchgänge) sowie Einstellungen wie die gewählte Sprache im localStorage Ihres Browsers. Diese Daten bleiben auf Ihrem Gerät und werden niemals an unsere Server übertragen. Sie können sie mit der Schaltfläche zum Zurücksetzen auf der Seite <a href="{{home}}stats/">Fortschritt</a> oder durch Löschen der Websitedaten in Ihrem Browser entfernen.</p>
+
+<h2>Cookies</h2>
+{{#thirdParty}}<p>Cookies sind kleine Datenmengen, die eine Website in Ihrem Browser speichert. Diese Website selbst verwendet keine Cookies, die unten beschriebenen Dienste von Drittanbietern ({{#adsense}}Werbung{{/adsense}}{{#ga4}}{{#adsense}} und {{/adsense}}Analyse{{/ga4}}) jedoch schon. Sie können Cookies in den Einstellungen Ihres Browsers deaktivieren oder löschen. Auch mit deaktivierten Cookies können Sie die Fragen beantworten, allerdings kann sich die angezeigte Werbung ändern.</p>{{/thirdParty}}{{^thirdParty}}<p>Cookies sind kleine Datenmengen, die eine Website in Ihrem Browser speichert. Diese Website verwendet derzeit keine Cookies. Sollten wir künftig einen Werbedienst oder ein Analysewerkzeug einführen, kann dieser Dienst Cookies verwenden; wir beschreiben ihn dann auf dieser Seite. Sie können Cookies in den Einstellungen Ihres Browsers deaktivieren oder löschen.</p>{{/thirdParty}}
+
+<h2>Werbung und Analyse</h2>
+{{adsPolicy}}
+{{#amazon}}<p>Als Amazon-Partner verdient diese Website an qualifizierten Verkäufen.</p>{{/amazon}}
+
+<h2>An Dritte übermittelte Informationen</h2>
+{{#thirdParty}}<p>Wenn Sie eine Seite dieser Website öffnen, können Informationen über Sie an die folgenden Unternehmen übermittelt werden.</p>
+<ul>
+{{#adsense}}  <li><strong>Google AdSense (Google LLC)</strong>: die URL der aufgerufenen Seite, Ihre IP-Adresse, der Browsertyp, Cookie-Kennungen und ähnliche Daten, die zur Auslieferung von Anzeigen und zur Messung ihrer Wirkung verwendet werden (<a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>).</li>
+{{/adsense}}{{#ga4}}  <li><strong>Google Analytics (Google LLC)</strong>: die URL der aufgerufenen Seite, die verweisende Seite, Browser- und Gerätetyp, die ungefähre Region, Cookie-Kennungen und ähnliche Daten, die verwendet werden, um die Nutzung dieser Website zu verstehen und zu verbessern (<a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>).</li>
+{{/ga4}}</ul>{{/thirdParty}}{{^thirdParty}}<p>Derzeit werden allein durch das Öffnen einer Seite dieser Website keine Informationen über Sie an Werbe- oder Analyseunternehmen übermittelt.</p>{{/thirdParty}}
+<p>Außerdem werden beim Öffnen des Kontaktformulars{{#amazon}} oder eines Buchlinks{{/amazon}} Informationen nach den Bedingungen des jeweiligen Dienstes an Google Formulare{{#amazon}} bzw. Amazon{{/amazon}} übermittelt.</p>
+
+<h2>Kontaktformular</h2>
+<p>Für Anfragen nutzen wir einen externen Dienst (Google Formulare). Die von Ihnen eingegebenen Informationen verwenden wir nur, um Ihnen zu antworten und diese Website zu verbessern; an Dritte geben wir sie nicht weiter, außer wenn dies gesetzlich vorgeschrieben ist.</p>
+
+<h2>Hosting</h2>
+<p>Diese Website wird auf GitHub Pages gehostet. Informationen wie die IP-Adresse beim Aufruf werden von GitHub gemäß dessen eigenen Richtlinien verarbeitet.</p>
+
+<h2>Änderungen</h2>
+<p>Diese Datenschutzerklärung kann bei Bedarf geändert werden. Die geänderte Fassung gilt ab ihrer Veröffentlichung auf dieser Seite. Weicht diese deutsche Fassung von der japanischen Fassung ab, ist die japanische Fassung maßgeblich. Fragen zu dieser Datenschutzerklärung können Sie über die <a href="{{home}}contact/">Kontaktseite</a> senden.</p>
+<p class="muted">Stand: 29. Oktober 2026</p>
+</div>

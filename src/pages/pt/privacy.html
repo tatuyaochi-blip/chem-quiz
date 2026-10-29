@@ -1,0 +1,42 @@
+<!--
+{
+  "title": "Política de privacidade",
+  "description": "Como o {{siteName}} trata dados pessoais, dados salvos no seu navegador, cookies, ferramentas de publicidade e de análise e informações enviadas a terceiros."
+}
+-->
+<div class="prose">
+<h1>Política de privacidade</h1>
+
+<p>O {{siteName}} (“este site”) trata as informações sobre os seus usuários conforme descrito a seguir.</p>
+
+<h2>Dados pessoais</h2>
+<p>Este site não tem cadastro de usuários e não coleta dados pessoais, como nomes ou endereços de e-mail, para a navegação ou para responder às questões.</p>
+
+<h2>Dados salvos no seu navegador</h2>
+<p>Este site salva os seus registros de respostas (acerto ou erro, horário da resposta e histórico de sessões) e configurações como o idioma escolhido no localStorage do seu navegador. Esses dados ficam no seu dispositivo e nunca são enviados aos nossos servidores. Você pode apagá-los com o botão de redefinir na página de <a href="{{home}}stats/">progresso</a> ou limpando os dados do site no seu navegador.</p>
+
+<h2>Cookies</h2>
+{{#thirdParty}}<p>Cookies são pequenos dados que um site armazena no seu navegador. Este site em si não usa cookies, mas os serviços de terceiros descritos abaixo ({{#adsense}}publicidade{{/adsense}}{{#ga4}}{{#adsense}} e {{/adsense}}análise{{/ga4}}) usam. Você pode desativar ou apagar os cookies nas configurações do seu navegador. Mesmo com os cookies desativados, você pode responder às questões, embora os anúncios exibidos possam mudar.</p>{{/thirdParty}}{{^thirdParty}}<p>Cookies são pequenos dados que um site armazena no seu navegador. Atualmente este site não usa cookies. Se no futuro passarmos a usar um serviço de publicidade ou uma ferramenta de análise, esse serviço poderá usar cookies, e o descreveremos nesta página. Você pode desativar ou apagar os cookies nas configurações do seu navegador.</p>{{/thirdParty}}
+
+<h2>Publicidade e análise</h2>
+{{adsPolicy}}
+{{#amazon}}<p>Como associado da Amazon, este site é remunerado pelas compras qualificadas.</p>{{/amazon}}
+
+<h2>Informações enviadas a terceiros</h2>
+{{#thirdParty}}<p>Quando você abre uma página deste site, informações sobre você podem ser enviadas às seguintes empresas.</p>
+<ul>
+{{#adsense}}  <li><strong>Google AdSense (Google LLC)</strong>: a URL da página visitada, o seu endereço IP, o tipo de navegador, identificadores de cookies e dados semelhantes, usados para exibir anúncios e medir o seu desempenho (<a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank" rel="noopener">Política de Privacidade do Google</a>).</li>
+{{/adsense}}{{#ga4}}  <li><strong>Google Analytics (Google LLC)</strong>: a URL da página visitada, a página de origem, o tipo de navegador e de dispositivo, a região aproximada, identificadores de cookies e dados semelhantes, usados para entender e melhorar o uso deste site (<a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank" rel="noopener">Política de Privacidade do Google</a>).</li>
+{{/ga4}}</ul>{{/thirdParty}}{{^thirdParty}}<p>No momento, apenas abrir uma página deste site não envia informações sobre você a nenhuma empresa de publicidade ou de análise.</p>{{/thirdParty}}
+<p>Além disso, quando você abre o formulário de contato{{#amazon}} ou um link de livro{{/amazon}}, informações são enviadas ao Formulários Google{{#amazon}} ou à Amazon{{/amazon}} de acordo com os termos do próprio serviço.</p>
+
+<h2>Formulário de contato</h2>
+<p>Usamos um serviço externo (Formulários Google) para os contatos. As informações que você digitar são usadas apenas para responder e para melhorar este site, e não são fornecidas a terceiros, salvo quando exigido por lei.</p>
+
+<h2>Hospedagem</h2>
+<p>Este site é hospedado no GitHub Pages. Informações como o endereço IP no momento do acesso são tratadas pelo GitHub de acordo com as suas próprias políticas.</p>
+
+<h2>Alterações</h2>
+<p>Esta política pode ser alterada quando necessário. A versão alterada entra em vigor no momento em que é publicada nesta página. Se esta versão em português divergir da versão em japonês, prevalecerá a versão em japonês. Dúvidas sobre esta política podem ser enviadas pela <a href="{{home}}contact/">página de contato</a>.</p>
+<p class="muted">Última atualização: 29 de outubro de 2026</p>
+</div>

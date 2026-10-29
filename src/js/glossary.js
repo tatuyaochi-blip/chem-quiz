@@ -1,6 +1,7 @@
-// 用語集の絞り込み検索（カタカナ/ひらがな・全角/半角の違いは無視）
+// 用語集の絞り込み検索（カタカナ/ひらがな・全角/半角の違い、ラテン文字のアクセントの違いは無視）
 const norm = s => s.normalize('NFKC').toLowerCase()
-  .replace(/[ァ-ヶ]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+  .replace(/[ァ-ヶ]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60))
+  .replace(/[\u00c0-\u024f]/g, ch => ch.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
 
 const input = document.getElementById('glossary-q');
 const count = document.getElementById('glossary-count');

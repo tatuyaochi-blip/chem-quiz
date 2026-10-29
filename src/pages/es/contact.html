@@ -1,0 +1,26 @@
+<!--
+{
+  "title": "Contacto",
+  "description": "Envíe consultas o informe de errores en las preguntas de {{siteName}} mediante este formulario.",
+  "scripts": ["contact.js"]
+}
+-->
+<div class="prose">
+<h1>Contacto</h1>
+<p>Utilice el formulario siguiente para informar de errores en las preguntas o explicaciones, enviar comentarios y sugerencias, o hacer cualquier otra consulta sobre este sitio.</p>
+<p>Al informar de un error, indique <strong>el tema y el comienzo del enunciado de la pregunta</strong> (o el nombre de la página, en el caso del glosario{{#compare}}, las comparativas{{/compare}}{{#figures}}, los diagramas{{/figures}} y las calculadoras) para que podamos localizarlo rápidamente. Los errores que confirmamos se van corrigiendo.</p>
+<div class="report-box" id="report-box" hidden data-site="{{siteName}}" data-template="[{site}] Informe de error
+ID de la pregunta: {id}
+URL: {url}
+Qué está mal: ">
+<h2>La pregunta que va a notificar</h2>
+<p>Copie el texto siguiente, péguelo en el campo de mensaje del formulario y añada qué está mal. Así sabremos a qué sitio y a qué pregunta se refiere.</p>
+<textarea readonly rows="5" aria-label="Texto del informe"></textarea>
+<p class="report-actions"><button type="button" class="btn btn-ghost">Copiar</button><span class="muted report-copied" hidden>Copiado</span></p>
+</div>
+<p><a class="btn btn-primary" href="{{contactFormUrl}}" target="_blank" rel="noopener">Abrir el formulario de contacto</a></p>
+<p class="muted">El formulario es común a los demás sitios de aprendizaje del mismo responsable. Mencione “{{siteName}}” en su mensaje para que sepamos a qué sitio se refiere.</p>
+<p class="muted">El formulario de Google se abre en una pestaña nueva. Es posible que no podamos responder a todos los mensajes.</p>
+<p class="muted">No podemos responder preguntas sobre los propios exámenes de certificación.</p>
+<p class="muted">Consulte la <a href="{{home}}privacy/">política de privacidad</a> para saber cómo se trata la información que introduzca.</p>
+</div>

@@ -1,0 +1,28 @@
+<!--
+{
+  "fullTitle": "{{brand_full_title}}",
+  "description": "Práctica gratuita de {{brand_subject}} con preguntas de opción múltiple en {{siteName}}: {{brand_scope}}. {{categoryTotal}} temas y {{questionTotal}} preguntas, todas con explicación.",
+  "scripts": ["progress.js", "course.js"]
+}
+-->
+<section class="hero">
+  <h1>{{brand_hero}}</h1>
+  <p class="lead">{{brand_hero_lead}}</p>
+  <p class="hero-meta">{{categoryTotal}} temas · {{questionTotal}} preguntas · Gratis · Sin registro</p>
+  {{startPanel}}
+  {{courseHint}}
+</section>
+<p class="streak" hidden data-streak="{{t_streak}}" data-daily-done="{{t_daily_done}}"></p>
+{{startBack}}
+{{categoryList}}
+
+{{homeFeatures}}
+
+{{courseList}}
+
+<section>
+  <h2>{{t_more_modes}}</h2>
+  {{moreModes}}
+</section>
+
+<div data-ad="top"></div>
