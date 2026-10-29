@@ -4,6 +4,7 @@
 // - 正解と解説: 正解の選択肢が数値なら、その数値が解説(か正解の補足)に出てくるか
 // - 選択肢を順番で指す解説: 選択肢は並べ替えて出すので「1番目の選択肢」などは画面と合わない
 // - 正解だけが長い選択肢: 正解がほかの選択肢より目立って長いと、読まずに当てられる
+// - 正解の長さの順位の偏り: サイト全体で、正解が最長・中間・最短のどれかに偏っていないか
 // - 正解の位置の偏り: 分野ごとに、正解が同じ位置に偏っていないか
 // - 修正の記録(data/audit-log.json): 問題IDと日付と書式
 // 結果は「注意」として出す。--strict のときは注意が1件でもあれば終了コード1
@@ -56,6 +57,8 @@ export function checkContent() {
   const ignore = exists('data/qa-ignore.json') ? readJSON('data/qa-ignore.json') : [];
   const ignored = (id, check, lang) => ignore.some(x => x.id === id && x.check === check && (!x.lang || x.lang === lang));
 
+  // 言語ごとに、正解が3つの選択肢の中で最長・中間・最短のどれだったかを数える(長さがすべて違い、文になっている問題だけ)
+  const rank = new Map([null, ...langs].map(l => [l, [0, 0, 0]]));
   for (const cat of cats) {
     const qs = readJSON(`data/questions/${cat}.json`);
     const tr = Object.fromEntries(langs.map(l => [l, exists(`data/i18n/${l}/questions/${cat}.json`) ? readJSON(`data/i18n/${l}/questions/${cat}.json`) : {}]));
@@ -81,6 +84,10 @@ export function checkContent() {
         const len = ch.map(c => [...String(c)].length), other = Math.max(...len.filter((_, i) => i !== q.answer));
         const gap = ['ja', 'zh-hant', 'zh', 'ko', null].includes(l) ? 8 : 15;
         if (len[q.answer] >= other * 1.5 && len[q.answer] - other >= gap) warnings.push(`${q.id}${l ? ` [${l}]` : ''}: 正解の選択肢だけが目立って長い(${len[q.answer]}字、ほかは最長${other}字)。誤りの選択肢も具体的にして長さをそろえる`);
+        if (len.length === 3 && new Set(len).size === 3 && Math.max(...len) >= (gap === 8 ? 12 : 30)) {
+          const lower = len.filter(x => x < len[q.answer]).length;
+          rank.get(l)[2 - lower]++;
+        }
       }
       for (const l of langs) {
         const t = tr[l][q.id];
@@ -124,6 +131,12 @@ export function checkContent() {
     }
     const n = qs.length, max = Math.max(...pos);
     if (n >= 20 && max / n > 0.5) warnings.push(`${cat}: 正解の位置が偏っています(${pos.join(' / ')})`);
+  }
+
+  // 正解がいつも最長(または中間・最短)だと、読まずに長さで当てられる。偶然なら3分の1ずつ
+  for (const [l, c] of rank) {
+    const n = c[0] + c[1] + c[2];
+    if (n >= 60 && Math.max(...c) / n > 0.5) warnings.push(`サイト全体${l ? ` [${l}]` : ''}: 正解の長さの順位が偏っています(最長 ${c[0]} / 中間 ${c[1]} / 最短 ${c[2]})。誤りの選択肢を具体的にしてばらけさせる`);
   }
 
   // 用語集・比較ページなど問題以外の訳も、小数点がコンマの言語で点を使っていないか確かめる。
