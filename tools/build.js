@@ -2756,10 +2756,13 @@ ${nwFigs.map(x => figureHtml(x.svg, x.id)).join('\n')}` : '';
     // 用語名にもうカッコ(略語や別名)があるときは、カッコが重なるので添えない
     const en = !isDef && code !== 'en' && S.term_title_en && enLabel(g.key);
     const withEn = en && !g.term.toLowerCase().includes(en.toLowerCase()) && !/[()（）]/.test(g.term);
+    // 英語で複数形の用語(Fick's laws など)は「What are …?」にする。主語は「of」より前の最後の語で判定し、用語に plural を書けばそれを優先する
+    const head = g.term.split(/\s+of\s+/)[0].trim().split(/\s+/).pop();
+    const tk = k => (S[`${k}_pl`] && (g.plural ?? (/s$/.test(head) && !/(ss|us|is|ics)$/.test(head))) ? `${k}_pl` : k);
     page({
       path: `${L.path}term/${termSlug[g.key]}/`,
       alt: Object.fromEntries(termLangs(g.key).map(x => [x.code, `${x.path}term/${termSlug[g.key]}/`])),
-      title: g.title ?? (withEn ? t('term_title_en', { term: g.term, en }) : t('term_title', { term: g.term })),
+      title: g.title ?? (withEn ? t('term_title_en', { term: g.term, en }) : t(tk('term_title'), { term: g.term })),
       description: g.description ?? termDescription(g.desc, list.length),
       scripts: ['answer.js'],
       // 問題に一度も出てこず、詳しい解説(about)もない用語のページは、中身が薄いので検索に出さない(ニュース用語は出す)。
@@ -2771,13 +2774,13 @@ ${nwFigs.map(x => figureHtml(x.svg, x.id)).join('\n')}` : '';
           inDefinedTermSet: { '@type': 'DefinedTermSet', name: S.nav_glossary, url: abs(`${home}glossary/`) } },
         ...(faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
           mainEntity: faq.map(x => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) }] : []),
-        ...(nw ? [{ '@context': 'https://schema.org', '@type': 'Article', headline: t('term_title', { term: g.term }), description: nw.short, inLanguage: L.htmlLang,
+        ...(nw ? [{ '@context': 'https://schema.org', '@type': 'Article', headline: t(tk('term_title'), { term: g.term }), description: nw.short, inLanguage: L.htmlLang,
           datePublished: nw.added, dateModified: lastmodPrev[`${L.path}term/${termSlug[g.key]}/`]?.date ?? new Date().toLocaleDateString('sv-SE'),
           mainEntityOfPage: abs(termUrl), author: { '@type': 'Organization', name: siteName }, publisher: { '@type': 'Organization', name: siteName } }] : []),
       ],
       content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a> <span>›</span> <a href="${home}glossary/">${esc(S.nav_glossary)}</a>${c ? ` <span>›</span> <a href="${home}glossary/#cat-${c.id}">${esc(c.name)}</a>` : ''}</nav>
 <article class="term-page">
-  <h1>${esc(t('term_heading', { term: g.term }))}</h1>
+  <h1>${esc(t(tk('term_heading'), { term: g.term }))}</h1>
   ${g.reading ? `<p class="muted">${esc(g.reading)}</p>` : ''}
   <p class="lead">${esc(g.desc)}</p>
   ${learnByTerm.has(g.key) ? `<p class="learn-link">${esc(LT.termLink)}: <a href="${home}learn/${learnByTerm.get(g.key).slug}/" data-track="term_learn">${esc(learnByTerm.get(g.key).title)}</a></p>` : ''}

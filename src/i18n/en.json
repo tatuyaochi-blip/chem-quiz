@@ -24,6 +24,8 @@
   "glossary_to_quiz": "Practice questions →",
   "term_title": "What is {term}? Meaning explained",
   "term_heading": "What is {term}?",
+  "term_title_pl": "What are {term}? Meaning explained",
+  "term_heading_pl": "What are {term}?",
   "term_questions": "Questions that mention {term} ({n})",
   "term_related": "Related terms",
   "term_quotes": "{term} in the explanations",
