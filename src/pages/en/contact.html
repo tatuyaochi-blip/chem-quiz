@@ -1,14 +1,25 @@
 <!--
 {
   "title": "Contact",
-  "description": "Send inquiries or report errors in questions on {{siteName}} using this form."
+  "description": "Send inquiries or report errors in questions on {{siteName}} using this form.",
+  "scripts": ["contact.js"]
 }
 -->
 <div class="prose">
 <h1>Contact</h1>
 <p>Please use the form below to report errors in questions or explanations, to send comments and requests, or for any other inquiry about this site.</p>
-<p>When reporting an error, please include <strong>the topic and the beginning of the question text</strong> (or the page name for the glossary, comparisons, diagrams and calculators) so that we can find it quickly. Errors we confirm are corrected as we go.</p>
+<p>When reporting an error, please include <strong>the topic and the beginning of the question text</strong> (or the page name for the glossary{{#compare}}, comparisons{{/compare}}{{#figures}}, diagrams{{/figures}} and calculators) so that we can find it quickly. Errors we confirm are corrected as we go.</p>
+<div class="report-box" id="report-box" hidden data-site="{{siteName}}" data-template="[{site}] Error report
+Question ID: {id}
+URL: {url}
+What is wrong: ">
+<h2>The question you are reporting</h2>
+<p>Copy the text below, paste it into the message field of the form, and add what is wrong. This tells us which site and which question you mean.</p>
+<textarea readonly rows="5" aria-label="Report text"></textarea>
+<p class="report-actions"><button type="button" class="btn btn-ghost">Copy</button><span class="muted report-copied" hidden>Copied</span></p>
+</div>
 <p><a class="btn btn-primary" href="{{contactFormUrl}}" target="_blank" rel="noopener">Open the contact form</a></p>
+<p class="muted">The form is shared with the operator's other learning sites. Please mention “{{siteName}}” in your message so that we know which site it is about.</p>
 <p class="muted">The Google Form opens in a new tab. We may not be able to reply to every message.</p>
 <p class="muted">We cannot answer questions about certification exams themselves.</p>
 <p class="muted">See the <a href="{{home}}privacy/">privacy policy</a> for how the information you enter is handled.</p>

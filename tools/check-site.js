@@ -96,6 +96,7 @@ const list = (label, items, fmt = x => x) => {
 };
 console.log(`ページ ${files.length}(検索に出すページ ${indexed})を点検しました`);
 list('誤り', errors);
+const errorsListed = errors.length;
 list('注意: title の重複', dupTitles, ([t, v]) => `${t} ← ${v.slice(0, 3).join(', ')}${v.length > 3 ? ` ほか${v.length - 3}` : ''}`);
 list('注意: description の重複', dupDescs, ([t, v]) => `${t.slice(0, 50)}… ← ${v.slice(0, 3).join(', ')}${v.length > 3 ? ` ほか${v.length - 3}` : ''}`);
 // 長い title は種類(言語 + 最初のフォルダ)ごとの件数で出す。問題ページ(q)は問題文を入れているので長くなる
@@ -117,12 +118,18 @@ const smCounts = smFiles.map(f => {
   if (!fs.existsSync(p)) { errors.push(`サイトマップの目次にあるファイルがありません: ${f}`); return [f, 0]; }
   return [f, (fs.readFileSync(p, 'utf8').match(/<loc>/g) ?? []).length];
 });
-if (!smFiles.length) errors.push('sitemap.xml がサイトマップの目次(sitemapindex)になっていません');
+// 確認用の公開(config.noindex)では、検索に出すページがないのでサイトマップも空でよい
+if (!smFiles.length && !config.noindex) errors.push('sitemap.xml がサイトマップの目次(sitemapindex)になっていません');
 const urls = smCounts.reduce((s, [, n]) => s + n, 0);
 const [maxFile, maxUrls] = smCounts.reduce((a, b) => (b[1] > a[1] ? b : a), ['', 0]);
 const mb = bytes / 2 ** 20;
 console.log(`\n容量: 公開するファイル ${mb.toFixed(0)} MB / 1024 MB(${(mb / 1024 * 100).toFixed(0)}%)、サイトマップ ${smFiles.length} ファイル・計 ${urls} URL(最も多い ${maxFile} が ${maxUrls} / 50000 URL = ${(maxUrls / 50000 * 100).toFixed(0)}%)`);
 if (mb > 1024 * 0.8) console.log('注意: 公開するファイルが 1 GB の8割を超えました。大きなファイルや言語ごとのページ数を見直してください');
 if (maxUrls > 50000 * 0.8) console.log(`注意: ${maxFile} が5万URLの8割を超えました(build.js の SITEMAP_MAX で分割されるはず)`);
-if (errors.length) process.exit(1);
+if (errors.length) {
+  // サイトマップの点検で増えた誤りは、上の一覧のあとに出す
+  const late = errors.slice(errorsListed);
+  if (late.length) list('誤り(サイトマップ)', late);
+  process.exit(1);
+}
 console.log('\nOK: 誤りはありません');

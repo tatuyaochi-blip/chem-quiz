@@ -22,6 +22,14 @@ const write = (p, s) => {
 };
 const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
 const fill = (tpl, vars) => tpl.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
+// 固定ページ(src/pages)の条件つきの部分: {{#名前}}…{{/名前}} は条件が真のとき、{{^名前}}…{{/名前}} は偽のときだけ残す
+// (プライバシーポリシーの、使っている広告・解析サービスの説明など。条件は pageFlags)
+// 入れ子にできる(外側から順に、変わらなくなるまで解く)。同じ名前を入れ子にはできない
+const cond = (tpl, flags) => {
+  const step = s => s.replace(/\{\{([#^])(\w+)\}\}([\s\S]*?)\{\{\/\2\}\}/g, (m, op, k, body) => (k in flags ? ((op === '#') === !!flags[k] ? body : '') : m));
+  for (let prev; prev !== tpl;) [prev, tpl] = [tpl, step(tpl)];
+  return tpl;
+};
 
 // ---- 検査 ----
 const { errors, warnings, translations } = validate();
@@ -34,6 +42,10 @@ warnings.forEach(w => console.log(`注意: ${w}`));
 
 // ---- 読み込み ----
 const config = readJSON('config.json');
+// サイトの色(アイコンのグラデーションの1色目)。ブラウザのツールバーやホーム画面のアプリの色になる
+const themeColor = config.icon?.c1 ?? '#1d64c8';
+// 誤り報告のリンク先のテンプレート({id} {lang} {cat} を埋める)。誤り報告用のフォームがなければ、お問い合わせページ
+const reportTemplate = home => config.reportFormUrl || (config.contactFormUrl ? `${home}contact/?c={cat}&q={id}` : null);
 const baseUrl = config.baseUrl.replace(/\/?$/, '/');
 const base = new URL(baseUrl).pathname; // 例: /semicon-quiz/ または /
 const langs = config.languages;
@@ -299,7 +311,7 @@ function buildLang(L) {
     glossary: glossaryIndex,
     numbersQ,
     modes: Object.fromEntries(modes.map(m => [m.id, { label: modeText(m, 'label'), empty: modeText(m, 'empty') ?? null }])),
-    reportFormUrl: config.reportFormUrl ?? null,
+    reportFormUrl: reportTemplate(home),
     termQuiz: dictLangs.includes(code) ? termQuizText[code] : null,
   }));
   // 用語の対訳クイズのデータ: 用語ごとに3言語の名前と、この言語での短い説明
@@ -316,7 +328,7 @@ function buildLang(L) {
     scope: base,
     display: 'standalone',
     background_color: '#f5f8fb',
-    theme_color: '#1d64c8',
+    theme_color: themeColor,
     icons: [
       { src: `${base}icon-192.png`, sizes: '192x192', type: 'image/png' },
       { src: `${base}icon-512.png`, sizes: '512x512', type: 'image/png' },
@@ -434,8 +446,11 @@ function buildLang(L) {
   };
   const linked = (text, cat) => linkTerms(text, matcher, skipIn(cat)).map(p => (typeof p === 'string' ? esc(p)
     : `<a class="term-link" href="${home}term/${termSlug[p.id]}/">${esc(p.text)}</a>`)).join('');
-  const reportLink = id => (config.reportFormUrl
-    ? `<p class="q-report"><a class="report-link" href="${esc(reportUrl(config.reportFormUrl, id, code))}" target="_blank" rel="noopener nofollow">${esc(t('report_error'))}</a></p>`
+  // 誤りの報告: reportFormUrl(Googleフォームの事前入力URL)がなければ、お問い合わせページに問題を伝えて開く
+  // (お問い合わせページが、サイト名・問題ID・URL を書いた報告文を出す。contact.js)
+  const reportTpl = reportTemplate(home);
+  const reportLink = (id, cat) => (reportTpl
+    ? `<p class="q-report"><a class="report-link" href="${esc(reportUrl(reportTpl, id, code, cat))}"${/^https?:/.test(reportTpl) ? ' target="_blank" rel="noopener nofollow"' : ' rel="nofollow"'}>${esc(t('report_error'))}</a></p>`
     : '');
   const qLinks = list => '<ol class="q-list">' + list.map(q => `
   <li${q.level ? ` data-level="${q.level}"` : ''}><a href="${base}${qUrl(q.cat, q.id)}">${esc(q.question)}</a></li>`).join('') + '</ol>';
@@ -610,6 +625,22 @@ function buildLang(L) {
       .sort((a, b) => b.s - a.s).slice(0, 6).map(r => r.x);
   };
 
+  // 固定ページの {{#…}} {{^…}} の条件(cond)。広告・解析・参考書リンクを実際に出しているか
+  // OGP 画像(言語ごと。その言語の画像がなければ既定言語の画像)。docs/og/{言語}.png に置く
+  const ogSrc = [code, defLang].map(x => `data/og/${x}.png`).find(exists);
+  const ogImage = ogSrc ? `og/${path.basename(ogSrc)}` : null;
+  if (ogSrc) {
+    fs.mkdirSync(path.join(out, 'og'), { recursive: true });
+    fs.copyFileSync(path.join(root, ogSrc), path.join(out, ogImage));
+  }
+  const pageFlags = {
+    adsense: !!config.adsenseClient,
+    ga4: !!config.ga4Id,
+    thirdParty: !!(config.adsenseClient || config.ga4Id),
+    amazon: !!config.amazonTag?.[code],
+    compare: cmp.length > 0, // 比較ページ・図解集があるか(免責事項などで挙げる)
+    figures: figList.length > 0,
+  };
   const common = {
     base, home, lang: code, htmlLang: L.htmlLang,
     siteName: esc(siteName),
@@ -640,8 +671,10 @@ function buildLang(L) {
     questionTotal: Object.values(qs).reduce((s, x) => s + x.length, 0),
     categoryTotal: live.length,
     // プライバシーポリシーの「広告・アクセス解析」: 使っているサービスの説明だけを出す
-    adsPolicy: [config.adsenseClient && S.policy_adsense, S.policy_affiliate, config.ga4Id && S.policy_ga4].filter(Boolean).map(x => `<p>${x}</p>`).join('\n')
-      || `<p>${S.policy_none}</p>`,
+    // 広告もアクセス解析も使っていないときは「今後使う場合がある」旨を出す。アフィリエイトの説明は常に出す
+    adsPolicy: [...(pageFlags.thirdParty ? [pageFlags.adsense && S.policy_adsense, pageFlags.ga4 && S.policy_ga4].filter(Boolean) : [S.policy_none]), S.policy_affiliate]
+      .map(x => `<p>${x}</p>`).join('\n'),
+    themeColor,
     ...Object.fromEntries(Object.entries(S).map(([k, v]) => [`t_${k}`, v])),
     ...Object.fromEntries(Object.entries(brand).map(([k, v]) => [`brand_${k}`, esc(v)])),
   };
@@ -667,8 +700,10 @@ function buildLang(L) {
       `<meta property="og:url" content="${url}">`,
       `<meta property="og:site_name" content="${esc(siteName)}">`,
       `<meta property="og:locale" content="${L.locale.replace('-', '_')}">`,
-      `<meta property="og:image" content="${baseUrl}icon-512.png">`, // SNS で共有したときの画像(サイトのアイコン)
-      '<meta name="twitter:card" content="summary">',
+      // SNS で共有したときの画像: data/og/{言語}.png(tools/og-image.js で作る 1200×630)があれば大きな画像、なければサイトのアイコン
+      ...(ogImage ? [`<meta property="og:image" content="${baseUrl}${ogImage}">`, '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">',
+        `<meta property="og:image:alt" content="${esc(siteName)}">`, '<meta name="twitter:card" content="summary_large_image">']
+        : [`<meta property="og:image" content="${baseUrl}icon-512.png">`, '<meta name="twitter:card" content="summary">']),
       `<link rel="manifest" href="${home}manifest.json">`,
       `<link rel="icon" href="${base}icon-192.png" type="image/png">`,
       `<link rel="apple-touch-icon" href="${base}icon-192.png">`,
@@ -721,7 +756,7 @@ function buildLang(L) {
   for (const name of pageNames(code)) {
     // 中身のない一覧ページ(比較・図解)は作らない
     if ((name === 'compare' && !cmp.length) || (name === 'figures' && !figList.length)) continue;
-    const src = read(`src/pages/${code}/${name}.html`);
+    const src = cond(read(`src/pages/${code}/${name}.html`), pageFlags);
     const m = src.match(/^<!--\s*(\{[\s\S]*?\})\s*-->/);
     const alt = Object.fromEntries(langs.filter(x => pageNames(x.code).includes(name)).map(x => [x.code, pagePath(x, name)]));
     // トップ: 検索結果のサイト名になる WebSite(各言語のサイト名を別名として添える)
@@ -945,7 +980,7 @@ ${main && qs[main.id]?.length ? `<p class="learn-quiz muted">${esc(LT.quizLine)}
           figure: q.figureSvg && !q.figureFirst ? figureHtml(q.figureSvg, q.figureId) : '',
           figureBefore: q.figureSvg && q.figureFirst ? figureHtml(q.figureSvg, q.figureId) : '',
           choiceNotes: choiceNotes(q),
-          report: reportLink(q.id),
+          report: reportLink(q.id, c.id),
           solveUrl: quizUrl(solve, c.id),
           solveLabel: esc(modeText(solve, 'label')),
           toCategory: esc(t('to_category')),

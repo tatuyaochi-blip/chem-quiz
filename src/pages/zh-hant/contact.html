@@ -1,14 +1,25 @@
 <!--
 {
   "title": "聯絡我們",
-  "description": "透過此表單向{{siteName}}提出詢問，或回報題目中的錯誤。"
+  "description": "透過此表單向{{siteName}}提出詢問，或回報題目中的錯誤。",
+  "scripts": ["contact.js"]
 }
 -->
 <div class="prose">
 <h1>聯絡我們</h1>
 <p>若要回報題目或解析中的錯誤、提出意見與需求，或有其他關於本站的事項，請使用下方的表單。</p>
-<p>回報錯誤時，請附上<strong>領域與題目開頭的文字</strong>（名詞解釋、比較、圖解集與計算工具則請附上頁面名稱），方便我們迅速找到。經確認的錯誤會陸續更正。</p>
+<p>回報錯誤時，請附上<strong>領域與題目開頭的文字</strong>（名詞解釋{{#compare}}、比較{{/compare}}{{#figures}}、圖解集{{/figures}}與計算工具則請附上頁面名稱），方便我們迅速找到。經確認的錯誤會陸續更正。</p>
+<div class="report-box" id="report-box" hidden data-site="{{siteName}}" data-template="【{site}】題目錯誤回報
+題目 ID：{id}
+URL：{url}
+錯誤內容：">
+<h2>要回報的題目</h2>
+<p>請複製下方文字，貼到表單的訊息欄位，再補充錯誤的內容。這樣我們就能知道是哪個網站的哪一題。</p>
+<textarea readonly rows="5" aria-label="回報內容"></textarea>
+<p class="report-actions"><button type="button" class="btn btn-ghost">複製</button><span class="muted report-copied" hidden>已複製</span></p>
+</div>
 <p><a class="btn btn-primary" href="{{contactFormUrl}}" target="_blank" rel="noopener">開啟聯絡表單</a></p>
+<p class="muted">此表單與經營者的其他學習網站共用。為了讓我們知道是關於哪個網站，請在訊息中註明「{{siteName}}」。</p>
 <p class="muted">表單為英文版，可以用英文或中文填寫。</p>
 <p class="muted">Google 表單會在新分頁中開啟。我們可能無法回覆每一則訊息。</p>
 <p class="muted">我們無法回答與認證考試本身有關的問題。</p>

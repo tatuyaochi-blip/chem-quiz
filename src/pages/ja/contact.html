@@ -1,14 +1,25 @@
 <!--
 {
   "title": "お問い合わせ",
-  "description": "{{siteName}}へのお問い合わせ、問題の誤りのご指摘はこちらのフォームからお送りください。"
+  "description": "{{siteName}}へのお問い合わせ、問題の誤りのご指摘はこちらのフォームからお送りください。",
+  "scripts": ["contact.js"]
 }
 -->
 <div class="prose">
 <h1>お問い合わせ</h1>
 <p>問題や解説の誤りのご指摘、ご意見・ご要望、その他当サイトに関するご連絡は、以下のフォームからお送りください。</p>
-<p>問題の誤りをご指摘いただく場合は、<strong>分野名と問題文の冒頭</strong>（用語集・比較・図解・計算ツールの場合はページ名）をあわせてお書きいただけると確認がスムーズです。ご指摘を受けて確かめた誤りは、順次訂正しています。</p>
+<p>問題の誤りをご指摘いただく場合は、<strong>分野名と問題文の冒頭</strong>（用語集{{#compare}}・比較{{/compare}}{{#figures}}・図解{{/figures}}・計算ツールの場合はページ名）をあわせてお書きいただけると確認がスムーズです。ご指摘を受けて確かめた誤りは、順次訂正しています。</p>
+<div class="report-box" id="report-box" hidden data-site="{{siteName}}" data-template="【{site}】問題の誤りの報告
+問題ID：{id}
+URL：{url}
+誤りの内容：">
+<h2>報告する問題</h2>
+<p>下の文をコピーしてフォームの「お問い合わせ内容」に貼り付け、誤りの内容を書き足してください。どのサイトのどの問題かが、これで分かります。</p>
+<textarea readonly rows="5" aria-label="報告文"></textarea>
+<p class="report-actions"><button type="button" class="btn btn-ghost">コピーする</button><span class="muted report-copied" hidden>コピーしました</span></p>
+</div>
 <p><a class="btn btn-primary" href="{{contactFormUrl}}" target="_blank" rel="noopener">お問い合わせフォームを開く</a></p>
+<p class="muted">フォームは運営者のほかの学習サイトと共通です。どのサイトについてのご連絡かが分かるよう、本文に「{{siteName}}」とお書き添えください。</p>
 <p class="muted">Googleフォームが別のタブで開きます。すべてのお問い合わせに返信できるとは限りません。あらかじめご了承ください。</p>
 <p class="muted">資格試験そのものに関するお問い合わせには対応できません。</p>
 <p class="muted">ご入力いただいた情報の取り扱いは<a href="{{home}}privacy/">プライバシーポリシー</a>をご覧ください。</p>

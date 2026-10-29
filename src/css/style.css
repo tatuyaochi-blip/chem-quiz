@@ -1125,3 +1125,10 @@ table.compare thead th:first-child { position: sticky; left: 0; z-index: 2; }
 .learn-list { counter-reset: none; }
 .learn-toc li { margin: .3rem 0; }
 .lang-menu[hidden] { display: none; }
+
+/* お問い合わせ: 問題ページの「誤りを報告」から来たときの報告文(contact.js) */
+.report-box { margin: 20px 0; padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--accent-soft); }
+.report-box h2 { margin-top: 0; }
+.report-box textarea { width: 100%; box-sizing: border-box; field-sizing: content; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: inherit; font: inherit; line-height: 1.6; resize: vertical; }
+.report-box .report-actions { display: flex; align-items: center; gap: 12px; margin-bottom: 0; }
+.report-box .report-actions .btn { min-height: 40px; padding: 0 16px; }

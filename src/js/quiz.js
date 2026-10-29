@@ -49,7 +49,8 @@ const explain = q => h('div', {},
   q.choiceNotes && h('ul', { class: 'choice-notes' }, q.choiceNotes.map((note, n) =>
     note && h('li', {}, h('b', {}, `${String.fromCharCode(65 + n)}. `), note))),
   index.reportFormUrl && h('p', { class: 'q-report' },
-    h('a', { class: 'report-link', href: reportUrl(index.reportFormUrl, q.id, index.lang), target: '_blank', rel: 'noopener' }, t('report_error'))));
+    // 外部のフォームは別のタブで、サイト内のお問い合わせページ(フォームの URL がないとき)は同じタブで開く
+    h('a', { class: 'report-link', href: reportUrl(index.reportFormUrl, q.id, index.lang, q.cat), ...(/^https?:/.test(index.reportFormUrl) ? { target: '_blank', rel: 'noopener' } : { rel: 'nofollow' }) }, t('report_error'))));
 
 // 言語を切り替えても同じ出題条件(?mode=…&c=…)のままにする
 document.querySelectorAll('.lang-switch a').forEach(a => (a.search = location.search));

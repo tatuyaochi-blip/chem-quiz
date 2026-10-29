@@ -11,9 +11,9 @@ export function shuffle(list) {
 
 export const sample = (list, n) => shuffle(list).slice(0, n);
 
-// 誤り報告フォームのURL: テンプレートの {id} {lang} を埋める
-export const reportUrl = (tpl, id, lang) =>
-  tpl.replace('{id}', encodeURIComponent(id)).replace('{lang}', encodeURIComponent(lang));
+// 誤り報告フォームのURL: テンプレートの {id}(問題ID) {lang}(言語) {cat}(分野ID) を埋める
+export const reportUrl = (tpl, id, lang, cat = '') =>
+  tpl.replace('{id}', encodeURIComponent(id)).replace('{lang}', encodeURIComponent(lang)).replace('{cat}', encodeURIComponent(cat));
 
 // 用語集の語から検索用の正規表現を作る。terms: [{ id, term }]
 // 「SiC(炭化ケイ素)」は「SiC(炭化ケイ素)」「SiC」「炭化ケイ素」のどれにも一致させる
