@@ -1,0 +1,26 @@
+<!--
+{
+  "title": "Contato",
+  "description": "Envie dúvidas ou informe erros nas questões do {{siteName}} por este formulário.",
+  "scripts": ["contact.js"]
+}
+-->
+<div class="prose">
+<h1>Contato</h1>
+<p>Use o formulário abaixo para informar erros em questões ou explicações, enviar comentários e sugestões ou fazer qualquer outro contato sobre este site.</p>
+<p>Ao informar um erro, indique <strong>o tema e o início do enunciado da questão</strong> (ou o nome da página, no caso do glossário{{#compare}}, das comparações{{/compare}}{{#figures}}, dos diagramas{{/figures}} e das calculadoras) para que possamos encontrá-lo rapidamente. Os erros que confirmamos são corrigidos aos poucos.</p>
+<div class="report-box" id="report-box" hidden data-site="{{siteName}}" data-template="[{site}] Relato de erro
+ID da questão: {id}
+URL: {url}
+O que está errado: ">
+<h2>A questão que você vai relatar</h2>
+<p>Copie o texto abaixo, cole no campo de mensagem do formulário e acrescente o que está errado. Assim saberemos de qual site e de qual questão se trata.</p>
+<textarea readonly rows="5" aria-label="Texto do relato"></textarea>
+<p class="report-actions"><button type="button" class="btn btn-ghost">Copiar</button><span class="muted report-copied" hidden>Copiado</span></p>
+</div>
+<p><a class="btn btn-primary" href="{{contactFormUrl}}" target="_blank" rel="noopener">Abrir o formulário de contato</a></p>
+<p class="muted">O formulário é compartilhado com os outros sites de estudo do mesmo responsável. Mencione “{{siteName}}” na sua mensagem para sabermos a qual site ela se refere.</p>
+<p class="muted">O Formulário Google abre em uma nova aba. Talvez não consigamos responder a todas as mensagens.</p>
+<p class="muted">Não podemos responder a dúvidas sobre os exames de certificação em si.</p>
+<p class="muted">Veja a <a href="{{home}}privacy/">política de privacidade</a> para saber como as informações que você digitar são tratadas.</p>
+</div>

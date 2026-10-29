@@ -1,0 +1,17 @@
+<!--
+{
+  "title": "{{brand_subject_title}} 용어집",
+  "description": "{{brand_scope}} 등의 기본 용어를 짧은 해설과 함께 정리한 용어집입니다. 키워드로 검색할 수 있습니다.",
+  "scripts": ["glossary.js"]
+}
+-->
+<h1>{{brand_subject_title}} 용어집</h1>
+<p class="lead">{{brand_subject}} 학습에서 자주 나오는 기본 용어를 분야별로 정리했습니다. 키워드를 입력하면 목록을 좁힐 수 있습니다.</p>
+<div class="search">
+  <input id="glossary-q" type="search" placeholder="용어 검색(예: {{brand_search_example}})" aria-label="용어 검색">
+  <span id="glossary-count" class="muted" data-label="{{t_glossary_count}}"></span>
+</div>
+{{newsTermsLink}}
+{{dictLink}}
+{{glossaryList}}
+<div data-ad="glossary"></div>

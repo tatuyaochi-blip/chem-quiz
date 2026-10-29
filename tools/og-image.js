@@ -25,6 +25,7 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const FONTS = {
   ja: '"Inter", "IPAPGothic", "Noto Sans CJK JP", "Hiragino Sans", sans-serif',
   'zh-hant': '"Inter", "WenQuanYi Zen Hei", "Noto Sans CJK TC", "PingFang TC", sans-serif',
+  ko: '"Inter", "Noto Sans CJK KR", "WenQuanYi Zen Hei", "Apple SD Gothic Neo", sans-serif',
 };
 
 const html = (L, name, hero) => `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><style>
@@ -33,7 +34,7 @@ const html = (L, name, hero) => `<!doctype html><html lang="${L.htmlLang}"><head
     display: flex; flex-direction: column; justify-content: center; padding: 0 96px; box-sizing: border-box; position: relative; overflow: hidden; }
   .row { display: flex; align-items: center; gap: 44px; }
   img { width: 168px; height: 168px; border-radius: 36px; box-shadow: 0 0 0 4px rgba(255,255,255,.55), 0 10px 36px rgba(0,0,0,.25); flex: none; }
-  h1 { margin: 0; font-size: ${[...name].length > 12 ? 72 : 88}px; line-height: 1.15; font-weight: 800; letter-spacing: ${L.code === 'en' ? '-0.02em' : '0.02em'}; }
+  h1 { margin: 0; font-size: ${[...name].length > 12 ? 72 : 88}px; line-height: 1.15; font-weight: 800; letter-spacing: ${['ja', 'zh-hant', 'ko'].includes(L.code) ? '0.02em' : '-0.02em'}; }
   p { margin: 52px 0 0; font-size: 44px; line-height: 1.4; font-weight: 600; opacity: .95; max-width: 1000px; }
   .host { position: absolute; left: 96px; bottom: 52px; font: 600 30px "Inter", sans-serif; opacity: .85; letter-spacing: .02em; }
 </style></head><body>

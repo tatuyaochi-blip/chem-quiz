@@ -1,0 +1,15 @@
+<!--
+{
+  "title": "퀴즈",
+  "description": "{{siteName}}의 퀴즈 화면입니다.",
+  "noindex": true,
+  "ads": false,
+  "scripts": ["quiz.js"]
+}
+-->
+<script>/* 埋め込み(iframe で ?embed=1)のときはヘッダーなどを隠す */ if (/[?&]embed=1/.test(location.search) && window.top !== window.self) document.documentElement.classList.add('embed');</script>
+<div id="quiz" class="quiz">
+  <p class="muted">{{t_loading}}</p>
+</div>
+<noscript><p>퀴즈를 풀려면 JavaScript를 켜 주세요.</p></noscript>
+<p class="embed-credit"><a href="{{home}}" target="_blank" rel="noopener">{{siteName}}의 문제 ↗</a></p>

@@ -1,0 +1,26 @@
+<!--
+{
+  "title": "문의",
+  "description": "{{siteName}}에 대한 문의나 문제의 오류 신고를 이 양식으로 보내 주세요.",
+  "scripts": ["contact.js"]
+}
+-->
+<div class="prose">
+<h1>문의</h1>
+<p>문제나 해설의 오류 신고, 의견과 요청, 그 밖에 이 사이트에 관한 연락은 아래 양식으로 보내 주세요.</p>
+<p>오류를 신고하실 때는 <strong>분야 이름과 문제 문장의 앞부분</strong>(용어집{{#compare}}, 비교{{/compare}}{{#figures}}, 도해{{/figures}}, 계산 도구의 경우에는 페이지 이름)을 함께 적어 주시면 빠르게 확인할 수 있습니다. 확인된 오류는 순차적으로 바로잡고 있습니다.</p>
+<div class="report-box" id="report-box" hidden data-site="{{siteName}}" data-template="[{site}] 문제 오류 신고
+문제 ID: {id}
+URL: {url}
+오류 내용: ">
+<h2>신고할 문제</h2>
+<p>아래 문장을 복사해 양식의 문의 내용 칸에 붙여 넣고, 오류 내용을 덧붙여 주세요. 이렇게 하면 어느 사이트의 어느 문제인지 알 수 있습니다.</p>
+<textarea readonly rows="5" aria-label="신고 문장"></textarea>
+<p class="report-actions"><button type="button" class="btn btn-ghost">복사</button><span class="muted report-copied" hidden>복사했습니다</span></p>
+</div>
+<p><a class="btn btn-primary" href="{{contactFormUrl}}" target="_blank" rel="noopener">문의 양식 열기</a></p>
+<p class="muted">이 양식은 운영자의 다른 학습 사이트와 함께 사용합니다. 어느 사이트에 관한 연락인지 알 수 있도록 본문에 사이트 이름(‘{{siteName}}’)을 적어 주세요.</p>
+<p class="muted">Google 양식이 새 탭에서 열립니다. 모든 문의에 답변드리지 못할 수도 있습니다.</p>
+<p class="muted">자격시험 자체에 관한 문의에는 답변할 수 없습니다.</p>
+<p class="muted">입력하신 정보의 취급은 <a href="{{home}}privacy/">개인정보 처리방침</a>을 확인해 주세요.</p>
+</div>

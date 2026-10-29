@@ -1,6 +1,6 @@
 // 問題の中身の機械的な検査(validate.js の形式の検査を補う)。単体実行: node tools/check-content.js [--strict]
 // - 翻訳の数値: 日本語の選択肢にある数値(小数か 10 より大きい数)が、各言語の訳の選択肢にもあるか
-// - 小数点の書き方: ドイツ語・オランダ語・フランス語で「3,000」のように、桁区切りのつもりが小数に読める書き方がないか
+// - 小数点の書き方: ドイツ語・オランダ語・フランス語・スペイン語・ポルトガル語で「3,000」のように、桁区切りのつもりが小数に読める書き方がないか
 // - 正解と解説: 正解の選択肢が数値なら、その数値が解説(か正解の補足)に出てくるか
 // - 選択肢を順番で指す解説: 選択肢は並べ替えて出すので「1番目の選択肢」などは画面と合わない
 // - 正解の位置の偏り: 分野ごとに、正解が同じ位置に偏っていないか
@@ -15,13 +15,13 @@ const readJSON = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const exists = p => fs.existsSync(path.join(root, p));
 
 // 「万・億」や million / Milliarden などの単位語も数に直す(billion は言語で大きさが違う)
-const MULT = { 万: 1e4, 億: 1e8, 兆: 1e12, 萬: 1e4, 만: 1e4, 억: 1e8, 조: 1e12, million: 1e6, millions: 1e6, millionen: 1e6, miljoen: 1e6, miljard: 1e9, milliarde: 1e9, milliarden: 1e9, milliard: 1e9, milliards: 1e9, biljoen: 1e12, trillion: 1e12 };
-const DOT_DECIMAL = /(?<![\w.,/])\d+\.\d+(?:[\s-]?(?:%|°|℃|λ|×|wt%|at%|ppm|ppb|ppt|dB[a-zµ]*|[pnµumkMGT]?(?:m|V|A|Ω|eV|Hz|W|F|H|s|Pa|J|g|K|N|bit|B)(?![A-Za-z]))|-?[Ff]ach|\s(?:bis|à|tot|und|et|en|oder|ou|of|fois|keer|mal)\s)/g;
-const BILLION = { en: 1e9, de: 1e12, fr: 1e12 };
+const MULT = { 万: 1e4, 億: 1e8, 兆: 1e12, 萬: 1e4, 만: 1e4, 억: 1e8, 조: 1e12, million: 1e6, millions: 1e6, millionen: 1e6, millón: 1e6, millones: 1e6, milhão: 1e6, milhões: 1e6, bilhão: 1e9, bilhões: 1e9, billón: 1e12, billones: 1e12, miljoen: 1e6, miljard: 1e9, milliarde: 1e9, milliarden: 1e9, milliard: 1e9, milliards: 1e9, biljoen: 1e12, trillion: 1e12 };
+const DOT_DECIMAL = /(?<![\w.,/])\d+\.\d+(?:[\s-]?(?:%|°|℃|λ|×|wt%|at%|ppm|ppb|ppt|dB[a-zµ]*|[pnµumkMGT]?(?:m|V|A|Ω|eV|Hz|W|F|H|s|Pa|J|g|K|N|bit|B)(?![A-Za-z]))|-?[Ff]ach|\s(?:bis|à|tot|und|et|en|oder|ou|of|fois|keer|mal|a|y|o|e|veces|vezes)\s)/g;
+const BILLION = { en: 1e9, de: 1e12, fr: 1e12, es: 1e12, pt: 1e9 };
 
 // 文字列から数値を取り出す。decimalComma の言語では「,」が小数点、「.」と空白が桁区切り
 export function numbers(text, lang = 'ja') {
-  const decimalComma = ['de', 'nl', 'fr'].includes(lang);
+  const decimalComma = ['de', 'nl', 'fr', 'es', 'pt'].includes(lang);
   // 「7億5000万」「1万3,000」のような日本語の数は1つの数にまとめる
   const s = String(text ?? '').normalize('NFKC').replace(/\u2212/g, '-')
     .replace(/(\d+(?:\.\d+)?)億(?:(\d+(?:,\d{3})*)万)?(\d+(?:,\d{3})*)?(?![\d万])/g, (_, a, b = '0', c = '0') => String(a * 1e8 + b.replace(/,/g, '') * 1e4 + +c.replace(/,/g, '')))
@@ -31,7 +31,7 @@ export function numbers(text, lang = 'ja') {
     // IPv4 のアドレスとマスク(192.168.1.10)は数ではない。点を桁区切りとする言語で別の数に読めてしまうため、どの言語でも除く
     .replace(/(?<![\d.])\d{1,3}(?:\.\d{1,3}){3}(?![\d.])/g, ' ');
   const out = [];
-  for (const m of s.matchAll(/(\d+(?:[.,\u202f\u00a0 ]\d+)*)\s*(万|億|兆|萬|만|억|조|[A-Za-z]+)?/g)) {
+  for (const m of s.matchAll(/(\d+(?:[.,\u202f\u00a0 ]\d+)*)\s*(万|億|兆|萬|만|억|조|[A-Za-zÀ-ÖØ-öø-ÿ]+)?/g)) {
     let t = m[1];
     t = decimalComma ? t.replace(/[.\u202f\u00a0 ](?=\d{3}(?!\d))/g, '').replace(',', '.') : t.replace(/[,\u202f\u00a0 ](?=\d{3}(?!\d))/g, '');
     if (/[\s\u202f\u00a0]/.test(t)) continue; // 数の並び(「1 2 3」など)は対象外
@@ -47,7 +47,7 @@ export function checkContent() {
   const warnings = [];
   const config = readJSON('config.json');
   const langs = config.languages.map(l => l.code).slice(1);
-  const commaLangs = new Set(['de', 'nl', 'fr']);
+  const commaLangs = new Set(['de', 'nl', 'fr', 'es', 'pt']);
   const cats = readJSON('data/categories.json').map(c => c.id);
   const ids = new Set();
   let total = 0;
@@ -69,7 +69,8 @@ export function checkContent() {
       const near = v => ex.some(x => Math.abs(x - v) <= Math.abs(v) * 0.06);
       if (ans.length && !ignored(q.id, 'answer-number') && !ans.some(near)) warnings.push(`${q.id}: 正解「${q.choices[q.answer]}」の数値が解説に出てきません`);
       // 選択肢は出題のたびに並べ替わるので、解説で「1番目の選択肢」「first choice」のように順番で指すと画面と合わない
-      const ORDINAL = /(?:[1-3１-３一二三]|最初|最後)(?:番目|つ[目め])?の選択肢|[1-3１-３]つ[目め](?:は|も)|選択肢\s*[1-3１-３]|(?:first|second|third|last|1st|2nd|3rd) (?:choice|option|answer)|(?:choice|option) [1-3A-C]\b|第\s*[1-3一二三]\s*個?選項|選項\s*[1-3一二三]/i;
+      // 韓国語(첫 번째 선택지・선택지 2)、ドイツ語(erste Antwort・Option B)、スペイン語(primera opción・opción 2)、ポルトガル語(primeira alternativa・opção B)も見る
+      const ORDINAL = /(?:[1-3１-３一二三]|最初|最後)(?:番目|つ[目め])?の選択肢|[1-3１-３]つ[目め](?:は|も)|選択肢\s*[1-3１-３]|(?:first|second|third|last|1st|2nd|3rd) (?:choice|option|answer)|(?:choice|option) [1-3A-C]\b|第\s*[1-3一二三]\s*個?選項|選項\s*[1-3一二三]|(?:첫|두|세|마지막|[1-3]) ?번째 (?:선택지|보기|답)|(?:선택지|보기) ?[1-3]\b(?![,.]\d)|(?:erste|zweite|dritte|letzte)[nrs]? (?:Antwort|Option|Auswahl|Wahlmöglichkeit|Antwortmöglichkeit)|(?:Antwort|Option|Auswahl) [1-3A-C]\b(?![,.]\d)|(?:primer|primera|segund[ao]|tercer|tercera|últim[ao]|primeir[ao]) (?:opción|opção|respuesta|resposta|alternativa)|(?:opción|opção|alternativa|respuesta|resposta) [1-3A-C]\b(?![,.]\d)/i;
       const ordText = l => (l ? [tr[l][q.id]?.explanation, ...(tr[l][q.id]?.choiceNotes ?? [])] : [q.explanation, ...(q.choiceNotes ?? [])]).filter(Boolean).join('\n');
       for (const l of [null, ...langs]) if (ORDINAL.test(ordText(l)) && !ignored(q.id, 'ordinal', l ?? undefined)) warnings.push(`${q.id}${l ? ` [${l}]` : ''}: 解説が選択肢を順番で指しています(選択肢は並べ替えて出すので、中身で指す)`);
       for (const l of langs) {

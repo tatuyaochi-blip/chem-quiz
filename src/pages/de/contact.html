@@ -1,0 +1,26 @@
+<!--
+{
+  "title": "Kontakt",
+  "description": "Über dieses Formular können Sie Anfragen an {{siteName}} senden oder Fehler in den Fragen melden.",
+  "scripts": ["contact.js"]
+}
+-->
+<div class="prose">
+<h1>Kontakt</h1>
+<p>Bitte nutzen Sie das folgende Formular, um Fehler in Fragen oder Erläuterungen zu melden, Anmerkungen und Wünsche mitzuteilen oder uns zu anderen Anliegen rund um diese Website zu schreiben.</p>
+<p>Geben Sie bei einer Fehlermeldung bitte <strong>das Thema und den Anfang des Fragetextes</strong> an (beim Glossar{{#compare}}, bei Vergleichen{{/compare}}{{#figures}}, Abbildungen{{/figures}} und Rechnern den Namen der Seite), damit wir die Stelle schnell finden. Fehler, die wir bestätigen, korrigieren wir laufend.</p>
+<div class="report-box" id="report-box" hidden data-site="{{siteName}}" data-template="[{site}] Fehlermeldung
+Fragen-ID: {id}
+URL: {url}
+Was ist falsch: ">
+<h2>Die Frage, die Sie melden</h2>
+<p>Kopieren Sie den folgenden Text, fügen Sie ihn in das Nachrichtenfeld des Formulars ein und ergänzen Sie, was falsch ist. So wissen wir, um welche Website und welche Frage es geht.</p>
+<textarea readonly rows="5" aria-label="Text der Meldung"></textarea>
+<p class="report-actions"><button type="button" class="btn btn-ghost">Kopieren</button><span class="muted report-copied" hidden>Kopiert</span></p>
+</div>
+<p><a class="btn btn-primary" href="{{contactFormUrl}}" target="_blank" rel="noopener">Kontaktformular öffnen</a></p>
+<p class="muted">Das Formular wird auch für die anderen Lernwebsites des Betreibers verwendet. Bitte nennen Sie in Ihrer Nachricht „{{siteName}}“, damit wir wissen, um welche Website es geht.</p>
+<p class="muted">Das Google-Formular öffnet sich in einem neuen Tab. Wir können möglicherweise nicht jede Nachricht beantworten.</p>
+<p class="muted">Fragen zu Zertifizierungsprüfungen selbst können wir nicht beantworten.</p>
+<p class="muted">Wie Ihre Eingaben behandelt werden, erfahren Sie in der <a href="{{home}}privacy/">Datenschutzerklärung</a>.</p>
+</div>

@@ -1,0 +1,28 @@
+<!--
+{
+  "fullTitle": "{{brand_full_title}}",
+  "description": "Kostenlose Multiple-Choice-Übungen zur {{brand_subject}} auf {{siteName}}: {{brand_scope}}. {{categoryTotal}} Themen und {{questionTotal}} Fragen, jede mit Erläuterung.",
+  "scripts": ["progress.js", "course.js"]
+}
+-->
+<section class="hero">
+  <h1>{{brand_hero}}</h1>
+  <p class="lead">{{brand_hero_lead}}</p>
+  <p class="hero-meta">{{categoryTotal}} Themen · {{questionTotal}} Fragen · Kostenlos · Ohne Anmeldung</p>
+  {{startPanel}}
+  {{courseHint}}
+</section>
+<p class="streak" hidden data-streak="{{t_streak}}" data-daily-done="{{t_daily_done}}"></p>
+{{startBack}}
+{{categoryList}}
+
+{{homeFeatures}}
+
+{{courseList}}
+
+<section>
+  <h2>{{t_more_modes}}</h2>
+  {{moreModes}}
+</section>
+
+<div data-ad="top"></div>

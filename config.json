@@ -3,7 +3,9 @@
   "siteName": {
     "ja": "有機・分析化学教室",
     "en": "Chemistry Room",
-    "zh-hant": "有機與分析化學教室"
+    "zh-hant": "有機與分析化學教室",
+    "es": "Sala de Química",
+    "pt": "Sala de Química"
   },
   "languages": [
     {
@@ -81,11 +83,42 @@
       "hero": "用三選一測驗學有機化學與儀器分析",
       "hero_lead": "從反應與立體化學，到IR、NMR與質譜的光譜解析以及層析，每一題都附有解說。",
       "tools_lead": "免費的瀏覽器計算工具，可確認緩衝溶液的pH、比爾-朗伯定律、層析的理論板數與解析度等化學實驗常用的計算。"
+    },
+    "es": {
+      "subject": "química orgánica y analítica",
+      "subject_title": "química orgánica y analítica",
+      "site": "Sala de Química",
+      "site_en": "Chemistry Room",
+      "search_example": "RMN",
+      "tools_example": "el pH de soluciones amortiguadoras y el número de platos teóricos",
+      "full_title": "Sala de Química | Preguntas de práctica sobre reacciones, estereoquímica, RMN, IR y cromatografía",
+      "scope": "ácidos y bases, estereoquímica, reacciones de sustitución, eliminación y adición, IR, UV, RMN y espectrometría de masas, cromatografía y análisis elemental",
+      "hero": "Aprenda química orgánica y análisis instrumental con cuestionarios breves",
+      "hero_lead": "Desde las reacciones y la estereoquímica hasta la interpretación de espectros de IR, RMN y masas y la cromatografía. Todas las preguntas incluyen una explicación.",
+      "tools_lead": "Calculadoras gratuitas en el navegador para el trabajo diario en el laboratorio: pH de soluciones amortiguadoras, ley de Beer-Lambert, y número de platos teóricos y resolución en cromatografía."
+    },
+    "pt": {
+      "subject": "química orgânica e analítica",
+      "subject_title": "química orgânica e analítica",
+      "site": "Sala de Química",
+      "site_en": "Chemistry Room",
+      "search_example": "RMN",
+      "tools_example": "o pH de soluções-tampão e o número de pratos teóricos",
+      "full_title": "Sala de Química | Questões de prática sobre reações, estereoquímica, RMN, IV e cromatografia",
+      "scope": "ácidos e bases, estereoquímica, reações de substituição, eliminação e adição, IV, UV, RMN e espectrometria de massas, cromatografia e análise elementar",
+      "hero": "Aprenda química orgânica e análise instrumental com quizzes rápidos",
+      "hero_lead": "Das reações e da estereoquímica à interpretação de espectros de IV, RMN e massas e à cromatografia. Todas as questões têm explicação.",
+      "tools_lead": "Calculadoras gratuitas no navegador para o dia a dia do laboratório: pH de soluções-tampão, lei de Beer-Lambert e número de pratos teóricos e resolução em cromatografia."
     }
   },
   "icon": {
     "c1": "#0b8f72",
     "c2": "#1d82c8",
     "glyph": "benzene"
-  }
+  },
+  "indexQuestionLangs": [
+    "ja",
+    "en",
+    "zh-hant"
+  ]
 }

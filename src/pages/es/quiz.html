@@ -1,0 +1,15 @@
+<!--
+{
+  "title": "Cuestionario",
+  "description": "Pantalla del cuestionario de {{siteName}}.",
+  "noindex": true,
+  "ads": false,
+  "scripts": ["quiz.js"]
+}
+-->
+<script>/* 埋め込み(iframe で ?embed=1)のときはヘッダーなどを隠す */ if (/[?&]embed=1/.test(location.search) && window.top !== window.self) document.documentElement.classList.add('embed');</script>
+<div id="quiz" class="quiz">
+  <p class="muted">{{t_loading}}</p>
+</div>
+<noscript><p>Active JavaScript para hacer el cuestionario.</p></noscript>
+<p class="embed-credit"><a href="{{home}}" target="_blank" rel="noopener">Preguntas de {{siteName}} ↗</a></p>
