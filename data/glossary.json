@@ -272,6 +272,7 @@
   {
     "term": "E1反応",
     "slug": "e1-reaction",
+    "aliases": ["E1"],
     "reading": "いーいちはんのう",
     "desc": "カルボカチオンを経て進む2段階の脱離反応。SN1と同じ中間体をとるため両者が競合する。加熱で起こりやすく、カルボカチオンの転位を伴うことがある。",
     "cat": "substitution-elimination"
@@ -328,6 +329,7 @@
   {
     "term": "アルドール反応",
     "slug": "aldol-reaction",
+    "aliases": ["アルドール"],
     "reading": "あるどーるはんのう",
     "desc": "エノラートが別のカルボニル化合物に求核付加して、β-ヒドロキシカルボニル化合物を生じる反応。加熱すると脱水してα,β-不飽和カルボニル化合物になる。",
     "cat": "reactions"
@@ -651,6 +653,7 @@
   {
     "term": "ICP質量分析",
     "slug": "icp-mass-spectrometry",
+    "aliases": ["ICP-MS"],
     "reading": "あいしーぴーしつりょうぶんせき",
     "desc": "誘導結合プラズマでイオン化した元素を質量分析計で測る方法でICP-MSと略す。超微量元素や同位体比を測れるが、多原子イオンの干渉に注意する。",
     "cat": "electro-elemental"
@@ -1140,6 +1143,7 @@
   {
     "term": "エネルギー分散型X線分光",
     "slug": "energy-dispersive-x-ray-spectroscopy",
+    "aliases": ["EDS"],
     "reading": "えねるぎーぶんさんがたえっくすせんぶんこう",
     "desc": "電子線で発生した特性X線をエネルギーごとに測り、元素を分析する方法(EDS)。SEM に付けて微小な部分を分析し、分析深さは条件によるがおよそ 1 µm。",
     "cat": "thermal-surface"
@@ -1245,6 +1249,7 @@
   {
     "term": "相補的塩基対",
     "slug": "complementary-base-pair",
+    "aliases": ["G−C 対"],
     "reading": "そうほてきえんきつい",
     "desc": "核酸の塩基が水素結合でつくる決まった組。DNA ではアデニンとチミンが2本、グアニンとシトシンが3本の水素結合で対合し、RNA ではチミンの代わりにウラシル。",
     "cat": "heterocycles-biomolecules"
