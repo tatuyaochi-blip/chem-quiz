@@ -4,7 +4,7 @@
     "ja": "有機・分析化学教室",
     "en": "Chemistry Room",
     "zh-hant": "有機與分析化學教室",
-    "es": "Sala de Química",
+    "es": "Aula de Química",
     "pt": "Sala de Química"
   },
   "languages": [
@@ -87,15 +87,15 @@
     "es": {
       "subject": "química orgánica y analítica",
       "subject_title": "química orgánica y analítica",
-      "site": "Sala de Química",
+      "site": "Aula de Química",
       "site_en": "Chemistry Room",
       "search_example": "RMN",
-      "tools_example": "el pH de soluciones amortiguadoras y el número de platos teóricos",
-      "full_title": "Sala de Química | Preguntas de práctica sobre reacciones, estereoquímica, RMN, IR y cromatografía",
+      "tools_example": "el pH de disoluciones tampón y el número de platos teóricos",
+      "full_title": "Aula de Química | Preguntas de práctica sobre reacciones, estereoquímica, RMN, IR y cromatografía",
       "scope": "ácidos y bases, estereoquímica, reacciones de sustitución, eliminación y adición, IR, UV, RMN y espectrometría de masas, cromatografía y análisis elemental",
       "hero": "Aprenda química orgánica y análisis instrumental con cuestionarios breves",
       "hero_lead": "Desde las reacciones y la estereoquímica hasta la interpretación de espectros de IR, RMN y masas y la cromatografía. Todas las preguntas incluyen una explicación.",
-      "tools_lead": "Calculadoras gratuitas en el navegador para el trabajo diario en el laboratorio: pH de soluciones amortiguadoras, ley de Beer-Lambert, y número de platos teóricos y resolución en cromatografía."
+      "tools_lead": "Calculadoras gratuitas en el navegador para el trabajo diario en el laboratorio: pH de disoluciones tampón, ley de Beer-Lambert, y número de platos teóricos y resolución en cromatografía."
     },
     "pt": {
       "subject": "química orgânica e analítica",
