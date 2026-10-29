@@ -28,7 +28,7 @@ export const eNear = (x, series = E24) => (x > 0 ? values(x, series).reduce((a, 
 
 // 入力欄の数値(空や数でないときは既定値)
 export const reader = form => (k, min = -Infinity) => {
-  const v = Number(form.elements[k].value);
+  const s = String(form.elements[k].value).trim(), v = s === '' ? NaN : Number(s); // Number('') は 0 になるので、空欄は既定値に
   return Number.isFinite(v) && v >= min ? v : Number(form.elements[k].defaultValue);
 };
 
