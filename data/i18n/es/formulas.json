@@ -273,7 +273,7 @@
       ],
       "when": "Cuando el grado de disociación es pequeño (en torno al 5 % o menos), de modo que C − [H⁺] ≈ C. Si la disolución es tan diluida que importa la disociación del agua, o si K_a es grande, resuelva la ecuación de segundo grado [H⁺]²/(C − [H⁺]) = K_a.",
       "miss": "Olvidar la raíz cuadrada ([H⁺] = K_a C). Usar pH = pK_a para una disolución de ácido débil solo (solo se cumple cuando [HA] = [A⁻]).",
-      "ex": "Ácido acético 0,10 mol/L (K_a = 1,8×10⁻⁵ mol/L): [H⁺] ≈ √(1,8×10⁻⁶) = 1,34×10⁻³ mol/L, pH = 2,87 y α = 1,3 %. Resolviendo la ecuación de segundo grado se obtiene [H⁺] = 1,33×10⁻³ mol/L y pH = 2,88, así que la aproximación es buena.",
+      "ex": "Ácido acético 0,10 mol/L (K_a = 1,8×10⁻⁵ mol/L): [H⁺] ≈ √(1,8×10⁻⁶) = 1,34×10⁻³ mol/L, pH = 2,87 y α = 1,3 %. Resolviendo la ecuación de segundo grado se obtiene [H⁺] = 1,33×10⁻³ mol/L y pH = 2,88, así que la diferencia con la aproximación es pequeña.",
       "kw": "ácido débil pH grado de disociación ácido acético aproximación ecuación de segundo grado"
     },
     "henderson": {
@@ -729,7 +729,7 @@
       "kw": "factor de retención factor de capacidad tiempo de retención tiempo muerto t0 HPLC GC"
     },
     "selectivity": {
-      "name": "Factor de separación (selectividad)",
+      "name": "Factor de separación",
       "l": [
         "k₂ ≥ k₁"
       ],
@@ -1228,7 +1228,7 @@
       "kw": "cristalinidad DSC calorimetría diferencial de barrido entalpía de fusión cristalización en frío"
     },
     "mean-sd": {
-      "name": "Media, desviación estándar y RSD",
+      "name": "Media, desviación estándar y desviación estándar relativa",
       "l": [
         "",
         "",

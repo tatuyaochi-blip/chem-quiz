@@ -1016,7 +1016,7 @@
       }
     },
     "mean-sd": {
-      "name": "Desviación estándar, RSD e intervalo de confianza de la media",
+      "name": "Desviación estándar, desviación estándar relativa e intervalo de confianza de la media",
       "short": "Obtener la desviación estándar s, la RSD o la semiamplitud del intervalo de confianza al 95 % a partir de medidas repetidas",
       "formula": "s = √(Σ(x_i − x̄)²/(n − 1)), RSD = 100 s/x̄, ±t s/√n",
       "q": {

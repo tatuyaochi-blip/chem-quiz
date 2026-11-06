@@ -1,0 +1,1206 @@
+{
+  "title": "Exercícios de cálculo de química orgânica e analítica (valores novos a cada vez, com resolução passo a passo)",
+  "description": "Pratique 34 tipos clássicos de cálculo de química orgânica e analítica com valores novos a cada vez: pH de ácidos fracos e de soluções-tampão, titulações, produto de solubilidade, equação de Nernst, lei de Beer-Lambert, deslocamentos químicos de RMN, picos isotópicos, fator de retenção e resolução, meia-vida, equação de Arrhenius, lei de Bragg, desvio padrão, rendimento e economia atômica. Digite a resposta com a unidade para que ela seja corrigida, com a resolução passo a passo e os erros comuns.",
+  "h1": "Exercícios de cálculo",
+  "lead": "Problemas de cálculo clássicos (34 tipos) das disciplinas e provas de química orgânica e analítica, com valores novos a cada vez. Resolva o problema e digite a resposta com a unidade: a página confere se ela está correta, mostra em qual equação entrou cada valor (resolução passo a passo) e indica o erro comum que o valor da sua resposta sugere. Nos tipos que têm calculadora, você pode abri-la com os mesmos valores para conferir.",
+  "note": "Os valores dos problemas são valores de prática gerados de novo a cada vez dentro de uma faixa. Os valores de pKa, os produtos de solubilidade, os potenciais padrão de eletrodo e dados semelhantes são valores típicos dos livros-texto (listados abaixo), e o problema é resolvido com o valor indicado no enunciado. Para análises ou projetos reais, confira os valores nas normas e na literatura.",
+  "lowerNames": false,
+  "mat": {},
+  "groups": {
+    "acid": "Ácidos e bases, titulações e solubilidade",
+    "electro": "Eletroquímica",
+    "spec": "Espectroscopia (UV-Vis, IV, fluorescência)",
+    "nmrms": "RMN e espectrometria de massas",
+    "chrom": "Cromatografia",
+    "kin": "Cinética e termodinâmica",
+    "poly": "Polímeros",
+    "xray": "Análise térmica, raios X e superfícies",
+    "qa": "Preparo de amostras e controle de qualidade",
+    "green": "Indicadores de síntese e de processo"
+  },
+  "units": {},
+  "names": {
+    "x": {
+      "acid_acetic": "ácido acético",
+      "acid_formic": "ácido fórmico",
+      "acid_benzoic": "ácido benzoico",
+      "acid_lactic": "ácido lático",
+      "acid_nh4": "cloreto de amônio (NH₄⁺)",
+      "acid_hcn": "cianeto de hidrogênio",
+      "acid_hcl": "ácido clorídrico",
+      "ha_acetic": "ácido acético",
+      "a_acetic": "acetato de sódio",
+      "ha_formic": "ácido fórmico",
+      "a_formic": "formiato de sódio",
+      "ha_phosphate": "di-hidrogenofosfato de sódio (NaH₂PO₄)",
+      "a_phosphate": "hidrogenofosfato de dissódio (Na₂HPO₄)",
+      "ha_tris": "cloridrato de Tris (Tris·HCl)",
+      "a_tris": "Tris base",
+      "ha_nh4": "cloreto de amônio",
+      "a_nh4": "amônia",
+      "salt_agcl": "AgCl",
+      "salt_agbr": "AgBr",
+      "salt_baso4": "BaSO₄",
+      "salt_ag2cro4": "Ag₂CrO₄",
+      "salt_caf2": "CaF₂",
+      "salt_pbi2": "PbI₂",
+      "eq_agcl": "AgCl ⇌ Ag⁺ + Cl⁻",
+      "eq_agbr": "AgBr ⇌ Ag⁺ + Br⁻",
+      "eq_baso4": "BaSO₄ ⇌ Ba²⁺ + SO₄²⁻",
+      "eq_ag2cro4": "Ag₂CrO₄ ⇌ 2Ag⁺ + CrO₄²⁻",
+      "eq_caf2": "CaF₂ ⇌ Ca²⁺ + 2F⁻",
+      "eq_pbi2": "PbI₂ ⇌ Pb²⁺ + 2I⁻",
+      "ks_agcl": "[Ag⁺][Cl⁻] = s × s = s²",
+      "ks_agbr": "[Ag⁺][Br⁻] = s × s = s²",
+      "ks_baso4": "[Ba²⁺][SO₄²⁻] = s × s = s²",
+      "ks_ag2cro4": "[Ag⁺]²[CrO₄²⁻] = (2s)² × s = 4s³",
+      "ks_caf2": "[Ca²⁺][F⁻]² = s × (2s)² = 4s³",
+      "ks_pbi2": "[Pb²⁺][I⁻]² = s × (2s)² = 4s³",
+      "hr_cu": "Cu²⁺ + 2e⁻ ⇌ Cu",
+      "hr_ag": "Ag⁺ + e⁻ ⇌ Ag",
+      "hr_zn": "Zn²⁺ + 2e⁻ ⇌ Zn",
+      "hr_fe": "Fe³⁺ + e⁻ ⇌ Fe²⁺",
+      "ion_cu": "Cu²⁺",
+      "ion_ag": "Ag⁺",
+      "ion_zn": "Zn²⁺",
+      "metal_cu": "Uma solução de sulfato de cobre(II) (Cu²⁺ + 2e⁻ → Cu)",
+      "metal_ag": "Uma solução de nitrato de prata (Ag⁺ + e⁻ → Ag)",
+      "metal_ni": "Uma solução de sulfato de níquel(II) (Ni²⁺ + 2e⁻ → Ni)",
+      "metal_zn": "Uma solução de sulfato de zinco (Zn²⁺ + 2e⁻ → Zn)",
+      "sp_nadh": "NADH em 340 nm",
+      "sp_x": "um composto",
+      "iso_cl": "{ncl} Cl",
+      "iso_br": "{nbr} Br",
+      "iso_both": "{ncl} Cl e {nbr} Br",
+      "cmp_caffeine": "cafeína (C₈H₁₀N₄O₂)",
+      "cmp_paracetamol": "paracetamol (C₈H₉NO₂)",
+      "cmp_nicotine": "nicotina (C₁₀H₁₄N₂)",
+      "cmp_testosterone": "testosterona (C₁₉H₂₈O₂)",
+      "cmp_diazepam": "diazepam (C₁₆H₁₃ClN₂O)",
+      "cmp_lidocaine": "lidocaína (C₁₄H₂₂N₂O)",
+      "cmp_morphine": "morfina (C₁₇H₁₉NO₃)",
+      "ku_0": "mol/(L·s)",
+      "ku_1": "s⁻¹",
+      "ku_2": "L/(mol·s)",
+      "sep": "; ",
+      "tdf": "{t} ({df} g.l.)",
+      "ra_aspirin": "ácido salicílico",
+      "rb_aspirin": "anidrido acético",
+      "rp_aspirin": "ácido acetilsalicílico (aspirina)",
+      "ra_ester": "ácido acético",
+      "rb_ester": "3-metil-1-butanol",
+      "rp_ester": "acetato de isoamila",
+      "ra_da": "ciclopentadieno",
+      "rb_da": "anidrido maleico",
+      "rp_da": "aduto de Diels-Alder",
+      "ra_suzuki": "4-bromoanisol",
+      "rb_suzuki": "ácido fenilborônico",
+      "rp_suzuki": "4-metoxibifenila",
+      "eq_aspirin": "Ácido salicílico (138,12) + anidrido acético (102,09) → ácido acetilsalicílico (180,16) + ácido acético. Os números são as massas molares (g/mol).",
+      "eq_ester": "Ácido acético (60,05) + etanol (46,07) → acetato de etila (88,11) + água. Os números são as massas molares (g/mol).",
+      "eq_sn2": "1-bromobutano (137,02) + NaOH (40,00) → 1-butanol (74,12) + NaBr. Os números são as massas molares (g/mol).",
+      "eq_wittig": "Ph₃P=CH₂ (276,32) + ciclo-hexanona (98,14) → metilenociclo-hexano (96,17) + Ph₃PO (reação de Wittig). Os números são as massas molares (g/mol).",
+      "eq_fc": "Benzeno (78,11) + cloreto de acetila (78,50) → acetofenona (120,15) + HCl (acilação de Friedel-Crafts; o AlCl₃ não é contado). Os números são as massas molares (g/mol).",
+      "eq_bhc": "Isobutilbenzeno (134,2) + anidrido acético (102,1) + H₂ (2,0) + CO (28,0) → ibuprofeno (206,3) + ácido acético (equação que reúne as três etapas do processo BHC). Os números são as massas molares (g/mol)."
+    },
+    "diff": {}
+  },
+  "guide": [
+    {
+      "id": "how",
+      "h": "Como usar",
+      "p": [
+        "Escolha uma área ou um tipo de problema e comece com um problema de cada vez ou com uma série de 5 ou de 10. Com “Mais dos meus tipos fracos”, os tipos em que você errou da última vez, ou em que erra com frequência, aparecem mais. Selecione o nome de um tipo na lista de tipos de problema mais abaixo para receber um problema desse tipo.",
+        "Digite a resposta como número e escolha a unidade no menu de unidades. São aceitas as formas 1,23e-5; 1,23×10^-5 e 1,23 × 10⁻⁵. Quando é possível escolher a unidade, tanto mol/L quanto µmol/L funcionam, desde que o número corresponda à unidade escolhida.",
+        "Clique em “Conferir” para ver a correção e a resolução passo a passo. Se a resposta estiver errada, a página indica o erro que o valor da sua resposta sugere (log e ln, esquecer de dividir pelo número de elétrons n, °C e K, largura na linha de base e largura à meia altura, θ e 2θ etc.). “Ver a resposta” mostra a resolução sem que você responda.",
+        "“Copiar o link deste problema” gera uma URL que abre o mesmo problema com os mesmos valores. A URL contém apenas o tipo de problema e uma semente (seed), nunca a resposta. Seu registro fica salvo apenas neste navegador (localStorage) e não é enviado a nenhum servidor. Se o seu navegador não permitir o armazenamento, você pode resolver os problemas mesmo assim; só o registro não é guardado."
+      ]
+    },
+    {
+      "id": "tips",
+      "h": "Dicas para problemas de cálculo",
+      "p": [
+        "Comece anotando os dados e as incógnitas com seus símbolos e unidades. Deixe coerentes nesse momento mL e L, mg e g, mmol e mol, e converta as massas em quantidade de matéria com a massa molar antes de compará-las.",
+        "Confira qual logaritmo usar. O pH, a equação de Henderson-Hasselbalch e a equação de Nernst com 0,05916 V usam o logaritmo decimal log₁₀; ΔG° = −RT ln K, a equação de Arrhenius e as reações de primeira ordem usam o logaritmo natural ln. As temperaturas das equações termodinâmicas e cinéticas são sempre absolutas (K).",
+        "Confira os coeficientes da equação química. As proporções das titulações (H₂SO₄ e NaOH 1 : 2, MnO₄⁻ e íon oxalato 2 : 5), o (2s)² do produto de solubilidade e o número de elétrons n da reação de eletrodo podem multiplicar o resultado várias vezes.",
+        "Com a resposta em mãos, confira a ordem de grandeza. O pH do ácido acético 0,1 mol/L é um pouco menor que 3; a inclinação nernstiana a 25 °C é de cerca de 59 mV para um íon monovalente; 4000–400 cm⁻¹ no IV correspondem a 2,5–25 µm; o número de pratos teóricos em HPLC vai de milhares a dezenas de milhares; R_s ≥ 1,5 significa uma separação quase completa. Se o resultado se afastar da estimativa em uma ordem de grandeza ou mais, desconfie de uma conversão de unidades ou de uma potência de dez."
+      ]
+    },
+    {
+      "id": "units",
+      "h": "Unidades",
+      "p": [
+        "O menu de unidades oferece outras unidades para a mesma grandeza (mol/L, mmol/L, µmol/L; V e mV; kJ/mol e J/mol; s, min e h; nm, µm e Å etc.). Um valor correto na unidade escolhida é considerado correto. Também é possível escrever a unidade na caixa de resposta, como “2,5 mM” ou “0,30 V” (M é mol/L e mM é mmol/L).",
+        "Para respostas em proporção (rendimento, recuperação, RSD, ee, transmitância etc.), você pode escolher um decimal de 0 a 1 ou % (0,80 e 80 % são a mesma coisa). O pH, o pKa, log₁₀ K, a absorbância, o fator de retenção, o número de pratos teóricos, K_sp e grandezas semelhantes são respondidos como números sem unidade.",
+        "Conversões úteis: 1 mol/L = 1000 mmol/L = 10⁶ µmol/L; 1 nm = 10 Å = 10⁻⁷ cm; λ [µm] = 10⁴/ν̃ [cm⁻¹]; T [K] = t [°C] + 273,15; 1 kJ = 1000 J; δ [ppm] = Δν [Hz]/ν₀ [MHz]."
+      ]
+    },
+    {
+      "id": "sig",
+      "h": "Algarismos significativos e correção",
+      "p": [
+        "Os valores do enunciado são arredondados para o número de algarismos mostrado. A resposta de referência é calculada a partir desses valores arredondados, então, se você usar os valores e as constantes do enunciado (R = 8,314 J/(mol·K), F = 96485 C/mol, 0,05916 V etc.), o arredondamento não fará sua resposta ser considerada errada.",
+        "A correção usa o erro relativo; na maioria dos tipos, respostas dentro de ±1 % são consideradas corretas. Os problemas que pedem o pH ou o pKa, o fator de separação α e as concentrações das titulações usam ±0,5 % (±0,015 em pH 3), os que pedem 2θ usam ±0,2 %, a conversão p da equação de Carothers usa ±0,05 % e o erro de massa (ppm) usa ±2 %. A tolerância é mostrada em cada problema.",
+        "Basta responder com o número de algarismos usado no problema (em geral, três algarismos significativos); mais algarismos também valem. Responda o grau de insaturação como número inteiro.",
+        "Se a resposta ficar só um pouco fora da tolerância (dentro de 5 %), a página mostra “Quase”. Em geral a fórmula está certa: confira se você arredondou demais os valores intermediários ou se usou uma constante diferente da do enunciado (R = 8,3145, 0,0592 etc.)."
+      ]
+    }
+  ],
+  "faq": [
+    [
+      "Minha resposta deveria estar certa, mas foi marcada como errada.",
+      "Confira primeiro o menu de unidades. Se a unidade escolhida não corresponder ao número digitado, até um valor correto é marcado como errado (em geral com a mensagem “Parece uma confusão de unidades”). Se a unidade corresponde e a diferença é pequena, você provavelmente arredondou demais os valores intermediários ou usou uma constante diferente da do enunciado. Refaça o cálculo com os valores e as constantes do enunciado, mantendo quatro ou mais algarismos nos valores intermediários."
+    ],
+    [
+      "Como os valores dos problemas são escolhidos?",
+      "Para cada tipo foi definida uma faixa de valores que podem ocorrer em experimentos e análises reais, e cada problema sorteia valores dentro dela. Os valores de pKa, os produtos de solubilidade, os potenciais padrão de eletrodo, as abundâncias isotópicas e dados semelhantes são valores típicos dos livros-texto (veja “Fontes dos dados” abaixo); quando os valores da literatura variam um pouco, o enunciado indica o valor a ser usado."
+    ],
+    [
+      "Posso refazer o mesmo problema ou passar o mesmo problema para um colega?",
+      "Sim. A URL gerada por “Copiar o link deste problema” (?t=tipo&s=semente) abre o mesmo problema com os mesmos valores. A URL não contém a resposta, então vocês podem usá-la para propor problemas um ao outro."
+    ],
+    [
+      "Onde meu registro fica salvo? Posso apagá-lo?",
+      "Apenas no localStorage deste navegador; nada é enviado a um servidor, e ele não é compartilhado com outros dispositivos ou navegadores. “Apagar o registro” o elimina. Na navegação anônima ou em outras configurações que bloqueiam o armazenamento, o registro não é guardado, mas você pode resolver os problemas normalmente."
+    ],
+    [
+      "O que se ganha ao abrir a calculadora?",
+      "Nos tipos de solução-tampão, Beer-Lambert, cromatografia, padrão isotópico e cinética, a calculadora abre com os mesmos valores, para você conferir a resposta de outra forma e ver o que muda quando as condições mudam. Por exemplo, num problema de tampão você vê o pH ao mudar a razão, e num problema de cinética, o gráfico da concentração em função do tempo. Nos tipos que a calculadora não cobre, aparecem links para os termos relacionados e para a página de fórmulas."
+    ],
+    [
+      "A resposta do meu livro-texto é um pouco diferente.",
+      "Os livros-texto costumam arredondar os valores intermediários ou abreviar as constantes (R ≈ 8,31, 0,059 V etc.), por isso o terceiro algarismo pode diferir. A resposta destes exercícios é calculada com os valores, as constantes e as aproximações do enunciado (como [H⁺] ≈ √(K_a C)), sem arredondar os valores intermediários. Dentro da tolerância, qualquer das duas respostas é considerada correta."
+    ]
+  ],
+  "sources": [
+    {
+      "name": "Constantes",
+      "text": "R = 8,314 J/(mol·K) (o mesmo valor das calculadoras), F = 96485 C/mol, (ln 10)RT/F = 0,05916 V a 25 °C, e h, c e N_A conforme os valores definidos no CODATA 2022. A massa do próton, 1,007 276 u, e o γ/2π do ¹H, 42,577 MHz/T, são os mesmos da tabela de constantes da página de fórmulas. Átomo de H 1,007 825 u; Na⁺ 22,989 221 u (o átomo de Na, 22,989 770 u, menos um elétron, 0,000 549 u)."
+    },
+    {
+      "name": "pKa (25 °C)",
+      "text": "Ácido acético 4,76; ácido fórmico 3,75; ácido benzoico 4,20; ácido lático 3,86; NH₄⁺ 9,25; HCN 9,21; H₂PO₄⁻ 7,20; Tris 8,07 (valores das tabelas dos livros-texto de química analítica, com duas casas decimais; o ácido acético e o NH₄⁺ coincidem com os exemplos da página de fórmulas)."
+    },
+    {
+      "name": "Produtos de solubilidade (25 °C)",
+      "text": "AgCl 1,8×10⁻¹⁰; AgBr 5,0×10⁻¹³; BaSO₄ 1,1×10⁻¹⁰; Ag₂CrO₄ 1,1×10⁻¹²; CaF₂ 3,9×10⁻¹¹; PbI₂ 7,9×10⁻⁹ (valores típicos dos livros-texto; como a literatura varia um pouco, os enunciados indicam o valor a ser usado. O AgCl e o Ag₂CrO₄ coincidem com os exemplos da página de fórmulas)."
+    },
+    {
+      "name": "Potenciais padrão de eletrodo (25 °C, vs. SHE)",
+      "text": "Cu²⁺/Cu +0,340 V (como no exemplo da página de fórmulas), Ag⁺/Ag +0,799 V, Zn²⁺/Zn −0,762 V, Fe³⁺/Fe²⁺ +0,771 V. Eletrodo de referência de Ag/AgCl com KCl saturado +0,197 V (o mesmo valor do banco de questões)."
+    },
+    {
+      "name": "Massas molares e massas monoisotópicas",
+      "text": "As massas molares são calculadas com os valores convencionais dos pesos atômicos padrão da IUPAC (C 12,011; H 1,008; N 14,007; O 15,999 etc.); o processo BHC do ibuprofeno usa os valores com uma casa decimal do exemplo da página de fórmulas. As massas monoisotópicas são calculadas com ¹²C 12, ¹H 1,007 825 03, ¹⁴N 14,003 074 0, ¹⁶O 15,994 914 6 e ³⁵Cl 34,968 853 (a cafeína, 194,080 376, coincide com o exemplo da página de fórmulas)."
+    },
+    {
+      "name": "Abundâncias isotópicas",
+      "text": "³⁵Cl 75,76 %, ³⁷Cl 24,24 %, ⁷⁹Br 50,69 %, ⁸¹Br 49,31 %, ¹³C 1,07 % (composições isotópicas representativas da IUPAC; os mesmos valores da calculadora de padrão isotópico)."
+    },
+    {
+      "name": "Raios X e estatística",
+      "text": "Comprimento de onda do Cu Kα₁ 0,154 06 nm (como no exemplo da lei de Bragg da página de fórmulas); constante de Scherrer K = 0,9. Valores de t (bilaterais, 95 %) da tabela da distribuição t (3,182; 2,776; 2,571; 2,447; 2,365 e 2,306 para 3 a 8 graus de liberdade)."
+    },
+    {
+      "name": "Valores supostos",
+      "text": "As concentrações, as absortividades molares, os tempos de retenção e as larguras de pico, as constantes de velocidade, as energias de ativação, as massas molares dos polímeros e as massas de síntese e de processo são valores de prática escolhidos dentro de faixas realistas. O ε do NADH em 340 nm, 6220 L/(mol·cm), é o mesmo do exemplo da página de fórmulas."
+    }
+  ],
+  "types": {
+    "weak-acid": {
+      "name": "pH de uma solução de ácido fraco",
+      "short": "Obter o pH ou o grau de dissociação a partir da concentração e do pKa, ou o pKa a partir do pH",
+      "formula": "[H⁺] ≈ √(K_a C)",
+      "q": {
+        "ph": "Calcule o pH de uma solução aquosa {C} mol/L de {acid} (pKa = {pKa}) a 25 °C. O grau de dissociação é pequeno, então você pode usar a aproximação [H⁺] ≈ √(K_a C).",
+        "alpha": "Em uma solução aquosa {C} mol/L de {acid} (pKa = {pKa}), qual é a porcentagem dissociada (grau de dissociação α)? Use a aproximação [H⁺] ≈ √(K_a C).",
+        "pka": "O pH medido de uma solução aquosa {C} mol/L de {acid} é {pH}. Supondo que o grau de dissociação é pequeno ([H⁺] ≈ √(K_a C)), calcule o pKa."
+      },
+      "steps": {
+        "ph": [
+          "K_a = 10^(−pKa) = {Ka} mol/L.",
+          "K_a C = {Ka} × {C} = {KC}, logo [H⁺] = √({KC}) = {h} mol/L.",
+          "pH = −log₁₀({h}) = {pH}."
+        ],
+        "alpha": [
+          "K_a = 10^(−pKa) = {Ka} mol/L.",
+          "[H⁺] = √(K_a C) = {h} mol/L.",
+          "α = [H⁺]/C = {h}/{C} = {a} % (5 % ou menos, então a aproximação vale)."
+        ],
+        "pka": [
+          "[H⁺] = 10^(−{pH}) = {h} mol/L.",
+          "De [H⁺]² = K_a C: K_a = [H⁺]²/C = {h2}/{C} = {Ka} mol/L.",
+          "pKa = −log₁₀ K_a = 2pH + log₁₀ C = 2 × {pH} {lcp} = {pKa}."
+        ]
+      },
+      "mistakes": {
+        "nosqrt": "Você esqueceu a raiz quadrada (usou K_a C ou K_a/C sem tirar a raiz). Como [H⁺]² = K_a C, [H⁺] = √(K_a C) e α = √(K_a/C).",
+        "pka": "Você usou pH = pKa. Isso só vale para um tampão com [HA] = [A⁻], não para uma solução só do ácido fraco.",
+        "noc": "Você esqueceu a concentração (pH = ½pKa). O pH é ½(pKa − log₁₀ C).",
+        "h": "Você deu o valor de [H⁺] (mol/L) diretamente como porcentagem. O grau de dissociação é [H⁺] dividido pela concentração do ácido C.",
+        "sign": "O sinal de log₁₀ C está invertido. pKa = 2pH + log₁₀ C, e log₁₀ C é negativo quando C < 1 mol/L.",
+        "ph": "Você tomou o pH medido como pKa. Em uma solução só do ácido fraco, pH ≠ pKa.",
+        "no2": "Você esqueceu o fator 2. Como [H⁺]² = K_a C, pKa = 2pH + log₁₀ C."
+      }
+    },
+    "buffer-ph": {
+      "name": "pH de uma solução-tampão (Henderson-Hasselbalch)",
+      "short": "Obter o pH a partir das concentrações do ácido fraco e da base conjugada, ou a razão e as concentrações para um pH desejado",
+      "formula": "pH = pK_a + log₁₀([A⁻]/[HA])",
+      "q": {
+        "ph": "Calcule o pH de uma solução-tampão que contém {ha} mol/L de {han} e {a} mol/L de {an} (pKa = {pKa}, 25 °C).",
+        "ratio": "Prepara-se um tampão de pH {pH} com {han} (pKa = {pKa}) e {an}. Qual é a razão [A⁻]/[HA] entre as concentrações da base conjugada e do ácido fraco (aqui, [{an}]/[{han}])?",
+        "mix": "Prepara-se um tampão de pH {pH} com {han} (pKa = {pKa}) e {an}, com concentração total de {tot} mol/L. Calcule a concentração de {an}."
+      },
+      "steps": {
+        "ph": [
+          "[A⁻]/[HA] = {a}/{ha} = {r}.",
+          "log₁₀ {r} = {lr}.",
+          "pH = pKa + log₁₀([A⁻]/[HA]) = {pKa} {lrp} = {pH}."
+        ],
+        "ratio": [
+          "De pH = pKa + log₁₀([A⁻]/[HA]): [A⁻]/[HA] = 10^(pH − pKa).",
+          "pH − pKa = {pH} − {pKa} = {d}.",
+          "[A⁻]/[HA] = 10^({d}) = {ratio}."
+        ],
+        "mix": [
+          "[A⁻]/[HA] = 10^(pH − pKa) = 10^({d}) = {ratio}.",
+          "Como [A⁻] + [HA] = {tot} mol/L, [A⁻] = {tot} × {ratio}/(1 + {ratio}).",
+          "[A⁻] = {tot} × {ratio}/{r1} = {a} mol/L ([HA] = {ha} mol/L)."
+        ]
+      },
+      "mistakes": {
+        "inv": "Você inverteu a razão ([HA]/[A⁻]). Dentro do logaritmo vai base conjugada/ácido fraco.",
+        "ln": "Você usou o logaritmo natural ln no lugar do logaritmo decimal. A equação de Henderson-Hasselbalch usa log₁₀.",
+        "ha": "Você deu a concentração do ácido fraco [HA]. O que se pede é a concentração da base conjugada [A⁻].",
+        "nosplit": "Você multiplicou a concentração total diretamente pela razão. [A⁻] = C × r/(1 + r): o total se divide na proporção r : 1."
+      }
+    },
+    "titration": {
+      "name": "Concentração por titulação ácido-base e redox",
+      "short": "Obter a concentração da amostra ou do titulante a partir do volume gasto e dos coeficientes da reação",
+      "formula": "c_A V_A/ν_A = c_B V_B/ν_B",
+      "q": {
+        "mono": "{Va} mL de {acid} são titulados com NaOH {cb} mol/L, e são necessários {V} mL até o ponto de equivalência. Calcule a concentração de {acid}.",
+        "di": "{Va} mL de ácido sulfúrico são titulados com NaOH {cb} mol/L, e são necessários {V} mL até o ponto de equivalência (o segundo ponto de equivalência). Calcule a concentração do ácido sulfúrico (H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O).",
+        "mno4": "{m} g de oxalato de sódio (padrão primário, {M} g/mol) são dissolvidos, acidificados com ácido sulfúrico e titulados com solução de KMnO₄, gastando {V} mL. Calcule a concentração de KMnO₄ (2MnO₄⁻ + 5C₂O₄²⁻ + 16H⁺ → 2Mn²⁺ + 10CO₂ + 8H₂O)."
+      },
+      "steps": {
+        "mono": [
+          "Quantidade de NaOH = {cb} mol/L × {V} mL/1000 = {n} mol.",
+          "A reação é 1 : 1, então o ácido também é {na} mol.",
+          "c = {na} mol/({Va}/1000 L) = {c} mol/L."
+        ],
+        "di": [
+          "Quantidade de NaOH = {cb} × {V}/1000 = {n} mol.",
+          "O H₂SO₄ é diprótico, então H₂SO₄ = NaOH/2 = {na} mol.",
+          "c = {na}/({Va}/1000) = {c} mol/L."
+        ],
+        "mno4": [
+          "Quantidade de C₂O₄²⁻ = {m}/{M} = {nox} mol.",
+          "MnO₄⁻ : C₂O₄²⁻ = 2 : 5, logo MnO₄⁻ = {nox} × 2/5 = {nmn} mol.",
+          "c = {nmn}/({V}/1000) = {c} mol/L."
+        ]
+      },
+      "mistakes": {
+        "inv": "Você trocou os volumes da amostra e do titulante (c_A = c_B V_A/V_B). De c_A V_A = c_B V_B, c_A = c_B V_B/V_A.",
+        "no2": "Você esqueceu que o H₂SO₄ é diprótico (calculou como 1 : 1). 1 mol de H₂SO₄ precisa de 2 mol de NaOH.",
+        "x2": "O fator está no sentido contrário (você multiplicou por 2 em vez de dividir). A quantidade de H₂SO₄ é metade da de NaOH.",
+        "inv25": "Você inverteu o fator (5/2). Com 2MnO₄⁻ + 5C₂O₄²⁻, o MnO₄⁻ é 2/5 do íon oxalato.",
+        "one": "Você tomou MnO₄⁻ e C₂O₄²⁻ como 1 : 1. Pela equação, o MnO₄⁻ é 2/5 do íon oxalato."
+      }
+    },
+    "ksp": {
+      "name": "Produto de solubilidade e solubilidade molar",
+      "short": "Obter a solubilidade molar a partir de K_sp, ou K_sp a partir da solubilidade molar (atenção aos coeficientes da fórmula)",
+      "formula": "K_sp = (ms)^m (xs)^x",
+      "q": {
+        "s": "Tome o produto de solubilidade do {salt} a 25 °C como K_sp = {K} ({eq}). Calcule sua solubilidade molar s (mol/L) em água pura.",
+        "ksp": "Uma solução aquosa saturada de {salt} tem solubilidade molar s = {s} mol/L ({eq}). Calcule o produto de solubilidade K_sp (como número sem unidade)."
+      },
+      "steps": {
+        "s": [
+          "Se s mol/L de {salt} se dissolvem, K_sp = {ks}.",
+          "O produto dos coeficientes é {c}, logo s{pw} = K_sp/{c} = {Kc}.",
+          "s = ({Kc})^(1/{n}) = {s} mol/L."
+        ],
+        "ksp": [
+          "Se s mol/L de {salt} se dissolvem, K_sp = {ks}.",
+          "s{pw} = {sn}.",
+          "K_sp = {cx}{sn} = {K}."
+        ]
+      },
+      "mistakes": {
+        "nocoef": "Você esqueceu os coeficientes da fórmula (m^m x^x). Para o Ag₂CrO₄, [Ag⁺] = 2s, então K_sp = (2s)² s = 4s³.",
+        "sqrt": "Você usou s = √K_sp para qualquer sal. √K_sp só vale para sais 1 : 1, como o AgCl.",
+        "lin": "Você multiplicou pelos coeficientes sem elevá-los ao quadrado (à potência). Se [Ag⁺] = 2s, então [Ag⁺]² = (2s)² = 4s²."
+      }
+    },
+    "common-ion": {
+      "name": "Efeito do íon comum na solubilidade",
+      "short": "Obter a solubilidade molar de um sal dissolvido em uma solução que já contém um de seus íons",
+      "formula": "K_sp = [M]^m[X]^x (concentração do íon comum considerada constante)",
+      "q": {
+        "agcl_cl": "AgCl (K_sp = {K}) é dissolvido em solução aquosa de NaCl {c} mol/L. Calcule a solubilidade molar s (mol/L) do AgCl (25 °C; suponha s ≪ {c}).",
+        "baso4_so4": "BaSO₄ (K_sp = {K}) é dissolvido em solução aquosa de Na₂SO₄ {c} mol/L. Calcule a solubilidade molar s (mol/L) do BaSO₄ (25 °C; suponha s ≪ {c}).",
+        "ag2cro4_cro4": "Ag₂CrO₄ (K_sp = {K}) é dissolvido em solução aquosa de K₂CrO₄ {c} mol/L. Calcule a solubilidade molar s (mol/L) do Ag₂CrO₄ (25 °C; suponha s ≪ {c}).",
+        "ag2cro4_ag": "Ag₂CrO₄ (K_sp = {K}) é dissolvido em solução aquosa de AgNO₃ {c} mol/L. Calcule a solubilidade molar s (mol/L) do Ag₂CrO₄ (25 °C; suponha 2s ≪ {c}).",
+        "caf2_f": "CaF₂ (K_sp = {K}) é dissolvido em solução aquosa de NaF {c} mol/L. Calcule a solubilidade molar s (mol/L) do CaF₂ (25 °C; suponha 2s ≪ {c})."
+      },
+      "steps": {
+        "agcl_cl": [
+          "[Ag⁺] = s e [Cl⁻] = {c} + s ≈ {c} mol/L.",
+          "De K_sp = s × {c}: s = K_sp/{c}.",
+          "s = {Kc} mol/L (em água pura: {s0} mol/L)."
+        ],
+        "baso4_so4": [
+          "[Ba²⁺] = s e [SO₄²⁻] ≈ {c} mol/L.",
+          "De K_sp = s × {c}: s = K_sp/{c}.",
+          "s = {Kc} mol/L (em água pura: {s0} mol/L)."
+        ],
+        "ag2cro4_cro4": [
+          "[Ag⁺] = 2s e [CrO₄²⁻] ≈ {c} mol/L.",
+          "De K_sp = (2s)² × {c} = 4s² × {c}: s = ½√(K_sp/{c}).",
+          "K_sp/{c} = {Kc}, logo s = ½ × √({Kc}) = {s} mol/L (em água pura: {s0} mol/L)."
+        ],
+        "ag2cro4_ag": [
+          "[Ag⁺] ≈ {c} mol/L e [CrO₄²⁻] = s.",
+          "De K_sp = {c}² × s: s = K_sp/{c}².",
+          "{c}² = {c2}, logo s = {s} mol/L (em água pura: {s0} mol/L)."
+        ],
+        "caf2_f": [
+          "[Ca²⁺] = s e [F⁻] ≈ {c} mol/L.",
+          "De K_sp = s × {c}²: s = K_sp/{c}².",
+          "{c}² = {c2}, logo s = {s} mol/L (em água pura: {s0} mol/L)."
+        ]
+      },
+      "mistakes": {
+        "pure": "Você ignorou o íon comum e deu a solubilidade em água pura. Um íon comum diminui a solubilidade.",
+        "noh": "Você esqueceu que [Ag⁺] = 2s (usou K_sp = s²[CrO₄²⁻]). Como (2s)² = 4s², há um fator ½ antes da raiz quadrada.",
+        "nosq": "Você esqueceu de elevar ao quadrado a concentração do íon comum (ou [Ag⁺]). Na expressão de K_sp, a concentração de um íon com coeficiente 2 entra ao quadrado."
+      }
+    },
+    "nernst": {
+      "name": "Potencial de eletrodo pela equação de Nernst",
+      "short": "Obter o potencial de eletrodo a partir da concentração (atividade) do íon, também em relação a um eletrodo de referência",
+      "formula": "E = E° − (0,05916 V/n) log₁₀ Q",
+      "q": {
+        "she": "Um eletrodo para {hr} (E° = {E0} V vs. SHE) está imerso em uma solução em que a atividade do {ion} é {a}. Calcule o potencial de eletrodo E (vs. SHE) a 25 °C.",
+        "ref": "Um eletrodo para {hr} (E° = {E0} V vs. SHE) está imerso em uma solução em que a atividade do {ion} é {a}. Calcule seu potencial a 25 °C em relação a um eletrodo de referência de Ag/AgCl com KCl saturado ({ref} V vs. SHE).",
+        "she-fe": "Um eletrodo de platina é imerso em uma solução de Fe³⁺ {c3} mol/L e Fe²⁺ {c2} mol/L ({hr}, E° = {E0} V vs. SHE). Calcule o potencial de eletrodo E (vs. SHE) a 25 °C (considere os coeficientes de atividade iguais a 1).",
+        "ref-fe": "Um eletrodo de platina é imerso em uma solução de Fe³⁺ {c3} mol/L e Fe²⁺ {c2} mol/L ({hr}, E° = {E0} V vs. SHE). Calcule seu potencial a 25 °C em relação a um eletrodo de referência de Ag/AgCl com KCl saturado ({ref} V vs. SHE) (considere os coeficientes de atividade iguais a 1)."
+      },
+      "steps": {
+        "she": [
+          "Escrevendo a semirreação de redução, Q = 1/a = {Q} e n = {n}.",
+          "E = E° − ({S}/{n}) log₁₀ Q = {E0} − ({S}/{n}) × {lq}.",
+          "E = {E0} − {t} = {E} V (vs. SHE)."
+        ],
+        "ref": [
+          "Q = 1/a = {Q}, n = {n}. E = E° − ({S}/{n}) log₁₀ Q = {E0} − {t} = {E} V (vs. SHE).",
+          "Potencial em relação à referência = E (vs. SHE) − E (eletrodo de referência).",
+          "{E} − {ref} = {Er} V (vs. Ag/AgCl)."
+        ],
+        "she-fe": [
+          "Q = [Fe²⁺]/[Fe³⁺] = {c2}/{c3} = {Q}, n = 1.",
+          "E = E° − {S} log₁₀ Q = {E0} − {S} × ({lq}).",
+          "E = {E} V (vs. SHE)."
+        ],
+        "ref-fe": [
+          "Q = [Fe²⁺]/[Fe³⁺] = {c2}/{c3} = {Q}, n = 1.",
+          "E = E° − {S} log₁₀ Q = {E} V (vs. SHE).",
+          "Em relação à referência: {E} − {ref} = {Er} V (vs. Ag/AgCl)."
+        ]
+      },
+      "mistakes": {
+        "non": "Você esqueceu de dividir pelo número de elétrons n. Para uma reação de 2 elétrons, o fator é 0,05916/2 = 0,02958 V.",
+        "inv": "Você inverteu numerador e denominador de Q (o sinal do termo ficou trocado). Para a semirreação de redução, Q = forma reduzida/forma oxidada.",
+        "ln": "Você combinou 0,05916 V com o logaritmo natural ln. 0,05916 V corresponde a uma unidade de log₁₀; com ln, o fator é RT/F = 0,02569 V.",
+        "noref": "Você deu o potencial em relação ao SHE. Em relação a Ag/AgCl, subtraia {ref} V do potencial em relação ao SHE.",
+        "refsign": "Você somou o potencial do eletrodo de referência. O Ag/AgCl está {ref} V acima do SHE, então o potencial em relação a ele é {ref} V menor (subtrai-se)."
+      }
+    },
+    "nernst-slope": {
+      "name": "Inclinação dos eletrodos de pH e íon-seletivos",
+      "short": "Obter a inclinação nernstiana a partir da temperatura e da carga do íon, ou o pH a partir de uma diferença de potencial",
+      "formula": "S = (ln 10)RT/(zF), E = K − S·pH",
+      "q": {
+        "slope": "A {t} °C, calcule a inclinação teórica S (variação de potencial, em mV, para uma variação de dez vezes na concentração) de um eletrodo íon-seletivo que responde a um íon de carga z = {z} (R = 8,314 J/(mol·K), F = 96485 C/mol).",
+        "ph": "A {t} °C, um eletrodo de pH (eletrodo de vidro) marca {Es} mV em uma solução-padrão de pH {pHs} e {Ex} mV na amostra. Considerando a inclinação do eletrodo igual ao valor teórico (inclinação nernstiana) e E = K − S·pH, calcule o pH da amostra (R = 8,314 J/(mol·K), F = 96485 C/mol)."
+      },
+      "steps": {
+        "slope": [
+          "T = {t} + 273,15 = {T} K.",
+          "S = (ln 10)RT/(zF) = 2,3026 × 8,314 × {T}/({z} × 96485) V.",
+          "S = {S} mV por década."
+        ],
+        "ph": [
+          "T = {T} K, S = (ln 10)RT/F = {S} mV.",
+          "Como E = K − S·pH, pH_x = pH_s + (E_s − E_x)/S.",
+          "pH = {pHs} + {dE}/{S} = {pHs} {dpp} = {pH}."
+        ]
+      },
+      "mistakes": {
+        "ln": "Você esqueceu de multiplicar por ln 10 (= 2,3026); RT/(zF) corresponde a uma unidade de logaritmo natural. A variação para uma mudança de dez vezes na concentração é (ln 10)RT/(zF).",
+        "c": "Você inseriu a temperatura em °C. T é a temperatura absoluta (K).",
+        "noz": "Você esqueceu de dividir pela carga z. A inclinação para um íon divalente é metade da de um monovalente.",
+        "s25": "Você usou a inclinação a 25 °C, 59,16 mV. Na temperatura deste problema, {t} °C, S = {S} mV.",
+        "sign": "O sinal da diferença de potencial está invertido. Com E = K − S·pH, quanto menor o potencial, maior o pH."
+      }
+    },
+    "faraday": {
+      "name": "Lei de Faraday (quantidade depositada na eletrólise)",
+      "short": "Obter a massa de metal depositada a partir da corrente e do tempo, ou o tempo necessário para uma massa desejada",
+      "formula": "Q = It, m = QM/(zF)",
+      "q": {
+        "m": "{metal} é eletrolisada com corrente constante de {I} mA durante {t} min. Com eficiência de corrente de 100 %, calcule a massa de metal depositada (mg) (M = {M} g/mol, z = {z}, F = {F} C/mol).",
+        "t": "{metal} é eletrolisada com corrente constante de {I} mA, e deseja-se depositar {mt} mg. Com eficiência de corrente de 100 %, calcule o tempo necessário (min) (M = {M} g/mol, z = {z}, F = {F} C/mol)."
+      },
+      "steps": {
+        "m": [
+          "Q = It = {I} × 10⁻³ A × {ts} s = {Q} C.",
+          "Quantidade de elétrons = Q/F = {ne} mol; metal = elétrons/z = {nm} mol.",
+          "m = {nm} × {M} g/mol = {m} mg."
+        ],
+        "t": [
+          "Quantidade de metal = {mt} × 10⁻³ g/{M} g/mol = {nm} mol; elétrons = z vezes isso = {ne} mol.",
+          "Q = quantidade de elétrons × F = {Q} C.",
+          "t = Q/I = {Q}/({I} × 10⁻³) = {ts} s = {tm} min."
+        ]
+      },
+      "mistakes": {
+        "noz": "Você esqueceu z (o número de elétrons necessários para reduzir um íon). Com z = {z}, divida a quantidade de elétrons por z (para o tempo, multiplique por z).",
+        "min": "Você inseriu o tempo em minutos em Q = It. Q (C) = I (A) × t (s), então multiplique os minutos por 60 para ter segundos."
+      }
+    },
+    "dg-e": {
+      "name": "Força eletromotriz, energia de Gibbs e constante de equilíbrio",
+      "short": "Obter ΔG° ou log₁₀ K a partir da força eletromotriz padrão, ou a força eletromotriz a partir de ΔG°",
+      "formula": "ΔG° = −nFE°, log₁₀ K = nE°/(0,05916 V)",
+      "q": {
+        "dg": "Uma reação de pilha em que são transferidos n = {n} elétrons tem força eletromotriz padrão E° = {E} V. Calcule a variação de energia de Gibbs padrão ΔG° (kJ/mol) a 25 °C (F = {F} C/mol).",
+        "logk": "Uma reação em que são transferidos n = {n} elétrons tem força eletromotriz padrão E° = {E} V. Calcule o logaritmo decimal log₁₀ K da constante de equilíbrio a 25 °C ((ln 10)RT/F = {S} V).",
+        "e": "Uma reação de pilha em que são transferidos n = {n} elétrons tem variação de energia de Gibbs padrão ΔG° = {dG} kJ/mol. Calcule a força eletromotriz padrão E° (V) (F = {F} C/mol)."
+      },
+      "steps": {
+        "dg": [
+          "ΔG° = −nFE° = −{n} × {F} × ({E}) J/mol.",
+          "= {J} J/mol.",
+          "= {dG} kJ/mol."
+        ],
+        "logk": [
+          "De ΔG° = −nFE° = −RT ln K: ln K = nFE°/(RT).",
+          "Em logaritmo decimal: log₁₀ K = nE°/((ln 10)RT/F) = {n} × ({E})/{S}.",
+          "log₁₀ K = {lk} (K = {K})."
+        ],
+        "e": [
+          "De ΔG° = −nFE°: E° = −ΔG°/(nF).",
+          "ΔG° = {J} J/mol, nF = {nF} C/mol.",
+          "E° = −({J})/{nF} = {E} V."
+        ]
+      },
+      "mistakes": {
+        "non": "Você esqueceu o número de elétrons n. ΔG° = −nFE°, e log₁₀ K também é proporcional a n.",
+        "ln": "Você deu ln K. O que se pede é o logaritmo decimal log₁₀ K, que é ln K/2,303."
+      }
+    },
+    "beer-conc": {
+      "name": "Concentração pela lei de Beer-Lambert",
+      "short": "Obter a concentração a partir da absorbância (ou da transmitância), da absortividade molar e do caminho óptico",
+      "formula": "A = εlc, c = A/(εl)",
+      "q": {
+        "a": "Uma solução de {sp} (ε = {eps} L/(mol·cm)) medida em uma cubeta de caminho óptico {l} cm tem absorbância A = {A}. Calcule a concentração em µmol/L.",
+        "t": "Uma solução de {sp} (ε = {eps} L/(mol·cm)) medida em uma cubeta de caminho óptico {l} cm tem transmitância de {Tp} %. Calcule a concentração em µmol/L."
+      },
+      "steps": {
+        "a": [
+          "c = A/(εl).",
+          "εl = {eps} × {l} = {el} L/mol.",
+          "c = {A}/{el} = {c} mol/L = {cu} µmol/L."
+        ],
+        "t": [
+          "A = −log₁₀(T/100) = −log₁₀({Tp}/100) = {A}.",
+          "εl = {eps} × {l} = {el} L/mol.",
+          "c = A/(εl) = {A}/{el} = {c} mol/L = {cu} µmol/L."
+        ]
+      },
+      "mistakes": {
+        "mult": "Você multiplicou A·ε·l. Como A = εlc, c = A/(εl): é preciso dividir.",
+        "mm": "Você inseriu o caminho óptico em mm (10 vezes o valor em cm). Com ε em L/(mol·cm), l deve estar em cm.",
+        "ln": "Você calculou a absorbância com o logaritmo natural ln. A = −log₁₀ T.",
+        "tasa": "Você usou a transmitância em % diretamente como absorbância. Converta primeiro: A = −log₁₀(T/100)."
+      }
+    },
+    "absorbance": {
+      "name": "Conversão entre absorbância e transmitância",
+      "short": "Obter a transmitância (%) a partir da absorbância, ou a absorbância a partir da transmitância",
+      "formula": "A = −log₁₀ T, %T = 100 × 10^(−A)",
+      "q": {
+        "t": "Qual é a transmitância (%) de uma amostra com absorbância A = {A}?",
+        "a": "Calcule a absorbância A de uma amostra com transmitância de {Tp} %."
+      },
+      "steps": {
+        "t": [
+          "T = 10^(−A) = 10^(−{A}) = {Tf}.",
+          "%T = 100 × {Tf} = {Tp} %."
+        ],
+        "a": [
+          "T = {Tp}/100 = {Tf}.",
+          "A = −log₁₀ {Tf} = {A} (= 2 − log₁₀ %T)."
+        ]
+      },
+      "mistakes": {
+        "ln": "Você usou o logaritmo natural (potências de e) no lugar do decimal. A = −log₁₀ T e T = 10^(−A).",
+        "lin": "Você tratou a transmitância como 1 − A, de forma linear. A absorbância é logarítmica: T = 10^(−A).",
+        "nopct": "Você tirou o logaritmo de %T sem dividir por 100. A = −log₁₀(%T/100) = 2 − log₁₀ %T."
+      }
+    },
+    "wavenumber": {
+      "name": "Conversão entre número de onda, comprimento de onda e energia",
+      "short": "Converter entre número de onda (cm⁻¹) e comprimento de onda, e obter a energia por mol a partir do número de onda",
+      "formula": "ν̃ = 1/λ, E = hcν̃",
+      "q": {
+        "lam": "A que comprimento de onda, em µm, corresponde uma absorção no espectro de IV em {nu} cm⁻¹?",
+        "nu": "Calcule o número de onda (cm⁻¹) de uma luz de comprimento de onda {lam} nm.",
+        "e": "Calcule a energia por mol de fótons (kJ/mol) de uma vibração em {nu} cm⁻¹ (h = {h} J·s, c = {c} m/s, N_A = {NA} mol⁻¹)."
+      },
+      "steps": {
+        "lam": [
+          "λ = 1/ν̃ = 1/{nu} cm = {cm} cm.",
+          "1 cm = 10⁴ µm, logo λ = 10⁴/ν̃ = {l} µm."
+        ],
+        "nu": [
+          "λ = {lam} nm = {cm} cm (1 nm = 10⁻⁷ cm).",
+          "ν̃ = 1/λ = 10⁷/{lam} = {n} cm⁻¹."
+        ],
+        "e": [
+          "ν̃ = {nu} cm⁻¹ = {m} m⁻¹ (multiplicado por 100).",
+          "Um fóton: E = hcν̃ = {E1} J.",
+          "Por mol: E × N_A = {E} kJ/mol."
+        ]
+      },
+      "mistakes": {
+        "nona": "Você apenas converteu para kJ a energia de um único fóton (em J). Para obtê-la por mol, multiplique por N_A."
+      }
+    },
+    "nmr-shift": {
+      "name": "Deslocamento químico de RMN (Hz e ppm) e frequência de Larmor",
+      "short": "Converter entre Hz e ppm, e obter a frequência de ressonância do ¹H a partir da intensidade do campo magnético",
+      "formula": "δ = Δν/ν₀ × 10⁶, ν₀ = (γ/2π)B₀",
+      "q": {
+        "ppm": "Em um espectro de RMN de ¹H a {nu0} MHz, um sinal aparece {dv} Hz a campo baixo em relação ao TMS. Calcule o deslocamento químico δ (ppm).",
+        "hz": "A quantos Hz do TMS aparece um sinal de ¹H com deslocamento químico δ = {d} ppm em um equipamento de {nu0} MHz?",
+        "b0": "Calcule a frequência de ressonância do ¹H (MHz) em um equipamento de RMN com campo B₀ = {B0} T (γ/2π = {g} MHz/T; despreze a blindagem)."
+      },
+      "steps": {
+        "ppm": [
+          "δ = Δν (Hz)/ν₀ (MHz) dá diretamente ppm (Hz/MHz = 10⁻⁶).",
+          "δ = {dv}/{nu0} = {d} ppm."
+        ],
+        "hz": [
+          "Δν (Hz) = δ (ppm) × ν₀ (MHz).",
+          "Δν = {d} × {nu0} = {dv} Hz."
+        ],
+        "b0": [
+          "ν₀ = (γ/2π)B₀.",
+          "ν₀ = {g} × {B0} = {nu} MHz."
+        ]
+      },
+      "mistakes": {
+        "inv": "Você dividiu ν₀ por Δν. δ = Δν/ν₀.",
+        "div": "Você dividiu o valor em ppm pelo valor em MHz. É preciso multiplicar: Δν (Hz) = δ (ppm) × ν₀ (MHz).",
+        "pi2": "Você usou γ em vez de γ/2π (2π vezes maior). A frequência é (γ/2π)B₀.",
+        "dpi": "Você dividiu γ/2π de novo por 2π. Os {g} MHz/T dados já são o valor de γ/2π."
+      }
+    },
+    "dbe": {
+      "name": "Grau de insaturação (anéis mais ligações duplas)",
+      "short": "Obter o grau de insaturação (anéis + ligações π) a partir da fórmula molecular",
+      "formula": "U = C − H/2 − X/2 + N/2 + 1",
+      "q": "Calcule o grau de insaturação U (soma do número de anéis e de ligações duplas) de um composto de fórmula molecular {f}.",
+      "steps": [
+        "U = C − H/2 − X/2 + N/2 + 1 (X é halogênio; o O não é contado).",
+        "C = {c}, H/2 = {h2}, X/2 = {x2}, N/2 = {n2}.",
+        "U = {c} − {h2} − {x2} + {n2} + 1 = {U}."
+      ],
+      "mistakes": {
+        "o": "Você contou o oxigênio. O O (e o S) é divalente e não altera o grau de insaturação.",
+        "x": "Você esqueceu os halogênios. Um halogênio é monovalente como o H, então subtraia X/2, assim como para o H.",
+        "n": "Você esqueceu o nitrogênio. O N é trivalente, então some N/2.",
+        "nsign": "Você tratou o nitrogênio ao contrário (subtraiu N/2 em vez de somar)."
+      }
+    },
+    "isotope": {
+      "name": "Picos isotópicos do cloro e do bromo, e M+1",
+      "short": "Obter a razão de intensidades de M+2 ou M+4 a partir do número de Cl e de Br, ou o número de carbonos a partir da intensidade de M+1",
+      "formula": "M+2/M = n_Cl r_Cl + n_Br r_Br, n_C ≈ (M+1)/M × 98,93/1,07",
+      "q": {
+        "m2": "Na região do íon molecular de uma molécula que contém {who}, qual é a intensidade do pico M+2 em porcentagem do pico M? Use ³⁵Cl {cl} %, ³⁷Cl {cl2} %, ⁷⁹Br {br} %, ⁸¹Br {br2} % e despreze os isótopos dos outros elementos.",
+        "m4": "Na região do íon molecular de uma molécula que contém {who}, qual é a intensidade do pico M+4 em porcentagem do pico M? Use ³⁵Cl {cl} %, ³⁷Cl {cl2} %, ⁷⁹Br {br} %, ⁸¹Br {br2} % e despreze os isótopos dos outros elementos.",
+        "nc": "No espectro de massas de um composto formado só por C, H e O, o pico M+1 tem {m1} % da intensidade do pico M. Usando apenas a abundância do ¹³C de 1,07 % (¹²C 98,93 %), calcule o número de carbonos."
+      },
+      "steps": {
+        "m2": [
+          "Razão de probabilidades para um isótopo pesado: por Cl, r_Cl = {cl2}/{cl} = {rc}; por Br, r_Br = {br2}/{br} = {rb}.",
+          "M+2/M = n_Cl r_Cl + n_Br r_Br = {ncl} × {rc} + {nbr} × {rb}.",
+          "= {a} % (× 100)."
+        ],
+        "m4": [
+          "r_Cl = {cl2}/{cl} = {rc}, r_Br = {br2}/{br} = {rb}.",
+          "Combinações com dois isótopos pesados: dois Cl, {cc}; um Cl e um Br, {cb}; dois Br, {bb}.",
+          "M+4/M = {cc} r_Cl² + {cb} r_Cl r_Br + {bb} r_Br² = {a} %."
+        ],
+        "nc": [
+          "M+1/M ≈ n_C × 1,07/98,93.",
+          "n_C = {m1}/100 × 98,93/1,07 = {n}.",
+          "Arredondando para um inteiro: {ni} carbonos."
+        ]
+      },
+      "mistakes": {
+        "swap": "Você trocou as abundâncias do cloro e do bromo (o Cl é cerca de 3 : 1 e o Br, cerca de 1 : 1).",
+        "approx": "Você calculou com a regra prática 3 : 1 (Cl) e 1 : 1 (Br). Use as abundâncias dadas no problema (r_Cl = {rc}, r_Br = {rb}).",
+        "nobin": "Você esqueceu de multiplicar pelo número de combinações (coeficiente binomial). Dois isótopos pesados podem se distribuir de n(n − 1)/2 maneiras."
+      }
+    },
+    "mass-error": {
+      "name": "Erro de massa (ppm) em espectrometria de massas de alta resolução",
+      "short": "Obter o erro de massa em ppm de [M+H]⁺ ou [M+Na]⁺ a partir da massa monoisotópica e do m/z medido",
+      "formula": "Δ = (m_meas − m_calc)/m_calc × 10⁶",
+      "q": {
+        "h": "O íon [M+H]⁺ de {cmp}, de massa monoisotópica M = {M}, é medido por espectrometria de massas de alta resolução em m/z {meas}. Calcule o erro de massa (ppm) (massa do H⁺: {mi} u).",
+        "na": "O íon [M+Na]⁺ de {cmp}, de massa monoisotópica M = {M}, é medido por espectrometria de massas de alta resolução em m/z {meas}. Calcule o erro de massa (ppm) (massa do Na⁺: {mi} u)."
+      },
+      "steps": {
+        "h": [
+          "m/z calculado = M + m(H⁺) = {M} + {mi} = {calc}.",
+          "Diferença = {meas} − {calc} = {d} mDa (× 10⁻³ u).",
+          "Δ = diferença/valor calculado × 10⁶ = {e} ppm."
+        ],
+        "na": [
+          "m/z calculado = M + m(Na⁺) = {M} + {mi} = {calc}.",
+          "Diferença = {meas} − {calc} = {d} mDa (× 10⁻³ u).",
+          "Δ = diferença/valor calculado × 10⁶ = {e} ppm."
+        ]
+      },
+      "mistakes": {
+        "atom": "Você somou a massa do átomo (H ou Na). Um cátion é mais leve pela massa de um elétron (0,000 549 u), então some a massa do H⁺ ou do Na⁺.",
+        "neutral": "Você comparou com a massa M da molécula neutra, antes da ionização. Para [M+H]⁺, o valor calculado é M + m(H⁺)."
+      }
+    },
+    "retention": {
+      "name": "Fator de retenção e fator de separação",
+      "short": "Obter o fator de retenção k a partir do tempo de retenção e do tempo morto, ou o fator de separação α a partir de dois picos",
+      "formula": "k = (t_R − t₀)/t₀, α = k₂/k₁",
+      "q": {
+        "k": "Em HPLC, um componente não retido sai em t₀ = {t0} min e o analito em t_R = {tr} min. Calcule o fator de retenção k.",
+        "alpha": "Em HPLC, t₀ = {t0} min e dois picos vizinhos saem em {tr1} min e {tr2} min. Calcule o fator de separação α."
+      },
+      "steps": {
+        "k": [
+          "k = (t_R − t₀)/t₀.",
+          "t_R − t₀ = {tr} − {t0} = {d} min.",
+          "k = {d}/{t0} = {k}."
+        ],
+        "alpha": [
+          "k₁ = ({tr1} − {t0})/{t0} = {k1}.",
+          "k₂ = ({tr2} − {t0})/{t0} = {k2}.",
+          "α = k₂/k₁ = {a}."
+        ]
+      },
+      "mistakes": {
+        "ratio": "Você deu t_R/t₀. Isso é 1 + k; k = (t_R − t₀)/t₀.",
+        "nodiv": "Você parou em t_R − t₀ (o tempo de retenção ajustado). Divida por t₀ para obter k.",
+        "inv": "Você dividiu t₀ por (t_R − t₀) (o inverso).",
+        "tr": "Você deu a razão dos tempos de retenção t_R2/t_R1. α é a razão dos fatores de retenção k₂/k₁, depois de subtrair t₀.",
+        "ainv": "Você inverteu a razão (k₁/k₂). α tem o pico que sai depois no numerador, então é no mínimo 1."
+      }
+    },
+    "resolution": {
+      "name": "Resolução Rs",
+      "short": "Obter a resolução a partir dos tempos de retenção e das larguras (na linha de base ou à meia altura) de dois picos vizinhos",
+      "formula": "R_s = 2(t_R2 − t_R1)/(W₁ + W₂)",
+      "q": {
+        "base": "Dois picos vizinhos saem em {t1} min e {t2} min. Suas larguras na linha de base (método das tangentes) são {w1} min e {w2} min. Calcule a resolução R_s.",
+        "half": "Dois picos vizinhos saem em {t1} min e {t2} min. Suas larguras à meia altura são {w1} min e {w2} min. Calcule a resolução R_s."
+      },
+      "steps": {
+        "base": [
+          "Com larguras na linha de base, R_s = 2(t_R2 − t_R1)/(W₁ + W₂).",
+          "t_R2 − t_R1 = {dt} min, W₁ + W₂ = {ws} min.",
+          "R_s = 2 × {dt}/{ws} = {rs}."
+        ],
+        "half": [
+          "Com larguras à meia altura, R_s = 1,18(t_R2 − t_R1)/(W½,₁ + W½,₂).",
+          "t_R2 − t_R1 = {dt} min, W½,₁ + W½,₂ = {ws} min.",
+          "R_s = 1,18 × {dt}/{ws} = {rs}."
+        ]
+      },
+      "mistakes": {
+        "no2": "Você esqueceu o fator 2. Com larguras na linha de base, R_s = 2Δt_R/(W₁ + W₂) (o mesmo que dividir pela largura média).",
+        "h118": "Você usou o fator da meia altura, 1,18, com larguras na linha de base. Para larguras na linha de base, o fator é 2.",
+        "two": "Você usou o fator da linha de base, 2, com larguras à meia altura. Para larguras à meia altura, o fator é 1,18.",
+        "no": "Você esqueceu o fator (1,18 para larguras à meia altura)."
+      }
+    },
+    "plates": {
+      "name": "Número de pratos teóricos e altura equivalente a um prato teórico",
+      "short": "Obter o número de pratos teóricos N a partir do tempo de retenção e da largura do pico, e a altura equivalente a um prato teórico H a partir do comprimento da coluna",
+      "formula": "N = 16(t_R/W)² = 5,54(t_R/W½)², H = L/N",
+      "q": {
+        "base": "Um pico com tempo de retenção de {tr} min tem largura na linha de base (método das tangentes) de {w} min. Calcule o número de pratos teóricos N.",
+        "half": "Um pico com tempo de retenção de {tr} min tem largura à meia altura de {wh} min. Calcule o número de pratos teóricos N.",
+        "h": "Em uma coluna de {L} mm, um pico com tempo de retenção de {tr} min tem largura na linha de base (método das tangentes) de {w} min. Calcule a altura equivalente a um prato teórico H (µm)."
+      },
+      "steps": {
+        "base": [
+          "N = 16(t_R/W)² (largura na linha de base).",
+          "t_R/W = {tr}/{w} = {x}; ao quadrado, {x2}.",
+          "N = 16 × {x2} = {N}."
+        ],
+        "half": [
+          "N = 5,54(t_R/W½)² (largura à meia altura).",
+          "t_R/W½ = {tr}/{wh} = {x}; ao quadrado, {x2}.",
+          "N = 5,54 × {x2} = {N}."
+        ],
+        "h": [
+          "N = 16(t_R/W)² = 16 × ({tr}/{w})² = {N}.",
+          "H = L/N = {L} mm/{N}.",
+          "H = {H} µm (1 mm = 1000 µm)."
+        ]
+      },
+      "mistakes": {
+        "half": "Você usou o fator da meia altura, 5,54, com a largura na linha de base. Para a largura na linha de base, é 16.",
+        "base": "Você usou o fator da linha de base, 16, com a largura à meia altura. Para a largura à meia altura, é 5,54.",
+        "nosq": "Você esqueceu de elevar (t_R/W) ao quadrado."
+      }
+    },
+    "rf": {
+      "name": "Valor de Rf (cromatografia em camada delgada)",
+      "short": "Obter o Rf a partir das posições da origem, da mancha e da frente do solvente, ou a posição da mancha a partir do Rf",
+      "formula": "R_f = d_s/d_m",
+      "q": {
+        "rf": "Em CCD, a amostra é aplicada em uma origem a {o} cm da borda inferior da placa e eluída. A frente do solvente está a {f} cm e o centro da mancha a {s} cm da borda inferior. Calcule o R_f.",
+        "d": "Nestas condições, um composto tem R_f = {Rf}. Quando o solvente subiu {df} cm acima da origem, a quantos cm da origem está o centro da mancha?"
+      },
+      "steps": {
+        "rf": [
+          "Medindo a partir da origem: mancha d_s = {s} − {o} = {ds} cm, solvente d_m = {f} − {o} = {dm} cm.",
+          "R_f = d_s/d_m = {ds}/{dm} = {Rf}."
+        ],
+        "d": [
+          "d_s = R_f × d_m.",
+          "d_s = {Rf} × {df} = {d} cm."
+        ]
+      },
+      "mistakes": {
+        "bottom": "Você usou as distâncias medidas a partir da borda inferior da placa. O R_f é a razão das distâncias medidas a partir da origem.",
+        "inv": "Você dividiu a distância do solvente pela da mancha (o inverso). O R_f é menor que 1.",
+        "div": "Você dividiu pelo R_f. A mancha anda atrás do solvente, então é preciso multiplicar: d_s = R_f × d_m."
+      }
+    },
+    "rate-law": {
+      "name": "Meia-vida e concentração (ordem zero, primeira e segunda ordem)",
+      "short": "Obter a meia-vida, ou a concentração após um tempo t, a partir da ordem de reação e da constante de velocidade",
+      "formula": "t½ = ln 2/k (primeira ordem), 1/[A] = 1/[A]₀ + kt (segunda ordem)",
+      "q": {
+        "half": "Para uma reação de ordem {n} com −d[A]/dt = k[A]^{n}, k = {k} {ku} e [A]₀ = {a0} mol/L. Calcule a meia-vida (s).",
+        "conc": "Para uma reação de ordem {n} com −d[A]/dt = k[A]^{n}, k = {k} {ku} e [A]₀ = {a0} mol/L. Calcule [A] (mol/L) em t = {t} s."
+      },
+      "steps": {
+        "half-0": [
+          "Ordem zero: [A] = [A]₀ − kt. O tempo em que [A] = [A]₀/2 é t½ = [A]₀/(2k).",
+          "t½ = {a0}/(2 × {k}) = {th} s."
+        ],
+        "half-1": [
+          "Primeira ordem: [A] = [A]₀e^(−kt). A meia-vida não depende da concentração: t½ = ln 2/k.",
+          "t½ = 0,6931/({k}) = {th} s."
+        ],
+        "half-2": [
+          "Segunda ordem: 1/[A] = 1/[A]₀ + kt. A meia-vida é t½ = 1/(k[A]₀).",
+          "k[A]₀ = {ka}, logo t½ = 1/({ka}) = {th} s."
+        ],
+        "conc-0": [
+          "Ordem zero: [A] = [A]₀ − kt.",
+          "kt = {kt} mol/L.",
+          "[A] = {a0} − {kt} = {a} mol/L."
+        ],
+        "conc-1": [
+          "Primeira ordem: [A] = [A]₀e^(−kt).",
+          "kt = {kt}, e^(−kt) = {e}.",
+          "[A] = {a0} × {e} = {a} mol/L."
+        ],
+        "conc-2": [
+          "Segunda ordem: 1/[A] = 1/[A]₀ + kt.",
+          "1/[A]₀ = {ia} L/mol, kt = {kt} L/mol.",
+          "1/[A] = {inv} L/mol, logo [A] = {a} mol/L."
+        ]
+      },
+      "mistakes": {
+        "first": "Você usou as fórmulas de primeira ordem (t½ = ln 2/k, [A] = [A]₀e^(−kt)). Esta reação é de ordem {n}, então use a forma integrada de ordem {n}.",
+        "log": "Você usou potências de 10 (logaritmo decimal) no lugar de e (logaritmo natural). Para primeira ordem, e^(−kt) e t½ = ln 2/k.",
+        "noa": "Você esqueceu de multiplicar por [A]₀. A meia-vida de segunda ordem é 1/(k[A]₀).",
+        "no2": "Você esqueceu de dividir por 2. A meia-vida de ordem zero é [A]₀/(2k) (metade do tempo necessário para consumir tudo).",
+        "used": "Você deu a quantidade que reagiu ([A]₀ − [A]). O que se pede é a [A] que resta."
+      }
+    },
+    "arrhenius": {
+      "name": "Equação de Arrhenius (energia de ativação)",
+      "short": "Obter a energia de ativação a partir das constantes de velocidade em duas temperaturas, ou a constante de velocidade em outra temperatura a partir de Ea",
+      "formula": "ln(k₂/k₁) = (E_a/R)(1/T₁ − 1/T₂)",
+      "q": {
+        "ea": "A constante de velocidade de uma reação de primeira ordem é {k1} s⁻¹ a {t1} °C e {k2} s⁻¹ a {t2} °C. Calcule a energia de ativação E_a (kJ/mol) (R = 8,314 J/(mol·K)).",
+        "k2": "Uma reação de primeira ordem com energia de ativação de {Ea} kJ/mol tem constante de velocidade de {k1} s⁻¹ a {t1} °C. Calcule a constante de velocidade (s⁻¹) a {t2} °C (R = 8,314 J/(mol·K))."
+      },
+      "steps": {
+        "ea": [
+          "T₁ = {T1} K, T₂ = {T2} K, 1/T₁ − 1/T₂ = {inv} K⁻¹.",
+          "ln(k₂/k₁) = {lk}.",
+          "E_a = R ln(k₂/k₁)/(1/T₁ − 1/T₂) = 8,314 × {lk}/({inv}) J/mol = {Ea} kJ/mol."
+        ],
+        "k2": [
+          "T₁ = {T1} K, T₂ = {T2} K, 1/T₁ − 1/T₂ = {inv} K⁻¹.",
+          "ln(k₂/k₁) = (E_a/R)(1/T₁ − 1/T₂) = {Ea} × 1000/8,314 × {inv} = {x}.",
+          "k₂ = k₁ × e^{x} = {k1} × {e} = {k2} s⁻¹."
+        ]
+      },
+      "mistakes": {
+        "c": "Você inseriu as temperaturas em °C. O T da equação de Arrhenius é a temperatura absoluta (K).",
+        "log": "Você usou o logaritmo decimal (potências de 10) no lugar do natural (diferença por um fator 2,303).",
+        "inv": "O sinal do expoente está invertido. Uma reação com E_a > 0 fica mais rápida quando a temperatura aumenta."
+      }
+    },
+    "gibbs-k": {
+      "name": "Energia de Gibbs padrão e constante de equilíbrio",
+      "short": "Obter ΔG° a partir da constante de equilíbrio, ou a constante de equilíbrio e a proporção de duas formas a partir de ΔG°",
+      "formula": "ΔG° = −RT ln K",
+      "q": {
+        "dg": "A {t} °C, uma reação tem constante de equilíbrio K = {K} (adimensional, referida ao estado padrão). Calcule a variação de energia de Gibbs padrão ΔG° (kJ/mol) (R = 8,314 J/(mol·K)).",
+        "k": "A {t} °C, uma reação tem ΔG° = {dG} kJ/mol. Calcule sua constante de equilíbrio K (R = 8,314 J/(mol·K)).",
+        "pct": "Entre dois confôrmeros (ou isômeros), o mais estável tem ΔG° {dd} kJ/mol menor. No equilíbrio a {t} °C, que porcentagem do total corresponde à forma mais estável? (R = 8,314 J/(mol·K))"
+      },
+      "steps": {
+        "dg": [
+          "T = {T} K, RT = {RT} J/mol.",
+          "ln K = {lnK}.",
+          "ΔG° = −RT ln K = −{RT} × ({lnK}) J/mol = {dG} kJ/mol."
+        ],
+        "k": [
+          "T = {T} K, RT = {RT} J/mol.",
+          "ln K = −ΔG°/(RT) = −({dG} × 1000)/{RT} = {x}.",
+          "K = e^{x} = {K}."
+        ],
+        "pct": [
+          "T = {T} K, RT = {RT} J/mol.",
+          "K = [estável]/[menos estável] = e^(−ΔG°/RT) (ΔG° = −{dd} kJ/mol para menos estável → estável) = e^{x} = {K}.",
+          "Proporção = K/(1 + K) × 100 = {p} %."
+        ]
+      },
+      "mistakes": {
+        "log": "Você usou o logaritmo decimal no lugar do natural. ΔG° = −RT ln K = −2,303RT log₁₀ K.",
+        "c": "Você inseriu a temperatura em °C. T é a temperatura absoluta (K).",
+        "sign": "O sinal está invertido. ΔG° < 0 significa K > 1 (o equilíbrio favorece os produtos).",
+        "minor": "Você deu a porcentagem da forma menos estável."
+      }
+    },
+    "mn-mw": {
+      "name": "Massa molar média numérica, massa molar média ponderal e dispersidade",
+      "short": "Obter M_n, M_w e Đ de uma mistura, em massa, de polímeros de massas molares diferentes",
+      "formula": "M_n = Σw_i/Σ(w_i/M_i), M_w = Σw_iM_i/Σw_i, Đ = M_w/M_n",
+      "q": {
+        "mn": "Misturam-se três polímeros monodispersos: {w1} g de {M1} g/mol, {w2} g de {M2} g/mol e {w3} g de {M3} g/mol. Calcule a massa molar média numérica M_n.",
+        "mw": "Misturam-se três polímeros monodispersos: {w1} g de {M1} g/mol, {w2} g de {M2} g/mol e {w3} g de {M3} g/mol. Calcule a massa molar média ponderal M_w.",
+        "d": "Misturam-se três polímeros monodispersos: {w1} g de {M1} g/mol, {w2} g de {M2} g/mol e {w3} g de {M3} g/mol. Calcule a dispersidade Đ = M_w/M_n."
+      },
+      "steps": {
+        "mn": [
+          "M_n = massa total/quantidade de matéria total = Σw_i/Σ(w_i/M_i).",
+          "Σw_i = {sw} g, Σ(w_i/M_i) = {sn} mol.",
+          "M_n = {sw}/({sn}) = {Mn} g/mol."
+        ],
+        "mw": [
+          "M_w = Σw_iM_i/Σw_i (média ponderada pela massa).",
+          "Σw_iM_i = {swm} g²/mol, Σw_i = {sw} g.",
+          "M_w = {swm}/{sw} = {Mw} g/mol."
+        ],
+        "d": [
+          "M_n = Σw_i/Σ(w_i/M_i) = {sw}/({sn}) = {Mn} g/mol.",
+          "M_w = Σw_iM_i/Σw_i = {swm}/{sw} = {Mw} g/mol.",
+          "Đ = M_w/M_n = {D}."
+        ]
+      },
+      "mistakes": {
+        "mw": "Você deu a média ponderada pela massa, M_w. M_n é a média pelo número de moléculas (quantidade de matéria).",
+        "mn": "Você deu a média pela quantidade de matéria, M_n. M_w é a média ponderada pela massa.",
+        "avg": "Você fez a média simples das três massas molares. Pondere pelas quantidades (massas) misturadas.",
+        "inv": "Você deu M_n/M_w. A dispersidade é M_w/M_n e é no mínimo 1."
+      }
+    },
+    "carothers": {
+      "name": "Equação de Carothers (grau de polimerização na polimerização em etapas)",
+      "short": "Obter o grau de polimerização médio numérico a partir da conversão p, o p necessário para um grau de polimerização desejado, ou o grau de polimerização com razão molar r",
+      "formula": "X_n = 1/(1 − p), X_n = (1 + r)/(1 + r − 2rp)",
+      "q": {
+        "xn": "Em uma polimerização em etapas (policondensação) com os grupos funcionais em proporção equimolar, calcule o grau de polimerização médio numérico X_n para uma conversão p = {p}.",
+        "p": "Em uma polimerização em etapas com os grupos funcionais em proporção equimolar, que conversão p é necessária para que X_n = {Xn}? (Responda com cerca de quatro casas decimais.)",
+        "r": "Em uma polimerização em etapas A–A + B–B, a razão molar dos grupos funcionais é r = {r} (menor/maior) e a conversão do grupo em menor quantidade é p = {p}. Calcule o grau de polimerização médio numérico X_n."
+      },
+      "steps": {
+        "xn": [
+          "X_n = 1/(1 − p).",
+          "1 − p = {q}.",
+          "X_n = 1/{q} = {X}."
+        ],
+        "p": [
+          "De X_n = 1/(1 − p): p = 1 − 1/X_n.",
+          "1/X_n = {i}.",
+          "p = 1 − {i} = {p}."
+        ],
+        "r": [
+          "X_n = (1 + r)/(1 + r − 2rp).",
+          "Numerador 1 + r = {num}, 2rp = {rp}, denominador = {den}.",
+          "X_n = {num}/{den} = {X}."
+        ]
+      },
+      "mistakes": {
+        "xw": "Você usou a fórmula do grau de polimerização médio ponderal X_w = (1 + p)/(1 − p). O médio numérico é X_n = 1/(1 − p).",
+        "inv": "Você deu 1/p (ou 1/X_n). X_n = 1/(1 − p).",
+        "nor": "Você ignorou a razão molar r e usou 1/(1 − p). Um desequilíbrio entre os grupos funcionais reduz muito o grau de polimerização."
+      }
+    },
+    "bragg": {
+      "name": "Lei de Bragg (distância interplanar, ângulo de difração, parâmetro de rede)",
+      "short": "Obter a distância interplanar ou o parâmetro de rede cúbico a partir do ângulo 2θ com Cu Kα₁, ou 2θ a partir da distância interplanar",
+      "formula": "λ = 2d sinθ, d = a/√(h² + k² + l²)",
+      "q": {
+        "d": "Na difração de raios X de pó com radiação Cu Kα₁ (λ = {lam} nm), aparece um pico em 2θ = {tt}°. Considerando-o de primeira ordem, calcule a distância interplanar d (nm).",
+        "tt": "Em que ângulo 2θ aparece o pico de difração de primeira ordem com radiação Cu Kα₁ (λ = {lam} nm) dos planos cristalinos com distância interplanar d = {d} nm?",
+        "a": "Uma substância cúbica medida com radiação Cu Kα₁ (λ = {lam} nm) mostra a reflexão dos planos {hkl} em 2θ = {tt}°. Calcule o parâmetro de rede a (nm)."
+      },
+      "steps": {
+        "d": [
+          "θ = 2θ/2 = {th}°, sinθ = {s}.",
+          "d = λ/(2 sinθ) = {lam}/(2 × {s}).",
+          "d = {d} nm."
+        ],
+        "tt": [
+          "sinθ = λ/(2d) = {lam}/(2 × {d}) = {s}.",
+          "θ = {th}°.",
+          "2θ = {tt}°."
+        ],
+        "a": [
+          "θ = {th}°, d = λ/(2 sinθ) = {lam}/(2 × {s}) = {d} nm.",
+          "h² + k² + l² = {S}, √{S} = {r}.",
+          "a = d √(h² + k² + l²) = {d} × {r} = {a} nm."
+        ]
+      },
+      "mistakes": {
+        "tt": "Você inseriu 2θ diretamente como θ na lei de Bragg. Divida por 2 o ângulo 2θ do difratômetro antes de usá-lo.",
+        "no2": "Você esqueceu o 2 da lei de Bragg (d = λ/sinθ). λ = 2d sinθ.",
+        "half": "Você deu θ. A posição dos picos de difração é dada em 2θ.",
+        "nosqrt": "Você esqueceu a raiz quadrada. d = a/√(h² + k² + l²)."
+      }
+    },
+    "scherrer": {
+      "name": "Equação de Scherrer (tamanho de cristalito)",
+      "short": "Obter o tamanho de cristalito a partir da largura (largura total à meia altura) e da posição de um pico de difração",
+      "formula": "D = Kλ/(β cosθ)",
+      "q": "Com radiação Cu Kα₁ (λ = {lam} nm), o pico em 2θ = {tt}° tem largura total à meia altura (medida em 2θ, já corrigida do alargamento instrumental) β = {b}°. Com a constante de Scherrer K = {K}, calcule o tamanho de cristalito D (nm).",
+      "steps": [
+        "Converta β para radianos: {b}° × π/180 = {br} rad.",
+        "θ = {th}°, cosθ = {c}.",
+        "D = Kλ/(β cosθ) = {K} × {lam}/({br} × {c}) = {D} nm."
+      ],
+      "mistakes": {
+        "deg": "Você inseriu β em graus. O β da equação de Scherrer é em radianos (divida os graus por 57,3).",
+        "tt": "Você inseriu 2θ no cosseno. O θ de cosθ é o ângulo de Bragg (metade de 2θ)."
+      }
+    },
+    "mean-sd": {
+      "name": "Desvio padrão, desvio padrão relativo e intervalo de confiança da média",
+      "short": "Obter o desvio padrão s, o RSD ou a semiamplitude do intervalo de confiança de 95 % a partir de medidas repetidas",
+      "formula": "s = √(Σ(x_i − x̄)²/(n − 1)), RSD = 100 s/x̄, ±t s/√n",
+      "q": {
+        "sd": "A mesma amostra foi medida {n} vezes, com os resultados {xs} mg/L. Calcule o desvio padrão s (dividindo por n − 1).",
+        "rsd": "A mesma amostra foi medida {n} vezes, com os resultados {xs} mg/L. Calcule o desvio padrão relativo RSD (%) (s dividido por n − 1).",
+        "ci": "A mesma amostra foi medida {n} vezes, com os resultados {xs} mg/L. Calcule a semiamplitude t s/√n (mg/L) do intervalo de confiança de 95 % da média, x̄ ± t s/√n. Valores de t (bilaterais, 95 %): {tab}."
+      },
+      "steps": {
+        "sd": [
+          "Média x̄ = {m} mg/L.",
+          "Soma dos quadrados dos desvios Σ(x_i − x̄)² = {ss}.",
+          "s = √({ss}/({n} − 1)) = {s} mg/L."
+        ],
+        "rsd": [
+          "Média x̄ = {m} mg/L; soma dos quadrados dos desvios = {ss}.",
+          "s = √({ss}/({n} − 1)) = {s} mg/L.",
+          "RSD = 100 × {s}/{m} = {rsd} %."
+        ],
+        "ci": [
+          "Média x̄ = {m} mg/L, s = {s} mg/L (dividindo por n − 1).",
+          "Para n − 1 = {df} graus de liberdade, t = {t}; √n = {sq}.",
+          "t s/√n = {t} × {s}/{sq} = {ci} mg/L."
+        ]
+      },
+      "mistakes": {
+        "pop": "Você dividiu por n (o σ da população, a tecla σn da calculadora). O desvio padrão amostral se divide por n − 1.",
+        "sem": "Você usou o erro padrão da média s/√n. A dispersão das medidas é s.",
+        "non": "Você esqueceu de dividir por √n. A semiamplitude do intervalo de confiança da média é t s/√n.",
+        "tn": "Você usou o valor de t para n graus de liberdade. Os graus de liberdade são n − 1 = {df}.",
+        "z": "Você usou o valor 1,96 da distribuição normal. Com n pequeno, use o t para n − 1 graus de liberdade."
+      }
+    },
+    "lod-loq": {
+      "name": "Limite de detecção e limite de quantificação",
+      "short": "Obter o LOD e o LOQ a partir do desvio padrão do branco e da inclinação da curva de calibração",
+      "formula": "LOD = 3,3σ/S, LOQ = 10σ/S",
+      "q": {
+        "lod": "Em um método espectrofotométrico, o desvio padrão da absorbância do branco é σ = {sb} e a inclinação da curva de calibração é S = {S} (absorbância por mg/L). Calcule o limite de detecção (mg/L) como LOD = 3,3σ/S.",
+        "loq": "Em um método espectrofotométrico, o desvio padrão da absorbância do branco é σ = {sb} e a inclinação da curva de calibração é S = {S} (absorbância por mg/L). Calcule o limite de quantificação (mg/L) como LOQ = 10σ/S.",
+        "lod3": "Em um método espectrofotométrico, o desvio padrão da absorbância do branco é s_b = {sb} e a inclinação da curva de calibração é S = {S} (absorbância por mg/L). Calcule o limite de detecção (mg/L) como LOD = 3s_b/S."
+      },
+      "steps": {
+        "lod": [
+          "σ/S = {sb}/{S} = {r} mg/L.",
+          "LOD = 3,3 × {r} = {x} mg/L."
+        ],
+        "loq": [
+          "σ/S = {sb}/{S} = {r} mg/L.",
+          "LOQ = 10 × {r} = {x} mg/L."
+        ],
+        "lod3": [
+          "s_b/S = {sb}/{S} = {r} mg/L.",
+          "LOD = 3 × {r} = {x} mg/L."
+        ]
+      },
+      "mistakes": {
+        "k3": "Você usou o fator 3. Neste problema, a definição é 3,3σ/S (confira no problema ou na norma qual definição se usa).",
+        "k33": "Você usou o fator 3,3. Neste problema, a definição é 3s_b/S.",
+        "mult": "Você multiplicou pela inclinação S. Para converter o desvio padrão do sinal em concentração, divida pela inclinação S.",
+        "lod33": "Você deu o limite de detecção (3,3σ/S). O limite de quantificação é 10σ/S.",
+        "lod3": "Você deu o limite de detecção (3σ/S). O limite de quantificação é 10σ/S."
+      }
+    },
+    "recovery": {
+      "name": "Recuperação do analito adicionado",
+      "short": "Obter a recuperação a partir dos resultados antes e depois da adição e da quantidade adicionada",
+      "formula": "R = (c_spiked − c_unspiked)/c_added × 100",
+      "q": "Uma amostra medida como está dá {c0} mg/kg; a mesma amostra, após a adição de um padrão equivalente a {a} mg/kg, dá {cs} mg/kg. Calcule a recuperação (%).",
+      "steps": [
+        "Aumento devido à adição = {cs} − {c0} = {d} mg/kg.",
+        "R = {d}/{a} × 100 = {R} %."
+      ],
+      "mistakes": {
+        "tot": "Você dividiu o resultado após a adição por (valor original + quantidade adicionada). A recuperação é o aumento dividido pela quantidade adicionada.",
+        "nosub": "Você dividiu o resultado após a adição pela quantidade adicionada sem subtrair o valor original."
+      }
+    },
+    "yield": {
+      "name": "Rendimento e rendimento global",
+      "short": "Obter o rendimento (com base no reagente limitante) a partir das massas dos reagentes e do produto, ou o rendimento global a partir dos rendimentos de cada etapa",
+      "formula": "Y = n_P/n_limitante × 100, rendimento global = Π Y_i",
+      "q": {
+        "one": "{mA} g de {A} ({MA} g/mol) e {mB} g de {B} ({MB} g/mol) reagem na proporção 1 : 1 e dão {mP} g de {P} ({MP} g/mol). Calcule o rendimento (%).",
+        "overall": "Em uma síntese de {n} etapas, os rendimentos de cada etapa são, em ordem, {ys}. Calcule o rendimento global (%)."
+      },
+      "steps": {
+        "one": [
+          "{A}: {nA} mol; {B}: {nB} mol. O de menor quantidade ({lim}) é o reagente limitante: {nl} mol.",
+          "{P}: {mP}/{MP} = {nP} mol.",
+          "Rendimento = {nP}/({nl}) × 100 = {Y} %."
+        ],
+        "overall": [
+          "O rendimento global é o produto dos rendimentos de cada etapa.",
+          "{prod} × 100 = {Y} %."
+        ]
+      },
+      "mistakes": {
+        "excess": "Você tomou como base o reagente em excesso. O rendimento se calcula com base no reagente limitante (o de menor quantidade de matéria).",
+        "mass": "Você dividiu massas. As massas molares são diferentes, então compare quantidades de matéria.",
+        "mean": "Você fez a média dos rendimentos das etapas. O rendimento global é o produto deles.",
+        "min": "Você deu o menor rendimento entre as etapas. O rendimento global é o produto dos rendimentos de cada etapa."
+      }
+    },
+    "atom-economy": {
+      "name": "Economia atômica",
+      "short": "Obter a economia atômica a partir da equação e das massas molares, ou a quantidade de subproduto formada mesmo com rendimento de 100 %",
+      "formula": "AE = M_P/Σ M_reagentes × 100",
+      "q": {
+        "ae": "Calcule a economia atômica (%) da reação a seguir (todos os coeficientes são 1). {eq}",
+        "waste": "Ao produzir {mp} kg do produto desejado com a reação a seguir, que massa de subproduto (kg) se forma mesmo com rendimento de 100 %? (Todos os coeficientes são 1.) {eq}"
+      },
+      "steps": {
+        "ae": [
+          "Soma das massas molares dos reagentes = {S} g/mol.",
+          "AE = produto desejado/soma dos reagentes × 100 = {AE} %."
+        ],
+        "waste": [
+          "Soma das massas molares dos reagentes = {S} g/mol; a parte dos subprodutos é {bp} g/mol (economia atômica de {AE} %).",
+          "Por kg de produto desejado, subproduto = {bp}/(massa molar do produto desejado) kg.",
+          "{mp} kg × subproduto/produto desejado = {w} kg."
+        ]
+      },
+      "mistakes": {
+        "first": "Você dividiu pela massa molar de um só reagente. Divida pela soma das massas molares de todos os reagentes.",
+        "rev": "Você deu a proporção de subproduto (100 − AE). A economia atômica é a proporção que vai para o produto desejado.",
+        "frac": "Você calculou a massa de subproduto multiplicando a massa do produto desejado por (1 − AE). A razão subproduto/produto desejado é (100 − AE)/AE."
+      }
+    },
+    "e-factor": {
+      "name": "Fator E e intensidade de massa do processo",
+      "short": "Obter o fator E ou a PMI a partir das massas de matérias-primas, solvente, água e produto",
+      "formula": "E = m_resíduos/m_produto, PMI = m_insumos/m_produto",
+      "q": {
+        "e": "Para fabricar {P} kg de produto, usam-se {Rin} kg de matérias-primas e reagentes e {S} kg de solvente, e {rec} % do solvente são recuperados e reutilizados. Não se usa água. Calcule o fator E (resíduos/produto, sem contar como resíduo o solvente recuperado).",
+        "pmi": "Para fabricar {P} kg de produto, são usados {Rin} kg de matérias-primas e reagentes, {S} kg de solvente e {W} kg de água. Calcule a intensidade de massa do processo PMI (massa total de insumos/produto)."
+      },
+      "steps": {
+        "e": [
+          "Matérias-primas e reagentes que não viraram produto = {Rin} − {P} = {rw} kg.",
+          "Solvente descartado = {S} × (1 − {rec}/100) = {ws} kg.",
+          "E = ({rw} + {ws})/{P} = {w}/{P} = {E}."
+        ],
+        "pmi": [
+          "Massa total de insumos = {Rin} + {S} + {W} = {tot} kg (incluindo a água).",
+          "PMI = {tot}/{P} = {PMI}."
+        ]
+      },
+      "mistakes": {
+        "allsolv": "Você contou como resíduo também o solvente recuperado e reutilizado.",
+        "pmi": "Você deu a PMI (insumos/produto). O fator E é resíduos/produto, uma unidade menor que a PMI.",
+        "e": "Você deu o fator E (resíduos/produto). A PMI é o total de insumos (incluindo o que vira produto) dividido pelo produto, uma unidade maior que E.",
+        "nowater": "Você esqueceu a água. A PMI inclui também a água."
+      }
+    },
+    "ee": {
+      "name": "Excesso enantiomérico (ee)",
+      "short": "Obter o ee a partir das quantidades dos enantiômeros ou da rotação específica, ou a proporção do enantiômero majoritário a partir do ee",
+      "formula": "ee = |n_R − n_S|/(n_R + n_S) × 100 ≈ [α]_obs/[α]_max × 100",
+      "q": {
+        "ee": "Por HPLC quiral, verificou-se que uma amostra contém {mR} mg do enantiômero R e {mS} mg do enantiômero S. Calcule o excesso enantiomérico ee (%).",
+        "major": "Em uma amostra com ee de {ee} %, que porcentagem do total corresponde ao enantiômero majoritário?",
+        "rot": "A rotação específica do enantiômero puro é {amax} e a da amostra é {aobs} (mesmo solvente, concentração, temperatura e comprimento de onda). Considerando a pureza óptica igual ao ee, calcule o ee (%)."
+      },
+      "steps": {
+        "ee": [
+          "Total {t} mg, diferença {d} mg.",
+          "ee = diferença/total × 100 = {ee} % (majoritário {mj} %, minoritário {mn} %)."
+        ],
+        "major": [
+          "Majoritário − minoritário = ee e majoritário + minoritário = 100 %.",
+          "Majoritário = (100 + ee)/2 = {mj} % (minoritário {mn} %)."
+        ],
+        "rot": [
+          "ee ≈ pureza óptica = [α]_obs/[α]_max × 100.",
+          "ee = {aobs}/({amax}) × 100 = {ee} % (o enantiômero majoritário é {mj} %)."
+        ]
+      },
+      "mistakes": {
+        "major": "Você deu a proporção do enantiômero majoritário. O ee é majoritário − minoritário (80 : 20 dá 60 %).",
+        "ratio": "Você deu a razão das quantidades (majoritário/minoritário). O ee é a diferença dividida pelo total.",
+        "ee": "Você tomou o ee diretamente como a proporção do enantiômero majoritário. Majoritário = (100 + ee)/2.",
+        "minor": "Você deu a proporção do enantiômero minoritário.",
+        "inv": "Você inverteu a razão. ee ≈ rotação específica da amostra/rotação específica do enantiômero puro × 100."
+      }
+    }
+  }
+}
