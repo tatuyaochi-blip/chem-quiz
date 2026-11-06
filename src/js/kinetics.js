@@ -2,11 +2,11 @@
 // 半減期は 0次 [A]₀/(2k)、1次 ln2/k、2次 1/(k[A]₀)。アレニウスの式 Ea = R ln(k₂/k₁)/(1/T₁ − 1/T₂)、A = k₁ exp(Ea/RT₁)
 import { num, sci, reader } from './eng.js';
 import { lineChart } from './chart.js';
+import { R, conc, halfLife, t90 as time90, arrhenius } from './chemcalc.js';
 const form = document.getElementById('kn-form');
 const out = k => document.querySelector(`[data-out="${k}"]`);
 const val = reader(form);
 const T = JSON.parse(form.dataset.text);
-const R = 8.314;
 const lang = document.documentElement.lang || 'en';
 // 負号は「−」(U+2212)に。−0 は 0 として出す
 const minus = s => s.replace(/^-/, '−');
@@ -14,8 +14,6 @@ const minus = s => s.replace(/^-/, '−');
 const fix = (x, d = 4) => (!Number.isFinite(x) ? '–' : x === 0 ? '0' : minus(x.toLocaleString(lang, { minimumSignificantDigits: d, maximumSignificantDigits: d })));
 const sciM = (x, d = 4) => (x === 0 ? '0' : minus(sci(x, d)));
 
-// 時間 t での濃度(0次は 0 で止まる)
-const conc = (n, a0, k, t) => (n === 0 ? Math.max(a0 - k * t, 0) : n === 1 ? a0 * Math.exp(-k * t) : a0 / (1 + k * a0 * t));
 const time = s => `${fix(s, 4)} s`;
 
 function update() {
@@ -24,8 +22,8 @@ function update() {
   const a0 = val('a0'), k = val('k'), t = val('t');
   const ok = a0 > 0 && k > 0 && t >= 0;
   const a = ok ? conc(n, a0, k, t) : NaN;
-  const half = n === 0 ? a0 / (2 * k) : n === 1 ? Math.LN2 / k : 1 / (k * a0);
-  const t90 = n === 0 ? 0.9 * a0 / k : n === 1 ? Math.LN10 / k : 9 / (k * a0);
+  const half = halfLife(n, a0, k);
+  const t90 = time90(n, a0, k);
   out('conc').textContent = ok ? `${sciM(a, 4)} mol/L` : '–';
   out('conv').textContent = ok ? `${fix(100 * (1 - a / a0), 4)} %` : '–';
   out('half').textContent = ok ? time(half) : '–';
@@ -42,8 +40,7 @@ function update() {
 
   // アレニウスの式(温度は ℃ で入れて K に直す)
   const T1 = val('t1') + 273.15, T2 = val('t2') + 273.15, k1 = val('k1'), k2 = val('k2');
-  const inv = 1 / T1 - 1 / T2;
-  const ea = T1 > 0 && T2 > 0 && k1 > 0 && k2 > 0 && inv !== 0 ? (R * Math.log(k2 / k1)) / inv : NaN;
+  const { ea } = arrhenius(T1, k1, T2, k2);
   out('ea').textContent = Number.isFinite(ea) ? `${fix(ea / 1000, 4)} kJ/mol` : '–';
   out('pre').textContent = Number.isFinite(ea) ? sciM(k1 * Math.exp(ea / (R * T1)), 4) : '–';
   out('slope').textContent = Number.isFinite(ea) ? `${sciM(-ea / R, 4)} K` : '–';
