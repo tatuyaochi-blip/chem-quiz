@@ -1,0 +1,182 @@
+{
+ "supramolecular-001": {
+  "question": "¿Cuál es el objeto principal de estudio de la química supramolecular?",
+  "choices": [
+   "El método de unir enlaces covalentes uno tras otro para sintetizar una sola molécula de gran masa molecular, y las propiedades y funciones de esa molécula",
+   "Las estructuras que se forman cuando varias moléculas se agrupan mediante interacciones no covalentes, como enlaces de hidrógeno o interacciones electrostáticas, y sus funciones",
+   "Las estructuras en las que los átomos se ordenan regularmente mediante enlaces metálicos en un cristal, y sus propiedades eléctricas y magnéticas"
+  ],
+  "explanation": "Como expresó Lehn al hablar de «la química más allá de la molécula», la química supramolecular estudia los agregados en los que las moléculas se reúnen mediante interacciones no covalentes: enlaces de hidrógeno, interacciones electrostáticas, interacciones π-π, fuerzas de van der Waals, el efecto hidrófobo, etc. Sus temas centrales son el reconocimiento molecular, en el que un anfitrión incorpora selectivamente a un huésped, y el autoensamblaje, en el que los componentes se agrupan espontáneamente en una estructura definida. Cada interacción individual es más débil que un enlace covalente, pero combinando varias se obtienen asociaciones fuertes y selectivas que, al ser reversibles, se reorganizan según las condiciones. Construir moléculas grandes con enlaces covalentes es la síntesis de polímeros, y los cristales con enlaces metálicos son objeto de la química del estado sólido. Por la investigación en este campo, Pedersen, Lehn y Cram recibieron el Premio Nobel de Química en 1987."
+ },
+ "supramolecular-002": {
+  "question": "¿Qué valor se aproxima más a la energía de un único enlace de hidrógeno O−H···O típico entre moléculas neutras, como en el dímero de agua en fase gaseosa?",
+  "choices": [
+   "De unos pocos a unas decenas de kJ/mol (unos 20 kJ/mol en el dímero de agua)",
+   "Varios cientos de kJ/mol (unos 460 kJ/mol, igual que el enlace covalente O−H)",
+   "Menos de 0,1 kJ/mol (muy por debajo de RT a 25 °C)"
+  ],
+  "explanation": "Los enlaces de hidrógeno entre moléculas neutras tienen energías de unos pocos a unas decenas de kJ/mol, y unos 20 kJ/mol en el dímero de agua. Este es el valor de la profundidad del pozo de potencial De; la energía de disociación D0, descontada la vibración de punto cero, es de unos 13 kJ/mol, pero ambos valores están en ese intervalo. Es más de un orden de magnitud menor que la energía del enlace covalente O−H, de unos 460 kJ/mol, y mayor que las fuerzas de dispersión (del orden de unos pocos kJ/mol): una fuerza intermedia. RT a 25 °C es de unos 2,5 kJ/mol, así que los enlaces de hidrógeno se rompen y se forman con el movimiento térmico manteniendo una proporción constante, lo que los hace adecuados para formar asociaciones reversibles. Si fueran de menos de 0,1 kJ/mol, el movimiento térmico los destruiría de inmediato y no mantendrían ninguna estructura. Los enlaces de hidrógeno en los que intervienen iones, como F−H···F⁻, pueden superar los 150 kJ/mol."
+ },
+ "supramolecular-003": {
+  "question": "¿Qué éter corona forma el complejo más fuerte con el ion potasio K⁺ en metanol? Tome como radio iónico del K⁺ unos 1,38 Å.",
+  "choices": [
+   "12-corona-4",
+   "15-corona-5",
+   "18-corona-6"
+  ],
+  "explanation": "Los números del nombre de un éter corona indican el número total de átomos del anillo y el número de oxígenos. Los pares de electrones no compartidos de los oxígenos, orientados hacia el interior del anillo, se coordinan al catión, y el enlace es fuerte cuando el tamaño de la cavidad y el del ion coinciden. Como referencia, el diámetro de la cavidad es de unos 1,2–1,5 Å en el 12-corona-4, de unos 1,7–2,2 Å en el 15-corona-5 y de unos 2,6–3,2 Å en el 18-corona-6, de modo que el que se ajusta al diámetro del K⁺, de unos 2,8 Å, es el 18-corona-6. Por tamaño, el 15-corona-5 se aproxima al Na⁺ y el 12-corona-4 al Li⁺; para el K⁺ su cavidad es demasiado pequeña y el ion no cabe dentro del anillo. Sin embargo, la selectividad no la determina solo el tamaño: en metanol, también el Na⁺ se une con más fuerza al 18-corona-6 que al 15-corona-5."
+ },
+ "supramolecular-004": {
+  "question": "¿Cuál es la descripción correcta de la estructura de la β-ciclodextrina?",
+  "choices": [
+   "7 unidades de D-glucosa unidas en anillo por enlaces α-1,4; el interior de la cavidad es relativamente hidrófobo y el exterior, hidrófilo",
+   "6 unidades de D-glucosa unidas en anillo por enlaces β-1,4, con grupos hidroxilo orientados hacia el interior de la cavidad, que es hidrófilo",
+   "8 unidades de D-glucosa unidas en anillo por enlaces α-1,6; tanto el interior de la cavidad como el exterior son muy hidrófobos y es insoluble en agua"
+  ],
+  "explanation": "Las ciclodextrinas son oligosacáridos cíclicos que se obtienen por degradación enzimática del almidón, con las glucosas unidas por enlaces glucosídicos α-1,4. Las de 6 glucosas se denominan α; las de 7, β, y las de 8, γ. La molécula tiene forma de tronco de cono abierto por arriba y por abajo, y los grupos hidroxilo primarios y secundarios se alinean en ambos bordes, de modo que el exterior es hidrófilo y es soluble en agua. En cambio, hacia el interior de la cavidad se orientan los C−H y los oxígenos de los enlaces glucosídicos, con lo que resulta un entorno relativamente hidrófobo que, en agua, incorpora moléculas hidrófobas y forma compuestos de inclusión. El número 6 corresponde a la α-ciclodextrina, y los enlaces β-1,4 son la forma de unión de la celulosa. La γ, con 8 unidades, también está unida por enlaces α-1,4 y su exterior es hidrófilo."
+ },
+ "supramolecular-005": {
+  "question": "Al mezclar benceno C6H6 y hexafluorobenceno C6F6 en proporción 1:1 se forma un cristal con un punto de fusión más alto que el de cualquiera de las sustancias puras (ambas funden a unos 5 °C), y en el cristal los dos tipos de anillo se apilan alternados, cara a cara. ¿Cuál es la razón principal de este apilamiento?",
+  "choices": [
+   "Se forman enlaces covalentes entre los carbonos del benceno y los átomos de flúor, de modo que los dos anillos quedan unidos por enlaces químicos",
+   "Los momentos cuadrupolares de ambas moléculas tienen signos opuestos y la cara rica en electrones y la pobre se atraen electrostáticamente",
+   "Ambas moléculas tienen un momento dipolar grande y los dipolos se alinean en sentidos opuestos y se atraen"
+  ],
+  "explanation": "El benceno tiene mucha densidad de electrones π por encima y por debajo del plano del anillo y los hidrógenos del borde polarizados positivamente: es un cuadrupolo. Por eso dos moléculas de benceno se repelen si se superponen cara a cara de frente, y adoptan disposiciones paralelas desplazadas o en forma de T, con los hidrógenos del borde apuntando a la cara de la otra. En el C6F6, los átomos de flúor, muy electronegativos, atraen electrones, de modo que las caras quedan polarizadas positivamente y los bordes, negativamente, y el signo del cuadrupolo es opuesto al del benceno. Así, ambas se atraen cuando se enfrentan cara a cara y forman un cristal con apilamiento alternado; la mezcla 1:1 funde a unos 24 °C. Las dos moléculas son muy simétricas y su momento dipolar es 0, así que no puede explicarse por interacciones dipolares, y en el cristal tampoco se forman enlaces covalentes. La interacción π-π se entiende como la combinación de las fuerzas de dispersión y de interacciones electrostáticas como estas."
+ },
+ "supramolecular-006": {
+  "question": "Al medir por ¹H RMN la constante de asociación de un compuesto que forma dímeros por enlaces de hidrógeno, el valor en CDCl3 fue grande, mientras que en DMSO-d6 apenas se observó asociación. ¿Cuál es la razón principal de esta diferencia?",
+  "choices": [
+   "El DMSO tiene mayor viscosidad que el CDCl3, así que las moléculas no se encuentran y no se alcanza el equilibrio",
+   "El deuterio del DMSO-d6 se intercambia con los hidrógenos N−H u O−H del compuesto y ya no pueden formarse enlaces de hidrógeno",
+   "El DMSO es un aceptor fuerte de enlaces de hidrógeno y, al enlazarse con los N−H u O−H, el disolvente compite con la asociación entre los solutos"
+  ],
+  "explanation": "En una asociación por enlaces de hidrógeno, a cambio de formar enlaces de hidrógeno entre los solutos se pierden las interacciones de cada uno con el disolvente. El CDCl3 acepta enlaces de hidrógeno con poca fuerza, de modo que los enlaces de hidrógeno entre los solutos resultan favorables y la constante de asociación es grande. En el DMSO, el oxígeno del S=O es un aceptor fuerte de enlaces de hidrógeno y las moléculas de disolvente, en gran exceso, ocupan los N−H y O−H, con lo que la asociación se debilita mucho. La viscosidad puede afectar a la velocidad de la asociación, pero no determina la posición del equilibrio. El deuterio del DMSO-d6 está unido a carbono y se intercambia con dificultad; el intercambio es un problema en disolventes con O−D, como CD3OD o D2O. Las constantes de asociación varían varios órdenes de magnitud según el disolvente, así que los valores deben indicarse siempre con el disolvente y la temperatura para poder compararlos."
+ },
+ "supramolecular-007": {
+  "question": "En un complejo unido por tres enlaces de hidrógeno, se representa la secuencia de las dos moléculas enfrentadas con D para los sitios dadores y A para los aceptores. Aun con el mismo número de enlaces de hidrógeno principales, si se consideran las interacciones secundarias entre sitios vecinos (el planteamiento de Jorgensen y colaboradores), ¿qué combinación tiende a dar la asociación más fuerte?",
+  "choices": [
+   "ADA·DAD",
+   "AAD·DDA",
+   "AAA·DDD"
+  ],
+  "explanation": "Además de los tres enlaces de hidrógeno principales, entre los sitios vecinos actúan interacciones diagonales (interacciones secundarias). Si lo que queda enfrentado en diagonal es un D y un A, se atraen; si es D con D o A con A, se repelen electrostáticamente. En ADA·DAD, las cuatro interacciones secundarias son repulsivas; en AAD·DDA hay dos atractivas y dos repulsivas, y en AAA·DDD las cuatro son atractivas. Por eso, aun con el mismo número de enlaces de hidrógeno principales, AAA·DDD es la más fuerte y ADA·DAD la más débil, y sus constantes de asociación en cloroformo difieren en órdenes de magnitud. Es un ejemplo de que la fuerza de la asociación no puede compararse solo por el número de enlaces de hidrógeno, y sirve de guía al diseñar anfitriones y huéspedes que se asocien con fuerza y selectividad."
+ },
+ "supramolecular-008": {
+  "question": "El criptando [2.2.2] N(CH2CH2OCH2CH2OCH2CH2)3N se une al K⁺ varios órdenes de magnitud más fuerte que el 18-corona-6 en el mismo disolvente. ¿Cuál es la razón principal?",
+  "choices": [
+   "Es una molécula de cadena abierta y flexible, sin anillos, así que puede cambiar libremente de forma y enrollarse sin huecos alrededor del K⁺ según su tamaño",
+   "Envuelve el K⁺ en una cavidad en forma de jaula con los dos nitrógenos como cabezas de puente, y su forma adecuada para la coordinación está preorganizada",
+   "Los nitrógenos forman enlaces covalentes con el K⁺ y este queda incorporado como parte de la molécula del criptando"
+  ],
+  "explanation": "El criptando [2.2.2] es un compuesto bicíclico en el que dos nitrógenos están unidos por tres cadenas de poliéter, con seis oxígenos y dos nitrógenos orientados hacia el interior de la cavidad. El K⁺ se introduce en esta jaula y forma un complejo (criptato) en el que queda coordinado desde más direcciones que con un éter corona, que solo lo rodea con un anillo plano, y aislado del disolvente. Además, su forma adecuada para la coordinación está ya en buena medida formada antes de la unión (está preorganizada), de modo que la entropía que se pierde al unirse y la energía necesaria para cambiar de forma son pequeñas. Una molécula de cadena abierta y flexible paga un coste mayor al fijar su forma al unirse y, por el contrario, se une más débilmente. La coordinación se produce por interacciones no covalentes, y el K⁺ queda incorporado como ion."
+ },
+ "supramolecular-009": {
+  "question": "Al construir por autoensamblaje estructuras definidas, como jaulas o rejillas, a partir de iones metálicos y ligandos, se considera importante que el enlace entre el metal y el ligando sea reversible en una medida adecuada. ¿Cuál es la razón correcta?",
+  "choices": [
+   "Los intermedios unidos de forma incorrecta se vuelven a unir (corrección de errores) y el sistema puede llegar a la estructura termodinámicamente más estable",
+   "Si el enlace es reversible, la reacción pasa a estar bajo control cinético y la primera estructura formada permanece sin deshacerse como producto final",
+   "Si el enlace es reversible, el producto se descompone enseguida, y al no retener la estructura en disolución disminuyen los subproductos y aumenta la pureza"
+  ],
+  "explanation": "En un autoensamblaje en el que se reúnen muchos componentes se forman por el camino numerosos intermedios mal unidos, oligómeros y polímeros. Si los enlaces pueden romperse y volver a formarse, estos se deshacen y se reorganizan, y el sistema converge finalmente a la estructura termodinámicamente más estable (el producto bajo control termodinámico). Esta corrección de errores es la clave para obtener una sola estructura con buen rendimiento. Si el enlace es tan fuerte que no se rompe, el sistema queda bajo control cinético, con los agregados irregulares formados al principio, y resulta difícil obtener la estructura deseada. Aunque sea reversible, si el producto es estable el equilibrio está muy desplazado hacia él y no se descompone enseguida. Se usan a menudo los enlaces de coordinación entre paladio(II) y ligandos de tipo piridina, los enlaces de hidrógeno y los enlaces covalentes dinámicos, como las iminas y los disulfuros."
+ },
+ "supramolecular-010": {
+  "question": "En metanol a 25 °C, tome log K = 6,1 para la constante de asociación del complejo de K⁺ con 18-corona-6 y log K = 2,3 para el complejo con el poliéter de cadena abierta CH3O(CH2CH2O)5CH3, que tiene los mismos seis oxígenos. ¿Qué valor se aproxima más a la diferencia de energía de Gibbs estándar de formación del complejo ΔΔG° (la magnitud de la estabilización) debida al carácter macrocíclico? Considere R = 8,314 J/(K·mol) y T = 298 K.",
+  "choices": [
+   "9,4 kJ/mol",
+   "21,7 kJ/mol",
+   "5,2 kJ/mol"
+  ],
+  "explanation": "Como ΔG° = −RT ln K = −2,303RT log K, ΔΔG° = 2,303 × 8,314 × 298 × (6,1 − 2,3) J/mol ≈ 5,71 kJ/mol × 3,8 ≈ 21,7 kJ/mol. En cociente de constantes de asociación, la diferencia es de unas 6300 veces. 9,4 kJ/mol es el valor que resulta de tomar la diferencia de log K como diferencia de ln K, olvidando multiplicar por 2,303. 5,2 kJ/mol es el error de convertir 21,7 kJ/mol a kcal/mol y asignar al número la unidad kJ. El anfitrión macrocíclico se une con más fuerza porque los oxígenos que coordinan están ya alineados sobre el anillo y no hay que perder tantas conformaciones al unirse como en una molécula de cadena abierta. Esto se denomina efecto macrocíclico."
+ },
+ "supramolecular-011": {
+  "question": "Se mezclaron un anfitrión H y un huésped G que se asocian 1:1, ambos con una concentración inicial de 1,0×10⁻³ mol/L. Si la constante de asociación es K = 1,0×10³ L/mol, ¿qué valor se aproxima más a la fracción de anfitrión asociado al huésped en el equilibrio?",
+  "choices": [
+   "38 %",
+   "50 %",
+   "62 %"
+  ],
+  "explanation": "Si se llama x a la concentración de anfitrión asociado, K = x ÷ (1,0×10⁻³ − x)² = 1,0×10³. Tomando y = x ÷ (1,0×10⁻³), como K × 1,0×10⁻³ = 1 queda (1 − y)² = y, es decir, y² − 3y + 1 = 0, cuya solución con 0 < y < 1 es y = (3 − √5) ÷ 2 ≈ 0,38, o sea, el 38 %. El 50 % es el valor que resulta de suponer que la concentración de huésped libre sigue siendo la inicial e igualarla a la constante de disociación 1/K = 1,0×10⁻³ mol/L, lo que ignora que la asociación también consume huésped. El 62 % es la fracción de anfitrión sin asociar. Para determinar con precisión una constante de asociación, la referencia es medir a concentraciones que cubran fracciones asociadas de aproximadamente el 20 al 80 %."
+ },
+ "supramolecular-012": {
+  "question": "Manteniendo constante la concentración total de anfitrión H y huésped G, se varió su fracción molar y se representó la cantidad de complejo (gráfico de Job, método de las variaciones continuas). Si el máximo se obtuvo con una fracción molar de anfitrión χH = 0,33, ¿cuál es la composición posible del complejo?",
+  "choices": [
+   "H2G (2 moléculas de anfitrión por 1 de huésped)",
+   "HG (1 molécula de anfitrión y 1 de huésped)",
+   "HG2 (1 molécula de anfitrión por 2 de huésped)"
+  ],
+  "explanation": "Un complejo de composición HmGn alcanza su cantidad máxima, a concentración total constante, cuando χH = m ÷ (m + n). Para HG es 0,50; para HG2, 1 ÷ 3 ≈ 0,33, y para H2G, 2 ÷ 3 ≈ 0,67. Un χH = 0,33 corresponde a una mezcla con el doble de huésped que de anfitrión, así que el complejo es HG2. Proponer H2G es el error de confundir la fracción molar del anfitrión con la del huésped. No obstante, se ha señalado que, cuando coexisten varios complejos, la posición del máximo del gráfico de Job se desplaza y puede llevar a conclusiones erróneas. Para determinar la composición se recomienda usar además el ajuste de los datos de la valoración a los modelos 1:1 y 1:2 y comparar los residuos."
+ },
+ "supramolecular-013": {
+  "question": "Se midió la solubilidad de un fármaco poco soluble en agua variando la concentración de β-ciclodextrina (método de solubilidad de fases). La solubilidad del fármaco creció linealmente con la concentración de ciclodextrina, con una pendiente de 0,20, y la solubilidad en ausencia de ciclodextrina, S0, fue de 2,0×10⁻³ mol/L. Suponiendo que se forma un compuesto de inclusión 1:1, ¿qué valor se aproxima más a la constante de asociación K obtenida con la ecuación de Higuchi-Connors K = pendiente ÷ [S0 × (1 − pendiente)]?",
+  "choices": [
+   "125 L/mol",
+   "100 L/mol",
+   "0,125 L/mol"
+  ],
+  "explanation": "K = 0,20 ÷ [2,0×10⁻³ × (1 − 0,20)] = 0,20 ÷ (1,6×10⁻³) = 125 L/mol. En un diagrama de solubilidad de fases de tipo AL, con crecimiento lineal, siempre queda fármaco sólido, de modo que la concentración de fármaco libre permanece constante en S0 y el aumento corresponde al compuesto de inclusión. La pendiente equivale a la fracción de la ciclodextrina añadida que ha incluido al fármaco, y 1 − pendiente es la fracción de ciclodextrina vacía. 100 L/mol es el valor que resulta de calcular pendiente ÷ S0, olvidando la corrección (1 − pendiente). 0,125 L/mol es un error de unidades por sustituir S0 por el número 2,0 en mmol/L; el valor correcto es 0,125 L/mmol = 125 L/mol."
+ },
+ "supramolecular-014": {
+  "question": "Al estudiar por calorimetría de valoración isotérmica (ITC) la asociación 1:1 entre un anfitrión y un huésped a 25 °C, se obtuvieron una constante de asociación K = 1,0×10⁵ L/mol y una entalpía estándar de asociación ΔH° = −40,0 kJ/mol. ¿Qué valor se aproxima más al término entrópico de la asociación TΔS°? Considere R = 8,314 J/(K·mol) y T = 298 K.",
+  "choices": [
+   "+11,5 kJ/mol",
+   "−11,5 kJ/mol",
+   "−68,5 kJ/mol"
+  ],
+  "explanation": "Primero, ΔG° = −RT ln K = −8,314 × 298 × ln(1,0×10⁵) J/mol ≈ −28,5 kJ/mol. De ΔG° = ΔH° − TΔS° se obtiene TΔS° = ΔH° − ΔG° = −40,0 − (−28,5) = −11,5 kJ/mol, de modo que esta asociación está impulsada por la entalpía y la entropía actúa de forma desfavorable. +11,5 kJ/mol es el error de invertir el sentido de la resta, ΔG° − ΔH°, y −68,5 kJ/mol, el de sumar ΔH° y ΔG°. La ITC mide directamente el calor liberado o absorbido al añadir poco a poco la disolución del huésped y, en una sola medida, proporciona K, ΔH° y la estequiometría, de donde se obtienen también ΔG° y TΔS°."
+ },
+ "supramolecular-015": {
+  "question": "Al mezclar en agua, en proporción 1:1, el complejo de paladio plano-cuadrado [Pd(en)]²⁺ (en es etilendiamina), con solo dos posiciones libres en cis, y el ligando puente lineal 4,4'-bipiridina, se forma principalmente un único complejo cíclico por autoensamblaje. ¿Cuál es su estructura correcta?",
+  "choices": [
+   "Un anillo triangular formado por 3 paladios y 3 moléculas de 4,4'-bipiridina",
+   "Un anillo formado por 2 paladios y 2 moléculas de 4,4'-bipiridina",
+   "Un anillo cuadrado formado por 4 paladios y 4 moléculas de 4,4'-bipiridina"
+  ],
+  "explanation": "En el [Pd(en)]²⁺, la etilendiamina ocupa dos posiciones de coordinación, de modo que las dos restantes quedan en cis y constituyen una «esquina» que gira la dirección del ligando unos 90°. La 4,4'-bipiridina, lineal, es el «lado», y al unir cuatro esquinas de 90° con cuatro lados rectos se cierra un cuadrado sin tensión. Así se forma con alto rendimiento el cuadrado molecular [{Pd(en)(4,4'-bipiridina)}4]⁸⁺, como comunicaron Fujita y colaboradores en 1990. Los ángulos interiores de un triángulo son de 60°, así que construirlo con esquinas de 90° genera tensión y es desfavorable. Un anillo con dos de cada uno exigiría doblar 180° un lado recto y no puede formarse. El enlace Pd−piridina es reversible en una medida adecuada, de modo que los oligómeros y polímeros que se forman se reorganizan y el sistema converge al cuadrado, la estructura más estable."
+ },
+ "supramolecular-016": {
+  "question": "El grupo trimetilamonio −N⁺(CH3)3 de la acetilcolina se une en el sitio de unión de receptores y enzimas rodeado de anillos aromáticos, como los del triptófano. ¿Cuál es la interacción que actúa principalmente en esta unión?",
+  "choices": [
+   "Una interacción en la que los hidrógenos unidos al N⁺ forman enlaces de hidrógeno N−H···π con los electrones π del anillo aromático",
+   "Una interacción en la que se forman enlaces de coordinación entre los carbonos del anillo aromático y el N⁺, con un complejo de marcado carácter covalente",
+   "La interacción catión-π, en la que la cara del anillo aromático, rica en electrones, y el catión se atraen electrostáticamente"
+  ],
+  "explanation": "Los anillos aromáticos como el del benceno tienen una distribución de carga (un momento cuadrupolar) con los electrones π extendidos por encima y por debajo del plano, que queda cargado negativamente, y con el lado de los hidrógenos del borde cargado positivamente. Por eso los cationes son atraídos electrostáticamente justo encima de la cara del anillo, lo que se denomina interacción catión-π. En fase gaseosa, la energía de unión entre el K⁺ y el benceno llega a unos 80 kJ/mol, y también en agua los residuos de aminoácidos aromáticos de las proteínas la emplean para reconocer iones de amonio cuaternario. El nitrógeno del grupo trimetilamonio no tiene hidrógenos unidos, así que no puede formar enlaces de hidrógeno N−H···π. Tampoco se forman enlaces de coordinación entre el anillo aromático y el nitrógeno. Igual que en el apilamiento de benceno y C6F6, la clave es la interacción electrostática debida al cuadrupolo."
+ },
+ "supramolecular-017": {
+  "question": "¿Cuál es la descripción correcta de la interacción (enlace de halógeno) por la que el átomo de yodo del yodopentafluorobenceno C6F5I se atrae con el nitrógeno de la piridina en la forma C−I···N?",
+  "choices": [
+   "El yodo está cargado negativamente en toda su superficie, así que se aproxima al par no compartido del nitrógeno por el costado del enlace C−I y así se atraen",
+   "En la superficie del yodo, sobre la prolongación del enlace C−I, hay una región positiva (el hueco σ), y el C−I···N es prácticamente lineal",
+   "El yodo recibe un hidrógeno del nitrógeno y hace el papel de un enlace de hidrógeno, por lo que la interacción es la más fuerte con el flúor"
+  ],
+  "explanation": "Cuando un halógeno X está unido a un grupo atractor de electrones, la densidad electrónica disminuye en la superficie de X sobre la prolongación del enlace C−X y se forma una región de potencial electrostático positivo llamada hueco σ. En cambio, la dirección perpendicular al eje del enlace (el costado) está cargada negativamente. El par de electrones no compartido de la base de Lewis se aproxima hacia ese hueco σ, de modo que el ángulo C−X···N es de casi 180°. El hueco σ es más marcado en los halógenos grandes y fácilmente polarizables, así que la fuerza del enlace de halógeno sigue aproximadamente el orden I > Br > Cl, y el flúor apenas forma enlaces de halógeno. En el C6F5I, los átomos de flúor atraen electrones y agrandan el hueco σ del yodo. El yodo no está cargado negativamente en su totalidad, y tampoco hay transferencia de hidrógeno."
+ },
+ "supramolecular-018": {
+  "question": "¿Cuál es la estructura correcta de las moléculas llamadas rotaxanos?",
+  "choices": [
+   "Una molécula en forma de anillo atravesada por una molécula en forma de varilla, con grupos voluminosos (topes) en ambos extremos que impiden que el anillo se salga",
+   "Dos o más moléculas en forma de anillo entrelazadas entre sí como los eslabones de una cadena, que no pueden separarse sin romper enlaces covalentes",
+   "Una molécula huésped alojada en la cavidad de una molécula en forma de anillo, retenida solo por enlaces de hidrógeno, que entra y sale rápido en disolución"
+  ],
+  "explanation": "Un rotaxano es una estructura en la que una molécula cíclica (el anillo) es atravesada por una molécula en cadena que hace de eje, con topes voluminosos en ambos extremos del eje que impiden que el anillo se salga. El anillo y el eje no están unidos por enlaces covalentes, pero no pueden separarse sin romper enlaces covalentes, por lo que se habla de moléculas unidas mecánicamente (moléculas entrelazadas). Dos anillos entrelazados entre sí forman un catenano, que también es una molécula entrelazada, pero no un rotaxano. Un anillo ensartado en un eje sin topes es un pseudorrotaxano, y en disolución el anillo entra y sale. En la síntesis se combinan primero el anillo y el eje mediante enlaces de hidrógeno o coordinación a un metal (plantilla) y después se añaden los topes para encerrarlo. La investigación de máquinas moleculares basadas en el desplazamiento del anillo a lo largo del eje fue objeto del Premio Nobel de Química de 2016."
+ },
+ "supramolecular-019": {
+  "question": "Se estudió por ¹H RMN la asociación entre un anfitrión y un huésped. La asociación y la disociación son mucho más rápidas que la escala de tiempo de la RMN, y la señal de un protón del huésped aparece en una única posición promedio. Para el huésped sin asociar es δ 7,00, para el huésped totalmente asociado δ 7,80, y en una disolución mezcla fue δ 7,30. ¿Qué valor se aproxima más a la fracción de huésped asociado al anfitrión en esa disolución?",
+  "choices": [
+   "93,6 %",
+   "62,5 %",
+   "37,5 %"
+  ],
+  "explanation": "En intercambio rápido, el desplazamiento químico observado es el promedio de los desplazamientos de las dos formas ponderado por sus proporciones: δobs = (1 − f)δfree + fδbound. La fracción asociada es f = (δobs − δfree)/(δbound − δfree) = (7,30 − 7,00)/(7,80 − 7,00) = 0,30/0,80 = 0,375, es decir, el 37,5 %. El 62,5 % es la fracción sin asociar, (δbound − δobs)/(δbound − δfree). El 93,6 % es el error de tomar el cociente de los propios valores de desplazamiento, 7,30/7,80; el origen de la escala δ (la posición de la sustancia de referencia) no tiene significado aquí. La valoración por RMN consiste en seguir δobs variando la concentración de anfitrión y obtener K con esta relación."
+ },
+ "supramolecular-020": {
+  "question": "El 18-corona-6 puede sintetizarse ciclando con una base el trietilenglicol y un compuesto con sus dos extremos convertidos en grupos cloro u otros similares. Se considera que, al usar como base una base de potasio (hidróxido de potasio o terc-butóxido de potasio), se favorece la formación del anillo de 18 miembros (efecto plantilla). ¿Cuál es el papel correcto del K⁺ en este caso?",
+  "choices": [
+   "El K⁺ se coordina a los átomos de oxígeno del intermedio de cadena abierta y acerca sus dos extremos, favoreciendo la ciclación intramolecular frente a la polimerización intermolecular",
+   "El K⁺ forma enlaces covalentes con el oxígeno del alcóxido y queda incorporado como parte del anillo del 18-corona-6 formado",
+   "El K⁺ aumenta la fuerza iónica de la disolución, con lo que crecen las colisiones entre los reactivos y se acelera el crecimiento de la cadena por reacción intermolecular"
+  ],
+  "explanation": "Al sintetizar un éter corona macrocíclico, la reacción intramolecular en la que se encuentran los dos extremos de la cadena (la ciclación) compite con la reacción intermolecular en la que la cadena crece al reaccionar con otra molécula (la polimerización). Como el K⁺ se ajusta al tamaño de la cavidad del 18-corona-6, queda coordinado rodeado por los átomos de oxígeno del alcóxido de cadena abierta justo antes de la ciclación, enrollando la cadena en forma de anillo y acercando sus extremos. Que un ion metálico actúe así como molde (plantilla) y favorezca la ciclación se denomina efecto plantilla. El K⁺ solo está coordinado, no forma enlaces covalentes y no pasa a ser parte del anillo. Acelerar la reacción intermolecular aumentaría, al contrario, los oligómeros de cadena abierta. En la síntesis de compuestos macrocíclicos también se usan a menudo condiciones de alta dilución para frenar la reacción intermolecular."
+ }
+}

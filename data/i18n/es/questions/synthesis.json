@@ -1,0 +1,182 @@
+{
+ "synthesis-001": {
+  "question": "¿Cuál es la descripción correcta del análisis retrosintético (retrosíntesis) que se usa al planificar una síntesis orgánica?",
+  "choices": [
+   "Partir de la molécula objetivo y desconectar mentalmente enlaces formables con reacciones conocidas, para retroceder a precursores más sencillos",
+   "Añadir reactivos sucesivamente a los materiales de partida disponibles, prediciendo cada producto, para acercarse a la molécula objetivo",
+   "Fragmentar el compuesto sintetizado por espectrometría de masas y confirmar su estructura reconstruyéndola a partir de los fragmentos"
+  ],
+  "explanation": "El análisis retrosintético es un método de planificación de síntesis sistematizado por E. J. Corey: se parte de la molécula objetivo (target), se cortan en sentido inverso los enlaces que se pueden formar de manera fiable (desconexión) y se retrocede paso a paso hacia los precursores. Cada etapa retrosintética se representa con la flecha «⇒»; los fragmentos idealizados que resultan de la desconexión se llaman sintones, y los reactivos reales que les corresponden, equivalentes sintéticos. Lo básico es desconectar en posiciones que correspondan a reacciones fiables, como el C=C de una reacción de Wittig o el enlace C−C entre anillos aromáticos de una reacción de acoplamiento. Predecir productos a partir de los materiales de partida es la predicción de reacciones en sentido directo, y deducir la estructura a partir de los fragmentos de la espectrometría de masas es análisis estructural; ninguno de los dos es análisis retrosintético."
+ },
+ "synthesis-002": {
+  "question": "Se hacen reaccionar 12,21 g de ácido benzoico C6H5COOH (masa molar 122,12 g/mol) con un exceso de metanol y un poco de ácido sulfúrico concentrado, y tras la purificación se obtienen 10,89 g de benzoato de metilo C6H5COOCH3 (masa molar 136,15 g/mol). ¿Qué valor se aproxima más al rendimiento?",
+  "choices": [
+   "125 %",
+   "80,0 %",
+   "89,2 %"
+  ],
+  "explanation": "El rendimiento es la proporción entre la cantidad obtenida realmente y el rendimiento teórico, es decir, la cantidad que se obtendría si todo el reactivo limitante (aquí el ácido benzoico, ya que el metanol está en exceso) se convirtiera en producto. La cantidad de ácido benzoico es 12,21 g ÷ 122,12 g/mol = 0,1000 mol y, como reacciona en proporción 1 : 1, el rendimiento teórico es 0,1000 mol × 136,15 g/mol = 13,62 g. Por tanto, el rendimiento es 10,89 g ÷ 13,62 g × 100 = 80,0 %. El 89,2 % divide directamente las masas (10,89/12,21), lo que sobrestima el rendimiento en las reacciones en que aumenta la masa molecular. El 125 % invierte el rendimiento teórico y el real; un rendimiento superior al 100 % hace sospechar un error de cálculo o que quedan disolvente o impurezas en el producto."
+ },
+ "synthesis-003": {
+  "question": "Se quiere oxidar el 1-hexanol CH3(CH2)5OH a hexanal CH3(CH2)4CHO. ¿Cuáles son el reactivo y las condiciones más adecuados para que la oxidación no avance hasta el ácido carboxílico?",
+  "choices": [
+   "Calentar con una disolución acuosa básica de permanganato de potasio, KMnO4",
+   "Añadir borohidruro de sodio, NaBH4, en metanol y agitar a temperatura ambiente",
+   "Usar clorocromato de piridinio (PCC) en diclorometano"
+  ],
+  "explanation": "La oxidación de un alcohol primario avanza, pasando por el aldehído, hasta el ácido carboxílico. Esto se debe a que, en presencia de agua, el aldehído forma un hidrato (gem-diol), que se oxida a su vez. El PCC es un oxidante suave que se usa en diclorometano sin agua; como el hidrato apenas se forma, la oxidación puede detenerse en el aldehído (las oxidaciones de Swern y de Dess-Martin se usan con el mismo fin). Con oxidantes fuertes, como el KMnO4 acuoso o el reactivo de Jones (CrO3 en ácido sulfúrico acuoso), se oxida hasta ácido hexanoico, CH3(CH2)4COOH. El NaBH4 es un reductor, no tiene capacidad para oxidar alcoholes y, de hecho, es un reactivo que reduce los aldehídos de nuevo a alcoholes primarios."
+ },
+ "synthesis-004": {
+  "question": "Se quiere obtener selectivamente cis-2-buteno (isómero Z) a partir de 2-butino CH3C≡CCH3. ¿Cuáles son el reactivo y las condiciones más adecuados?",
+  "choices": [
+   "Hidrogenación catalítica con H2 sobre catalizador de Lindlar (Pd envenenado con un compuesto de plomo)",
+   "Tratamiento con sodio metálico, Na, en amoníaco líquido a −33 °C (reducción con metal disuelto)",
+   "Hidrogenación catalítica con exceso de hidrógeno, H2, sobre paladio sobre carbono (Pd/C) a temperatura ambiente y presión atmosférica"
+  ],
+  "explanation": "El catalizador de Lindlar es paladio soportado sobre carbonato de calcio u otro soporte y envenenado parcialmente con acetato de plomo o quinolina; permite detener la hidrogenación de un alquino en el alqueno. El hidrógeno se adiciona sobre la superficie del catalizador por el mismo lado del triple enlace (adición sin), por lo que se obtiene cis-2-buteno (isómero Z). Con sodio en amoníaco líquido, la reacción transcurre a través de un anión radical formado por transferencia electrónica y da principalmente trans-2-buteno (isómero E), con menor repulsión estérica: la estereoquímica es la opuesta. Con Pd/C, muy activo, y exceso de hidrógeno, el alqueno formado también se hidrogena y se reduce hasta butano, CH3CH2CH2CH3. Es un ejemplo típico de cómo, a partir del mismo alquino, se pueden obtener selectivamente el isómero E o el Z eligiendo el reactivo."
+ },
+ "synthesis-005": {
+  "question": "En una síntesis lineal de 4 etapas, el rendimiento de cada etapa es del 80 %. ¿Qué valor se aproxima más al rendimiento global desde el material de partida hasta el producto final?",
+  "choices": [
+   "80 %",
+   "20 %",
+   "41 %"
+  ],
+  "explanation": "El rendimiento global de una síntesis lineal de varias etapas es el producto de los rendimientos de cada etapa. 0,80 × 0,80 × 0,80 × 0,80 = 0,80⁴ = 0,410, así que el rendimiento global es de aproximadamente el 41 %. Como en cada etapa solo pasa a la siguiente el 80 % de lo que queda, el rendimiento cae rápidamente al aumentar el número de etapas: con el mismo 80 %, en 10 etapas sería de aproximadamente el 11 %. El 80 % da como respuesta el rendimiento de cada etapa, y el 20 % resta 4 veces un 20 % a partir del 100 % (lo trata como una suma). Por eso, en la planificación de síntesis se da importancia a reducir el número de etapas; con una síntesis convergente, en la que los fragmentos se sintetizan por separado y se unen al final, la secuencia más larga es más corta y es más fácil aumentar el rendimiento global."
+ },
+ "synthesis-006": {
+  "question": "Se quiere sintetizar 4-metilbifenilo CH3−C6H4−C6H5 (con el metilo en posición para respecto al enlace con el otro anillo) mediante un acoplamiento de Suzuki-Miyaura. ¿Cuál es la combinación correcta de materiales de partida y condiciones?",
+  "choices": [
+   "4-Bromotolueno, CH3C6H4Br, y estireno, C6H5CH=CH2, con catalizador de paladio y una base",
+   "4-Bromotolueno, CH3C6H4Br, y ácido fenilborónico, C6H5B(OH)2, con catalizador de paladio y una base",
+   "4-Bromotolueno, CH3C6H4Br, y benceno, C6H6, con cloruro de aluminio, AlCl3"
+  ],
+  "explanation": "El acoplamiento de Suzuki-Miyaura forma un enlace C−C haciendo reaccionar un haluro de arilo (o un triflato) con un compuesto organoborado en presencia de un catalizador de paladio y una base. En términos retrosintéticos, al desconectar el enlace C−C que une los dos anillos aromáticos se llega a la combinación de 4-bromotolueno y ácido fenilborónico. La base convierte el boro en borato y facilita la transferencia del grupo orgánico al paladio. Los ácidos borónicos son relativamente estables al aire y al agua y poco tóxicos, y los boratos subproductos son fáciles de eliminar, lo que es una ventaja. La combinación con estireno es una reacción de Heck y da 4-metilestilbeno (que contiene un C=C). Con AlCl3 y benceno, el haluro de arilo apenas reacciona y no se puede formar el biarilo."
+ },
+ "synthesis-007": {
+  "question": "¿Qué combinación de productos principales se obtiene al hacer reaccionar ciclohexanona (CH2)5C=O con el reactivo de Wittig Ph3P=CH2 (Ph es el grupo fenilo)?",
+  "choices": [
+   "Metilenciclohexano, (CH2)5C=CH2, y óxido de trifenilfosfina, Ph3P=O",
+   "1-Metilciclohexeno (el isómero con el doble enlace dentro del anillo) y trifenilfosfina, Ph3P",
+   "1-Metilciclohexanol, (CH2)5C(OH)CH3, y trifenilfosfina, Ph3P"
+  ],
+  "explanation": "En la reacción de Wittig, el carbono del iluro de fósforo Ph3P=CH2 ataca al carbono carbonílico y, a través de un oxafosfetano de cuatro miembros, el oxígeno del C=O se intercambia con la parte carbonada del Ph3P=CR2. Así se forma un C=C justo donde estaba el C=O y se obtiene metilenciclohexano. La fuerza motriz de la reacción es la formación de óxido de trifenilfosfina, con su enlace P=O muy fuerte. A diferencia de la deshidratación con ácido, la posición del doble enlace no se desplaza, por lo que no se forma el 1-metilciclohexeno, con el doble enlace dentro del anillo y termodinámicamente más estable. El 1-metilciclohexanol es el producto de la adición de un reactivo de Grignard como el CH3MgBr."
+ },
+ "synthesis-008": {
+  "question": "Se quiere reducir solo el éster del 5-oxohexanoato de metilo CH3CO(CH2)3COOCH3 y conservar la cetona, para obtener 6-hidroxi-2-hexanona CH3CO(CH2)3CH2OH. ¿Cuál es el procedimiento más adecuado?",
+  "choices": [
+   "Como las cetonas no reaccionan con el hidruro de litio y aluminio, LiAlH4, reducir solo el éster directamente con LiAlH4, sin proteger nada",
+   "Reducir primero la cetona con borohidruro de sodio, NaBH4, y después el éster con LiAlH4 para obtener el producto deseado",
+   "Proteger la cetona como acetal cíclico con etilenglicol y catalizador ácido, reducir el éster con LiAlH4 y desproteger con ácido acuoso"
+  ],
+  "explanation": "El LiAlH4 es un reductor fuerte que reduce tanto ésteres como cetonas, así que, si se usa directamente, la cetona también pasa a alcohol secundario y se obtiene un diol. Si la cetona se convierte en acetal cíclico (1,3-dioxolano) con etilenglicol y un catalizador ácido, se vuelve estable frente a bases, nucleófilos y reductores de tipo hidruro, de modo que solo el éster se reduce a alcohol primario. Por último, la hidrólisis con ácido acuoso elimina el acetal y regenera la cetona. Si se usa primero el NaBH4, lo que se reduce es la cetona, justo lo contrario de lo que se busca (la capacidad del NaBH4 de reducir solo la cetona se aprovecha cuando se quiere reducir la cetona). Las 3 etapas de protección, reacción y desprotección constituyen el esquema básico de las síntesis con grupos protectores."
+ },
+ "synthesis-009": {
+  "question": "Para preparar un reactivo de Grignard a partir de 3-bromo-1-propanol HOCH2CH2CH2Br, se protege el grupo hidroxilo como éter de terc-butildimetilsililo (TBS), TBSOCH2CH2CH2Br. ¿Qué reactivo se usa con más frecuencia para eliminar el grupo TBS tras la reacción y regenerar el OH?",
+  "choices": [
+   "Hidrógeno, H2, con paladio sobre carbono, Pd/C",
+   "Fluoruro de tetrabutilamonio (TBAF)",
+   "Borohidruro de sodio, NaBH4"
+  ],
+  "explanation": "El reactivo de Grignard se protona de inmediato con el hidrógeno del OH y se destruye, por lo que no puede prepararse si la misma molécula contiene un OH. Por eso el OH se protege como éter de sililo. El éter de TBS es estable frente a bases, reactivos de Grignard y muchos oxidantes y reductores, y puede eliminarse selectivamente con iones fluoruro, como el TBAF, aprovechando que el enlace silicio-flúor (Si−F) es mucho más fuerte que el Si−O (también se elimina en condiciones ácidas). La hidrogenólisis con H2 y Pd/C es el método para desproteger éteres bencílicos C6H5CH2−O−R y no elimina el grupo TBS. El NaBH4 es un reductor de carbonilos y no reacciona con los éteres de sililo. Aprovechando que cada grupo protector se elimina en condiciones distintas, se pueden eliminar varios grupos protectores de forma selectiva y en orden."
+ },
+ "synthesis-010": {
+  "question": "En el ciclo catalítico del acoplamiento de Suzuki-Miyaura, ¿cuál es el orden correcto de las tres etapas elementales en las que interviene el paladio?",
+  "choices": [
+   "Adición oxidativa → transmetalación → eliminación reductiva",
+   "Eliminación reductiva → transmetalación → adición oxidativa",
+   "Adición oxidativa → inserción del alqueno → eliminación de β-hidruro"
+  ],
+  "explanation": "Primero se produce la adición oxidativa, en la que el Pd(0) se inserta en el enlace C−X del haluro de arilo Ar−X y se forma Ar−Pd(II)−X. A continuación, en la transmetalación, el grupo orgánico Ar' pasa al paladio desde el compuesto organoborado activado por la base, dando Ar−Pd(II)−Ar', y por último, en la eliminación reductiva, Ar−Ar' se une y se libera, y se regenera el Pd(0). La adición oxidativa ocurre con mayor facilidad en el orden C−I > C−Br > C−Cl, y con los cloruros de arilo suelen necesitarse ligandos ricos en electrones y voluminosos. El orden inverso no concuerda con un ciclo catalítico que empieza en el Pd(0). La secuencia con inserción del alqueno y eliminación de β-hidruro corresponde al ciclo catalítico de la reacción de Heck."
+ },
+ "synthesis-011": {
+  "question": "Se calientan yodobenceno C6H5I y acrilato de metilo CH2=CHCOOCH3 en presencia de acetato de paladio Pd(OAc)2 y trietilamina (CH3CH2)3N (reacción de Heck). ¿Cuál es el producto principal?",
+  "choices": [
+   "3-Fenilpropanoato de metilo, C6H5CH2CH2COOCH3",
+   "2-Fenilacrilato de metilo, CH2=C(C6H5)COOCH3",
+   "(E)-Cinamato de metilo, (E)-C6H5CH=CHCOOCH3"
+  ],
+  "explanation": "En la reacción de Heck, el alqueno se coordina a la especie fenilpaladio formada por adición oxidativa y se inserta; la eliminación de β-hidruro que sigue regenera un nuevo C=C. Con el acrilato de metilo, el grupo fenilo se une al CH2 terminal, menos impedido estéricamente, de modo que los grupos fenilo y éster quedan en extremos opuestos del doble enlace, y se obtiene principalmente el (E)-cinamato de metilo, el isómero E con menor repulsión estérica. El 2-fenilacrilato de metilo, con el fenilo en el mismo carbono que el éster, casi no se forma con este sustrato. Como la eliminación de β-hidruro deja un doble enlace, no se obtiene el 3-fenilpropanoato de metilo, saturado. La trietilamina se añade para neutralizar el HI formado y regenerar el Pd(0)."
+ },
+ "synthesis-012": {
+  "question": "¿Qué estereoquímica es correcta para el 4-ciclohexeno-1,2-dicarboxilato de dimetilo formado en la reacción de Diels-Alder entre el 1,3-butadieno CH2=CH−CH=CH2 y el fumarato de dimetilo trans-CH3OOC−CH=CH−COOCH3?",
+  "choices": [
+   "Solo se forma el producto con los dos grupos éster en posición cis entre sí",
+   "Se forma el producto con los dos grupos éster en posición trans entre sí (racémico)",
+   "Los productos cis y trans se forman como una mezcla de aproximadamente 1 : 1"
+  ],
+  "explanation": "La reacción de Diels-Alder es una cicloadición [4+2] concertada que transcurre en una sola etapa a través de un estado de transición cíclico entre un dieno en conformación s-cis y un dienófilo; forma 2 nuevos enlaces σ y da un anillo de ciclohexeno. Como los enlaces se forman simultáneamente, la configuración del dienófilo se conserva tal cual en el producto (estereoespecificidad). El fumarato de dimetilo, trans, da el producto con los ésteres en trans, y el maleato de dimetilo, cis, da el producto cis. Como los materiales de partida son aquirales, el producto trans es quiral y se forma como mezcla equimolar de los isómeros (1R,2R) y (1S,2S) (racémico); el cis sería un compuesto meso. Con un mecanismo por etapas la estereoquímica se mezclaría, pero como es concertado no se obtiene una mezcla de cis y trans."
+ },
+ "synthesis-013": {
+  "question": "Se someten a una reacción de Wittig 5,306 g de benzaldehído C6H5CHO (masa molar 106,12 g/mol) y 0,0600 mol de benciliden(trifenil)fosforano Ph3P=CHC6H5, y se obtienen en total 6,31 g de estilbeno C6H5CH=CHC6H5 (masa molar 180,25 g/mol) como mezcla de los isómeros E y Z. ¿Qué valor se aproxima más al rendimiento de estilbeno, sumando ambos isómeros?",
+  "choices": [
+   "70,0 %",
+   "58,3 %",
+   "118,9 %"
+  ],
+  "explanation": "La cantidad de benzaldehído es 5,306 g ÷ 106,12 g/mol = 0,0500 mol, menor que la del iluro (0,0600 mol), así que el benzaldehído es el reactivo limitante. Como reaccionan en proporción 1 : 1, el rendimiento teórico es 0,0500 mol × 180,25 g/mol = 9,01 g, y el rendimiento, 6,31 g ÷ 9,01 g × 100 = 70,0 % (los isómeros E y Z tienen la misma masa molar, así que se calcula con el total). El 58,3 % calcula un rendimiento teórico de 10,8 g a partir de la cantidad del iluro, usado en exceso (0,0600 mol); el rendimiento siempre se refiere al reactivo limitante. El 118,9 % divide directamente la masa del producto entre la del material de partida (6,31/5,306)."
+ },
+ "synthesis-014": {
+  "question": "¿Qué valor se aproxima más a la economía atómica (masa molar del producto deseado ÷ suma de las masas molares de los reactivos × 100) de la reacción de Wittig C6H5CHO + Ph3P=CHC6H5 → C6H5CH=CHC6H5 + Ph3P=O? Tome como masas molares 106,12 para el benzaldehído, 352,42 para el iluro, 180,25 para el estilbeno y 278,29 g/mol para el óxido de trifenilfosfina.",
+  "choices": [
+   "51,1 %",
+   "100 %",
+   "39,3 %"
+  ],
+  "explanation": "La suma de las masas molares de los reactivos es 106,12 + 352,42 = 458,54 g/mol, y la del producto deseado, el estilbeno, es 180,25 g/mol, así que la economía atómica es 180,25 ÷ 458,54 × 100 = 39,3 %. El 61 % restante, aproximadamente, sale como subproducto, el óxido de trifenilfosfina (278,29 g/mol). El 100 % incluye por error el subproducto Ph3P=O como producto; por la ley de conservación de la masa, la suma de reactivos y la de productos siempre son iguales. El 51,1 % pone en el denominador solo el iluro (180,25/352,42). Aunque el rendimiento sea del 100 %, si la economía atómica es baja se generan muchos residuos. La reacción de Wittig permite fijar con seguridad la posición del C=C, pero su baja economía atómica es un inconveniente."
+ },
+ "synthesis-015": {
+  "question": "Se hacen reaccionar 20,0 mmol de 4-bromotolueno CH3C6H4Br y 24,0 mmol de ácido fenilborónico C6H5B(OH)2 en presencia de 0,100 mmol de catalizador de paladio y una base, y se obtienen 3,03 g de 4-metilbifenilo CH3C6H4C6H5 (masa molar 168,24 g/mol). ¿Qué valor se aproxima más al número de recambio (TON: cantidad de producto ÷ cantidad de catalizador)?",
+  "choices": [
+   "200",
+   "180",
+   "240"
+  ],
+  "explanation": "La cantidad de 4-metilbifenilo obtenida es 3,03 g ÷ 168,24 g/mol = 18,0 mmol, y el rendimiento respecto al reactivo limitante, el 4-bromotolueno (20,0 mmol), es de aproximadamente el 90 %. El TON indica cuántas veces ha completado el ciclo de reacción cada molécula de catalizador: 18,0 mmol ÷ 0,100 mmol = 180. El valor 200 supone un rendimiento del 100 % y calcula a partir de la cantidad teórica de 20,0 mmol, y 240 toma como referencia los 24,0 mmol de ácido fenilborónico usado en exceso; ninguno corresponde a la cantidad de producto realmente formado. La carga de catalizador de esta reacción es 0,100/20,0 × 100 = 0,50 % en moles. Cuanto mayor es el TON y menor la cantidad de catalizador, menos paladio, que es caro, se consume y menos queda en el producto."
+ },
+ "synthesis-016": {
+  "question": "Se quiere sintetizar el alcohol terciario 2-fenil-2-butanol C6H5C(OH)(CH3)CH2CH3 mediante la reacción de un reactivo de Grignard con un compuesto carbonílico (seguida de tratamiento con ácido acuoso). ¿Cuál es la combinación adecuada?",
+  "choices": [
+   "Benzaldehído, C6H5CHO, y bromuro de sec-butilmagnesio, CH3CH2CH(CH3)MgBr",
+   "2-Butanona, CH3COCH2CH3, y bromuro de fenilmagnesio, C6H5MgBr",
+   "Ácido benzoico, C6H5COOH, y bromuro de etilmagnesio, CH3CH2MgBr (2 equivalentes)"
+  ],
+  "explanation": "En la retrosíntesis se desconecta uno de los enlaces entre el carbono que lleva el grupo hidroxilo y los 3 grupos unidos a él (fenilo, metilo y etilo). Al desconectar el enlace con el fenilo se llega a la pareja 2-butanona y C6H5MgBr: el fenilo se adiciona al carbono carbonílico de la cetona y se obtiene el alcohol terciario deseado. Las parejas acetofenona y CH3CH2MgBr, o 1-fenil-1-propanona C6H5COCH2CH3 y CH3MgBr, dan el mismo producto. Con la pareja benzaldehído y sec-butilo se obtiene un alcohol secundario, C6H5CH(OH)CH(CH3)CH2CH3, que conserva un H en el carbono que lleva el OH. El ácido carboxílico solo destruye el reactivo de Grignard en una reacción ácido-base y pasa a carboxilato, sin dar el producto deseado."
+ },
+ "synthesis-017": {
+  "question": "Se tiene un intermedio de síntesis con un grupo amino protegido con terc-butoxicarbonilo (Boc). ¿Qué condiciones se usan con más frecuencia para eliminar el grupo Boc conservando el resto de la molécula?",
+  "choices": [
+   "Tratamiento con piperidina en DMF",
+   "Hidrogenólisis con hidrógeno, H2, y paladio sobre carbono, Pd/C",
+   "Tratamiento con un ácido fuerte como el ácido trifluoroacético (TFA)"
+  ],
+  "explanation": "El grupo Boc es un carbamato, (CH3)3C−O−CO−NHR; cuando un ácido fuerte protona el oxígeno carbonílico, se libera el estable catión terc-butilo y se forma un ácido carbámico, que desprende dióxido de carbono y regenera la amina. Por eso se elimina con ácidos como el TFA o el cloruro de hidrógeno en dioxano, y es estable en condiciones básicas y de hidrogenación catalítica. Con bases como la piperidina se elimina el grupo Fmoc (9-fluorenilmetoxicarbonilo), y por hidrogenólisis con H2 y Pd/C, el grupo Cbz (benciloxicarbonilo). Combinar grupos protectores cuyas condiciones de eliminación no interfieren entre sí se llama protección ortogonal, y se usa, por ejemplo, en la síntesis de péptidos en fase sólida para manejar por separado y en orden varios grupos amino o carboxilo."
+ },
+ "synthesis-018": {
+  "question": "Se quiere reducir benzoato de etilo C6H5COOCH2CH3 deteniendo la reacción en benzaldehído C6H5CHO, sin llegar al alcohol. ¿Cuáles son el reactivo y las condiciones más adecuados?",
+  "choices": [
+   "1 equivalente de hidruro de diisobutilaluminio (DIBAL-H) a −78 °C",
+   "Exceso de hidruro de litio y aluminio, LiAlH4, en éter dietílico a temperatura ambiente",
+   "Exceso de borohidruro de sodio, NaBH4, en metanol a temperatura ambiente"
+  ],
+  "explanation": "El DIBAL-H transfiere un hidruro al carbono carbonílico del éster y forma un intermedio tetraédrico con el aluminio unido al oxígeno. A baja temperatura, como −78 °C, este intermedio se mantiene sin descomponerse, y el aldehído solo se forma al hidrolizar en el tratamiento final, por lo que la segunda reducción apenas ocurre y la reacción se detiene en el aldehído. Con LiAlH4, el aldehído se forma enseguida a partir del intermedio y, como se reduce más fácilmente que el éster, sigue reduciéndose hasta alcohol bencílico, C6H5CH2OH. El NaBH4 es un reductor suave que en estas condiciones casi no reduce los ésteres, así que el benzoato de etilo queda sin reaccionar. Para detener la reacción con DIBAL-H, lo esencial es controlar estrictamente la temperatura y los equivalentes."
+ },
+ "synthesis-019": {
+  "question": "Se reducen 10,0 mmol de ciclohexanona a ciclohexanol con borohidruro de sodio NaBH4 (masa molar 37,83 g/mol). Si los 4 hidrógenos del NaBH4 se aprovechan todos como hidruro, ¿qué valor se aproxima más a la cantidad mínima teórica de NaBH4 necesaria?",
+  "choices": [
+   "378 mg",
+   "94,6 mg",
+   "189 mg"
+  ],
+  "explanation": "El BH4⁻ del NaBH4 puede reducir hasta 4 moléculas de cetona, transfiriendo un hidruro a cada una (al final se forma un tetraalcoxiborato). Por tanto, el NaBH4 necesario es la cuarta parte de la cetona, 10,0 ÷ 4 = 2,50 mmol, es decir, 2,50 mmol × 37,83 g/mol = 94,6 mg. 378 mg supone que la cetona y el NaBH4 reaccionan en proporción 1 : 1 (10,0 mmol). 189 mg supone que solo se aprovechan 2 hidrógenos (5,00 mmol). En la práctica, el NaBH4 también reacciona poco a poco con disolventes como el metanol y desprende hidrógeno, por lo que se usa algo más de la cantidad teórica. Estimar correctamente los equivalentes necesarios ayuda a reducir el desperdicio de reactivo y el trabajo del tratamiento final."
+ },
+ "synthesis-020": {
+  "question": "A la 2-metilciclohexanona se le añade 1 equivalente de diisopropilamiduro de litio (LDA) en THF a −78 °C para formar el enolato, y luego yodometano CH3I. ¿Cuál es el producto principal?",
+  "choices": [
+   "2,2-Dimetilciclohexanona (se metila el carbono α que ya lleva el grupo metilo)",
+   "2-Metilciclohexanol (el LDA transfiere un hidruro y reduce el grupo carbonilo)",
+   "2,6-Dimetilciclohexanona (se metila el carbono α menos sustituido)"
+  ],
+  "explanation": "El LDA es una base muy fuerte y voluminosa que, a baja temperatura, arranca rápidamente el hidrógeno α del C6, menos sustituido y estéricamente más accesible. El enolato así formado bajo control cinético (enolato cinético) apenas se isomeriza a baja temperatura, de modo que el C6 se metila por SN2 con el yodometano y se obtiene principalmente 2,6-dimetilciclohexanona. El isómero 2,2-dimetilado es el producto que se forma a través del enolato más sustituido y estable (enolato termodinámico), y aumenta a temperaturas más altas o en condiciones en que la cetona está en ligero exceso y los enolatos se equilibran entre sí. El LDA no es un reductor que transfiera hidruros, así que no se forma alcohol. Eligiendo la base, la temperatura y los equivalentes se puede decidir cuál de los carbonos α reacciona."
+ }
+}

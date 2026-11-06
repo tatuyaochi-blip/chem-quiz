@@ -1,0 +1,182 @@
+{
+ "polymer-chem-001": {
+  "question": "¿Cuál de los siguientes polímeros se sintetiza por polimerización por condensación?",
+  "choices": [
+   "El polietileno, obtenido a partir de etileno CH2=CH2",
+   "El poliestireno, obtenido a partir de estireno CH2=CHC6H5",
+   "El nailon 66, obtenido a partir de hexametilendiamina y ácido adípico"
+  ],
+  "explanation": "La polimerización por condensación es aquella en la que, cada vez que dos grupos funcionales reaccionan y forman un enlace, se libera una molécula pequeña, como agua. En el nailon 66, el grupo amino −NH2 y el grupo carboxilo −COOH reaccionan para formar el enlace amida −CONH−, y cada vez se libera una molécula de H2O. El etileno y el estireno dan polimerización por adición, en la que se abren los dobles enlaces C=C para unirse; todos los átomos del monómero pasan al polímero y no se forman subproductos. Por eso, la unidad repetitiva de un polímero de adición tiene la misma composición que el monómero, mientras que la de un polímero de condensación tiene la composición de la suma de los monómeros menos la molécula liberada."
+ },
+ "polymer-chem-002": {
+  "question": "A una polimerización radicalaria de estireno se añade 2,2'-azobisisobutironitrilo (AIBN), (CH3)2C(CN)−N=N−C(CN)(CH3)2, y se calienta a unos 60–70 °C. ¿Cuál es la función correcta del AIBN?",
+  "choices": [
+   "Se descompone con el calor liberando nitrógeno N2, y los radicales de carbono formados se adicionan al monómero e inician la polimerización",
+   "Cede un átomo de hidrógeno a los radicales en crecimiento y detiene las cadenas, actuando como agente de transferencia de cadena para regular el peso molecular",
+   "Reacciona rápidamente con los radicales en crecimiento y detiene la polimerización, actuando como inhibidor de la polimerización"
+  ],
+  "explanation": "El AIBN es un iniciador radicalario típico: al calentarlo se rompe a ambos lados del enlace N=N, libera N2 y forma dos radicales 2-ciano-2-propilo (CH3)2C(CN)·. Este radical se adiciona al C=C del estireno y genera un nuevo radical; esta es la reacción de iniciación. A continuación se producen la propagación, en la que los monómeros se adicionan uno tras otro, y la terminación, en la que los radicales reaccionan entre sí y desaparecen. La formación de N2 es la fuerza impulsora de la descomposición, y que la velocidad de descomposición dependa poco del disolvente es una de las razones de su comodidad de uso. Los agentes de transferencia de cadena que se usan para regular el peso molecular son, por ejemplo, los tioles, y los inhibidores de la polimerización, por ejemplo, la hidroquinona; ambos cumplen funciones distintas de la del AIBN."
+ },
+ "polymer-chem-003": {
+  "question": "Entre las reacciones de terminación de la polimerización radicalaria, ¿cuál es la descripción correcta de la terminación por desproporción?",
+  "choices": [
+   "Los extremos de dos radicales en crecimiento se unen y forman un único polímero cuya longitud es la suma de las dos cadenas",
+   "Un radical en crecimiento abstrae un hidrógeno del otro, y se obtienen una cadena con extremo saturado y otra con un C=C en el extremo",
+   "Un radical en crecimiento abstrae un átomo de hidrógeno del disolvente y la cadena se detiene, y el radical del disolvente inicia el crecimiento de una nueva cadena"
+  ],
+  "explanation": "La terminación es la reacción en la que dos radicales en crecimiento se encuentran y desaparecen sus electrones desapareados; hay dos tipos, la combinación y la desproporción. En la desproporción, un radical abstrae un átomo de hidrógeno de la posición β de la otra cadena, y se obtienen dos polímeros: uno con el extremo saturado y otro con un doble enlace C=C en el extremo. Cuando los extremos de dos cadenas se unen y sus longitudes se suman, se trata de combinación. Se considera que en el estireno predomina la combinación y en el metacrilato de metilo, la desproporción. La reacción en la que se abstrae un hidrógeno del disolvente o de un tiol y comienza una nueva cadena es la transferencia de cadena; como el número de radicales no disminuye, se distingue de la terminación."
+ },
+ "polymer-chem-004": {
+  "question": "Se mezclan 1,0 g de un polímero de peso molecular 1,0×10⁴ y 1,0 g de un polímero de peso molecular 3,0×10⁴ (en ambos casos el peso molecular es uniforme). ¿Cuál es el peso molecular promedio en número Mn de la mezcla?",
+  "choices": [
+   "1,5×10⁴",
+   "2,0×10⁴",
+   "2,5×10⁴"
+  ],
+  "explanation": "El peso molecular promedio en número es la masa total dividida entre la cantidad de sustancia total. Las cantidades de sustancia son 1,0 g/1,0×10⁴ = 1,0×10⁻⁴ mol y 1,0 g/3,0×10⁴ ≈ 3,33×10⁻⁵ mol, en total 1,33×10⁻⁴ mol. Así, Mn = 2,0 g/1,33×10⁻⁴ mol = 1,5×10⁴. El valor 2,0×10⁴ es el promedio ponderado por masa, que corresponde al peso molecular promedio en peso Mw = (1,0×1,0×10⁴ + 1,0×3,0×10⁴)/2,0. El valor 2,5×10⁴ es el Mw que se obtiene al mezclar cantidades de sustancia iguales. Como Mn se ve arrastrado por las moléculas pequeñas, que son más numerosas, y Mw por las moléculas de mayor masa, siempre que haya una distribución se cumple Mw > Mn; en este ejemplo, la dispersidad es Mw/Mn ≈ 1,33."
+ },
+ "polymer-chem-005": {
+  "question": "En una polimerización por etapas (policondensación) de un diol y un ácido dicarboxílico en cantidades de sustancia iguales, ¿cuál es el valor teórico de la dispersidad Mw/Mn (según la distribución más probable de Flory) cuando el grado de avance de la reacción p se acerca a 1?",
+  "choices": [
+   "1,0",
+   "1,5",
+   "2,0"
+  ],
+  "explanation": "Si la reactividad de los grupos funcionales no depende de la longitud de la cadena, la distribución de pesos moleculares de la polimerización por etapas es la distribución más probable de Flory; de Mn ∝ 1/(1 − p) y Mw ∝ (1 + p)/(1 − p) se obtiene una dispersidad Mw/Mn = 1 + p. Cuando p → 1, Mw/Mn se acerca a 2. El valor 1,0 corresponde al caso ideal en que todas las moléculas tienen la misma longitud; en la polimerización aniónica viva se obtienen valores cercanos a 1. El valor 1,5 es el valor teórico de una polimerización radicalaria que termina solo por combinación; si termina por desproporción, es 2. La dispersidad expresa la anchura de la distribución de pesos moleculares y nunca es menor que 1."
+ },
+ "polymer-chem-006": {
+  "question": "En la polimerización radicalaria (polimerización en cadena) del estireno, si se examina la mezcla de reacción en la etapa inicial, cuando la conversión del monómero es todavía de solo un pequeño porcentaje, ¿en qué estado se encuentra?",
+  "choices": [
+   "Los monómeros se van uniendo poco a poco en dímeros y trímeros, y todavía no existe polímero de alto peso molecular",
+   "Ya se ha formado polímero de alto peso molecular, y la mayor parte del resto es monómero sin reaccionar",
+   "Casi todo el monómero se ha consumido, pero abundan los oligómeros y el peso molecular sigue siendo bajo"
+  ],
+  "explanation": "En la polimerización en cadena, cada radical iniciado adiciona entre cientos y miles de monómeros durante su corta vida, de unos pocos segundos como máximo, y luego termina, de modo que desde el comienzo mismo de la reacción se forma polímero de alto peso molecular. Con una conversión baja, la mezcla de reacción es una mezcla de ese polímero y monómero sin reaccionar, y las cadenas en crecimiento son muy pocas. Que los monómeros se vayan uniendo poco a poco en dímeros y trímeros, y que el monómero se consuma pronto mientras el peso molecular apenas aumenta, es característico de la polimerización por etapas (policondensación); las otras dos opciones describen, respectivamente, las etapas inicial e intermedia de una polimerización por etapas. Puede resumirse así: en la polimerización en cadena, con el tiempo aumenta sobre todo el rendimiento, y en la polimerización por etapas, con el tiempo aumenta el peso molecular."
+ },
+ "polymer-chem-007": {
+  "question": "Se policondensan un diol y un ácido dicarboxílico en cantidades de sustancia iguales. Cuando el grado de avance de los grupos funcionales alcanza p = 0,99, ¿cuál es el grado de polimerización promedio en número Xn según la ecuación de Carothers, Xn = 1/(1 − p)?",
+  "choices": [
+   "50",
+   "100",
+   "99"
+  ],
+  "explanation": "La ecuación de Carothers se deduce del cociente entre el número de moléculas al inicio de la reacción, N0, y el número de moléculas cuando el grado de avance es p, N = N0(1 − p): Xn = N0/N = 1/(1 − p). Con p = 0,99, Xn = 1/0,01 = 100. El valor 99 es el error de calcular p/(1 − p), y 50, el error de dividir entre 2, como en 1/(2(1 − p)). Como muestra esta ecuación, incluso con un grado de avance de 0,95, Xn es solo 20, y no llega a 200 hasta p = 0,995. Para obtener pesos moleculares altos en la polimerización por condensación hay que llevar el grado de avance a valores extremadamente altos, y para ello se elimina a presión reducida el agua formada como subproducto, desplazando el equilibrio hacia los productos. Aquí Xn es el número de unidades monoméricas (cada diol y cada ácido dicarboxílico cuentan como 1)."
+ },
+ "polymer-chem-008": {
+  "question": "En la policondensación de una diamina y un ácido dicarboxílico, se cargan los grupos funcionales en una relación de cantidades de sustancia r = 0,98 (grupo minoritario/grupo mayoritario), y el grado de avance del grupo minoritario alcanza p = 0,99. Usando Xn = (1 + r)/(1 + r − 2rp), ¿cuál es el valor más cercano al grado de polimerización promedio en número Xn?",
+  "choices": [
+   "50",
+   "99",
+   "100"
+  ],
+  "explanation": "Sustituyendo en la ecuación, Xn = (1 + 0,98)/(1 + 0,98 − 2 × 0,98 × 0,99) = 1,98/(1,98 − 1,9404) = 1,98/0,0396 = 50. El valor 100 se obtiene si se ignora el desequilibrio estequiométrico y se calcula con 1/(1 − p), y 99 es el valor de (1 + r)/(1 − r) con p = 1 (el límite de reacción completa). Un desequilibrio de solo el 2 % reduce el grado de polimerización a la mitad, de 100 en el caso equimolar a 50. Esto se debe a que el grupo funcional en exceso bloquea ambos extremos de las cadenas; en el nailon 66 se prepara una sal 1 : 1 (sal de nailon) de la diamina y el ácido adípico, se purifica y luego se polimeriza, para ajustar la relación exactamente a 1. Por otro lado, a veces se añade una pequeña cantidad de un monómero monofuncional para limitar el peso molecular de forma intencionada."
+ },
+ "polymer-chem-009": {
+  "question": "En una polimerización radicalaria, se multiplica por 4 solo la concentración del iniciador, sin cambiar la concentración de monómero ni la temperatura. Si es válida la aproximación del estado estacionario, la terminación ocurre por reacción entre dos radicales y la transferencia de cadena es despreciable, ¿cómo cambian la velocidad de polimerización y el peso molecular del polímero formado?",
+  "choices": [
+   "La velocidad de polimerización se multiplica por 4 y el peso molecular no cambia",
+   "La velocidad de polimerización se duplica y el peso molecular también se duplica",
+   "La velocidad de polimerización se duplica y el peso molecular se reduce a la mitad aproximadamente"
+  ],
+  "explanation": "En el estado estacionario, la velocidad de formación de radicales se iguala con la de terminación, y la concentración de radicales es proporcional a [I]^(1/2). La velocidad de polimerización Rp = kp[M][R·] también es proporcional a [I]^(1/2), de modo que al multiplicar [I] por 4, Rp aumenta √4 = 2 veces. En cambio, el número de monómeros que adiciona una cadena antes de terminar (longitud cinética de cadena) es velocidad de propagación/velocidad de terminación ∝ [M]/[I]^(1/2), por lo que el peso molecular se reduce aproximadamente a 1/2. Cuantos más radicales hay, más fácil es que se encuentren y terminen. Suponer que la velocidad se multiplica por 4 es pasar por alto la relación de raíz cuadrada, y suponer que el peso molecular también se duplica es pensar que velocidad y peso molecular varían en el mismo sentido. Cuando se quiere aumentar a la vez la velocidad y el peso molecular, se usan métodos como la polimerización en emulsión."
+ },
+ "polymer-chem-010": {
+  "question": "A la polimerización radicalaria del metacrilato de metilo se añade una pequeña cantidad de 1-dodecanotiol, C12H25SH. ¿Cuál es el efecto principal correcto de esta adición?",
+  "choices": [
+   "El radical en crecimiento abstrae el hidrógeno del S−H y se detiene, y el RS· formado inicia una nueva cadena, por lo que el peso molecular baja sin cambiar mucho la velocidad",
+   "El tiol se descompone como un iniciador y aumenta los radicales, por lo que sube la concentración de radicales y aumentan mucho la velocidad y el peso molecular",
+   "El tiol captura los radicales en crecimiento y se convierte en un radical estable y poco reactivo, por lo que la polimerización se detiene por completo"
+  ],
+  "explanation": "Los tioles son agentes de transferencia de cadena típicos. Cuando el radical en crecimiento P· abstrae el hidrógeno del débil enlace S−H, esa cadena deja de crecer como P−H. El radical tiilo RS· formado se adiciona al monómero e inicia una nueva cadena, de modo que el número de radicales casi no cambia, el efecto sobre la velocidad de polimerización sigue siendo pequeño y cada cadena resulta más corta. Por eso se usan a menudo en la industria para regular el peso molecular. El tiol no es un iniciador ni tiene la capacidad de aumentar los radicales. Los que capturan radicales y detienen la polimerización son los inhibidores de la polimerización, como la hidroquinona, que se distinguen de los agentes de transferencia de cadena según que el radical formado vuelva o no a iniciar la polimerización."
+ },
+ "polymer-chem-011": {
+  "question": "Un poliestireno tiene un peso molecular promedio en peso Mw de 1,04×10⁵ y una dispersidad Mw/Mn de 2,0. Si la masa de fórmula de la unidad repetitiva C8H8 es 104, ¿cuál es el valor más cercano al grado de polimerización promedio en número?",
+  "choices": [
+   "1,0×10³",
+   "5,0×10²",
+   "2,5×10²"
+  ],
+  "explanation": "Primero, el peso molecular promedio en número es Mn = Mw/(Mw/Mn) = 1,04×10⁵/2,0 = 5,2×10⁴. El grado de polimerización promedio en número se obtiene dividiendo Mn entre la masa de fórmula de la unidad repetitiva: 5,2×10⁴/104 = 5,0×10² (se desprecia la masa de los grupos terminales). El valor 1,0×10³ es el grado de polimerización promedio en peso, que resulta de dividir Mw directamente entre la masa de fórmula, y es una magnitud distinta del promedio en número. El valor 2,5×10² es el error de dividir otra vez entre la dispersidad. La unidad repetitiva del poliestireno, −CH2−CH(C6H5)−, tiene la misma composición que el monómero estireno C8H8, lo que es característico de los polímeros de adición. Pensar en el grado de polimerización permite imaginar de forma concreta, a partir del valor del peso molecular, cuántos monómeros contiene una cadena."
+ },
+ "polymer-chem-012": {
+  "question": "En una copolimerización radicalaria, ¿qué tipo de copolímero tiende a formarse con una combinación cuyas relaciones de reactividad son r1 ≈ 0 y r2 ≈ 0 (por ejemplo, estireno y anhídrido maleico)?",
+  "choices": [
+   "Un copolímero al azar, en el que los dos monómeros se ordenan aleatoriamente según la proporción de la carga",
+   "Un copolímero en bloque, en el que se encadenan alternadamente tramos largos de un mismo monómero",
+   "Un copolímero alternante, en el que los dos monómeros se ordenan alternadamente de uno en uno"
+  ],
+  "explanation": "La relación de reactividad r1 = k11/k12 es el cociente entre la constante de velocidad con que un radical con extremo M1 se adiciona a otro M1 y la constante con que se adiciona al otro monómero, M2. Si r1 ≈ 0, el extremo M1 solo se adiciona a M2, y si r2 ≈ 0, el extremo M2 solo se adiciona a M1, de modo que M1 y M2 se alternan. El estireno, rico en electrones, y el anhídrido maleico, pobre en electrones, son el ejemplo típico; el anhídrido maleico casi no polimeriza por sí solo. Cuando r1·r2 = 1, la selectividad de adición es la misma sea cual sea el extremo, y se obtiene una copolimerización ideal (al azar) en la que los monómeros se ordenan aleatoriamente. Si r1 y r2 son ambos mayores que 1, tienden a sucederse unidades del mismo monómero, pero los copolímeros en bloque se preparan normalmente por polimerización viva, añadiendo los monómeros uno tras otro."
+ },
+ "polymer-chem-013": {
+  "question": "Se copolimerizan por vía radicalaria los monómeros M1 y M2, cargados en cantidades de sustancia iguales. Las relaciones de reactividad son r1 = 2,0 y r2 = 0,5. ¿Cuál es el valor más cercano a la fracción molar F1 de M1 en el copolímero formado al inicio de la polimerización? Use la ecuación de composición del copolímero d[M1]/d[M2] = [M1](r1[M1] + [M2])/{[M2]([M1] + r2[M2])}.",
+  "choices": [
+   "0,67",
+   "0,50",
+   "0,80"
+  ],
+  "explanation": "Como [M1] = [M2], la ecuación de composición queda d[M1]/d[M2] = (r1 + 1)/(1 + r2) = 3,0/1,5 = 2,0. La relación entre M1 y M2 en el copolímero es 2 : 1, de modo que F1 = 2,0/(2,0 + 1) = 0,67. El valor 0,50 es el error de suponer que la composición de la carga pasa tal cual al copolímero, lo que solo se cumple cuando r1 = r2 = 1. El valor 0,80 es el error de tomar la proporción solo con las relaciones de reactividad, r1/(r1 + r2) = 2,0/2,5. Esta combinación es una copolimerización ideal con r1·r2 = 1; como entra más M1, que reacciona con más facilidad, a medida que avanza la polimerización disminuye el M1 que queda en la carga, y se produce una deriva de composición: el copolímero formado más tarde contiene más M2."
+ },
+ "polymer-chem-014": {
+  "question": "Se analiza una disolución de un polímero por cromatografía de permeación en gel (GPC, cromatografía de exclusión por tamaño). ¿Qué moléculas eluyen primero?",
+  "choices": [
+   "Las moléculas de menor tamaño en disolución (volumen hidrodinámico)",
+   "Las moléculas de mayor tamaño en disolución (volumen hidrodinámico)",
+   "Las moléculas muy polares que se adsorben con más fuerza a la superficie de la fase estacionaria"
+  ],
+  "explanation": "La columna de GPC está rellena de un gel poroso, y los componentes se separan según el grado en que pueden penetrar en los poros. Las moléculas grandes no pueden entrar en los poros y solo recorren los huecos entre las partículas, por lo que eluyen primero; cuanto más pequeña es una molécula, en más poros penetra, más largo es su recorrido y más tarde eluye. Observe que el orden de elución parece el inverso del que sugiere la idea de retención de la cromatografía habitual. Se supone que la separación no se debe a adsorción ni a reparto en la fase estacionaria; si hay adsorción, la elución se retrasa y el peso molecular se estima mal, por lo que se elige un disolvente en el que la interacción entre el polímero y el gel sea pequeña. Como la separación es según el tamaño en disolución y no según el peso molecular, también hay que tener cuidado al comparar polímeros de distinta forma."
+ },
+ "polymer-chem-015": {
+  "question": "En GPC se midieron patrones de poliestireno: el patrón de peso molecular 1,0×10⁵ eluyó a un volumen de elución de 12,0 mL y el de 1,0×10³, a 18,0 mL. Si log M y el volumen de elución tienen una relación lineal, ¿cuál es el valor más cercano al peso molecular equivalente en poliestireno de un pico que aparece a 14,0 mL?",
+  "choices": [
+   "4,6×10³",
+   "6,7×10⁴",
+   "2,2×10⁴"
+  ],
+  "explanation": "La pendiente de la recta de calibración es (log 10³ − log 10⁵)/(18,0 − 12,0) = −2/6,0 ≈ −0,333 /mL. A 14,0 mL, log M = 5,00 − 0,333 × (14,0 − 12,0) = 4,33, y M = 10^4,33 ≈ 2,2×10⁴. El valor 6,7×10⁴ es el error de interpolar linealmente el propio peso molecular sin tomar logaritmos, y 4,6×10³, el de interpolar 2,0 mL en sentido inverso desde el patrón de menor peso molecular (log M = 3,00 + 0,667). Los valores de GPC son relativos, obtenidos al comparar el tamaño con el de los patrones, por lo que se indican como «equivalente en poliestireno», y en polímeros de forma distinta se apartan del peso molecular real. Cuando se necesita el peso molecular absoluto, se combina con un detector de dispersión de luz."
+ },
+ "polymer-chem-016": {
+  "question": "Con 1,00 mmol de sec-butil-litio como iniciador, se polimerizan aniónicamente 10,4 g de estireno (masa molar 104 g/mol) en ciclohexano. Es una polimerización viva, sin terminación ni transferencia de cadena; todo el iniciador inicia rápidamente, y una vez consumido todo el monómero se desactivan los extremos en crecimiento con metanol. ¿Cuál es el valor más cercano al peso molecular promedio en número Mn del poliestireno formado? Desprecie la masa de los grupos terminales.",
+  "choices": [
+   "5,2×10³",
+   "1,04×10⁴",
+   "2,08×10⁴"
+  ],
+  "explanation": "En la polimerización viva, cada molécula de iniciador inicia una cadena y no hay terminación ni transferencia de cadena, de modo que el número de cadenas es igual a la cantidad de sustancia de iniciador, 1,00×10⁻³ mol. Los 10,4 g de estireno (0,100 mol) se reparten por igual entre esas cadenas, así que el grado de polimerización promedio en número es 0,100/1,00×10⁻³ = 100 y Mn = 10,4 g/1,00×10⁻³ mol = 1,04×10⁴. El valor 2,08×10⁴ supone una terminación por combinación en la que los extremos en crecimiento se unen de dos en dos, pero en la polimerización aniónica viva los carbaniones no se unen entre sí. El valor 5,2×10³ supone que de cada molécula de iniciador crecen dos cadenas, pero el sec-butil-litio es un iniciador monofuncional. Como la iniciación es más rápida que la propagación, la dispersidad Mw/Mn suele ser de 1,1 o menos."
+ },
+ "polymer-chem-017": {
+  "question": "Al polimerizar propileno CH2=CHCH3 con un catalizador de Ziegler-Natta se obtiene un polipropileno con los grupos metilo orientados de forma regular. ¿Cuál es la combinación correcta de estereorregularidad (tacticidad) y propiedades de este polímero?",
+  "choices": [
+   "Isotáctico, con todos los metilos del mismo lado de la cadena principal; cristaliza con facilidad y tiene un punto de fusión alto",
+   "Isotáctico, con los metilos alternando a lados opuestos de la cadena principal; cristaliza con dificultad y es blando",
+   "Atáctico, con los metilos orientados al azar; al no haber orden, las cadenas se empaquetan densamente, cristalizan y es duro"
+  ],
+  "explanation": "La estereorregularidad es la forma en que se ordenan las orientaciones de los sustituyentes. Si todos están del mismo lado de la cadena principal, el polímero es isotáctico; si alternan a lados opuestos, sindiotáctico, y si su orientación es irregular, atáctico. Con el catalizador de Ziegler-Natta, el monómero se coordina al metal con una orientación determinada y se inserta, por lo que se forma principalmente polipropileno isotáctico. Sus cadenas regulares adoptan una estructura helicoidal y cristalizan densamente, de modo que el punto de fusión es alto, de unos 160 °C, y el material es duro. La forma con orientaciones alternadas es sindiotáctica, no isotáctica. El polipropileno atáctico, por la forma irregular de sus cadenas, no cristaliza y es un material amorfo, blando y pegajoso."
+ },
+ "polymer-chem-018": {
+  "question": "La entalpía estándar de polimerización de un monómero es ΔH = −35,0 kJ/mol y la entropía estándar de polimerización es ΔS = −104 J/(mol·K) (valores referidos a una concentración de monómero de 1 mol/L). Si ΔH y ΔS no dependen de la temperatura, ¿cuál es la combinación correcta de la temperatura techo Tc y del comportamiento de la polimerización por encima de Tc? Tome 0 °C = 273,15 K.",
+  "choices": [
+   "Unos 337 °C; por encima de esta temperatura la polimerización no avanza",
+   "Unos 63 °C; cuanto más alta es la temperatura por encima de esta, más fácil es la polimerización",
+   "Unos 63 °C; por encima de esta temperatura la polimerización no avanza"
+  ],
+  "explanation": "En la polimerización, un doble enlace C=C se convierte en dos enlaces simples, por lo que es exotérmica (ΔH < 0), y como los monómeros se unen a la cadena y pierden libertad de movimiento, ΔS < 0. ΔG = ΔH − TΔS es negativa a baja temperatura, pero al aumentar la temperatura crece la contribución positiva de −TΔS; la temperatura a la que ΔG = 0 es la temperatura techo. Tc = ΔH/ΔS = (−35,0×10³ J/mol)/(−104 J/(mol·K)) ≈ 336,5 K, es decir, unos 63 °C (valor para un monómero a 1 mol/L). Por encima de esta temperatura es más favorable la despolimerización y no se obtiene polímero. Unos 337 °C es el error de leer el valor en kelvin directamente como grados Celsius. Que la polimerización sea más favorable cuanto más alta es la temperatura corresponde al caso ΔS > 0, que no se aplica a la polimerización por adición habitual."
+ },
+ "polymer-chem-019": {
+  "question": "¿Cuál de los siguientes monómeros es el más adecuado para una polimerización catiónica iniciada con un ácido de Lewis (por ejemplo, trifluoruro de boro BF3 con una pequeña cantidad de agua)?",
+  "choices": [
+   "Isobutileno CH2=C(CH3)2. Sus dos grupos metilo estabilizan el carbocatión terciario del extremo en crecimiento",
+   "Acrilonitrilo CH2=CHCN. El grupo ciano, atractor de electrones, estabiliza por resonancia el carbocatión del extremo en crecimiento",
+   "Etileno CH2=CH2. Al no tener sustituyentes, su impedimento estérico es pequeño y el carbocatión del extremo es el más estable"
+  ],
+  "explanation": "En la polimerización catiónica, el extremo en crecimiento es un carbocatión, por lo que son adecuados los monómeros con sustituyentes dadores de electrones que lo estabilicen. El isobutileno, al adicionarse, da un carbocatión terciario con dos grupos metilo que se estabiliza por hiperconjugación, por lo que polimeriza rápidamente incluso a baja temperatura y es además materia prima del caucho butílico. Los éteres vinílicos también son adecuados, porque el par de electrones no compartido del oxígeno estabiliza el catión. El grupo ciano del acrilonitrilo es atractor de electrones y, más bien, desestabiliza el carbocatión, por lo que este monómero es apropiado para la polimerización aniónica o radicalaria. Del etileno solo se forma un carbocatión primario inestable, así que por polimerización catiónica no da polímero."
+ },
+ "polymer-chem-020": {
+  "question": "¿Cuál es el método industrial correcto de síntesis del nailon 6?",
+  "choices": [
+   "Polimerizar por condensación hexametilendiamina y ácido adípico, eliminando el agua",
+   "Calentar ε-caprolactama (lactama de siete miembros) con un poco de agua y polimerizarla por apertura de anillo",
+   "Polimerizar por adición sobre el C=C la acrilamida CH2=CHCONH2 con un iniciador radicalario"
+  ],
+  "explanation": "El nailon 6 se obtiene por polimerización por apertura de anillo, en la que se abre y se encadena el anillo de la ε-caprolactama, una amida cíclica (de los 7 átomos del anillo, 6 son carbonos). Una pequeña cantidad de agua hidroliza parte de ella, y el ácido 6-aminohexanoico formado actúa como punto de inicio: su grupo amino abre el anillo de la siguiente lactama y la cadena se alarga. Como los anillos solo se abren y se unen, la unidad repetitiva −NH(CH2)5CO− tiene la misma composición que el monómero. El «6» del nombre indica el número de carbonos de la unidad repetitiva. La polimerización por condensación de hexametilendiamina y ácido adípico da nailon 66. La polimerización por adición de la acrilamida da poliacrilamida, con el grupo amida en la cadena lateral, y no un nailon con enlaces amida en la cadena principal."
+ }
+}

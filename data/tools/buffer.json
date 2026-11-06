@@ -246,6 +246,66 @@
           "a": "可以。若是氨與氯化銨的緩衝溶液，使用銨離子的pKa 9.25，[A⁻]填入氨的濃度，[HA]填入銨離子的濃度。"
         }
       ]
+    },
+    "es": {
+      "nav": "pH de disoluciones tampón",
+      "card": "Calcule el pH de una disolución tampón y la proporción de mezcla con la ecuación de Henderson-Hasselbalch",
+      "title": "Calculadora del pH de disoluciones tampón (ecuación de Henderson-Hasselbalch)",
+      "description": "Calcula el pH de una disolución tampón con la ecuación de Henderson-Hasselbalch a partir del pKa de un ácido débil y de las concentraciones del ácido débil (HA) y de su base conjugada (A⁻). También obtiene la relación [A⁻]/[HA] necesaria para un pH objetivo y la concentración de cada componente para una concentración total dada.",
+      "h1": "Calculadora del pH de disoluciones tampón",
+      "lead": "Obtenga el pH de una disolución tampón preparada con un ácido débil y su sal y, a la inversa, la proporción de mezcla para alcanzar un pH objetivo. Los valores predeterminados corresponden a un tampón de acetato (pKa 4,76, 25 °C) con ácido acético 0,10 mol/L y acetato de sodio 0,15 mol/L.",
+      "in_heading": "Datos",
+      "pka": "pKa del ácido débil",
+      "ha": "Ácido débil [HA] (mol/L)",
+      "a": "Base conjugada [A⁻] (mol/L)",
+      "target": "pH objetivo",
+      "total": "Concentración total [HA] + [A⁻] (mol/L)",
+      "out_heading": "Resultados",
+      "ph": "pH",
+      "range": "Capacidad amortiguadora orientativa",
+      "make_heading": "Para alcanzar el pH objetivo",
+      "ratio": "Relación necesaria [A⁻]/[HA]",
+      "c_a": "Base conjugada [A⁻]",
+      "c_ha": "Ácido débil [HA]",
+      "note": "Es una aproximación que toma los coeficientes de actividad como 1 y desprecia los cambios de concentración debidos a la autoionización del agua y a la disociación del propio ácido débil. Funciona bien con concentraciones superiores a unos 0,01 mol/L y con el pH dentro de pKa ± 1. En disoluciones de fuerza iónica alta, los valores medidos pueden diferir.",
+      "practice": "Resolver preguntas de ácidos y bases",
+      "related": "Términos relacionados",
+      "js": {
+        "inside": "Dentro de pKa ± 1 (capacidad amortiguadora suficiente)",
+        "outside": "Fuera de pKa ± 1 (capacidad amortiguadora baja)"
+      },
+      "sections": [
+        {
+          "h": "La ecuación de Henderson-Hasselbalch",
+          "p": "Al tomar logaritmos en ambos miembros de la constante de disociación ácida Ka = [H⁺][A⁻]/[HA] del equilibrio de disociación de un ácido débil, HA ⇌ H⁺ + A⁻, se obtiene pH = pKa + log10([A⁻]/[HA]). Esta es la ecuación de Henderson-Hasselbalch. Con los valores predeterminados, ácido acético 0,10 mol/L y acetato de sodio 0,15 mol/L, pH = 4,76 + log10(1,5) ≈ 4,94. Cuando [A⁻] = [HA], pH = pKa, lo que muestra que el pH de una disolución tampón no lo fijan las concentraciones en sí, sino la relación entre los dos componentes."
+        },
+        {
+          "h": "Ajustar a un pH objetivo",
+          "p": "Despejando, la relación necesaria es [A⁻]/[HA] = 10^(pH − pKa). Para el pH objetivo predeterminado de 5,00 es 10^0,24 ≈ 1,74, de modo que, para una concentración total de 0,10 mol/L, se mezclan unos 0,0635 mol/L de acetato de sodio con unos 0,0365 mol/L de ácido acético. En la preparación real, después de mezclar las cantidades calculadas se comprueba el pH con un pH-metro y se ajusta añadiendo un poco de ácido fuerte o de base fuerte."
+        },
+        {
+          "h": "Capacidad amortiguadora e intervalo de pH útil",
+          "p": "La capacidad de una disolución tampón para contrarrestar los cambios de pH (capacidad amortiguadora) es máxima cuando [A⁻] = [HA] (pH = pKa) y disminuye bruscamente fuera de pKa ± 1, donde la relación es 10 o 1/10. Por eso se elige un ácido débil con un pKa próximo al pH deseado. Ejemplos típicos son el ácido acético (pKa 4,76), la segunda disociación del ácido fosfórico (pKa alrededor de 7,2), el Tris (pKa alrededor de 8,1) y el ion amonio (pKa 9,25). Al aumentar la concentración total, la capacidad amortiguadora aumenta con la misma relación."
+        },
+        {
+          "h": "Cuándo deja de valer la aproximación",
+          "p": "Esta ecuación es una aproximación que toma las concentraciones añadidas como concentraciones de equilibrio. Cuando las concentraciones son muy bajas, o cuando el ácido o la base son fuertes, con pKa por debajo de 2 o por encima de 12, no pueden despreciarse la disociación del propio ácido débil ni la del agua, y para obtener un valor exacto hay que resolver conjuntamente el balance de cargas y el balance de masas. Además, con fuerza iónica alta los coeficientes de actividad se alejan de 1 y el pH medido puede diferir del calculado en unas 0,1 unidades. En los tampones cuyo pKa varía con la temperatura (el Tris, unos −0,03/°C), ajuste el pH a la temperatura de uso."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuándo se cumple pH = pKa?",
+          "a": "Cuando las concentraciones del ácido débil y de su base conjugada son iguales. Como log10(1) = 0, pH = pKa, y en ese punto la capacidad amortiguadora también es máxima. Por eso, al valorar un ácido débil con una base fuerte, el pH en el punto de semiequivalencia es igual al pKa."
+        },
+        {
+          "q": "¿Cambia el pH al diluir una disolución tampón con agua?",
+          "a": "Según la ecuación de Henderson-Hasselbalch, la relación no cambia, así que el pH tampoco. En la práctica, al diluir disminuye la fuerza iónica y cambian los coeficientes de actividad, por lo que el pH varía ligeramente. Con una dilución extrema también desaparece la capacidad amortiguadora."
+        },
+        {
+          "q": "¿Sirve también para tampones básicos?",
+          "a": "Sí. Para un tampón de amoniaco y cloruro de amonio, use el pKa del ion amonio, 9,25, e introduzca la concentración de amoniaco como [A⁻] y la del ion amonio como [HA]."
+        }
+      ]
     }
   }
 }

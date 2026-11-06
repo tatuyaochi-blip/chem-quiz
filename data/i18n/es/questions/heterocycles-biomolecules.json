@@ -1,0 +1,182 @@
+{
+ "heterocycles-biomolecules-001": {
+  "question": "¿Cuál es la descripción correcta del par de electrones no compartido del átomo de nitrógeno de la piridina C5H5N?",
+  "choices": [
+   "Ocupa un orbital p del nitrógeno y forma parte del sistema aromático de 6 electrones π, por lo que casi no se une a protones",
+   "Está en un orbital híbrido sp² en el plano del anillo y no forma parte del sistema de 6 electrones π, por lo que puede aceptar un protón",
+   "Ocupa un orbital híbrido sp³, y el entorno del nitrógeno es piramidal, igual que en el amoníaco"
+  ],
+  "explanation": "En la piridina, los seis átomos del anillo tienen hibridación sp², y cada uno aporta un electrón en su orbital p; en total, seis electrones π que cumplen la regla de Hückel (4n + 2, n = 1), por lo que es aromática. El nitrógeno aporta un electrón a ese orbital p, y su par de electrones no compartido queda en un orbital sp² orientado en el plano del anillo. Por eso puede aceptar un protón sin perder la aromaticidad, y se comporta como una base débil: el pKa del ion piridinio C5H5NH⁺ es de aproximadamente 5,2. El nitrógeno cuyo par no compartido ocupa un orbital p y forma parte del sistema π es el del pirrol, y esa opción lo confunde con la piridina. El nitrógeno de la piridina forma parte de un anillo plano y no tiene geometría piramidal sp³."
+ },
+ "heterocycles-biomolecules-002": {
+  "question": "El pirrol C4H4NH es mucho menos básico que la piridina C5H5N (pKa del ácido conjugado, aproximadamente 5,2); el pKa de su ácido conjugado es de aproximadamente −4. ¿Cuál es el motivo principal correcto?",
+  "choices": [
+   "El nitrógeno tiene hibridación sp, y su par de electrones no compartido está fuertemente atraído por el núcleo",
+   "El hidrógeno del enlace N−H estorba estéricamente e impide que el protón se acerque al nitrógeno",
+   "El par de electrones no compartido del nitrógeno forma parte del sistema aromático de 6 electrones π, y la protonación destruye la aromaticidad"
+  ],
+  "explanation": "El nitrógeno del pirrol tiene hibridación sp², y los cuatro electrones π de los cuatro carbonos, junto con los dos del par no compartido que ocupa el orbital p del nitrógeno, forman un sistema aromático de seis electrones π. Si este par se cede a un protón, se rompe el sistema de 6π y se pierde la estabilización aromática, de modo que el nitrógeno casi no actúa como base. En ácidos fuertes se protona más bien un carbono del anillo (la posición 2), y el pKa de ese ácido conjugado es de aproximadamente −4. El nitrógeno no tiene hibridación sp (la hibridación sp corresponde al nitrógeno de los nitrilos), y el hidrógeno del N−H es pequeño, por lo que tampoco produce un impedimento estérico que dificulte la protonación. Que el par de electrones no compartido forme parte o no del sistema π es lo que diferencia la basicidad de la piridina y del pirrol."
+ },
+ "heterocycles-biomolecules-003": {
+  "question": "¿Cuál de los siguientes compuestos es aromático según la regla de Hückel?",
+  "choices": [
+   "Furano C4H4O",
+   "1,3-Ciclopentadieno C5H6",
+   "Ciclooctatetraeno C8H8"
+  ],
+  "explanation": "Para ser aromático, un compuesto debe ser cíclico y plano, todos los átomos del anillo deben tener orbitales p conjugados y debe haber 4n + 2 electrones π. En el furano, los cuatro carbonos aportan cuatro electrones y, de los dos pares no compartidos del oxígeno, uno ocupa un orbital p y aporta dos; en total tiene seis electrones π (n = 1) y es aromático. El otro par ocupa un orbital sp² y está en el plano del anillo. En el 1,3-ciclopentadieno, el carbono del CH2 tiene hibridación sp³ e interrumpe la conjugación del anillo, por lo que no es aromático (el anión C5H5⁻, que resulta de perder H⁺, sí es aromático con seis electrones π). El ciclooctatetraeno tiene ocho electrones π (4n), no es plano y adopta forma de bañera, por lo que no es aromático."
+ },
+ "heterocycles-biomolecules-004": {
+  "question": "El imidazol C3H4N2 tiene un ácido conjugado con pKa de aproximadamente 7,0 y es una base más fuerte que la piridina (aproximadamente 5,2). ¿Cuál es la combinación correcta de la posición que se protona y del motivo de su mayor basicidad respecto a la piridina?",
+  "choices": [
+   "Se protona el nitrógeno de tipo pirrol, con N−H, y desaparece la repulsión entre los pares no compartidos de los dos nitrógenos",
+   "Se protona el nitrógeno de tipo piridina, sin N−H, y la carga positiva se reparte por resonancia entre los dos nitrógenos",
+   "Se protonan a la vez los dos nitrógenos, y el catión divalente formado queda muy estabilizado por hidratación con el agua circundante"
+  ],
+  "explanation": "De los dos nitrógenos del imidazol, el par no compartido del nitrógeno de la posición 1, que tiene N−H, forma parte del sistema aromático de 6π, mientras que el par del nitrógeno de la posición 3, sin N−H, ocupa un orbital sp² como en la piridina y actúa como base. El ion imidazolio, protonado en la posición 3, es un catión simétrico con dos N−H en el que la carga positiva se reparte por resonancia entre ambos nitrógenos y que conserva la aromaticidad, por lo que es estable. Esa es la razón de que el pKa de su ácido conjugado sea de aproximadamente 7,0, una basicidad mayor que la de la piridina. La protonación del nitrógeno de tipo pirrol destruiría la aromaticidad y es desfavorable, y el catión divalente casi no se forma en disoluciones acuosas ordinarias. También por esta propiedad la cadena lateral de la histidina (pKa aproximadamente 6,0) actúa como catalizador ácido-base a pH cercanos a los fisiológicos."
+ },
+ "heterocycles-biomolecules-005": {
+  "question": "¿Cuál es el orden correcto de basicidad decreciente (de mayor a menor pKa del ácido conjugado) de la piperidina (CH2)5NH, la piridina C5H5N y el pirrol C4H4NH?",
+  "choices": [
+   "Piridina > piperidina > pirrol",
+   "Pirrol > piridina > piperidina",
+   "Piperidina > piridina > pirrol"
+  ],
+  "explanation": "Los pKa de los ácidos conjugados son aproximadamente 11,1 para la piperidina, una amina secundaria cíclica saturada, 5,2 para la piridina y −4 para el pirrol. El par no compartido del nitrógeno de la piperidina está en un orbital sp³ (25 % de carácter s), que el núcleo atrae con menos fuerza que el orbital sp² de la piridina (33 % de carácter s), por lo que se cede con más facilidad a un protón y es una base fuerte. La piridina es aromática, pero su par no compartido no forma parte del sistema π, por lo que es una base débil de fuerza intermedia. En el pirrol, el par no compartido forma parte del sistema aromático de 6π, por lo que es la más débil. Considerar la piridina la más fuerte es la confusión de pensar que «lo aromático es estable y, por tanto, más básico», y considerar el pirrol el más fuerte es el error de fijarse solo en que tiene N−H y equipararlo a una amina."
+ },
+ "heterocycles-biomolecules-006": {
+  "question": "Al disolver glicina H2NCH2COOH en agua cerca de la neutralidad (pH aproximadamente 6), ¿cuál es la forma predominante?",
+  "choices": [
+   "El zwitterión H3N⁺CH2COO⁻",
+   "La forma molecular sin carga H2NCH2COOH",
+   "El catión H3N⁺CH2COOH"
+  ],
+  "explanation": "En la glicina, el pKa del grupo carboxilo es aproximadamente 2,3 y el del grupo amonio −NH3⁺, aproximadamente 9,6. Un pH de aproximadamente 6 es muy superior al pKa del carboxilo, así que casi todo el −COOH está como −COO⁻, y muy inferior al pKa del amonio, así que el −NH3⁺ se mantiene. Por tanto, la forma predominante es el zwitterión H3N⁺CH2COO⁻, con una carga positiva y una negativa, y carga neta 0. La forma molecular sin carga H2NCH2COOH está en equilibrio tautomérico con este zwitterión, pero su proporción en agua es mínima. El catión H3N⁺CH2COOH predomina en disoluciones ácidas con pH inferior a aproximadamente 2,3. Que los aminoácidos tengan puntos de fusión altos, sean solubles en agua y poco solubles en disolventes orgánicos se debe también a que existen como zwitteriones incluso en estado sólido."
+ },
+ "heterocycles-biomolecules-007": {
+  "question": "Los pKa de la glicina son 2,34 para el grupo carboxilo y 9,60 para el grupo amonio. ¿Cuál es el punto isoeléctrico pI de la glicina?",
+  "choices": [
+   "11,94",
+   "5,97",
+   "3,63"
+  ],
+  "explanation": "El punto isoeléctrico es el pH en el que la carga neta del aminoácido es 0, y se calcula como la media de los pKa de las dos etapas de disociación situadas a ambos lados de la forma de carga neta 0 (el zwitterión). La glicina se disocia en dos etapas, catión H3N⁺CH2COOH ⇌ zwitterión H3N⁺CH2COO⁻ ⇌ anión H2NCH2COO⁻, así que pI = (pKa1 + pKa2)/2 = (2,34 + 9,60)/2 = 5,97. A este pH, el catión y el anión están presentes en cantidades pequeñas e iguales, y casi todo es zwitterión. El valor 11,94 es la suma sin dividir entre 2, y 3,63 es la diferencia (9,60 − 2,34) dividida entre 2; ninguno se ajusta a la definición de pI. En el punto isoeléctrico, la molécula no migra en electroforesis y su solubilidad tiende a ser mínima, lo que se aprovecha para separar proteínas."
+ },
+ "heterocycles-biomolecules-008": {
+  "question": "Los pKa del ácido aspártico HOOCCH2CH(NH2)COOH son 1,88 para el grupo α-carboxilo, 3,65 para el carboxilo de la cadena lateral y 9,60 para el grupo amonio. ¿Cuál es el punto isoeléctrico pI del ácido aspártico?",
+  "choices": [
+   "6,63",
+   "5,04",
+   "2,77"
+  ],
+  "explanation": "En los aminoácidos con cadena lateral ácida se usan los pKa de las dos etapas situadas a ambos lados de la forma de carga neta 0 (α-COO⁻, COOH en la cadena lateral, NH3⁺). Partiendo de la forma +1, totalmente protonada, primero se pierde el protón del α-carboxilo (1,88) y se llega a la forma neutra; después, el del carboxilo de la cadena lateral (3,65), y se llega a la forma −1. Por tanto, pI = (1,88 + 3,65)/2 = 2,765 ≈ 2,77. El valor 5,04 es la media de los tres pKa, y 6,63, la media de la cadena lateral y el amonio, (3,65 + 9,60)/2, que es el error de elegir las etapas que rodean la forma −1. Los aminoácidos ácidos tienen un pI bajo, por lo que a pH cercano a la neutralidad están cargados negativamente."
+ },
+ "heterocycles-biomolecules-009": {
+  "question": "En un tampón de pH 6,0 se somete a electroforesis una mezcla de glicina (pI 5,97), ácido aspártico (pI 2,77) y lisina (pKa: α-carboxilo 2,18, α-amonio 8,95 y amonio de la cadena lateral 10,53). ¿Cuál migra hacia el cátodo (polo negativo)?",
+  "choices": [
+   "La glicina",
+   "La lisina",
+   "El ácido aspártico"
+  ],
+  "explanation": "En la lisina, con cadena lateral básica, las etapas a ambos lados de la forma neutra son las del α-amonio (8,95) y el amonio de la cadena lateral (10,53), así que pI = (8,95 + 10,53)/2 = 9,74. Un aminoácido está cargado positivamente si el pH es inferior a su pI, y negativamente si es superior. Como pH 6,0 es inferior al pI 9,74 de la lisina, esta está cargada positivamente y migra hacia el cátodo. El ácido aspártico, con un pH superior a su pI 2,77, está cargado negativamente y migra hacia el ánodo, y la glicina, cuyo pI 5,97 es casi igual al pH, tiene una carga neta casi nula y apenas se mueve. Lo esencial es que hacia el cátodo van los cationes y que el pI se calcula teniendo en cuenta el pKa de la cadena lateral."
+ },
+ "heterocycles-biomolecules-010": {
+  "question": "¿Cuál es la descripción correcta del enlace peptídico (enlace amida) −CO−NH− de las proteínas?",
+  "choices": [
+   "Por resonancia entre el par no compartido del nitrógeno y el carbonilo, el enlace C−N tiene carácter parcial de doble enlace, seis átomos quedan casi en un plano y el giro está restringido",
+   "El enlace C−N tiene la misma longitud que un enlace simple normal (unos 1,47 Å) y gira libremente, por lo que la cadena principal de la proteína se pliega con flexibilidad",
+   "El nitrógeno tiene hibridación sp³ y geometría piramidal, y su par no compartido está libre, por lo que el nitrógeno peptídico es una base tan fuerte como una amina"
+  ],
+  "explanation": "El par no compartido del nitrógeno de la amida se deslocaliza por resonancia con el carbonilo (N−C=O ↔ N⁺=C−O⁻), y el enlace C−N mide unos 1,33 Å, entre la longitud de un enlace simple (unos 1,47 Å) y la de uno doble (unos 1,27 Å). Por este carácter parcial de doble enlace, los seis átomos Cα−C(=O)−N(H)−Cα quedan casi en el mismo plano, el giro alrededor del C−N es difícil y normalmente se adopta la forma trans, estéricamente favorable. La flexibilidad de la cadena principal se debe al giro alrededor de los enlaces simples a ambos lados del Cα (φ y ψ), no a un giro libre del C−N. Además, como el par no compartido participa en la resonancia, el nitrógeno de la amida casi no actúa como base (la protonación ocurre más bien en el oxígeno, y el pKa de ese ácido conjugado es aproximadamente 0), lo que lo diferencia mucho de una amina."
+ },
+ "heterocycles-biomolecules-011": {
+  "question": "Dos moléculas de glicina H2NCH2COOH (masa molar 75,07 g/mol) y una de alanina CH3CH(NH2)COOH (masa molar 89,09 g/mol) se condensan para formar el tripéptido Gly-Ala-Gly. Si la masa molar del agua H2O es 18,02 g/mol, ¿cuál es la masa molar de este tripéptido?",
+  "choices": [
+   "239,23 g/mol",
+   "221,21 g/mol",
+   "203,19 g/mol"
+  ],
+  "explanation": "El enlace peptídico se forma por una condensación en la que se libera una molécula de agua a partir del grupo carboxilo de un aminoácido y el grupo amino del otro. En un tripéptido que une tres aminoácidos se forman dos enlaces peptídicos, por lo que se liberan dos moléculas de agua. La masa molar es 2 × 75,07 + 89,09 − 2 × 18,02 = 239,23 − 36,04 = 203,19 g/mol (fórmula molecular C7H13N3O4). El valor 239,23 g/mol es la simple suma sin restar el agua, y 221,21 g/mol es el valor restando solo una molécula de agua. En general, en un péptido lineal de n aminoácidos se forman n − 1 enlaces peptídicos y se liberan n − 1 moléculas de agua. Este mismo razonamiento se usa al estimar la masa molecular de una proteína a partir de la masa media de los residuos."
+ },
+ "heterocycles-biomolecules-012": {
+  "question": "En disolución acuosa, la D-glucosa C6H12O6 adopta principalmente una estructura de anillo de seis miembros (piranosa) y existe en las formas α y β. ¿Cuál es la descripción correcta de ambas?",
+  "choices": [
+   "Son enantiómeros entre sí, por lo que sus rotaciones específicas son de igual magnitud y signo opuesto",
+   "Son diastereómeros (anómeros) que solo difieren en la configuración del C1, y en agua se interconvierten a través de la forma de cadena abierta",
+   "Solo difieren en la orientación del hidroxilo del C5, y una vez formado el anillo no vuelven a la cadena abierta ni se interconvierten en agua"
+  ],
+  "explanation": "En la forma de cadena abierta de la glucosa, el hidroxilo del C5 se adiciona intramolecularmente al grupo aldehído del C1 para formar un hemiacetal, y se obtiene el anillo de seis miembros. El C1 se convierte entonces en un nuevo carbono asimétrico (carbono anomérico), y la diferente orientación de su OH da lugar a dos anómeros, α y β. Ambos son diastereómeros que solo difieren en la configuración del C1, y sus rotaciones específicas también son de distinta magnitud: +112° la forma α y +18,7° la forma β. En agua se interconvierten a través de la forma de cadena abierta, y la rotación específica cambia hacia el valor de equilibrio (mutarrotación). El enantiómero es la L-glucosa, con la configuración de todos los carbonos asimétricos invertida. La configuración del C5 es la que determina D/L y no tiene relación con α/β."
+ },
+ "heterocycles-biomolecules-013": {
+  "question": "En agua a 25 °C, la rotación específica de la α-D-glucopiranosa es +112,2° y la de la β-D-glucopiranosa, +18,7°. Una disolución de glucosa alcanza el equilibrio tras la mutarrotación y su rotación específica pasa a ser +52,7°. Si la proporción de la cadena abierta y de otras formas es despreciable, ¿cuál es el valor más cercano a la proporción de la forma β en el equilibrio?",
+  "choices": [
+   "64 %",
+   "36 %",
+   "47 %"
+  ],
+  "explanation": "La rotación específica es el promedio de la de cada componente ponderado por su proporción. Si la proporción de la forma β es x, 112,2(1 − x) + 18,7x = 52,7, de donde x = (112,2 − 52,7)/(112,2 − 18,7) = 59,5/93,5 = 0,636. Por tanto, la forma β supone alrededor del 64 % y la forma α, alrededor del 36 %. El 36 % es el error de dar la proporción de la forma α, y el 47 %, el de calcular 52,7/112,2, dividiendo el valor de equilibrio solo entre el de la forma α sin tener en cuenta la contribución de la forma β. La forma β predomina porque en la conformación de silla de la β-D-glucopiranosa todos los sustituyentes del anillo, incluido el OH del C1, están en posición ecuatorial, y la repulsión estérica por interacciones 1,3-diaxiales es pequeña."
+ },
+ "heterocycles-biomolecules-014": {
+  "question": "Al analizar la composición de bases de un ADN bicatenario, la adenina A resultó ser el 30 % del total de bases (en cantidad de sustancia). ¿Qué proporción de guanina G contiene este ADN?",
+  "choices": [
+   "30 %",
+   "40 %",
+   "20 %"
+  ],
+  "explanation": "En el ADN bicatenario, las bases púricas y pirimidínicas forman combinaciones fijas mediante enlaces de hidrógeno: la adenina A se aparea con la timina T con dos enlaces de hidrógeno, y la guanina G con la citosina C con tres. Por eso se cumplen A = T y G = C (reglas de Chargaff). Si A es el 30 %, T también es el 30 %, y G y C se reparten por igual el 40 % restante, así que G es el 20 %. El 30 % es el error de suponer que A y G son iguales, y el 40 %, el de tomar como G la suma de G y C. Como el par G−C tiene tres enlaces de hidrógeno, cuanto mayor es la proporción de G + C de un ADN, mayor es la temperatura a la que se separan las dos hebras (temperatura de fusión). En el ARN, el uracilo U sustituye a la timina y se aparea con la adenina."
+ },
+ "heterocycles-biomolecules-015": {
+  "question": "¿Cuál es el índice de saponificación de la tripalmitina (C15H31COO)3C3H5 (triéster de tres moléculas de ácido palmítico C15H31COOH y glicerina C3H5(OH)3, masa molar 807,3 g/mol)? El índice de saponificación es la masa (en mg) de hidróxido de potasio KOH (masa molar 56,11 g/mol) necesaria para saponificar 1 g de grasa.",
+  "choices": [
+   "209",
+   "69,5",
+   "149"
+  ],
+  "explanation": "Una molécula de triglicérido tiene tres enlaces éster, por lo que su saponificación requiere tres moléculas de KOH ((C15H31COO)3C3H5 + 3KOH → 3C15H31COOK + C3H5(OH)3). 1 g de tripalmitina son 1/807,3 mol, así que el KOH necesario es 3 × 56,11 × 1000/807,3 = 208,5 mg, y el índice de saponificación es aproximadamente 209. El valor 69,5 cuenta solo una molécula de KOH, y 149 es el valor calculado con la masa de NaOH (40,00 g/mol) en lugar de la de KOH. El índice de saponificación es mayor cuanto menor es la masa molecular media de los ácidos grasos que forman la grasa (cuanto más corta es la cadena carbonada). Junto con el índice de yodo, que indica cuántos dobles enlaces hay, es un indicador básico de las propiedades de las grasas y aceites."
+ },
+ "heterocycles-biomolecules-016": {
+  "question": "¿Cuál es la combinación correcta de la posición en la que ocurre principalmente la sustitución electrofílica aromática del pirrol C4H4NH (nitración, acilación, etc.) y su motivo?",
+  "choices": [
+   "La posición 2, contigua al nitrógeno, porque la carga positiva del catión intermedio se reparte por resonancia en tres posiciones",
+   "La posición 3, alejada del nitrógeno, porque la carga positiva del catión intermedio se reparte por resonancia en tres posiciones",
+   "El propio átomo de nitrógeno, porque su par no compartido apunta hacia fuera del anillo y se une con facilidad al electrófilo"
+  ],
+  "explanation": "En el pirrol, el par no compartido del nitrógeno forma parte del sistema π y la densidad electrónica del anillo es alta, por lo que experimenta sustitución electrofílica mucho más rápido que el benceno. Si el ataque se produce en la posición 2 (posición α), la carga positiva del catión formado se reparte por resonancia en tres posiciones: los carbonos 3 y 5 y el nitrógeno. Si se produce en la posición 3 (posición β), la carga positiva solo se reparte en dos: el carbono 2 y el nitrógeno. Por eso el estado de transición de la vía que ataca la posición 2 es más estable, y la sustitución ocurre principalmente en la posición 2. El par no compartido del nitrógeno del pirrol forma parte del sistema π y no apunta hacia fuera del anillo, de modo que la unión del electrófilo al nitrógeno no es la reacción principal. Como el pirrol tiende a polimerizar con ácidos fuertes, se hace reaccionar en condiciones suaves."
+ },
+ "heterocycles-biomolecules-017": {
+  "question": "La piridina C5H5N experimenta la sustitución electrofílica aromática (nitración, etc.) con más dificultad que el benceno, y en condiciones enérgicas la sustitución ocurre principalmente en la posición 3. ¿Cuál es el motivo correcto de que se elija la posición 3?",
+  "choices": [
+   "El carbono 3 es el más rico en electrones por la resonancia del par no compartido del nitrógeno, y atrae con fuerza al electrófilo",
+   "Los hidrógenos de las posiciones 2 y 4 están fuertemente fijados por enlaces de hidrógeno intramoleculares con el nitrógeno y se sustituyen mal",
+   "Si el ataque es en 2 o 4, en una de las estructuras resonantes del intermedio la carga positiva recae en un nitrógeno con seis electrones, lo cual es inestable"
+  ],
+  "explanation": "El nitrógeno de la piridina es más electronegativo que el carbono y atrae los electrones del anillo, de modo que el anillo tiene menos electrones que el benceno y reacciona mal con los electrófilos. Además, en condiciones ácidas como las de la nitración, el nitrógeno se protona y forma el ion piridinio, que es aún menos reactivo. Si el ataque se produce en la posición 2 o 4, en una de las estructuras resonantes del catión formado la carga positiva recae en un nitrógeno que no completa el octeto (con seis electrones), lo que es muy desfavorable. En el ataque a la posición 3 no aparece una estructura así, por lo que la sustitución ocurre, aunque lentamente, en la posición 3. El par no compartido del nitrógeno de la piridina no forma parte del sistema π, así que no hay resonancia que aumente los electrones de la posición 3. Los hidrógenos de las posiciones 2 y 4 tampoco forman enlaces de hidrógeno con el nitrógeno."
+ },
+ "heterocycles-biomolecules-018": {
+  "question": "¿Cuál es el índice de yodo de la trioleína (triéster de tres moléculas de ácido oleico C17H33COOH y glicerina, masa molar 885,4 g/mol)? El índice de yodo es la masa (en g) de yodo I2 (masa molar 253,8 g/mol) que se adiciona a 100 g de grasa, y la cadena hidrocarbonada del ácido oleico tiene un doble enlace C=C.",
+  "choices": [
+   "43,0",
+   "86,0",
+   "28,7"
+  ],
+  "explanation": "Una molécula de trioleína tiene un doble enlace C=C en cada una de sus tres cadenas de ácido oleico, tres en total, y a cada uno se adiciona una molécula de I2. Como a 1 mol de grasa (885,4 g) se adicionan 3 × 253,8 = 761,4 g de I2, por cada 100 g son 761,4 × 100/885,4 ≈ 86,0 g, y el índice de yodo es 86,0. El valor 43,0 es el error de contar con la masa del átomo de yodo I (126,9 g/mol) en lugar de la de I2; a cada doble enlace se adicionan dos átomos de yodo. El valor 28,7 supone un solo doble enlace por molécula. El índice de yodo es una medida del grado de insaturación y aporta una información distinta del índice de saponificación, que refleja la longitud de las cadenas (la masa molecular) de los ácidos grasos. Cuanto mayor es el valor de un aceite, más dobles enlaces tiene y más fácilmente se oxida en el aire y se endurece."
+ },
+ "heterocycles-biomolecules-019": {
+  "question": "La sacarosa es un disacárido formado por glucosa y fructosa, pero no reduce el reactivo de Fehling ni presenta mutarrotación en disolución acuosa. ¿Cuál es el motivo correcto?",
+  "choices": [
+   "El C1 de la glucosa está unido al C2 de la fructosa, y no queda ningún hemiacetal que pueda abrirse",
+   "El C4 de la glucosa está unido al C2 de la fructosa, y el hemiacetal del C1 de la glucosa queda oculto en la cadena y no reacciona",
+   "Los dos monosacáridos son cetosas, por lo que nunca pasan a una cadena abierta con grupo aldehído y no son reductores"
+  ],
+  "explanation": "El poder reductor y la mutarrotación se deben a que el hemiacetal del anillo (la parte con un OH en el carbono anomérico) se abre y da un aldehído u otra forma de cadena abierta. En la sacarosa, el carbono anomérico C1 de la α-D-glucosa y el carbono anomérico C2 de la β-D-fructosa están unidos entre sí por un enlace glicosídico, y en ninguno de los dos monosacáridos queda un hemiacetal. Por eso el anillo no puede abrirse, no reduce el reactivo de Fehling y no presenta mutarrotación. En los disacáridos en que el C1 de uno se une al C4 del otro, como la maltosa, queda un hemiacetal en el C1 del segundo, por lo que son reductores. Si el enlace fuera con el C4 de la glucosa, quedaría un hemiacetal y el azúcar debería ser reductor. Además, la glucosa de la sacarosa es una aldosa."
+ },
+ "heterocycles-biomolecules-020": {
+  "question": "Al calentar un ADN bicatenario, en cierto intervalo de temperatura se separa en hebras sencillas (fusión). ¿Cuál es el motivo principal correcto de que, cuanto mayor es la proporción de guanina G y citosina C (contenido en GC), mayor sea la temperatura de fusión Tm?",
+  "choices": [
+   "En el par G−C, las bases están unidas por enlaces covalentes, que no se rompen con el calor como los enlaces de hidrógeno",
+   "El par G−C se une con dos enlaces de hidrógeno y el A−T con tres, pero las bases del par G−C son más pequeñas y se apilan más densamente",
+   "El par G−C se une con tres enlaces de hidrógeno y el A−T con dos, y además el apilamiento con G−C aporta más estabilización"
+  ],
+  "explanation": "La doble hélice del ADN se estabiliza por los enlaces de hidrógeno de los pares de bases complementarias y por las interacciones entre pares de bases apilados uno sobre otro (apilamiento). El par G−C se une con tres enlaces de hidrógeno y el A−T con dos, y se considera que las secuencias con G−C también aportan más estabilización por apilamiento. Por eso, cuanto mayor es el contenido en GC de un ADN, más energía hace falta para separar las hebras y mayor es la Tm. Los pares de bases no están unidos por enlaces covalentes sino por enlaces de hidrógeno, y precisamente por eso se separan de forma reversible al calentar y vuelven a aparearse al enfriar. La explicación que invierte el número de enlaces de hidrógeno también es errónea. La Tm cambia además con la concentración de sal: los cationes debilitan la repulsión entre las cargas negativas de los fosfatos, por lo que la Tm es mayor cuanto mayor es la concentración de sal."
+ }
+}

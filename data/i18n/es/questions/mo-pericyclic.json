@@ -1,0 +1,182 @@
+{
+ "mo-pericyclic-001": {
+  "question": "En el estado fundamental del etileno CH2=CH2, ¿cuál es la combinación correcta de HOMO (orbital molecular ocupado de mayor energía) y LUMO (orbital molecular desocupado de menor energía)?",
+  "choices": [
+   "El HOMO es el orbital σ enlazante C−H y el LUMO es el orbital π enlazante",
+   "El HOMO es el orbital π enlazante y el LUMO es el orbital π* antienlazante",
+   "El HOMO es el orbital π* antienlazante y el LUMO es el orbital σ* antienlazante C−C"
+  ],
+  "explanation": "Cuando los orbitales p de los dos carbonos se solapan en fase se forma el orbital π enlazante, y cuando se solapan en oposición de fase se forma el orbital π* antienlazante, con un plano nodal entre los carbonos. El solapamiento π es menor que el σ, por lo que el orbital π enlazante está por encima del σ enlazante, y el π* por debajo del σ*. En el estado fundamental, el orbital π enlazante contiene 2 electrones y es el orbital ocupado de mayor energía, el HOMO, y el π* vacío es el de menor energía, el LUMO. El orbital σ enlazante C−H está por debajo del HOMO, y el orbital π enlazante no es el LUMO porque está ocupado. El π* no es el HOMO porque está vacío, y el σ* no es el LUMO porque está por encima del π*. La reactividad se analiza considerando el HOMO como el que cede electrones y el LUMO como el que los acepta."
+ },
+ "mo-pericyclic-002": {
+  "question": "Según el método de Hückel simple, las energías de los orbitales π del 1,3-butadieno son α + 1,618β, α + 0,618β, α − 0,618β y α − 1,618β (α es la integral de Coulomb y β la integral de resonancia, de valor negativo). Al comparar la energía de los 4 electrones π del estado fundamental con la de dos dobles enlaces aislados (2 electrones en un orbital α + β cada uno), ¿cuál es la energía de deslocalización (magnitud de la estabilización)?",
+  "choices": [
+   "0,472|β|",
+   "0,236|β|",
+   "4,472|β|"
+  ],
+  "explanation": "Como β es negativa, los dos orbitales enlazantes de menor energía, α + 1,618β y α + 0,618β, reciben 2 electrones cada uno, y la energía de los electrones π es 2(α + 1,618β) + 2(α + 0,618β) = 4α + 4,472β. Para dos dobles enlaces aislados es 2 × 2(α + β) = 4α + 4β, de modo que la diferencia, 0,472β, es decir, 0,472|β| en magnitud, es la estabilización debida a la conjugación. 0,236|β| es el error de contar un solo electrón en cada orbital, y 4,472|β| es la energía de enlace total de los electrones π, sin restar la parte de los dobles enlaces aislados. La diferencia entre HOMO y LUMO, 1,236|β|, es menor que la del etileno, 2|β|, lo que concuerda con el desplazamiento de la absorción hacia longitudes de onda mayores por la conjugación."
+ },
+ "mo-pericyclic-003": {
+  "question": "Según el método de Hückel simple, las energías de los orbitales π del ciclobutadieno C4H4, supuesto cuadrado, son α + 2β, α (dos orbitales degenerados) y α − 2β (β es negativa). ¿Cuál de las siguientes descripciones de la ocupación con 4 electrones π es correcta?",
+  "choices": [
+   "Los 4 electrones entran en el orbital α + 2β y se estabiliza como compuesto aromático, igual que el benceno",
+   "Entran 2 en α + 2β y 1 en cada uno de los dos orbitales α degenerados; la energía de deslocalización es 0 y es inestable por ser antiaromático",
+   "Entran 2 en α + 2β y 2 apareados en uno de los orbitales α, con capa cerrada, y es 2|β| más estable que dos dobles enlaces aislados"
+  ],
+  "explanation": "Un orbital solo puede contener 2 electrones como máximo, así que entran 2 en α + 2β y los 2 restantes se reparten uno en cada uno de los dos orbitales α degenerados, con espines paralelos (regla de Hund). La energía de los electrones π es 2(α + 2β) + 2α = 4α + 4β, igual al 4α + 4β de dos dobles enlaces aislados, por lo que la energía de deslocalización es 0. Este estado de capa abierta con 4n electrones π (n = 1) es característico de la antiaromaticidad; el ciclobutadieno real se distorsiona a una forma rectangular y es tan inestable que solo se observa atrapado, por ejemplo, en una matriz de argón a baja temperatura. La descripción en la que los 4 electrones entran en α + 2β viola el principio de exclusión de Pauli. Aunque se pongan apareados en uno de los orbitales α, el total sigue siendo 4α + 4β y no se produce una estabilización de 2|β|."
+ },
+ "mo-pericyclic-004": {
+  "question": "Según el método de Hückel simple, las energías de los orbitales π de un hidrocarburo conjugado plano con un anillo regular de N miembros vienen dadas por Eₖ = α + 2β cos(2πk/N) (k = 0, 1, …, N − 1; β es negativa). ¿Cuál es la energía del HOMO del ion ciclopentadienuro C5H5⁻ (6 electrones π)?",
+  "choices": [
+   "α − 1,618β",
+   "α + 2β",
+   "α + 0,618β"
+  ],
+  "explanation": "Para N = 5, con k = 0 se obtiene α + 2β; con k = 1 y 4, α + 2β cos72° = α + 0,618β (degenerados), y con k = 2 y 3, α + 2β cos144° = α − 1,618β (degenerados). Como β es negativa, α + 2β es el más bajo, y los 6 electrones se colocan 2 en α + 2β y 2 en cada uno de los dos orbitales α + 0,618β, por lo que el HOMO es α + 0,618β. Es una capa cerrada con todos los orbitales enlazantes llenos, de modo que es aromático. α − 1,618β resulta de confundir el signo de β y elegir un orbital antienlazante; en realidad es el LUMO, vacío. α + 2β es el orbital de menor energía, no el HOMO. En el C5H5⁺, con 4 electrones, entra uno en cada orbital degenerado y resulta antiaromático."
+ },
+ "mo-pericyclic-005": {
+  "question": "Suponga que la variación de entalpía de la hidrogenación del ciclohexeno a ciclohexano es −120 kJ/mol y la de la hidrogenación del benceno a ciclohexano es −208 kJ/mol (valores orientativos). ¿Qué estimación de la estabilización del benceno (energía de resonancia), en comparación con un hipotético ciclohexatrieno con tres dobles enlaces, se aproxima más?",
+  "choices": [
+   "Unos 152 kJ/mol",
+   "Unos 88 kJ/mol",
+   "Unos 568 kJ/mol"
+  ],
+  "explanation": "Si hubiera tres dobles enlaces sin interacción entre ellos, cabría esperar una entalpía de hidrogenación de 3 × (−120) = −360 kJ/mol. El benceno real solo libera −208 kJ/mol, de modo que puede estimarse que su energía es de partida más baja (es más estable) en la diferencia, 360 − 208 = 152 kJ/mol. Unos 88 kJ/mol es el error de comparar solo un doble enlace (208 − 120), y unos 568 kJ/mol es el error de confundir el signo y sumar 360 y 208. La entalpía de hidrogenación del 1,3-ciclohexadieno es de unos −232 kJ/mol, casi igual a 2 × (−120), por lo que el efecto de la simple conjugación es pequeño, y esta gran estabilización se debe a la aromaticidad."
+ },
+ "mo-pericyclic-006": {
+  "question": "Al medir a baja temperatura el espectro de ¹H RMN del [18]anuleno C18H18, los hidrógenos del exterior del anillo aparecen a δ ≈ 9,3 y los del interior del anillo a δ ≈ −3,0. ¿Cuál es la explicación correcta de esta observación?",
+  "choices": [
+   "Sus 18 electrones π corresponden a 4n y es antiaromático, y la corriente de anillo paramagnética apantalla los hidrógenos interiores",
+   "Por el impedimento estérico, los carbonos del interior del anillo pasan a hibridación sp³ y sus hidrógenos aparecen a campo más alto que en los alcanos",
+   "Es aromático con 18 electrones π (4n + 2, n = 4), y el campo de la corriente de anillo se opone al campo externo dentro del anillo y lo refuerza fuera"
+  ],
+  "explanation": "El [18]anuleno es un anillo casi plano con 18 = 4 × 4 + 2 electrones π y es aromático según la regla de Hückel. En un campo magnético externo circula a lo largo del anillo una corriente de anillo de los electrones π (corriente de anillo diamagnética), y el campo que genera tiene sentido opuesto al campo externo dentro del anillo y el mismo sentido fuera. Por eso, los hidrógenos exteriores aparecen a campo todavía más bajo que los del benceno (δ ≈ 7,3), y los interiores, a campo más alto que el TMS, con δ negativo. Esta corriente de anillo es un indicador experimental de la aromaticidad. Como 18 no corresponde a 4n, la explicación que lo considera antiaromático es errónea; en el [16]anuleno, con 4n electrones, ocurre lo contrario: los hidrógenos interiores aparecen a campo bajo y los exteriores a campo alto. Los carbonos interiores también siguen siendo sp², y un cambio a sp³ no explicaría un δ negativo."
+ },
+ "mo-pericyclic-007": {
+  "question": "En la reacción de Diels-Alder con 1,3-butadieno, el acrilato de metilo CH2=CHCOOCH3 y el anhídrido maleico reaccionan mucho más rápido que el etileno. ¿Cuál es la explicación correcta según los orbitales frontera?",
+  "choices": [
+   "Los grupos atractores de electrones bajan el LUMO del dienófilo y reducen su diferencia de energía con el HOMO del dieno",
+   "Los grupos atractores de electrones suben el HOMO del dienófilo y reducen su diferencia de energía con el LUMO del dieno",
+   "Los grupos atractores de electrones debilitan el enlace π del dienófilo y la reacción pasa a un mecanismo radicalario por etapas"
+  ],
+  "explanation": "La estabilización por la interacción entre dos orbitales es mayor cuanto menor es su diferencia de energía y mayor su solapamiento. Entre el dieno y el dienófilo actúa la combinación de un HOMO ocupado con un LUMO vacío, y normalmente la principal es la del HOMO del dieno con el LUMO del dienófilo (demanda electrónica normal). Los grupos atractores de electrones, como el carbonilo de los ésteres y los anhídridos, bajan tanto el HOMO como el LUMO del dienófilo, de modo que el LUMO se acerca al HOMO del dieno y la reacción se acelera. La explicación de que suben el HOMO va en sentido contrario. La reacción sigue siendo concertada, y el hecho de que se conserve la configuración del dienófilo también muestra que no es un mecanismo radicalario por etapas. Si el dieno lleva grupos dadores de electrones, como un metoxi, su HOMO sube y la reacción es aún más rápida."
+ },
+ "mo-pericyclic-008": {
+  "question": "Tome como energías orbitales aproximadas un HOMO de −9,1 eV y un LUMO de +1,0 eV para el 1,3-butadieno, y un HOMO de −10,9 eV y un LUMO de 0,0 eV para la acroleína CH2=CHCHO. ¿Cuál es la combinación de orbitales frontera que actúa principalmente en su reacción de Diels-Alder y su diferencia de energía?",
+  "choices": [
+   "El LUMO del dieno y el HOMO de la acroleína, 11,9 eV",
+   "El HOMO del dieno y el LUMO de la acroleína, 9,1 eV",
+   "El HOMO del dieno y el HOMO de la acroleína, 1,8 eV"
+  ],
+  "explanation": "Hay dos parejas posibles de orbital que cede electrones (HOMO) y orbital que los acepta (LUMO): la diferencia de energía es 0,0 − (−9,1) = 9,1 eV entre el HOMO del dieno y el LUMO de la acroleína, y 1,0 − (−10,9) = 11,9 eV entre el LUMO del dieno y el HOMO de la acroleína. Actúa principalmente la pareja con la diferencia menor, 9,1 eV, y se trata de una reacción de Diels-Alder de demanda electrónica normal. Con el etileno (LUMO +1,5 eV) la diferencia es mayor, 10,6 eV, y la acroleína reacciona más rápido. Aunque la diferencia entre los dos HOMO, 1,8 eV, es pequeña, la interacción entre orbitales llenos no produce estabilización neta (repulsión de 4 electrones) y no forma enlaces."
+ },
+ "mo-pericyclic-009": {
+  "question": "¿Cuál es el regioisómero que se obtiene principalmente en la reacción de Diels-Alder entre (E)-1-metoxi-1,3-butadieno CH3O−CH=CH−CH=CH2 y acroleína CH2=CH−CHO?",
+  "choices": [
+   "El 2-metoxi-3-ciclohexeno-1-carbaldehído (producto «orto»), con los grupos metoxi y formilo en carbonos contiguos del anillo",
+   "El 5-metoxi-3-ciclohexeno-1-carbaldehído (producto «meta»), con los grupos metoxi y formilo separados por un carbono del anillo",
+   "Los productos «orto» y «meta» en proporción de casi 1 : 1 (los efectos electrónicos de los sustituyentes se anulan y no hay regioselectividad)"
+  ],
+  "explanation": "Los enlaces se forman preferentemente entre los carbonos con mayores coeficientes (tamaño del lóbulo) en el HOMO del dieno y en el LUMO del dienófilo. En un dieno con un grupo metoxi dador de electrones en la posición 1, el coeficiente del HOMO es mayor en el extremo opuesto, C4, y en la acroleína, con un grupo formilo atractor de electrones, el coeficiente del LUMO es mayor en el CH2 terminal sin sustituir. Cuando se unen C4 y el CH2, el C1 que lleva el metoxi se une al carbono que lleva el formilo, y se obtiene el producto «orto», con los dos sustituyentes contiguos. Desde el punto de vista de la resonancia, el grupo metoxi también aumenta la densidad electrónica en C4, y en la acroleína el lado del CH2 es electrófilo. El producto «meta», con los sustituyentes separados por un carbono, corresponde a la orientación que combina un coeficiente grande con uno pequeño y es desfavorable. Con dienos sustituidos en la posición 2 predomina el producto «para» (regla orto-para)."
+ },
+ "mo-pericyclic-010": {
+  "question": "Al hacer reaccionar ciclopentadieno con anhídrido maleico a temperatura ambiente se obtiene principalmente el aducto endo. ¿Cuál es la explicación correcta de esta selectividad?",
+  "choices": [
+   "El aducto endo es termodinámicamente más estable, por lo que predomina en el equilibrio de una adición reversible",
+   "La reacción es por etapas: primero se forma un enlace y el intermedio zwitteriónico resultante cicla rápido en la orientación endo, estéricamente favorable",
+   "En el estado de transición endo, el π* del carbonilo también se solapa con C2 y C3 del dieno (interacción orbital secundaria) y lo estabiliza"
+  ],
+  "explanation": "El aducto endo es el producto en el que el anillo del anhídrido queda orientado hacia el lado del nuevo doble enlace del dieno, y estéricamente está más bien más impedido. Que aun así predomine el producto endo se explica porque, en el estado de transición, el π* del carbonilo también se solapa en fase con la parte C2-C3 del HOMO del dieno y, aunque no forma nuevos enlaces, rebaja la energía del estado de transición (regla endo). Es un resultado de control cinético; termodinámicamente es más estable el aducto exo. En condiciones de calentamiento en las que ocurre la reacción retro-Diels-Alder, aumenta la proporción del producto exo (con furano y anhídrido maleico se obtiene el producto exo). La reacción es concertada, no un mecanismo por etapas a través de un intermedio zwitteriónico."
+ },
+ "mo-pericyclic-011": {
+  "question": "Una reacción de Diels-Alder transcurre bajo control cinético y da los productos endo y exo en proporción 9,0 : 1. ¿Qué valor se aproxima más a la diferencia de energía de Gibbs ΔΔG‡ entre los dos estados de transición a 25 °C (298 K)? Considere la constante de los gases R = 8,314 J/(K·mol).",
+  "choices": [
+   "Unos 2,4 kJ/mol",
+   "Unos 5,4 kJ/mol",
+   "Unos 0,46 kJ/mol"
+  ],
+  "explanation": "Bajo control cinético, la relación de productos es igual al cociente de las constantes de velocidad de las dos vías, y según la ecuación de Eyring kendo/kexo = exp(ΔΔG‡/RT). Por tanto, ΔΔG‡ = RT ln 9,0 = 8,314 × 298 × 2,197 ≈ 5,44×10³ J/mol, unos 5,4 kJ/mol. Unos 2,4 kJ/mol es el error de usar el logaritmo decimal log 9,0 = 0,954 en lugar del natural, y unos 0,46 kJ/mol es el error de calcular con 25 en lugar de 298 K como temperatura. Se ve que una diferencia de apenas unos 5 kJ/mol produce una selectividad de 9 : 1, y que la relación no la determina la estabilidad de los productos, sino la diferencia de energía entre los estados de transición."
+ },
+ "mo-pericyclic-012": {
+  "question": "Según las reglas de Woodward-Hoffmann, la cicloadición [2+2] en la que dos alquenos forman de forma concertada un ciclobutano (ambos componentes suprafaciales) está prohibida térmicamente y permitida fotoquímicamente. Tomando como modelo dos moléculas de etileno, ¿cuál es la explicación correcta según los orbitales frontera?",
+  "choices": [
+   "El estado de transición cíclico de 4 electrones π es aromático y está térmicamente permitido, pero la pérdida de entropía es tan grande que no ocurre al calentar",
+   "La luz rompe los enlaces π y se generan dos carbocationes, que se unen por etapas para dar el ciclobutano",
+   "En el fundamental, el HOMO y el LUMO del otro no coinciden en fase en un extremo; en el excitado, el π* ocupado coincide con el LUMO del otro en ambos"
+  ],
+  "explanation": "Para formar dos nuevos enlaces σ a la vez, el HOMO y el LUMO deben solaparse en fase en ambos extremos. En el etileno, el π (HOMO) tiene la misma fase en los dos extremos y el π* (LUMO) tiene fases opuestas, de modo que en el estado fundamental se anulan en uno de los extremos y la reacción está prohibida térmicamente. Cuando la luz promueve un electrón de una de las moléculas al π*, ese π* coincide en fase en ambos extremos con el π* de la otra molécula, y la reacción queda permitida fotoquímicamente. Según la regla general, [π2s + π2s], con 2 componentes (4q + 2)s (número par), está prohibida térmicamente, y [π4s + π2s] (la reacción de Diels-Alder), con 1 (número impar), está permitida. El estado de transición cíclico de 4 electrones π no es aromático, sino antiaromático. La [2+2] fotoquímica no pasa por carbocationes, y cuando transcurre por etapas, como con las enonas, lo hace a través de birradicales triplete."
+ },
+ "mo-pericyclic-013": {
+  "question": "Al calentar cis-3,4-dimetilciclobuteno, que se abre mediante una reacción electrocíclica, ¿qué estereoisómero del 2,4-hexadieno se obtiene principalmente?",
+  "choices": [
+   "(2E,4Z)-2,4-hexadieno",
+   "(2E,4E)-2,4-hexadieno",
+   "(2Z,4Z)-2,4-hexadieno"
+  ],
+  "explanation": "La apertura del ciclobuteno es una reacción electrocíclica de 4 electrones π, en la que participan los 2 electrones del enlace σ que se rompe y los 2 del enlace π, y térmicamente transcurre de forma conrotatoria (los dos extremos giran en el mismo sentido). Esto se debe a que en el HOMO del butadieno que se forma, las fases de los orbitales p de los extremos son opuestas en una misma cara. En el isómero cis, los dos grupos metilo están en la misma cara del anillo, de modo que al girar de forma conrotatoria uno queda hacia fuera y el otro hacia dentro, y se obtiene el isómero (2E,4Z). El isómero (2E,4E) es el producto del calentamiento del trans-3,4-dimetilciclobuteno; para formarse a partir del isómero cis haría falta un giro disrotatorio, que está prohibido térmicamente. El isómero (2Z,4Z) también solo se formaría por una apertura disrotatoria, y es desfavorable porque los dos metilos chocarían hacia dentro."
+ },
+ "mo-pericyclic-014": {
+  "question": "¿Cuál es el producto principal del cierre de anillo por reacción electrocíclica al calentar (2E,4Z,6E)-2,4,6-octatrieno?",
+  "choices": [
+   "trans-5,6-dimetil-1,3-ciclohexadieno",
+   "Cantidades casi iguales de los isómeros cis y trans del 5,6-dimetil-1,3-ciclohexadieno",
+   "cis-5,6-dimetil-1,3-ciclohexadieno"
+  ],
+  "explanation": "El cierre de anillo del hexatrieno es una reacción electrocíclica de 6 electrones π. En el HOMO del estado fundamental (ψ3), los orbitales p de los extremos tienen la misma fase en una misma cara, por lo que el enlace σ se forma con un movimiento disrotatorio, en el que los extremos giran en sentidos opuestos, y la reacción está permitida térmicamente. En el isómero (2E,4Z,6E), los metilos de ambos extremos apuntan hacia fuera, y al girar de forma disrotatoria quedan los dos en la misma cara del anillo, de modo que se forma de manera estereoespecífica solo el isómero cis (compuesto meso). El isómero trans es el producto del cierre conrotatorio cuando, por irradiación con luz, el HOMO pasa a ser ψ4, o el producto del calentamiento del isómero (2E,4Z,6Z). Como es una reacción concertada, no se obtiene una mezcla equimolar con la estereoquímica mezclada. Lo esencial de las reglas de Woodward-Hoffmann es que el sentido de giro térmico y fotoquímico se invierte entre los sistemas de 4 y 6 electrones π."
+ },
+ "mo-pericyclic-015": {
+  "question": "Al calentar alil fenil éter C6H5−O−CH2CH=CH2 a unos 200 °C, ¿qué producto se forma principalmente mediante la transposición sigmatrópica [3,3] (transposición de Claisen)?",
+  "choices": [
+   "4-alilfenol (p-alilfenol)",
+   "2-alilfenol (o-alilfenol)",
+   "(1-propenil) fenil éter C6H5−O−CH=CH−CH3, con el doble enlace desplazado"
+  ],
+  "explanation": "En la transposición de Claisen, en la cadena de 6 átomos formada por 2 carbonos del anillo, el oxígeno y los 3 carbonos del grupo alilo, se rompe el enlace σ O−CH2 que une los átomos 1 de ambas partes, y se forma un nuevo enlace σ entre los átomos 3 (el carbono terminal del alilo y el carbono orto del anillo). Es una reacción concertada de 6 electrones que pasa por un estado de transición de seis miembros en forma de silla y está permitida térmicamente. Primero se forma la 6-alil-2,4-ciclohexadienona, que por tautomería recupera el anillo aromático y da 2-alilfenol. Como el grupo alilo se une al anillo por su carbono terminal, las posiciones de un carbono marcado se intercambian. El 4-alilfenol es el producto que se forma, a través de una transposición de Cope adicional, cuando las dos posiciones orto están ocupadas. El desplazamiento del doble enlace corresponde a una migración [1,3] de hidrógeno, que por vía suprafacial está prohibida térmicamente."
+ },
+ "mo-pericyclic-016": {
+  "question": "Según el método de Hückel simple, los tres orbitales moleculares π del sistema alilo CH2=CH−CH2 son, de menor a mayor energía, el enlazante ψ1, el no enlazante ψ2 y el antienlazante ψ3. ¿Cuál de las siguientes descripciones de la distribución de la carga positiva del catión alilo (2 electrones π) es correcta?",
+  "choices": [
+   "El ψ2 vacío tiene su mayor coeficiente en el carbono central, por lo que la carga positiva está principalmente en el carbono central",
+   "Los 2 electrones π entran en ψ1 y se reparten por igual entre los tres carbonos, así que la carga positiva también se reparte en tercios iguales",
+   "El ψ2 vacío tiene un nodo en el carbono central, por lo que la carga positiva se reparte por mitades entre los dos carbonos terminales"
+  ],
+  "explanation": "Las energías de los tres orbitales π del sistema alilo son α + √2β para ψ1, α para ψ2 y α − √2β para ψ3. El ψ2 no enlazante tiene un nodo en el carbono central y solo tiene coeficientes de ±1/√2 en los carbonos terminales. En el catión alilo, los 2 electrones π están en ψ1 y ψ2 está vacío. Los coeficientes de ψ1 son 1/2 en los extremos y 1/√2 en el centro, por lo que la densidad de electrones π es 2 × (1/2)² = 0,5 en los extremos y 2 × (1/√2)² = 1,0 en el centro, y la carga positiva se reparte en +0,5 en cada extremo. Es la misma conclusión que se obtiene al escribir el + en los extremos en las estructuras resonantes. Los electrones de ψ1 no están repartidos por igual, así que no se obtienen tercios. En el anión alilo, ψ2 contiene 2 electrones, por lo que la carga negativa también se sitúa en los extremos."
+ },
+ "mo-pericyclic-017": {
+  "question": "El 5-metil-1,3-ciclopentadieno se isomeriza cerca de la temperatura ambiente a los isómeros 1-metilo y 2-metilo mediante una transposición sigmatrópica [1,5] de hidrógeno. En cambio, en los alquenos de cadena abierta, la migración térmica [1,3] de hidrógeno casi no ocurre. ¿Cuál es la explicación correcta de esta diferencia?",
+  "choices": [
+   "La migración [1,5] implica 4 electrones y está permitida térmicamente, y la [1,3] implica 6 electrones y está prohibida térmicamente",
+   "La migración [1,5], de 6 electrones, está permitida por vía suprafacial, pero la [1,3] requiere una vía antarafacial que es geométricamente imposible",
+   "La migración [1,3] también está permitida térmicamente por vía suprafacial, pero la distancia es tan corta que el hidrógeno no alcanza los dos extremos a la vez"
+  ],
+  "explanation": "En las transposiciones sigmatrópicas de hidrógeno, la regla de selección depende del número total de electrones: los 2 del enlace σ C−H que se rompe más los de los enlaces π. En la migración [1,5] intervienen 6 electrones (4n + 2), de un enlace σ y dos enlaces π, y térmicamente está permitida por vía suprafacial, en la que el hidrógeno se desplaza por la misma cara. En el ciclopentadieno, el hidrógeno puede desplazarse sin abandonar la misma cara del anillo, por lo que ocurre incluso cerca de la temperatura ambiente. En la migración [1,3] intervienen 4 electrones (4n), así que térmicamente solo está permitida por vía antarafacial, pasando a la cara opuesta del sistema π, pero es geométricamente casi imposible que el hidrógeno rodee hasta la cara opuesta sobre tres carbonos. La explicación con los números de electrones invertidos es errónea, y la causa tampoco es que la distancia de migración sea corta."
+ },
+ "mo-pericyclic-018": {
+  "question": "En la reacción de Diels-Alder, el 1,3-ciclopentadieno reacciona con extrema rapidez, mientras que el (2Z,4Z)-2,4-hexadieno casi no reacciona. ¿Cuál es la explicación correcta de esta diferencia?",
+  "choices": [
+   "Se requiere la conformación s-cis; el ciclopentadieno está fijado en s-cis por el anillo, y en s-cis los metilos del isómero (2Z,4Z) chocan",
+   "Se requiere la conformación s-trans; el ciclopentadieno está fijado en s-trans por el anillo, y en s-trans los hidrógenos del isómero (2Z,4Z) chocan",
+   "El ciclopentadieno es aromático, con 6 electrones π y un HOMO alto, y en el isómero (2Z,4Z) la donación de los metilos baja el HOMO"
+  ],
+  "explanation": "En la reacción de Diels-Alder, los extremos C1 y C4 del dieno se unen a la vez a los dos carbonos del dienófilo, por lo que el dieno debe adoptar la conformación s-cis, con ambos extremos orientados hacia el mismo lado respecto del enlace C2−C3. El 1,3-ciclopentadieno está fijado en s-cis dentro del anillo, así que no necesita energía para cambiar de conformación y reacciona tan rápido que a temperatura ambiente se dimeriza consigo mismo. En el (2Z,4Z)-2,4-hexadieno, al adoptar la s-cis, los metilos de los extremos que apuntan hacia dentro chocan entre sí, de modo que casi no puede adoptar esa conformación y no reacciona. En la conformación s-trans, los extremos están demasiado separados para formar el anillo. El ciclopentadieno es no aromático, con 4 electrones π, y la donación de electrones de los metilos más bien sube el HOMO."
+ },
+ "mo-pericyclic-019": {
+  "question": "Según el método de Hückel simple, los coeficientes de los orbitales π del 1,3-butadieno (C1=C2−C3=C4) son (0,372; 0,602; 0,602; 0,372) para ψ1 y (0,602; 0,372; −0,372; −0,602) para ψ2, y en el estado fundamental cada uno contiene 2 electrones. Si el orden de enlace π entre los carbonos r y s se calcula como p = Σ(número de electrones de cada orbital × cᵣ × cₛ), ¿qué valor se aproxima más al orden de enlace π de C2−C3?",
+  "choices": [
+   "0,896",
+   "0,448",
+   "1,00"
+  ],
+  "explanation": "El orden de enlace de C2−C3 recibe 2 × 0,602 × 0,602 = 0,725 de ψ1 y 2 × 0,372 × (−0,372) = −0,277 de ψ2, y el total es 0,448. ψ2 tiene un nodo entre C2 y C3, por lo que su contribución es negativa. 1,00 es el error de sumar sin tener en cuenta este signo. 0,896 es el orden de enlace π de C1−C2 calculado por el mismo método, 2 × 0,372 × 0,602 + 2 × 0,602 × 0,372 ≈ 0,896. Como el orden de enlace π de C2−C3 no es 0, tiene cierto carácter de doble enlace, y el enlace C2−C3 real (unos 1,47 Å) es más corto que el enlace sencillo C−C del etano (unos 1,54 Å), en parte también por la diferencia de hibridación."
+ },
+ "mo-pericyclic-020": {
+  "question": "El ciclopentadieno se convierte poco a poco en dímero (diciclopentadieno) a temperatura ambiente, por lo que justo antes de usarlo se calienta el dímero a unos 170 °C y se recoge por destilación el monómero formado (punto de ebullición de unos 41 °C). ¿Cuál es la razón correcta por la que a alta temperatura se favorece la reacción retro-Diels-Alder?",
+  "choices": [
+   "La disociación de la reacción inversa es exotérmica, por lo que la constante de equilibrio de disociación aumenta al subir la temperatura",
+   "A alta temperatura se invierten las reglas de Woodward-Hoffmann, de modo que la adición queda prohibida y solo se permite la disociación",
+   "La dimerización tiene ΔS < 0, así que a alta temperatura la contribución −TΔS hace ΔG > 0 y se favorece el lado del monómero"
+  ],
+  "explanation": "La reacción de Diels-Alder es exotérmica (ΔH < 0), porque dos enlaces π se convierten en dos enlaces σ, y tiene ΔS < 0, porque dos moléculas se convierten en una. ΔG = ΔH − TΔS es negativa a baja temperatura, pero al subir la temperatura crece la contribución positiva de −TΔS, y a unos 170 °C se favorece la reacción inversa (la disociación del dímero). Como el monómero formado se retira del sistema por destilación gracias a la diferencia de puntos de ebullición, la disociación avanza hasta el final. El monómero recogido vuelve a dimerizarse a temperatura ambiente, por lo que se enfría y se usa enseguida. La disociación es la inversa de la adición y es endotérmica, así que la explicación que la considera exotérmica es errónea. La reacción inversa recorre en sentido contrario el mismo estado de transición que la adición, por lo que la inversa de una reacción permitida térmicamente también está permitida, y la temperatura no invierte las reglas de selección."
+ }
+}

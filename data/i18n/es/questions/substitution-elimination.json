@@ -1,0 +1,182 @@
+{
+ "substitution-elimination-001": {
+  "question": "La reacción entre CH3Br y OH⁻ transcurre por un mecanismo SN2. Si, a temperatura constante y sin cambiar la concentración de CH3Br, se duplica la concentración de OH⁻, ¿qué ocurre con la velocidad de reacción?",
+  "choices": [
+   "Se duplica",
+   "No cambia",
+   "Se cuadruplica"
+  ],
+  "explanation": "La reacción SN2 es una reacción bimolecular en la que el nucleófilo ataca al carbono por el lado opuesto al grupo saliente, y la formación y la ruptura de enlaces ocurren simultáneamente en una sola etapa. Como en la etapa determinante de la velocidad intervienen tanto el sustrato como el nucleófilo, la ley de velocidad es v = k[CH3Br][OH⁻], de primer orden respecto de cada uno. Si solo se duplica el OH⁻, la velocidad se duplica. «No cambia» es el error de confundirla con la reacción SN1, cuya velocidad depende solo de la concentración del sustrato (v = k[RX]). Se cuadruplicaría si se duplicaran ambas concentraciones o si la reacción fuera de segundo orden respecto del OH⁻."
+ },
+ "substitution-elimination-002": {
+  "question": "¿Cuál de los siguientes haluros de alquilo reacciona más rápido por SN2 con yoduro de sodio en acetona?",
+  "choices": [
+   "(CH3)2CHBr (2-bromopropano)",
+   "(CH3)3CBr (2-bromo-2-metilpropano)",
+   "CH3CH2Br (bromoetano)"
+  ],
+  "explanation": "En la reacción SN2, el nucleófilo debe acercarse al carbono por la parte posterior respecto del grupo saliente. Cuantos más grupos alquilo tiene unidos el carbono, más se impide estéricamente el ataque por detrás, por lo que la reactividad disminuye en el orden metilo > primario > secundario ≫ terciario. El bromoetano, primario, es el más rápido; el 2-bromopropano, secundario, es mucho más lento, y el 2-bromo-2-metilpropano, terciario, apenas da SN2. Los haluros terciarios, según las condiciones, siguen la vía SN1 o E1 a través de un carbocatión, o la E2 si hay una base fuerte. La reacción con NaI en acetona es un ensayo clásico en el que el avance se comprueba a simple vista porque el NaBr formado precipita."
+ },
+ "substitution-elimination-003": {
+  "question": "¿Cuál es la etapa determinante de la velocidad de la reacción SN1?",
+  "choices": [
+   "La etapa en la que el nucleófilo se une al carbocatión",
+   "La etapa en la que sale el grupo saliente y se forma el carbocatión",
+   "La etapa en la que el nucleófilo ataca por detrás y el grupo saliente sale a la vez"
+  ],
+  "explanation": "La reacción SN1 transcurre en dos etapas. En la primera, el enlace C−X se rompe de forma heterolítica y se forman un carbocatión y el anión del grupo saliente; en la segunda, el nucleófilo se une al carbocatión. La primera etapa, que solo rompe un enlace, tiene una energía de activación alta y es lenta, por lo que es la etapa determinante de la velocidad, y la ley de velocidad es v = k[RX], de primer orden solo respecto del sustrato. La unión del nucleófilo al carbocatión es muy rápida y no influye en la velocidad global. El ataque posterior con salida simultánea del grupo saliente corresponde al mecanismo en una etapa de la reacción SN2. Cuanto más estable es el carbocatión, más rápida es la primera etapa, de modo que la reactividad SN1 sigue el orden terciario > secundario ≫ primario."
+ },
+ "substitution-elimination-004": {
+  "question": "Se hizo reaccionar (R)-2-bromobutano, CH3CHBrCH2CH3, con yoduro de sodio en acetona y se obtuvo 2-yodobutano por SN2. ¿Cuál es la estereoquímica correcta del producto?",
+  "choices": [
+   "(R)-2-Yodobutano",
+   "(S)-2-Yodobutano",
+   "2-Yodobutano racémico"
+  ],
+  "explanation": "En la reacción SN2, el nucleófilo I⁻ ataca por el lado opuesto al bromo, por lo que la configuración del carbono se invierte como un paraguas que se da la vuelta (inversión de Walden). Las prioridades de los sustituyentes son Br > CH2CH3 > CH3 > H antes de la reacción e I > CH2CH3 > CH3 > H después, de modo que tanto el grupo saliente como el nucleófilo ocupan la primera posición. Como la disposición espacial se invierte y el orden de prioridades no cambia, R pasa a S. Sin embargo, en reacciones en las que cambian las prioridades, el descriptor R/S puede quedar igual aunque haya inversión, por lo que hay que comprobar las prioridades cada vez. La racemización es frecuente en la SN1, que pasa por un carbocatión plano, y no ocurre en la SN2, que transcurre en una sola etapa."
+ },
+ "substitution-elimination-005": {
+  "question": "Cuando el (R)-3-bromo-3-metilhexano ópticamente activo, CH3CH2CH2CBr(CH3)CH2CH3, se somete a solvólisis (SN1) en una mezcla de agua y acetona, ¿cuál es la descripción más adecuada de la estereoquímica del alcohol formado?",
+  "choices": [
+   "Solo se forma el isómero (S), con inversión completa",
+   "Solo se forma el isómero (R), con retención de configuración",
+   "Se racemiza en su mayor parte (puede haber un ligero exceso del producto invertido)"
+  ],
+  "explanation": "En un sustrato terciario, el grupo saliente se separa y se forma un carbocatión sp² trigonal plano. El agua, que actúa como nucleófilo, puede atacar por cualquiera de las dos caras del plano, por lo que el producto se aproxima a una mezcla racémica con cantidades casi iguales de (R) y (S). En la práctica, el ion bromuro recién separado bloquea temporalmente una de las caras del carbocatión (par iónico), por lo que puede formarse algo más del producto invertido. La inversión completa es característica de la reacción SN2 y no se aplica a sustratos terciarios, en los que no hay ataque posterior. Tampoco es propio de una SN1 normal que solo haya retención de configuración."
+ },
+ "substitution-elimination-006": {
+  "question": "¿Qué disolvente es el más adecuado para que la reacción SN2 entre el 1-bromopropano, CH3CH2CH2Br, y la azida de sodio, NaN3, transcurra lo más rápido posible?",
+  "choices": [
+   "Dimetilsulfóxido (DMSO)",
+   "Metanol, CH3OH",
+   "Agua"
+  ],
+  "explanation": "Los disolventes polares apróticos, como el DMSO, la DMF o la acetona, solvatan bien los cationes (Na⁺) con los pares no compartidos del oxígeno, pero, al no tener O−H, no rodean los aniones (N3⁻) con enlaces de hidrógeno. El nucleófilo, al quedar «desnudo», es muy reactivo, y la reacción SN2 es órdenes de magnitud más rápida que en metanol. Los disolventes próticos, como el agua o el metanol, envuelven y estabilizan el nucleófilo mediante enlaces de hidrógeno y reducen su nucleofilia. En cambio, en la reacción SN1, que genera iones, son ventajosos los disolventes próticos, capaces de estabilizar tanto el carbocatión como el anión del grupo saliente."
+ },
+ "substitution-elimination-007": {
+  "question": "En metanol, ¿qué ion haluro tiene la mayor nucleofilia en la reacción SN2 con CH3I?",
+  "choices": [
+   "F⁻",
+   "Cl⁻",
+   "I⁻"
+  ],
+  "explanation": "En disolventes próticos, el F⁻, pequeño y con alta densidad de carga, forma fuertes enlaces de hidrógeno con las moléculas de disolvente, queda envuelto por ellas y pierde reactividad. El I⁻, grande y muy polarizable, está débilmente solvatado y su nube electrónica se deforma con facilidad, por lo que empieza a formar el enlace con el carbono más fácilmente. Por eso, la nucleofilia en metanol sigue el orden I⁻ > Br⁻ > Cl⁻ > F⁻. Hay que tener en cuenta que es el orden inverso al de la basicidad (el F⁻ es la más fuerte). Se sabe que en disolventes apróticos como el DMSO el efecto de la solvatación es menor, el orden se invierte y el F⁻ pasa a ser más reactivo."
+ },
+ "substitution-elimination-008": {
+  "question": "En una reacción SN2, ¿cuál de las siguientes especies se separa del carbono con mayor facilidad (es el mejor grupo saliente)?",
+  "choices": [
+   "HO⁻ (ion hidróxido)",
+   "TsO⁻ (ion p-toluenosulfonato)",
+   "CH3O⁻ (ion metóxido)"
+  ],
+  "explanation": "Un buen grupo saliente es una base débil que puede existir de forma estable tras separarse. El criterio es el pKa del ácido conjugado: el ácido p-toluenosulfónico, TsOH, es un ácido fuerte con un pKa de aproximadamente −2,8. En el TsO⁻, la carga negativa se reparte por resonancia entre tres oxígenos; es una base muy débil y un excelente grupo saliente, comparable a los iones haluro. En cambio, el HO⁻, base conjugada del agua (pKa 15,7), y el CH3O⁻, base conjugada del metanol (pKa de aproximadamente 15,5), son bases fuertes, por lo que los alcoholes y los éteres, tal cual, difícilmente dan reacciones de sustitución. Por ello, los alcoholes se convierten en tosilatos o se protona el OH con un ácido para que salga como agua."
+ },
+ "substitution-elimination-009": {
+  "question": "Cuando el 2-bromo-2-metilbutano, (CH3)2CBrCH2CH3, se calienta con etóxido de sodio en etanol (E2), ¿qué alqueno es el producto principal?",
+  "choices": [
+   "2-Metil-2-buteno, (CH3)2C=CHCH3",
+   "2-Metil-1-buteno, CH2=C(CH3)CH2CH3",
+   "3-Metil-1-buteno, (CH3)2CHCH=CH2"
+  ],
+  "explanation": "En la reacción E2, la base arranca un hidrógeno del carbono β y, al mismo tiempo que se rompe el enlace C−Br, se forma el doble enlace. Los hidrógenos β de este sustrato están en los dos grupos metilo (6) y en el CH2 (2); con una base pequeña como el etóxido se forma principalmente el alqueno más sustituido por grupos alquilo y, por tanto, más estable (regla de Zaitsev). Si el hidrógeno sale del CH2 se obtiene el 2-metil-2-buteno, trisustituido, y si sale de un metilo, el 2-metil-1-buteno, disustituido; el primero es el producto principal. El 3-metil-1-buteno tiene el doble enlace en una posición alejada del carbono que llevaba el bromo y no se forma en la E2 de este sustrato."
+ },
+ "substitution-elimination-010": {
+  "question": "Cuando el 2-bromo-2-metilbutano, (CH3)2CBrCH2CH3, se hace reaccionar con terc-butóxido de potasio, (CH3)3COK, una base voluminosa, en alcohol terc-butílico, ¿cuál es el producto principal?",
+  "choices": [
+   "2-Metil-1-buteno, CH2=C(CH3)CH2CH3",
+   "2-Metil-2-buteno, (CH3)2C=CHCH3",
+   "El éter (CH3)2C(OC(CH3)3)CH2CH3"
+  ],
+  "explanation": "El voluminoso terc-butóxido tiene dificultad para acercarse a los hidrógenos del CH2 interno, más impedido, y arranca principalmente los hidrógenos de los grupos metilo, situados en el exterior y con menor impedimento estérico. Como resultado, el producto principal es el 2-metil-1-buteno, menos sustituido (producto de Hofmann). Con el pequeño etóxido predomina el 2-metil-2-buteno, el alqueno trisustituido estable (regla de Zaitsev), de modo que el tamaño de la base permite cambiar la proporción de productos. El carbono terciario no admite ataque posterior y el terc-butóxido es también muy voluminoso como nucleófilo, por lo que la sustitución que daría el éter prácticamente no ocurre."
+ },
+ "substitution-elimination-011": {
+  "question": "Cuando un haluro situado en un anillo de ciclohexano experimenta una reacción E2, ¿qué relación espacial deben tener el grupo saliente X y el hidrógeno β que se arranca?",
+  "choices": [
+   "Trans entre sí y ambos ecuatoriales",
+   "Trans entre sí y ambos axiales (antiperiplanares)",
+   "Cis entre sí, uno axial y el otro ecuatorial"
+  ],
+  "explanation": "En la reacción E2, cuando los enlaces C−H y C−X están en el mismo plano y en sentidos opuestos (ángulo diedro de 180°, disposición antiperiplanar), los orbitales se solapan bien y la reacción es rápida. En el ciclohexano en conformación de silla, esta disposición solo se da en las posiciones trans-diaxiales de carbonos contiguos. En la relación trans-diecuatorial el ángulo diedro es de unos 60°, y en la relación cis a,e también es de unos 60°, por lo que ninguna de las dos es antiperiplanar. Por eso, en sustratos con el grupo saliente fijado en posición ecuatorial la E2 es muy lenta, y hay casos, como el cloruro de mentilo, en los que se forma principalmente un alqueno distinto del que predice la regla de Zaitsev."
+ },
+ "substitution-elimination-012": {
+  "question": "Cuando se añade ácido bromhídrico concentrado al 3-metil-2-butanol, (CH3)2CHCH(OH)CH3, y se calienta, ¿cuál es el producto principal?",
+  "choices": [
+   "2-Bromo-3-metilbutano, (CH3)2CHCHBrCH3",
+   "1-Bromo-3-metilbutano, (CH3)2CHCH2CH2Br",
+   "2-Bromo-2-metilbutano, (CH3)2CBrCH2CH3"
+  ],
+  "explanation": "En medio ácido, el OH se protona y sale como agua, y primero se forma el carbocatión secundario (CH3)2CH−C⁺H−CH3. Cuando el hidrógeno del carbono terciario contiguo migra como hidruro (H⁻) al carbono con carga positiva (desplazamiento 1,2 de hidruro), se forma el carbocatión terciario (CH3)2C⁺−CH2CH3, más estable; el Br⁻ se une a él y se obtiene principalmente 2-bromo-2-metilbutano. El 2-bromo-3-metilbutano, sin transposición, queda como subproducto. El 1-bromo-3-metilbutano, con el bromo en el extremo de la cadena, no se forma por esta vía de reacción. En las reacciones que pasan por carbocationes hay que tener en cuenta que el esqueleto carbonado y la posición de los grupos funcionales pueden cambiar."
+ },
+ "substitution-elimination-013": {
+  "question": "La solvólisis (SN1) de cierto haluro de alquilo terciario es de primer orden respecto del sustrato, con una constante de velocidad k = 2,31×10⁻⁴ s⁻¹ a 25 °C. ¿Qué valor se aproxima más al periodo de semirreacción del sustrato?",
+  "choices": [
+   "Aproximadamente 25 min",
+   "Aproximadamente 50 min",
+   "Aproximadamente 72 min"
+  ],
+  "explanation": "El periodo de semirreacción de una reacción de primer orden es t½ = ln2 / k = 0,693 / (2,31×10⁻⁴ s⁻¹) = 3,00×10³ s, es decir, 3000 ÷ 60 = 50 min. El periodo de semirreacción de una reacción de primer orden es constante e independiente de la concentración inicial. Aproximadamente 72 min corresponde a 1/k = 4,33×10³ s, el tiempo en que la concentración baja a 1/e (aproximadamente 37 %); es el error de olvidar multiplicar por ln2. Aproximadamente 25 min es la mitad del periodo de semirreacción. Como la velocidad SN1 no depende de la concentración del nucleófilo, con el mismo disolvente y la misma temperatura puede considerarse que la constante de velocidad apenas cambia aunque se modifique la concentración del nucleófilo."
+ },
+ "substitution-elimination-014": {
+  "question": "La constante de velocidad de la reacción SN2 entre cierto haluro de alquilo primario RX y un nucleófilo Nu⁻ es k = 2,0×10⁻³ L/(mol·s) a cierta temperatura. ¿Cuál es la velocidad inicial cuando [RX] = 0,10 mol/L y [Nu⁻] = 0,20 mol/L?",
+  "choices": [
+   "2,0×10⁻⁴ mol/(L·s)",
+   "6,0×10⁻⁴ mol/(L·s)",
+   "4,0×10⁻⁵ mol/(L·s)"
+  ],
+  "explanation": "La SN2 es una reacción bimolecular: v = k[RX][Nu⁻] = 2,0×10⁻³ × 0,10 × 0,20 = 4,0×10⁻⁵ mol/(L·s). Que la unidad de la constante de velocidad sea L/(mol·s) también indica que la reacción es de segundo orden global. 2,0×10⁻⁴ es el error de tratarla como una reacción de primer orden solo respecto del sustrato, v = k[RX], y además las unidades no concuerdan. 6,0×10⁻⁴ es el error de sumar las dos concentraciones en lugar de multiplicarlas (k × 0,30). A medida que avanza la reacción, ambas concentraciones disminuyen, por lo que la velocidad también se reduce con el tiempo."
+ },
+ "substitution-elimination-015": {
+  "question": "Cuando el 2-bromo-2-metilpropano, (CH3)3CBr, se calienta en etanol con una alta concentración de etóxido de sodio, ¿cuál es la combinación correcta de la reacción principal y el producto principal?",
+  "choices": [
+   "Reacción E2, que da 2-metilpropeno, (CH3)2C=CH2",
+   "Reacción SN2, que da sobre todo el éter (CH3)3COCH2CH3",
+   "Reacción SN1, que da sobre todo el éter (CH3)3COCH2CH3"
+  ],
+  "explanation": "El carbono terciario está muy impedido y no admite ataque posterior, por lo que no ocurre la SN2. Con una alta concentración de etóxido, una base fuerte, la reacción E2, en la que se arranca uno de los 9 hidrógenos β y sale el ion bromuro, transcurre rápidamente sin esperar a que se forme el carbocatión, y el 2-metilpropeno es el producto principal. El calentamiento también favorece la eliminación. Si se calienta suavemente en etanol sin añadir base, predomina la SN1 a través del carbocatión y se obtiene una gran cantidad del éter (CH3)3COCH2CH3 (también se forma algo de alqueno por E1). La reacción se identifica combinando el grado de sustitución del sustrato con el carácter del reactivo, base fuerte o nucleófilo débil."
+ },
+ "substitution-elimination-016": {
+  "question": "¿Cuál de los siguientes bromuros de alquilo primarios reacciona más lentamente por SN2 con yoduro de sodio en acetona?",
+  "choices": [
+   "1-Bromobutano, CH3CH2CH2CH2Br",
+   "1-Bromo-2,2-dimetilpropano, (CH3)3CCH2Br",
+   "1-Bromo-2-metilpropano, (CH3)2CHCH2Br"
+  ],
+  "explanation": "En los tres compuestos el bromo está unido a un carbono primario, pero la velocidad de la SN2 depende mucho también de la ramificación del carbono contiguo (carbono β). En el 1-bromo-2,2-dimetilpropano (bromuro de neopentilo), el carbono β tiene tres grupos metilo que bloquean el camino del nucleófilo que se acerca por detrás, de modo que la SN2 es decenas de miles de veces más lenta que la del 1-bromobutano, o más, y en la práctica apenas avanza. El 1-bromo-2-metilpropano, con un solo metilo en el carbono β, también es más lento que el 1-bromobutano, pero la diferencia se limita a uno o dos órdenes de magnitud. Es un ejemplo de que ser primario no garantiza una SN2 rápida. El bromuro de neopentilo tampoco da fácilmente SN1, porque el carbocatión primario es inestable, y si se le obliga a reaccionar da productos con transposición de un grupo metilo."
+ },
+ "substitution-elimination-017": {
+  "question": "Aunque se caliente suavemente clorobenceno, C6H5Cl, con disolución acuosa de hidróxido de sodio, apenas se forma fenol. ¿Cuál es la razón principal?",
+  "choices": [
+   "El anillo bloquea el ataque posterior y el catión fenilo es inestable, así que no ocurren ni SN2 ni SN1",
+   "El carbono unido al cloro es sp³ y, como un carbono terciario, está muy impedido y el nucleófilo no puede acercarse",
+   "El Cl⁻ es una base demasiado fuerte para ser grupo saliente y, a diferencia de los haluros de alquilo, el C−Cl no se rompe"
+  ],
+  "explanation": "En el clorobenceno, el cloro está unido a un carbono sp². En la SN2, el nucleófilo debe acercarse por el lado opuesto al enlace C−Cl, pero esa dirección la bloquea el propio anillo bencénico, y además la configuración del carbono no puede invertirse. En la SN1 tendría que romperse el C−Cl para formar un catión fenilo, pero la carga positiva queda en un orbital sp² perpendicular al sistema π del anillo, sin estabilización por resonancia, por lo que es muy inestable. Además, los pares no compartidos del cloro entran en resonancia con el anillo y el enlace C−Cl se refuerza ligeramente. Considerar el carbono sp³ es un error de hibridación. El Cl⁻ es una base débil y un buen grupo saliente, así que la naturaleza del grupo saliente no es la causa. Si hay grupos nitro en posición orto o para, la sustitución pasa a ocurrir por un mecanismo de adición-eliminación."
+ },
+ "substitution-elimination-018": {
+  "question": "Se desea preparar terc-butil metil éter, (CH3)3C−O−CH3, mediante la síntesis de éteres de Williamson. ¿Cuál es la combinación de materiales de partida más adecuada?",
+  "choices": [
+   "Metóxido de sodio, CH3ONa, y 2-bromo-2-metilpropano, (CH3)3CBr",
+   "terc-Butóxido de potasio, (CH3)3COK, y metanol, CH3OH",
+   "terc-Butóxido de potasio, (CH3)3COK, y yodometano, CH3I"
+  ],
+  "explanation": "La síntesis de Williamson es la reacción en la que un alcóxido ataca un haluro de alquilo por SN2 para formar un éter. Como la SN2 requiere ataque posterior, el haluro debe ser metílico o primario, y la parte voluminosa se sitúa en el alcóxido. Con terc-butóxido y yodometano se obtiene el éter deseado por SN2 sobre el carbono metílico, sin impedimento estérico. Con metóxido y 2-bromo-2-metilpropano no ocurre la SN2 sobre el carbono terciario, y el metóxido, base fuerte, arranca un hidrógeno β en una E2 que da principalmente 2-metilpropeno. La combinación de terc-butóxido y metanol no tiene grupo saliente; solo se establece un equilibrio ácido-base de intercambio de protones y no se forma éter. La clave del éxito está en qué enlace C−O se elige desconectar al plantear la síntesis."
+ },
+ "substitution-elimination-019": {
+  "question": "Se hizo reaccionar (R)-2-yodooctano ópticamente puro con ion yoduro I⁻ marcado con un isótopo radiactivo en acetona. En el momento en que el 10 % de todas las moléculas ha experimentado exactamente una sustitución SN2, ¿qué porcentaje de la rotación óptica inicial tiene la disolución? Considere que en cada sustitución la configuración se invierte siempre y que la rotación es proporcional al exceso enantiomérico.",
+  "choices": [
+   "90 %",
+   "80 %",
+   "100 %"
+  ],
+  "explanation": "El 10 % de las moléculas sustituidas invierte su configuración y pasa a ser (S), mientras que el 90 % restante sigue siendo (R). El exceso enantiomérico es 90 − 10 = 80 %, por lo que la rotación es el 80 % de la inicial. Como el 10 % convertido en (S) anula la rotación de un 10 % de (R), la rotación se pierde al doble de velocidad que la fracción sustituida. El 90 % es el error de pensar que las moléculas invertidas simplemente dejan de contribuir a la rotación. El 100 % es el error de pensar que, como un I⁻ solo se sustituye por otro I⁻, el compuesto no cambia, pasando por alto la inversión de configuración. En este experimento se comprobó que la velocidad de racemización es exactamente el doble de la velocidad de incorporación del yodo radiactivo, lo que demostró que cada sustitución SN2 va acompañada de inversión estereoquímica."
+ },
+ "substitution-elimination-020": {
+  "question": "El (R)-2-butanol se convirtió en tosilato con cloruro de p-toluenosulfonilo (TsCl) y piridina, y a continuación se hizo reaccionar por SN2 con cianuro de sodio, NaCN, en DMSO para obtener 2-metilbutanonitrilo, CH3CH2CH(CH3)CN. ¿Cuál es la configuración correcta del producto?",
+  "choices": [
+   "(S), porque la tosilación no rompe el enlace C−O y solo hay una inversión, en la SN2",
+   "(R), porque hay una inversión en la tosilación y otra en la SN2, y se recupera la configuración",
+   "Racémico, porque el tosilato es buen grupo saliente y la reacción pasa por un carbocatión"
+  ],
+  "explanation": "En la tosilación, el oxígeno del alcohol ataca el azufre del TsCl y solo se forma un enlace O−S; el enlace C−O entre el carbono asimétrico y el oxígeno no se rompe, por lo que la configuración se conserva. En la SN2 posterior, el CN⁻ ataca por el lado opuesto al tosilato y se produce una única inversión. Las prioridades son OH > CH2CH3 > CH3 > H antes de la reacción y CN > CH2CH3 > CH3 > H en el producto (el carbono del CN se considera (N, N, N)); como el grupo saliente y el nucleófilo ocupan ambos la máxima prioridad, la inversión se traduce directamente en un cambio de R a S. Pensar que la tosilación también invierte la configuración es pasar por alto qué enlace se rompe. Cuando se hace reaccionar con un nucleófilo fuerte en DMSO, incluso un sustrato secundario reacciona principalmente por SN2 y apenas se racemiza."
+ }
+}

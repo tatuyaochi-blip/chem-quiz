@@ -1,0 +1,182 @@
+{
+ "organometallic-001": {
+  "question": "¿Cuál es el número de electrones de valencia alrededor del hierro (suma de los electrones d del metal y los electrones donados por los ligandos) en el pentacarbonilhierro Fe(CO)5? El número atómico del hierro es 26, y el CO es un ligando dador de 2 electrones.",
+  "choices": [
+   "16",
+   "18",
+   "13"
+  ],
+  "explanation": "En un complejo con solo ligandos sin carga, el estado de oxidación del hierro es 0. En los complejos de metales de transición, todos los electrones de valencia del metal se cuentan como electrones d, así que el Fe(0), del grupo 8, es d⁸. El CO es un ligando de 2 electrones que actúa como dador σ mediante el par no compartido del carbono, por lo que el número de electrones de valencia es 8 + 5 × 2 = 18, y se ve que es un complejo estable que cumple la regla de los 18 electrones. El valor 16 es el error de tomar 6 electrones d a partir de la configuración electrónica del hierro, 3d⁶4s². El valor 13 es el error de contar el CO como ligando de 1 electrón. Con el mismo recuento, el Cr(CO)6 da 6 + 12 = 18 y el Ni(CO)4, 10 + 8 = 18."
+ },
+ "organometallic-002": {
+  "question": "Para el catalizador de Wilkinson RhCl(PPh3)3 (Ph es fenilo), usado en la hidrogenación de alquenos, ¿cuál es la combinación correcta del estado de oxidación, el número de electrones d y el número de electrones de valencia del rodio? El rodio es un elemento del grupo 9.",
+  "choices": [
+   "Rh(I), d⁸, 16 electrones",
+   "Rh(0), d⁹, 17 electrones",
+   "Rh(III), d⁶, 18 electrones"
+  ],
+  "explanation": "La PPh3 es un ligando neutro dador de 2 electrones y el Cl se cuenta como Cl⁻, de modo que el estado de oxidación del rodio es +1. El Rh, del grupo 9, tiene 9 electrones de valencia, así que el Rh(I) es d⁸. El número de electrones de valencia es 8 de d⁸ más los 8 que aportan, 2 cada uno, el Cl⁻ y las tres PPh3: 16. Los complejos d⁸ tienden a adoptar esta geometría plano-cuadrada de 16 electrones, y que puedan pasar a Rh(III) de 18 electrones por adición oxidativa de H2 es la razón de que actúen como catalizadores de hidrogenación. Rh(0), d⁹, 17 electrones es el error de tratar el Cl como ligando sin carga pero contarlo como dador de 2 electrones; el Cl neutro dona 1 electrón, así que el total es 9 + 1 + 6 = 16. Rh(III), d⁶ es el estado tras la adición de H2."
+ },
+ "organometallic-003": {
+  "question": "Se cuenta el ferroceno Fe(η⁵-C5H5)2 con el modelo iónico, que trata el ligando ciclopentadienilo como C5H5⁻ (dador de 6 electrones). ¿Cuál es la combinación correcta del estado de oxidación, el número de electrones d y el número de electrones de valencia del hierro?",
+  "choices": [
+   "Fe(III), d⁵, 17 electrones",
+   "Fe(II), d⁶, 16 electrones",
+   "Fe(II), d⁶, 18 electrones"
+  ],
+  "explanation": "η⁵ indica que los cinco carbonos del anillo están unidos al metal (hapticidad 5). Si los dos ligandos son C5H5⁻, el estado de oxidación del hierro es +2, y el Fe(II) es d⁶. El C5H5⁻ es un anión aromático con seis electrones π y dona 6 electrones, así que el número de electrones de valencia es 6 + 2 × 6 = 18. Con el recuento que trata el ligando como C5H5 neutro (dador de 5 electrones) y el hierro como Fe(0) d⁸, también se obtiene 8 + 2 × 5 = 18: el resultado es el mismo aunque cambie el método de recuento. Los 16 electrones son el error de contar el ligando como de 5 electrones dentro del modelo iónico. Fe(III), d⁵, 17 electrones corresponde al ion ferrocenio [Fe(C5H5)2]⁺, oxidado en un electrón."
+ },
+ "organometallic-004": {
+  "question": "¿Cuál es la descripción correcta del enlace (modelo de Dewar-Chatt-Duncanson) cuando el etileno se coordina η² a un metal de transición?",
+  "choices": [
+   "Consiste solo en un enlace σ por donación de los electrones π del alqueno a un orbital vacío del metal, por lo que el enlace C=C se acorta respecto a antes de coordinarse",
+   "Consiste en una donación σ del orbital π del alqueno al metal y una retrodonación de un orbital d del metal al orbital π*, y el enlace C=C se alarga",
+   "Los electrones d del metal entran en el orbital π enlazante del alqueno, por lo que el enlace C=C se hace más fuerte y corto que antes y aumenta su carácter doble"
+  ],
+  "explanation": "En el modelo de Dewar-Chatt-Duncanson, el enlace metal−alqueno tiene dos componentes. Uno es la donación σ del orbital π lleno del alqueno a un orbital d vacío del metal, y el otro, la retrodonación de un orbital d lleno del metal al orbital π* vacío del alqueno. Ambas reducen el orden de enlace C=C, de modo que el enlace C=C del alqueno coordinado se alarga y los sustituyentes se doblan alejándose del metal. Cuanto más fuerte es la retrodonación, más se acerca la estructura a un metalaciclopropano. La descripción que considera solo la donación σ pasa por alto la retrodonación, y el C=C no se acorta. El orbital π enlazante ya está lleno de electrones, así que los electrones d no pueden entrar en él."
+ },
+ "organometallic-005": {
+  "question": "Se comparan los espectros infrarrojos de la serie isoelectrónica de complejos carbonílicos [V(CO)6]⁻, Cr(CO)6 y [Mn(CO)6]⁺. ¿Cuál tiene el mayor número de onda de tensión C≡O?",
+  "choices": [
+   "[V(CO)6]⁻",
+   "Cr(CO)6",
+   "[Mn(CO)6]⁺"
+  ],
+  "explanation": "Los tres complejos son d⁶ de 18 electrones, pero la carga del metal es distinta. Los electrones d del metal se retrodonan al orbital π* vacío del CO, y cuantos más electrones entran en el π*, más baja el orden de enlace C−O y menor es el número de onda de tensión. El [Mn(CO)6]⁺, con carga positiva, retiene con fuerza sus electrones d y su retrodonación es la más débil, por lo que su número de onda es el mayor, unos 2090 cm⁻¹, cercano a los 2143 cm⁻¹ del CO libre. El Cr(CO)6 está hacia 2000 cm⁻¹, y el [V(CO)6]⁻, con carga negativa, tiene la retrodonación más fuerte y el valor más bajo, unos 1860 cm⁻¹. Si se piensa que cuantos más electrones hay más fuerte es el C≡O, se lee el orden al revés."
+ },
+ "organometallic-006": {
+  "question": "¿Qué fosfina tiene el mayor ángulo de cono de Tolman (ángulo en el vértice del cono, con el metal en el vértice, que envuelve al ligando fosfina)?",
+  "choices": [
+   "Trimetilfosfina P(CH3)3",
+   "Trifenilfosfina P(C6H5)3",
+   "Tri-terc-butilfosfina P(C(CH3)3)3"
+  ],
+  "explanation": "El ángulo de cono es una medida del volumen estérico del ligando; valores típicos son unos 118° para PMe3, unos 145° para PPh3 y unos 182° para P(t-Bu)3 (Me = CH3, Ph = C6H5, t-Bu = C(CH3)3). El grupo terc-butilo, cuyo carbono unido directamente al fósforo lleva tres metilos, está muy ramificado justo al lado del fósforo, por lo que P(t-Bu)3 es la más voluminosa. El grupo fenilo tiene más átomos, pero es plano y puede orientarse y solaparse como una hélice, de modo que no ocupa un cono tan amplio como el terc-butilo. Las fosfinas voluminosas y ricas en electrones como P(t-Bu)3 favorecen la formación de especies de paladio muy reactivas con un solo ligando y aceleran la adición oxidativa de cloruros de arilo y la eliminación reductiva, por lo que se usan mucho en el acoplamiento cruzado."
+ },
+ "organometallic-007": {
+  "question": "Se realiza un acoplamiento cruzado con tetrakis(trifenilfosfina)paladio(0) Pd(PPh3)4 como catalizador. ¿Qué especie activa se considera en general que realiza realmente la adición oxidativa del haluro de arilo?",
+  "choices": [
+   "El Pd(PPh3)2 de 14 electrones, formado por disociación de PPh3",
+   "El Pd(PPh3)4 de 18 electrones, sin ningún ligando disociado",
+   "El complejo de Pd(II) PdCl2(PPh3)2"
+  ],
+  "explanation": "El Pd(PPh3)4 es un complejo de 10 + 4 × 2 = 18 electrones, con cuatro PPh3 coordinadas a un Pd(0) d¹⁰. Como sus electrones de valencia están saturados y no queda sitio para que se acerque el sustrato, en disolución se disocia PPh3 y se forma el Pd(PPh3)3 de 16 electrones y luego el Pd(PPh3)2 de 14 electrones, y se considera que esta especie coordinativamente insaturada realiza la adición oxidativa al enlace C−X. Que la reacción se ralentice al añadir PPh3 en exceso, que desplaza hacia atrás el equilibrio de disociación, concuerda con esta idea. Con 18 electrones, la adición oxidativa ocurre con dificultad. El PdCl2(PPh3)2 se usa como precursor del catalizador, pero como Pd(II) no realiza la adición oxidativa; actúa tras reducirse a Pd(0) en el medio de reacción."
+ },
+ "organometallic-008": {
+  "question": "El yoduro de metilo CH3I se adiciona oxidativamente al complejo de Vaska trans-IrCl(CO)(PPh3)2 y se forma IrCl(I)(CH3)(CO)(PPh3)2. ¿Cuál es el cambio correcto del estado de oxidación, el número de coordinación y el número de electrones de valencia del iridio (grupo 9)?",
+  "choices": [
+   "Estado de oxidación +1 → +3, número de coordinación 4 → 6, electrones de valencia 16 → 18",
+   "Estado de oxidación +1 → +3, número de coordinación 4 → 6, electrones de valencia 16 → 20",
+   "Estado de oxidación +1 → +1 (sin cambio), número de coordinación 4 → 6, electrones de valencia 16 → 20"
+  ],
+  "explanation": "Antes de la reacción es Ir(I), d⁸, y recibe 2 electrones de cada uno de Cl⁻, CO y las dos PPh3, así que el número de electrones de valencia es 8 + 4 × 2 = 16. En la adición oxidativa se rompe el enlace C−I, dos ligandos, CH3⁻ e I⁻, se unen al metal, y el estado de oxidación del metal aumenta en 2: Ir(III), d⁶. El número de coordinación pasa de 4 a 6, y el número de electrones de valencia es 6 + 6 × 2 = 18. Es decir, en la adición oxidativa el número de electrones de valencia aumenta en 2 y los electrones d disminuyen en 2. 16 → 20 es el error de sumar solo los dos ligandos nuevos y pasar por alto que el metal pierde dos electrones d. El estado de oxidación no cambia cuando un ligando neutro como CO o PPh3 simplemente se coordina."
+ },
+ "organometallic-009": {
+  "question": "De los siguientes complejos de paladio(II) con un grupo alquilo, ¿cuál no puede experimentar eliminación de β-hidruro? En todos, el metal tiene un sitio de coordinación libre.",
+  "choices": [
+   "Grupo etilo −CH2CH3",
+   "Grupo neopentilo −CH2C(CH3)3",
+   "Grupo isopropilo −CH(CH3)2"
+  ],
+  "explanation": "La eliminación de β-hidruro es la reacción en la que un hidrógeno del carbono β, contiguo al carbono unido al metal (carbono α), pasa al metal y se forman un hidruro metálico y un alqueno. Para que ocurra, el carbono β debe tener hidrógeno, el metal debe tener un sitio de coordinación libre y M−C−C−H debe poder disponerse casi en un plano (sin). El carbono β del grupo neopentilo −CH2C(CH3)3 es cuaternario y no tiene hidrógenos, así que no hay eliminación de β-hidruro. El grupo etilo tiene 3 hidrógenos β en su carbono β, y el isopropilo, 6 en total en sus dos metilos, y dan etileno o propeno. En el acoplamiento cruzado de grupos alquilo se considera que, para evitar esta reacción secundaria, son más fáciles de manejar los grupos sin hidrógenos β, como metilo, bencilo o neopentilo."
+ },
+ "organometallic-010": {
+  "question": "Al tratar el metilpentacarbonilmanganeso CH3Mn(CO)5 con monóxido de carbono marcado con ¹³C, ¹³CO, se forma el complejo acetilo CH3C(O)Mn(CO)5. ¿En qué posición del producto se encuentra el ¹³C?",
+  "choices": [
+   "En el carbono carbonílico del grupo acetilo",
+   "En un ligando CO en posición cis respecto al grupo acetilo",
+   "En el ligando CO en posición trans respecto al grupo acetilo"
+  ],
+  "explanation": "Esta reacción es una inserción migratoria de CO (inserción 1,1), que ocurre entre el metilo y un CO ya coordinado al metal. El metilo migra al carbono de un ligando CO contiguo (cis) y se forma el complejo acetilo de 16 electrones CH3C(O)Mn(CO)4; el ¹³CO que llega del exterior ocupa el sitio de coordinación libre y se recuperan los 18 electrones. El sitio libre es donde estaba el metilo, que está en posición cis respecto al acetilo, de modo que el ¹³C entra en un ligando CO cis y no en el carbonilo del acetilo. Si se piensa que el CO externo se intercala directamente en el enlace Mn−C, se predice erróneamente que se marca el grupo acetilo. La posición trans no tiene relación con el sitio donde estaba el metilo."
+ },
+ "organometallic-011": {
+  "question": "Al hacer reaccionar yodobenceno con un alquino terminal R−C≡CH en presencia de un catalizador de paladio, yoduro de cobre(I) CuI y una base amínica, se obtiene el alquino interno C6H5−C≡C−R (acoplamiento de Sonogashira). ¿Cuál es la función principal correcta del CuI?",
+  "choices": [
+   "Se adiciona oxidativamente al enlace C−I del yodobenceno antes que el paladio y forma un arilcobre",
+   "Oxida a Pd(II) el Pd(0) formado en la eliminación reductiva y regenera el catalizador",
+   "Forma un acetiluro de cobre a partir del alquino terminal y cede el grupo alquinilo al paladio por transmetalación"
+  ],
+  "explanation": "En el acoplamiento de Sonogashira, en presencia de la base amínica, el C−H ácido del alquino terminal (pKa unos 25) reacciona con el CuI y forma el acetiluro de cobre R−C≡C−Cu. Este se transmetala con Ar−Pd(II)−I, cede el grupo alquinilo al paladio, y por eliminación reductiva se forma Ar−C≡C−R. Quien realiza la adición oxidativa del haluro de arilo es el paladio, no el cobre. Reoxidar el Pd(0) a Pd(II) es la función de las sales de cobre en la oxidación de Wacker, donde el Pd(II) oxida al alqueno y pasa a Pd(0); en el acoplamiento de Sonogashira, el Pd(0) formado en la eliminación reductiva entra directamente en el ciclo siguiente. En presencia de oxígeno, los acetiluros de cobre se acoplan entre sí y se forma un diino como subproducto, por lo que la reacción se lleva a cabo bajo gas inerte."
+ },
+ "organometallic-012": {
+  "question": "Se somete el dialilmalonato de dietilo (CH2=CHCH2)2C(COOCH2CH3)2 a metátesis con cierre de anillo usando un complejo carbeno de rutenio (catalizador de Grubbs). ¿Cuál es la combinación correcta de productos principales?",
+  "choices": [
+   "3-Ciclopenteno-1,1-dicarboxilato de dietilo (anillo de cinco miembros) y etileno",
+   "4-Ciclohepteno-1,1-dicarboxilato de dietilo (anillo de siete miembros) e hidrógeno",
+   "3-Ciclohexeno-1,1-dicarboxilato de dietilo (anillo de seis miembros) y etileno"
+  ],
+  "explanation": "En la metátesis de olefinas, el carbeno metálico y el alqueno experimentan una adición [2+2] y forman un metalaciclobutano, cuya apertura en sentido inverso intercambia las partes a ambos lados del C=C. Cuando ocurre entre dos alquenos terminales de la misma molécula, los CH2 de los extremos salen como CH2=CH2 y los CH=CH restantes se unen formando un anillo. De los 7 carbonos de CH2=CH−CH2−C−CH2−CH=CH2 se pierden los 2 de los extremos, así que el anillo es un ciclopenteno de cinco miembros con 7 − 2 = 5 carbonos. La salida del etileno gaseoso del sistema desplaza el equilibrio hacia los productos. El anillo de siete miembros es el error de contar en el anillo todos los carbonos terminales, y por el número de carbonos tampoco es posible la combinación de anillo de seis miembros y etileno."
+ },
+ "organometallic-013": {
+  "question": "En el proceso Monsanto, que produce ácido acético a partir de metanol y CO con el complejo de rodio [Rh(CO)2I2]⁻ como catalizador, la velocidad de reacción es de primer orden respecto al rodio y al yoduro de metilo CH3I, y casi no depende de la presión de CO ni de la concentración de metanol. ¿Cuál es la etapa determinante de la velocidad más adecuada del ciclo catalítico?",
+  "choices": [
+   "La adición oxidativa de CH3I al rodio",
+   "La inserción migratoria del metilo del rodio en el CO",
+   "La formación de yoduro de acetilo CH3COI por eliminación reductiva"
+  ],
+  "explanation": "En el proceso Monsanto, el metanol reacciona con HI y forma CH3I, que se adiciona oxidativamente al complejo de Rh(I) de 16 electrones [Rh(CO)2I2]⁻ para dar un complejo metílico de Rh(III). A continuación, el metilo migra al CO (inserción migratoria) y se forma un grupo acetilo; tras coordinarse un CO, el CH3COI se libera por eliminación reductiva y se regenera el Rh(I). El CH3COI reacciona con agua y da ácido acético y HI. Que en la ley de velocidad v = k[Rh][CH3I] no aparezcan el CO ni el metanol indica que la etapa determinante es la reacción del CH3I con el complejo, es decir, la adición oxidativa, y que la inserción migratoria, en la que interviene el CO, y la eliminación reductiva posterior son rápidas. Por cierto, en el proceso Cativa, que usa iridio, la etapa determinante pasa a ser la inserción migratoria."
+ },
+ "organometallic-014": {
+  "question": "Se añadieron 5,0 μmol de un catalizador metálico a 50,0 mmol de un sustrato, y la conversión alcanzó el 90 % en 2,0 horas. ¿Cuál es la frecuencia de recambio media (TOF: número de veces que se forma producto por molécula de catalizador y por unidad de tiempo) en ese intervalo?",
+  "choices": [
+   "9000 h⁻¹",
+   "5000 h⁻¹",
+   "4500 h⁻¹"
+  ],
+  "explanation": "La cantidad de sustrato que ha reaccionado es 50,0 mmol × 0,90 = 45,0 mmol, así que el número de recambio TON es 45,0 mmol ÷ 0,0050 mmol = 9000. La TOF es el TON dividido entre el tiempo de reacción: 9000 ÷ 2,0 h = 4500 h⁻¹, que por segundo es 4500 ÷ 3600 = 1,25 s⁻¹. El valor 9000 h⁻¹ es el error de olvidar dividir el TON entre el tiempo; el TON es un número adimensional que expresa un número de veces. El valor 5000 h⁻¹ es el valor teórico con una conversión del 100 %. La cantidad de catalizador corresponde a 0,0050 ÷ 50,0 × 100 = 0,010 % en moles. Como la TOF suele cambiar a medida que avanza la reacción, para comparar se usa en general el valor inicial, a baja conversión."
+ },
+ "organometallic-015": {
+  "question": "Se sintetizaron 100 g de un intermedio farmacéutico (masa molar 200,0 g/mol) por un acoplamiento cruzado con un 0,10 % en moles de catalizador de paladio respecto al producto. Si el rendimiento es del 100 % y todo el paladio del catalizador (masa molar 106,42 g/mol) queda en el producto, ¿cuál es el valor más cercano a la concentración de paladio en el producto (ppm en masa)?",
+  "choices": [
+   "Unos 53 ppm",
+   "Unos 530 ppm",
+   "Unos 1000 ppm"
+  ],
+  "explanation": "La cantidad de producto es 100 g ÷ 200,0 g/mol = 0,500 mol; el 0,10 % en moles de paladio es 0,500 × 0,0010 = 5,0×10⁻⁴ mol, con una masa de 5,0×10⁻⁴ mol × 106,42 g/mol = 0,0532 g. En ppm en masa, 0,0532 g ÷ 100 g × 10⁶ = 532 ppm, es decir, unos 530 ppm. Unos 1000 ppm es el error de tomar la fracción molar del 0,10 % en moles directamente como fracción másica del 0,10 % = 1000 ppm, sin tener en cuenta la diferencia de masas molares. Unos 53 ppm es un error de orden de magnitud al tomar el 0,10 % en moles como un factor de 10⁻⁴. En los productos farmacéuticos son imprescindibles las etapas de eliminación con adsorbentes o por recristalización."
+ },
+ "organometallic-016": {
+  "question": "Se acoplan un haluro de arilo Ar−Br y un ácido arilborónico Ar'−B(OH)2 en presencia de un catalizador de paladio y una base como el carbonato de potasio (acoplamiento de Suzuki-Miyaura). ¿Cuál es la función principal correcta de la base?",
+  "choices": [
+   "Unirse al boro para formar, por ejemplo, un borato tetracoordinado, y favorecer la transmetalación que transfiere el grupo arilo al paladio",
+   "Coordinarse al Pd(0) en lugar de la fosfina y donarle electrones, actuando como ligando que acelera la adición oxidativa del Ar−Br",
+   "Arrancar el ion bromuro del Ar−Br para formar el catión arilo Ar⁺ y ayudar a que este se una al Pd(0)"
+  ],
+  "explanation": "El acoplamiento de Suzuki-Miyaura transcurre por adición oxidativa del Ar−Br al Pd(0), transferencia del grupo arilo del boro al paladio (transmetalación) y eliminación reductiva, que forma Ar−Ar' y regenera el Pd(0). El ácido borónico neutro Ar'−B(OH)2 cede mal su grupo arilo, pero cuando el OH⁻ u otra especie procedente de la base se une al orbital p vacío del boro y forma el borato tetracoordinado [Ar'B(OH)3]⁻, el grupo arilo se vuelve nucleófilo y se transfiere con más facilidad. También se ha propuesto una vía en la que el Pd−Br se convierte en Pd−OH, que reacciona más fácilmente con el ácido borónico. Ambas favorecen la transmetalación. La base no actúa como ligando que acelere la adición oxidativa, y tampoco se forman cationes como Ar⁺."
+ },
+ "organometallic-017": {
+  "question": "A partir del complejo plano-cuadrado de Pd(II) PdAr(CH3)L2 (L es una fosfina) se forma Ar−CH3 por eliminación reductiva. ¿Cuál es la descripción correcta de la eliminación reductiva?",
+  "choices": [
+   "El estado de oxidación del metal aumenta en 2 y el número de coordinación disminuye en 2; los dos grupos que se eliminan deben estar en posición trans entre sí",
+   "El estado de oxidación del metal no cambia y el número de coordinación disminuye en 1; los dos grupos que se eliminan pueden estar en cualquier posición",
+   "El estado de oxidación del metal disminuye en 2 y el número de coordinación disminuye en 2; los dos grupos que se eliminan deben estar en posición cis entre sí"
+  ],
+  "explanation": "La eliminación reductiva es la reacción inversa de la adición oxidativa: dos grupos unidos al metal se unen entre sí y se separan, y dos de los electrones de esos enlaces quedan en el metal. Por eso el estado de oxidación disminuye en 2 (Pd(II) → Pd(0)) y el número de coordinación también disminuye en 2. Como los dos grupos forman un enlace directo, deben estar en posiciones cis, contiguas sobre el metal; los complejos con los grupos en trans primero isomerizan a cis y luego eliminan. En el acoplamiento cruzado se usan ligandos voluminosos o difosfinas bidentadas de gran ángulo de mordida también para acercar los dos grupos orgánicos y acelerar la eliminación reductiva. El aumento del estado de oxidación en 2 corresponde a la adición oxidativa. Que el estado de oxidación no cambie y salga un ligando es una simple disociación de ligando."
+ },
+ "organometallic-018": {
+  "question": "Se calientan yodobenceno y acrilato de metilo CH2=CHCOOCH3 en presencia de acetato de paladio(II), una fosfina y trietilamina (reacción de Mizoroki-Heck). ¿Cuál es el producto principal correcto?",
+  "choices": [
+   "(Z)-3-Fenilpropenoato de metilo (cinamato de metilo cis)",
+   "(E)-3-Fenilpropenoato de metilo (cinamato de metilo trans)",
+   "2-Fenilpropenoato de metilo (con el fenilo en la posición α del éster)"
+  ],
+  "explanation": "En la reacción de Mizoroki-Heck, el yodobenceno se adiciona oxidativamente al Pd(0) formado en el medio y da Ph−Pd−I; tras coordinarse el alqueno, se produce una adición sin (inserción) en la que el fenilo pasa al carbono CH2 terminal, sin sustituyentes. Del complejo de alquilpaladio formado se elimina un hidrógeno β situado del mismo lado que el Pd (sin), se regenera el C=C y se libera el producto. En este paso es estéricamente favorable la eliminación desde la conformación en que el fenilo y el grupo éster quedan en lados opuestos, por lo que predomina el (E)-cinamato de metilo. Del H−Pd−I restante, la trietilamina retira el HI y se regenera el Pd(0). El regioisómero con el fenilo en la posición α del éster no es el principal con un éster acrílico pobre en electrones."
+ },
+ "organometallic-019": {
+  "question": "El decacarbonildimanganeso Mn2(CO)10 no tiene CO puente y su estructura consiste en dos unidades Mn(CO)5 unidas. ¿Cuál es la explicación correcta al contar los electrones de valencia por cada manganeso (grupo 7) con el modelo de ligandos neutros (7 electrones del Mn(0), CO dador de 2 electrones)?",
+  "choices": [
+   "La unidad Mn(CO)5 tiene 17 electrones; con un enlace simple Mn−Mn cada una aporta 1 electrón y cada Mn llega a 18 electrones",
+   "La unidad Mn(CO)5 tiene 18 electrones; no hay enlace Mn−Mn y las dos unidades se mantienen unidas por fuerzas intermoleculares",
+   "La unidad Mn(CO)5 tiene 17 electrones; con un doble enlace Mn=Mn cada una aporta 2 electrones y cada Mn llega a 18 electrones"
+  ],
+  "explanation": "En el modelo de ligandos neutros, a los 7 electrones de valencia del Mn(0) se suman los 5 × 2 = 10 electrones de los 5 CO, así que la unidad Mn(CO)5 tiene 17 electrones. Cuando estas unidades, cada una con un electrón desapareado, forman un enlace simple Mn−Mn, cada Mn cuenta un electrón del enlace, lo que da 7 + 10 + 1 = 18 electrones y cumple la regla de los 18 electrones. Con un doble enlace, cada Mn tendría 7 + 10 + 2 = 19 electrones, por encima de 18, así que un doble enlace es poco probable. Considerar que la unidad Mn(CO)5 tiene 18 electrones es un error de recuento; una unidad de 17 electrones sin enlace Mn−Mn debería ser un radical paramagnético, pero el Mn2(CO)10 es diamagnético. Al irradiarlo con luz, este enlace se rompe y se forma el radical ·Mn(CO)5 de 17 electrones."
+ },
+ "organometallic-020": {
+  "question": "¿Cuáles son los productos principales correctos de la hidroformilación (proceso oxo) del propeno CH2=CHCH3 con monóxido de carbono CO e hidrógeno H2, catalizada por complejos de rodio o cobalto?",
+  "choices": [
+   "Propanal CH3CH2CHO, con el mismo número de carbonos, y su isómero acetona (CH3)2CO",
+   "Propano CH3CH2CH3, por adición de H2 al C=C, y metanol CH3OH, por reducción del CO",
+   "Butanal CH3(CH2)2CHO y 2-metilpropanal (CH3)2CHCHO, con un carbono más"
+  ],
+  "explanation": "La hidroformilación es la reacción que añade H y CHO (grupo formilo) a un enlace C=C, y da un aldehído con un carbono más que el alqueno. En el ciclo catalítico, el alqueno se inserta en un hidruro metálico y forma un complejo alquilo, el CO experimenta inserción migratoria y da un complejo acilo, y tras la adición oxidativa de H2 y la eliminación reductiva se libera el aldehído. Del propeno se obtienen butanal lineal, con el CHO en el carbono terminal, y 2-metilpropanal ramificado, con el CHO en el carbono 2; eligiendo el ligando fosfina se puede aumentar la proporción del producto lineal. El butanal se hidrogena y sirve de materia prima para el 1-butanol, entre otros. El propano por hidrogenación puede formarse como subproducto, pero no es un producto principal. El propanal y la acetona, sin cambio en el número de carbonos, no se forman en esta reacción."
+ }
+}
