@@ -313,6 +313,81 @@
           "a": "n 級反應中，k 的單位為 (mol/L)^(1−n)·s⁻¹。零級為 mol/(L·s)，一級為 s⁻¹，二級為 L/(mol·s)。看單位就能發現級數是否弄錯。"
         }
       ]
+    },
+    "es": {
+      "nav": "Velocidad de reacción y periodo de semirreacción",
+      "card": "Calcule la variación de la concentración con el tiempo y el periodo de semirreacción en reacciones de orden cero, uno y dos, y la energía de activación con la ecuación de Arrhenius",
+      "title": "Calculadora de cinética química (leyes de velocidad integradas, periodo de semirreacción y ecuación de Arrhenius)",
+      "description": "A partir del orden de reacción (cero, uno o dos), la concentración inicial y la constante de velocidad, calcula con las leyes de velocidad integradas la concentración en el tiempo t, la conversión y el periodo de semirreacción. A partir de las constantes de velocidad a dos temperaturas, obtiene la energía de activación y el factor preexponencial con la ecuación de Arrhenius.",
+      "h1": "Calculadora de velocidad de reacción y energía de activación",
+      "lead": "Para una reacción sencilla de un solo reactivo A, obtenga cómo varía la concentración con el tiempo y el periodo de semirreacción, y compruébelos en un gráfico. Los valores predeterminados corresponden a una reacción de primer orden con una concentración inicial de 0,10 mol/L, k = 2,0×10⁻³ s⁻¹ y la concentración al cabo de 600 s. Los valores predeterminados de la ecuación de Arrhenius corresponden a una reacción cuya constante de velocidad se duplica de 25 °C a 35 °C.",
+      "in_heading": "Datos",
+      "order": "Orden de reacción",
+      "order_0": "Orden cero (v = k)",
+      "order_1": "Primer orden (v = k[A])",
+      "order_2": "Segundo orden (v = k[A]²)",
+      "a0": "Concentración inicial [A]₀ (mol/L)",
+      "k": "Constante de velocidad k (la unidad se indica en los resultados)",
+      "t": "Tiempo transcurrido t (s)",
+      "t1": "Temperatura T₁ (°C)",
+      "k1": "Constante de velocidad k₁ a T₁",
+      "t2": "Temperatura T₂ (°C)",
+      "k2": "Constante de velocidad k₂ a T₂",
+      "out_heading": "Resultados",
+      "conc": "Concentración [A] en el tiempo t",
+      "conv": "Conversión",
+      "half": "Periodo de semirreacción t½ (desde [A]₀)",
+      "t90": "Tiempo hasta una conversión del 90 %",
+      "unit": "Unidad de k (con el tiempo en segundos)",
+      "arr_heading": "Ecuación de Arrhenius (a partir de dos temperaturas)",
+      "ea": "Energía de activación Ea",
+      "pre": "Factor preexponencial A (misma unidad que k)",
+      "slope": "Pendiente de la gráfica de ln k frente a 1/T (−Ea/R)",
+      "chart_label": "Variación de la concentración [A] con el tiempo",
+      "note": "La velocidad se define como −d[A]/dt = k[A]ⁿ (n es el orden), y las ecuaciones suponen temperatura constante, sin reacción inversa ni reacciones secundarias. El caso de segundo orden se aplica a 2A → P, o a A + B → P cuando A y B tienen la misma concentración inicial. El tiempo puede expresarse en unidades distintas del segundo siempre que k use la misma unidad. El cálculo de Arrhenius toma Ea y A como independientes de la temperatura, con R = 8,314 J/(mol·K) y T = t + 273,15 K.",
+      "practice": "Resolver preguntas de cinética química",
+      "related": "Términos relacionados",
+      "js": {
+        "xlabel": "Tiempo t (s)",
+        "ylabel": "[A] (mol/L)",
+        "units": [
+          "mol/(L·s)",
+          "s⁻¹",
+          "L/(mol·s)"
+        ]
+      },
+      "sections": [
+        {
+          "h": "Leyes de velocidad integradas y periodo de semirreacción",
+          "p": "Al integrar con respecto al tiempo la ley de velocidad −d[A]/dt = k[A]ⁿ, se obtiene la concentración en función del tiempo. Para orden cero, [A] = [A]₀ − kt; para primer orden, ln([A]₀/[A]) = kt, es decir, [A] = [A]₀ e^(−kt), y para segundo orden, 1/[A] = 1/[A]₀ + kt. Sustituyendo [A] = [A]₀/2 se obtiene el periodo de semirreacción: t½ = [A]₀/(2k) para orden cero, t½ = ln2/k para primer orden y t½ = 1/(k[A]₀) para segundo orden. Para la reacción de primer orden predeterminada (k = 2,0×10⁻³ s⁻¹), t½ = 0,693/2,0×10⁻³ ≈ 347 s, y al cabo de 600 s, [A] = 0,10 × e^(−1,2) ≈ 0,0301 mol/L, lo que supone una conversión de alrededor del 70 %."
+        },
+        {
+          "h": "Cómo distinguir los órdenes de reacción",
+          "p": "El orden de reacción no se deduce de los coeficientes de la ecuación química, sino que se determina experimentalmente. Se mide la concentración a lo largo del tiempo y se representan [A], ln[A] y 1/[A] frente al tiempo: la que da una recta indica, respectivamente, orden cero, primer orden o segundo orden. Cómo depende el periodo de semirreacción de la concentración inicial es otra pista: es proporcional a la concentración inicial en orden cero, constante en primer orden e inversamente proporcional en segundo orden. Por ejemplo, una reacción de segundo orden con k = 0,050 L/(mol·s) y [A]₀ = 0,20 mol/L tiene t½ = 1/(0,050 × 0,20) = 100 s, pero si se reduce a la mitad la concentración inicial pasa a 200 s. En una reacción de pseudoprimer orden, con uno de los reactivos en gran exceso, la constante de velocidad aparente k' = k[sustancia en exceso] puede tratarse como de primer orden."
+        },
+        {
+          "h": "La ecuación de Arrhenius y la energía de activación",
+          "p": "La dependencia de la constante de velocidad con la temperatura se expresa con la ecuación de Arrhenius, k = A exp(−Ea/RT). Dividiendo la ecuación a dos temperaturas se obtiene ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂), y la energía de activación es Ea = R ln(k₂/k₁)/(1/T₁ − 1/T₂). Para la reacción predeterminada, que se duplica de 25 °C (298,15 K) a 35 °C (308,15 K), Ea = 8,314 × 0,693 ÷ 1,088×10⁻⁴ ≈ 52,9 kJ/mol. Convierta siempre las temperaturas a kelvin y use el logaritmo natural ln. La gráfica de ln k frente a 1/T es una recta de pendiente −Ea/R y ordenada en el origen ln A."
+        },
+        {
+          "h": "Supuestos y precauciones del cálculo",
+          "p": "El valor de una constante de velocidad puede depender de si se define a partir de la velocidad de desaparición de A, −d[A]/dt, o de la velocidad de reacción dividida por el coeficiente estequiométrico; para 2A → P, ambas difieren en un factor 2. Las ecuaciones son válidas a temperatura constante cuando pueden despreciarse la reacción inversa, las reacciones consecutivas y las reacciones secundarias. Una reacción de segundo orden A + B → P con concentraciones iniciales distintas requiere otra ecuación integrada. La ecuación de Arrhenius también es una aproximación válida en un intervalo de temperaturas lo bastante estrecho para considerar constantes Ea y A. Una Ea obtenida solo con dos puntos es sensible a los errores de medida, así que en la práctica se mide la constante de velocidad a muchas temperaturas y Ea se obtiene de la pendiente de la recta de ln k frente a 1/T."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué el periodo de semirreacción de una reacción de primer orden no depende de la concentración inicial?",
+          "a": "En una reacción de primer orden, la velocidad de desaparición es proporcional a la concentración, así que el tiempo para que la concentración se reduzca a la mitad es siempre t½ = ln2/k, sea cual sea el momento desde el que se cuente. La desintegración de los radionúclidos es el ejemplo clásico. En orden cero y segundo orden, el periodo de semirreacción depende de la concentración inicial, por lo que comprobar si es constante permite saber si una reacción es de primer orden."
+        },
+        {
+          "q": "¿Se cumple siempre que «al subir la temperatura 10 °C, la velocidad se duplica»?",
+          "a": "No. Es una regla práctica para reacciones con una Ea de unos 50 kJ/mol cerca de la temperatura ambiente. Cuanto mayor es la Ea, más cambia la velocidad con la temperatura; en las reacciones con Ea pequeña apenas cambia. Si introduce dos temperaturas y sus constantes de velocidad en esta calculadora, verá a qué Ea corresponde un cambio dado."
+        },
+        {
+          "q": "¿Cómo cambia la unidad de la constante de velocidad k con el orden?",
+          "a": "En una reacción de orden n, k tiene unidades de (mol/L)^(1−n)·s⁻¹: mol/(L·s) para orden cero, s⁻¹ para primer orden y L/(mol·s) para segundo orden. Fijarse en la unidad ayuda a detectar una confusión en el orden."
+        }
+      ]
     }
   }
 }

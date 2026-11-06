@@ -273,6 +273,71 @@
           "a": "注入完全不被固定相滯留的成分，測量該成分流出的時間。逆相HPLC常用尿嘧啶或硝酸鈉，GC常用甲烷或空氣的峰。"
         }
       ]
+    },
+    "es": {
+      "nav": "Factor de retención, resolución y platos teóricos",
+      "card": "Calcule el factor de retención, el factor de separación, la resolución y el número de platos teóricos a partir de un cromatograma",
+      "title": "Calculadora de cromatografía (factor de retención k, factor de separación α, resolución Rs y número de platos teóricos N)",
+      "description": "Calcula el factor de retención k, el factor de separación α, la resolución Rs, el número de platos teóricos N y la altura equivalente de plato teórico H a partir de los tiempos de retención y las anchuras de pico de un cromatograma de HPLC o GC. También indica si dos picos están completamente separados.",
+      "h1": "Calculadora de cromatografía",
+      "lead": "Calcule los indicadores de la calidad de una separación a partir de los tiempos de retención y las anchuras en la base de dos picos adyacentes y del tiempo al que eluye un componente no retenido en la columna (t0). Los valores predeterminados son t0 = 1,0 min, tiempos de retención de 5,0 y 5,8 min, anchuras de pico de 0,40 y 0,44 min y una columna de 150 mm.",
+      "in_heading": "Datos (todos los tiempos en la misma unidad)",
+      "t0": "Tiempo muerto t0",
+      "tr1": "Tiempo de retención del pico 1, tR1",
+      "tr2": "Tiempo de retención del pico 2, tR2",
+      "w1": "Anchura en la base del pico 1, W1",
+      "w2": "Anchura en la base del pico 2, W2",
+      "len": "Longitud de la columna L (mm)",
+      "out_heading": "Resultados",
+      "k1": "Factor de retención k1",
+      "k2": "Factor de retención k2",
+      "alpha": "Factor de separación α = k2/k1",
+      "sep_heading": "Separación",
+      "rs": "Resolución Rs",
+      "judge": "Evaluación",
+      "eff_heading": "Eficacia de la columna (calculada con el pico 2)",
+      "n": "Número de platos teóricos N",
+      "h": "Altura equivalente de plato teórico H",
+      "note": "La anchura de pico es la distancia entre los puntos en que las tangentes trazadas por los puntos de inflexión a ambos lados del pico cortan la línea base (anchura en la base). Si se usa la anchura a media altura W½, N = 5,54(tR/W½)². Se supone que los picos son gaussianos.",
+      "practice": "Resolver preguntas de cromatografía",
+      "related": "Términos relacionados",
+      "js": {
+        "full": "Separación completa (Rs ≥ 1,5)",
+        "partial": "Casi separados (1 ≤ Rs < 1,5, ligero solapamiento)",
+        "poor": "Separación insuficiente (Rs < 1)"
+      },
+      "sections": [
+        {
+          "h": "Factor de retención y factor de separación",
+          "p": "El factor de retención k = (tR − t0)/t0 expresa cuántas veces más tiempo permanece un componente retenido en la fase estacionaria que en la fase móvil. t0 es el tiempo que tarda en eluir un componente no retenido en la columna. Con los valores predeterminados, k1 = (5,0 − 1,0)/1,0 = 4,0 y k2 = 4,8. Si k es demasiado pequeño (menor que 1), no hay margen para la separación, y si es demasiado grande (más de 10–20), el análisis se alarga y los picos se ensanchan, por lo que normalmente se ajustan las condiciones de la fase móvil para que k esté entre 2 y 10, aproximadamente. El factor de separación α = k2/k1 expresa la diferencia de retención entre dos componentes, y con los valores predeterminados es 1,2. Si α es 1, ninguna columna, por eficaz que sea, puede separarlos."
+        },
+        {
+          "h": "Resolución",
+          "p": "La resolución Rs = 2(tR2 − tR1)/(W1 + W2) es la distancia entre los centros de dos picos dividida por la media de sus anchuras. Con los valores predeterminados es 2 × 0,8/0,84 ≈ 1,90. Para picos gaussianos, el solapamiento es de alrededor del 2 % con Rs = 1,0 y de alrededor del 0,1 % con Rs = 1,5, y en general se considera que 1,5 o más corresponde a una separación hasta la línea base (separación completa). En los métodos de ensayo de medicamentos y otros, a veces se exige una resolución mínima como requisito de idoneidad del sistema."
+        },
+        {
+          "h": "Número de platos teóricos y altura de plato",
+          "p": "El número de platos teóricos N = 16(tR/W)² expresa la eficacia de la columna y depende de lo estrecho que es el pico en relación con su tiempo de retención. Para el pico 2 con los valores predeterminados, N = 16 × (5,8/0,44)² ≈ 2780. La altura equivalente de plato teórico H = L/N, la longitud de la columna dividida por el número de platos, indica más eficacia cuanto menor es; para la columna predeterminada de 150 mm es de unos 54 µm. Los rellenos de partícula más pequeña dan una H menor, y como regla práctica se toma un valor de 2 a 3 veces el diámetro de partícula."
+        },
+        {
+          "h": "Cómo mejorar la resolución",
+          "p": "La resolución puede descomponerse en tres términos, eficacia, selectividad y retención: Rs = (√N/4)·((α − 1)/α)·(k2/(1 + k2)) (ecuación de Purnell). Multiplicar N por 4 solo duplica √N, así que, en lugar de alargar la columna, suele ser más eficaz aumentar α cambiando la composición de la fase móvil o el tipo de columna. Cuando k es demasiado pequeño, reducir la fuerza eluyente de la fase móvil para aumentar la retención mejora la resolución."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué resolución es suficiente?",
+          "a": "Para picos gaussianos de altura parecida, con Rs ≥ 1,5 la separación es prácticamente completa. Para cuantificar impurezas, cuando uno de los picos es muy pequeño, a veces se exige 2,0 o más."
+        },
+        {
+          "q": "¿Cómo se obtiene el número de platos teóricos a partir de la anchura a media altura?",
+          "a": "Con N = 5,54(tR/W½)². 5,54 es 8 ln 2. La anchura en la base es unas 1,70 veces la anchura a media altura, así que, para un pico gaussiano, ambas dan el mismo N."
+        },
+        {
+          "q": "¿Cómo se mide t0?",
+          "a": "Se inyecta un componente que no quede retenido en absoluto por la fase estacionaria y se mide el tiempo que tarda en eluir. En HPLC en fase inversa se usan a menudo el uracilo o el nitrato de sodio, y en GC, el pico del metano o del aire."
+        }
+      ]
     }
   }
 }

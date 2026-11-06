@@ -1,0 +1,182 @@
+{
+ "bonding-acidbase-001": {
+  "question": "¿Cuál es la hibridación del átomo de carbono del metano, CH4?",
+  "choices": [
+   "Hibridación sp",
+   "Hibridación sp³",
+   "Hibridación sp²"
+  ],
+  "explanation": "El carbono del metano combina un orbital 2s y tres orbitales 2p para formar cuatro orbitales híbridos sp³ equivalentes, cada uno de los cuales se solapa con el orbital 1s de un hidrógeno para formar un enlace σ. Los cuatro enlaces apuntan hacia los vértices de un tetraedro regular, y el ángulo de enlace H−C−H es de aproximadamente 109,5°. La hibridación sp² se observa en carbonos con un doble enlace, como en el etileno (trigonal plana, unos 120°), y la hibridación sp, en carbonos con un triple enlace, como en el acetileno (lineal, 180°). El tipo de hibridación se puede deducir de la suma del número de átomos unidos al carbono y de pares de electrones no compartidos (4 indica sp³; 3, sp²; 2, sp)."
+ },
+ "bonding-acidbase-002": {
+  "question": "¿Cuál de las siguientes opciones describe correctamente cómo está formado el doble enlace carbono−carbono del etileno, CH2=CH2?",
+  "choices": [
+   "Un enlace σ y un enlace π",
+   "Dos enlaces σ (sin enlace π)",
+   "Dos enlaces π (sin enlace σ)"
+  ],
+  "explanation": "Los carbonos del etileno tienen hibridación sp²: los orbitales sp² se solapan frontalmente para formar un enlace σ, y los orbitales 2p que no participan en la hibridación se solapan lateralmente para formar un enlace π. La nube electrónica del enlace π se extiende por encima y por debajo del plano molecular; como su solapamiento es menor que el del enlace σ y es más débil, las reacciones de adición ocurren primero en el enlace π. El enlace π impide la rotación en torno al eje C=C, lo que da lugar a los isómeros cis-trans. Considerarlo como dos enlaces σ es un error; dos enlaces π aparecen en el triple enlace (un σ más dos π)."
+ },
+ "bonding-acidbase-003": {
+  "question": "Para el carbono del grupo nitrilo del acetonitrilo, CH3C≡N (el carbono unido al nitrógeno por un triple enlace), ¿cuál es la combinación correcta de su hibridación y del ángulo de enlace C−C≡N centrado en ese carbono?",
+  "choices": [
+   "Hibridación sp², 120°",
+   "Hibridación sp³, 109,5°",
+   "Hibridación sp, 180°"
+  ],
+  "explanation": "El carbono del nitrilo forma un triple enlace (un σ más dos π) con el nitrógeno y, por el otro lado, un enlace σ con el carbono del metilo. Como está unido a dos átomos y no tiene pares de electrones no compartidos, utiliza dos orbitales híbridos sp y adopta una geometría lineal, de modo que el ángulo C−C≡N es de 180°. Los dos orbitales 2p restantes forman dos enlaces π con los orbitales 2p del nitrógeno. En cambio, el carbono del metilo está unido a cuatro átomos y es sp³ (unos 109,5°). Los valores sp² y 120° corresponden a carbonos con C=O o C=C; conviene tener en cuenta que, dentro de una misma molécula, cada carbono puede tener una hibridación distinta."
+ },
+ "bonding-acidbase-004": {
+  "question": "¿Qué valor se aproxima más al pKa del ácido acético, CH3COOH, en disolución acuosa a 25 °C?",
+  "choices": [
+   "Aproximadamente 10",
+   "Aproximadamente 16",
+   "Aproximadamente 4,8"
+  ],
+  "explanation": "El pKa del ácido acético a 25 °C es de aproximadamente 4,76, y el de los ácidos carboxílicos comunes se sitúa en el intervalo de 4 a 5. En el ion carboxilato, la base conjugada, la carga negativa se reparte por resonancia entre los dos oxígenos, por lo que es estable y el ácido es relativamente fuerte. Un valor de 10 corresponde al fenol (pKa de aproximadamente 10,0), y uno de 16, a alcoholes como el etanol. Como un pKa una unidad menor significa una constante de disociación ácida Ka 10 veces mayor, el ácido acético es un ácido unas 10¹¹ veces más fuerte que el etanol. Recordar estos valores orientativos permite juzgar rápidamente qué reacciones ácido-base tienen lugar."
+ },
+ "bonding-acidbase-005": {
+  "question": "¿Cuál de las siguientes opciones ordena el ácido acético CH3COOH, el fenol C6H5OH y el etanol CH3CH2OH de mayor a menor acidez en agua?",
+  "choices": [
+   "Ácido acético > fenol > etanol",
+   "Fenol > ácido acético > etanol",
+   "Ácido acético > etanol > fenol"
+  ],
+  "explanation": "Los valores orientativos de pKa son: ácido acético, alrededor de 4,8; fenol, alrededor de 10,0; etanol, alrededor de 16; cuanto menor es el pKa, más fuerte es el ácido. La diferencia se explica por la estabilidad de la base conjugada. En el ion acetato, la carga negativa se reparte por igual entre dos oxígenos muy electronegativos. En el ion fenóxido, la carga negativa se deslocaliza también sobre los carbonos de las posiciones orto y para del anillo bencénico, pero, como una carga negativa sobre carbono no es muy estable, se estabiliza menos que un carboxilato. El ion etóxido no tiene resonancia y la carga negativa queda localizada en un solo oxígeno. Considerar el fenol más débil que el etanol es un error que pasa por alto el efecto de la resonancia."
+ },
+ "bonding-acidbase-006": {
+  "question": "¿Cuál es la razón principal por la que el ácido cloroacético, ClCH2COOH (pKa de aproximadamente 2,9), es un ácido más fuerte que el ácido acético (pKa de aproximadamente 4,8)?",
+  "choices": [
+   "Los pares no compartidos del cloro ceden electrones al grupo carboxilo por resonancia (efecto resonante) y debilitan el enlace O−H",
+   "El cloro, muy electronegativo, atrae electrones a través de los enlaces σ (efecto inductivo) y estabiliza la base conjugada",
+   "El átomo de cloro es grande y aumenta la masa molecular, por lo que el ion hidrógeno se separa con mayor facilidad"
+  ],
+  "explanation": "El cloro tiene un efecto inductivo atractor de electrones, que atrae los electrones a través de los enlaces σ. Esto dispersa y estabiliza la carga negativa del ion carboxilato y desplaza el equilibrio de disociación hacia la derecha, de modo que el pKa baja de aproximadamente 4,8 a aproximadamente 2,9. El efecto inductivo se debilita rápidamente con la distancia: en el ácido 4-clorobutanoico, con el cloro alejado del grupo carboxilo, el pKa es de aproximadamente 4,5, cercano al del ácido acético. La acidez aumenta con el número de cloros: ácido dicloroacético (alrededor de 1,3) y ácido tricloroacético (alrededor de 0,7). En esta molécula, con un carbono sp³ de por medio, la donación de electrones del cloro por resonancia no actúa, y la masa molecular por sí misma no determina la acidez."
+ },
+ "bonding-acidbase-007": {
+  "question": "¿Cuál de las siguientes afirmaciones sobre los dos enlaces carbono−oxígeno del ion acetato, CH3COO⁻, es correcta?",
+  "choices": [
+   "Son equivalentes y su longitud es intermedia entre la de un enlace sencillo C−O y la de un doble enlace C=O",
+   "Uno es un doble enlace C=O y el otro un enlace sencillo C−O, y ambos se intercambian rápidamente",
+   "Ambos tienen la misma longitud que un enlace sencillo C−O"
+  ],
+  "explanation": "El ion acetato se representa mediante dos estructuras resonantes que solo difieren en qué oxígeno lleva la carga negativa, pero la molécula real no es ninguna de ellas, sino una única estructura que las superpone (el híbrido de resonancia). Por eso los dos enlaces C−O son equivalentes, con un orden de enlace de aproximadamente 1,5 y una longitud de unos 1,26 Å, intermedia entre el C=O (unos 1,21 Å) y el C−O (unos 1,34 Å) de un ácido carboxílico. Las estructuras resonantes son distintas formas de escribir la distribución de los electrones y no deben confundirse con un equilibrio en el que la molécula alterna entre dos estructuras. Que la carga negativa se reparta a partes iguales entre los dos oxígenos es la razón por la que los ácidos carboxílicos son ácidos relativamente fuertes."
+ },
+ "bonding-acidbase-008": {
+  "question": "Una disolución tampón que contiene ácido acético (pKa 4,76) y su sal tiene un pH de 5,76. ¿Cuál es la relación [CH3COO⁻]/[CH3COOH]?",
+  "choices": [
+   "0,1",
+   "1",
+   "10"
+  ],
+  "explanation": "Según la ecuación de Henderson-Hasselbalch, pH = pKa + log([A⁻]/[HA]), log([A⁻]/[HA]) = 5,76 − 4,76 = 1,00, por lo que la relación es 10. Cuando pH = pKa, la relación es exactamente 1 y las formas ácida y básica están a partes iguales. Si el pH supera al pKa en una unidad, la forma básica es 10 veces más abundante; si es una unidad menor, lo es la forma ácida. El valor 0,1 resulta de invertir el signo del logaritmo y corresponde a un pH de 4,76 − 1 = 3,76. Una relación entre 0,1 y 10, es decir, pKa ± 1, se considera el intervalo aproximado en el que cabe esperar capacidad amortiguadora."
+ },
+ "bonding-acidbase-009": {
+  "question": "¿Qué ácido reacciona con una disolución acuosa de hidrogenocarbonato de sodio y se convierte casi por completo en su base conjugada (sal)? Considere que el pKa del H2CO3 es 6,4.",
+  "choices": [
+   "Fenol, C6H5OH (pKa 10,0)",
+   "Ácido benzoico, C6H5COOH (pKa 4,2)",
+   "Etanol, CH3CH2OH (pKa 16)"
+  ],
+  "explanation": "El equilibrio ácido-base HA + HCO3⁻ ⇌ A⁻ + H2CO3 se desplaza hacia la formación del ácido más débil (el de mayor pKa). La constante de equilibrio es K = 10 elevado a (pKa(H2CO3) − pKa(HA)); para el ácido benzoico vale 10 elevado a 2,2 ≈ 160, de modo que la mayor parte pasa a ion benzoato y se disuelve en agua. Para el fenol vale 10 elevado a −3,6 ≈ 2,5×10⁻⁴, y para el etanol es aún menor, por lo que prácticamente no reaccionan. Aprovechando esta diferencia, los ácidos carboxílicos se pueden separar por extracción con disolución acuosa de hidrogenocarbonato de sodio, y los fenoles, con disolución acuosa de hidróxido de sodio."
+ },
+ "bonding-acidbase-010": {
+  "question": "¿Qué valor se aproxima más a la constante de equilibrio K a 25 °C de CH3COOH + NH3 ⇌ CH3COO⁻ + NH4⁺? Considere que el pKa del ácido acético es 4,76 y el del NH4⁺, 9,25.",
+  "choices": [
+   "Aproximadamente 3×10⁻⁵",
+   "Aproximadamente 3×10⁴",
+   "Aproximadamente 4,5"
+  ],
+  "explanation": "Esta reacción es una transferencia de protón del ácido acético al amoníaco, y K = Ka(CH3COOH)/Ka(NH4⁺) = 10 elevado a (9,25 − 4,76) = 10 elevado a 4,49 ≈ 3,1×10⁴. El ácido del lado izquierdo (ácido acético) tiene un pKa 4,49 unidades menor que el ácido del lado derecho (NH4⁺), es decir, es más fuerte, por lo que el equilibrio está muy desplazado hacia la derecha. El valor de aproximadamente 3×10⁻⁵ resulta de invertir el signo de la diferencia de pKa y corresponde a la constante de equilibrio de la reacción inversa, NH4⁺ + CH3COO⁻ → NH3 + CH3COOH. El valor de aproximadamente 4,5 es la propia diferencia de pKa: es un error por olvidar deshacer el logaritmo. Cuanto mayor es la diferencia de pKa, más completa es la transferencia de protón."
+ },
+ "bonding-acidbase-011": {
+  "question": "¿Cuál de las siguientes afirmaciones compara correctamente la acidez del 4-nitrofenol, O2N−C6H4−OH (grupo nitro en posición para respecto al OH), con la del fenol (pKa de aproximadamente 10,0)?",
+  "choices": [
+   "Es un ácido más débil, con un pKa de aproximadamente 11",
+   "Su acidez es casi igual, con un pKa de aproximadamente 10",
+   "Es un ácido más fuerte, con un pKa de aproximadamente 7,2"
+  ],
+  "explanation": "El grupo nitro atrae fuertemente los electrones tanto por efecto inductivo como por efecto resonante. En posición para, la carga negativa del ion fenóxido puede deslocalizarse por resonancia a través del anillo bencénico hasta los oxígenos del grupo nitro, lo que estabiliza mucho la base conjugada y hace bajar el pKa hasta aproximadamente 7,2. En el 3-nitrofenol, con el grupo en posición meta (pKa de aproximadamente 8,4), la deslocalización por resonancia no llega al grupo nitro y solo actúa el efecto inductivo, por lo que el descenso es menor. Confundir el grupo nitro con un grupo donador de electrones lleva a la conclusión errónea de que el ácido se debilita. Un grupo donador de electrones como el metilo en posición para, por el contrario, aumenta ligeramente el pKa."
+ },
+ "bonding-acidbase-012": {
+  "question": "¿Cuál de los siguientes hidrocarburos tiene el enlace C−H más ácido (el menor pKa)?",
+  "choices": [
+   "Acetileno, HC≡CH",
+   "Etano, CH3CH3",
+   "Etileno, CH2=CH2"
+  ],
+  "explanation": "Cuanto mayor es el carácter s del orbital híbrido que aloja el par no compartido del anión de carbono (carbanión), más cerca del núcleo se mantienen los electrones y más estable es. El carácter s es del 25 % en sp³, del 33 % en sp² y del 50 % en sp, por lo que la acidez sigue el orden acetileno (pKa de aproximadamente 25) > etileno (aproximadamente 44) > etano (aproximadamente 50). El acetileno puede desprotonarse con amiduro de sodio, NaNH2 (pKa del NH3 de aproximadamente 38), y el ion acetiluro resultante se utiliza como nucleófilo para formar enlaces carbono−carbono. El etano y el etileno son ácidos muy débiles y no pueden desprotonarse con bases comunes."
+ },
+ "bonding-acidbase-013": {
+  "question": "¿Cuál de las siguientes afirmaciones sobre la basicidad de la anilina, C6H5NH2, y la ciclohexilamina, C6H11NH2, es correcta? Considere que el pKa de los ácidos conjugados es de aproximadamente 4,6 para el ion anilinio y de aproximadamente 10,6 para el ion ciclohexilamonio.",
+  "choices": [
+   "La anilina es más fuerte, porque los electrones π del anillo bencénico fluyen hacia el nitrógeno por resonancia y aumentan su densidad electrónica",
+   "La anilina es más fuerte, porque cuanto menor es el pKa del ácido conjugado más fuerte es la base, y el del ion anilinio es pequeño, de unos 4,6",
+   "La ciclohexilamina es más fuerte, porque en la anilina el par no compartido del nitrógeno se deslocaliza por resonancia en el anillo bencénico"
+  ],
+  "explanation": "La fuerza de una base se compara mediante el pKa de su ácido conjugado: cuanto mayor es ese pKa (cuanto más le cuesta al ácido conjugado ceder el protón), más fuerte es la base. El pKa del ion ciclohexilamonio, de aproximadamente 10,6, es 6 unidades mayor que el del ion anilinio, de aproximadamente 4,6, de modo que la ciclohexilamina es una base unas 10⁶ veces más fuerte. En la anilina, el par no compartido del nitrógeno está deslocalizado por resonancia con el sistema de electrones π del anillo bencénico, y al aceptar un protón esa estabilización se pierde, por lo que la basicidad disminuye. La idea de que el anillo bencénico cede electrones al nitrógeno es la inversa de la realidad: es el grupo amino el que cede electrones al anillo."
+ },
+ "bonding-acidbase-014": {
+  "question": "¿Qué valor se aproxima más al pH de una disolución acuosa de ácido acético 0,10 mol/L (25 °C)? Considere que la Ka del ácido acético es 1,8×10⁻⁵ mol/L y que el grado de disociación es mucho menor que 1.",
+  "choices": [
+   "2,9",
+   "1,0",
+   "4,7"
+  ],
+  "explanation": "Cuando la disociación de un ácido débil es pequeña, [H⁺] ≈ √(Ka·c) = √(1,8×10⁻⁵ × 0,10) = √(1,8×10⁻⁶) ≈ 1,34×10⁻³ mol/L, y pH = −log(1,34×10⁻³) ≈ 2,87, es decir, aproximadamente 2,9. El grado de disociación es entonces 1,34×10⁻³ / 0,10 ≈ 1,3 %, lo que cumple la premisa de la aproximación (grado de disociación mucho menor que 1). Un pH de 1,0 es el error de tratar el ácido acético como un ácido fuerte totalmente disociado, y un pH de 4,7 es el error de dar directamente el pKa (−log Ka ≈ 4,74). pH = pKa solo se cumple en una disolución tampón con cantidades iguales del ácido y de su base conjugada."
+ },
+ "bonding-acidbase-015": {
+  "question": "Un ácido débil HA de pKa 4,76 se disuelve en una disolución tampón de pH 7,40. ¿Qué valor se aproxima más a la fracción presente como forma molecular no disociada HA (sin corrección por actividad)?",
+  "choices": [
+   "Aproximadamente 2,3 %",
+   "Aproximadamente 0,23 %",
+   "Aproximadamente 50 %"
+  ],
+  "explanation": "Como pH − pKa = 7,40 − 4,76 = 2,64, [A⁻]/[HA] = 10 elevado a 2,64 ≈ 437. La fracción de forma molecular es 1/(1 + 437) ≈ 2,28×10⁻³, es decir, aproximadamente 0,23 %, y casi todo está en la forma iónica A⁻. Aproximadamente 50 % es el valor cuando pH = pKa y no tiene en cuenta la diferencia entre el pH y el pKa. Aproximadamente 2,3 % es el valor que se obtiene al equivocarse en un orden de magnitud y tomar la relación como 10 elevado a 1,64. Como se considera que la forma molecular sin carga atraviesa con mayor facilidad las membranas lipídicas por difusión pasiva, este cálculo se utiliza al estudiar la absorción y la distribución de fármacos (hipótesis de partición según el pH)."
+ },
+ "bonding-acidbase-016": {
+  "question": "El nitrometano, CH3NO2, se representa con una estructura de Lewis en la que el nitrógeno está unido al carbono por un enlace sencillo, a un oxígeno por un doble enlace y al otro oxígeno por un enlace sencillo. ¿Cuál es la combinación correcta de las cargas formales del átomo de nitrógeno y del oxígeno unido por enlace sencillo?",
+  "choices": [
+   "Nitrógeno 0, oxígeno del enlace sencillo −1",
+   "Nitrógeno +1, oxígeno del enlace sencillo −1",
+   "Nitrógeno −1, oxígeno del enlace sencillo +1"
+  ],
+  "explanation": "La carga formal se calcula como «electrones de valencia − electrones no compartidos − número de enlaces». El nitrógeno tiene 5 electrones de valencia, ningún par no compartido y 4 enlaces (C−N, los dos de N=O y N−O), así que 5 − 0 − 4 = +1. El oxígeno del enlace sencillo tiene 6 electrones de valencia, 6 electrones no compartidos y 1 enlace: 6 − 6 − 1 = −1; el oxígeno del doble enlace da 6 − 4 − 2 = 0, y la suma coincide con la carga 0 de la molécula. La combinación con el nitrógeno en 0 es un error que pasa por alto que el nitrógeno tiene 4 enlaces; la suma daría −1 y no concordaría con una molécula neutra. La combinación con los signos invertidos es un error de contar los electrones en sentido contrario. La molécula real es una superposición de dos estructuras resonantes: los dos enlaces N−O son equivalentes y la carga negativa se reparte entre los dos oxígenos."
+ },
+ "bonding-acidbase-017": {
+  "question": "El trifluoruro de boro, BF3, reacciona con el amoníaco, NH3, para formar el aducto F3B−NH3. ¿Cuál es la función del BF3 en esta reacción?",
+  "choices": [
+   "Base de Lewis: cede un par no compartido del flúor al nitrógeno para formar el enlace",
+   "Ácido de Brønsted: cede un protón al amoníaco y lo convierte en NH4⁺",
+   "Ácido de Lewis: acepta el par de electrones del nitrógeno en el orbital 2p vacío del boro"
+  ],
+  "explanation": "El boro del BF3 tiene hibridación sp² y geometría trigonal plana, solo 6 electrones de valencia y un orbital 2p vacío que no participa en la hibridación. El par no compartido del nitrógeno del NH3 entra en este orbital vacío y forma un enlace coordinado, y el boro pasa a ser tetraédrico. La especie que acepta un par de electrones se denomina ácido de Lewis, y la que lo cede, base de Lewis; en esta reacción, el BF3 es el ácido de Lewis y el NH3, la base de Lewis. El BF3 no tiene hidrógenos, por lo que no puede ceder protones ni actuar como ácido de Brønsted. Los pares no compartidos del flúor están fuertemente retenidos por este elemento tan electronegativo y tampoco se ceden al nitrógeno, que ya tiene su propio par de electrones. El AlCl3 y el FeBr3 actúan como catalizadores de la sustitución electrofílica aromática gracias a esta misma propiedad de ácido de Lewis."
+ },
+ "bonding-acidbase-018": {
+  "question": "Cuando la acetamida, CH3CONH2, se protona con un ácido fuerte, ¿cuál es el átomo al que se une principalmente el protón y por qué?",
+  "choices": [
+   "El oxígeno carbonílico, porque la carga positiva del catión formado se reparte por resonancia también sobre el nitrógeno",
+   "El nitrógeno, porque, como en las aminas, su par no compartido es el sitio más básico de la molécula",
+   "El nitrógeno, porque el grupo carbonilo cede electrones y aumenta la densidad electrónica del nitrógeno"
+  ],
+  "explanation": "El par no compartido del nitrógeno de la amida está deslocalizado por resonancia con el grupo carbonilo, y el enlace C−N tiene carácter parcial de doble enlace. Si el protón se une al nitrógeno, esta resonancia se pierde; en cambio, si se une al oxígeno carbonílico, se obtiene un catión estable cuya carga positiva se reparte por resonancia también sobre el carbono y el nitrógeno, por lo que la protonación ocurre principalmente en el oxígeno. Aun así, la basicidad es débil: el pKa de la acetamida protonada está en torno a 0, muy por debajo del de los ácidos conjugados de las alquilaminas (alrededor de 10 a 11). La idea de que, como en las aminas, el nitrógeno es el sitio más básico pasa por alto esta resonancia. El grupo carbonilo no cede electrones, sino que los atrae, de modo que la densidad electrónica del nitrógeno más bien disminuye."
+ },
+ "bonding-acidbase-019": {
+  "question": "¿Cuál de las siguientes afirmaciones sobre la especie más fuerte que puede actuar como base en disolución acuosa es correcta? Considere que el pKa del agua es 15,7 y el del amoníaco, NH3, aproximadamente 38.",
+  "choices": [
+   "NH2⁻, porque el NH3 tiene un pKa mayor que el agua, así que el NH2⁻ se conserva en agua como base fuerte",
+   "OH⁻, porque cualquier base más fuerte que el OH⁻ arranca H⁺ al agua y se convierte por completo en OH⁻",
+   "No hay límite: al disolver NaNH2 se obtiene una base más fuerte que una disolución de NaOH de igual concentración"
+  ],
+  "explanation": "Al añadir NaNH2 al agua ocurre NH2⁻ + H2O → NH3 + OH⁻, con una constante de equilibrio de 10 elevado a (38 − 15,7) ≈ 10²², muy grande, por lo que la reacción es completa. La base conjugada de un ácido mucho más débil que el agua no puede subsistir en agua y se convierte íntegramente en OH⁻, de modo que no se distingue de una disolución de NaOH de la misma concentración. Esto se denomina efecto nivelador: la base más fuerte que puede actuar en agua es el OH⁻, y el ácido más fuerte, el H3O⁺. La idea de que el NH2⁻ actúa como tal invierte la relación según la cual, cuanto mayor es el pKa de un ácido, más fuerte es su base conjugada y más fácilmente arranca H⁺ al agua. Las bases fuertes como el NH2⁻ o la LDA se utilizan en disolventes menos ácidos que el agua, como el amoníaco líquido o los éteres."
+ },
+ "bonding-acidbase-020": {
+  "question": "A 1,00 L de una disolución tampón que contiene 0,100 mol de ácido acético y 0,100 mol de acetato de sodio se añaden 0,010 mol de cloruro de hidrógeno, HCl. ¿Qué valor se aproxima más al pH después de la mezcla? Considere que el pKa del ácido acético es 4,76 y desprecie el cambio de volumen.",
+  "choices": [
+   "4,85",
+   "2,00",
+   "4,67"
+  ],
+  "explanation": "El H⁺ añadido reacciona con el ion acetato y forma ácido acético (CH3COO⁻ + H⁺ → CH3COOH). Tras la reacción hay 0,110 mol de ácido acético y 0,090 mol de ion acetato, y la ecuación de Henderson-Hasselbalch da pH = 4,76 + log(0,090/0,110) = 4,76 − 0,087 ≈ 4,67. Si se añade la misma cantidad de HCl a 1,00 L de agua pura, el pH baja hasta 2,00, lo que muestra que en la disolución tampón el cambio se limita a unas 0,09 unidades. El valor 4,85 se obtiene al invertir la relación (0,110/0,090) y lleva al resultado contradictorio de que el pH sube al añadir un ácido. El valor 2,00 supone que solo hay HCl disuelto, sin tener en cuenta la acción amortiguadora."
+ }
+}

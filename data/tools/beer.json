@@ -218,6 +218,59 @@
           "a": "吸光度與光徑長成正比，所以使用0.1 cm的樣品槽時，即使濃度相同，吸光度也變為1/10。高濃度的試樣使用光徑長短的樣品槽，有時不必稀釋就能測定。"
         }
       ]
+    },
+    "es": {
+      "nav": "Ley de Beer-Lambert",
+      "card": "Calcule la concentración a partir de la absorbancia o la transmitancia y la absortividad molar",
+      "title": "Calculadora de la ley de Beer-Lambert (absorbancia, transmitancia y concentración)",
+      "description": "Calcula la concentración de una muestra a partir de la absorbancia (o la transmitancia), la absortividad molar y la longitud de la trayectoria óptica con la ley de Beer-Lambert, A = εcl. También convierte entre absorbancia y transmitancia (%) y obtiene la concentración en masa (mg/L) a partir del peso molecular.",
+      "h1": "Calculadora de la ley de Beer-Lambert",
+      "lead": "Obtenga la concentración de una muestra a partir de la absorbancia medida con un espectrofotómetro UV-Vis. Si modifica la absorbancia o la transmitancia, la otra se convierte automáticamente. Los valores predeterminados corresponden a la absortividad molar del NADH a 340 nm (6220 L/(mol·cm)) y a una absorbancia de 0,45 medida en una cubeta de 1 cm.",
+      "in_heading": "Datos",
+      "abs": "Absorbancia A",
+      "t": "Transmitancia T (%)",
+      "eps": "Absortividad molar ε (L/(mol·cm))",
+      "l": "Longitud de la trayectoria óptica l (cm)",
+      "mw": "Peso molecular (g/mol, para la concentración en masa)",
+      "out_heading": "Resultados",
+      "c": "Concentración molar c",
+      "cu": "Concentración molar (µmol/L)",
+      "mg": "Concentración en masa",
+      "note": "La absorbancia es A = −log10(T) = log10(I0/I). En la mayoría de los instrumentos, el error es menor cuando la absorbancia está aproximadamente entre 0,1 y 1 (transmitancia del 80 al 10 %). A concentraciones altas, las interacciones entre moléculas y la luz parásita pueden causar desviaciones de la linealidad.",
+      "practice": "Resolver preguntas de IR y UV-Vis",
+      "related": "Términos relacionados",
+      "sections": [
+        {
+          "h": "Absorbancia y transmitancia",
+          "p": "Si la intensidad de la luz que entra en la muestra es I0 y la de la luz que la atraviesa es I, la transmitancia es T = I/I0 y la absorbancia es A = −log10 T = log10(I0/I). Con una absorbancia de 1 solo atraviesa la muestra el 10 % de la luz, y con 2, solo el 1 %. La absorbancia predeterminada de 0,45 corresponde a una transmitancia de alrededor del 35,5 %. Como la absorbancia es logarítmica, cuando la luz atraviesa dos muestras seguidas, sus absorbancias pueden sumarse."
+        },
+        {
+          "h": "La ley de Beer-Lambert",
+          "p": "En disoluciones diluidas, la absorbancia es proporcional a la concentración c y a la longitud de la trayectoria óptica l, y se escribe A = εcl. La constante de proporcionalidad ε es la absortividad molar, que depende de la sustancia y de la longitud de onda, y se expresa en L/(mol·cm). Con los valores predeterminados, c = 0,45/(6220 × 1) ≈ 7,23 × 10⁻⁵ mol/L, es decir, unos 72,3 µmol/L. Cuanto mayor es ε, menores son las concentraciones que pueden medirse; las transiciones permitidas, como la π→π*, superan 10⁴, mientras que las prohibidas, como la n→π*, quedan en 100 o menos."
+        },
+        {
+          "h": "Cuantificación con una curva de calibración",
+          "p": "Cuando no se conoce ε, o cuando se quiere un resultado exacto que incluya las características del instrumento, se miden varias disoluciones patrón de concentración conocida para construir una curva de calibración, y la concentración se lee a partir de la absorbancia de la muestra. Si la curva de calibración es una recta que pasa por el origen, su pendiente es ε·l. Si la absorbancia de la muestra supera el intervalo de la curva de calibración, se diluye la muestra y se vuelve a medir. También es imprescindible restar la absorción del disolvente y de la cubeta con un blanco."
+        },
+        {
+          "h": "Causas de la desviación de la linealidad",
+          "p": "La ley de Beer-Lambert se cumple cuando se usa luz monocromática, la disolución es diluida y la especie absorbente no cambia con la concentración. A concentraciones altas, las interacciones entre moléculas y los cambios del índice de refracción causan desviaciones de la linealidad, y la luz parásita hace que la absorbancia se estanque a valores altos. Además, en sustancias cuya asociación, disociación o equilibrio ácido-base cambian con la concentración (como los indicadores), la ε aparente varía. Lo más seguro es medir en el intervalo de absorbancia de 0,1 a 1, aproximadamente."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cómo se obtiene la absorbancia a partir de la transmitancia?",
+          "a": "Con A = −log10(T), introduciendo T como fracción (0,5 para el 50 %). Una transmitancia del 50 % corresponde a una absorbancia de unos 0,301; el 10 %, a 1,0, y el 1 %, a 2,0."
+        },
+        {
+          "q": "¿En qué unidades se expresa la absortividad molar?",
+          "a": "Con la concentración en mol/L y la longitud de la trayectoria óptica en cm, en L/(mol·cm) (= M⁻¹cm⁻¹). Si se usa una absortividad referida a la concentración en masa (absortividad específica, L/(g·cm)), al multiplicarla por el peso molecular se obtiene la absortividad molar."
+        },
+        {
+          "q": "¿Qué ocurre con cubetas de longitud distinta de 1 cm?",
+          "a": "La absorbancia es proporcional a la longitud de la trayectoria óptica, así que con una cubeta de 0,1 cm la absorbancia es la décima parte para la misma concentración. Con una cubeta de trayectoria corta a veces pueden medirse muestras concentradas sin diluirlas."
+        }
+      ]
     }
   }
 }

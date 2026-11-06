@@ -1,0 +1,182 @@
+{
+ "stereochem-001": {
+  "question": "¿Cuál de los siguientes compuestos tiene un carbono asimétrico (centro quiral)?",
+  "choices": [
+   "1-Propanol, CH3CH2CH2OH",
+   "2-Propanol, (CH3)2CHOH",
+   "2-Butanol, CH3CH(OH)CH2CH3"
+  ],
+  "explanation": "Un carbono asimétrico es un carbono sp³ unido a cuatro átomos o grupos de átomos distintos entre sí. El C2 del 2-butanol está unido a cuatro grupos diferentes, −H, −OH, −CH3 y −CH2CH3, por lo que es un carbono asimétrico y existe un par de enantiómeros, el (R) y el (S). El C2 del 2-propanol está unido a dos grupos −CH3 iguales, y en el 1-propanol todos los carbonos llevan dos o más hidrógenos iguales, de modo que ninguno de ellos tiene carbonos asimétricos. Una molécula con un único carbono asimétrico es siempre quiral y no se puede superponer con su imagen especular."
+ },
+ "stereochem-002": {
+  "question": "¿Qué propiedad tiene valores distintos en dos enantiómeros (isómeros ópticos)?",
+  "choices": [
+   "El punto de fusión del cristal puro",
+   "El sentido de rotación del plano de la luz polarizada",
+   "La solubilidad en un disolvente aquiral"
+  ],
+  "explanation": "Los enantiómeros son imágenes especulares entre sí y tienen exactamente las mismas distancias interatómicas y ángulos de enlace, por lo que su punto de fusión, punto de ebullición, densidad, solubilidad en disolventes aquirales como el agua o el hexano, y sus espectros IR y RMN son iguales. Las diferencias aparecen en la interacción con entidades quirales: giran el plano de la luz polarizada en la misma magnitud pero en sentido opuesto (las rotaciones específicas son de igual magnitud y signo contrario). También se distinguen en la cromatografía con columnas quirales y en la unión a enzimas y receptores. Cabe señalar que un cristal racémico puede tener un punto de fusión distinto del de un enantiómero puro, pero esa es una propiedad de la mezcla."
+ },
+ "stereochem-003": {
+  "question": "Según las reglas de prioridad CIP, ¿cuál de los siguientes sustituyentes tiene la prioridad más alta?",
+  "choices": [
+   "−CH2Cl",
+   "−CH(CH3)2",
+   "−CH2OH"
+  ],
+  "explanation": "En las reglas de prioridad CIP se comparan primero los números atómicos de los átomos unidos directamente al estereocentro. Como en los tres casos es carbono, se comparan a continuación los conjuntos de átomos unidos a ese carbono, ordenados de mayor a menor número atómico. −CH2Cl tiene (Cl, H, H); −CH2OH, (O, H, H), y −CH(CH3)2, (C, C, H). Al comparar los primeros átomos, Cl (17) > O (8) > C (6), por lo que −CH2Cl tiene la prioridad más alta. Como ya hay diferencia en este punto, no se comparan los átomos siguientes. El grupo isopropilo tiene más carbonos y es un sustituyente «más grande», pero la prioridad no depende del número ni del tamaño de los átomos, sino del número atómico en la primera posición en la que aparece una diferencia."
+ },
+ "stereochem-004": {
+  "question": "¿Cuántos estereoisómeros de una aldohexosa de cadena abierta, HOCH2(CHOH)4CHO (como la glucosa), existen si se cuentan como estructuras de cadena abierta?",
+  "choices": [
+   "16",
+   "4",
+   "8"
+  ],
+  "explanation": "En una aldohexosa de cadena abierta, cada uno de los cuatro carbonos C2 a C5 es un carbono asimétrico unido a −H, −OH y dos cadenas carbonadas diferentes. Como los extremos CHO y CH2OH son distintos, la molécula no tiene simetría y no hay compuestos meso, por lo que el número de estereoisómeros es el máximo, 2⁴ = 16. Son 8 isómeros D (glucosa, manosa, galactosa, etc.) y sus 8 enantiómeros L. El valor 8 se obtiene al contar solo la serie D, y el 4, al contar dos carbonos asimétricos. En la forma cíclica (piranosa), el C1 se convierte también en un nuevo estereocentro (el carbono anomérico) y se añade la distinción α/β."
+ },
+ "stereochem-005": {
+  "question": "¿Cuántos estereoisómeros tiene en total el 2,3-dibromobutano, CH3CHBrCHBrCH3?",
+  "choices": [
+   "2",
+   "3",
+   "4"
+  ],
+  "explanation": "C2 y C3 son carbonos asimétricos unidos a −H, −Br, −CH3 y −CHBrCH3, por lo que cabe pensar en cuatro combinaciones (2² = 4): (2R,3R), (2S,3S), (2R,3S) y (2S,3R). Sin embargo, como ambos extremos tienen la misma estructura, (2R,3S) y (2S,3R) pueden superponerse gracias al plano de simetría interno de la molécula y son el mismo compuesto meso. En total hay tres: el par de enantiómeros quirales (2R,3R) y (2S,3S), y un compuesto meso aquiral. El 4 es el error de aplicar 2ⁿ sin más, y el 2, el de pasar por alto el compuesto meso. El compuesto meso tiene carbonos asimétricos, pero no presenta actividad óptica."
+ },
+ "stereochem-006": {
+  "question": "¿Cuál es la relación correcta entre los isómeros (2R,3R) y (2R,3S) del 2-bromo-3-clorobutano, CH3CHBrCHClCH3?",
+  "choices": [
+   "Enantiómeros",
+   "El mismo compuesto",
+   "Diastereómeros"
+  ],
+  "explanation": "Los enantiómeros son imágenes especulares entre sí y todas sus designaciones de estereocentro están invertidas. El enantiómero del (2R,3R) es el (2S,3S). En el (2R,3S) solo se invierte uno de los estereocentros (C3), así que es un estereoisómero que no es imagen especular, es decir, un diastereómero. En esta molécula los sustituyentes de C2 y C3 (Br y Cl) son distintos, por lo que no hay compuesto meso y el (2R,3S) tampoco puede ser idéntico al (2R,3R). Los diastereómeros difieren en punto de fusión, punto de ebullición, solubilidad, espectro de RMN, etc., y, a diferencia de los enantiómeros, pueden separarse por recristalización, destilación o cromatografía convencionales."
+ },
+ "stereochem-007": {
+  "question": "La rotación específica del isómero (+) puro de cierto compuesto es +40,0°. Si la rotación específica de una muestra medida en las mismas condiciones es +30,0°, ¿cuál es la proporción (% molar) del isómero (+) en la muestra? Considere que no hay impurezas y que la rotación específica es proporcional al exceso enantiomérico.",
+  "choices": [
+   "75,0 %",
+   "87,5 %",
+   "12,5 %"
+  ],
+  "explanation": "La pureza óptica es 30,0/40,0 = 0,750; si la rotación específica es proporcional al exceso enantiomérico (ee), ee = 75,0 %. Como ee = % de (+) − % de (−) y % de (+) + % de (−) = 100 %, el isómero (+) es (100 + 75,0)/2 = 87,5 % y el (−), 12,5 %. Si se considera la muestra como «75,0 % de isómero (+) puro y 25,0 % de mezcla racémica (de la cual 12,5 % es (+))», también se obtiene un total de 87,5 %. El 75,0 % es el error de tomar el ee directamente como la proporción del isómero (+), y el 12,5 % es la proporción del isómero minoritario, el (−)."
+ },
+ "stereochem-008": {
+  "question": "Se disuelven 5,00 g de cierto compuesto en un disolvente hasta 100 mL y se mide con una celda de 20,0 cm de longitud a 20 °C con la línea D del sodio, obteniéndose una rotación de +1,30°. ¿Cuál es la rotación específica [α]? Use [α] = α/(l·c), con l en dm y c en g/mL.",
+  "choices": [
+   "+13,0°",
+   "+1,30°",
+   "+0,130°"
+  ],
+  "explanation": "La concentración es c = 5,00 g / 100 mL = 0,0500 g/mL y la longitud de la celda es l = 20,0 cm = 2,00 dm. [α] = α/(l·c) = 1,30 / (2,00 × 0,0500) = +13,0° (las unidades son deg·mL·g⁻¹·dm⁻¹, pero por convención suele escribirse solo «°»). +1,30° es el resultado de usar la longitud de la celda en cm, 20,0, y coincide por casualidad con el valor observado. +0,130° es el valor obtenido al usar la concentración en g/100 mL, 5,00. Como la rotación específica varía con la temperatura y la longitud de onda, siempre se indica junto con las condiciones de medida."
+ },
+ "stereochem-009": {
+  "question": "La rotación específica del isómero (R) puro de cierto compuesto es −50,0°. Para una mezcla de 80,0 % de (R) y 20,0 % de (S) (en moles), ¿cuál es la combinación correcta del exceso enantiomérico ee y la rotación específica? Considere que la rotación específica es proporcional al ee.",
+  "choices": [
+   "ee 80,0 %, −40,0°",
+   "ee 60,0 %, +30,0°",
+   "ee 60,0 %, −30,0°"
+  ],
+  "explanation": "El ee es la proporción del isómero mayoritario menos la del minoritario: 80,0 − 20,0 = 60,0 %. El 20,0 % de (S) se compensa con un 20,0 % igual de (R) para formar un 40,0 % de mezcla racémica, y solo el 60,0 % restante de (R) contribuye a la rotación. La rotación específica es −50,0° × 0,600 = −30,0°. La combinación ee 80,0 % y −40,0° es el error de usar directamente la proporción de (R) sin tener en cuenta la compensación, y +30,0° es el error de cambiar el signo. Que el isómero (R) sea levógiro (−) es un dato de este compuesto concreto; en general no hay correspondencia entre la designación R/S y el signo de la rotación."
+ },
+ "stereochem-010": {
+  "question": "¿Cuál de las siguientes afirmaciones sobre la relación entre la designación R/S (designación CIP) y el sentido en que se gira el plano de la luz polarizada (+/−) es correcta?",
+  "choices": [
+   "El isómero R siempre es dextrógiro (+), porque la prioridad CIP se asigna según el sentido de rotación",
+   "El isómero R siempre es levógiro (−), porque una disposición horaria gira la luz en sentido antihorario",
+   "No hay una correspondencia general entre ambas, y el sentido de rotación se determina midiendo"
+  ],
+  "explanation": "R/S es una forma de nombrar que se determina de manera mecánica a partir de la prioridad de los sustituyentes y de su disposición espacial, mientras que el sentido de rotación (+/−) es una magnitud física que se obtiene midiendo realmente la luz polarizada. Ambos son independientes: por ejemplo, el ácido (R)-glicérico, obtenido por oxidación del (R)-gliceraldehído dextrógiro, es levógiro. Incluso un mismo compuesto puede cambiar de signo de rotación según el disolvente, el pH o la longitud de onda de medida. La designación D/L que se usa en azúcares y aminoácidos también se basa en la disposición en la proyección de Fischer y no guarda relación con el sentido de rotación. Por tanto, son erróneas tanto la opción de que el isómero R es siempre dextrógiro como la de que es siempre levógiro."
+ },
+ "stereochem-011": {
+  "question": "Se observa un carbono asimétrico con el sustituyente de menor prioridad (H) orientado hacia el observador (hacia delante), y los demás sustituyentes aparecen en el orden de prioridad 1→2→3 en sentido horario. ¿Cuál es la designación de este estereocentro?",
+  "choices": [
+   "S",
+   "R",
+   "No se puede determinar solo con esta información"
+  ],
+  "explanation": "Según las reglas CIP, el estereocentro se observa con el sustituyente de menor prioridad alejado del observador; si 1→2→3 sigue el sentido horario, es R, y si sigue el antihorario, es S. Si el sustituyente de menor prioridad apunta hacia delante, se está mirando desde el lado opuesto y el sentido de giro aparece invertido. Por tanto, si aparentemente es horario, visto desde la dirección correcta es antihorario y la designación es S. Responder R a partir de lo que se ve es el error típico. Si se conocen la orientación del grupo de menor prioridad y el sentido de giro, la designación queda determinada de forma unívoca, así que la opción «no se puede determinar» también es errónea. Es útil recordar que, cuando en una representación con cuñas el H está hacia delante, basta con invertir el resultado obtenido."
+ },
+ "stereochem-012": {
+  "question": "¿Cuál de los siguientes compuestos es quiral (tiene enantiómeros)?",
+  "choices": [
+   "cis-1,2-Dimetilciclopropano",
+   "trans-1,2-Dimetilciclopropano",
+   "1,1-Dimetilciclopropano"
+  ],
+  "explanation": "En el 1,2-dimetilciclopropano, tanto C1 como C2 son carbonos asimétricos. En el isómero cis, los dos grupos metilo están en el mismo lado del anillo y hay un plano de simetría perpendicular al anillo que pasa por C3 y por el punto medio del enlace C1−C2, por lo que es un compuesto meso (aquiral) que se superpone con su imagen especular. El isómero trans no tiene plano ni centro de simetría y existe como un par de enantiómeros, (1R,2R) y (1S,2S), así que es quiral. El 1,1-dimetilciclopropano no tiene carbonos asimétricos y el propio plano del anillo es un plano de simetría, por lo que es aquiral. Es importante juzgar no solo por la presencia de carbonos asimétricos, sino también por si la molécula en conjunto tiene un plano de simetría."
+ },
+ "stereochem-013": {
+  "question": "De las dos conformaciones de silla del metilciclohexano, ¿cuál es la combinación correcta de la más estable y la razón?",
+  "choices": [
+   "La de metilo ecuatorial, porque en posición axial aparecen interacciones 1,3-diaxiales",
+   "La de metilo axial, porque el metilo se aleja perpendicularmente del anillo y choca poco con los H de C3 y C5",
+   "Ambas tienen la misma energía y cada una está al 50 %, sea cual sea la orientación del metilo"
+  ],
+  "explanation": "En la conformación de silla del ciclohexano, la inversión del anillo intercambia los sustituyentes axiales y ecuatoriales. Cuando el metilo está en posición axial, se acerca a los hidrógenos axiales de las posiciones 3 y 5, situados en el mismo lado del anillo, y se produce una repulsión estérica (interacción 1,3-diaxial). La conformación ecuatorial es unos 7,3 kJ/mol más estable en energía de Gibbs, y a 25 °C alrededor del 95 % se encuentra en la conformación ecuatorial. Los enlaces axiales son perpendiculares al plano medio del anillo y se acercan a los sustituyentes del mismo lado, así que la idea de que «se aleja» es la inversa de la realidad. Con sustituyentes grandes como el terc-butilo, la posición ecuatorial queda prácticamente fija."
+ },
+ "stereochem-014": {
+  "question": "En el metilciclohexano, la conformación con el metilo ecuatorial es 7,3 kJ/mol más estable en energía de Gibbs que la conformación axial. ¿Qué valor se aproxima más a la proporción de la conformación ecuatorial en el equilibrio a 25 °C (298 K)? Considere la constante de los gases R = 8,314 J/(mol·K).",
+  "choices": [
+   "Aproximadamente 5 %",
+   "Aproximadamente 95 %",
+   "Aproximadamente 99,9 %"
+  ],
+  "explanation": "La constante de equilibrio es K = [ecuatorial]/[axial] = exp(−ΔG°/RT) (ΔG° de axial→ecuatorial = −7300 J/mol) = exp(7300 / (8,314 × 298)) = exp(2,95) ≈ 19. La proporción de la conformación ecuatorial es K/(1 + K) = 19/20 ≈ 0,95, es decir, aproximadamente 95 %. Aproximadamente 5 % es la proporción de la conformación axial, la minoritaria. Aproximadamente 99,9 % es el error de calcular una potencia de 10 en lugar de la exponencial: 10 elevado a 2,95 ≈ 890. A temperatura ambiente, la inversión del anillo es tan rápida que ocurre más de 100000 veces por segundo, por lo que las dos conformaciones no se pueden separar y existen como una mezcla en equilibrio."
+ },
+ "stereochem-015": {
+  "question": "¿Cuál de los siguientes dimetilciclohexanos puede tener ambos grupos metilo en posición ecuatorial en una conformación de silla?",
+  "choices": [
+   "cis-1,4-Dimetilciclohexano",
+   "trans-1,3-Dimetilciclohexano",
+   "trans-1,4-Dimetilciclohexano"
+  ],
+  "explanation": "En las posiciones 1,4, dos sustituyentes orientados hacia el mismo lado del anillo (cis) quedan uno axial y otro ecuatorial (a,e), mientras que dos orientados hacia lados opuestos (trans) quedan ambos ecuatoriales (e,e) o ambos axiales (a,a). Por tanto, el isómero trans-1,4 puede adoptar la conformación e,e, que es muy estable. En las posiciones 1,3 la relación se invierte: el isómero cis es e,e y el trans, a,e. En las posiciones 1,2, el trans es e,e y el cis, a,e. En el cis-1,4 y en el trans-1,3, uno de los metilos queda axial en cualquiera de las dos conformaciones. Es fácil equivocarse porque la correspondencia entre cis/trans y a/e cambia según las posiciones."
+ },
+ "stereochem-016": {
+  "question": "Para el isómero del 2-cloro-2-buteno, CH3CCl=CHCH3, en el que los dos grupos metilo están en el mismo lado del doble enlace, ¿cuál es la designación E/Z correcta?",
+  "choices": [
+   "E, porque el Cl prioritario y el CH3 de C3 quedan en lados opuestos del doble enlace",
+   "Z, porque los dos metilos están en el mismo lado del doble enlace, igual que en el isómero cis",
+   "No se puede determinar, porque la designación E/Z no se aplica a alquenos trisustituidos"
+  ],
+  "explanation": "En la designación E/Z se determina, mediante las reglas de prioridad CIP, el sustituyente prioritario de cada carbono del doble enlace; si los prioritarios están en el mismo lado es Z, y si están en lados opuestos, E. En C2, el Cl (número atómico 17) tiene prioridad sobre el CH3, y en C3, el CH3 tiene prioridad sobre el H. Cuando los dos grupos metilo están en el mismo lado, el Cl prioritario de C2 queda en el lado opuesto al CH3 de C3, por lo que este isómero es E. Asignar Z porque los metilos están en el mismo lado es el error de aplicar directamente el criterio cis/trans a E/Z; ambos no siempre coinciden. La designación E/Z se puede usar siempre que cada carbono del doble enlace tenga dos sustituyentes distintos, independientemente del número de sustituyentes, así que también sirve para alquenos trisustituidos."
+ },
+ "stereochem-017": {
+  "question": "En las conformaciones en torno al enlace C2−C3 del butano, la anti es 3,8 kJ/mol más estable que la gauche. Hay dos conformaciones gauche, imágenes especulares entre sí y de igual energía. ¿Qué valor se aproxima más a la proporción de la conformación anti a 25 °C (298 K)? Desprecie las conformaciones eclipsadas, considere la diferencia de energía como diferencia de energía de Gibbs y use R = 8,314 J/(mol·K).",
+  "choices": [
+   "Aproximadamente 82 %",
+   "Aproximadamente 30 %",
+   "Aproximadamente 70 %"
+  ],
+  "explanation": "La relación de poblaciones entre una conformación gauche y la anti es exp(−3800/(8,314 × 298)) = exp(−1,53) ≈ 0,216. Como hay dos conformaciones gauche, la relación entre el total gauche y la anti es 2 × 0,216 = 0,432, y la proporción anti es 1/(1 + 0,432) ≈ 0,70, es decir, aproximadamente 70 %. Aproximadamente 82 % corresponde a 1/(1 + 0,216): es el error de contar las dos conformaciones gauche como una sola. Aproximadamente 30 % es la proporción de las dos gauche juntas, es decir, confundir lo que se pide. En la relación de poblaciones influye no solo la energía de las conformaciones, sino también cuántas conformaciones tienen la misma energía (la degeneración). La conformación gauche es menos estable porque los dos grupos metilo se acercan con un ángulo diedro de 60° y se repelen estéricamente."
+ },
+ "stereochem-018": {
+  "question": "¿Cuál de las siguientes afirmaciones sobre el 2,3-pentadieno, CH3CH=C=CHCH3, es correcta?",
+  "choices": [
+   "Como no tiene carbonos asimétricos, es aquiral y no existe ningún par de enantiómeros",
+   "No tiene carbonos asimétricos, pero es quiral: los sustituyentes terminales están en planos perpendiculares",
+   "Como el carbono central es un carbono asimétrico, es quiral y existe como par de enantiómeros"
+  ],
+  "explanation": "El carbono central de un aleno C=C=C tiene hibridación sp, y los dos enlaces π a cada lado son perpendiculares entre sí. Por eso, los sustituyentes de los carbonos de los extremos se sitúan en dos planos girados 90° entre sí. En el 2,3-pentadieno, cada carbono terminal tiene dos sustituyentes distintos, H y CH3, de modo que la molécula no tiene plano de simetría y es quiral, no superponible con su imagen especular (quiralidad axial). La idea de que sin carbonos asimétricos la molécula es aquiral es el error de basar el juicio sobre la quiralidad únicamente en los carbonos asimétricos. El carbono central es un carbono sp unido solo a dos átomos y no es asimétrico. En el 2-metil-2,3-pentadieno, (CH3)2C=C=CHCH3, con dos sustituyentes iguales en un extremo, aparece un plano de simetría y la molécula es aquiral."
+ },
+ "stereochem-019": {
+  "question": "Para separar un ácido carboxílico racémico en sus dos enantiómeros, se formó una sal con (R)-1-feniletilamina ópticamente pura. ¿Cuál es la razón por la que este método permite la separación?",
+  "choices": [
+   "Las dos sales son diastereómeros, con distinta solubilidad, y se pueden separar por recristalización",
+   "Las dos sales son enantiómeros, y el sentido de rotación óptica cambia su facilidad para precipitar",
+   "La amina forma sal solo con un enantiómero; el otro queda como ácido y se separa por extracción"
+  ],
+  "explanation": "La sal de ácido (R) con amina (R) y la sal de ácido (S) con amina (R) solo son imágenes especulares en la parte del ácido; en conjunto no son imágenes especulares entre sí, sino diastereómeros. Como los diastereómeros difieren en solubilidad y punto de fusión, se puede obtener una de las sales como cristal por recristalización y, al tratarla con un ácido fuerte, se recupera el ácido carboxílico enantioméricamente puro. Esto se denomina resolución óptica por formación de sales diastereoméricas. Considerar las dos sales como enantiómeros es un error: si fueran enantiómeros, su solubilidad en un disolvente aquiral sería la misma y no podrían separarse. El sentido de rotación óptica tampoco determina la facilidad de precipitación. La neutralización entre ácido y base ocurre rápidamente con ambos enantiómeros, así que no es cierto que solo uno forme la sal."
+ },
+ "stereochem-020": {
+  "question": "Una amina con tres grupos alquilo distintos en el nitrógeno (por ejemplo, la etilmetilpropilamina) es un estereocentro si se considera el par de electrones no compartido como cuarto sustituyente, pero normalmente no se puede resolver en sus enantiómeros. ¿Cuál es la razón correcta?",
+  "choices": [
+   "El par no compartido no puede considerarse un sustituyente, el nitrógeno no es estereocentro y la molécula es aquiral",
+   "En agua la amina siempre se protona, y dos de los cuatro sustituyentes del nitrógeno pasan a ser H iguales",
+   "El nitrógeno se invierte rápido vía un estado de transición plano y a temperatura ambiente ambas configuraciones se intercambian"
+  ],
+  "explanation": "El nitrógeno de una amina trisustituida tiene, contando el par no compartido, una forma casi tetraédrica, y si los tres sustituyentes son distintos, en cada instante adopta una disposición no superponible con su imagen especular. Sin embargo, el nitrógeno se invierte como un paraguas que se da la vuelta, pasando por un estado de transición sp² en el que los sustituyentes quedan en un plano (inversión del nitrógeno). La barrera es pequeña, de unos 24 kJ/mol en el amoníaco y de solo unas decenas de kJ/mol en las aminas sencillas, de modo que a temperatura ambiente las dos configuraciones se intercambian rápidamente y no se pueden resolver. El par no compartido puede tratarse como el sustituyente de menor prioridad en las reglas CIP, así que la idea de que no hay estereocentro es errónea. Aunque se protone, el nitrógeno recibe un solo H y los cuatro sustituyentes siguen siendo distintos. Las sales de amonio cuaternario, que no pueden invertirse, sí pueden resolverse en enantiómeros si sus cuatro sustituyentes son distintos."
+ }
+}

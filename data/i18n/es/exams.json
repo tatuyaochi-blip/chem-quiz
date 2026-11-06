@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "Química orgánica y analítica",
+    "groups": { "organic-basics": "Fundamentos de química orgánica", "reactions": "Reacciones orgánicas", "spectroscopy": "Análisis espectroscópico", "separation": "Separación y cuantificación" }
+  }
+}

@@ -1,0 +1,182 @@
+{
+ "electro-elemental-001": {
+  "question": "En la respuesta ideal de un electrodo de vidrio para pH, ¿qué valor se aproxima más al cambio de potencial por cada unidad de pH (pendiente de Nernst) a 25 °C?",
+  "choices": [
+   "Aproximadamente 25,7 mV",
+   "Aproximadamente 29,6 mV",
+   "Aproximadamente 59,2 mV"
+  ],
+  "explanation": "El coeficiente de la ecuación de Nernst es 2,303RT/(nF), que a 25 °C (298,15 K) vale 2,303 × 8,314 × 298,15 / 96485 ≈ 0,0592 V. Con n = 1, el potencial cambia aproximadamente 59,2 mV por cada variación de 10 veces en la actividad. El electrodo de vidrio para pH responde al H⁺ (n = 1), así que el cambio es de aproximadamente 59,2 mV por unidad de pH. Aproximadamente 29,6 mV es la pendiente de los electrodos que responden a iones con n = 2, como Ca²⁺ o Cu²⁺. Aproximadamente 25,7 mV es el valor de RT/F y olvida multiplicar por el factor 2,303 que convierte el cambio por logaritmo natural en cambio por logaritmo decimal. La pendiente es proporcional a la temperatura absoluta y a 37 °C es de aproximadamente 61,5 mV, por lo que los pH-metros tienen una función de compensación de temperatura."
+ },
+ "electro-elemental-002": {
+  "question": "A 25 °C, el potencial estándar de electrodo de Cu²⁺ + 2e⁻ ⇌ Cu es +0,340 V (frente al electrodo estándar de hidrógeno). ¿Cuál es el potencial del electrodo de cobre cuando la actividad del Cu²⁺ es 1,0×10⁻³? Tome 2,303RT/F = 0,0592 V.",
+  "choices": [
+   "+0,162 V",
+   "+0,251 V",
+   "+0,429 V"
+  ],
+  "explanation": "La ecuación de Nernst es E = E° + (0,0592/n) log a(Cu²⁺), y con n = 2, E = 0,340 + (0,0592/2) × log(1,0×10⁻³) = 0,340 + 0,0296 × (−3) = 0,340 − 0,0888 = +0,251 V. +0,162 V toma n = 1 y resta 0,0592 × 3 = 0,178 V, y +0,429 V invierte el signo del logaritmo. Cuanto menor es la concentración del ion metálico, más se desplaza el potencial hacia valores negativos; en una reacción de 2 electrones, baja aproximadamente 29,6 mV por cada dilución de 10 veces."
+ },
+ "electro-elemental-003": {
+  "question": "¿Cuál es la razón principal de calibrar un pH-metro con dos o más disoluciones patrón de pH diferente (por ejemplo, el patrón neutro de fosfato de pH 6,86 y el patrón de ftalato de pH 4,01)?",
+  "choices": [
+   "Determinar tanto el desfase del potencial del electrodo (punto cero) como el cambio de potencial por unidad de pH (pendiente)",
+   "Usar dos disoluciones patrón elimina el efecto de la temperatura de medida sobre la lectura",
+   "Con una sola disolución patrón, la disolución interna del electrodo de vidrio no alcanza el equilibrio"
+  ],
+  "explanation": "El potencial del par formado por el electrodo de vidrio y el electrodo de referencia se expresa con la recta E = E₀ − S × pH. Para fijar una recta hacen falta dos parámetros, la ordenada en el origen (E₀, punto cero) y la pendiente (S), y con una sola disolución patrón solo se ajusta la ordenada en el origen. Por eso se ajusta el punto cero con un patrón cercano a la neutralidad y la pendiente con otro patrón situado de modo que el intervalo de medida quede entre ambos. Si la pendiente queda muy por debajo del valor teórico (aproximadamente 59,2 mV/pH a 25 °C), cabe sospechar deterioro o suciedad del electrodo. La pendiente y el pH de las disoluciones patrón cambian con la temperatura, así que se necesitan por separado la compensación de temperatura y la corrección del pH a cada temperatura; usar dos patrones no elimina el efecto de la temperatura."
+ },
+ "electro-elemental-004": {
+  "question": "Al calibrar un electrodo de pH, se obtiene +5,0 mV con el patrón de pH 6,86 y +170,0 mV con el patrón de pH 4,01. A la misma temperatura, una muestra da +60,0 mV. Si el potencial varía linealmente con el pH, ¿qué valor se aproxima más al pH de la muestra?",
+  "choices": [
+   "Aproximadamente 5,91",
+   "Aproximadamente 7,81",
+   "Aproximadamente 2,11"
+  ],
+  "explanation": "La pendiente es (170,0 − 5,0)/(4,01 − 6,86) = 165,0/(−2,85) ≈ −57,9 mV/pH: cuanto más bajo es el pH, más positivo es el potencial. La muestra está 60,0 − 5,0 = 55,0 mV por encima del patrón de pH 6,86, así que su pH es 55,0/57,9 ≈ 0,95 unidades menor: 6,86 − 0,95 = 5,91. Si se calcula a partir del pH 4,01, también se obtiene 4,01 + 110,0/57,9 = 5,91. Aproximadamente 7,81 es un error de signo que sube el pH aunque el potencial se haya desplazado hacia valores positivos, y aproximadamente 2,11 resta 1,90 a partir de pH 4,01 en el sentido contrario."
+ },
+ "electro-elemental-005": {
+  "question": "¿Cuál es el método más adecuado para determinar el punto final (punto de equivalencia) en una valoración potenciométrica?",
+  "choices": [
+   "Buscar el punto en que el potencial vale 0 mV, porque en el punto de equivalencia los dos electrodos tienen el mismo potencial",
+   "Buscar el punto de la curva de valoración en que el potencial cambia más bruscamente (donde ΔE/ΔV es máximo)",
+   "Buscar el punto en que el potencial cambia menos, porque en el punto de equivalencia la disolución está tamponada"
+  ],
+  "explanation": "En la valoración potenciométrica se registra la diferencia de potencial entre el electrodo indicador y el de referencia frente al volumen añadido. Cerca del punto de equivalencia, la concentración del ion de interés cambia en órdenes de magnitud, de modo que el potencial varía bruscamente según la ecuación de Nernst, y el punto de inflexión de la curva de valoración en forma de S es el punto de equivalencia. El punto de inflexión se obtiene como el máximo de la primera derivada ΔE/ΔV o como el punto en que la segunda derivada Δ²E/ΔV² cruza el 0. El valor del potencial en sí (0 mV, etc.) depende de la combinación de electrodos, así que no indica el punto final. El potencial cambia menos en la región alejada del punto de equivalencia, donde el efecto tampón es fuerte. Una ventaja de este método es que permite determinar el punto final incluso en muestras coloreadas o turbias."
+ },
+ "electro-elemental-006": {
+  "question": "El potencial de un electrodo selectivo de iones fluoruro baja 59,2 mV a 25 °C cuando la actividad del F⁻ se multiplica por 10. El potencial de la muestra B es 35,6 mV más bajo que el de la muestra A. ¿Aproximadamente por cuánto se multiplica la actividad del F⁻ de la muestra B respecto a la de la muestra A?",
+  "choices": [
+   "Aproximadamente por 0,25",
+   "Aproximadamente por 16",
+   "Aproximadamente por 4,0"
+  ],
+  "explanation": "En un electrodo que responde a aniones, E = constante − 59,2 log a(F⁻) (mV), y cuanto mayor es la actividad, más bajo es el potencial. La diferencia de 35,6 mV equivale a 35,6/59,2 = 0,601 órdenes de magnitud, así que la actividad de B es 10 elevado a 0,601 ≈ 4,0 veces la de A. Aproximadamente 0,25 invierte el signo, como si fuera un electrodo para cationes, suponiendo que «cuanto más bajo el potencial, menor la actividad». Aproximadamente 16 calcula con la pendiente de 29,6 mV para iones divalentes (10 elevado a 1,2), pero el F⁻ es monovalente. Los electrodos selectivos de iones responden a la actividad, así que se añade un ajustador de fuerza iónica (TISAB) para igualar la fuerza iónica de la muestra y de los patrones."
+ },
+ "electro-elemental-007": {
+  "question": "Se mide por voltamperometría cíclica un sistema redox reversible controlado por difusión. Si la velocidad de barrido del potencial se aumenta de 25 mV/s a 100 mV/s, ¿por cuánto se multiplica aproximadamente la corriente de pico?",
+  "choices": [
+   "Por 4",
+   "Por 2",
+   "No cambia"
+  ],
+  "explanation": "Según la ecuación de Randles-Ševčík, la corriente de pico ip de un sistema reversible controlado por difusión es proporcional al área del electrodo, a la concentración, a la raíz cuadrada del coeficiente de difusión y a la raíz cuadrada de la velocidad de barrido v. Si la velocidad de barrido se multiplica por 4, la corriente de pico se multiplica por √4 = 2. Con un barrido rápido, la corriente se mide mientras la capa de difusión aún es delgada; el gradiente de concentración es pronunciado y la corriente es mayor. La corriente se multiplica por 4 (proporcional a v) en las reacciones de especies adsorbidas en la superficie del electrodo o en la corriente de carga de la doble capa eléctrica. Comprobar si ip es proporcional a √v sirve para saber si la reacción está controlada por difusión, y normalmente la corriente no queda sin cambiar en absoluto."
+ },
+ "electro-elemental-008": {
+  "question": "¿Cuál es la razón principal de que la voltamperometría de redisolución anódica (ASV) permita medir con alta sensibilidad trazas de plomo o cadmio en agua?",
+  "choices": [
+   "Los metales se reducen y preconcentran en el electrodo a potencial negativo, y se mide la corriente al oxidarlos con un barrido positivo",
+   "La muestra se atomiza en un plasma de argón a alta temperatura y se mide con alta sensibilidad la emisión característica del elemento",
+   "El potencial del electrodo se mantiene constante y se mide directamente, sin preconcentrar, la corriente de difusión de los iones metálicos"
+  ],
+  "explanation": "En la ASV, primero se mantiene el electrodo a un potencial más negativo que el de reducción del metal de interés y se electroliza durante unos minutos con agitación, de modo que el Pb²⁺ o el Cd²⁺ de la disolución se depositan y concentran como metal sobre el electrodo (una película de mercurio, de bismuto, etc.). Luego, al barrer el potencial en sentido positivo, el metal concentrado se oxida y se redisuelve de una vez a un potencial característico de cada metal, y circula una corriente de pico grande y aguda. Cuanto más largo es el tiempo de preconcentración, mayor es la sensibilidad, y se pueden medir concentraciones de µg/L o menores. Medir la emisión en un plasma corresponde a la espectrometría de emisión ICP, que no es un método electroquímico. Si solo se mide directamente la corriente de difusión, no hay efecto de preconcentración y la sensibilidad es mucho menor."
+ },
+ "electro-elemental-009": {
+  "question": "En la espectrometría de absorción atómica (AAS), ¿cuál es la razón principal de usar como fuente de luz una lámpara de cátodo hueco cuyo cátodo es del mismo elemento que se quiere medir?",
+  "choices": [
+   "Emitir luz de espectro continuo, de modo que una sola lámpara sirva para medir cualquier elemento",
+   "Actuar como fuente de calor que calienta y atomiza la muestra con el calor de la descarga del cátodo",
+   "Obtener líneas de emisión propias del elemento de interés, más estrechas que las líneas de absorción"
+  ],
+  "explanation": "Las líneas de absorción atómica son extremadamente estrechas, de 0,001 a 0,01 nm aproximadamente, mucho más que la anchura que un monocromador puede aislar de una fuente continua, por lo que con luz continua solo se mide una absorción muy pequeña. La lámpara de cátodo hueco excita por descarga los átomos del metal del cátodo y emite las líneas de ese elemento con una anchura aún menor que la de las líneas de absorción. Así se ilumina solo el centro de la línea de absorción, lo que permite medir con alta sensibilidad y con poca influencia de otros elementos. En cambio, hay que cambiar de lámpara para cada elemento. La atomización de la muestra corre a cargo de la llama o del horno de grafito (calentamiento eléctrico); la lámpara no es una fuente de calor."
+ },
+ "electro-elemental-010": {
+  "question": "Al medir ⁷⁵As (arsénico, número másico 75) por ICP-MS, ¿qué ion poliatómico se superpone y causa error en muestras con mucho ácido clorhídrico?",
+  "choices": [
+   "⁴⁰Ar¹⁶O⁺",
+   "³⁸Ar¹H⁺",
+   "⁴⁰Ar³⁵Cl⁺"
+  ],
+  "explanation": "Como el ICP-MS usa un plasma de argón, se forman iones poliatómicos en los que el argón se combina con elementos de la muestra o del disolvente, y estos se superponen a elementos de interés con el mismo número másico (interferencia espectral). El número másico del ⁴⁰Ar³⁵Cl⁺ es 40 + 35 = 75 y se superpone al ⁷⁵As, el único isótopo del arsénico, por lo que en muestras ricas en cloruros la concentración aparente de arsénico sale más alta. El ⁴⁰Ar¹⁶O⁺ (número másico 56) interfiere típicamente en la medida del ⁵⁶Fe, y el ³⁸Ar¹H⁺ (número másico 39), en la del ³⁹K. Como solución, se eliminan los iones poliatómicos con una celda de colisión/reacción o se separan las pequeñas diferencias de masa con un equipo de alta resolución."
+ },
+ "electro-elemental-011": {
+  "question": "En espectrofotometría, la desviación estándar de la absorbancia de 10 medidas del blanco es 0,0020 y la pendiente de la curva de calibración es 0,050 L/mg. Si el límite de detección se define como la concentración equivalente a 3 veces la desviación estándar del blanco (3σ/pendiente), ¿cuál es el límite de detección?",
+  "choices": [
+   "0,12 mg/L",
+   "0,040 mg/L",
+   "0,40 mg/L"
+  ],
+  "explanation": "Límite de detección = 3σ/pendiente = 3 × 0,0020 / 0,050 = 0,12 mg/L. Es una referencia de la concentración mínima a la que se puede afirmar que el analito «está presente», distinguiéndolo de la variabilidad del blanco. 0,040 mg/L olvida multiplicar por 3 (1σ), y 0,40 mg/L se calcula como 10σ/pendiente, que se usa a menudo como referencia del límite de cuantificación (la concentración mínima a la que se puede informar un valor con precisión suficiente). El límite de detección no depende solo del equipo, sino también de la variabilidad del blanco, del pretratamiento y de la pendiente (sensibilidad) de la curva de calibración, por lo que se evalúa para el método analítico en su conjunto."
+ },
+ "electro-elemental-012": {
+  "question": "En la determinación de un metal se obtiene la curva de calibración y = 0,0480x + 0,0020 (y: absorbancia; x: concentración en mg/L). La muestra se diluye 10 veces y su absorbancia es 0,290. ¿Cuál es la concentración de la muestra original?",
+  "choices": [
+   "6,0 mg/L",
+   "60 mg/L",
+   "0,60 mg/L"
+  ],
+  "explanation": "Según la curva de calibración, la concentración tras la dilución es x = (0,290 − 0,0020)/0,0480 = 0,288/0,0480 = 6,00 mg/L. Como la muestra se midió diluida 10 veces, la concentración original es 6,00 × 10 = 60,0 mg/L. 6,0 mg/L olvida multiplicar por el factor de dilución, y 0,60 mg/L divide por el factor de dilución. Si se ignora la ordenada en el origen y se calcula 0,290/0,0480, se obtiene 6,04 mg/L, un valor ligeramente mayor. Es importante diluir de modo que la medida quede dentro del intervalo de concentraciones de la curva de calibración y no extrapolar fuera de él."
+ },
+ "electro-elemental-013": {
+  "question": "¿Cómo se expresa, según las reglas de las cifras significativas, la suma de las medidas 12,11 g, 0,3 g y 1,256 g?",
+  "choices": [
+   "13,7 g",
+   "13,666 g",
+   "13,67 g"
+  ],
+  "explanation": "En sumas y restas, el resultado se ajusta al número de decimales de la medida que tiene menos decimales. Como 0,3 g solo se conoce hasta la primera cifra decimal, la suma 12,11 + 0,3 + 1,256 = 13,666 g se redondea a una cifra decimal: 13,7 g. 13,666 g escribe el resultado del cálculo tal cual y muestra cifras sin sentido frente a la incertidumbre de 0,3 g. 13,67 g se ajusta a los decimales de 12,11 g en lugar de a los de 0,3 g, la medida menos precisa. En multiplicaciones y divisiones, en cambio, el resultado se ajusta al valor con menos cifras significativas, no al de menos decimales."
+ },
+ "electro-elemental-014": {
+  "question": "Al analizar repetidamente un material de referencia certificado, la dispersión de los resultados es muy pequeña, pero la media es sistemáticamente alrededor de un 5 % más alta que el valor certificado. ¿Cuál es la explicación más adecuada de este resultado?",
+  "choices": [
+   "El error aleatorio es grande y la precisión es mala, pero no hay error sistemático",
+   "La precisión es buena, pero hay un error sistemático y la veracidad es mala",
+   "La precisión y la veracidad son buenas, y los errores sistemático y aleatorio son pequeños"
+  ],
+  "explanation": "Lo pequeña que es la dispersión de los resultados se expresa con la precisión, y lo cerca que está la media del valor verdadero (aquí, el valor certificado) se expresa con la veracidad. Como la dispersión es pequeña, el error aleatorio es pequeño y la precisión es buena; en cambio, que la media se desvíe en un sentido indica que hay un error sistemático (sesgo). El error sistemático no disminuye aunque se aumente el número de repeticiones y se promedie. Sus causas pueden ser una concentración incorrecta del patrón, el blanco de los reactivos, interferentes, una mala calibración del material, etc., y se detecta y corrige analizando materiales de referencia certificados, mediante ensayos de recuperación o comparando con otro método. Con una desviación de aproximadamente un 5 %, no se puede decir que la veracidad sea buena."
+ },
+ "electro-elemental-015": {
+  "question": "Una muestra se mide 5 veces y se obtienen 10,1; 10,3; 9,9; 10,2 y 10,0 (mg/L). ¿Qué valor se aproxima más a la desviación estándar relativa (RSD) calculada con la desviación estándar muestral (dividiendo entre n − 1)?",
+  "choices": [
+   "1,4 %",
+   "0,25 %",
+   "1,6 %"
+  ],
+  "explanation": "La media es (10,1 + 10,3 + 9,9 + 10,2 + 10,0)/5 = 10,1 mg/L. Las desviaciones respecto a la media son 0, +0,2, −0,2, +0,1 y −0,1, y la suma de sus cuadrados es 0,10. La desviación estándar muestral es s = √(0,10/(5 − 1)) = √0,025 = 0,158 mg/L, y RSD = 0,158/10,1 × 100 ≈ 1,6 %. El 1,4 % usa √(0,10/5) = 0,141, dividiendo entre n = 5; cuando se estima la dispersión de la población a partir de pocas medidas, se divide entre n − 1. El 0,25 % divide la varianza 0,025 entre la media y la expresa en porcentaje: olvida sacar la raíz cuadrada."
+ },
+ "electro-elemental-016": {
+  "question": "¿Cuál es la razón principal correcta de que el potencial del electrodo de plata-cloruro de plata (Ag/AgCl), usado como electrodo de referencia en potenciometría, se mantenga casi constante sea cual sea la composición de la muestra?",
+  "choices": [
+   "La actividad del ion cloruro en su interior se mantiene con una disolución de KCl de concentración fija",
+   "La plata es un metal noble que no intercambia electrones, así que su potencial no responde a la composición de la muestra",
+   "Una fuente de alimentación externa y un circuito de control mantienen el potencial del electrodo en un valor fijo"
+  ],
+  "explanation": "El potencial del electrodo de Ag/AgCl lo determina la reacción AgCl + e⁻ ⇌ Ag + Cl⁻ y, según la ecuación de Nernst E = E° − 0,0592 log a(Cl⁻) (25 °C), depende solo de la actividad del ion cloruro. En el electrodo de referencia, el interior se llena con una disolución de KCl saturada o de concentración fija y se conecta con la muestra a través de una unión líquida porosa, de modo que, aunque cambie la composición de la muestra, la actividad del Cl⁻ interior no cambia y el potencial se mantiene constante (con KCl saturado a 25 °C, aproximadamente +0,197 V frente al SHE). La idea de que la plata no intercambia electrones es errónea: el potencial se origina precisamente en la reacción redox de la plata. La potenciometría mide el potencial casi sin hacer circular corriente; fijar el potencial con una fuente externa corresponde al control del potencial del electrodo de trabajo en voltamperometría."
+ },
+ "electro-elemental-017": {
+  "question": "Se electroliza a corriente constante de 10,0 mA durante 965 s, y el Cu²⁺ de la disolución se deposita como cobre en el electrodo (eficiencia de corriente del 100 %). ¿Cuál es la masa de cobre depositado? Tome la constante de Faraday F = 96485 C/mol y la masa molar del Cu como 63,55 g/mol.",
+  "choices": [
+   "6,36 mg",
+   "3,18 g",
+   "3,18 mg"
+  ],
+  "explanation": "La carga que ha circulado es Q = It = 0,0100 A × 965 s = 9,65 C, y la cantidad de electrones es 9,65 ÷ 96485 = 1,00×10⁻⁴ mol. Como Cu²⁺ + 2e⁻ → Cu, el cobre es 1,00×10⁻⁴ ÷ 2 = 5,00×10⁻⁵ mol, y su masa, 5,00×10⁻⁵ × 63,55 = 3,18×10⁻³ g, es decir, 3,18 mg. 6,36 mg olvida dividir entre 2, como si cada electrón depositara un átomo de cobre. 3,18 g calcula con 10,0 A sin convertir los 10,0 mA a A. Este método, que obtiene la cantidad de sustancia directamente a partir de la carga que ha circulado, se llama culombimetría, y con una eficiencia de corriente del 100 % permite cuantificar sin curva de calibración ni patrones."
+ },
+ "electro-elemental-018": {
+  "question": "Al determinar calcio por absorción atómica de llama, la absorbancia sale baja cuando la muestra contiene mucho ion fosfato. ¿Qué es adecuado añadir a la muestra y a los patrones para suprimir esta interferencia?",
+  "choices": [
+   "Una sal de potasio, que suprime la ionización del Ca y aumenta el número de átomos en estado fundamental",
+   "Una sal de lantano, que se une preferentemente al fosfato y facilita la atomización del Ca",
+   "Ácido nítrico, que oxida y descompone el fosfato para eliminar la especie que interfiere"
+  ],
+  "explanation": "Cuando hay iones fosfato, en la llama el Ca forma fosfatos de calcio poco volátiles (pirofosfatos, etc.), lo que impide la atomización y reduce la absorbancia (interferencia química). Si se añade un exceso de sales de lantano o de estroncio, estas forman preferentemente compuestos estables con el fosfato, de modo que el Ca queda liberado y se atomiza (agente liberador). También se puede proteger el Ca en forma de complejo con EDTA o usar una llama de óxido nitroso-acetileno, más caliente. La sal de potasio es una medida contra la interferencia de ionización, que consiste en añadir un elemento fácilmente ionizable para suprimir la ionización del elemento de interés, y no resuelve la interferencia química del fosfato. El fósforo del fosfato ya está en su número de oxidación más alto, +5, así que no se puede oxidar ni descomponer con ácido nítrico."
+ },
+ "electro-elemental-019": {
+  "question": "Con un electrodo de vidrio para pH común, ¿qué error tiende a producirse en el pH indicado al medir una disolución fuertemente básica, de pH 13 aproximadamente, con mucho Na⁺?",
+  "choices": [
+   "Se indica un valor mayor que el real, porque el OH⁻ se adsorbe en la membrana de vidrio y baja en apariencia la actividad del H⁺",
+   "No hay error, porque la membrana de vidrio responde solo al H⁺ y no responde en absoluto a ningún otro ion",
+   "Se indica un valor menor que el real, porque al haber tan poco H⁺ la membrana de vidrio también responde al Na⁺"
+  ],
+  "explanation": "La membrana de vidrio responde selectivamente al H⁺, pero su selectividad no es perfecta. En una disolución de pH alto, con una actividad de H⁺ extremadamente baja y mucho Na⁺, el Na⁺ también participa en el intercambio en la superficie de la membrana como si fuera H⁺, y el electrodo responde como si hubiera más H⁺ del que realmente hay. Por eso el valor indicado es menor que el pH real; esto se llama error alcalino (error de sodio). En los electrodos para pH alto se usan vidrios de composición poco sensible al Na⁺. La explicación de que la lectura sale alta por la adsorción de OH⁻ invierte tanto el sentido del error como su causa. Que el electrodo de vidrio responda solo al H⁺ es una idealización: como en otros electrodos selectivos de iones, en ciertas condiciones no puede ignorarse la influencia de otros iones. En medios fuertemente ácidos también se conoce, a la inversa, un error ácido que da valores mayores que el real."
+ },
+ "electro-elemental-020": {
+  "question": "Una muestra se mide 4 veces y se obtiene una media de 10,20 mg/L y una desviación estándar muestral s = 0,10 mg/L. Si el valor de t con 3 grados de libertad (bilateral, 95 %) es 3,18, ¿cuál es el intervalo de confianza del 95 % de la media poblacional?",
+  "choices": [
+   "10,20 ± 0,32 mg/L",
+   "10,20 ± 0,16 mg/L",
+   "10,20 ± 0,098 mg/L"
+  ],
+  "explanation": "El intervalo de confianza de la media se calcula como x̄ ± t·s/√n. El error estándar de la media es s/√n = 0,10/√4 = 0,050 mg/L, y al multiplicarlo por t = 3,18 se obtiene ±0,159, es decir, 10,20 ± 0,16 mg/L. ± 0,32 olvida dividir entre √n y toma como intervalo de la media la dispersión de una sola medida, t·s. ± 0,098 usa el factor 1,96 de la distribución normal; cuando las medidas son pocas y la desviación estándar poblacional se estima a partir de s, hay que usar el factor mayor de la distribución t correspondiente a los grados de libertad. Al aumentar el número de medidas, disminuyen tanto t como s/√n, y el intervalo se estrecha. El intervalo de confianza indica el rango en el que cabe esperar que esté el valor verdadero; no significa que el 95 % de las medidas individuales caigan dentro de él."
+ }
+}

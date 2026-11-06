@@ -1,0 +1,182 @@
+{
+ "chromatography-001": {
+  "question": "¿Cuál es una combinación típica de fase estacionaria y fase móvil en la cromatografía en fase inversa (HPLC en fase inversa)?",
+  "choices": [
+   "Gel de sílice sin modificar con hexano−acetato de etilo",
+   "Sílice con grupos octadecilo enlazados (ODS, C18) con agua−metanol",
+   "Sílice con grupos octadecilo enlazados (ODS, C18) con hexano−acetato de etilo"
+  ],
+  "explanation": "En la cromatografía en fase inversa se usa una fase estacionaria apolar, con grupos hidrófobos como el octadecilo (C18) enlazados a la superficie de la sílice, y una fase móvil polar de agua mezclada con metanol o acetonitrilo. Cuanto más hidrófobo es un componente, más fuertemente lo retiene la fase estacionaria y más tarde eluye. Al aumentar la proporción de disolvente orgánico en la fase móvil, la retención disminuye. La combinación de gel de sílice sin modificar con una fase móvil apolar como hexano−acetato de etilo es la cromatografía en fase normal, la disposición opuesta, en la que la fase estacionaria es la más polar. Si se hace pasar por una columna ODS una fase móvil apolar a base de hexano, los componentes no se reparten hacia la fase estacionaria y no se obtiene una separación en fase inversa."
+ },
+ "chromatography-002": {
+  "question": "Se separa una mezcla de benceno, tolueno y fenol por HPLC en fase inversa con una columna ODS y una fase móvil de metanol−agua. ¿Qué componente eluye primero?",
+  "choices": [
+   "Fenol, C6H5OH",
+   "Benceno, C6H6",
+   "Tolueno, C6H5CH3"
+  ],
+  "explanation": "En fase inversa, cuanto menos hidrófobo (más polar) es un componente, más débil es su interacción con la fase estacionaria y antes eluye. El coeficiente de reparto octanol/agua (log P), indicador de la hidrofobicidad, es de aproximadamente 1,5 para el fenol, 2,1 para el benceno y 2,7 para el tolueno, así que el orden de elución es fenol → benceno → tolueno. El fenol se reparte con facilidad hacia la fase móvil polar porque su grupo OH forma enlaces de hidrógeno con el agua, mientras que el tolueno, más hidrófobo por su grupo metilo, es el que se retiene más tiempo. En la cromatografía en fase normal con gel de sílice ocurre lo contrario: el fenol, el más polar, es el que se retiene con más fuerza."
+ },
+ "chromatography-003": {
+  "question": "En HPLC, el pico de un componente no retenido aparece a 1,50 min (tiempo muerto t0) y el del analito a 6,00 min. ¿Cuál es el factor de retención k del analito?",
+  "choices": [
+   "4,00",
+   "0,333",
+   "3,00"
+  ],
+  "explanation": "El factor de retención es k = (tR − t0)/t0 y representa la relación entre el tiempo que el componente permanece en la fase estacionaria y el que pasa en la fase móvil. k = (6,00 − 1,50)/1,50 = 3,00. El valor 4,00 calcula directamente tR/t0 sin restar el tiempo t0 que el componente avanza en la fase móvil. El valor 0,333 invierte numerador y denominador. k no depende de la longitud de la columna ni del caudal, sino de la combinación del componente con las fases estacionaria y móvil. Si k es demasiado pequeño, cuesta separarlo de los interferentes, y si es demasiado grande, el análisis se alarga y los picos se ensanchan, por lo que en la práctica suele ajustarse aproximadamente entre 2 y 10."
+ },
+ "chromatography-004": {
+  "question": "En una columna con tiempo muerto t0 = 1,00 min, el componente A eluye a 5,00 min y el componente B a 6,00 min. ¿Cuál es el factor de separación α = kB/kA?",
+  "choices": [
+   "1,20",
+   "0,80",
+   "1,25"
+  ],
+  "explanation": "Los factores de retención son kA = (5,00 − 1,00)/1,00 = 4,00 y kB = (6,00 − 1,00)/1,00 = 5,00, así que α = kB/kA = 5,00/4,00 = 1,25. El valor 1,20 calcula directamente la relación de tiempos de retención 6,00/5,00 sin restar t0. El valor 0,80 invierte numerador y denominador; por convención, α se expresa con el componente que eluye después en el numerador, de modo que vale 1 o más. α indica en qué medida las fases estacionaria y móvil distinguen entre los dos componentes (selectividad); si α = 1, no se pueden separar por mucho que aumente el número de platos teóricos. Para cambiar α se modifican la composición de la fase móvil, el tipo de fase estacionaria, la temperatura, etc."
+ },
+ "chromatography-005": {
+  "question": "Un pico tiene un tiempo de retención de 10,0 min y una anchura de pico (anchura en la línea base) W, obtenida por el método de las tangentes, de 0,40 min. ¿Cuál es el número de platos teóricos N = 16(tR/W)²?",
+  "choices": [
+   "10000 platos",
+   "625 platos",
+   "400 platos"
+  ],
+  "explanation": "N = 16 × (10,0/0,40)² = 16 × 25² = 16 × 625 = 10000 platos. 625 platos olvida multiplicar por el factor 16, y 400 platos calcula 16 × 25 sin elevar (tR/W) al cuadrado. La anchura en la línea base W es la distancia entre los puntos donde las tangentes trazadas por los puntos de inflexión a ambos lados del pico cortan la línea base; en un pico gaussiano equivale a 4 veces la desviación estándar σ, por lo que N = (tR/σ)² = 16(tR/W)². tR y W se introducen en las mismas unidades (aquí, minutos). El número de platos teóricos es un indicador de la eficiencia de separación de la columna: para un mismo tiempo de retención, cuanto mayor es, más agudos son los picos."
+ },
+ "chromatography-006": {
+  "question": "En una columna de HPLC de 150 mm de longitud se obtiene un pico con tiempo de retención de 8,00 min y anchura a media altura W½ = 0,160 min. Si se usa el número de platos teóricos por el método de la anchura a media altura, N = 5,54(tR/W½)², ¿qué valor se aproxima más a la altura de plato teórico H = L/N?",
+  "choices": [
+   "Aproximadamente 3,8 µm",
+   "Aproximadamente 11 µm",
+   "Aproximadamente 60 µm"
+  ],
+  "explanation": "N = 5,54 × (8,00/0,160)² = 5,54 × 50² = 5,54 × 2500 = 13850 platos, y H = 150 mm / 13850 = 0,0108 mm ≈ 11 µm. Aproximadamente 3,8 µm resulta de aplicar a la anchura a media altura el factor 16 de la anchura en la línea base (N = 40000), y aproximadamente 60 µm, de olvidar el factor (N = 2500). El factor 5,54 se obtiene como 8 ln2 ≈ 5,54, porque en un pico gaussiano la anchura a media altura es 2,355σ. Cuanto menor es H, más eficiente es la columna, y cuanto menor es el tamaño de partícula del relleno, menor es H."
+ },
+ "chromatography-007": {
+  "question": "Dos componentes tienen tiempos de retención de 8,0 min y 8,6 min, y ambos una anchura en la línea base de 0,40 min. ¿Cuál es la resolución Rs = 2(tR2 − tR1)/(W1 + W2)?",
+  "choices": [
+   "1,5",
+   "0,75",
+   "3,0"
+  ],
+  "explanation": "Rs = 2 × (8,6 − 8,0)/(0,40 + 0,40) = 2 × 0,6/0,80 = 1,5. Con picos gaussianos de altura parecida, Rs = 1,5 corresponde a una separación prácticamente hasta la línea base, mientras que con Rs = 1,0 las colas de los picos se solapan en un pequeño porcentaje. El valor 0,75 olvida multiplicar por el factor 2, y 3,0 pone en el denominador la anchura de un solo pico (0,40) en lugar de W1 + W2. La resolución depende tanto de la distancia entre picos como de su anchura, por lo que, con la misma diferencia de tiempos de retención, una columna que da picos más anchos separa peor."
+ },
+ "chromatography-008": {
+  "question": "¿A qué sustancia apenas responde el detector de ionización de llama (FID) de la cromatografía de gases?",
+  "choices": [
+   "Hexano, C6H14",
+   "Benceno, C6H6",
+   "Agua, H2O"
+  ],
+  "explanation": "El FID detecta como corriente eléctrica los iones que se forman cuando los compuestos orgánicos arden en una llama de hidrógeno, y tiene alta sensibilidad y un amplio intervalo lineal para la materia orgánica, como los hidrocarburos. El agua, el dióxido de carbono, el monóxido de carbono, los gases permanentes como el nitrógeno y el oxígeno, el helio, etc., casi no forman iones y no dan respuesta. Por eso es práctico para analizar la materia orgánica de muestras que contienen agua. El hexano y el benceno dan una respuesta intensa, aproximadamente proporcional al número de carbonos. No obstante, los carbonos unidos a oxígeno o a halógenos dan menos respuesta, así que para cuantificar hay que comprobar la sensibilidad de cada componente."
+ },
+ "chromatography-009": {
+  "question": "¿Qué detector es el más adecuado para detectar por cromatografía de gases, con alta sensibilidad y selectividad, compuestos ricos en halógenos, como trazas de plaguicidas organoclorados en extractos de suelo?",
+  "choices": [
+   "Detector de conductividad térmica (TCD)",
+   "Detector de captura de electrones (ECD)",
+   "Detector de ionización de llama (FID)"
+  ],
+  "explanation": "El ECD ioniza el gas portador con la radiación β de un radioisótopo (⁶³Ni) para mantener una corriente constante, y aprovecha la disminución de esa corriente cuando pasa un componente que captura electrones con facilidad. Es muy sensible a los compuestos con halógenos, de alta electronegatividad, o con grupos nitro, y casi no responde a los hidrocarburos, por lo que se usa en el análisis de trazas de plaguicidas organoclorados y de PCB (bifenilos policlorados). El FID responde a una amplia gama de compuestos orgánicos, pero no es selectivo para los compuestos halogenados. El TCD es universal y responde a casi todas las sustancias, pero su sensibilidad es baja y no sirve para análisis de trazas."
+ },
+ "chromatography-010": {
+  "question": "En cromatografía de gases, ¿qué detector se usa con más frecuencia para analizar gases inorgánicos como hidrógeno, oxígeno, nitrógeno y dióxido de carbono?",
+  "choices": [
+   "Detector de ionización de llama (FID)",
+   "Detector de conductividad térmica (TCD)",
+   "Detector de captura de electrones (ECD)"
+  ],
+  "explanation": "El TCD detecta la diferencia de conductividad térmica del gas entre cuando solo pasa el gas portador y cuando lleva mezclado un componente, a través del cambio de temperatura (resistencia eléctrica) de un filamento calentado. Es un detector universal que responde a cualquier sustancia cuya conductividad térmica difiera de la del gas portador, y además es no destructivo, ya que no descompone los componentes, por lo que se usa mucho para analizar gases permanentes y agua. Con helio como gas portador, que tiene una conductividad térmica alta, la sensibilidad es mayor para muchos componentes, pero como el hidrógeno tiene una conductividad térmica cercana a la del helio, en ese caso se usa argón o nitrógeno como gas portador. El FID casi no responde a los gases permanentes ni al CO2, y el ECD es un detector especializado en componentes con alta afinidad electrónica."
+ },
+ "chromatography-011": {
+  "question": "En la cuantificación por cromatografía, ¿cuál es la principal ventaja del método del patrón interno?",
+  "choices": [
+   "Permite obtener la cantidad absoluta de analito solo con el área de pico del patrón interno, sin curva de calibración ni factor de respuesta",
+   "El patrón interno puede estar ya presente en la muestra, y sirve cualquier compuesto, aunque sus propiedades difieran de las del analito",
+   "Las variaciones del volumen inyectado y las pérdidas en el pretratamiento se compensan con la relación de áreas analito/patrón interno"
+  ],
+  "explanation": "En el método del patrón interno se añade una cantidad fija de patrón interno tanto a la muestra como a la disolución patrón, y se cuantifica a partir de la relación entre el cociente de áreas de pico (analito/patrón interno) y el cociente de concentraciones (curva de calibración o factor de respuesta relativo). Aunque cambie el volumen inyectado o se pierda una parte en un pretratamiento como la extracción, ambos se ven afectados en la misma proporción, así que la relación de áreas casi no cambia. Como patrón interno se elige una sustancia que no esté presente originalmente en la muestra, de propiedades parecidas a las del analito y que se separe sin solaparse con otros picos. Los compuestos marcados con isótopos estables cumplen bien estas condiciones. No es posible obtener la cantidad absoluta sin determinar el factor de respuesta."
+ },
+ "chromatography-012": {
+  "question": "Se cuantifica el analito X por el método del patrón interno. Al analizar una disolución patrón con 10,0 mg/L de X y 20,0 mg/L de patrón interno, la relación de áreas de pico (X/patrón interno) es 0,600. Al añadir el patrón interno a la muestra hasta 20,0 mg/L y analizarla, la relación de áreas es 0,900. ¿Cuál es la concentración de X en la muestra? Suponga que la respuesta es proporcional a la concentración.",
+  "choices": [
+   "15,0 mg/L",
+   "21,6 mg/L",
+   "30,0 mg/L"
+  ],
+  "explanation": "Si se define el factor de respuesta relativo F mediante «relación de áreas = F × relación de concentraciones», la disolución patrón da F = 0,600/(10,0/20,0) = 1,20. En la muestra, la relación de concentraciones es 0,900/1,20 = 0,750, por lo que X = 0,750 × 20,0 = 15,0 mg/L. Como la concentración del patrón interno es la misma en la disolución patrón y en la muestra, el cálculo proporcional 10,0 × (0,900/0,600) = 15,0 mg/L da el mismo resultado. 21,6 mg/L multiplica por el factor de respuesta en lugar de dividir (0,900 × 1,20 × 20,0), y 30,0 mg/L multiplica el cociente de las relaciones de áreas, 1,50, por la concentración del patrón interno, 20,0, en lugar de por la de X."
+ },
+ "chromatography-013": {
+  "question": "En el análisis por HPLC en fase inversa de una muestra con componentes de retención muy diferente, ¿qué efecto se obtiene al aumentar durante el análisis la proporción de disolvente orgánico (acetonitrilo) en la fase móvil (elución en gradiente)?",
+  "choices": [
+   "La retención de todos los componentes aumenta, los picos se separan más y la resolución crece de manera uniforme",
+   "Aumenta la propia sensibilidad del detector, y la misma cantidad de un componente da un área de pico mayor",
+   "Los componentes muy retenidos eluyen antes y en picos agudos, lo que permite acortar el tiempo de análisis"
+  ],
+  "explanation": "En fase inversa, cuanto mayor es la proporción de disolvente orgánico, mayor es la fuerza eluyente de la fase móvil y menor el factor de retención k. Si se eluye con una fase móvil de composición constante (isocrática) hasta los componentes muy retenidos, los últimos picos salen anchos y bajos, y el análisis se alarga. En la elución en gradiente, primero se separan los componentes poco retenidos con una fase móvil rica en agua y luego se aumenta poco a poco el disolvente orgánico para empujar antes a los componentes muy retenidos, de modo que los últimos picos también son agudos y el tiempo de análisis se acorta. La retención aumenta cuando se reduce el disolvente orgánico. El gradiente no es un método para aumentar la sensibilidad del propio detector."
+ },
+ "chromatography-014": {
+  "question": "Sin cambiar las demás condiciones, se duplica la longitud de una columna con el mismo relleno. ¿Aproximadamente cuántas veces mayor se hace la resolución Rs? Suponga que el número de platos teóricos es proporcional a la longitud de la columna.",
+  "choices": [
+   "Unas 1,4 veces",
+   "2 veces",
+   "4 veces"
+  ],
+  "explanation": "Al duplicar la longitud de la columna, los tiempos de retención y la distancia entre picos se duplican, pero la anchura de los picos crece proporcionalmente a √N, es decir, se multiplica por √2. En consecuencia, Rs se multiplica por 2/√2 = √2 ≈ 1,41, y Rs es proporcional a la raíz cuadrada del número de platos teóricos (Rs ∝ √N). La respuesta de 2 veces no tiene en cuenta el ensanchamiento de los picos, y la de 4 veces eleva otra vez al cuadrado la relación de números de platos teóricos. A la inversa, para duplicar Rs hay que cuadruplicar N, y el tiempo de análisis también se multiplica aproximadamente por 4. Para mejorar la separación, a menudo es más eficaz cambiar α (la selectividad)."
+ },
+ "chromatography-015": {
+  "question": "Se quieren separar con una resolución Rs = 1,5 dos componentes con factor de separación α = 1,10 y factor de retención k = 4,0 para el que eluye después. Si Rs = (√N/4)·((α − 1)/α)·(k/(1 + k)), ¿qué valor se aproxima más al número de platos teóricos N necesario?",
+  "choices": [
+   "Aproximadamente 83 platos",
+   "Aproximadamente 6,8×10³ platos",
+   "Aproximadamente 430 platos"
+  ],
+  "explanation": "Al despejar √N de la ecuación, √N = 4·Rs·(α/(α − 1))·((1 + k)/k) = 4 × 1,5 × (1,10/0,10) × (5,0/4,0) = 4 × 1,5 × 11 × 1,25 = 82,5. Por tanto, N = 82,5² ≈ 6806, es decir, aproximadamente 6,8×10³ platos. Aproximadamente 83 platos olvida elevar √N al cuadrado, y aproximadamente 430 platos resulta de omitir el factor 1/4 de la ecuación (√N ≈ 20,6). Con solo acercar α de 1,10 a 1,05, (α − 1)/α se reduce casi a la mitad y el N necesario se multiplica aproximadamente por 3,6. Esto muestra que separar diferencias pequeñas de selectividad requiere muchos platos teóricos."
+ },
+ "chromatography-016": {
+  "question": "En una cromatografía en capa fina (TLC) sobre gel de sílice, la muestra se aplica a 1,0 cm del borde inferior de la placa (origen) y se desarrolla. El frente del disolvente queda a 8,5 cm del borde inferior y el centro de la mancha del compuesto, a 4,0 cm del borde inferior. ¿Cuál es el valor de Rf del compuesto?",
+  "choices": [
+   "0,47",
+   "0,40",
+   "0,35"
+  ],
+  "explanation": "El valor de Rf es la distancia desde el origen hasta el centro de la mancha dividida entre la distancia desde el origen hasta el frente del disolvente. La mancha avanzó 4,0 − 1,0 = 3,0 cm desde el origen, y el frente del disolvente, 8,5 − 1,0 = 7,5 cm, así que Rf = 3,0/7,5 = 0,40. El valor 0,47 mide ambas distancias desde el borde inferior de la placa y no desde el origen (4,0/8,5). El valor 0,35 mide la mancha desde el origen y el frente del disolvente desde el borde inferior (3,0/8,5), sin una referencia común. En gel de sílice en fase normal, cuanto más polar es un compuesto, más se retiene y menor es su Rf; al aumentar la polaridad del eluyente, el Rf aumenta en general. Como el Rf varía con las condiciones, lo más seguro es comparar con un patrón en la misma placa."
+ },
+ "chromatography-017": {
+  "question": "Se analiza ácido benzoico (pKa de aproximadamente 4,2) por HPLC en fase inversa con una columna ODS y una fase móvil de agua−acetonitrilo. Si la parte acuosa de la fase móvil se cambia de un tampón de pH 2,5 a uno de pH 7,0, ¿qué ocurre con la retención del ácido benzoico?",
+  "choices": [
+   "Disminuye, porque a pH 7,0 está casi todo como ion benzoato y se reparte más hacia la fase móvil polar",
+   "Aumenta, porque a pH 7,0 el ion benzoato se une electrostáticamente con fuerza a los grupos octadecilo",
+   "No cambia, porque en fase inversa la retención depende solo del tamaño molecular y casi no del pH"
+  ],
+  "explanation": "A pH 2,5 (unas 1,7 unidades por debajo del pKa), el ácido benzoico está en su mayor parte en forma molecular, sin carga, y la fase estacionaria hidrófoba lo retiene bien. A pH 7,0 (unas 2,8 unidades por encima del pKa), casi todo pasa a ion carboxilato, que se hidrata y se reparte más hacia la fase móvil polar, por lo que la retención disminuye mucho. Por eso, al analizar ácidos o bases en fase inversa, se usan tampones de pH alejado unas 2 unidades del pKa, para que la retención no varíe con pequeños cambios de pH. Los grupos octadecilo no tienen carga, así que no se unen electrostáticamente a los aniones ni aumentan su retención. En fase inversa, la retención depende de la hidrofobicidad y no del tamaño, y como la ionización cambia mucho la hidrofobicidad, el pH influye fuertemente."
+ },
+ "chromatography-018": {
+  "question": "La relación entre la altura de plato teórico H y la velocidad lineal de la fase móvil u viene dada por la ecuación de Van Deemter, H = A + B/u + Cu. ¿Cuál es la razón correcta de que exista una velocidad lineal a la que H es mínima?",
+  "choices": [
+   "Con u pequeña crece el término A de difusión en remolino, y con u grande, el término B/u de difusión longitudinal",
+   "Con u pequeña crece el término Cu de resistencia a la transferencia de masa, y con u grande, el término A de difusión en remolino",
+   "Con u pequeña crece el término B/u de difusión longitudinal, y con u grande, el término Cu de resistencia a la transferencia de masa"
+  ],
+  "explanation": "El término B/u representa el ensanchamiento de la banda del componente en la dirección del flujo por difusión molecular, y crece cuanto más lento es el flujo, porque el componente permanece más tiempo en la columna. El término Cu se debe a la resistencia a la transferencia de masa, es decir, al retraso con que el componente alcanza el equilibrio entre las fases estacionaria y móvil, y crece cuanto más rápido es el flujo. La u para la que la suma de ambos es mínima es la velocidad lineal óptima; en ella H es mínima, es decir, el número de platos teóricos es máximo. El término A es el de difusión en remolino, debido a las diferencias de trayectoria entre las partículas del relleno, y es un valor constante que casi no depende de la velocidad lineal. Por eso es incorrecto describir el término A como uno que crece según la velocidad lineal sea pequeña o grande, y también lo es intercambiar los papeles de los términos B y C. Al reducir el tamaño de partícula del relleno, disminuyen los términos A y C, y la eficiencia baja menos aunque el flujo sea rápido."
+ },
+ "chromatography-019": {
+  "question": "En una GC a temperatura constante, con un tiempo de retención de un componente no retenido t0 de 1,00 min, el n-octano (C8) eluye a 5,00 min, el n-nonano (C9) a 9,00 min y el analito a 6,66 min. Usando el tiempo de retención ajustado t′ = tR − t0, ¿qué valor se aproxima más al índice de retención de Kováts I = 100 × [n + (log t′x − log t′n)/(log t′n+1 − log t′n)]?",
+  "choices": [
+   "850",
+   "842",
+   "950"
+  ],
+  "explanation": "Los tiempos de retención ajustados son 4,00 min para el C8, 8,00 min para el C9 y 5,66 min para el analito. I = 100 × [8 + (log 5,66 − log 4,00)/(log 8,00 − log 4,00)] = 100 × [8 + 0,151/0,301] = 100 × (8 + 0,501) ≈ 850. En GC a temperatura constante, el logaritmo del tiempo de retención ajustado de una serie homóloga aumenta de forma casi proporcional al número de carbonos, por lo que se interpola con logaritmos. El valor 842 interpola linealmente los tiempos de retención ajustados sin tomar logaritmos (800 + 100 × 1,66/4,00). El valor 950 pone como n el número de carbonos 9 del C9, que eluye después. El índice de retención permite comparar con facilidad aunque cambien el equipo o el caudal, y sirve como pista para la identificación."
+ },
+ "chromatography-020": {
+  "question": "En el LC-MS, en el que el eluido de la HPLC se introduce directamente en un espectrómetro de masas con ionización por electrospray (ESI), se suelen evitar los tampones de fosfato en la fase móvil y usar ácido fórmico o acetato de amonio. ¿Cuál es la razón principal correcta?",
+  "choices": [
+   "El fosfato absorbe con fuerza en el ultravioleta y altera la línea base del detector UV situado antes del espectrómetro de masas",
+   "El fosfato no es volátil, así que se deposita en la fuente de iones, la ensucia y además dificulta la ionización del analito",
+   "El ácido fórmico y el acetato de amonio se unen con fuerza a la fase estacionaria y aumentan de forma estable la retención del analito"
+  ],
+  "explanation": "En la ESI, el eluido se nebuliza en gotitas finas, el disolvente se evapora y los iones pasan a la fase gaseosa. Las sales no volátiles, como el fosfato de sodio, no se evaporan y se depositan en la fuente de iones y en la entrada, lo que causa suciedad y obstrucciones; además, dificultan la ionización del analito desde las gotitas y reducen la sensibilidad (supresión iónica). El ácido fórmico, el ácido acético, el acetato de amonio y el formiato de amonio son volátiles, por lo que se eliminan junto con el disolvente. El fosfato absorbe poco incluso en el ultravioleta de longitud de onda corta y, de hecho, es un tampón muy usado con detección UV, así que la absorción UV no es la razón. Los aditivos volátiles se añaden para ajustar el pH y no se unen con fuerza a la fase estacionaria para aumentar la retención."
+ }
+}

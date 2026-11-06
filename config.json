@@ -28,6 +28,13 @@
       "htmlLang": "zh-Hant",
       "locale": "zh-TW",
       "label": "繁體中文"
+    },
+    {
+      "code": "es",
+      "path": "es/",
+      "htmlLang": "es",
+      "locale": "es-ES",
+      "label": "Español"
     }
   ],
   "mainLang": "ja",
