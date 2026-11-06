@@ -388,6 +388,81 @@
           "a": "En una reacción de orden n, k tiene unidades de (mol/L)^(1−n)·s⁻¹: mol/(L·s) para orden cero, s⁻¹ para primer orden y L/(mol·s) para segundo orden. Fijarse en la unidad ayuda a detectar una confusión en el orden."
         }
       ]
+    },
+    "pt": {
+      "nav": "Velocidade de reação e meia-vida",
+      "card": "Calcule a variação da concentração e a meia-vida de reações de ordem zero, primeira e segunda ordem, e a energia de ativação pela equação de Arrhenius",
+      "title": "Calculadora de cinética química (leis de velocidade integradas, meia-vida, equação de Arrhenius)",
+      "description": "Calcula a concentração no tempo t, a conversão e a meia-vida pelas leis de velocidade integradas, a partir da ordem de reação (zero, primeira ou segunda), da concentração inicial e da constante de velocidade. A partir das constantes de velocidade em duas temperaturas, obtém a energia de ativação e o fator pré-exponencial pela equação de Arrhenius.",
+      "h1": "Calculadora de velocidade de reação e energia de ativação",
+      "lead": "Para uma reação simples com um único reagente A, obtenha a variação da concentração com o tempo e a meia-vida e confira no gráfico. Os valores padrão são uma reação de primeira ordem com concentração inicial 0,10 mol/L e k = 2,0×10⁻³ s⁻¹, com a concentração após 600 segundos. Os valores padrão da equação de Arrhenius correspondem a uma reação cuja constante de velocidade dobra de 25 °C para 35 °C.",
+      "in_heading": "Dados",
+      "order": "Ordem de reação",
+      "order_0": "Ordem zero (v = k)",
+      "order_1": "Primeira ordem (v = k[A])",
+      "order_2": "Segunda ordem (v = k[A]²)",
+      "a0": "Concentração inicial [A]₀ (mol/L)",
+      "k": "Constante de velocidade k (unidade nos resultados)",
+      "t": "Tempo decorrido t (s)",
+      "t1": "Temperatura T₁ (°C)",
+      "k1": "Constante de velocidade k₁ em T₁",
+      "t2": "Temperatura T₂ (°C)",
+      "k2": "Constante de velocidade k₂ em T₂",
+      "out_heading": "Resultados",
+      "conc": "Concentração [A] no tempo t",
+      "conv": "Conversão",
+      "half": "Meia-vida t½ (a partir de [A]₀)",
+      "t90": "Tempo para 90 % de conversão",
+      "unit": "Unidade de k (com o tempo em segundos)",
+      "arr_heading": "Equação de Arrhenius (a partir de duas temperaturas)",
+      "ea": "Energia de ativação Ea",
+      "pre": "Fator pré-exponencial A (mesma unidade de k)",
+      "slope": "Inclinação do gráfico de ln k versus 1/T (−Ea/R)",
+      "chart_label": "Variação da concentração [A] com o tempo",
+      "note": "A velocidade é definida como −d[A]/dt = k[A]ⁿ (n é a ordem), e as equações valem para temperatura constante, sem reação inversa nem reações paralelas. A segunda ordem se aplica à forma 2A → P ou a A + B → P com concentrações iniciais de A e B iguais. O tempo pode estar em unidades diferentes de segundos, desde que seja a mesma unidade de k. A equação de Arrhenius considera Ea e A independentes da temperatura e é calculada com R = 8,314 J/(mol·K) e T = t + 273,15 K.",
+      "practice": "Resolver questões de cinética química",
+      "related": "Termos relacionados",
+      "js": {
+        "xlabel": "Tempo t (s)",
+        "ylabel": "[A] (mol/L)",
+        "units": [
+          "mol/(L·s)",
+          "s⁻¹",
+          "L/(mol·s)"
+        ]
+      },
+      "sections": [
+        {
+          "h": "Leis de velocidade integradas e meia-vida",
+          "p": "Integrando a lei de velocidade −d[A]/dt = k[A]ⁿ no tempo, obtém-se a variação da concentração com o tempo. Para ordem zero, [A] = [A]₀ − kt; para primeira ordem, ln([A]₀/[A]) = kt, ou seja, [A] = [A]₀ e^(−kt); para segunda ordem, 1/[A] = 1/[A]₀ + kt. Substituindo [A] = [A]₀/2, a meia-vida é t½ = [A]₀/(2k) para ordem zero, t½ = ln2/k para primeira ordem e t½ = 1/(k[A]₀) para segunda ordem. Para a reação de primeira ordem padrão (k = 2,0×10⁻³ s⁻¹), t½ = 0,693/2,0×10⁻³ ≈ 347 s, e após 600 segundos [A] = 0,10 × e^(−1,2) ≈ 0,0301 mol/L, com conversão de cerca de 70 %."
+        },
+        {
+          "h": "Como identificar a ordem de reação",
+          "p": "A ordem de reação não é dada pelos coeficientes da equação química; ela é determinada experimentalmente. Medindo a variação da concentração com o tempo e procurando qual dos gráficos de [A], ln[A] ou 1/[A] versus tempo é uma reta, conclui-se que a reação é de ordem zero, primeira ou segunda ordem, respectivamente. A dependência da meia-vida com a concentração inicial também é uma pista: para ordem zero é proporcional à concentração inicial, para primeira ordem é constante e para segunda ordem é inversamente proporcional à concentração inicial. Por exemplo, em uma reação de segunda ordem com k = 0,050 L/(mol·s) e [A]₀ = 0,20 mol/L, t½ = 1/(0,050 × 0,20) = 100 s, mas, reduzindo a concentração inicial à metade, passa a 200 s. Em uma reação de pseudoprimeira ordem, com um dos reagentes em grande excesso, a constante de velocidade aparente k' = k[substância em excesso] pode ser tratada como de primeira ordem."
+        },
+        {
+          "h": "Equação de Arrhenius e energia de ativação",
+          "p": "A dependência da constante de velocidade com a temperatura é expressa pela equação de Arrhenius, k = A exp(−Ea/RT). Dividindo as equações em duas temperaturas, obtém-se ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂), e a energia de ativação é Ea = R ln(k₂/k₁)/(1/T₁ − 1/T₂). Para a reação padrão, que dobra de velocidade de 25 °C (298,15 K) para 35 °C (308,15 K), Ea = 8,314 × 0,693 ÷ 1,088×10⁻⁴ ≈ 52,9 kJ/mol. Converta sempre a temperatura para kelvin e use o logaritmo natural, ln. No gráfico de ln k versus 1/T, a inclinação da reta é −Ea/R e o coeficiente linear é ln A."
+        },
+        {
+          "h": "Premissas e cuidados no cálculo",
+          "p": "O valor da constante de velocidade pode mudar conforme seja definida pela velocidade de consumo de A, −d[A]/dt, ou pela velocidade de reação dividida pelo coeficiente da equação; para 2A → P, a diferença é de um fator 2. As equações valem para temperatura constante e quando a reação inversa, as reações consecutivas e as reações paralelas podem ser desprezadas. Para uma reação de segunda ordem A + B → P com concentrações iniciais diferentes, é preciso outra equação integrada. A equação de Arrhenius também é uma aproximação, válida em uma faixa estreita de temperatura em que Ea e A podem ser considerados independentes da temperatura. Como Ea obtida com apenas dois pontos é sensível aos erros de medição, na prática medem-se as constantes de velocidade em muitas temperaturas e obtém-se Ea pela inclinação da reta do gráfico de ln k versus 1/T."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Por que a meia-vida de uma reação de primeira ordem não depende da concentração inicial?",
+          "a": "Em uma reação de primeira ordem, a velocidade de consumo é proporcional à concentração, então, a partir de qualquer instante, o tempo para a concentração cair à metade é sempre o mesmo, t½ = ln2/k. O decaimento de radionuclídeos é o exemplo típico. Para ordem zero e segunda ordem, a meia-vida depende da concentração inicial, então verificar se a meia-vida é constante permite confirmar se a reação é de primeira ordem."
+        },
+        {
+          "q": "\"A cada 10 °C de aumento, a velocidade dobra\" vale sempre?",
+          "a": "Não. É uma referência para reações com Ea de cerca de 50 kJ/mol perto da temperatura ambiente. Quanto maior a Ea, mais a velocidade muda com a temperatura; com Ea pequena, muda pouco. Informando duas temperaturas e as constantes de velocidade nesta ferramenta, você pode ver a que Ea isso corresponde."
+        },
+        {
+          "q": "Como a unidade da constante de velocidade k muda com a ordem?",
+          "a": "Para uma reação de ordem n, a unidade de k é (mol/L)^(1−n)·s⁻¹. Para ordem zero, mol/(L·s); para primeira ordem, s⁻¹; para segunda ordem, L/(mol·s). Olhando a unidade, é possível perceber se a ordem foi trocada."
+        }
+      ]
     }
   }
 }

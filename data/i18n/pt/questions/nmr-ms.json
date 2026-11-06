@@ -1,0 +1,182 @@
+{
+ "nmr-ms-001": {
+  "question": "Qual substância é geralmente usada como referência de δ = 0 ppm para o deslocamento químico em RMN de ¹H?",
+  "choices": [
+   "Tetrametilsilano Si(CH3)4",
+   "Clorofórmio deuterado CDCl3",
+   "Água deuterada D2O"
+  ],
+  "explanation": "O tetrametilsilano (TMS) tem 12 prótons equivalentes que dão um único singleto estreito. Como o silício é menos eletronegativo que o carbono, os prótons do TMS são fortemente blindados e aparecem em campo mais alto (à direita) que os sinais de quase todos os compostos orgânicos. Essa posição é definida como δ = 0 ppm, e o deslocamento químico é expresso em ppm, dividindo a diferença em relação à referência (Hz) pela frequência do aparelho (MHz). CDCl3 e D2O são solventes deuterados usados nas medidas e também servem para estabilizar o campo (lock). Os prótons residuais presentes em pequena quantidade no solvente (como o CHCl3 em δ 7,26) podem servir de referência secundária, mas a referência de 0 ppm é o TMS."
+ },
+ "nmr-ms-002": {
+  "question": "No espectro de RMN de ¹H do propanal CH3CH2CHO, qual valor mais se aproxima do deslocamento químico em que aparece o sinal do próton do aldeído (−CHO)?",
+  "choices": [
+   "δ cerca de 1,1",
+   "δ cerca de 2,4",
+   "δ cerca de 9,8"
+  ],
+  "explanation": "O próton do aldeído tem seus elétrons atraídos pela ligação com o oxigênio, muito eletronegativo, e além disso é fortemente desblindado pela anisotropia magnética criada pelos elétrons π da C=O; por isso aparece em campo muito baixo, em δ 9–10. Como dificilmente se sobrepõe a outros sinais, é útil para confirmar a presença de um aldeído. δ cerca de 2,4 é o valor típico do CH2 vizinho à carbonila (posição α), e δ cerca de 1,1 é o valor do CH3 terminal; ambos existem no propanal, mas não são o próton do aldeído. O próton do COOH dos ácidos carboxílicos aparece em campo ainda mais baixo, como um sinal largo em torno de δ 10–13."
+ },
+ "nmr-ms-003": {
+  "question": "No espectro de RMN de ¹H do bromoetano CH3CH2Br, qual é a forma correta do desdobramento do sinal do CH2?",
+  "choices": [
+   "Tripleto (3 linhas)",
+   "Quarteto (4 linhas)",
+   "Singleto (1 linha)"
+  ],
+  "explanation": "O desdobramento por acoplamento spin-spin depende do número n de prótons equivalentes no carbono vizinho, e o sinal se divide em n + 1 linhas (regra n + 1). O vizinho do CH2 é o CH3, com 3 prótons, então o sinal é um quarteto de 3 + 1 = 4 linhas, com razão de intensidades 1:3:3:1, segundo o triângulo de Pascal. Inversamente, o sinal do CH3 é um tripleto (1:2:1) por causa dos 2 prótons do CH2 vizinho. O tripleto é o erro de confundir com o sinal do CH3. O singleto é o erro de ignorar o desdobramento causado pelo CH3 vizinho (prótons equivalentes no mesmo carbono e o bromo não causam desdobramento). O CH2 é desblindado pela atração de elétrons do bromo e aparece em δ cerca de 3,4."
+ },
+ "nmr-ms-004": {
+  "question": "No espectro de RMN de ¹H do 2-cloropropano (CH3)2CHCl, qual é a combinação correta do número de sinais e da razão das integrais?",
+  "choices": [
+   "2 tipos, razão das integrais 3:1",
+   "2 tipos, razão das integrais 6:1",
+   "3 tipos, razão das integrais 3:3:1"
+  ],
+  "explanation": "Os dois grupos metila são trocados um pelo outro pelo plano de simetria da molécula sem alterar a estrutura, então os 6 prótons são quimicamente equivalentes e dão um único sinal. O próton do CH central é um só e dá outro sinal. Portanto, há 2 tipos de sinal e a razão das integrais é 6:1. As metilas formam um dubleto (δ cerca de 1,5) por causa do CH vizinho, e o CH forma um septeto (δ cerca de 4,1) por causa dos 6 prótons vizinhos. 3:1 é o erro de contar apenas uma das duas metilas equivalentes, e 3:3:1 é o erro de tratar as duas metilas como sinais separados. A razão das integrais representa a razão entre os números de prótons."
+ },
+ "nmr-ms-005": {
+  "question": "Entre CH3F, CH3Cl e CH3I, em qual os prótons do grupo metila aparecem em campo mais baixo (maior δ)?",
+  "choices": [
+   "CH3Cl",
+   "CH3I",
+   "CH3F"
+  ],
+  "explanation": "Quando há um átomo muito eletronegativo ligado, os elétrons ao redor do próton são atraídos, a blindagem diminui (desblindagem) e o sinal se desloca para campo baixo (δ maior). A eletronegatividade dos halogênios segue a ordem F (4,0) > Cl (3,2) > I (2,7), e o deslocamento químico da metila é de cerca de 4,3 ppm no CH3F, 3,1 ppm no CH3Cl e 2,2 ppm no CH3I. É um erro pensar que o iodo, um átomo grande e pesado, leva o sinal para campo mais baixo; aqui o que determina principalmente o deslocamento químico é a eletronegatividade. Note também que o sinal do CH3F é um dubleto por causa do acoplamento spin-spin com o ¹⁹F (spin 1/2)."
+ },
+ "nmr-ms-006": {
+  "question": "Quantos sinais aparecem no espectro de RMN de ¹³C (com desacoplamento total de prótons) do 1,4-dimetilbenzeno (p-xileno) CH3−C6H4−CH3?",
+  "choices": [
+   "3 sinais",
+   "4 sinais",
+   "8 sinais"
+  ],
+  "explanation": "O p-xileno é muito simétrico: os dois carbonos metílicos são equivalentes e dão 1 sinal, os carbonos do anel ligados às metilas (C1 e C4) também são equivalentes e dão 1 sinal, e os outros 4 carbonos CH do anel (C2, C3, C5 e C6) são todos equivalentes e dão 1 sinal, num total de 3. 8 sinais é o erro de contar separadamente todos os carbonos da molécula, e 4 sinais é o número de sinais do o-xileno (1,2-dimetilbenzeno). No m-xileno há 4 tipos de carbono no anel, o que, somado ao carbono metílico, dá 5 sinais. Assim, o número de sinais em RMN de ¹³C ajuda a distinguir isômeros pela simetria."
+ },
+ "nmr-ms-007": {
+  "question": "Em um aparelho de RMN de 400 MHz, o sinal de um próton apareceu 2920 Hz para o lado de campo baixo em relação ao TMS. Qual é o deslocamento químico desse sinal?",
+  "choices": [
+   "δ 2,92",
+   "δ 73,0",
+   "δ 7,30"
+  ],
+  "explanation": "O deslocamento químico é δ = diferença em relação à referência (Hz) / frequência do aparelho (MHz), ou seja, 2920/400 = 7,30 ppm. A região em torno de δ 7,3 é típica de prótons aromáticos. Em ppm, o valor não depende da frequência do aparelho: medindo o mesmo próton em um aparelho de 600 MHz, a diferença aumenta para 7,30 × 600 = 4380 Hz, mas δ continua 7,30. Já a constante de acoplamento J é expressa em Hz e não muda com o aparelho. δ 2,92 é o erro de dividir o valor em Hz por 1000, e δ 73,0 é um valor com erro de uma ordem de grandeza, muito fora da faixa usual da RMN de ¹H (cerca de 0 a 13 ppm)."
+ },
+ "nmr-ms-008": {
+  "question": "No espectro de RMN de ¹H de uma mistura de etanol CH3CH2OH e acetona CH3COCH3, a razão entre as integrais do tripleto do CH3 do etanol e do singleto da acetona foi 1,0 : 4,0. Qual é a razão entre as quantidades de matéria (etanol : acetona) na mistura?",
+  "choices": [
+   "1 : 4",
+   "1 : 2",
+   "2 : 1"
+  ],
+  "explanation": "A integral é proporcional ao número de prótons que contribuem para o sinal. O CH3 do etanol tem 3H por molécula, e a acetona tem 6H por molécula nas duas metilas equivalentes; por próton, o etanol dá 1,0/3 = 0,33 e a acetona 4,0/6 = 0,67, de modo que a razão entre as quantidades de matéria é 1 : 2. 1 : 4 é o erro de tomar a razão das integrais diretamente como razão de quantidades de matéria, e 2 : 1 é o erro de inverter a razão. Comparando as integrais divididas pelo número de prótons, é possível obter a razão entre as quantidades de matéria dos componentes mesmo sem padrões, e adicionando um padrão interno de pureza conhecida também se obtém o teor (RMN quantitativa, qNMR)."
+ },
+ "nmr-ms-009": {
+  "question": "No espectro de massas de um composto orgânico, apareceram na região do íon molecular picos em m/z 122 e m/z 124 com intensidades de quase 1 : 1. Qual elemento provavelmente está presente nesse composto?",
+  "choices": [
+   "Um átomo de bromo",
+   "Um átomo de cloro",
+   "Um átomo de nitrogênio"
+  ],
+  "explanation": "O bromo tem dois isótopos, ⁷⁹Br e ⁸¹Br, em proporção de quase 1 : 1 (cerca de 50,7 % e 49,3 %); por isso, uma molécula com um átomo de bromo mostra os picos M e M+2, que diferem em 2 unidades de massa, com quase a mesma intensidade. Por exemplo, o 1-bromopropano C3H7Br dá m/z 122 e 124. No cloro, ³⁵Cl e ³⁷Cl estão em cerca de 3 : 1, e M : M+2 ≈ 3 : 1. O isótopo ¹⁵N do nitrogênio é apenas cerca de 0,4 % e não gera um pico grande em M+2. Com dois átomos de bromo, M : M+2 : M+4 ≈ 1 : 2 : 1."
+ },
+ "nmr-ms-010": {
+  "question": "Qual descrição da região do íon molecular no espectro de massas do clorobenzeno C6H5Cl está correta? Considere os números de massa C = 12, H = 1, ³⁵Cl = 35 e ³⁷Cl = 37.",
+  "choices": [
+   "Picos em m/z 112 e m/z 114 com intensidades de cerca de 3 : 1",
+   "Picos em m/z 112 e m/z 114 com intensidades de cerca de 1 : 1",
+   "Picos em m/z 112 e m/z 113 com intensidades de cerca de 3 : 1"
+  ],
+  "explanation": "A massa de C6H5³⁵Cl é 6×12 + 5×1 + 35 = 112, e a de C6H5³⁷Cl é 114. No cloro natural, o ³⁵Cl corresponde a cerca de 75,8 % e o ³⁷Cl a cerca de 24,2 %, então a razão de intensidades M (112) : M+2 (114) é de cerca de 3 : 1. Cerca de 1 : 1 é o caso do bromo (⁷⁹Br e ⁸¹Br), um erro de confundi-lo com o cloro. O m/z 113 é o pico M+1, com um ¹³C, que numa molécula de 6 carbonos é apenas um pico pequeno, de cerca de 6,6 % de M (1,1 % × 6). Como a diferença de massa entre os isótopos do cloro é 2, o pico isotópico aparece em M+2, e não em M+1."
+ },
+ "nmr-ms-011": {
+  "question": "O pico do íon molecular de um composto orgânico formado apenas por C, H, N e O apareceu em m/z 73. O que se pode afirmar sobre o número de átomos de nitrogênio desse composto?",
+  "choices": [
+   "É zero ou um número par",
+   "É um número ímpar",
+   "Nada se pode afirmar só pela massa do íon molecular"
+  ],
+  "explanation": "Pela regra do nitrogênio, em moléculas formadas por C, H, N e O (e halogênios, S etc.), a massa molecular (massa inteira) é ímpar quando o número de átomos de nitrogênio é ímpar, e par quando é zero ou par. Isso porque, entre os elementos comuns, só o nitrogênio tem \"número de massa par (14) e valência ímpar (3)\". Como m/z 73 é ímpar, o número de nitrogênios é ímpar; por exemplo, a dietilamina C4H11N (4×12 + 11 + 14 = 73) se encaixa. Com massa molecular par, há zero ou um número par de nitrogênios. Atenção: a regra vale para o íon molecular e não se aplica diretamente aos íons fragmentos."
+ },
+ "nmr-ms-012": {
+  "question": "No espectro de massas por ionização por elétrons do neopentano (2,2-dimetilpropano) C(CH3)4 (massa molecular 72), qual é o m/z do íon que aparece como o pico mais intenso (pico base)?",
+  "choices": [
+   "m/z 72",
+   "m/z 15",
+   "m/z 57"
+  ],
+  "explanation": "O íon molecular do neopentano, C(CH3)4⁺· (m/z 72), ao perder uma metila do carbono quaternário central, forma imediatamente o cátion terc-butila estável (CH3)3C⁺ (72 − 15 = 57). Como essa clivagem ocorre com muita facilidade, m/z 57 é o pico base, e o pico do íon molecular quase não é observado. m/z 15 é o cátion metila CH3⁺, mas como ele é muito instável não forma um pico intenso. O princípio básico da interpretação dos fragmentos é que a carga positiva tende a ficar no lado do carbocátion mais estável. Para compostos cujo íon molecular é difícil de ver, confirma-se a massa molecular com métodos de ionização brandos, como a ionização química."
+ },
+ "nmr-ms-013": {
+  "question": "No espectro de massas por ionização por elétrons da 2-hexanona CH3COCH2CH2CH2CH3 (massa molecular 100), qual é o m/z do íon formado pelo rearranjo de McLafferty?",
+  "choices": [
+   "m/z 43",
+   "m/z 58",
+   "m/z 85"
+  ],
+  "explanation": "O rearranjo de McLafferty ocorre em compostos que têm hidrogênio no carbono γ em relação à carbonila. Por um estado de transição de seis membros, o hidrogênio γ passa para o oxigênio da carbonila, a ligação entre os carbonos α e β se rompe e sai um alceno neutro. Na 2-hexanona, o carbono γ é o C5; sai propeno CH2=CHCH3 (massa 42) e forma-se o cátion-radical do enol CH2=C(OH)CH3⁺· (100 − 42 = 58). m/z 43 é o íon acetílio CH3CO⁺, formado pela clivagem α junto à carbonila, e m/z 85 é o C4H9CO⁺, formado pela saída de um radical metila na clivagem α; nenhum dos dois envolve rearranjo."
+ },
+ "nmr-ms-014": {
+  "question": "Em espectrometria de massas de alta resolução, o m/z de um íon foi medido como 28,0313. Qual é o íon mais adequado? Considere as massas exatas ¹H = 1,00783, ¹²C = 12,00000, ¹⁴N = 14,00307 e ¹⁶O = 15,99491, e despreze a massa do elétron.",
+  "choices": [
+   "CO⁺",
+   "N2⁺",
+   "C2H4⁺"
+  ],
+  "explanation": "Os três têm massa inteira 28, mas massas exatas diferentes. CO dá 12,00000 + 15,99491 = 27,9949; N2 dá 2 × 14,00307 = 28,0061; e C2H4 dá 2 × 12,00000 + 4 × 1,00783 = 28,0313, e o que coincide com o valor medido é o C2H4⁺. A diferença entre CO e N2 é de cerca de 0,011, e entre N2 e C2H4, de cerca de 0,025; para separá-los é preciso uma resolução m/Δm da ordem de alguns milhares. Cada hidrogênio é cerca de 0,008 mais pesado que sua massa inteira, e o ¹⁶O é cerca de 0,005 mais leve, então quanto mais H tiver o íon, mais sua massa exata fica acima do inteiro. Na EM de alta resolução, essas diferenças permitem restringir a fórmula molecular."
+ },
+ "nmr-ms-015": {
+  "question": "Um composto de fórmula molecular C3H6O apresenta absorção forte em cerca de 1715 cm⁻¹ no IV e, na RMN de ¹H, apenas um singleto em δ 2,1. Qual é esse composto?",
+  "choices": [
+   "Acetona CH3COCH3",
+   "Propanal CH3CH2CHO",
+   "2-Propen-1-ol CH2=CHCH2OH"
+  ],
+  "explanation": "A absorção forte em cerca de 1715 cm⁻¹ indica C=O, e um único singleto na RMN de ¹H indica que todos os prótons são equivalentes e que não há prótons no carbono vizinho. Na acetona, as duas metilas (6H) são equivalentes e, separadas pelo carbono da carbonila, não desdobram uma à outra, dando um único singleto em δ cerca de 2,1. O propanal também tem C=O (cerca de 1725 cm⁻¹), mas mostra três tipos de sinal, incluindo o próton do aldeído em δ cerca de 9,8. O 2-propen-1-ol não tem C=O e mostra a absorção larga de O−H (3200–3550 cm⁻¹) e vários sinais, incluindo os prótons do alceno."
+ },
+ "nmr-ms-016": {
+  "question": "Depois de medir o espectro de RMN de ¹H do etanol em CDCl3, adicionou-se um pouco de água deuterada D2O à amostra, agitou-se bem e mediu-se de novo. Qual é a mudança correta no espectro?",
+  "choices": [
+   "O tripleto do CH3 desaparece, porque os hidrogênios da metila são trocados por deutério",
+   "Todos os sinais enfraquecem na mesma proporção, porque o D2O dilui a amostra",
+   "O sinal do OH desaparece, porque o hidrogênio do O−H é trocado por deutério"
+  ],
+  "explanation": "O hidrogênio do O−H de um álcool troca-se rapidamente com o deutério do D2O, formando O−D. Como o deutério não é observado na frequência de medida da RMN de ¹H, o sinal do OH desaparece ou enfraquece, e em seu lugar aparece o sinal do HOD. Os hidrogênios C−H não se trocam nessas condições sem catálise ácida ou básica, então os sinais do CH3 e do CH2 permanecem. O D2O quase não se mistura com o CDCl3, e adicionar um pouco dele não dilui a amostra a ponto de enfraquecer todos os sinais por igual. Essa troca com D2O é usada para atribuir sinais de hidrogênios facilmente trocáveis, como OH, NH e COOH. Como a posição do sinal do OH varia muito com a concentração, a temperatura e a umidade, essa troca é útil quando o deslocamento químico sozinho não basta para decidir."
+ },
+ "nmr-ms-017": {
+  "question": "Os prótons do benzeno aparecem em δ cerca de 7,3, em campo mais baixo que os prótons de alcenos como o eteno (δ cerca de 5–6). Qual é a principal razão correta para isso?",
+  "choices": [
+   "No campo externo, os elétrons π do anel geram uma corrente de anel que reforça o campo onde estão os prótons, fora do anel",
+   "Os carbonos do benzeno têm hibridização sp³ e são mais eletronegativos que os carbonos sp² dos alcenos, atraindo elétrons",
+   "Os prótons do benzeno são muito ácidos e formam ligações de hidrogênio com o solvente, o que reduz a blindagem"
+  ],
+  "explanation": "Quando um anel aromático é colocado num campo magnético externo, os elétrons π deslocalizados em ciclo geram uma corrente que circula pelo anel (corrente de anel). O campo induzido por essa corrente se opõe ao campo externo dentro do anel e acima e abaixo dele, e o reforça fora do anel. Como os prótons do benzeno ficam fora do anel, são fortemente desblindados e aparecem cerca de 1,5–2 ppm em campo mais baixo que os prótons de alcenos. Esse efeito também serve como indicador de aromaticidade: no [18]anuleno, que tem prótons também dentro do anel, os prótons internos aparecem em campo mais alto que o TMS (δ negativo). Os carbonos do benzeno têm a mesma hibridização sp² dos alcenos, então a diferença não se explica pela hibridização. A ligação C−H do benzeno é muito pouco ácida (pKa cerca de 43), e a ligação de hidrogênio também não explica o efeito."
+ },
+ "nmr-ms-018": {
+  "question": "Na RMN de ¹H do 2-butenoato de metila CH3CH=CHCOOCH3, a constante de acoplamento J entre os dois hidrogênios da ligação dupla foi de cerca de 16 Hz. O que é correto sobre a configuração da ligação dupla?",
+  "choices": [
+   "Isômero Z, porque o J entre hidrogênios em posição cis é grande, de 12–18 Hz",
+   "Isômero E, porque o J entre hidrogênios em posição trans é grande, de 12–18 Hz",
+   "Não é possível decidir, porque J varia com o campo externo e não informa a configuração"
+  ],
+  "explanation": "A constante de acoplamento entre dois hidrogênios dos lados de uma ligação dupla depende do ângulo diedro; como referência, é de 12–18 Hz para trans (ângulo diedro de 180°) e de 6–12 Hz para cis (0°). Cerca de 16 Hz está na faixa trans, então os dois hidrogênios estão em lados opostos da ligação dupla, e a metila e o grupo éster também: é o isômero E. Considerar grande o J cis é o erro de inverter os dois valores. J é uma grandeza expressa em Hz e, ao contrário do deslocamento químico, expresso em ppm, não depende da intensidade do campo do aparelho. Como reflete a relação de posição entre núcleos unidos por ligações, permite distinguir os isômeros E e Z do mesmo composto por RMN de ¹H. A vantagem é poder decidir a partir de um único espectro, sem comparar os dois isômeros lado a lado."
+ },
+ "nmr-ms-019": {
+  "question": "Por espectrometria de massas de alta resolução, determinou-se que a fórmula molecular de um composto é C8H8O2. Qual é o grau de insaturação desse composto (soma do número de anéis e de ligações π)?",
+  "choices": [
+   "4",
+   "10",
+   "5"
+  ],
+  "explanation": "O grau de insaturação de um composto formado por C, H e O é calculado por (2C + 2 − H)/2, e o número de oxigênios não entra na fórmula. Para C8H8O2, (2 × 8 + 2 − 8)/2 = 10/2 = 5. Um anel benzênico corresponde a um anel e três ligações π, ou seja, a um grau de insaturação 4; se houver anel benzênico, a unidade restante é uma C=O ou algo semelhante. Por exemplo, o benzoato de metila C6H5COOCH3 e o ácido fenilacético C6H5CH2COOH têm essa fórmula e grau de insaturação 5. 4 é o valor obtido ao esquecer o \"+ 2\" da fórmula, e 10 é o valor obtido ao esquecer a divisão final por 2. Com grau de insaturação 4 ou mais, suspeita-se de anel aromático, e a estrutura é restringida junto com a absorção de C=O no IV e os sinais em torno de δ 7 na RMN de ¹H."
+ },
+ "nmr-ms-020": {
+  "question": "Ao medir um composto por ionização por eletrospray (ESI) no modo de íons positivos, apareceram picos intensos em m/z 301 e m/z 323, e verificou-se que ambos vêm do mesmo composto. Com H = 1 e Na = 23, qual é a massa molecular (massa inteira) mais adequada para esse composto?",
+  "choices": [
+   "300",
+   "301",
+   "323"
+  ],
+  "explanation": "A ESI é um método de ionização brando que quase não fragmenta as moléculas; no modo de íons positivos, observam-se principalmente [M+H]⁺, com um próton adicionado, e [M+Na]⁺, com um íon sódio adicionado. A diferença entre os dois picos, 323 − 301 = 22, coincide com a troca de H (1) por Na (23), então m/z 301 é [M+H]⁺, m/z 323 é [M+Na]⁺, e M = 300. 301 é o erro de ler a molécula protonada como se fosse o íon molecular M⁺· da ionização por elétrons. Se 323 fosse a molécula, 301 seria um fragmento formado pela perda de uma molécula neutra de massa 22, mas essa clivagem é improvável, e o básico é ler a diferença como a diferença entre íons de adição. Também ao aplicar a regra do nitrogênio, primeiro se subtrai 1 para voltar à massa molecular."
+ }
+}

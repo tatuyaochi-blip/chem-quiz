@@ -1,0 +1,182 @@
+{
+ "stereochem-001": {
+  "question": "Qual dos compostos a seguir tem um átomo de carbono assimétrico (centro quiral)?",
+  "choices": [
+   "1-Propanol, CH3CH2CH2OH",
+   "2-Propanol, (CH3)2CHOH",
+   "2-Butanol, CH3CH(OH)CH2CH3"
+  ],
+  "explanation": "Um carbono assimétrico é um carbono sp³ ligado a quatro átomos ou grupos diferentes entre si. O C2 do 2-butanol está ligado a quatro grupos diferentes, −H, −OH, −CH3 e −CH2CH3; é, portanto, um carbono assimétrico, e existe um par de enantiômeros, as formas (R) e (S). O C2 do 2-propanol está ligado a dois grupos −CH3 iguais, e no 1-propanol todos os carbonos têm dois ou mais hidrogênios iguais; por isso não há carbono assimétrico. Uma molécula com um único carbono assimétrico é sempre quiral e não pode ser sobreposta à sua imagem especular."
+ },
+ "stereochem-002": {
+  "question": "Qual propriedade tem valores diferentes para um par de enantiômeros?",
+  "choices": [
+   "Ponto de fusão dos cristais puros",
+   "Sentido de rotação do plano da luz polarizada",
+   "Solubilidade em um solvente aquiral"
+  ],
+  "explanation": "Os enantiômeros são imagens especulares um do outro e têm exatamente as mesmas distâncias interatômicas e os mesmos ângulos de ligação; por isso o ponto de fusão, o ponto de ebulição, a densidade, a solubilidade em solventes aquirais, como água e hexano, e os espectros de IV e de RMN são iguais. As diferenças aparecem nas interações com algo quiral: eles giram o plano da luz polarizada em ângulos de mesma magnitude e sentidos opostos (rotações específicas de mesmo valor e sinais opostos). Também são distinguidos na cromatografia com colunas quirais e na ligação a enzimas e receptores. Os cristais de um racemato podem ter ponto de fusão diferente do enantiômero puro, mas isso é uma propriedade da mistura."
+ },
+ "stereochem-003": {
+  "question": "Pelas regras de prioridade CIP, qual dos substituintes a seguir tem a maior prioridade?",
+  "choices": [
+   "−CH2Cl",
+   "−CH(CH3)2",
+   "−CH2OH"
+  ],
+  "explanation": "Pelas regras de prioridade CIP, comparam-se primeiro os números atômicos dos átomos ligados diretamente ao estereocentro. Como nos três casos é um carbono, comparam-se em seguida os conjuntos de átomos ligados a esse carbono, ordenados do maior para o menor número atômico. −CH2Cl tem (Cl, H, H), −CH2OH tem (O, H, H) e −CH(CH3)2 tem (C, C, H); comparando os primeiros átomos, Cl (17) > O (8) > C (6), e −CH2Cl tem a maior prioridade. Como a diferença já aparece aí, os átomos seguintes não são comparados. O grupo isopropila tem mais carbonos e é um substituinte “grande”, mas a prioridade não é determinada pelo número ou pelo tamanho dos átomos, e sim pelo número atômico no primeiro ponto em que surge uma diferença."
+ },
+ "stereochem-004": {
+  "question": "Quantos estereoisômeros tem uma aldo-hexose de cadeia aberta, HOCH2(CHOH)4CHO (como a glicose), contados como estruturas de cadeia aberta?",
+  "choices": [
+   "16",
+   "4",
+   "8"
+  ],
+  "explanation": "Na aldo-hexose de cadeia aberta, os quatro carbonos de C2 a C5 são carbonos assimétricos, cada um com −H, −OH e duas cadeias carbônicas diferentes. Como as extremidades CHO e CH2OH são diferentes, a molécula não tem simetria e não há forma meso; o número de estereoisômeros é o máximo, 2⁴ = 16. São 8 formas D (glicose, manose, galactose etc.) e as 8 formas L, seus respectivos enantiômeros. 8 é o valor contando apenas a série D, e 4, o valor contando dois carbonos assimétricos. Na forma cíclica (piranose), o C1 também se torna um novo estereocentro (carbono anomérico), e surge a distinção entre α e β."
+ },
+ "stereochem-005": {
+  "question": "Quantos estereoisômeros tem, no total, o 2,3-dibromobutano, CH3CHBrCHBrCH3?",
+  "choices": [
+   "2",
+   "3",
+   "4"
+  ],
+  "explanation": "C2 e C3 são carbonos assimétricos, ambos ligados a −H, −Br, −CH3 e −CHBrCH3; assim, são possíveis 4 combinações (2² = 4): (2R,3R), (2S,3S), (2R,3S) e (2S,3R). Porém, como as duas metades da molécula têm a mesma estrutura, (2R,3S) e (2S,3R) podem ser sobrepostos graças a um plano de simetria interno e são o mesmo composto meso. No fim, há 3 estereoisômeros: o par de enantiômeros quirais (2R,3R) e (2S,3S) e um composto meso aquiral. 4 é o erro de aplicar diretamente 2ⁿ, e 2 é o erro de esquecer o composto meso. O composto meso tem carbonos assimétricos, mas não apresenta atividade óptica."
+ },
+ "stereochem-006": {
+  "question": "Qual é a relação correta entre as formas (2R,3R) e (2R,3S) do 2-bromo-3-clorobutano, CH3CHBrCHClCH3?",
+  "choices": [
+   "Enantiômeros",
+   "O mesmo composto",
+   "Diastereoisômeros"
+  ],
+  "explanation": "Os enantiômeros são imagens especulares um do outro, com todas as designações dos estereocentros invertidas; o enantiômero da forma (2R,3R) é a (2S,3S). A forma (2R,3S) tem apenas parte dos estereocentros (C3) invertida; é um estereoisômero que não é imagem especular, ou seja, um diastereoisômero. Nesta molécula os substituintes de C2 e C3 (Br e Cl) são diferentes, por isso não há forma meso, e (2R,3S) também não pode ser idêntico a (2R,3R). Os diastereoisômeros diferem no ponto de fusão, no ponto de ebulição, na solubilidade, no espectro de RMN etc.; por isso, ao contrário dos enantiômeros, podem ser separados por recristalização, destilação ou cromatografia comuns."
+ },
+ "stereochem-007": {
+  "question": "A rotação específica da forma (+) pura de um composto é +40,0°. Se a rotação específica de uma amostra, medida nas mesmas condições, é +30,0°, qual é a fração (% em mol) da forma (+) na amostra? Considere que não há impurezas e que a rotação específica é proporcional ao excesso enantiomérico.",
+  "choices": [
+   "75,0 %",
+   "87,5 %",
+   "12,5 %"
+  ],
+  "explanation": "A pureza óptica é 30,0/40,0 = 0,750; se a rotação específica é proporcional ao excesso enantiomérico (ee), ee = 75,0 %. Como ee = % de (+) − % de (−) e % de (+) + % de (−) = 100 %, a forma (+) é (100 + 75,0)/2 = 87,5 %, e a forma (−), 12,5 %. Vendo a amostra como “75,0 % de forma (+) pura e 25,0 % de racemato (dos quais 12,5 % de forma (+))”, também se chega a 87,5 %. 75,0 % é o erro de tomar o ee pela fração da forma (+), e 12,5 % é a fração da forma minoritária, a (−)."
+ },
+ "stereochem-008": {
+  "question": "Dissolveram-se 5,00 g de um composto em um solvente até 100 mL e mediu-se a rotação óptica em uma cela de 20,0 cm, a 20 °C, com a linha D do sódio: +1,30°. Qual é a rotação específica [α]? Use [α] = α/(l·c), com l em dm e c em g/mL.",
+  "choices": [
+   "+13,0°",
+   "+1,30°",
+   "+0,130°"
+  ],
+  "explanation": "A concentração é c = 5,00 g / 100 mL = 0,0500 g/mL, e o comprimento da cela é l = 20,0 cm = 2,00 dm. [α] = α/(l·c) = 1,30 / (2,00 × 0,0500) = +13,0° (a unidade é deg·mL·g⁻¹·dm⁻¹, mas por convenção costuma-se escrever só “°”). +1,30° é o resultado de usar o comprimento da cela em cm, 20,0, e coincide por acaso com o valor observado. +0,130° é o valor obtido usando a concentração em g/100 mL, 5,00. Como a rotação específica varia com a temperatura e o comprimento de onda, as condições de medição devem sempre ser informadas."
+ },
+ "stereochem-009": {
+  "question": "A rotação específica da forma (R) pura de um composto é −50,0°. Para uma mistura com 80,0 % de (R) e 20,0 % de (S) (razão molar), qual é a combinação correta de excesso enantiomérico (ee) e rotação específica? Considere a rotação específica proporcional ao ee.",
+  "choices": [
+   "ee 80,0 %, −40,0°",
+   "ee 60,0 %, +30,0°",
+   "ee 60,0 %, −30,0°"
+  ],
+  "explanation": "O ee é a fração do enantiômero majoritário menos a do minoritário: 80,0 − 20,0 = 60,0 %. Os 20,0 % de (S) se cancelam com uma quantidade igual de (R), 20,0 %, formando 40,0 % de racemato, e apenas os 60,0 % restantes de (R) contribuem para a rotação. A rotação específica é −50,0° × 0,600 = −30,0°. ee 80,0 % e −40,0° é o erro de usar diretamente a fração de (R) sem considerar o cancelamento, e +30,0° é o erro de trocar o sinal. O fato de a forma (R) ser levógira (−) é um dado fornecido para este composto: não existe correspondência geral entre a designação R/S e o sinal da rotação."
+ },
+ "stereochem-010": {
+  "question": "Qual afirmação sobre a relação entre a designação R/S (designação CIP) e o sentido de rotação do plano da luz polarizada (+/−) está correta?",
+  "choices": [
+   "A forma R é sempre dextrógira (+), pois a prioridade CIP é definida pelo sentido da rotação óptica",
+   "A forma R é sempre levógira (−), pois o arranjo em sentido horário gira a luz no sentido anti-horário",
+   "Não há correspondência geral entre as duas; o sentido da rotação é determinado por medição"
+  ],
+  "explanation": "R/S é uma nomenclatura atribuída mecanicamente a partir da prioridade dos substituintes e de seu arranjo no espaço, enquanto o sentido da rotação (+/−) é uma grandeza física obtida medindo de fato a luz polarizada. As duas são independentes: por exemplo, o ácido (R)-glicérico, obtido pela oxidação do (R)-gliceraldeído, que é dextrógiro, é levógiro. Mesmo para um único composto, o sinal da rotação pode mudar com o solvente, o pH e o comprimento de onda de medição. A designação D/L, usada para açúcares e aminoácidos, também se baseia no arranjo na projeção de Fischer e não tem relação com o sentido da rotação. Portanto, as alternativas que afirmam que a forma R é sempre dextrógira ou sempre levógira estão ambas erradas."
+ },
+ "stereochem-011": {
+  "question": "Um carbono assimétrico foi observado com o substituinte de menor prioridade (H) voltado para o observador (para a frente), e os demais substituintes apareciam em sentido horário na ordem de prioridade 1→2→3. Qual é a designação desse estereocentro?",
+  "choices": [
+   "S",
+   "R",
+   "Não é possível determiná-la só com essas informações"
+  ],
+  "explanation": "Pela regra CIP, observa-se a molécula com o substituinte de menor prioridade afastado do observador; se 1→2→3 gira no sentido horário, a designação é R, e se gira no sentido anti-horário, é S. Com o substituinte de menor prioridade voltado para a frente, a molécula está sendo vista pelo lado oposto, e o sentido de rotação aparece invertido. Portanto, se o sentido aparente é horário, vista do lado correto a sequência é anti-horária: S. Responder R pelo que se vê é o erro típico. Conhecendo a orientação do grupo de menor prioridade e o sentido de rotação, a designação fica determinada de forma única; assim, “não é possível determinar” também está errado. Quando, na representação com cunhas, o H está para a frente, é útil lembrar que basta inverter o resultado obtido."
+ },
+ "stereochem-012": {
+  "question": "Qual dos compostos a seguir é quiral (tem enantiômero)?",
+  "choices": [
+   "cis-1,2-Dimetilciclopropano",
+   "trans-1,2-Dimetilciclopropano",
+   "1,1-Dimetilciclopropano"
+  ],
+  "explanation": "No 1,2-dimetilciclopropano, C1 e C2 são carbonos assimétricos. Na forma cis, os dois grupos metila ficam do mesmo lado do anel, e há um plano de simetria perpendicular ao anel que passa por C3 e pelo ponto médio da ligação C1−C2; é um composto meso (aquiral), sobreponível à sua imagem especular. A forma trans não tem plano nem centro de simetria e existe como o par de enantiômeros (1R,2R) e (1S,2S); portanto é quiral. O 1,1-dimetilciclopropano não tem carbono assimétrico, e o próprio plano do anel é um plano de simetria; é aquiral. É importante julgar não só pela presença de carbonos assimétricos, mas também pela presença de um plano de simetria na molécula inteira."
+ },
+ "stereochem-013": {
+  "question": "Qual é a combinação correta da mais estável das duas conformações em cadeira do metilciclo-hexano e do motivo?",
+  "choices": [
+   "A conformação com a metila equatorial, pois na axial surgem interações 1,3-diaxiais",
+   "A conformação com a metila axial, pois a metila se afasta perpendicularmente do anel e sofre menos repulsão estérica dos H das posições 3 e 5",
+   "As duas conformações têm a mesma energia e existem 50 % cada, qualquer que seja a orientação da metila"
+  ],
+  "explanation": "Na conformação em cadeira do ciclo-hexano, a inversão do anel troca os substituintes axiais e equatoriais. Com a metila axial, ela fica próxima dos hidrogênios axiais das posições 3 e 5, do mesmo lado do anel, e surge repulsão estérica (interação 1,3-diaxial). A conformação equatorial é mais estável em cerca de 7,3 kJ/mol de energia de Gibbs, e a 25 °C cerca de 95 % das moléculas estão na conformação equatorial. As ligações axiais são perpendiculares ao plano médio do anel e se aproximam dos substituintes do mesmo lado; a ideia de que a metila “se afasta” está invertida. Com substituintes grandes, como o grupo terc-butila, a molécula fica quase totalmente fixa na conformação equatorial."
+ },
+ "stereochem-014": {
+  "question": "No metilciclo-hexano, a conformação com a metila equatorial é 7,3 kJ/mol mais estável em energia de Gibbs que a conformação axial. Qual valor mais se aproxima da fração da conformação equatorial no equilíbrio a 25 °C (298 K)? Considere a constante dos gases R = 8,314 J/(mol·K).",
+  "choices": [
+   "Cerca de 5 %",
+   "Cerca de 95 %",
+   "Cerca de 99,9 %"
+  ],
+  "explanation": "A constante de equilíbrio é K = [equatorial]/[axial] = exp(−ΔG°/RT) (ΔG° de axial → equatorial = −7300 J/mol) = exp(7300 / (8,314 × 298)) = exp(2,95) ≈ 19. A fração da conformação equatorial é K/(1 + K) = 19/20 ≈ 0,95, cerca de 95 %. Cerca de 5 % é a fração da conformação axial, a minoritária. Cerca de 99,9 % é o erro de calcular uma potência de 10 em vez de exp: 10 elevado a 2,95 ≈ 890. À temperatura ambiente, a inversão do anel é tão rápida que ocorre mais de 100000 vezes por segundo; por isso as duas conformações não podem ser separadas e existem como uma mistura em equilíbrio."
+ },
+ "stereochem-015": {
+  "question": "Em qual dos dimetilciclo-hexanos a seguir as duas metilas podem ficar ambas equatoriais em uma conformação em cadeira?",
+  "choices": [
+   "cis-1,4-Dimetilciclo-hexano",
+   "trans-1,3-Dimetilciclo-hexano",
+   "trans-1,4-Dimetilciclo-hexano"
+  ],
+  "explanation": "Nas posições 1,4, dois substituintes voltados para o mesmo lado do anel (cis) ficam um axial e outro equatorial (a,e), e dois voltados para lados opostos (trans) ficam ambos equatoriais (e,e) ou ambos axiais (a,a). Assim, a forma trans-1,4 pode adotar a conformação e,e, que é muito estável. Nas posições 1,3, a relação se inverte: a forma cis é e,e e a trans, a,e. Nas posições 1,2, a forma trans é e,e e a cis, a,e. Nas formas cis-1,4 e trans-1,3, uma das metilas fica axial em qualquer das conformações. O ponto em que é fácil errar é que a correspondência entre cis/trans e a/e se inverte conforme as posições."
+ },
+ "stereochem-016": {
+  "question": "Para o isômero do 2-cloro-2-buteno, CH3CCl=CHCH3, em que as duas metilas estão do mesmo lado da dupla ligação, qual é a designação E/Z correta?",
+  "choices": [
+   "E: o Cl e o CH3 de C3, de maior prioridade, estão em lados opostos da dupla ligação",
+   "Z: as duas metilas estão do mesmo lado da dupla ligação, no mesmo arranjo da forma cis",
+   "Indeterminada: a designação E/Z não pode ser usada em alcenos trissubstituídos"
+  ],
+  "explanation": "Na designação E/Z, determina-se pelas regras de prioridade CIP o substituinte de maior prioridade em cada carbono da dupla ligação; se os de maior prioridade estão do mesmo lado, a designação é Z, e se estão em lados opostos, E. Em C2, o Cl (número atômico 17) tem prioridade sobre o CH3; em C3, o CH3 tem prioridade sobre o H. Quando as duas metilas estão do mesmo lado, o Cl, de maior prioridade em C2, fica do lado oposto ao CH3 de C3; portanto, este isômero é o E. Chamar de Z porque as metilas estão do mesmo lado é o erro de aplicar diretamente a visão cis/trans à designação E/Z; as duas nem sempre coincidem. A designação E/Z pode ser usada sempre que cada carbono da dupla ligação tem dois substituintes diferentes, qualquer que seja o número de substituintes; vale, portanto, também para alcenos trissubstituídos."
+ },
+ "stereochem-017": {
+  "question": "Nas conformações em torno da ligação C2−C3 do butano, a forma anti é 3,8 kJ/mol mais estável que a forma gauche. Há duas formas gauche, imagens especulares uma da outra, de mesma energia. Qual valor mais se aproxima da fração da forma anti a 25 °C (298 K)? Despreze as formas eclipsadas, considere a diferença de energia como diferença de energia de Gibbs e use R = 8,314 J/(mol·K).",
+  "choices": [
+   "Cerca de 82 %",
+   "Cerca de 30 %",
+   "Cerca de 70 %"
+  ],
+  "explanation": "A razão entre uma forma gauche e a forma anti é exp(−3800/(8,314 × 298)) = exp(−1,53) ≈ 0,216. Como há duas formas gauche, a razão entre o total de formas gauche e a forma anti é 2 × 0,216 = 0,432, e a fração da forma anti é 1/(1 + 0,432) ≈ 0,70, cerca de 70 %. Cerca de 82 % é 1/(1 + 0,216), o erro de contar as duas formas gauche como uma só. Cerca de 30 % é a fração das duas formas gauche somadas: confunde-se o que se pede. A distribuição depende não só da energia das conformações, mas também de quantas conformações têm a mesma energia (degenerescência). A forma gauche é menos estável porque as duas metilas se aproximam, com ângulo diedro de 60°, e surge repulsão estérica."
+ },
+ "stereochem-018": {
+  "question": "Qual afirmação sobre o 2,3-pentadieno, CH3CH=C=CHCH3, está correta?",
+  "choices": [
+   "Não tem carbono assimétrico, por isso é aquiral e não tem enantiômero",
+   "Não tem carbono assimétrico, mas é quiral, pois os grupos das pontas ficam em planos ortogonais",
+   "O carbono central é assimétrico, por isso a molécula é quiral e tem enantiômero"
+  ],
+  "explanation": "O carbono central de um aleno C=C=C tem hibridização sp, e as duas ligações π, uma de cada lado, são ortogonais entre si. Por isso os substituintes dos carbonos das extremidades ficam em dois planos girados 90° um em relação ao outro. No 2,3-pentadieno, cada carbono das extremidades tem dois substituintes diferentes, H e CH3; a molécula não tem plano de simetria e é quiral, não sobreponível à sua imagem especular (quiralidade axial). Considerar a molécula aquiral por não ter carbono assimétrico é o erro de basear o julgamento da quiralidade apenas nos carbonos assimétricos. O carbono central é um carbono sp ligado a apenas dois átomos e não é um carbono assimétrico. No 2-metil-2,3-pentadieno, (CH3)2C=C=CHCH3, que tem dois substituintes iguais em uma das extremidades, surge um plano de simetria, e a molécula é aquiral."
+ },
+ "stereochem-019": {
+  "question": "Para separar os dois enantiômeros de um ácido carboxílico racêmico, formaram-se sais com (R)-1-feniletilamina opticamente pura. Qual é o motivo correto de esse método permitir a separação?",
+  "choices": [
+   "Os dois sais são diastereoisômeros e têm solubilidades diferentes, por isso podem ser separados por recristalização",
+   "Os dois sais são enantiômeros, e a diferença no sentido da rotação óptica altera a facilidade de precipitação",
+   "A amina forma sal com apenas um enantiômero, e o outro fica como ácido e pode ser separado por extração"
+  ],
+  "explanation": "O sal do ácido (R) com a amina (R) e o sal do ácido (S) com a amina (R) são imagens especulares apenas na parte do ácido; como um todo, não são imagens especulares um do outro: são diastereoisômeros. Como os diastereoisômeros diferem em solubilidade e ponto de fusão, um dos sais pode ser obtido como cristal por recristalização e, tratando-o com um ácido forte, recupera-se o ácido carboxílico como enantiômero puro. Isso é chamado de resolução óptica pelo método dos sais diastereoisoméricos. Considerar os dois sais enantiômeros é um erro: se fossem enantiômeros, teriam a mesma solubilidade em solventes aquirais e não poderiam ser separados. O sentido da rotação óptica também não determina a facilidade de precipitação. A neutralização ácido-base ocorre rapidamente com os dois enantiômeros, de modo que não é verdade que só um deles forma sal."
+ },
+ "stereochem-020": {
+  "question": "Uma amina com três grupos alquila diferentes no nitrogênio (por exemplo, a etilmetilpropilamina) é um estereocentro se o par não ligante for considerado o quarto substituinte, mas em geral não pode ser resolvida em enantiômeros. Qual é o motivo correto?",
+  "choices": [
+   "O par não ligante não pode ser considerado substituinte, o nitrogênio não é estereocentro e a molécula é aquiral",
+   "Em água as aminas são sempre protonadas, e dois dos quatro substituintes do nitrogênio passam a ser H iguais",
+   "O nitrogênio se inverte rapidamente por um estado de transição planar, e os dois arranjos se trocam à temperatura ambiente"
+  ],
+  "explanation": "O nitrogênio de uma amina trissubstituída tem geometria próxima da tetraédrica, contando o par de elétrons não ligante, e, se os três substituintes forem diferentes, em cada instante adota um arranjo não sobreponível à sua imagem especular. Porém, o nitrogênio se inverte como um guarda-chuva virado pelo vento, passando por um estado de transição sp² em que os substituintes ficam em um plano (inversão do nitrogênio). A barreira é pequena, cerca de 24 kJ/mol para a amônia e da ordem de algumas dezenas de kJ/mol mesmo para aminas simples; à temperatura ambiente os dois arranjos se trocam rapidamente, e por isso não é possível a resolução. O par não ligante pode ser tratado como o substituinte de menor prioridade na regra CIP; a ideia de que não há estereocentro está errada. Mesmo com a protonação, apenas um H se liga ao N, e os quatro substituintes continuam todos diferentes. Nos sais de amônio quaternário, que não podem se inverter, a resolução em enantiômeros é possível se os quatro substituintes forem diferentes."
+ }
+}

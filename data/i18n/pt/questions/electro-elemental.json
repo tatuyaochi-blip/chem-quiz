@@ -1,0 +1,182 @@
+{
+ "electro-elemental-001": {
+  "question": "Na resposta ideal de um eletrodo de vidro de pH, qual valor mais se aproxima da variação de potencial quando o pH muda 1 unidade a 25 °C (inclinação nernstiana)?",
+  "choices": [
+   "Cerca de 25,7 mV",
+   "Cerca de 29,6 mV",
+   "Cerca de 59,2 mV"
+  ],
+  "explanation": "O coeficiente da equação de Nernst é 2,303RT/(nF), que a 25 °C (298,15 K) vale 2,303 × 8,314 × 298,15/96485 ≈ 0,0592 V. Com n = 1, o potencial varia cerca de 59,2 mV a cada vez que a atividade muda 10 vezes. O eletrodo de vidro de pH responde ao H⁺ (n = 1), então a variação é de cerca de 59,2 mV por unidade de pH. Cerca de 29,6 mV é a inclinação de eletrodos que respondem a íons com n = 2, como Ca²⁺ e Cu²⁺. Cerca de 25,7 mV é o valor de RT/F, um erro de esquecer o fator 2,303 que converte a variação por logaritmo natural em logaritmo decimal. A inclinação é proporcional à temperatura absoluta e chega a cerca de 61,5 mV a 37 °C; por isso os medidores de pH têm compensação de temperatura."
+ },
+ "electro-elemental-002": {
+  "question": "A 25 °C, o potencial-padrão de eletrodo de Cu²⁺ + 2e⁻ ⇌ Cu é +0,340 V (em relação ao eletrodo-padrão de hidrogênio). Qual é o potencial do eletrodo de cobre quando a atividade de Cu²⁺ é 1,0×10⁻³? Considere 2,303RT/F = 0,0592 V.",
+  "choices": [
+   "+0,162 V",
+   "+0,251 V",
+   "+0,429 V"
+  ],
+  "explanation": "A equação de Nernst é E = E° + (0,0592/n) log a(Cu²⁺); com n = 2, E = 0,340 + (0,0592/2) × log(1,0×10⁻³) = 0,340 + 0,0296 × (−3) = 0,340 − 0,0888 = +0,251 V. +0,162 V é o erro de tomar n = 1 e baixar 0,0592 × 3 = 0,178 V, e +0,429 V é o erro de inverter o sinal do logaritmo. Quanto menor a concentração do íon metálico, mais o potencial se desloca para o lado negativo; numa reação de 2 elétrons, ele cai cerca de 29,6 mV a cada diluição de 10 vezes."
+ },
+ "electro-elemental-003": {
+  "question": "Qual é a principal razão para usar duas ou mais soluções-padrão de pH diferentes (por exemplo, o padrão neutro de fosfato de pH 6,86 e o padrão de ftalato de pH 4,01) na calibração de um medidor de pH?",
+  "choices": [
+   "Determinar tanto o desvio do potencial do eletrodo (ponto zero) quanto a variação de potencial por unidade de pH (inclinação)",
+   "Com duas soluções-padrão, o efeito da temperatura de medida deixa de existir",
+   "Com uma só solução-padrão, a solução interna do eletrodo de vidro não chega ao equilíbrio"
+  ],
+  "explanation": "O potencial do par eletrodo de vidro e eletrodo de referência é representado pela reta E = E₀ − S × pH. Para determinar a reta, são necessários dois parâmetros, o intercepto (E₀, ponto zero) e a inclinação (S), e com uma só solução-padrão só se ajusta o intercepto. Por isso, ajusta-se o ponto zero com uma solução-padrão próxima do neutro e a inclinação com outra solução-padrão que, junto com a primeira, delimite a faixa de medida. Se a inclinação ficar muito abaixo do valor teórico (cerca de 59,2 mV/pH a 25 °C), suspeita-se de desgaste ou sujeira do eletrodo. Como a inclinação e o pH das soluções-padrão variam com a temperatura, é preciso, à parte, a compensação de temperatura e a correção do pH para cada temperatura; usar duas soluções-padrão não elimina o efeito da temperatura."
+ },
+ "electro-elemental-004": {
+  "question": "Na calibração de um eletrodo de pH, ele indicou +5,0 mV na solução-padrão de pH 6,86 e +170,0 mV na de pH 4,01. Medindo uma amostra na mesma temperatura, obteve-se +60,0 mV. Se o potencial varia linearmente com o pH, qual valor mais se aproxima do pH da amostra?",
+  "choices": [
+   "Cerca de 5,91",
+   "Cerca de 7,81",
+   "Cerca de 2,11"
+  ],
+  "explanation": "A inclinação é (170,0 − 5,0)/(4,01 − 6,86) = 165,0/(−2,85) ≈ −57,9 mV/pH, e quanto menor o pH, mais positivo o potencial. A amostra está 60,0 − 5,0 = 55,0 mV mais positiva que a solução-padrão de pH 6,86, então seu pH é 55,0/57,9 ≈ 0,95 menor: 6,86 − 0,95 = 5,91. Calculando a partir de pH 4,01, obtém-se também 4,01 + 110,0/57,9 = 5,91. Cerca de 7,81 é o erro de sinal de aumentar o pH embora o potencial tenha ido para o lado positivo, e cerca de 2,11 é o erro de subtrair 1,90 de pH 4,01 no sentido contrário."
+ },
+ "electro-elemental-005": {
+  "question": "Qual é o método mais adequado para determinar o ponto final (ponto de equivalência) em uma titulação potenciométrica?",
+  "choices": [
+   "Encontrar o ponto em que o potencial é 0 mV, porque no ponto de equivalência os dois eletrodos têm o mesmo potencial",
+   "Encontrar o ponto em que o potencial da curva de titulação varia mais bruscamente (ΔE/ΔV máximo)",
+   "Encontrar o ponto em que a variação do potencial é mínima, porque no ponto de equivalência a solução está tamponada"
+  ],
+  "explanation": "Na titulação potenciométrica, registra-se a diferença de potencial entre o eletrodo indicador e o eletrodo de referência em função do volume adicionado. Perto do ponto de equivalência, a concentração do íon de interesse varia em ordens de grandeza, o potencial muda bruscamente segundo a equação de Nernst, e o ponto de inflexão da curva de titulação em forma de S é o ponto de equivalência. O ponto de inflexão é obtido como o máximo da primeira derivada ΔE/ΔV ou como o ponto em que a segunda derivada Δ²E/ΔV² cruza o zero. O valor do potencial em si (como 0 mV) depende da combinação de eletrodos e não serve como referência do ponto final. A variação de potencial é menor nas regiões de forte efeito tampão, longe do ponto de equivalência. Uma vantagem é poder determinar o ponto final mesmo em amostras coloridas ou turvas."
+ },
+ "electro-elemental-006": {
+  "question": "Num eletrodo íon-seletivo de fluoreto, a 25 °C, o potencial cai 59,2 mV quando a atividade de F⁻ aumenta 10 vezes. O potencial da amostra B foi 35,6 mV menor que o da amostra A. A atividade de F⁻ da amostra B é cerca de quantas vezes a da amostra A?",
+  "choices": [
+   "Cerca de 0,25 vez",
+   "Cerca de 16 vezes",
+   "Cerca de 4,0 vezes"
+  ],
+  "explanation": "Num eletrodo que responde a ânions, E = constante − 59,2 log a(F⁻) (mV), e quanto maior a atividade, menor o potencial. A diferença de potencial de 35,6 mV corresponde a 35,6/59,2 = 0,601 ordem de grandeza, então a atividade de B é 10 elevado a 0,601 ≈ 4,0 vezes a de A. Cerca de 0,25 vez é o erro de inverter o sinal, raciocinando como num eletrodo de cátions que \"potencial menor significa atividade menor\". Cerca de 16 vezes é o erro de calcular com a inclinação de íons bivalentes, 29,6 mV (10 elevado a 1,2), mas o F⁻ é monovalente. Como os eletrodos íon-seletivos respondem à atividade, adiciona-se um ajustador de força iônica (TISAB) para igualar a força iônica das amostras e das soluções-padrão."
+ },
+ "electro-elemental-007": {
+  "question": "Um sistema redox reversível controlado por difusão é medido por voltametria cíclica. Aumentando a velocidade de varredura do potencial de 25 mV/s para 100 mV/s, a corrente de pico é multiplicada por aproximadamente quanto?",
+  "choices": [
+   "4 vezes",
+   "2 vezes",
+   "Não muda"
+  ],
+  "explanation": "A corrente de pico ip de um sistema reversível controlado por difusão é proporcional, pela equação de Randles-Sevcik, à área do eletrodo, à concentração, à raiz quadrada do coeficiente de difusão e à raiz quadrada da velocidade de varredura v. Se a velocidade de varredura quadruplica, a corrente de pico fica √4 = 2 vezes maior. Uma varredura rápida mede a corrente enquanto a camada de difusão ainda é fina, e como o gradiente de concentração é acentuado, a corrente é maior. A corrente fica 4 vezes maior (proporcional a v) no caso de reações de substâncias adsorvidas na superfície do eletrodo ou da corrente de carga da dupla camada elétrica. Se ip é ou não proporcional a √v serve para verificar se a reação é controlada por difusão, e normalmente a corrente não fica totalmente inalterada."
+ },
+ "electro-elemental-008": {
+  "question": "Qual é a principal razão pela qual a voltametria de redissolução anódica (ASV) consegue medir com alta sensibilidade traços de chumbo e cádmio em água?",
+  "choices": [
+   "Reduz e pré-concentra os metais no eletrodo em potencial negativo e depois mede a corrente da reoxidação na varredura positiva",
+   "Atomiza a amostra num plasma de argônio de alta temperatura e mede com alta sensibilidade a emissão própria de cada elemento",
+   "Mantém o potencial do eletrodo constante e mede diretamente a corrente de difusão dos íons metálicos, sem pré-concentrar"
+  ],
+  "explanation": "Na ASV, primeiro o eletrodo é mantido num potencial mais negativo que o de redução do metal de interesse e faz-se a eletrólise sob agitação por alguns minutos, depositando e concentrando o Pb²⁺ e o Cd²⁺ da solução como metal sobre o eletrodo (filme de mercúrio, filme de bismuto etc.). Em seguida, varre-se o potencial no sentido positivo, e os metais concentrados são oxidados e redissolvidos de uma vez, cada um num potencial característico, gerando uma corrente de pico grande e estreita. Quanto maior o tempo de pré-concentração, maior a sensibilidade, e é possível medir concentrações abaixo de µg/L. Medir a emissão num plasma é a espectrometria de emissão óptica com ICP, que não é um método eletroquímico. Medir apenas a corrente de difusão, sem pré-concentração, não tem o efeito da concentração, e a sensibilidade é muito menor."
+ },
+ "electro-elemental-009": {
+  "question": "Na espectrometria de absorção atômica (AAS), qual é a principal razão para usar como fonte de luz uma lâmpada de cátodo oco cujo cátodo é do mesmo elemento que se quer determinar?",
+  "choices": [
+   "Emitir luz de espectro contínuo, que permite medir todos os elementos com uma só lâmpada",
+   "Servir de fonte de calor, aquecendo e atomizando a amostra com o calor da descarga no cátodo",
+   "Obter linhas de emissão próprias do elemento, mais estreitas que as linhas de absorção dos átomos"
+  ],
+  "explanation": "As linhas de absorção atômica são extremamente estreitas, com largura da ordem de 0,001–0,01 nm, muito menor que a faixa que um monocromador consegue isolar de uma fonte contínua; por isso, com luz contínua, mede-se só uma absorção muito pequena. A lâmpada de cátodo oco excita por descarga os átomos do metal do cátodo e emite as linhas desse elemento com largura ainda menor que a das linhas de absorção. Assim, ilumina-se apenas o centro da linha de absorção, o que permite medidas de alta sensibilidade e pouco afetadas por outros elementos. Em compensação, é preciso trocar de lâmpada para cada elemento. A atomização da amostra é feita pela chama ou pelo forno de grafite (aquecimento elétrico), e a lâmpada não é fonte de calor."
+ },
+ "electro-elemental-010": {
+  "question": "Ao medir ⁷⁵As (arsênio, número de massa 75) por ICP-MS, qual íon poliatômico se sobrepõe ao sinal e causa erro em amostras com muito ácido clorídrico?",
+  "choices": [
+   "⁴⁰Ar¹⁶O⁺",
+   "³⁸Ar¹H⁺",
+   "⁴⁰Ar³⁵Cl⁺"
+  ],
+  "explanation": "Como o ICP-MS usa um plasma de argônio, formam-se íons poliatômicos do argônio combinado com elementos da amostra e do solvente, que se sobrepõem a elementos de interesse com o mesmo número de massa (interferência espectral). O número de massa do ⁴⁰Ar³⁵Cl⁺ é 40 + 35 = 75, e ele se sobrepõe ao ⁷⁵As, único isótopo do arsênio; por isso, em amostras ricas em cloreto, a concentração aparente de arsênio fica alta. O ⁴⁰Ar¹⁶O⁺ (número de massa 56) e o ³⁸Ar¹H⁺ (número de massa 39) são interferências típicas na medida do ⁵⁶Fe e do ³⁹K, respectivamente. Como contramedida, removem-se os íons poliatômicos com uma célula de colisão/reação ou separam-se as pequenas diferenças de massa com um equipamento de alta resolução."
+ },
+ "electro-elemental-011": {
+  "question": "Em espectrofotometria, o desvio-padrão da absorbância de 10 medidas do branco foi 0,0020, e a inclinação da curva de calibração foi 0,050 L/mg. Tomando como limite de detecção a concentração correspondente a 3 vezes o desvio-padrão do branco (3σ/inclinação), qual é o limite de detecção?",
+  "choices": [
+   "0,12 mg/L",
+   "0,040 mg/L",
+   "0,40 mg/L"
+  ],
+  "explanation": "Limite de detecção = 3σ/inclinação = 3 × 0,0020/0,050 = 0,12 mg/L. É uma referência da menor concentração em que se pode afirmar que o analito \"está presente\", distinguindo-o da variação do branco. 0,040 mg/L é o valor sem multiplicar por 3 (1σ), e 0,40 mg/L é o valor calculado com 10σ/inclinação, muito usado como referência do limite de quantificação (a menor concentração cujo valor pode ser relatado com exatidão suficiente). O limite de detecção depende não só do aparelho, mas também da variação do branco, do preparo da amostra e da inclinação (sensibilidade) da curva de calibração, por isso é avaliado considerando o método de análise como um todo."
+ },
+ "electro-elemental-012": {
+  "question": "Na determinação de um metal, obteve-se a curva de calibração y = 0,0480x + 0,0020 (y: absorbância; x: concentração em mg/L). A amostra foi diluída 10 vezes e a absorbância medida foi 0,290. Qual é a concentração da amostra original?",
+  "choices": [
+   "6,0 mg/L",
+   "60 mg/L",
+   "0,60 mg/L"
+  ],
+  "explanation": "Pela curva de calibração, a concentração após a diluição é x = (0,290 − 0,0020)/0,0480 = 0,288/0,0480 = 6,00 mg/L. Como a amostra foi medida diluída 10 vezes, a concentração original é 6,00 × 10 = 60,0 mg/L. 6,0 mg/L é o valor sem multiplicar pelo fator de diluição, e 0,60 mg/L é o erro de dividir pelo fator de diluição. Ignorando o intercepto, 0,290/0,0480 dá 6,04 mg/L, um valor um pouco maior. É importante diluir para que o valor medido fique dentro da faixa de concentrações da curva de calibração e não extrapolar para fora dela."
+ },
+ "electro-elemental-013": {
+  "question": "Qual é a soma dos valores medidos 12,11 g, 0,3 g e 1,256 g expressa segundo as regras dos algarismos significativos?",
+  "choices": [
+   "13,7 g",
+   "13,666 g",
+   "13,67 g"
+  ],
+  "explanation": "Na adição e na subtração, o resultado é arredondado para a casa decimal do valor medido com menos casas decimais. Como 0,3 g só é conhecido até a primeira casa decimal, a soma 12,11 + 0,3 + 1,256 = 13,666 g é arredondada para a primeira casa decimal: 13,7 g. 13,666 g é o resultado do cálculo escrito diretamente, mostrando casas sem significado diante da incerteza de 0,3 g. 13,67 g é o erro de usar as casas de 12,11 g, e não as do valor mais grosseiro, 0,3 g. Na multiplicação e na divisão, a diferença é que se usa o valor com o menor número de algarismos significativos, e não de casas decimais."
+ },
+ "electro-elemental-014": {
+  "question": "Um material de referência certificado foi analisado repetidamente: a dispersão dos valores medidos foi muito pequena, mas a média ficou sempre cerca de 5 % acima do valor certificado. Qual é a explicação mais adequada para esse resultado?",
+  "choices": [
+   "O erro aleatório é grande e a precisão é ruim, mas não há erro sistemático",
+   "A precisão é boa, mas há erro sistemático e a veracidade é ruim",
+   "A precisão e a veracidade são boas, com erros sistemático e aleatório pequenos"
+  ],
+  "explanation": "A pequena dispersão dos valores medidos expressa a precisão, e a proximidade entre a média e o valor verdadeiro (aqui, o valor certificado) expressa a veracidade. Como a dispersão é pequena, o erro aleatório é pequeno e a precisão é boa; por outro lado, o desvio da média num só sentido indica que há erro sistemático (tendência). O erro sistemático não diminui ao aumentar o número de repetições e tirar a média. As causas possíveis incluem erro na concentração da solução-padrão, branco dos reagentes, interferentes e má calibração dos instrumentos; ele é detectado e corrigido pela análise de materiais de referência certificados, por ensaios de adição e recuperação ou pela comparação com outro método. Com um desvio de cerca de 5 %, não se pode dizer que a veracidade seja boa."
+ },
+ "electro-elemental-015": {
+  "question": "Uma amostra foi medida 5 vezes, obtendo-se 10,1, 10,3, 9,9, 10,2 e 10,0 (mg/L). Qual valor mais se aproxima do desvio-padrão relativo (RSD) calculado com o desvio-padrão amostral (dividido por n − 1)?",
+  "choices": [
+   "1,4 %",
+   "0,25 %",
+   "1,6 %"
+  ],
+  "explanation": "A média é (10,1 + 10,3 + 9,9 + 10,2 + 10,0)/5 = 10,1 mg/L. Os desvios em relação à média são 0, +0,2, −0,2, +0,1 e −0,1, e a soma de seus quadrados é 0,10. O desvio-padrão amostral é s = √(0,10/(5 − 1)) = √0,025 = 0,158 mg/L, e RSD = 0,158/10,1 × 100 ≈ 1,6 %. 1,4 % é o valor obtido com √(0,10/5) = 0,141, dividindo por n = 5; para estimar a dispersão da população a partir de poucas medidas, divide-se por n − 1. 0,25 % é o valor da variância 0,025 dividida pela média em porcentagem, um erro de esquecer a raiz quadrada."
+ },
+ "electro-elemental-016": {
+  "question": "Qual é a principal razão correta para o potencial do eletrodo de prata−cloreto de prata (Ag/AgCl), usado como eletrodo de referência em potenciometria, se manter quase constante, independentemente da composição da amostra?",
+  "choices": [
+   "A atividade do íon cloreto interno é mantida por uma solução de KCl de concentração fixa",
+   "A prata é um metal nobre e não troca elétrons com a solução, então o potencial não responde à amostra",
+   "O potencial do eletrodo é mantido continuamente num valor fixo por uma fonte externa e um circuito de controle"
+  ],
+  "explanation": "O potencial do eletrodo Ag/AgCl é determinado pela reação AgCl + e⁻ ⇌ Ag + Cl⁻ e depende só da atividade do íon cloreto, segundo a equação de Nernst E = E° − 0,0592 log a(Cl⁻) (25 °C). No eletrodo de referência, o interior é preenchido com solução de KCl saturada ou de concentração fixa, ligada à amostra por uma junção líquida porosa; assim, mesmo que a composição da amostra mude, a atividade do Cl⁻ interno não muda e o potencial se mantém constante (com KCl saturado a 25 °C, cerca de +0,197 V vs EPH (SHE)). A ideia de que a prata não troca elétrons está errada: o potencial surge justamente da reação redox da prata. A potenciometria mede o potencial quase sem passar corrente; fixar o potencial com uma fonte externa é o que se faz na voltametria, ao controlar o potencial do eletrodo de trabalho."
+ },
+ "electro-elemental-017": {
+  "question": "Fez-se uma eletrólise a corrente constante de 10,0 mA durante 965 s, depositando o Cu²⁺ da solução como cobre no eletrodo (eficiência de corrente de 100 %). Qual é a massa de cobre depositada? Considere a constante de Faraday F = 96485 C/mol e a massa molar do Cu 63,55 g/mol.",
+  "choices": [
+   "6,36 mg",
+   "3,18 g",
+   "3,18 mg"
+  ],
+  "explanation": "A carga que passou é Q = It = 0,0100 A × 965 s = 9,65 C, e a quantidade de matéria de elétrons é 9,65 ÷ 96485 = 1,00×10⁻⁴ mol. Como Cu²⁺ + 2e⁻ → Cu, o cobre é 1,00×10⁻⁴ ÷ 2 = 5,00×10⁻⁵ mol, e a massa é 5,00×10⁻⁵ × 63,55 = 3,18×10⁻³ g, ou seja, 3,18 mg. 6,36 mg é o valor obtido ao supor que um elétron deposita um átomo de cobre, esquecendo a divisão por 2. 3,18 g é o valor calculado com 10,0 A, sem converter 10,0 mA para A. Esse método de obter a quantidade de matéria diretamente a partir da carga é chamado de coulometria e, com eficiência de corrente de 100 %, permite quantificar sem curva de calibração nem padrões."
+ },
+ "electro-elemental-018": {
+  "question": "Na determinação de cálcio por absorção atômica em chama, a absorbância fica baixa quando a amostra tem muito íon fosfato. Para suprimir essa interferência, o que é adequado adicionar às amostras e às soluções-padrão?",
+  "choices": [
+   "Sal de potássio, para suprimir a ionização do Ca e aumentar o número de átomos no estado fundamental",
+   "Sal de lantânio, que se liga preferencialmente ao fosfato e facilita a atomização do Ca",
+   "Ácido nítrico, para oxidar e decompor o fosfato e remover a substância interferente"
+  ],
+  "explanation": "Na presença de íon fosfato, o Ca forma na chama fosfato de cálcio pouco volátil (pirofosfato etc.), o que dificulta a atomização e reduz a absorbância (interferência química). Adicionando sais de lantânio ou de estrôncio em excesso, eles formam preferencialmente compostos estáveis com o fosfato, e o Ca é liberado e atomizado (agente liberador). Também há o método de proteger o Ca como complexo com EDTA e o de usar a chama óxido nitroso−acetileno, de temperatura mais alta. O sal de potássio é a contramedida para a interferência de ionização, adicionando um elemento facilmente ionizável para suprimir a ionização do elemento de interesse, e não resolve a interferência química do fosfato. O fósforo do fosfato já está no maior número de oxidação, +5, então não pode ser oxidado e decomposto pelo ácido nítrico."
+ },
+ "electro-elemental-019": {
+  "question": "Ao medir com um eletrodo de vidro de pH comum uma solução fortemente básica, de pH em torno de 13, rica em Na⁺, que erro tende a ocorrer no pH indicado?",
+  "choices": [
+   "Indica um valor maior que o real, porque o OH⁻ se adsorve na membrana de vidro e reduz a atividade aparente de H⁺",
+   "Não ocorre erro, porque a membrana de vidro responde só ao H⁺ e não responde de modo algum a outros íons",
+   "Indica um valor menor que o real, porque, com H⁺ escasso demais, a membrana de vidro também responde ao Na⁺"
+  ],
+  "explanation": "A membrana de vidro responde seletivamente ao H⁺, mas essa seletividade não é perfeita. Numa solução de pH alto, com atividade de H⁺ extremamente pequena e muito Na⁺, o Na⁺ também participa da troca na superfície da membrana como se fosse H⁺, e o eletrodo responde como se houvesse mais H⁺ do que de fato há. Por isso o valor indicado fica abaixo do pH real; isso é chamado de erro alcalino (erro de sódio). Eletrodos para pH alto usam vidros de composição que responde pouco ao Na⁺. A explicação de que a adsorção de OH⁻ eleva o valor inverte tanto o sentido quanto a causa do erro. Dizer que o eletrodo de vidro responde só ao H⁺ é uma idealização; como nos outros eletrodos íon-seletivos, dependendo das condições, o efeito de outros íons não pode ser desprezado. Em meio fortemente ácido também se conhece o erro ácido, em que, ao contrário, o valor fica acima do real."
+ },
+ "electro-elemental-020": {
+  "question": "Uma amostra foi medida 4 vezes, com média de 10,20 mg/L e desvio-padrão amostral s = 0,10 mg/L. Com o valor de t para 3 graus de liberdade (bicaudal, 95 %) igual a 3,18, qual é o intervalo de confiança de 95 % da média da população?",
+  "choices": [
+   "10,20 ± 0,32 mg/L",
+   "10,20 ± 0,16 mg/L",
+   "10,20 ± 0,098 mg/L"
+  ],
+  "explanation": "O intervalo de confiança da média é x̄ ± t·s/√n. O erro-padrão da média é s/√n = 0,10/√4 = 0,050 mg/L, e multiplicando por t = 3,18 obtém-se ±0,159, ou seja, 10,20 ± 0,16 mg/L. ± 0,32 é o erro de não dividir por √n, tomando a dispersão de uma única medida, t·s, como intervalo da média. ± 0,098 é o valor com o fator 1,96 da distribuição normal; quando há poucas medidas e o desvio-padrão da população é estimado por s, é preciso usar o fator maior da distribuição t para os graus de liberdade correspondentes. Aumentando o número de medidas, tanto t quanto s/√n diminuem, e o intervalo fica mais estreito. O intervalo de confiança indica a faixa em que se espera que esteja o valor verdadeiro, e não significa que 95 % das medidas individuais caiam nela."
+ }
+}

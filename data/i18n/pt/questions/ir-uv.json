@@ -1,0 +1,182 @@
+{
+ "ir-uv-001": {
+  "question": "No espectro de absorção no infravermelho da 2-butanona, CH3COCH2CH3, em que posição fica a absorção intensa que melhor indica o grupo funcional desse composto?",
+  "choices": [
+   "Cerca de 3400 cm⁻¹ (larga)",
+   "Cerca de 2250 cm⁻¹",
+   "Cerca de 1715 cm⁻¹"
+  ],
+  "explanation": "O estiramento C=O das cetonas saturadas de cadeia aberta aparece muito intenso em cerca de 1715 cm⁻¹ e é a absorção mais importante para identificar compostos carbonílicos. A C=O é muito polarizada, e o momento de dipolo varia muito com a vibração; por isso a absorção é intensa. A posição da C=O varia com a estrutura: cerca de 1735–1750 nos ésteres, cerca de 1725 nos aldeídos saturados e valores mais baixos, cerca de 1685 cm⁻¹, nas cetonas conjugadas (como a acetofenona). A absorção larga em cerca de 3400 cm⁻¹ é de O−H em ligação de hidrogênio (álcoois etc.), e a de cerca de 2250 cm⁻¹ é o estiramento C≡N das nitrilas; a 2-butanona não tem nenhum desses grupos funcionais."
+ },
+ "ir-uv-002": {
+  "question": "Qual composto, medido como líquido puro, mostra no espectro de IV uma absorção intensa e larga em 3200–3550 cm⁻¹ e nenhuma absorção intensa perto de 1700 cm⁻¹?",
+  "choices": [
+   "Éter dietílico, CH3CH2OCH2CH3",
+   "1-Butanol, CH3CH2CH2CH2OH",
+   "Butanal, CH3CH2CH2CHO"
+  ],
+  "explanation": "O estiramento O−H dos álcoois, em líquidos ou soluções concentradas, mistura O−H com ligações de hidrogênio intermoleculares de forças diferentes e aparece como uma absorção larga e intensa em 3200–3550 cm⁻¹. Sem ligações de hidrogênio, como na fase gasosa ou em soluções muito diluídas, aparece como uma absorção estreita em cerca de 3600–3650 cm⁻¹. O éter dietílico não tem O−H e só se destaca o estiramento C−O perto de 1100 cm⁻¹. O butanal mostra uma C=O intensa em cerca de 1725 cm⁻¹ e absorções fracas do C−H de aldeído em cerca de 2720 e 2820 cm⁻¹, sem a absorção larga de O−H."
+ },
+ "ir-uv-003": {
+  "question": "No espectro de IV de um líquido havia uma absorção estreita de intensidade média em cerca de 2250 cm⁻¹, e não havia absorções intensas em 3200–3550 cm⁻¹ nem perto de 1700 cm⁻¹. Qual é o composto mais adequado?",
+  "choices": [
+   "Propanonitrila, CH3CH2C≡N",
+   "1-Propanol, CH3CH2CH2OH",
+   "Ácido propanoico, CH3CH2COOH"
+  ],
+  "explanation": "Na região de 2100–2300 cm⁻¹ aparecem os estiramentos de ligações triplas e de duplas ligações acumuladas, e uma característica dessa região é que dificilmente há sobreposição com outras absorções. O estiramento C≡N das nitrilas aparece em cerca de 2250 cm⁻¹, estreito e de intensidade média, o que corresponde às características da propanonitrila. O estiramento C≡C dos alcinos (cerca de 2100–2260 cm⁻¹) em geral é fraco, por ser pouco polarizado, e quase não se vê em alcinos internos simétricos. O 1-propanol mostra a absorção larga de O−H, e o ácido propanoico, um O−H muito largo em 2500–3300 cm⁻¹ e uma C=O intensa em cerca de 1710 cm⁻¹; nenhum dos dois satisfaz as condições."
+ },
+ "ir-uv-004": {
+  "question": "Qual composto mostra no espectro de IV uma absorção muito larga em 2500–3300 cm⁻¹ e uma absorção intensa em cerca de 1710 cm⁻¹?",
+  "choices": [
+   "Ácido acético, CH3COOH",
+   "Acetato de etila, CH3COOCH2CH3",
+   "Etanol, CH3CH2OH"
+  ],
+  "explanation": "Os ácidos carboxílicos formam facilmente dímeros, em que duas moléculas se unem por duas ligações de hidrogênio; o estiramento O−H aparece muito largo, em 2500–3300 cm⁻¹, e se sobrepõe às absorções de estiramento C−H (cerca de 2850–3000 cm⁻¹). Ao mesmo tempo, o estiramento C=O do dímero aparece intenso em cerca de 1710 cm⁻¹. A presença das duas é característica dos ácidos carboxílicos. O acetato de etila não tem O−H; a C=O de éster aparece mais alta, em cerca de 1740 cm⁻¹, e há um estiramento C−O intenso perto de 1240 cm⁻¹. O etanol mostra a absorção de O−H em 3200–3550 cm⁻¹, mas não tem absorção intensa de C=O."
+ },
+ "ir-uv-005": {
+  "question": "Qual é o valor do número de onda de absorção no IV de 1715 cm⁻¹ convertido em comprimento de onda?",
+  "choices": [
+   "583 nm",
+   "5,83 µm",
+   "17,2 µm"
+  ],
+  "explanation": "O número de onda ν̃ (cm⁻¹) é o número de ondas por 1 cm, o inverso do comprimento de onda λ. λ = 1/1715 cm = 5,83×10⁻⁴ cm e, como 1 cm = 10⁴ µm, λ = 5,83 µm. Uma fórmula fácil de lembrar é λ (µm) = 10000 / ν̃ (cm⁻¹). A região do infravermelho médio, 4000–400 cm⁻¹, corresponde a comprimentos de onda de 2,5–25 µm. 583 nm (0,583 µm) é uma ordem de grandeza menor e cairia no comprimento de onda da luz visível (amarela). 17,2 µm é um erro de ordem de grandeza, como dividir 1715 por 100. Como o número de onda é proporcional à energia, na espectroscopia no infravermelho é comum usar o número de onda em vez do comprimento de onda."
+ },
+ "ir-uv-006": {
+  "question": "Em um composto cujo estiramento C−H aparece em 3000 cm⁻¹, ao substituir o hidrogênio por deutério, em aproximadamente quantos cm⁻¹ aparecerá o estiramento C−D? Considere que a constante de força da ligação não muda, trate-a como oscilador harmônico e use as massas atômicas C = 12, H = 1 e D = 2.",
+  "choices": [
+   "Cerca de 1500 cm⁻¹",
+   "Cerca de 4100 cm⁻¹",
+   "Cerca de 2200 cm⁻¹"
+  ],
+  "explanation": "O número de onda de um oscilador harmônico é ν̃ ∝ √(k/μ), em que μ é a massa reduzida, μ = m₁m₂/(m₁ + m₂). Para C−H, μ = 12×1/13 = 0,923, e para C−D, μ = 12×2/14 = 1,714; a razão entre os números de onda é √(0,923/1,714) = 0,734, e 3000 × 0,734 ≈ 2200 cm⁻¹. Cerca de 1500 cm⁻¹ é o erro de pensar que, como a massa do hidrogênio dobrou, o número de onda cai à metade: o número de onda é inversamente proporcional à raiz quadrada da massa, e é preciso usar a massa reduzida. Cerca de 4100 cm⁻¹ é o valor com a razão invertida, 3000/0,734 ≈ 4090 cm⁻¹; com átomos mais pesados, a frequência de vibração diminui. O deslocamento da absorção por deuteração é usado para confirmar a atribuição das bandas."
+ },
+ "ir-uv-007": {
+  "question": "Qual destas vibrações não mostra absorção no infravermelho (é inativa no IV)?",
+  "choices": [
+   "Estiramento assimétrico do dióxido de carbono, CO2",
+   "Estiramento da molécula de nitrogênio, N2",
+   "Estiramento do monóxido de carbono, CO"
+  ],
+  "explanation": "Para que uma vibração absorva radiação infravermelha, ela precisa alterar o momento de dipolo da molécula. Em moléculas diatômicas homonucleares como o N2, o momento de dipolo continua zero com o estiramento ou a compressão da ligação, por isso a vibração é inativa no IV (pode ser observada por espectroscopia Raman). O CO2 é linear e não tem momento de dipolo, mas no estiramento assimétrico uma C=O se estende enquanto a outra se contrai, surgindo um dipolo; há uma absorção intensa em cerca de 2349 cm⁻¹. O estiramento simétrico do CO2 não altera o dipolo e é inativo. O CO é uma molécula diatômica heteronuclear e absorve em cerca de 2143 cm⁻¹."
+ },
+ "ir-uv-008": {
+  "question": "A absortividade molar de um composto em 280 nm é ε = 1,5×10⁴ L/(mol·cm). Se a absorbância medida em uma cela de caminho óptico 1,00 cm é 0,45, qual é a concentração molar da solução?",
+  "choices": [
+   "3,0×10⁻⁵ mol/L",
+   "3,0×10⁻⁶ mol/L",
+   "6,8×10³ mol/L"
+  ],
+  "explanation": "Pela lei de Beer-Lambert, A = εcl, c = A/(εl) = 0,45 / (1,5×10⁴ × 1,00) = 3,0×10⁻⁵ mol/L. 3,0×10⁻⁶ mol/L é o erro de usar o caminho óptico em mm, 10; como a unidade de ε é L/(mol·cm), o caminho óptico deve estar em cm. 6,8×10³ mol/L é o erro de multiplicar A por ε (0,45 × 1,5×10⁴ ≈ 6750); conferindo as unidades, percebe-se que é uma concentração impossível. ε depende da substância, do comprimento de onda e do solvente, e quanto maior o ε do composto, menores as concentrações que podem ser medidas."
+ },
+ "ir-uv-009": {
+  "question": "A transmitância de uma solução foi de 10 %. Qual é a absorbância dessa solução?",
+  "choices": [
+   "0,10",
+   "0,90",
+   "1,0"
+  ],
+  "explanation": "A absorbância é definida como A = −log T = log(I₀/I). Com transmitância T = 10 % = 0,10, A = −log 0,10 = 1,0. Da mesma forma, com T = 1 %, A = 2,0, e com T = 50 %, A ≈ 0,30; a cada aumento de 1 na absorbância, a luz transmitida cai a um décimo. 0,10 é o erro de tomar o valor da transmitância pela absorbância, e 0,90 é o erro de tomar a fração de luz absorvida (1 − T) pela absorbância. O que é proporcional à concentração é a absorbância, e não a transmitância; por isso a quantificação usa a absorbância."
+ },
+ "ir-uv-010": {
+  "question": "Uma solução medida em cela de caminho óptico 1,00 cm teve absorbância 0,80. Essa solução foi diluída 4 vezes com o solvente e medida no mesmo comprimento de onda em uma cela de caminho óptico 2,00 cm. Qual é a absorbância? Considere válida a lei de Beer-Lambert.",
+  "choices": [
+   "0,20",
+   "1,60",
+   "0,40"
+  ],
+  "explanation": "A = εcl, e ε é constante para o mesmo composto no mesmo comprimento de onda. A concentração cai a 1/4 e o caminho óptico dobra, então A = 0,80 × (1/4) × 2 = 0,40. 0,20 é o valor que considera apenas a variação de concentração, esquecendo que o caminho óptico dobrou. 1,60 é o valor que considera apenas o caminho óptico, esquecendo a diluição. Quando a absorbância é grande demais para a medição, faz-se assim uma diluição ou usa-se uma cela de caminho óptico menor para ficar em uma faixa fácil de medir, e depois multiplica-se pelo fator para voltar à concentração original."
+ },
+ "ir-uv-011": {
+  "question": "Qual dos compostos a seguir tem o maior comprimento de onda de absorção máxima, λmax, no UV, pela transição π→π* (em solução de hexano ou em fase gasosa)?",
+  "choices": [
+   "1,3,5-Hexatrieno, CH2=CH−CH=CH−CH=CH2",
+   "Etileno, CH2=CH2",
+   "1,3-Butadieno, CH2=CH−CH=CH2"
+  ],
+  "explanation": "Nos sistemas conjugados, em que duplas ligações se alternam com ligações simples, os elétrons π se espalham pela molécula inteira, e a diferença de energia entre o orbital molecular ocupado de maior energia (HOMO) e o orbital molecular desocupado de menor energia (LUMO) diminui. Por isso, quanto mais longa a conjugação, mais a absorção se desloca para comprimentos de onda maiores. Valores de referência de λmax: etileno, cerca de 171 nm; 1,3-butadieno, cerca de 217 nm; 1,3,5-hexatrieno, cerca de 258 nm. O β-caroteno, com conjugação ainda mais longa (11 duplas ligações conjugadas), absorve luz azul em cerca de 450 nm e parece laranja, a cor complementar. A absorção de duplas ligações isoladas, como a do etileno, fica na região do ultravioleta de vácuo."
+ },
+ "ir-uv-012": {
+  "question": "Qual é uma característica geral correta dos espectros de fluorescência?",
+  "choices": [
+   "A fluorescência aparece em comprimentos de onda menores (energia maior) que a luz de excitação",
+   "A fluorescência aparece em comprimentos de onda maiores (energia menor) que a luz de excitação",
+   "A fluorescência aparece sempre exatamente no mesmo comprimento de onda da luz de excitação"
+  ],
+  "explanation": "A molécula que absorve luz sobe para um nível vibracional alto do estado singleto excitado, mas, antes de emitir fluorescência, desce rapidamente ao nível vibracional mais baixo de S1 por relaxação vibracional e outros processos, perdendo parte da energia como calor. A fluorescência é emitida na volta desse nível para vários níveis vibracionais do estado fundamental S0; por isso aparece em comprimentos de onda maiores que a absorção. Essa diferença entre o máximo de absorção e o máximo de fluorescência é chamada de deslocamento de Stokes. A luz que aparece no mesmo comprimento de onda da luz de excitação é luz espalhada (espalhamento Rayleigh), e não fluorescência. A emissão em comprimentos de onda menores se limita a casos especiais, como a absorção de dois fótons."
+ },
+ "ir-uv-013": {
+  "question": "Qual afirmação compara corretamente a fosforescência e a fluorescência?",
+  "choices": [
+   "A fosforescência é a emissão da transição do estado tripleto excitado para o singleto fundamental, com tempo de vida maior que a fluorescência",
+   "A fosforescência é a emissão da transição do estado singleto excitado para o singleto fundamental, com tempo de vida menor que a fluorescência",
+   "A fosforescência e a fluorescência são emissões da mesma transição e diferem apenas na intensidade"
+  ],
+  "explanation": "A fluorescência é a transição do singleto excitado S1 para o singleto fundamental S0; como é uma transição permitida, sem mudança na orientação do spin, o tempo de vida é da ordem de nanossegundos. A emissão das moléculas que passam de S1 para o tripleto excitado T1 por cruzamento intersistemas e depois voltam a S0 é a fosforescência; como é uma transição proibida, que envolve a inversão do spin, o tempo de vida é longo, de microssegundos a segundos ou mais. Como T1 tem energia menor que S1, a fosforescência aparece em comprimentos de onda maiores que a fluorescência. Em solução, os tripletos sofrem facilmente supressão pelo oxigênio e outras espécies; por isso a fosforescência costuma ser observada em solventes solidificados a baixa temperatura ou em sólidos. As duas são emissões de estados diferentes."
+ },
+ "ir-uv-014": {
+  "question": "Na quantificação pela intensidade de fluorescência, qual é o principal motivo correto de a intensidade deixar de ser proporcional à concentração quando a concentração aumenta?",
+  "choices": [
+   "Quanto maior a concentração, maior o rendimento quântico de fluorescência, e a intensidade cresce mais rápido que a concentração",
+   "Ocorre o efeito de filtro interno, em que a luz de excitação e a fluorescência são absorvidas pela própria amostra, e a autossupressão",
+   "A intensidade de fluorescência é, por natureza, proporcional à raiz quadrada da concentração"
+  ],
+  "explanation": "A intensidade de fluorescência é expressa por F = k·Φ·I₀(1 − 10 elevado a −A); quando a absorbância A é suficientemente pequena, 1 − 10 elevado a −A ≈ 2,303A, e F é proporcional à concentração. Com o aumento da concentração, A cresce e a aproximação deixa de valer; além disso, ocorre o efeito de filtro interno: a luz de excitação é absorvida perto da entrada da cela e não chega à região observada, e a fluorescência emitida é reabsorvida. Soma-se ainda a autossupressão por associação e colisão entre as moléculas, e a intensidade pode se estabilizar e até passar a diminuir. O rendimento quântico não aumenta em altas concentrações; na verdade, diminui por causa da supressão. Na faixa diluída, a intensidade é proporcional à concentração, e não à sua raiz quadrada."
+ },
+ "ir-uv-015": {
+  "question": "Determina-se o rendimento quântico de fluorescência pelo método relativo. Uma substância de referência (rendimento quântico 0,55) e a amostra foram dissolvidas no mesmo solvente e medidas no mesmo comprimento de onda de excitação: a absorbância nesse comprimento de onda foi 0,050 para a referência e 0,040 para a amostra, e a razão das intensidades de fluorescência integradas (amostra/referência) foi 0,60. Considerando a intensidade de fluorescência proporcional à absorbância, qual valor mais se aproxima do rendimento quântico da amostra?",
+  "choices": [
+   "0,26",
+   "0,33",
+   "0,41"
+  ],
+  "explanation": "No método relativo, Φ = Φref × (F/Fref) × (Aref/A) (como o solvente é o mesmo, não é preciso corrigir o índice de refração). Φ = 0,55 × 0,60 × (0,050/0,040) = 0,55 × 0,60 × 1,25 ≈ 0,41. A amostra tem absorbância menor e absorve menos fótons, mas emite 60 % da fluorescência da referência; por isso o rendimento quântico deve ser maior que 0,55 × 0,60. 0,26 é o erro de multiplicar pela razão de absorbâncias invertida (0,040/0,050), e 0,33 é o valor sem corrigir a diferença de absorbância. O rendimento quântico é a razão entre o número de fótons emitidos e o número de fótons absorvidos e assume valores de 0 a 1."
+ },
+ "ir-uv-016": {
+  "question": "Para distinguir hexano e 1-hexeno pelo espectro de IV, em qual absorção de estiramento C−H convém prestar atenção?",
+  "choices": [
+   "Absorção intensa em 2850–2960 cm⁻¹, que aparece só no 1-hexeno",
+   "Absorção em 3010–3100 cm⁻¹, que aparece só no 1-hexeno",
+   "Absorção estreita em cerca de 3300 cm⁻¹, que aparece só no 1-hexeno"
+  ],
+  "explanation": "O número de onda do estiramento C−H varia com a hibridização do carbono: quanto maior o caráter s, mais forte a ligação e maior o número de onda. O C−H sp³ aparece em 2850–2960 cm⁻¹, um pouco abaixo de 3000 cm⁻¹; o =C−H sp² dos alcenos, em 3010–3100 cm⁻¹, um pouco acima de 3000 cm⁻¹; e o ≡C−H sp dos alcinos terminais, estreito, em cerca de 3300 cm⁻¹. O hexano só tem absorções abaixo de 3000 cm⁻¹, mas o 1-hexeno tem uma absorção adicional um pouco acima de 3000 cm⁻¹. A absorção em 2850–2960 cm⁻¹ existe nos dois e não serve para distingui-los. A absorção estreita em cerca de 3300 cm⁻¹ é característica de alcinos terminais, como o 1-hexino."
+ },
+ "ir-uv-017": {
+  "question": "Entre o cloreto de acetila, CH3COCl, o acetato de etila, CH3COOCH2CH3, e a N,N-dimetilacetamida, CH3CON(CH3)2, qual tem a absorção de estiramento C=O no menor número de onda?",
+  "choices": [
+   "Cloreto de acetila (a retirada de elétrons pelo Cl aumenta a polarização da C=O)",
+   "Acetato de etila (o oxigênio do grupo alcoxila tem a maior eletronegatividade)",
+   "N,N-Dimetilacetamida (o par de elétrons do nitrogênio entra em ressonância com a C=O)"
+  ],
+  "explanation": "Nas amidas, o par de elétrons não ligante do nitrogênio entra em ressonância com o grupo carbonila; a ligação C=O ganha caráter de ligação simples e fica mais fraca, e o estiramento C=O cai para cerca de 1650 cm⁻¹. Nos ésteres, o oxigênio do grupo alcoxila também doa elétrons por ressonância, mas, como o oxigênio é mais eletronegativo que o nitrogênio, esse efeito é mais fraco, e ainda há retirada de elétrons por efeito indutivo; por isso a C=O fica em cerca de 1735–1750 cm⁻¹, acima das cetonas saturadas (cerca de 1715 cm⁻¹). Nos cloretos de ácido, o efeito indutivo do cloro é forte e a contribuição da ressonância é pequena; a C=O aparece em cerca de 1800 cm⁻¹, o maior número de onda dos três. Considerar o cloreto de acetila o mais baixo é inverter a ordem, e a justificativa dada para o acetato de etila também está errada: o efeito indutivo da eletronegatividade do substituinte atua no sentido de aumentar o número de onda da C=O. O que diminui muito o número de onda é a doação de elétrons dos pares não ligantes do substituinte por ressonância com a carbonila, e esse efeito é mais forte no nitrogênio."
+ },
+ "ir-uv-018": {
+  "question": "Uma solução de acetona em hexano absorve em cerca de 280 nm, mas a absortividade molar é pequena, de algumas dezenas de L/(mol·cm) ou menos. Qual é a atribuição correta dessa absorção e o motivo de ser fraca?",
+  "choices": [
+   "Transição n→π*: a sobreposição dos orbitais n e π* é pequena, e a transição é proibida por simetria",
+   "Transição π→π*: a C=O tem uma só ligação π, sem conjugação, e a transição ocorre com dificuldade",
+   "Transição σ→σ*: os elétrons das ligações C−H são excitados, e a probabilidade já é pequena"
+  ],
+  "explanation": "A C=O das cetonas tem o orbital n do par não ligante do oxigênio, o orbital π e o orbital π*. A absorção fraca em cerca de 280 nm se deve à transição n→π*, a de menor diferença de energia; os orbitais n e π* são quase ortogonais, com pouca sobreposição, e a transição é proibida por simetria; por isso ε é pequeno, cerca de 15. A transição π→π* da C=O é permitida e dá uma absorção intensa, mas em uma C=O isolada aparece em comprimento de onda curto, cerca de 190 nm. A transição σ→σ* exige ainda mais energia e fica muito abaixo de 200 nm; não pode ser a causa da absorção em 280 nm. A transição n→π* também pode ser identificada pelo deslocamento para comprimentos de onda menores (deslocamento para o azul) em solventes polares, em que o orbital n é estabilizado por ligações de hidrogênio."
+ },
+ "ir-uv-019": {
+  "question": "Uma solução com as substâncias X e Y, medida em cela de caminho óptico 1,00 cm, teve absorbância 0,60 no comprimento de onda λ1 e 0,44 em λ2. As absortividades molares (L/(mol·cm)) são, em λ1, 2000 para X e 500 para Y, e, em λ2, 200 para X e 1000 para Y. Considerando a aditividade das absorbâncias, qual é a concentração de X?",
+  "choices": [
+   "3,0×10⁻⁴ mol/L",
+   "2,0×10⁻⁴ mol/L",
+   "4,0×10⁻⁴ mol/L"
+  ],
+  "explanation": "Como a absorbância é a soma das contribuições de cada componente, sendo x e y as concentrações de X e Y, vale o sistema 2000x + 500y = 0,60 em λ1 e 200x + 1000y = 0,44 em λ2. Da segunda equação, y = (0,44 − 200x)/1000; substituindo na primeira, 1900x + 0,22 = 0,60, e x = 2,0×10⁻⁴ mol/L e y = 4,0×10⁻⁴ mol/L. 3,0×10⁻⁴ mol/L é o valor obtido atribuindo toda a absorbância em λ1 a X (0,60/2000), sem descontar a contribuição de Y. 4,0×10⁻⁴ mol/L é a concentração de Y: confunde-se o componente pedido."
+ },
+ "ir-uv-020": {
+  "question": "Ao adicionar um supressor Q à solução de uma substância fluorescente, a intensidade de fluorescência diminui conforme a equação de Stern-Volmer, F₀/F = 1 + KSV[Q]. Com KSV = 150 L/mol, a intensidade de fluorescência com [Q] = 0,020 mol/L corresponde a quantos por cento da intensidade sem supressor?",
+  "choices": [
+   "25 %",
+   "33 %",
+   "75 %"
+  ],
+  "explanation": "Como F₀/F = 1 + 150 × 0,020 = 1 + 3,0 = 4,0, F/F₀ = 1/4,0 = 0,25, ou seja, 25 %. 33 % é o erro de omitir o “1 +” da equação, calculando 1/(KSV[Q]) = 1/3,0. 75 % é a fração perdida pela supressão (1 − 0,25), e não a intensidade de fluorescência que resta. O gráfico de F₀/F em função de [Q] é uma reta de intercepto 1, e KSV é obtido pela inclinação. Na supressão dinâmica, por colisão com o supressor, KSV é o produto da constante de velocidade de supressão pelo tempo de vida da fluorescência e aumenta com a temperatura. O oxigênio dissolvido na solução é um supressor típico; por isso, em medições de fluorescência precisas, às vezes ele é removido borbulhando nitrogênio ou argônio."
+ }
+}

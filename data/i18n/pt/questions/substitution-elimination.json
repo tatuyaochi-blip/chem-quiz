@@ -1,0 +1,182 @@
+{
+ "substitution-elimination-001": {
+  "question": "A reação entre CH3Br e OH⁻ ocorre pelo mecanismo SN2. Mantendo a temperatura e a concentração de CH3Br constantes e dobrando a concentração de OH⁻, o que acontece com a velocidade da reação?",
+  "choices": [
+   "Dobra",
+   "Não muda",
+   "Quadruplica"
+  ],
+  "explanation": "A reação SN2 é uma reação bimolecular em que o nucleófilo ataca o carbono pelo lado oposto ao grupo de saída, e a formação e a quebra das ligações ocorrem simultaneamente em uma única etapa. Como o substrato e o nucleófilo participam da etapa determinante da velocidade, a lei de velocidade é v = k[CH3Br][OH⁻], de primeira ordem em cada um. Dobrando apenas o OH⁻, a velocidade dobra. “Não muda” é o erro de confundir com a reação SN1, cuja velocidade depende apenas da concentração do substrato (v = k[RX]). A velocidade quadruplicaria se as duas concentrações fossem dobradas ou se a reação fosse de segunda ordem em OH⁻."
+ },
+ "substitution-elimination-002": {
+  "question": "Qual dos haletos de alquila a seguir sofre reação SN2 mais rapidamente com iodeto de sódio em acetona?",
+  "choices": [
+   "(CH3)2CHBr (2-bromopropano)",
+   "(CH3)3CBr (2-bromo-2-metilpropano)",
+   "CH3CH2Br (bromoetano)"
+  ],
+  "explanation": "Na reação SN2, o nucleófilo precisa se aproximar do carbono por trás do grupo de saída. Quanto mais grupos alquila ligados ao carbono, mais o ataque por trás é impedido estericamente; por isso a reatividade diminui na ordem metila > primário > secundário ≫ terciário. O bromoetano, primário, é o mais rápido; o 2-bromopropano, secundário, é muito mais lento; e o 2-bromo-2-metilpropano, terciário, praticamente não sofre SN2. Os haletos terciários, conforme as condições, seguem por SN1 ou E1, via carbocátion, ou por E2 na presença de uma base forte. A reação com NaI em acetona é um teste clássico em que o andamento pode ser verificado a olho nu, pois o NaBr formado precipita."
+ },
+ "substitution-elimination-003": {
+  "question": "Qual é a etapa determinante da velocidade da reação SN1?",
+  "choices": [
+   "A etapa em que o nucleófilo se liga ao carbocátion",
+   "A etapa em que o grupo de saída sai e se forma o carbocátion",
+   "A etapa em que o nucleófilo ataca por trás e o grupo de saída sai ao mesmo tempo"
+  ],
+  "explanation": "A reação SN1 ocorre em duas etapas. Na primeira, a ligação C−X se rompe heteroliticamente, formando um carbocátion e o ânion do grupo de saída; na segunda, o nucleófilo se liga ao carbocátion. A primeira etapa, que apenas rompe uma ligação, tem alta energia de ativação e é lenta; por isso é a etapa determinante da velocidade, e a lei de velocidade é v = k[RX], de primeira ordem apenas no substrato. A ligação do nucleófilo ao carbocátion é muito rápida e não afeta a velocidade global. O ataque por trás simultâneo à saída do grupo é o mecanismo de etapa única da reação SN2. Quanto mais estável o carbocátion, mais rápida a primeira etapa; por isso a reatividade em SN1 é terciário > secundário ≫ primário."
+ },
+ "substitution-elimination-004": {
+  "question": "O (R)-2-bromobutano, CH3CHBrCH2CH3, reagiu com iodeto de sódio em acetona, e obteve-se 2-iodobutano por reação SN2. Qual é a estereoquímica correta do produto?",
+  "choices": [
+   "(R)-2-Iodobutano",
+   "(S)-2-Iodobutano",
+   "2-Iodobutano racêmico"
+  ],
+  "explanation": "Na reação SN2, o nucleófilo I⁻ ataca pelo lado oposto ao bromo, e a configuração do carbono se inverte como um guarda-chuva virado pelo vento (inversão de Walden). A prioridade dos substituintes é Br > CH2CH3 > CH3 > H antes da reação e I > CH2CH3 > CH3 > H depois; o grupo de saída e o nucleófilo ocupam ambos a 1ª posição. Como o arranjo espacial se inverte e a ordem das prioridades não muda, R passa a S. Porém, em reações em que as prioridades mudam, o descritor R/S pode continuar o mesmo apesar da inversão; por isso é preciso conferir as prioridades a cada vez. A racemização ocorre facilmente na SN1, que passa por um carbocátion planar, e não ocorre na SN2, de etapa única."
+ },
+ "substitution-elimination-005": {
+  "question": "Na solvólise (SN1) do (R)-3-bromo-3-metil-hexano opticamente ativo, CH3CH2CH2CBr(CH3)CH2CH3, em mistura de água e acetona, qual é a descrição mais adequada da estereoquímica do álcool formado?",
+  "choices": [
+   "Forma-se apenas a forma (S), com inversão completa",
+   "Forma-se apenas a forma (R), com retenção da configuração",
+   "Há racemização em grande parte (o produto invertido pode ser um pouco majoritário)"
+  ],
+  "explanation": "O substrato terciário perde o grupo de saída e forma um carbocátion sp² trigonal plano. A água, o nucleófilo, pode atacar por qualquer das faces do plano, e o produto se aproxima de um racemato, com quantidades quase iguais das formas (R) e (S). Na prática, o íon brometo recém-saído bloqueia temporariamente uma das faces do carbocátion (par iônico), e o produto invertido pode se formar em quantidade um pouco maior. A inversão completa é característica da reação SN2 e não se aplica a substratos terciários, que não sofrem ataque por trás. Retenção exclusiva da configuração também não ocorre na SN1 comum."
+ },
+ "substitution-elimination-006": {
+  "question": "Qual solvente é o mais adequado para que a reação SN2 entre 1-bromopropano, CH3CH2CH2Br, e azida de sódio, NaN3, ocorra mais rapidamente?",
+  "choices": [
+   "Dimetilsulfóxido (DMSO)",
+   "Metanol, CH3OH",
+   "Água"
+  ],
+  "explanation": "Solventes polares apróticos, como DMSO, DMF e acetona, solvatam bem os cátions (Na⁺) com os pares não ligantes do oxigênio, mas, como não têm O−H, não envolvem os ânions (N3⁻) com ligações de hidrogênio. O nucleófilo “desnudo” é muito reativo, e a reação SN2 fica ordens de grandeza mais rápida que em metanol. Solventes próticos, como água e metanol, envolvem o nucleófilo com ligações de hidrogênio, estabilizando-o e reduzindo sua nucleofilicidade. Já na reação SN1, que forma íons, os solventes próticos são vantajosos, pois estabilizam tanto o carbocátion quanto o ânion do grupo de saída."
+ },
+ "substitution-elimination-007": {
+  "question": "Em metanol, qual íon haleto tem a maior nucleofilicidade na reação SN2 com CH3I?",
+  "choices": [
+   "F⁻",
+   "Cl⁻",
+   "I⁻"
+  ],
+  "explanation": "Em solventes próticos, o F⁻, pequeno e de alta densidade de carga, forma ligações de hidrogênio fortes com as moléculas do solvente, fica envolvido por elas e perde reatividade. O I⁻, grande e facilmente polarizável, é pouco solvatado e tem nuvem eletrônica facilmente deformável, por isso começa a formar a ligação com o carbono com facilidade. Assim, em metanol a nucleofilicidade segue I⁻ > Br⁻ > Cl⁻ > F⁻. Atenção: é a ordem inversa da basicidade (o F⁻ é o mais básico). Sabe-se que em solventes apróticos, como o DMSO, o efeito da solvatação diminui e a ordem se inverte, ficando o F⁻ mais reativo."
+ },
+ "substitution-elimination-008": {
+  "question": "Na reação SN2, qual destas espécies sai mais facilmente do carbono (é o melhor grupo de saída)?",
+  "choices": [
+   "HO⁻ (íon hidróxido)",
+   "TsO⁻ (íon p-toluenossulfonato)",
+   "CH3O⁻ (íon metóxido)"
+  ],
+  "explanation": "Um bom grupo de saída é uma base fraca, capaz de existir de forma estável depois de sair. A referência é o pKa do ácido conjugado: o ácido p-toluenossulfônico, TsOH, é um ácido forte, com pKa de cerca de −2,8. O TsO⁻, com a carga negativa distribuída por ressonância entre três oxigênios, é uma base muito fraca e um excelente grupo de saída, comparável aos íons haleto. Já o HO⁻, base conjugada da água (pKa 15,7), e o CH3O⁻, base conjugada do metanol (pKa cerca de 15,5), são bases fortes; por isso álcoois e éteres, como estão, dificilmente sofrem substituição. Assim, os álcoois são convertidos em tosilatos, ou o OH é protonado com ácido para sair como água."
+ },
+ "substitution-elimination-009": {
+  "question": "Ao aquecer o 2-bromo-2-metilbutano, (CH3)2CBrCH2CH3, com etóxido de sódio em etanol (E2), qual alceno é o produto principal?",
+  "choices": [
+   "2-Metil-2-buteno, (CH3)2C=CHCH3",
+   "2-Metil-1-buteno, CH2=C(CH3)CH2CH3",
+   "3-Metil-1-buteno, (CH3)2CHCH=CH2"
+  ],
+  "explanation": "Na reação E2, a base remove um hidrogênio do carbono β e a dupla ligação se forma ao mesmo tempo que a ligação C−Br se rompe. Neste substrato, os hidrogênios β estão nas duas metilas (6) e no CH2 (2); com uma base pequena como o etóxido, forma-se principalmente o alceno mais estável, mais substituído por grupos alquila (regra de Zaitsev). A remoção de um hidrogênio do CH2 dá o 2-metil-2-buteno, trissubstituído, e a remoção de um hidrogênio de uma metila dá o 2-metil-1-buteno, dissubstituído; o primeiro é o produto principal. O 3-metil-1-buteno tem a dupla ligação longe do carbono que tinha o bromo e não se forma na E2 deste substrato."
+ },
+ "substitution-elimination-010": {
+  "question": "Ao reagir o 2-bromo-2-metilbutano, (CH3)2CBrCH2CH3, com terc-butóxido de potássio, (CH3)3COK, uma base volumosa, em álcool terc-butílico, qual é o produto principal?",
+  "choices": [
+   "2-Metil-1-buteno, CH2=C(CH3)CH2CH3",
+   "2-Metil-2-buteno, (CH3)2C=CHCH3",
+   "O éter (CH3)2C(OC(CH3)3)CH2CH3"
+  ],
+  "explanation": "O terc-butóxido, volumoso, tem dificuldade de se aproximar dos hidrogênios do CH2 interno, mais congestionado, e remove principalmente os hidrogênios das metilas, externas e com menor impedimento estérico. Como resultado, o produto principal é o 2-metil-1-buteno, menos substituído (produto que segue a regra de Hofmann). Com o etóxido, pequeno, o produto principal é o 2-metil-2-buteno, alceno trissubstituído e estável (regra de Zaitsev); assim, o tamanho da base permite alterar a proporção dos produtos. O carbono terciário não pode sofrer ataque por trás, e o terc-butóxido é muito volumoso também como nucleófilo; por isso a substituição que formaria o éter praticamente não ocorre."
+ },
+ "substitution-elimination-011": {
+  "question": "Quando um haleto em um anel de ciclo-hexano sofre reação E2, que relação de posição é necessária entre o grupo de saída X e o hidrogênio β removido?",
+  "choices": [
+   "Trans entre si, ambos equatoriais",
+   "Trans entre si, ambos axiais (antiperiplanar)",
+   "Cis entre si, um axial e o outro equatorial"
+  ],
+  "explanation": "Na reação E2, quando as ligações C−H e C−X estão no mesmo plano e em sentidos opostos (ângulo diedro de 180°, antiperiplanar), os orbitais se sobrepõem bem e a reação é rápida. No ciclo-hexano em cadeira, esse arranjo só ocorre nas posições trans-diaxiais de carbonos vizinhos. Na relação trans-diequatorial o ângulo diedro é de cerca de 60°, e na relação cis a,e também é de cerca de 60°; nenhuma delas é antiperiplanar. Por isso, em substratos com o grupo de saída fixo na posição equatorial, a E2 é extremamente lenta, e há casos, como o cloreto de mentila, em que se forma principalmente um alceno diferente do previsto pela regra de Zaitsev."
+ },
+ "substitution-elimination-012": {
+  "question": "Ao adicionar ácido bromídrico concentrado ao 3-metil-2-butanol, (CH3)2CHCH(OH)CH3, e aquecer, qual é o produto principal?",
+  "choices": [
+   "2-Bromo-3-metilbutano, (CH3)2CHCHBrCH3",
+   "1-Bromo-3-metilbutano, (CH3)2CHCH2CH2Br",
+   "2-Bromo-2-metilbutano, (CH3)2CBrCH2CH3"
+  ],
+  "explanation": "Em meio ácido, o OH é protonado e sai como água, formando primeiro o carbocátion secundário (CH3)2CH−C⁺H−CH3. Quando o hidrogênio do carbono terciário vizinho migra como hidreto (H⁻) para o carbono com carga positiva (deslocamento 1,2 de hidreto), forma-se o carbocátion terciário (CH3)2C⁺−CH2CH3, mais estável; o Br⁻ se liga a ele e forma-se principalmente o 2-bromo-2-metilbutano. O 2-bromo-3-metilbutano, sem rearranjo, é apenas subproduto. O 1-bromo-3-metilbutano, com o bromo na extremidade, não se forma por esta via de reação. Em reações que passam por carbocátions, é preciso ter atenção: o esqueleto carbônico e a posição dos grupos funcionais podem mudar."
+ },
+ "substitution-elimination-013": {
+  "question": "A solvólise (SN1) de um haleto de alquila terciário é de primeira ordem no substrato, com constante de velocidade k = 2,31×10⁻⁴ s⁻¹ a 25 °C. Qual valor mais se aproxima da meia-vida (t½) do substrato?",
+  "choices": [
+   "Cerca de 25 min",
+   "Cerca de 50 min",
+   "Cerca de 72 min"
+  ],
+  "explanation": "A meia-vida de uma reação de primeira ordem é t½ = ln2 / k = 0,693 / (2,31×10⁻⁴ s⁻¹) = 3,00×10³ s, ou seja, 3000 ÷ 60 = 50 min. A meia-vida de uma reação de primeira ordem é constante, independentemente da concentração inicial. Cerca de 72 min é 1/k = 4,33×10³ s, o tempo para a concentração chegar a 1/e (cerca de 37 %): é o erro de esquecer de multiplicar por ln2. Cerca de 25 min é metade da meia-vida. Como a velocidade da SN1 não depende da concentração do nucleófilo, com o mesmo solvente e a mesma temperatura pode-se considerar que a constante de velocidade praticamente não muda ao variar a concentração do nucleófilo."
+ },
+ "substitution-elimination-014": {
+  "question": "A constante de velocidade da reação SN2 entre um haleto de alquila primário RX e um nucleófilo Nu⁻ é k = 2,0×10⁻³ L/(mol·s) a certa temperatura. Qual é a velocidade inicial com [RX] = 0,10 mol/L e [Nu⁻] = 0,20 mol/L?",
+  "choices": [
+   "2,0×10⁻⁴ mol/(L·s)",
+   "6,0×10⁻⁴ mol/(L·s)",
+   "4,0×10⁻⁵ mol/(L·s)"
+  ],
+  "explanation": "A SN2 é uma reação bimolecular: v = k[RX][Nu⁻] = 2,0×10⁻³ × 0,10 × 0,20 = 4,0×10⁻⁵ mol/(L·s). A unidade da constante de velocidade, L/(mol·s), também indica que a reação é de segunda ordem global. 2,0×10⁻⁴ é o erro de tratar a reação como de primeira ordem apenas no substrato, v = k[RX], e as unidades também não batem. 6,0×10⁻⁴ é o erro de somar as duas concentrações em vez de multiplicá-las (k × 0,30). À medida que a reação avança, as duas concentrações diminuem, e a velocidade também diminui com o tempo."
+ },
+ "substitution-elimination-015": {
+  "question": "Ao aquecer o 2-bromo-2-metilpropano, (CH3)3CBr, em etanol com alta concentração de etóxido de sódio, qual é a combinação da reação principal com o produto principal?",
+  "choices": [
+   "Reação E2, formando 2-metilpropeno, (CH3)2C=CH2",
+   "Reação SN2, formando principalmente o éter (CH3)3COCH2CH3",
+   "Reação SN1, formando principalmente o éter (CH3)3COCH2CH3"
+  ],
+  "explanation": "O carbono terciário é congestionado e não permite o ataque por trás; por isso não ocorre SN2. Com o etóxido, uma base forte, em alta concentração, a reação E2, em que a base remove um dos 9 hidrogênios β e o íon brometo sai, ocorre rapidamente, sem esperar a formação do carbocátion, e o 2-metilpropeno é o produto principal. O aquecimento também favorece a eliminação. Aquecendo brandamente em etanol, sem adicionar base, predomina a SN1 via carbocátion, e obtém-se bastante do éter (CH3)3COCH2CH3 (também se forma um pouco do alceno da E1). A reação é identificada pela combinação do tipo de substrato (primário, secundário, terciário) com o tipo de reagente: base forte ou nucleófilo fraco."
+ },
+ "substitution-elimination-016": {
+  "question": "Qual dos brometos de alquila primários a seguir sofre a reação SN2 com iodeto de sódio em acetona mais lentamente?",
+  "choices": [
+   "1-Bromobutano, CH3CH2CH2CH2Br",
+   "1-Bromo-2,2-dimetilpropano, (CH3)3CCH2Br",
+   "1-Bromo-2-metilpropano, (CH3)2CHCH2Br"
+  ],
+  "explanation": "Nos três, o bromo está em um carbono primário, mas a velocidade da SN2 também depende muito das ramificações no carbono vizinho (carbono β). No 1-bromo-2,2-dimetilpropano (brometo de neopentila), o carbono β tem três metilas, que bloqueiam o caminho do nucleófilo que se aproxima por trás; a SN2 fica dezenas de milhares de vezes mais lenta que a do 1-bromobutano, ou ainda mais, e na prática quase não ocorre. O 1-bromo-2-metilpropano, com uma metila no carbono β, também é mais lento que o 1-bromobutano, mas a diferença fica em cerca de 1–2 ordens de grandeza. É um exemplo de que ser primário não garante SN2 rápida. O brometo de neopentila também dificilmente sofre SN1, pois o carbocátion primário é instável, e, quando forçado a reagir, dá produtos com rearranjo de metila."
+ },
+ "substitution-elimination-017": {
+  "question": "Aquecendo brandamente clorobenzeno, C6H5Cl, com solução aquosa de hidróxido de sódio, quase não se forma fenol. Qual é o principal motivo?",
+  "choices": [
+   "O anel bloqueia o ataque por trás e o cátion fenila é instável, então não ocorrem nem SN2 nem SN1",
+   "O carbono ligado ao cloro é sp³ e, como um carbono terciário, é muito impedido, e o nucleófilo não se aproxima",
+   "O Cl⁻ é uma base forte demais para ser grupo de saída e, ao contrário dos haletos de alquila, a C−Cl não se rompe"
+  ],
+  "explanation": "O cloro do clorobenzeno está ligado a um carbono sp². Na SN2, o nucleófilo precisa se aproximar pelo lado oposto à ligação C−Cl, mas essa direção é bloqueada pelo próprio anel benzênico, e a configuração do carbono também não pode se inverter. Na SN1, a ligação C−Cl teria de se romper formando o cátion fenila, mas a carga positiva ficaria em um orbital sp² ortogonal ao sistema π do anel, sem estabilização por ressonância; por isso o cátion é muito instável. Além disso, os pares não ligantes do cloro entram em ressonância com o anel, e a ligação C−Cl fica um pouco mais forte. Considerar o carbono sp³ é um erro de hibridização. O Cl⁻ é uma base fraca e um bom grupo de saída; a natureza do grupo de saída não é a causa. Com grupos nitro nas posições orto ou para, a substituição passa a ocorrer pelo mecanismo de adição-eliminação."
+ },
+ "substitution-elimination-018": {
+  "question": "Deseja-se preparar o éter metil-terc-butílico, (CH3)3C−O−CH3, pela síntese de éteres de Williamson. Qual é a combinação de reagentes mais adequada?",
+  "choices": [
+   "Metóxido de sódio, CH3ONa, e 2-bromo-2-metilpropano, (CH3)3CBr",
+   "terc-Butóxido de potássio, (CH3)3COK, e metanol, CH3OH",
+   "terc-Butóxido de potássio, (CH3)3COK, e iodometano, CH3I"
+  ],
+  "explanation": "A síntese de Williamson é a reação em que um alcóxido ataca um haleto de alquila por SN2, formando um éter. Como a SN2 exige ataque por trás, o lado do haleto deve ser metila ou primário, e a parte volumosa deve ficar no lado do alcóxido. Com terc-butóxido e iodometano, a SN2 no carbono metílico, sem impedimento estérico, dá o éter desejado. Com metóxido e 2-bromo-2-metilpropano, não ocorre SN2 no carbono terciário, e o metóxido, uma base forte, remove um hidrogênio β na E2, formando principalmente 2-metilpropeno. Com terc-butóxido e metanol não há grupo de saída: ocorre apenas um equilíbrio ácido-base de troca de prótons, e não se forma éter. A escolha de qual ligação C−O desconectar decide o sucesso."
+ },
+ "substitution-elimination-019": {
+  "question": "O (R)-2-iodo-octano opticamente puro reagiu em acetona com íons iodeto I⁻ marcados com um isótopo radioativo. Quando 10 % de todas as moléculas tiverem sofrido exatamente uma substituição SN2 cada, a rotação óptica da solução será quantos por cento da inicial? Considere que a configuração sempre se inverte a cada substituição e que a rotação óptica é proporcional ao excesso enantiomérico.",
+  "choices": [
+   "90 %",
+   "80 %",
+   "100 %"
+  ],
+  "explanation": "Os 10 % de moléculas substituídas têm a configuração invertida e passam à forma (S), e os 90 % restantes continuam como (R). O excesso enantiomérico é 90 − 10 = 80 %; assim, a rotação óptica é 80 % da inicial. Os 10 % que viraram (S) cancelam a rotação de 10 % de (R), de modo que a rotação se perde duas vezes mais rápido que a fração substituída. 90 % é o erro de pensar que as moléculas invertidas apenas deixam de contribuir para a rotação. 100 % é o erro de pensar que, como I⁻ apenas troca de lugar com I⁻, o composto não muda, esquecendo a inversão da configuração. Neste experimento, verificou-se de fato que a velocidade de racemização é exatamente o dobro da velocidade de incorporação do iodo radioativo, o que serviu de prova de que cada substituição SN2 é acompanhada de inversão."
+ },
+ "substitution-elimination-020": {
+  "question": "O (R)-2-butanol foi convertido em tosilato com cloreto de p-toluenossulfonila (TsCl) e piridina, e em seguida reagiu por SN2 com cianeto de sódio, NaCN, em DMSO, dando 2-metilbutanonitrila, CH3CH2CH(CH3)CN. Qual é a configuração correta do produto?",
+  "choices": [
+   "(S): a tosilação não rompe a ligação C−O, e há uma única inversão na SN2",
+   "(R): há uma inversão na tosilação e outra na SN2, voltando à configuração original",
+   "Racemato: como o tosilato é bom grupo de saída, a reação ocorre via carbocátion"
+  ],
+  "explanation": "Na tosilação, o oxigênio do álcool ataca o enxofre do TsCl e apenas se forma uma ligação O−S; a ligação C−O entre o carbono assimétrico e o oxigênio não se rompe, e a configuração é mantida. Na SN2 seguinte, o CN⁻ ataca pelo lado oposto ao tosilato, e ocorre uma única inversão. As prioridades são OH > CH2CH3 > CH3 > H antes da reação e CN > CH2CH3 > CH3 > H no produto (o carbono do CN é tratado como (N, N, N)); o grupo de saída e o nucleófilo têm ambos a maior prioridade, e a inversão corresponde diretamente à mudança de R para S. Pensar que também há inversão na tosilação é não perceber qual ligação se rompe. Com um nucleófilo forte em DMSO, mesmo um substrato secundário reage principalmente por SN2, e quase não há racemização."
+ }
+}

@@ -1,0 +1,182 @@
+{
+ "green-process-001": {
+  "question": "Qual é a ideia correta de “prevenção”, o primeiro dos 12 princípios da química verde?",
+  "choices": [
+   "É melhor projetar reações e processos para não gerar resíduos desde o início do que tratar os resíduos depois de formados",
+   "Gerar resíduos é aceitável, e o melhor é aprimorar técnicas de tratamento, como incineração e neutralização, para manter as emissões abaixo dos limites",
+   "Escolhendo as condições de maior rendimento, o problema dos resíduos fica resolvido, qualquer que seja a quantidade de reagentes e solventes"
+  ],
+  "explanation": "Os 12 princípios, reunidos por Anastas e Warner em 1998, partem da prevenção de resíduos e incluem síntese com alta economia atômica, substâncias e solventes menos perigosos, eficiência energética, matérias-primas renováveis, catalisadores em vez de reagentes estequiométricos e prevenção de acidentes. O objetivo não é a abordagem de “fim de tubo”, que trata as substâncias nocivas já formadas, mas reduzir a própria geração na etapa de projeto. Às vezes é necessário aprimorar as técnicas de tratamento, mas o tratamento também consome energia e reagentes, por isso não tem prioridade sobre a prevenção. Mesmo com rendimento alto, os reagentes usados em excesso, grandes volumes de solvente e as substâncias usadas no tratamento final viram resíduos; o rendimento sozinho não determina quão pouco resíduo se gera."
+ },
+ "green-process-002": {
+  "question": "Pelas referências de fator E (massa de resíduo gerada, em kg, por kg de produto) por setor industrial apresentadas por Sheldon, qual setor costuma ter o maior valor?",
+  "choices": [
+   "Refino de petróleo",
+   "Produtos químicos a granel (químicos básicos)",
+   "Fármacos"
+  ],
+  "explanation": "Pelas referências de Sheldon, o refino de petróleo tem menos de 0,1; os produtos químicos a granel, de menos de 1 a cerca de 5; a química fina, de 5 a 50 ou mais; e os fármacos, de 25 a 100 ou mais. Os fármacos têm estruturas complexas e exigem síntese em várias etapas, com solventes e reagentes em cada etapa, além de solventes na recristalização e na cromatografia para obter alta pureza; por isso, geram muito resíduo por produto. O refino de petróleo e os produtos químicos a granel têm volumes de produção ordens de grandeza maiores, de modo que a quantidade total de resíduos é grande, mas por produto é pequena; o fator E, por ser uma razão, é uma grandeza distinta do volume de produção. Reduzir o número de etapas e recuperar e reutilizar solventes são os principais meios de baixar esse valor na química de processos farmacêuticos."
+ },
+ "green-process-003": {
+  "question": "Mesmo em reações com economia atômica teórica de 100 %, o fator E pode ser alto no processo real. Qual é a razão correta?",
+  "choices": [
+   "Reações com economia atômica de 100 % não geram subprodutos, então um fator E alto se deve a erros de medida",
+   "A economia atômica é calculada só pela equação da reação e não inclui rendimento, reagentes em excesso, solventes nem materiais do tratamento e da purificação",
+   "O fator E é a massa do produto dividida pela massa de resíduos, de modo que quanto mais produto, maior o valor"
+  ],
+  "explanation": "A economia atômica é a fração da soma das massas molares dos reagentes da equação que vai para o produto desejado; em reações de adição, como a reação de Diels-Alder e a hidrogenação catalítica, ela é de 100 %. Porém, esse valor supõe que a reação seja completa e que os reagentes sejam usados na proporção estequiométrica. Na prática, sobram matérias-primas que não reagiram, produtos de reações paralelas e reagentes adicionados em excesso, e também viram resíduo o solvente da reação, os solventes de extração e lavagem, agentes secantes, fases estacionárias de cromatografia etc. O fator E é a massa real de resíduos, incluindo tudo isso, dividida pela massa de produto, e por isso pode ser alto mesmo com economia atômica de 100 %. Inverter a divisão é um erro, e ausência de subprodutos não significa ausência de resíduos."
+ },
+ "green-process-004": {
+  "question": "O processo BHC do ibuprofeno C13H18O2 (massa molar 206,3 g/mol) tem três etapas: acetilação do isobutilbenzeno C10H14 (134,2 g/mol) com anidrido acético (CH3CO)2O (102,1 g/mol), redução com hidrogênio H2 (2,0 g/mol) e carbonilação com monóxido de carbono CO (28,0 g/mol); o único subproduto é o ácido acético. Qual valor mais se aproxima da economia atômica do processo como um todo?",
+  "choices": [
+   "Cerca de 87 %",
+   "Cerca de 77 %",
+   "Cerca de 100 %"
+  ],
+  "explanation": "A equação global do processo é C10H14 + (CH3CO)2O + H2 + CO → C13H18O2 + CH3COOH. Economia atômica = massa molar do produto desejado ÷ soma das massas molares dos reagentes × 100 = 206,3 ÷ (134,2 + 102,1 + 2,0 + 28,0) × 100 = 206,3 ÷ 266,3 × 100 ≈ 77 %. Cerca de 87 % é o valor obtido omitindo o hidrogênio e o monóxido de carbono do denominador. Cerca de 100 % é o valor obtido contando também o subproduto, ácido acético, como produto desejado; o ácido acético pode ser recuperado e aproveitado, mas pela definição de economia atômica não entra no produto desejado. O processo Boots tradicional tinha 6 etapas e economia atômica de cerca de 40 %, de modo que o processo BHC é conhecido como exemplo de grande redução no número de etapas e nos resíduos."
+ },
+ "green-process-005": {
+  "question": "Em um processo para produzir 50 kg de um produto, usaram-se 120 kg de matérias-primas e reagentes no total e 900 kg de solvente orgânico, dos quais 80 % foram recuperados e reutilizados. Além disso, usaram-se 600 kg de água de processo. Qual é o fator E (massa de resíduos ÷ massa de produto) calculado excluindo a água? Considere resíduo toda a parte das matérias-primas e reagentes que não virou produto e todo o solvente não recuperado.",
+  "choices": [
+   "5,0",
+   "19,4",
+   "17,0"
+  ],
+  "explanation": "Os resíduos são os 120 − 50 = 70 kg de matérias-primas e reagentes que não viraram produto mais os 900 × (1 − 0,80) = 180 kg de solvente não recuperado, num total de 250 kg; logo, E = 250 ÷ 50 = 5,0. O solvente recuperado e reutilizado não conta como resíduo. 19,4 é o valor sem considerar a recuperação do solvente, contando os 900 kg como resíduo, o que mostra o quanto a recuperação de solvente ajuda a reduzir o fator E. 17,0 é o valor que inclui também os 600 kg de água de processo nos resíduos. Na definição original de Sheldon, a água é excluída porque, se incluída, o valor fica grande demais e difícil de comparar, mas às vezes o valor com água também é informado. É importante comparar deixando claro qual critério foi usado."
+ },
+ "green-process-006": {
+  "question": "Em um processo para fabricar 5,0 kg de um insumo farmacêutico ativo, foram alimentados 30 kg de reagentes e auxiliares, 400 kg de solventes e 170 kg de água. Qual é a intensidade de massa do processo PMI (massa de todas as substâncias alimentadas ÷ massa de produto)?",
+  "choices": [
+   "119",
+   "86",
+   "120"
+  ],
+  "explanation": "O PMI é a massa total das substâncias alimentadas no processo, incluindo reagentes, auxiliares, solventes e água, dividida pela massa de produto: PMI = (30 + 400 + 170) ÷ 5,0 = 600 ÷ 5,0 = 120. 119 é o valor dos resíduos (o total alimentado menos a massa de produto) dividido pelo produto, que corresponde ao fator E com água; pelo mesmo critério, vale a relação E = PMI − 1. 86 é o valor obtido excluindo a água: (30 + 400) ÷ 5,0. No PMI, amplamente usado na indústria farmacêutica, a água também é incluída. Como o PMI é contado pelo lado das entradas, tem a vantagem de ser fácil de calcular sem precisar decidir o que é resíduo. Também neste exemplo, solventes e água representam a maior parte das entradas, o que é típico de processos farmacêuticos."
+ },
+ "green-process-007": {
+  "question": "Entre os métodos de oxidação de um álcool secundário a cetona, em qual o único subproduto gerado a partir do oxidante é água?",
+  "choices": [
+   "Usar trióxido de crômio CrO3 em quantidade estequiométrica em meio ácido sulfúrico (oxidação de Jones)",
+   "Usar o reagente de Dess-Martin (composto de iodo hipervalente) em quantidade estequiométrica",
+   "Oxidar com um catalisador (complexo de metal de transição, TEMPO etc.) e o oxigênio O2 do ar"
+  ],
+  "explanation": "Na oxidação catalítica ao ar, 2 R2CHOH + O2 → 2 R2C=O + 2 H2O, e o único subproduto derivado do oxidante é a água. O catalisador é regenerado a cada ciclo, por isso basta uma pequena quantidade. A oxidação de Jones é 3 R2CHOH + 2 CrO3 + 3 H2SO4 → 3 R2C=O + Cr2(SO4)3 + 6 H2O, e restam 1 mol de sal de crômio, muito tóxico, para cada 3 mol de cetona. O reagente de Dess-Martin é brando e seletivo, mas tem massa molar grande, de cerca de 424 g/mol, e cada equivalente gera um composto de iodo e ácido acético como subprodutos. É por isso que os 12 princípios recomendam catalisadores em vez de reagentes estequiométricos. No entanto, ao usar oxigênio em solventes orgânicos, são necessárias medidas como reduzir a concentração de oxigênio para não formar misturas inflamáveis."
+ },
+ "green-process-008": {
+  "question": "Na acilação de Friedel-Crafts do anisol com AlCl3, é preciso usar 1 equivalente ou mais de AlCl3, e não uma quantidade catalítica, o que gera muito resíduo de sais de alumínio. Qual é a principal razão correta?",
+  "choices": [
+   "O oxigênio carbonílico da cetona aromática formada forma um complexo estável com o AlCl3, que não é regenerado",
+   "O AlCl3 recebe o grupo acila durante a reação e é incorporado ao esqueleto da cetona como parte do produto",
+   "O AlCl3 é um ácido de Lewis fraco, e o íon acílio só se forma se a quantidade for aumentada"
+  ],
+  "explanation": "A cetona formada na acilação é uma base de Lewis, e seu oxigênio carbonílico se coordena ao AlCl3, um ácido de Lewis forte, formando um complexo estável. Por isso, o AlCl3 não pode atuar como catalisador na reação seguinte, e é necessária uma quantidade de matéria igual ou maior que a do produto; ao se decompor o complexo com água após a reação, gera-se uma grande quantidade de efluente contendo hidróxido de alumínio e ácido clorídrico. O AlCl3 não é incorporado ao esqueleto da cetona e, por ser um ácido de Lewis forte, gera íons acílio suficientemente. Por isso, métodos que usam catalisadores ácidos sólidos, como zeólitas, separados por filtração e reutilizados, já foram implementados também em escala industrial. Com ácidos sólidos, o produto não fica fortemente ligado, e a reação avança com quantidade catalítica. É um exemplo típico da ideia de substituir reagentes estequiométricos por catalisadores."
+ },
+ "green-process-009": {
+  "question": "Os guias de seleção de solventes recomendam substituir o n-hexano usado em extração e cromatografia pelo n-heptano. Qual é a principal razão correta?",
+  "choices": [
+   "O n-heptano tem ponto de ebulição cerca de 30 °C menor que o n-hexano, e a evaporação do solvente exige menos energia",
+   "Um metabólito do n-hexano pode causar neuropatia periférica, e considera-se que o n-heptano tem essa neurotoxicidade muito mais fraca",
+   "O n-heptano se mistura bem com água, de modo que pode ser descartado junto com a fase aquosa após a extração, sem separá-las"
+  ],
+  "explanation": "Sabe-se que o n-hexano é metabolizado à γ-dicetona 2,5-hexanodiona, que reage com resíduos de lisina de proteínas dos nervos formando anéis pirrólicos e causando ligações cruzadas; por isso, a exposição prolongada causa neuropatia periférica. O n-heptano gera apenas quantidades mínimas de γ-dicetona pelo metabolismo, e considera-se que essa toxicidade praticamente não é um problema; como a polaridade e o poder de dissolução são quase iguais, ele se tornou o substituto padrão. Os pontos de ebulição são cerca de 69 °C para o n-hexano e cerca de 98 °C para o n-heptano; o heptano tem o ponto mais alto, e sua evaporação exige um pouco mais de energia. Ambos praticamente não se misturam com água. Os guias de seleção de solventes classificam os solventes como “recomendado”, “problemático”, “evitar” etc., considerando em conjunto toxicidade, inflamabilidade, impacto ambiental e facilidade de recuperação."
+ },
+ "green-process-010": {
+  "question": "Qual explicação sobre o dióxido de carbono supercrítico, usado como solvente de extração e de reação, está correta?",
+  "choices": [
+   "Seu ponto crítico é alto, cerca de 374 °C e 22 MPa, e manter o estado supercrítico exige reatores muito resistentes ao calor e à pressão",
+   "Sua polaridade é alta, próxima à da água, e ele dissolve bem compostos muito polares, como açúcares e aminoácidos, sem cossolvente",
+   "Seu ponto crítico é brando, cerca de 31 °C e 7,4 MPa; basta despressurizar para ele voltar a gás, sendo fácil removê-lo do produto"
+  ],
+  "explanation": "O ponto crítico do dióxido de carbono é de cerca de 31 °C e 7,4 MPa; acima dessa temperatura e pressão, ele se torna um fluido supercrítico, sem distinção entre líquido e gás. Sua densidade, e com ela o poder de dissolução, pode ser ajustada continuamente pela pressão e pela temperatura, e ele se caracteriza por baixa viscosidade e difusão rápida. Ao ser despressurizado, volta a gás e não fica no produto; além disso, é não inflamável e pouco tóxico, e é usado na descafeinação do café e na extração de produtos naturais. Cerca de 374 °C e 22 MPa é o ponto crítico da água. O dióxido de carbono supercrítico se parece com um solvente apolar e dissolve pouco compostos muito polares; por isso, usa-se com pequenas quantidades de cossolventes, como metanol. Pressupõe-se a recuperação e recirculação do dióxido de carbono, e a energia de compressão também deve entrar na avaliação."
+ },
+ "green-process-011": {
+  "question": "Um reator de tanque agitado é ampliado, mantendo a semelhança geométrica, de 1 L para 1000 L. O valor da área de troca térmica da camisa dividida pelo volume do líquido de reação (área de troca térmica por unidade de volume) muda por um fator de aproximadamente quanto?",
+  "choices": [
+   "1/10",
+   "1/100",
+   "1/1000"
+  ],
+  "explanation": "Ao multiplicar o volume por 1000 mantendo a forma semelhante, o comprimento aumenta 10 vezes (a raiz cúbica) e a área, 100 vezes (o quadrado do comprimento); assim, a área de troca térmica por unidade de volume cai para 100 ÷ 1000 = 1/10. O calor de reação é gerado proporcionalmente ao volume do líquido, enquanto a capacidade de resfriamento é proporcional à área de troca térmica; por isso, mesmo uma reação exotérmica cujo calor era facilmente removido no laboratório tende a aquecer em tanques grandes. 1/100 é o valor obtido supondo que a área aumenta só 10 vezes, como o comprimento, e 1/1000 é o valor supondo que a área não muda. Por isso, antes da ampliação de escala, mede-se a quantidade e a velocidade de liberação de calor com um calorímetro de reação e avalia-se se a liberação de calor pode ser controlada pela velocidade de adição do reagente e até onde a temperatura subiria se o resfriamento parasse."
+ },
+ "green-process-012": {
+  "question": "Uma reação muito exotérmica está sendo conduzida em modo semibatelada, adicionando-se um dos reagentes gota a gota. Baixar a temperatura de reação muito abaixo do previsto durante a adição pode, ao contrário, aumentar o perigo. Qual é a razão correta?",
+  "choices": [
+   "Baixar a temperatura aumenta a própria magnitude do calor de reação (entalpia de reação), e a mesma quantidade de reação libera mais calor",
+   "A reação fica mais lenta e o reagente se acumula sem reagir; quando a reação avançar depois, o calor acumulado pode ser liberado de uma vez",
+   "Quanto menor a temperatura, mais rápida a reação; o reagente adicionado reage instantaneamente e a liberação de calor supera a capacidade de resfriamento"
+  ],
+  "explanation": "A segurança do modo semibatelada depende de o reagente adicionado reagir e ser consumido logo, de modo que a velocidade de liberação de calor seja controlada pela velocidade de adição. Se a temperatura cair demais, a velocidade de reação diminui, e o reagente vai se acumulando sem reagir (acúmulo). Se nesse estado a temperatura voltar ou a agitação for retomada, a parte acumulada pode reagir de uma vez, o resfriamento não acompanha, e há risco de reação descontrolada. A entalpia de reação muda muito pouco com a temperatura e não aumenta quando a temperatura baixa. Além disso, conforme a equação de Arrhenius, as reações ficam mais lentas a temperaturas mais baixas. Nos processos reais, verifica-se a fração acumulada com um calorímetro de reação e instala-se um intertravamento que interrompe a adição quando deixa de haver liberação de calor."
+ },
+ "green-process-013": {
+  "question": "Uma reação exotérmica com entalpia de reação ΔrH = −120 kJ/mol é conduzida em modo semibatelada a 60 °C, na proporção de 1,5 mol de reagente limitante por 1 kg de mistura reacional. Considere a capacidade calorífica específica da mistura igual a 1,8 kJ/(kg·K) e suponha que, no momento em que o resfriamento parou, 35 % do reagente limitante estavam acumulados sem reagir. Qual valor mais se aproxima da temperatura máxima que pode ser atingida em condições adiabáticas (MTSR)?",
+  "choices": [
+   "125 °C",
+   "160 °C",
+   "95 °C"
+  ],
+  "explanation": "O aumento adiabático de temperatura é ΔTad = (−ΔrH) × (quantidade de matéria por 1 kg) ÷ capacidade calorífica específica = 120 × 1,5 ÷ 1,8 = 100 K. Esse é o valor para a reação completa de toda a carga; no momento em que o resfriamento parou, só a parte acumulada de 35 % reage e eleva a temperatura. Logo, MTSR = 60 + 0,35 × 100 = 95 °C. 125 °C é o erro de calcular com os 65 % que já reagiram, e não com a fração não reagida; esse calor já foi removido pelo resfriamento. 160 °C é o valor obtido somando o aumento adiabático da carga total e corresponde ao modo batelada, em que tudo é carregado no início. O MTSR obtido é comparado com o ponto de ebulição do solvente e com a temperatura em que começam reações de decomposição para avaliar o grau de perigo do processo."
+ },
+ "green-process-014": {
+  "question": "Qual é a vantagem correta de conduzir uma reação muito exotérmica e perigosa, como uma nitração, por síntese em fluxo contínuo, em que as matérias-primas escoam continuamente por tubos de pequeno diâmetro interno?",
+  "choices": [
+   "O volume de líquido no reator (hold-up) é pequeno e a área de troca térmica por volume é grande, de modo que o calor é removido facilmente e as consequências de acidentes são menores",
+   "No tubo o líquido de reação se mistura mal, de modo que a reação avança devagar, a liberação de calor fica naturalmente baixa e não é preciso resfriar",
+   "Para a mesma produção, é possível manter mais líquido de reação no reator que em batelada, de modo que a capacidade calorífica é grande e a temperatura varia pouco"
+  ],
+  "explanation": "Na síntese em fluxo contínuo, pequenos volumes de líquido reagem em canais estreitos, sendo renovados continuamente. Quanto menor o diâmetro interno, maior a área de troca térmica por unidade de volume, e o calor de reação é rapidamente transferido para fora; assim, pontos quentes locais e reações descontroladas ficam menos prováveis. Além disso, como a quantidade de substâncias perigosas no reator em cada instante é pequena, os danos de um eventual vazamento ou decomposição são limitados. Em canais estreitos, as distâncias de difusão são curtas e a mistura costuma ser, na verdade, mais rápida; a liberação de calor não é contida pela má mistura. Manter muito líquido de reação é característica do modo batelada, o oposto da vantagem do fluxo. Também são vantagens o controle preciso do tempo de residência e da temperatura e a possibilidade de aumentar a produção apenas prolongando o tempo de operação."
+ },
+ "green-process-015": {
+  "question": "Em um reator tubular com diâmetro interno de 1,0 mm e comprimento de 10 m, duas bombas alimentam soluções de matérias-primas a 0,50 mL/min cada, que se juntam e reagem. Qual valor mais se aproxima do tempo de residência médio? Considere que o volume dos líquidos não muda na mistura.",
+  "choices": [
+   "Cerca de 16 min",
+   "Cerca de 7,9 min",
+   "Cerca de 31 min"
+  ],
+  "explanation": "O volume interno do reator é V = π × (raio)² × comprimento = π × (0,50×10⁻³ m)² × 10 m ≈ 7,85×10⁻⁶ m³ = 7,85 mL. A vazão após a junção é 0,50 + 0,50 = 1,0 mL/min; assim, o tempo de residência médio é τ = V ÷ vazão = 7,85 ÷ 1,0 ≈ 7,9 min. Cerca de 16 min é o erro de dividir pela vazão de uma só bomba, 0,50 mL/min; depois da junção, os dois líquidos escoam pelo tubo. Cerca de 31 min é o erro de usar o diâmetro interno de 1,0 mm como raio, estimando um volume 4 vezes maior. Na síntese em fluxo contínuo, o tempo de residência (tempo de reação) pode ser ajustado apenas mudando a vazão, e a produção pode ser alterada alongando o tubo ou aumentando a vazão."
+ },
+ "green-process-016": {
+  "question": "6,00 g de ácido acético (0,100 mol) e 9,20 g de etanol (0,200 mol, o dobro) foram esterificados com catalisador ácido, obtendo-se 7,04 g de acetato de etila. As massas molares são 60,0 para o ácido acético, 46,0 para o etanol e 88,0 g/mol para o acetato de etila. Qual é a eficiência mássica da reação RME (massa do produto ÷ soma das massas dos reagentes usados)? Não inclua o catalisador nem o solvente no cálculo.",
+  "choices": [
+   "46,3 %",
+   "83,0 %",
+   "66,4 %"
+  ],
+  "explanation": "RME = 7,04 g/(6,00 g + 9,20 g) = 7,04/15,20 ≈ 46,3 %. 83,0 % é a economia atômica 88,0/(60,0 + 46,0), calculada pela equação CH3COOH + C2H5OH → CH3COOC2H5 + H2O, sem considerar o rendimento e o excesso de reagente. 66,4 % é a economia atômica multiplicada pelo rendimento de 80 % (0,0800 mol/0,100 mol), sem incluir a massa dos 0,100 mol de etanol usados em excesso. A RME é um índice que reflete em conjunto três fatores, a economia atômica, o rendimento e o excesso de reagentes, e indica que fração dos reagentes realmente usados virou produto. Incluindo também os solventes e os materiais do tratamento final, chega-se a índices do processo como um todo, como o PMI."
+ },
+ "green-process-017": {
+  "question": "À luz de um dos 12 princípios da química verde, “evitar derivatizações desnecessárias”, qual é a melhoria mais adequada para uma síntese em várias etapas?",
+  "choices": [
+   "Para proteger com segurança os grupos hidroxila, colocar grupos protetores em todos os grupos funcionais, mesmo nos que não participam da reação, antes de reagir",
+   "Usar reagentes ou enzimas que reagem seletivamente com o grupo funcional desejado, eliminando etapas de proteção e desproteção e reduzindo etapas e resíduos",
+   "Como o grupo protetor é removido no fim e não fica no produto, considerar que o número de grupos protetores não afeta a quantidade de resíduos do processo"
+  ],
+  "explanation": "As etapas de colocação e remoção de grupos protetores exigem, cada uma, reagentes, solventes e purificação, e o próprio grupo protetor removido acaba virando resíduo. Cada par de proteção e desproteção acrescenta duas etapas e reduz o rendimento, aumentando o fator E e o PMI. Por isso, recomenda-se um planejamento sem grupos protetores, usando reagentes quimiosseletivos que reagem apenas com o grupo funcional desejado ou enzimas (biocatalisadores) com regiosseletividade ou estereosseletividade. Por exemplo, o ácido 6-aminopenicilânico, matéria-prima das penicilinas semissintéticas, era antes produzido por um método químico com grupos protetores, que foi substituído pela hidrólise enzimática. Proteger até grupos funcionais que não precisam ser protegidos é contraproducente, e os grupos protetores removidos também precisam ser contados como resíduo."
+ },
+ "green-process-018": {
+  "question": "Uma solução com densidade 1000 kg/m³ e viscosidade 1,0×10⁻³ Pa·s escoa com velocidade média de 0,10 m/s em um reator tubular de diâmetro interno 1,0 mm. Considere que o escoamento em tubo circular é laminar quando o número de Reynolds Re = ρvd/μ é menor que cerca de 2000. Qual é a combinação correta do valor de Re e do regime de escoamento?",
+  "choices": [
+   "Re = 1,0×10⁵, escoamento turbulento e mistura rápida",
+   "Re = 100, escoamento turbulento e mistura rápida",
+   "Re = 100, escoamento laminar e mistura principalmente por difusão"
+  ],
+  "explanation": "Re = 1000 kg/m³ × 0,10 m/s × 1,0×10⁻³ m/(1,0×10⁻³ Pa·s) = 100, muito menor que 2000; portanto, o escoamento é laminar. 1,0×10⁵ é o erro de inserir o diâmetro interno como 1,0 sem convertê-lo para metros. No escoamento laminar, quase não há mistura na direção perpendicular ao fluxo; por isso, quando dois líquidos se juntam, a mistura se dá principalmente por difusão molecular. O tempo de difusão é proporcional ao quadrado da distância (t ≈ x²/D), de modo que, quanto mais estreito o canal, mais rápida a mistura. Por exemplo, com coeficiente de difusão D = 1×10⁻⁹ m²/s, difundir 0,5 mm leva cerca de 250 segundos, mas 50 µm leva cerca de 2,5 segundos. Por isso, em microrreatores usam-se misturadores que dividem o fluxo em camadas finas e as sobrepõem, entre outros."
+ },
+ "green-process-019": {
+  "question": "Na ampliação de escala de processos de insumos farmacêuticos ativos, a purificação por cromatografia em coluna de sílica-gel usada no laboratório é frequentemente substituída pela purificação por cristalização. Qual é a principal razão correta?",
+  "choices": [
+   "Na cristalização as impurezas nunca são incorporadas ao cristal, de modo que uma única operação sempre dá produto com 100 % de pureza",
+   "A coluna usa muito solvente e sílica-gel e tem baixa capacidade; a cristalização purifica grandes quantidades com pouco solvente e controla a forma cristalina",
+   "A cromatografia em coluna tem, em princípio, baixa capacidade de separação e é sempre pior que a cristalização para remover impurezas de estrutura semelhante"
+  ],
+  "explanation": "A cromatografia em coluna tem alta capacidade de separação e é prática no laboratório, mas usa uma massa de sílica-gel dezenas de vezes maior que a do produto e muito eluente, e a quantidade processada por vez é limitada. Em escala industrial, solventes e sílica-gel representam a maior parte dos resíduos e aumentam o PMI. A cristalização é o método em que a substância desejada é precipitada como cristais, pela variação da solubilidade com a temperatura ou pela adição de um antissolvente, e separada por filtração; permite purificar grandes quantidades com relativamente pouco solvente, que também é fácil de recuperar. Além disso, em fármacos, o polimorfismo e o tamanho das partículas afetam a solubilidade e a qualidade, de modo que também é importante poder controlar a forma cristalina pelas condições de cristalização. No entanto, também na cristalização as impurezas podem ser incorporadas aos cristais, e a pureza não chega necessariamente a 100 %. Também não é verdade que a capacidade de separação da coluna seja baixa."
+ },
+ "green-process-020": {
+  "question": "Em um processo de várias etapas, qual é a combinação correta de vantagem e cuidado de usar diretamente na etapa seguinte a mistura reacional ou o extrato de uma etapa, sem isolar nem secar o intermediário (telescopagem)?",
+  "choices": [
+   "Reduz o solvente usado no isolamento e o trabalho de filtração e secagem, mas impurezas e reagentes residuais da etapa anterior podem ser levados à seguinte",
+   "Reduz o solvente usado no isolamento e o trabalho de filtração e secagem, e como as impurezas sempre reagem e somem na etapa seguinte, não há cuidados",
+   "Sempre aumenta a pureza do intermediário, mas o uso de solvente e o número de operações aumentam, de modo que o PMI fica maior"
+  ],
+  "explanation": "Na telescopagem, eliminam-se a cristalização, a filtração e a secagem do intermediário, bem como o solvente e o tempo necessários para elas, reduzindo o PMI e o tempo de fabricação. Também há a vantagem de não precisar isolar intermediários instáveis ou tóxicos que não se deseja manipular. Por outro lado, perde-se a oportunidade de purificação pelo isolamento; assim, subprodutos, reagentes residuais e solventes da etapa anterior são levados à etapa seguinte e podem atrapalhar a reação ou gerar novas impurezas. Por isso, investigam-se a quantidade e o efeito dos componentes transferidos e faz-se o controle por análises em processo. As impurezas nem sempre desaparecem na etapa seguinte. Além disso, como o isolamento é eliminado, a quantidade de solvente e o número de operações não aumentam, nem a pureza do intermediário aumenta."
+ }
+}

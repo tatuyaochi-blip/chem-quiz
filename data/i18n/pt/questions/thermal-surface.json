@@ -1,0 +1,182 @@
+{
+ "thermal-surface-001": {
+  "question": "Na termogravimetria (TG), qual grandeza é medida continuamente enquanto a temperatura é elevada a uma taxa constante?",
+  "choices": [
+   "A diferença de temperatura entre a amostra e um material de referência",
+   "A massa da amostra",
+   "O comprimento (as dimensões) da amostra"
+  ],
+  "explanation": "A TG aquece a amostra colocada sobre uma balança e registra a variação de massa em função da temperatura (ou do tempo). Ela revela a desidratação, a liberação de gases por decomposição, a perda de massa por combustão e o ganho de massa por oxidação, e a porcentagem de perda de massa em cada etapa permite deduzir equações de reação e teores. Medir a diferença de temperatura entre a amostra e uma referência é a análise térmica diferencial (DTA), que detecta a absorção e a liberação de calor na fusão e na decomposição. Medir a variação de comprimento é a análise termomecânica (TMA), usada para coeficientes de expansão térmica e amolecimento. A TG-DTA, que mede TG e DTA simultaneamente, distingue as reações que envolvem variação de massa (decomposição) das mudanças que não envolvem (fusão, transições cristalinas)."
+ },
+ "thermal-surface-002": {
+  "question": "Qual afirmação compara corretamente a calorimetria exploratória diferencial (DSC) com a análise térmica diferencial (DTA)?",
+  "choices": [
+   "A DSC mede a diferença de fluxo de calor entre a amostra e a referência, por isso quantifica com facilidade as entalpias de transições e reações",
+   "A DSC também mede a variação de massa da amostra junto com o fluxo de calor, por isso dá mais informação que a DTA em uma única medida",
+   "A DTA mede diretamente a própria quantidade de calor, por isso quantifica as entalpias de transições e reações com mais exatidão que a DSC"
+  ],
+  "explanation": "A DTA aquece a amostra e uma referência nas mesmas condições e registra a diferença de temperatura ΔT entre elas. A área do pico de ΔT está relacionada à quantidade de calor, mas é afetada pela resistência térmica do equipamento e pela condução de calor da amostra, por isso a DTA é usada principalmente para conhecer as temperaturas de transições e reações. A DSC mede a diferença de potência necessária para manter as duas na mesma temperatura (tipo compensação de potência) ou uma diferença de fluxo de calor calibrada (tipo fluxo de calor), de modo que entalpias como o calor de fusão podem ser quantificadas em J/g a partir da área do pico, e também se pode medir a variação da capacidade calorífica na transição vítrea. Medir a variação de massa é papel da TG, e não da DSC. A afirmação de que a DTA é melhor para quantificar o calor está invertida."
+ },
+ "thermal-surface-003": {
+  "question": "Um polímero com regiões amorfas e cristalinas foi medido por DSC no aquecimento. Qual combinação descreve corretamente como aparecem a transição vítrea e a fusão?",
+  "choices": [
+   "A transição vítrea aparece como um pico endotérmico agudo, e a fusão como um degrau na linha de base",
+   "Tanto a transição vítrea quanto a fusão aparecem como picos exotérmicos",
+   "A transição vítrea aparece como um degrau na linha de base, e a fusão como um pico endotérmico"
+  ],
+  "explanation": "A transição vítrea é a passagem das cadeias da região amorfa de um estado vítreo, congelado, para um estado borrachoso, com mobilidade; ela não envolve calor latente, mas a capacidade calorífica aumenta de forma descontínua. Por isso, na DSC a linha de base se desloca em degrau para o lado endotérmico, e o ponto médio desse degrau, ou outro ponto semelhante, é tomado como a temperatura de transição vítrea Tg. A fusão é uma transição de primeira ordem em que os cristais se desfazem e exige calor latente, por isso aparece como um pico endotérmico, cuja área é o calor de fusão. Descrever a transição vítrea como um pico agudo e a fusão como um degrau é trocar uma pela outra. Em amostras armazenadas por muito tempo, porém, um pequeno pico endotérmico (relaxação entálpica) pode se sobrepor ao degrau perto de Tg, por isso verifique a posição e o tamanho do pico para não confundi-lo com a fusão."
+ },
+ "thermal-surface-004": {
+  "question": "Ao aquecer oxalato de cálcio mono-hidratado, CaC2O4·H2O (massa de fórmula 146,11), em nitrogênio, a TG mostra três etapas de perda de massa: saída de H2O, saída de CO (formando CaCO3) e saída de CO2 (formando CaO). Que porcentagem da massa inicial da amostra é perdida na segunda etapa (CaC2O4 → CaCO3 + CO)? Considere as massas molares H2O 18,02, CO 28,01 e CO2 44,01 g/mol.",
+  "choices": [
+   "12,3 %",
+   "19,2 %",
+   "30,1 %"
+  ],
+  "explanation": "A partir de 1 mol de CaC2O4·H2O (146,11 g), sai 1 mol de CO (28,01 g) na segunda etapa, então a perda de massa é 28,01/146,11 × 100 = 19,2 %. O valor 12,3 % é a perda de H2O na primeira etapa (18,02/146,11), e 30,1 % é a perda de CO2 na terceira etapa (44,01/146,11). O CaO que resta no final corresponde a 56,08/146,11 = 38,4 %. Como as três etapas são bem separadas e a composição é conhecida com exatidão, o oxalato de cálcio mono-hidratado é muito usado para verificar o funcionamento de equipamentos de TG. Medido em ar, o CO formado na segunda etapa queima e libera calor, por isso, na TG-DTA, o sinal de DTA é diferente em nitrogênio e em ar."
+ },
+ "thermal-surface-005": {
+  "question": "Uma peça moldada de poli(tereftalato de etileno) (PET) foi medida por DSC no aquecimento e apresentou um pico exotérmico de cristalização a frio perto de 130 °C (20,0 J/g) e um pico endotérmico de fusão perto de 250 °C (50,0 J/g). Se o calor de fusão do PET 100 % cristalino é 140 J/g, qual valor mais se aproxima do grau de cristalinidade da peça antes da medida?",
+  "choices": [
+   "21,4 %",
+   "35,7 %",
+   "50,0 %"
+  ],
+  "explanation": "Os cristais formados por cristalização a frio durante o aquecimento também se fundem depois, no pico de fusão. A quantidade de cristais presente desde o início corresponde ao calor de fusão menos o calor liberado na cristalização a frio, (50,0 − 20,0) J/g = 30,0 J/g, então o grau de cristalinidade é 30,0/140 × 100 = 21,4 %. O valor 35,7 % é 50,0/140, sem descontar a cristalização a frio, o que conta como presentes desde o início até os cristais formados durante o aquecimento. O valor 50,0 % é o erro de somar o calor liberado em vez de subtraí-lo, (50,0 + 20,0)/140. A cristalização a frio é observada quando uma amostra resfriada rapidamente, com muito material amorfo remanescente, é aquecida acima da temperatura de transição vítrea, e é uma pista para investigar diferenças devidas às condições de moldagem."
+ },
+ "thermal-surface-006": {
+  "question": "Na DSC de polímeros, é comum aquecer a amostra uma vez até fundi-la, resfriá-la a uma taxa constante e comparar os resultados do segundo aquecimento. Qual é o principal motivo?",
+  "choices": [
+   "No primeiro aquecimento, por causa das tensões da moldagem, a transição vítrea por princípio não aparece",
+   "Aquecimentos repetidos sempre levam o grau de cristalinidade a 100 %, permitindo medir o calor de fusão com exatidão",
+   "Eliminar o efeito da história térmica, como a taxa de resfriamento na moldagem, e comparar após o mesmo resfriamento"
+  ],
+  "explanation": "O grau de cristalinidade, a espessura dos cristais e o estado de relaxação das regiões amorfas de um polímero dependem muito da história de temperatura durante a moldagem e o armazenamento (história térmica). Fundindo a amostra no primeiro aquecimento e resfriando-a a uma taxa definida, todas as amostras passam a ter a mesma história, e o segundo aquecimento permite comparar a Tg e o ponto de fusão do próprio material. Por outro lado, quando se quer conhecer o estado real de um produto, observa-se o primeiro aquecimento. A transição vítrea aparece, sim, no primeiro aquecimento; apenas sua forma muda com a história térmica. Além disso, por causa do emaranhamento das cadeias e de outros fatores, os polímeros nunca chegam a 100 % de cristalinidade, e aquecimentos repetidos mantêm o valor em um nível intermediário."
+ },
+ "thermal-surface-007": {
+  "question": "Em difração de raios X de pó com radiação Cu Kα (comprimento de onda λ = 0,15406 nm), o pico de difração dos planos (111) do silício aparece em 2θ = 28,44°. Considerando difração de primeira ordem, qual valor mais se aproxima da distância interplanar d obtida pela lei de Bragg, 2d sin θ = λ?",
+  "choices": [
+   "0,314 nm",
+   "0,162 nm",
+   "0,627 nm"
+  ],
+  "explanation": "O ângulo lido no difratômetro é 2θ, o ângulo entre o feixe incidente e o difratado, então θ = 14,22°. d = λ/(2 sin θ) = 0,15406/(2 × 0,2457) = 0,3136 nm ≈ 0,314 nm. O valor 0,162 nm resulta do erro de usar o valor de 2θ, 28,44°, diretamente como θ, o engano mais comum. O valor 0,627 nm resulta do erro de esquecer o 2 do denominador. A partir do parâmetro de rede do silício, a = 0,5431 nm, a fórmula do sistema cúbico d = a/√(h² + k² + l²) dá d111 = 0,5431/√3 = 0,3136 nm, o que concorda. Para a mesma substância, 2θ muda com o comprimento de onda dos raios X usados, por isso a comparação com bancos de dados usa os valores de d, que não dependem do comprimento de onda."
+ },
+ "thermal-surface-008": {
+  "question": "Você quer saber se um pó de dióxido de titânio, TiO2, contém a fase cristalina anatásio ou rutilo. Qual é o método mais adequado?",
+  "choices": [
+   "Medir a razão Ti/O por fluorescência de raios X e distinguir as fases pela diferença de composição",
+   "Comparar as posições e intensidades dos picos de difração de raios X de pó com um banco de dados",
+   "Dissolver a amostra e distinguir as fases pelo teor de Ti por espectrometria de emissão óptica com ICP"
+  ],
+  "explanation": "O anatásio e o rutilo são polimorfos com a mesma composição, TiO2, que diferem apenas no arranjo dos átomos (estrutura cristalina). A difração de raios X de pó fornece um conjunto de distâncias interplanares d e de razões de intensidade característico de cada fase cristalina, e a fase é identificada comparando-os com um banco de dados como o PDF do ICDD. Com Cu Kα, por exemplo, o pico mais intenso aparece em 2θ ≈ 25,3° para o anatásio e em 2θ ≈ 27,4° para o rutilo. A fluorescência de raios X e a emissão óptica com ICP medem os tipos e as quantidades de elementos, por isso não distinguem polimorfos de mesma composição. Além disso, na fluorescência de raios X é difícil quantificar elementos leves como o O, e no ICP a amostra é dissolvida, o que faz perder a informação sobre a estrutura cristalina."
+ },
+ "thermal-surface-009": {
+  "question": "Em difração de raios X de pó, o pico em 2θ = 40,0° tem largura a meia altura de 0,40° (já corrigida do alargamento instrumental). Ao estimar o tamanho de cristalito D pela equação de Scherrer, D = Kλ/(β cos θ), qual valor mais se aproxima? Considere K = 0,9, λ = 0,154 nm e β a largura a meia altura em radianos.",
+  "choices": [
+   "0,37 nm",
+   "26 nm",
+   "21 nm"
+  ],
+  "explanation": "Convertendo a largura em radianos, β = 0,40 × π/180 = 6,98×10⁻³ rad, e θ = 20,0°, então cos θ = 0,940. D = 0,9 × 0,154/(6,98×10⁻³ × 0,940) ≈ 21 nm. O valor 0,37 nm resulta do erro de substituir β em graus, o que dá um valor da ordem das distâncias interatômicas. O valor 26 nm resulta do erro de usar cos 2θ (cos 40,0° = 0,766) em vez de cos θ. Quanto menores os cristalitos, mais largos os picos de difração, e a equação de Scherrer é usada para estimar tamanhos abaixo de cerca de 100 nm. A deformação da rede, porém, também alarga os picos, e para separar corretamente os dois efeitos usam-se métodos que examinam como o alargamento dos picos depende do ângulo."
+ },
+ "thermal-surface-010": {
+  "question": "Qual elemento é o mais difícil de medir com um espectrômetro de fluorescência de raios X comum?",
+  "choices": [
+   "Lítio, Li",
+   "Ferro, Fe",
+   "Chumbo, Pb"
+  ],
+  "explanation": "A fluorescência de raios X arranca elétrons das camadas internas com raios X primários e mede os raios X de fluorescência característicos de cada elemento, emitidos quando elétrons externos caem nas vacâncias das camadas internas. Quanto menor o número atômico, maior a fração de vacâncias preenchidas com emissão de elétrons Auger em vez de raios X (o rendimento de fluorescência é pequeno) e menor a energia dos raios X emitidos, que são absorvidos pela amostra, pela janela e pelo ar e ficam difíceis de detectar. A linha K do lítio é extremamente baixa, cerca de 0,05 keV, e não pode ser medida com equipamentos comuns. O ferro (Kα cerca de 6,40 keV) e o chumbo (Lα cerca de 10,5 keV) são medidos com boa sensibilidade. A vantagem do método é medir vários elementos de forma não destrutiva, sem dissolver a amostra; para medir elementos leves é preciso vácuo ou purga com hélio."
+ },
+ "thermal-surface-011": {
+  "question": "A energia da linha Kα do ferro (número atômico 26) é 6,40 keV. Se, pela lei de Moseley, a energia da linha Kα é proporcional a (Z − 1)², qual valor mais se aproxima da energia da linha Kα do cobre (número atômico 29)?",
+  "choices": [
+   "5,10 keV",
+   "7,17 keV",
+   "8,03 keV"
+  ],
+  "explanation": "Pela lei de Moseley, a energia da linha Kα é proporcional a (Z − 1)². O −1 representa a blindagem de cerca de uma unidade de carga nuclear pelo outro elétron que permanece na camada K. Para o cobre, 6,40 × (28/25)² = 6,40 × 1,254 = 8,03 keV, em boa concordância com o valor medido de 8,05 keV. O valor 7,17 keV resulta do erro de multiplicar pela razão de (Z − 1) sem elevar ao quadrado, e 5,10 keV do erro de inverter a razão e multiplicar por (25/28)². Como as energias dos raios X característicos são determinadas de forma regular pelo número atômico, a fluorescência de raios X e o EDS identificam os elementos pela energia dos picos."
+ },
+ "thermal-surface-012": {
+  "question": "Em espectroscopia de fotoelétrons excitados por raios X (XPS) com radiação Al Kα (hν = 1486,6 eV), a energia cinética de um fotoelétron foi medida como 1197,4 eV. Se a função trabalho do espectrômetro é 4,4 eV, qual é a energia de ligação desse elétron?",
+  "choices": [
+   "289,2 eV",
+   "284,8 eV",
+   "293,6 eV"
+  ],
+  "explanation": "Na XPS, a energia dos raios X se divide entre a energia de ligação necessária para liberar o elétron, a função trabalho do espectrômetro e a energia cinética do fotoelétron, então EB = hν − EK − φ. EB = 1486,6 − 1197,4 − 4,4 = 284,8 eV, que corresponde ao valor de C 1s dos hidrocarbonetos. O valor 289,2 eV resulta de esquecer de subtrair a função trabalho, e 293,6 eV de somá-la quando deveria ser subtraída. Em amostras isolantes, a superfície se carrega positivamente e a energia de ligação aparente se desloca, por isso é comum fazer a correção ajustando o C 1s dos hidrocarbonetos adsorvidos na superfície a um valor como 284,8 eV. Esse valor de referência varia um pouco conforme a fonte."
+ },
+ "thermal-surface-013": {
+  "question": "No espectro de C 1s de XPS, qual carbono dá um pico na energia de ligação mais alta?",
+  "choices": [
+   "O carbono CF2 do politetrafluoroetileno, (−CF2−CF2−)n",
+   "O carbono CH2 do polietileno, (−CH2−CH2−)n",
+   "O carbono carbonílico do grupo éster −COOCH3 do poli(metacrilato de metila)"
+  ],
+  "explanation": "O deslocamento químico na XPS ocorre porque, quanto mais os elétrons do átomo de interesse são atraídos pelos átomos muito eletronegativos ao redor, mais fortemente os elétrons internos restantes ficam ligados ao núcleo e mais alta é a energia de ligação. Para C 1s, aproximadamente, C−C e C−H ficam em 284,8 eV, C−O em 286,5 eV e O−C=O em 289 eV, e o CF2, ligado a dois átomos de flúor, o elemento mais eletronegativo, aparece no extremo mais alto, em cerca de 292 eV. O CH2 do polietileno é a referência, no extremo mais baixo. O carbono do éster, ligado a dois oxigênios, sobe até cerca de 289 eV, mas não alcança o CF2, com seus dois flúores. Esses deslocamentos químicos permitem determinar os tipos e as proporções de grupos funcionais introduzidos por tratamento de superfície."
+ },
+ "thermal-surface-014": {
+  "question": "Qual afirmação sobre o contraste de uma imagem de microscopia eletrônica de varredura (MEV) obtida pela detecção de elétrons retroespalhados está correta?",
+  "choices": [
+   "As fases com número atômico médio menor aparecem mais claras",
+   "Apenas o relevo da superfície gera contraste; diferenças de composição não aparecem",
+   "As fases com número atômico médio maior aparecem mais claras"
+  ],
+  "explanation": "Os elétrons retroespalhados são elétrons incidentes que foram espalhados em ângulos grandes pelos núcleos dos átomos da amostra e voltaram para fora dela. Quanto maior o número atômico, mais forte o espalhamento e mais elétrons retroespalhados, de modo que as fases com número atômico médio maior aparecem mais claras. Por exemplo, precipitados ricos em cobre em uma liga de alumínio aparecem mais claros que a matriz. Esse contraste devido a diferenças de composição é chamado de contraste de composição. Quem reflete principalmente o relevo da superfície é a imagem de elétrons secundários, formada por elétrons secundários de baixa energia emitidos de profundidades muito pequenas da superfície da amostra. A alternativa com o contraste invertido confunde a relação entre número atômico e intensidade do espalhamento. Um procedimento típico é observar a distribuição das fases na imagem de elétrons retroespalhados e depois confirmar os elementos de cada fase por EDS."
+ },
+ "thermal-surface-015": {
+  "question": "Você quer determinar a composição elementar e o estado químico de um filme de óxido ou de uma camada de contaminação de alguns nm de espessura na superfície de uma chapa de aço. Qual é o método mais adequado?",
+  "choices": [
+   "Análise pontual por MEV-EDS, com feixe de elétrons a uma tensão de aceleração de 15 kV",
+   "Medida por espectroscopia de fotoelétrons excitados por raios X (XPS)",
+   "Medida por fluorescência de raios X"
+  ],
+  "explanation": "Os fotoelétrons detectados na XPS só conseguem sair da superfície sem sofrer espalhamento inelástico a partir de alguns nm de profundidade, de modo que a profundidade de informação é muito pequena, de alguns nm a partir da superfície; além da composição do filme, os deslocamentos químicos revelam diferenças de estado, como Fe metálico e óxido. No MEV-EDS, um feixe de elétrons de cerca de 15 kV se espalha por uma região de aproximadamente 1 µm dentro da amostra e gera raios X característicos, de modo que o sinal de um filme de alguns nm fica encoberto pelo sinal do ferro do substrato. A fluorescência de raios X mede a composição média de uma região ainda mais profunda, que vai de µm a mm, dependendo do elemento e da matriz. É importante conhecer a profundidade de informação de cada método e escolher o adequado ao objetivo."
+ },
+ "thermal-surface-016": {
+  "question": "Em difração de raios X de pó, listam-se os picos de difração de um metal cúbico a partir do lado de 2θ menor. Qual conjunto de índices de Miller está correto para os três primeiros picos de um metal cúbico de face centrada (CFC)?",
+  "choices": [
+   "(100), (110), (111)",
+   "(110), (200), (211)",
+   "(111), (200), (220)"
+  ],
+  "explanation": "Em redes com mais de um átomo na célula unitária, algumas reflexões desaparecem por causa do fator de estrutura (extinções sistemáticas). Na rede cúbica de face centrada, as reflexões só aparecem quando h, k e l são todos ímpares ou todos pares, então, em ordem crescente de h² + k² + l², seguem-se (111), (200), (220), (311). Na rede cúbica de corpo centrado, elas só aparecem quando h + k + l é par, na ordem (110), (200), (211). A rede cúbica simples não tem extinções, e (100), (110) e (111) aparecem todas. Como a distância interplanar é d = a/√(h² + k² + l²), quanto menor h² + k² + l², maior o d e menor o 2θ. Assim, a sequência das posições dos picos permite identificar o tipo de rede."
+ },
+ "thermal-surface-017": {
+  "question": "Em difração de raios X de pó com radiação Cu Kα, a distância interplanar dos planos (111) do cobre metálico, de rede cúbica de face centrada, foi determinada como d = 0,2087 nm. Qual valor mais se aproxima do parâmetro de rede a obtido pela fórmula da distância interplanar do sistema cúbico, d = a/√(h² + k² + l²)?",
+  "choices": [
+   "0,361 nm",
+   "0,295 nm",
+   "0,120 nm"
+  ],
+  "explanation": "Para os planos (111), h² + k² + l² = 1 + 1 + 1 = 3, então a = d√3 = 0,2087 nm × 1,732 ≈ 0,361 nm. Isso concorda bem com o valor da literatura para o parâmetro de rede do cobre metálico, cerca de 0,3615 nm. O valor 0,295 nm resulta de multiplicar por √2 em vez de √3, confundindo com os planos (110). O valor 0,120 nm resulta de dividir por √3, usando a fórmula no sentido inverso. Como √(h² + k² + l²) é no mínimo 1, o parâmetro de rede nunca é menor que a distância interplanar; se sair um valor menor que d, desconfie do sentido da fórmula. A partir de a também se podem calcular a distância entre vizinhos mais próximos na rede CFC, a/√2 ≈ 0,256 nm, e o raio atômico, a√2/4 ≈ 0,128 nm."
+ },
+ "thermal-surface-018": {
+  "question": "Ao medir os fotoelétrons 2p do cobre por XPS, o acoplamento spin-órbita divide o sinal em dois picos, 2p3/2 e 2p1/2. Qual combinação do valor teórico da razão das áreas 2p3/2 : 2p1/2 e de sua justificativa está correta?",
+  "choices": [
+   "1 : 1, porque os dois vêm do mesmo orbital 2p e portanto são iguais em número",
+   "2 : 1, porque as degenerescências 2j + 1 dos dois níveis são 4 e 2",
+   "3 : 2, porque as degenerescências 2j + 1 dos dois níveis são 6 e 4"
+  ],
+  "explanation": "Os elétrons de um orbital p (l = 1), combinados com o spin s = 1/2, se dividem em dois níveis, com momento angular total j = 3/2 e j = 1/2. O número de elétrons que cada nível pode acomodar é sua degenerescência 2j + 1, que é 4 e 2, então a razão das áreas dos picos é 2 : 1. Nos orbitais d, j = 5/2 e 3/2 dão 6 : 4 = 3 : 2, e nos orbitais f, j = 7/2 e 5/2 dão 8 : 6 = 4 : 3. A razão 3 : 2 é o erro de aplicar a razão dos orbitais d a um orbital p. Embora os dois níveis pertençam ao mesmo orbital 2p, eles comportam números diferentes de elétrons, e a razão não é 1 : 1. A largura do desdobramento depende do elemento e do orbital (cerca de 20 eV no 2p do cobre), e o 2p1/2, de menor j, aparece na energia de ligação mais alta."
+ },
+ "thermal-surface-019": {
+  "question": "Em XPS, considere que o livre caminho médio inelástico de certo fotoelétron é λ = 2,0 nm. A fração de fotoelétrons vindos de átomos na profundidade z que escapam da superfície é proporcional a exp(−z/λ) (detecção na direção normal à superfície), e a composição é uniforme com a profundidade. Até que profundidade a partir da superfície se origina 95 % do sinal detectado? Qual valor mais se aproxima?",
+  "choices": [
+   "1,9 nm",
+   "2,0 nm",
+   "6,0 nm"
+  ],
+  "explanation": "A fração do sinal vinda da camada até a profundidade d é a integral de exp(−z/λ) de 0 a d dividida pelo total, ou seja, 1 − exp(−d/λ). Igualando a 0,95, exp(−d/λ) = 0,05, e d = λ ln 20 ≈ 3,0λ = 6,0 nm. A camada até 2,0 nm (igual a λ) fornece apenas 1 − e⁻¹ ≈ 63 % do sinal. O valor 1,9 nm apenas multiplica λ por 0,95, tratando o decaimento exponencial como se fosse proporcional. Esse “cerca de 3λ” é a medida usual da profundidade de análise da XPS, o que significa que só se observa uma camada superficial de alguns nm. Inclinando a direção de detecção de um ângulo θ em relação à normal da superfície, a profundidade efetiva diminui por um fator cos θ, e a medida fica ainda mais sensível à superfície."
+ },
+ "thermal-surface-020": {
+  "question": "A composição de uma borracha que contém negro de fumo e uma carga inorgânica é examinada por termogravimetria (TG). A amostra é primeiro aquecida em nitrogênio até cerca de 600 °C e, em seguida, o gás é trocado por ar e o aquecimento continua. Qual combinação descreve corretamente o que representam a perda de massa em cada etapa e o resíduo final?",
+  "choices": [
+   "Perda em nitrogênio: pirólise da borracha; perda em ar: combustão do negro de fumo; resíduo: carga inorgânica",
+   "Perda em nitrogênio: combustão do negro de fumo; perda em ar: pirólise da borracha; resíduo: carga inorgânica",
+   "Perda em nitrogênio: combustão da borracha; perda em ar: decomposição da carga inorgânica; resíduo: negro de fumo"
+  ],
+  "explanation": "Em nitrogênio não há oxigênio, então o polímero da borracha não queima, mas sofre pirólise e se volatiliza, perdendo massa em geral a algumas centenas de °C. O negro de fumo é carbono quase puro e permanece sem se decompor em atmosfera inerte, mesmo a 600 °C. Quando o gás é trocado por ar, o negro de fumo reage com o oxigênio e queima por completo como CO2, e essa perda de massa dá a quantidade de negro de fumo. O que resta no final é a carga inorgânica não combustível (cinzas), como óxido de zinco ou sílica. Como não há oxigênio no nitrogênio, nem o negro de fumo nem a borracha podem queimar ali. O negro de fumo só permanece até o fim se a amostra nunca for aquecida em ar; em ar ele queima e desaparece."
+ }
+}
