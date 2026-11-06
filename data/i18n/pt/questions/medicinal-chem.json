@@ -1,0 +1,182 @@
+{
+ "medicinal-chem-001": {
+  "question": "Qual explicação do farmacóforo, no sentido usado em química medicinal, está correta?",
+  "choices": [
+   "As características necessárias para a interação com o alvo, como sítios doadores e aceptores de ligação de hidrogênio, regiões hidrofóbicas e cargas, e seu arranjo tridimensional",
+   "A subestrutura de um fármaco que é oxidada primeiro pelas enzimas metabólicas do organismo e perde a atividade",
+   "A fórmula molecular e a massa molar comuns a fármacos com o mesmo efeito, de modo que, se forem iguais, o efeito também é igual"
+  ],
+  "explanation": "Na relação estrutura-atividade (SAR), partes de um composto líder são modificadas pouco a pouco e a atividade é medida, para distinguir as partes indispensáveis à atividade das que podem ser alteradas. O farmacóforo é a abstração desses resultados: as características necessárias para a ligação ao alvo (doadores e aceptores de ligação de hidrogênio, grupos hidrofóbicos, anéis aromáticos, cargas positivas e negativas) e suas distâncias e orientações. Como se trata de um arranjo de características, e não de átomos específicos, compostos com esqueletos diferentes podem satisfazer o mesmo farmacóforo, o que ajuda a buscar novos esqueletos. A parte oxidada primeiro é um conceito diferente, chamado ponto fraco metabólico (soft spot). Mesmo com a mesma fórmula molecular, estereoisômeros podem ter atividades muito diferentes, de modo que a fórmula molecular e a massa molar não determinam o efeito farmacológico."
+ },
+ "medicinal-chem-002": {
+  "question": "Para candidatos a fármacos de administração oral, qual é a combinação correta dos limites que a regra dos cinco de Lipinski associa a “maior probabilidade de má absorção ou má permeação de membrana”?",
+  "choices": [
+   "Massa molar acima de 300, logP acima de 3, mais de 3 doadores de ligação de hidrogênio e mais de 3 aceptores de ligação de hidrogênio",
+   "Massa molar acima de 500, logP acima de 5, mais de 10 doadores de ligação de hidrogênio e mais de 5 aceptores de ligação de hidrogênio",
+   "Massa molar acima de 500, logP acima de 5, mais de 5 doadores de ligação de hidrogênio e mais de 10 aceptores de ligação de hidrogênio"
+  ],
+  "explanation": "A regra dos cinco de Lipinski é uma regra empírica obtida pelo estudo das propriedades de fármacos absorvidos por via oral; recebe esse nome porque todos os limites são múltiplos de 5: massa molar 500, logP 5, 5 doadores de ligação de hidrogênio e 10 aceptores. Considera-se que, quando dois ou mais desses limites são ultrapassados, a absorção e a permeação de membrana tendem a ser ruins. A combinação com os números de doadores e aceptores trocados é um erro de memorização comum. Os limites de massa molar 300, logP 3 e 3 doadores e aceptores são a “regra dos três”, uma referência para a seleção de fragmentos. A regra dos cinco é apenas uma referência, e há exceções, como produtos naturais e fármacos transportados por transportadores. Também se usam os critérios de Veber, que acrescentam o número de ligações rotacionáveis (10 ou menos) e a área de superfície polar (140 Å² ou menos)."
+ },
+ "medicinal-chem-003": {
+  "question": "Um candidato a fármaco tem massa molar 612, logP 5,8, 3 doadores de ligação de hidrogênio (número de OH e NH) e 9 aceptores de ligação de hidrogênio (número de N e O). Qual avaliação pela regra dos cinco de Lipinski está correta?",
+  "choices": [
+   "Apenas um critério, a massa molar, é violado; pela regra dos cinco, avalia-se que não há problema de absorção oral",
+   "Dois critérios, massa molar e logP, são violados; avalia-se que há alta probabilidade de má absorção ou permeação de membrana",
+   "Os 9 aceptores de ligação de hidrogênio também excedem o limite de 5; com a massa molar e o logP, avalia-se que três critérios são violados"
+  ],
+  "explanation": "Comparando com os limites, a massa molar 612 excede 500 e o logP 5,8 excede 5; portanto, dois critérios são violados. Os 3 doadores de ligação de hidrogênio estão dentro do limite de 5 ou menos, e os 9 aceptores dentro do limite de 10 ou menos; ambos são atendidos. Como se considera que a absorção e a permeação de membrana tendem a ser ruins quando dois ou mais critérios são violados, avalia-se que este composto requer atenção. Contar apenas um critério, deixando passar o logP 5,8, é um erro, e tomar 5 como limite de aceptores é confundi-lo com o limite de doadores. No entanto, a regra dos cinco é uma referência que indica tendências e não significa que um composto que a viole não possa ser um fármaco oral. Pode-se considerar modificações estruturais que reduzam a massa molar ou a lipofilicidade, ou estratégias de formulação que compensem a solubilidade."
+ },
+ "medicinal-chem-004": {
+  "question": "Um composto foi distribuído entre 1-octanol e água (com o pH ajustado para que o composto permaneça na forma molecular) e, ao atingir o equilíbrio a 25 °C, a concentração na fase octanol era 2,4 mg/mL e na fase aquosa 0,012 mg/mL. Qual é o logP desse composto?",
+  "choices": [
+   "−2,30",
+   "2,30",
+   "5,30"
+  ],
+  "explanation": "O coeficiente de partição octanol/água P é a concentração do composto na forma molecular na fase octanol dividida pela concentração na fase aquosa: P = 2,4 ÷ 0,012 = 200, e logP = log 200 = 2,30. Desde que as unidades de concentração sejam as mesmas, elas se cancelam. −2,30 é o valor inverso, obtido dividindo a fase aquosa pela fase octanol; um logP positivo indica que o composto se dissolve mais no octanol que na água (é lipofílico). 5,30 é o erro de usar o logaritmo natural ln 200 em vez do logaritmo decimal. O logP é uma referência para permeação de membrana, absorção, ligação a proteínas e suscetibilidade ao metabolismo; muitos fármacos orais têm valores intermediários, e valores muito altos levam a menor solubilidade e a mais ligações fora do alvo."
+ },
+ "medicinal-chem-005": {
+  "question": "Considere o logP do benzeno igual a 2,13 e as constantes hidrofóbicas de substituinte de Hansch π iguais a 0,71 para Cl, 0,56 para CH3 e −0,67 para OH. Supondo que os efeitos dos substituintes sejam aditivos, qual valor mais se aproxima da estimativa do logP do 4-clorotolueno (p-clorotolueno)?",
+  "choices": [
+   "3,40",
+   "1,27",
+   "0,86"
+  ],
+  "explanation": "A constante de substituinte de Hansch é definida por π = log P(derivado substituído) − log P(composto não substituído) e representa o aumento de logP quando um hidrogênio é trocado pelo substituinte. Supondo aditividade, o logP do 4-clorotolueno ≈ 2,13 + 0,71 + 0,56 = 3,40, próximo do valor medido, de cerca de 3,3. 1,27 é o erro de somar só os π dos substituintes, esquecendo o logP de referência do benzeno, e 0,86 é o erro de subtrair os π do valor do benzeno. Substituintes com π positivo aumentam a lipofilicidade, e o OH, com π negativo, a reduz; assim, o fenol pode ser estimado em 2,13 − 0,67 = 1,46. Na análise de Hansch, combinam-se π e parâmetros eletrônicos, como σ, para expressar em uma equação a correlação com a atividade."
+ },
+ "medicinal-chem-006": {
+  "question": "Um fármaco ácido carboxílico tem logP (logaritmo decimal do coeficiente de partição octanol/água da forma molecular) igual a 3,0 e pKa igual a 4,5. Qual valor mais se aproxima do logD (logaritmo decimal do coeficiente de distribuição global, incluindo a forma iônica) em pH 6,5? Considere que a forma iônica não se distribui no octanol.",
+  "choices": [
+   "Cerca de 5,0",
+   "Cerca de 3,0",
+   "Cerca de 1,0"
+  ],
+  "explanation": "O coeficiente de distribuição D é a concentração da forma molecular na fase octanol dividida pela soma das concentrações das formas molecular e iônica na fase aquosa. Para um ácido fraco, a concentração total na fase aquosa é (1 + 10^(pH − pKa)) vezes a da forma molecular; logo, logD = logP − log(1 + 10^(pH − pKa)) = 3,0 − log(1 + 10^2,0) = 3,0 − 2,00 ≈ 1,0. Cerca de 5,0 é o erro de somar o termo de ionização; quanto mais forma iônica, mais composto fica na fase aquosa, de modo que logD é sempre menor ou igual a logP. Cerca de 3,0 é o erro de ignorar a ionização e igualar logD a logP. Em pH 7,4, logD ≈ 3,0 − 2,90 = 0,1, ainda menor."
+ },
+ "medicinal-chem-007": {
+  "question": "O inibidor da ECA enalapril é um pró-fármaco em que um dos dois grupos carboxila da forma ativa, o enalaprilato, foi convertido em éster etílico. Qual é o principal objetivo dessa esterificação?",
+  "choices": [
+   "Como o éster se liga mais fortemente ao íon zinco do sítio ativo da ECA, ele mostra inibição muito mais forte que a forma ativa",
+   "Eliminar uma carga negativa de carboxila para aumentar a lipofilicidade e melhorar a absorção; após a absorção, é hidrolisado e volta à forma ativa",
+   "Na forma de éster, ele deixa de ser hidrolisado pelas esterases do organismo, de modo que o efeito dura mais tempo"
+  ],
+  "explanation": "Um pró-fármaco é um composto planejado para ter pouca atividade própria e ser convertido, química ou enzimaticamente, na forma ativa no organismo. O enalaprilato tem dois grupos carboxila que ficam ionizados em pH fisiológico e atravessam mal as membranas; por isso, quase não é absorvido por via oral e é usado por injeção. Convertendo um deles em éster etílico, reduz-se a carga negativa e a absorção melhora; após a absorção, o éster é hidrolisado principalmente por esterases do fígado e volta a ser enalaprilato. O que se coordena ao zinco da ECA são grupos aniônicos, como o carboxilato, e o próprio éster é um inibidor fraco; assim, a explicação de que o éster se liga mais fortemente está invertida. Sem hidrólise, a forma ativa não se forma, de modo que o efeito também não dura mais."
+ },
+ "medicinal-chem-008": {
+  "question": "Após a administração intravenosa de 10 mg da forma ativa A (massa molar 300 g/mol), a AUC (área sob a curva concentração-tempo) de A no plasma foi de 20 mg·h/L. Após a administração oral de 50 mg do pró-fármaco éster B de A (massa molar 400 g/mol), a AUC de A formado foi de 12 mg·h/L. Considere que a AUC é proporcional à dose de A e que todo B absorvido se converte em A. Qual valor mais se aproxima da biodisponibilidade de A após a administração oral de B?",
+  "choices": [
+   "16 %",
+   "12 %",
+   "60 %"
+  ],
+  "explanation": "A biodisponibilidade F é a AUC por dose comparada com a da administração intravenosa. 50 mg de B equivalem a 50 ÷ 400 = 0,125 mmol, o que corresponde, em termos de A, a 0,125 mmol × 300 g/mol = 37,5 mg. Logo, F = (12 ÷ 37,5) ÷ (20 ÷ 10) = 0,32 ÷ 2,0 = 0,16, ou seja, 16 %. 12 % é o erro de tratar os 50 mg de B diretamente como dose de A, sem converter a diferença de massa molar. 60 % é o erro de tomar a razão das AUCs, 12 ÷ 20, sem considerar a diferença de dose. Na avaliação de pró-fármacos, compara-se dessa forma, igualando a quantidade de matéria da forma ativa."
+ },
+ "medicinal-chem-009": {
+  "question": "Em antagonistas do receptor de angiotensina II, como a losartana, usa-se o grupo 1H-tetrazol-5-ila no lugar do grupo carboxila −COOH. Qual é a principal razão para essa troca funcionar como bioisóstero?",
+  "choices": [
+   "O tetrazol é um heterociclo básico rico em nitrogênio que, em pH fisiológico, vira cátion e se liga às cargas negativas do receptor",
+   "O tetrazol é um ácido forte com pKa de cerca de −2 e, em pH fisiológico, atua como ácido muito mais forte que o ácido carboxílico",
+   "O pKa do N−H do tetrazol, cerca de 4,5 a 4,9, é próximo ao do ácido carboxílico, e em pH fisiológico ele é um ânion com a carga deslocalizada no anel"
+  ],
+  "explanation": "Bioisósteros são átomos ou grupos semelhantes em tamanho, forma, distribuição de carga etc., que mantêm a interação com o alvo quando trocados. Os 1H-tetrazóis 5-substituídos têm pKa de cerca de 4,5 a 4,9 e acidez quase igual à dos ácidos carboxílicos (cerca de 4 a 5); em pH fisiológico 7,4, estão quase totalmente na forma aniônica. A carga negativa se espalha pelo anel plano com quatro nitrogênios e interage com os resíduos básicos do receptor da mesma forma que o carboxilato. Também são vantagens o fato de o ânion ser mais lipofílico que o carboxilato e sofrer menos o metabolismo característico dos ácidos carboxílicos. Apesar dos muitos nitrogênios, quase não há basicidade, e o grupo não vira cátion. Um pKa de cerca de −2 é forte demais; na realidade, a acidez é comparável à dos ácidos carboxílicos."
+ },
+ "medicinal-chem-010": {
+  "question": "Em candidatos a fármacos cuja posição para do anel benzênico é facilmente hidroxilada pelo citocromo P450, às vezes troca-se o hidrogênio dessa posição por flúor. Qual explicação dessa troca está correta?",
+  "choices": [
+   "Como o flúor tem eletronegatividade menor que o hidrogênio, ele aumenta a densidade eletrônica do anel e, ao contrário, facilita a hidroxilação pelo P450",
+   "Como o raio de van der Waals do flúor é tão grande quanto o do iodo, ele bloqueia estericamente o acesso das enzimas metabólicas",
+   "A ligação C−F é forte e dificulta a hidroxilação pelo P450, e o flúor tem tamanho próximo ao do hidrogênio, com pouco efeito estérico na ligação ao alvo"
+  ],
+  "explanation": "A hidroxilação de anéis aromáticos pelo citocromo P450 é uma das principais vias de eliminação de fármacos do organismo; uma espécie de oxigênio ativa ataca o anel, e o hidrogênio daquele carbono sai. Trocando por flúor o hidrogênio de uma posição facilmente metabolizada (soft spot), a forte ligação C−F dificilmente se rompe, e o flúor, muito eletronegativo, também reduz a densidade eletrônica do anel; assim, a hidroxilação dessa posição é suprimida, e a duração do efeito pode aumentar. O raio de van der Waals do flúor, cerca de 1,47 Å, é próximo ao do hidrogênio, cerca de 1,20 Å, e ele é um bioisóstero que muda pouco a forma. A eletronegatividade do flúor, 3,98, é a maior de todos os elementos, e a explicação de que é menor que a do hidrogênio (2,20) está invertida. Seu raio também é muito menor que o do iodo (cerca de 1,98 Å), e o efeito de bloqueio estérico é pequeno."
+ },
+ "medicinal-chem-011": {
+  "question": "A IC50 de um inibidor competitivo de uma enzima foi medida em condições com concentração de substrato [S] igual ao dobro da constante de Michaelis Km e resultou em 120 nM. Pela equação de Cheng-Prusoff, Ki = IC50/(1 + [S]/Km), qual é a constante de inibição Ki?",
+  "choices": [
+   "40 nM",
+   "360 nM",
+   "60 nM"
+  ],
+  "explanation": "Como [S]/Km = 2, Ki = 120 ÷ (1 + 2) = 40 nM. O inibidor competitivo disputa o mesmo sítio com o substrato; por isso, quanto maior a concentração de substrato, maior a concentração necessária para a inibição, a IC50. Assim, a IC50 depende das condições de medida, e as comparações são feitas convertendo-a em Ki, uma propriedade do inibidor que não depende das condições. 360 nM é o erro de multiplicar por (1 + [S]/Km) em vez de dividir; Ki deve ser menor ou igual à IC50. 60 nM é o erro de esquecer de somar 1 e dividir só por [S]/Km. Ki = 40 nM corresponde a pKi = −log(40×10⁻⁹) = 7,4. Na relação estrutura-atividade, compara-se a potência dos compostos dessa forma, por Ki ou pKi em condições equivalentes."
+ },
+ "medicinal-chem-012": {
+  "question": "A eficiência do ligante LE é estimada, a 25 °C, por LE ≈ 1,37 × pKi ÷ (número de átomos que não são hidrogênio) [kcal/mol]. Qual é a combinação correta de LE para o fragmento X, com pKi 4,6 e 12 átomos pesados (átomos que não são hidrogênio), e para o composto Y, com pKi 8,0 e 40 átomos pesados?",
+  "choices": [
+   "X cerca de 0,38, Y cerca de 0,20",
+   "X cerca de 0,53, Y cerca de 0,27",
+   "X cerca de 0,23, Y cerca de 0,12"
+  ],
+  "explanation": "A magnitude da energia de Gibbs de ligação é 2,303RT × pKi; a 25 °C, 2,303RT ≈ 1,36 kcal/mol (5,71 kJ/mol), e na fórmula de LE usa-se por convenção o valor a cerca de 300 K, 1,37. A LE é esse valor por átomo pesado: para X, 1,37 × 4,6 ÷ 12 ≈ 0,53, e para Y, 1,37 × 8,0 ÷ 40 ≈ 0,27 kcal/mol. X cerca de 0,38 e Y cerca de 0,20 são os valores obtidos apenas dividindo pKi pelo número de átomos pesados, sem multiplicar pelo fator 1,37; X cerca de 0,23 e Y cerca de 0,12 são os valores obtidos usando só RT (cerca de 0,593 kcal/mol), esquecendo o fator 2,303. Y se liga cerca de 2500 vezes (10^3,4) mais fortemente que X, mas sua eficiência por átomo é menor."
+ },
+ "medicinal-chem-013": {
+  "question": "A talidomida tem um carbono assimétrico, foi comercializada como racemato e causou graves problemas de teratogenicidade. Qual é a principal razão pela qual se considera que administrar apenas um dos enantiômeros não evitaria o problema?",
+  "choices": [
+   "Os enantiômeros têm as mesmas propriedades em qualquer ambiente, então também no organismo os dois têm a mesma ação",
+   "Ao sintetizar apenas um enantiômero, sempre se mistura uma impureza diastereoisomérica, e é ela que é teratogênica",
+   "O hidrogênio do carbono assimétrico, em α à carbonila, é relativamente ácido, e o composto racemiza no organismo via enolização"
+  ],
+  "explanation": "O carbono assimétrico da talidomida fica na posição α de um grupo carbonila do anel de glutarimida, e seu hidrogênio é removido com relativa facilidade; por isso, mesmo em condições fisiológicas, a molécula racemiza via enolização. Assim, mesmo que se retire o isômero (S), apontado em estudos como o mais relacionado à teratogenicidade, e se administre apenas o isômero (R), o isômero (S) se forma no organismo. Os enantiômeros só têm as mesmas propriedades em ambientes aquirais; no organismo, onde receptores e enzimas são quirais, suas ações podem ser diferentes. Como a talidomida tem um único carbono assimétrico, há enantiômeros, mas não diastereoisômeros, e a síntese de um enantiômero puro também é possível. Hoje a talidomida é usada, sob controle rigoroso, no tratamento do mieloma múltiplo, entre outras doenças."
+ },
+ "medicinal-chem-014": {
+  "question": "Em fármacos quirais, qual é a razão correta para os enantiômeros frequentemente diferirem muito na afinidade pelo receptor?",
+  "choices": [
+   "O receptor é um ambiente quiral, e quando a interação ocorre em três ou mais pontos, apenas um dos enantiômeros se encaixa em todos os sítios",
+   "Os enantiômeros diferem em massa molar e logP, de modo que a absorção e a distribuição no organismo mudam, alterando a quantidade que chega ao receptor",
+   "Como o sinal da rotação óptica é oposto, o sinal da variação de energia livre ΔG na ligação ao receptor também se inverte, e um deles não consegue se ligar"
+  ],
+  "explanation": "Receptores e enzimas são proteínas formadas por L-aminoácidos quirais; por isso, os complexos com os dois enantiômeros são diastereoisômeros entre si e têm estabilidades diferentes. Considerando um receptor com três sítios de ligação, um enantiômero consegue encaixar seus três grupos ao mesmo tempo, mas sua imagem especular só consegue encaixar até dois (modelo de ligação em três pontos). O mais ativo é chamado eutômero, o menos ativo distômero, e a razão entre suas atividades é a razão eudísmica. Os enantiômeros têm a mesma massa molar e o mesmo logP, e suas propriedades aquirais são iguais; a diferença não pode ser explicada pela quantidade que chega ao receptor. O sinal da rotação óptica vem da interação com a luz e não tem relação com o sinal da energia de ligação; nas duas ligações, ΔG pode ser negativo."
+ },
+ "medicinal-chem-015": {
+  "question": "Incorporar as ligações rotacionáveis de um composto líder de cadeia flexível em um anel, fixando-o na forma que adota ao se ligar ao receptor (conformação ativa), às vezes fortalece a ligação. Do ponto de vista termodinâmico, qual é a principal razão?",
+  "choices": [
+   "A ciclização aumenta a massa molar, de modo que a entalpia de ligação ΔH com o receptor sempre fica muito negativa",
+   "A entropia conformacional perdida na ligação já é menor de antemão, e diminui o termo desfavorável −TΔS de ΔG = ΔH − TΔS",
+   "Com menos ligações rotacionáveis, o logP cai muito e a solubilidade em água aumenta, o que fortalece a ligação"
+  ],
+  "explanation": "Uma molécula flexível adota muitas conformações em solução e, ao se ligar ao receptor, fica fixa em uma delas, perdendo entropia conformacional. Essa perda desfavorece a ligação pelo termo −TΔS de ΔG = ΔH − TΔS. Se a molécula for previamente fixada na conformação ativa, por ciclização ou outro meio, essa perda diminui, e, mesmo com a mesma interação (ΔH), ΔG fica mais negativo e a constante de ligação aumenta. Porém, se a forma fixada for diferente da conformação ativa, a atividade cai muito. A ciclização nem sempre aumenta a massa molar (pode até reduzi-la em dois hidrogênios), e a entalpia de ligação também não aumenta necessariamente. O número de ligações rotacionáveis e o logP não estão diretamente relacionados, e o aumento da solubilidade não fortalece a ligação."
+ },
+ "medicinal-chem-016": {
+  "question": "Adicionou-se um inibidor competitivo de uma enzima em concentração constante e mediu-se a velocidade inicial da reação variando a concentração do substrato. Qual é a variação correta dos parâmetros da equação de Michaelis-Menten em relação à ausência do inibidor?",
+  "choices": [
+   "A velocidade máxima Vmax diminui, e o Km aparente não muda",
+   "A velocidade máxima Vmax não muda, e o Km aparente aumenta",
+   "A velocidade máxima Vmax e o Km aparente diminuem na mesma proporção"
+  ],
+  "explanation": "O inibidor competitivo se liga reversivelmente ao mesmo sítio ativo do substrato e disputa esse sítio com ele. Com concentração de substrato suficientemente alta, o inibidor pode ser deslocado, de modo que a velocidade máxima Vmax não muda. Por outro lado, é preciso mais substrato para obter a mesma velocidade, e o Km aparente aumenta para Km(1 + [I]/Ki). Essa relação é a base da equação de Cheng-Prusoff, que obtém Ki a partir da IC50. Vmax diminuir com Km inalterado é o caso da inibição não competitiva pura, em que o inibidor se liga a um sítio diferente do sítio ativo. Vmax e Km diminuírem na mesma proporção é o caso da inibição incompetitiva, em que o inibidor se liga apenas ao complexo enzima-substrato. No gráfico de Lineweaver-Burk, as retas da inibição competitiva se cruzam no mesmo ponto do eixo vertical."
+ },
+ "medicinal-chem-017": {
+  "question": "Como referência para a absorção oral, além da regra dos cinco de Lipinski, usam-se com frequência os critérios de Veber e colaboradores. Qual é a combinação correta das condições que, pelos critérios de Veber, tendem a dar “boa biodisponibilidade oral”?",
+  "choices": [
+   "10 ou menos ligações rotacionáveis e área de superfície polar (PSA) de 140 Å² ou menos",
+   "5 ou menos ligações rotacionáveis e área de superfície polar (PSA) de 500 Å² ou menos",
+   "10 ou mais ligações rotacionáveis e área de superfície polar (PSA) de 140 Å² ou mais"
+  ],
+  "explanation": "Veber e colaboradores, com base em dados de muitos compostos em ratos, relataram que compostos com 10 ou menos ligações rotacionáveis (uma medida da flexibilidade da molécula) e área de superfície polar (PSA, soma das áreas superficiais de nitrogênios, oxigênios e hidrogênios ligados a eles) de 140 Å² ou menos, ou com 12 ou menos doadores e aceptores de ligação de hidrogênio no total, tendem a ter boa biodisponibilidade oral. Considera-se que uma PSA grande aumenta o custo de remover a água de hidratação ao atravessar a membrana, e que muitas ligações rotacionáveis dificultam a adoção de formas que atravessem a membrana facilmente. Usar “ou mais” para ambos inverte o sentido. Os números 5 e 500 confundem estes critérios com os da regra dos cinco. São apenas tendências, e há fármacos absorvidos mesmo fora desses critérios."
+ },
+ "medicinal-chem-018": {
+  "question": "Qual explicação sobre a glicuronidação, uma das reações de fase II (conjugação) do metabolismo de fármacos, está correta?",
+  "choices": [
+   "É a reação em que o citocromo P450 introduz um átomo de oxigênio na molécula, criando um novo grupo polar, como hidroxila",
+   "O ácido glicurônico se liga à molécula e aumenta a lipofilicidade, levando-a ao cérebro e ao tecido adiposo, onde permanece por muito tempo",
+   "Uma transferase liga ácido glicurônico a grupos como hidroxila, aumentando a solubilidade em água e favorecendo a excreção na urina e na bile"
+  ],
+  "explanation": "O metabolismo de fármacos divide-se em reações de fase I, que introduzem ou expõem grupos polares, como OH, por oxidação pelo P450 e outras, e reações de fase II (conjugação), que ligam moléculas endógenas a esses grupos polares. Na glicuronidação, a UDP-glicuronosiltransferase (UGT) liga ácido glicurônico a grupos hidroxila, carboxila, amino etc., usando o ácido UDP-glicurônico como doador. O ácido glicurônico tem um grupo carboxila e muitos OH e é aniônico em pH fisiológico; por isso, o conjugado é muito solúvel em água e é excretado facilmente na urina e na bile. A maioria dos conjugados perde a atividade, mas há exemplos de conjugados ativos. A oxidação que introduz um átomo de oxigênio é uma reação de fase I. Aumentar a lipofilicidade e reter o composto no organismo é o oposto da função da conjugação."
+ },
+ "medicinal-chem-019": {
+  "question": "Há dois candidatos a composto líder, A (pIC50 8,2, logP 5,4) e B (pIC50 7,4, logP 1,9). Comparando pela eficiência lipofílica LipE = pIC50 − logP, qual é a combinação correta de LipE de A e B?",
+  "choices": [
+   "A 2,8, B 5,5",
+   "A 13,6, B 9,3",
+   "A 1,5, B 3,9"
+  ],
+  "explanation": "A LipE (também escrita LLE) é um índice que verifica se a potência depende demais da lipofilicidade, e é obtida subtraindo o logP do pIC50. Para A, 8,2 − 5,4 = 2,8, e para B, 7,4 − 1,9 = 5,5. Pela IC50, A é cerca de 6 vezes mais potente que B (10^0,8 ≈ 6,3), mas obtém grande parte dessa potência com a alta lipofilicidade. Compostos muito lipofílicos tendem a causar problemas como baixa solubilidade, maior suscetibilidade ao metabolismo e ligação inespecífica a proteínas que não são o alvo; por isso, B, com LipE maior, é considerado o ponto de partida mais promissor para a otimização. 13,6 e 9,3 são erros de somar, e 1,5 e 3,9 são erros de dividir. Para candidatos clínicos, uma LipE de cerca de 5 ou mais é uma referência."
+ },
+ "medicinal-chem-020": {
+  "question": "Qual explicação do mecanismo pelo qual o ácido acetilsalicílico (aspirina) inibe a ciclo-oxigenase (COX) está correta?",
+  "choices": [
+   "Liga-se reversivelmente ao sítio ativo competindo com o substrato, o ácido araquidônico, e a atividade da enzima volta logo que o fármaco se desliga",
+   "Acetila o grupo hidroxila de um resíduo de serina do sítio ativo, modificando a enzima covalentemente e inibindo-a de modo irreversível",
+   "Coordena-se ao ferro do heme, o grupo prostético da enzima, oxida o ferro e destrói a estrutura tridimensional da enzima, inibindo-a de modo irreversível"
+  ],
+  "explanation": "A aspirina é o composto em que o grupo hidroxila fenólico do ácido salicílico foi convertido em éster de ácido acético; ela transfere esse grupo acetila para o grupo hidroxila de um resíduo de serina do sítio ativo da COX. A serina acetilada bloqueia o caminho pelo qual o substrato, o ácido araquidônico, entra no fundo do sítio ativo, de modo que a enzima permanece modificada covalentemente e deixa de funcionar de forma irreversível. Para recuperar a atividade, é preciso que novas enzimas sejam sintetizadas. Depois de ceder o grupo acetila, a aspirina se torna ácido salicílico. Competir reversivelmente com o substrato, com a atividade voltando quando o fármaco se desliga, é o mecanismo de muitos anti-inflamatórios não esteroidais, como o ibuprofeno. O mecanismo de coordenação ao ferro do heme e destruição da enzima não é a ação da aspirina."
+ }
+}

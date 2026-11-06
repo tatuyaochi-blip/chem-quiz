@@ -1,0 +1,182 @@
+{
+ "volumetric-001": {
+  "question": "A 25 °C, titulou-se ácido clorídrico HCl 0,10 mol/L com solução aquosa de hidróxido de sódio NaOH 0,10 mol/L. Qual valor mais se aproxima do pH no ponto de equivalência?",
+  "choices": [
+   "Cerca de 8,7",
+   "Cerca de 7,0",
+   "Cerca de 5,3"
+  ],
+  "explanation": "Na neutralização de um ácido forte por uma base forte, a solução no ponto de equivalência é NaCl aquoso, e nem o Na⁺ nem o Cl⁻ reagem com a água para formar H⁺ ou OH⁻ (não sofrem hidrólise); assim, a 25 °C, [H⁺] = [OH⁻] = 1,0×10⁻⁷ mol/L e o pH é cerca de 7,0. Em torno do ponto de equivalência, o pH muda bruscamente de cerca de 4 para cerca de 10 (salto de pH), então o ponto final pode ser determinado tanto com alaranjado de metila quanto com fenolftaleína. Cerca de 8,7 é a referência do ponto de equivalência na titulação de um ácido fraco (como o ácido acético) por uma base forte, e cerca de 5,3, na titulação de uma base fraca (como a amônia) por um ácido forte; o ponto de equivalência só é neutro na combinação de ácido forte com base forte."
+ },
+ "volumetric-002": {
+  "question": "Na titulação de uma solução aquosa de ácido acético CH3COOH de cerca de 0,1 mol/L com solução aquosa de hidróxido de sódio 0,1 mol/L, qual é o indicador mais adequado para identificar o ponto final?",
+  "choices": [
+   "Fenolftaleína (faixa de viragem: pH cerca de 8,0–9,8)",
+   "Alaranjado de metila (faixa de viragem: pH cerca de 3,1–4,4)",
+   "Vermelho de metila (faixa de viragem: pH cerca de 4,2–6,2)"
+  ],
+  "explanation": "Quando o ácido acético, um ácido fraco, é titulado com uma base forte, no ponto de equivalência o íon acetato CH3COO⁻ sofre hidrólise e gera OH⁻, de modo que o pH no ponto de equivalência fica no lado básico, em cerca de 8,7. Além disso, antes do ponto de equivalência a solução é um tampão e o pH varia lentamente, e a mudança brusca (salto de pH) se limita à faixa de cerca de 7,5–10. Escolhendo a fenolftaleína, cuja faixa de viragem está nessa região, a cor passa de incolor a vermelha (rosa-clara) quase exatamente no ponto de equivalência. O alaranjado de metila e o vermelho de metila mudam de cor no lado ácido, ou seja, bem antes do ponto de equivalência, e o volume titulado fica menor que o real. Como princípio, escolhe-se um indicador cuja faixa de viragem esteja dentro do salto de pH em torno do ponto de equivalência."
+ },
+ "volumetric-003": {
+  "question": "Na titulação de uma solução aquosa de amônia NH3 de cerca de 0,1 mol/L com ácido clorídrico 0,1 mol/L, qual é o indicador mais adequado?",
+  "choices": [
+   "Fenolftaleína (faixa de viragem: pH cerca de 8,0–9,8)",
+   "Timolftaleína (faixa de viragem: pH cerca de 9,3–10,5)",
+   "Vermelho de metila (faixa de viragem: pH cerca de 4,2–6,2)"
+  ],
+  "explanation": "Quando a amônia, uma base fraca, é titulada com um ácido forte, a solução no ponto de equivalência é de NH4Cl, e como o NH4⁺ (pKa 9,25) atua como ácido fraco, o pH no ponto de equivalência fica no lado ácido, em cerca de 5,3. O salto de pH também fica no lado ácido, em cerca de 4–6,5, então é adequado o vermelho de metila, cuja faixa de viragem está nessa região (o alaranjado de metila também é usado). A fenolftaleína e a timolftaleína mudam de cor no lado básico, bem antes do ponto de equivalência, enquanto a amônia ainda forma um tampão, e não dão o ponto final correto. Usa-se fenolftaleína na titulação de ácidos fracos e vermelho de metila na de bases fracas, conforme o lado para o qual o pH do ponto de equivalência se desloca em relação ao neutro."
+ },
+ "volumetric-004": {
+  "question": "Qual é o padrão primário mais adequado para determinar a concentração exata (padronizar) uma solução aquosa de hidróxido de sódio?",
+  "choices": [
+   "Carbonato de sódio Na2CO3",
+   "Hidrogenoftalato de potássio KHC8H4O4",
+   "Oxalato de sódio Na2C2O4"
+  ],
+  "explanation": "O hidróxido de sódio é deliquescente e também absorve o dióxido de carbono do ar, então não é possível preparar uma solução de concentração exata a partir da massa pesada. Por isso, a concentração é determinada pela reação com um padrão primário de alta pureza, estável, não higroscópico e que pode ser pesado com exatidão (padronização). Para padronizar o NaOH, usa-se muito o hidrogenoftalato de potássio, que atua como ácido monoprótico e tem massa molar grande (204,22 g/mol), o que reduz o erro de pesagem; o indicador é a fenolftaleína. O carbonato de sódio é uma base e é o padrão primário para padronizar o ácido clorídrico, e o oxalato de sódio é um redutor usado para padronizar a solução de permanganato de potássio; nenhum dos dois sofre reação de neutralização com o NaOH."
+ },
+ "volumetric-005": {
+  "question": "Dissolveram-se 0,4084 g de hidrogenoftalato de potássio KHC8H4O4 (massa molar 204,22 g/mol) em água e titulou-se com solução aquosa de hidróxido de sódio, usando fenolftaleína como indicador; foram necessários 20,40 mL até o ponto final. Qual valor mais se aproxima da concentração dessa solução de hidróxido de sódio?",
+  "choices": [
+   "0,0980 mol/L",
+   "0,196 mol/L",
+   "0,121 mol/L"
+  ],
+  "explanation": "A quantidade de matéria de hidrogenoftalato de potássio é 0,4084 g ÷ 204,22 g/mol = 2,000×10⁻³ mol. Como é um sal com um único grupo carboxila restante, reage com o NaOH na proporção 1:1, segundo HC8H4O4⁻ + OH⁻ → C8H4O4²⁻ + H2O. Logo, a concentração é 2,000×10⁻³ mol ÷ 0,02040 L = 0,0980 mol/L. 0,196 mol/L é o erro de tratá-lo como ácido diprótico (ácido ftálico C8H6O4) e dobrar o NaOH, e 0,121 mol/L é o erro de calcular a quantidade de matéria com a massa molar do ácido ftálico, 166,13 g/mol. Se você esquecer de converter o volume para L, o resultado sai deslocado em três ordens de grandeza; atenção também às unidades."
+ },
+ "volumetric-006": {
+  "question": "Titularam-se 25,0 mL de solução aquosa de ácido acético 0,100 mol/L com solução aquosa de hidróxido de sódio 0,100 mol/L. Qual valor mais se aproxima do pH no ponto de equivalência (após a adição de 25,0 mL de NaOH)? Considere 25 °C, Ka do ácido acético = 1,8×10⁻⁵ mol/L e Kw = 1,0×10⁻¹⁴ (mol/L)².",
+  "choices": [
+   "7,00",
+   "8,87",
+   "8,72"
+  ],
+  "explanation": "No ponto de equivalência, todo o ácido acético virou íon acetato e o volume aumentou para 50,0 mL, então [CH3COO⁻] = 0,100 × 25,0/50,0 = 0,0500 mol/L. O íon acetato sofre hidrólise segundo CH3COO⁻ + H2O ⇌ CH3COOH + OH⁻, com Kb = Kw/Ka = 1,0×10⁻¹⁴/1,8×10⁻⁵ = 5,6×10⁻¹⁰. De [OH⁻] = √(Kb·c) = √(5,6×10⁻¹⁰ × 0,0500) = 5,3×10⁻⁶ mol/L, obtém-se pOH = 5,28 e pH = 14,00 − 5,28 = 8,72. 8,87 é o valor calculado com c = 0,100 mol/L, esquecendo a diluição causada pela titulação, e 7,00 é o valor para ácido forte e base forte."
+ },
+ "volumetric-007": {
+  "question": "Na titulação complexométrica com ácido etilenodiaminotetracético (EDTA), o que é correto sobre a razão entre as quantidades de matéria (íon metálico : EDTA) quando o EDTA forma complexos com íons metálicos?",
+  "choices": [
+   "É quase sempre 1 : 1, qualquer que seja a carga do íon metálico",
+   "Ligam-se tantos EDTA quanto a carga do íon metálico; para Ca²⁺, 1 : 2",
+   "Quatro íons metálicos se ligam a uma molécula de EDTA, numa razão 4 : 1"
+  ],
+  "explanation": "O EDTA é um ligante hexadentado que coordena um único íon metálico como se o envolvesse, por seis pontos: os oxigênios dos quatro grupos carboxila e os dois nitrogênios, formando vários anéis estáveis de cinco membros (anéis quelatos). Por isso, mesmo com íons metálicos de cargas diferentes, como Ca²⁺, Mg²⁺, Zn²⁺ e Fe³⁺, forma quase sempre complexos 1 : 1, e nos cálculos de titulação pode-se fazer quantidade de matéria de EDTA = quantidade de matéria de íon metálico. É um erro relacionar a carga ao número de ligantes; 1 : 2 é um raciocínio que vale para ligantes monodentados ou bidentados. 4 : 1 é uma associação com a existência de quatro grupos carboxila, mas a característica do EDTA é que uma molécula envolve um único metal. Essa relação 1 : 1 é o que simplifica os cálculos da titulação complexométrica."
+ },
+ "volumetric-008": {
+  "question": "Qual é a principal razão para fazer a titulação complexométrica com EDTA usada na determinação da dureza da água em pH cerca de 10, mantido por um tampão amônia−cloreto de amônio? O indicador é o negro de eriocromo T (EBT).",
+  "choices": [
+   "Em pH 10, Ca²⁺ e Mg²⁺ precipitam como hidróxidos, e o EDTA dissolve aos poucos o precipitado, deixando o ponto final nítido",
+   "Em meio ácido, o EDTA é protonado e se liga menos aos metais, e a estabilidade aparente do complexo (constante condicional) diminui",
+   "A amônia forma com o Ca²⁺ um complexo mais forte que o do EDTA, o que aumenta a velocidade de reação do EDTA com o Ca²⁺"
+  ],
+  "explanation": "O EDTA é um ácido que se dissocia em quatro etapas, e a forma que se liga fortemente aos metais é a totalmente desprotonada, Y⁴⁻. Em pH baixo, a fração de Y⁴⁻ fica extremamente pequena, a constante de formação condicional (a constante de estabilidade aparente, que inclui o pH) diminui, e com Ca²⁺ e Mg²⁺, cujos complexos não são tão estáveis, o ponto final fica pouco nítido. Com um tampão de pH 10, a fração de Y⁴⁻ é suficiente, e o EBT também muda nitidamente do vermelho do complexo de Mg para o azul da forma livre. Em pH 10 o Ca(OH)2 não precipita, e o Mg(OH)2 quase não precipita nas concentrações usuais de dureza (para medir apenas o Ca²⁺, precipita-se o Mg(OH)2 em pH 12–13). A amônia serve para manter o pH, e se se ligasse mais fortemente que o EDTA, ao contrário, atrapalharia a titulação."
+ },
+ "volumetric-009": {
+  "question": "100 mL de uma amostra de água foram titulados em pH 10, com indicador EBT, com solução-padrão de EDTA 0,01000 mol/L, e foram necessários 12,50 mL até o ponto final. Qual valor mais se aproxima da dureza (mg/L), expressando o total de Ca²⁺ e Mg²⁺ como massa de CaCO3 (massa molar 100,09 g/mol)?",
+  "choices": [
+   "62,6 mg/L",
+   "12,5 mg/L",
+   "125 mg/L"
+  ],
+  "explanation": "A quantidade de matéria de EDTA é 0,01000 mol/L × 0,01250 L = 1,250×10⁻⁴ mol. Como o EDTA forma complexos 1 : 1 tanto com o Ca²⁺ quanto com o Mg²⁺, o total de Ca²⁺ e Mg²⁺ também é 1,250×10⁻⁴ mol, o que, expresso como CaCO3, dá 1,250×10⁻⁴ mol × 100,09 g/mol = 12,51 mg. Essa é a quantidade em 100 mL (0,100 L) de amostra; por litro, 12,51 mg ÷ 0,100 L = 125 mg/L. 62,6 mg/L é o erro de tomar metal : EDTA como 1 : 2 e dividir pela metade, e 12,5 mg/L é o erro de não converter a massa em 100 mL de amostra para o valor por litro."
+ },
+ "volumetric-010": {
+  "question": "Qual é a razão correta para fazer o método de Mohr, em que o íon cloreto Cl⁻ é titulado com solução-padrão de nitrato de prata AgNO3 usando cromato de potássio K2CrO4 como indicador, em meio neutro a levemente básico (pH cerca de 6,5–10)?",
+  "choices": [
+   "Em meio ácido, CrO4²⁻ vira Cr2O7²⁻ e o Ag2CrO4 precipita com dificuldade; em meio muito básico, precipita Ag2O",
+   "Em meio ácido, o cloreto de prata AgCl se dissolve como ácido clorídrico; em meio básico, o cromato vira dicromato",
+   "Só em pH 6,5–10 o cloreto de prata branco reage com o excesso de Ag⁺ e muda para a cor marrom-avermelhada"
+  ],
+  "explanation": "No método de Mohr, primeiro se forma o precipitado branco de AgCl e, quando o Cl⁻ quase se esgota, o excesso de Ag⁺ forma com o CrO4²⁻ o cromato de prata Ag2CrO4, marrom-avermelhado, que marca o ponto final. Em meio ácido, o equilíbrio 2CrO4²⁻ + 2H⁺ ⇌ Cr2O7²⁻ + H2O se desloca para a direita, o CrO4²⁻ diminui e o Ag2CrO4 precipita com dificuldade, atrasando o ponto final. Ao contrário, em meio muito básico, o Ag⁺ reage com o OH⁻ e forma um precipitado de Ag2O, consumindo prata inutilmente. Como o Cl⁻ é a base conjugada de um ácido forte, a solubilidade do AgCl quase não muda em meio ácido, e o cromato vira dicromato em meio ácido, e não básico. Além disso, o que fica marrom-avermelhado não é o AgCl, mas o Ag2CrO4 recém-formado."
+ },
+ "volumetric-011": {
+  "question": "A 25 °C, considere o produto de solubilidade do cloreto de prata AgCl Ksp = 1,8×10⁻¹⁰ (mol/L)² e o do cromato de prata Ag2CrO4 Ksp = 1,1×10⁻¹² (mol/L)³. O que é correto sobre as solubilidades molares de cada um em água pura?",
+  "choices": [
+   "O AgCl, de Ksp maior, é mais solúvel: AgCl cerca de 1,3×10⁻⁵ mol/L e Ag2CrO4 cerca de 1,0×10⁻⁶ mol/L",
+   "O Ag2CrO4 é mais solúvel: AgCl cerca de 1,3×10⁻⁵ mol/L e Ag2CrO4 cerca de 6,5×10⁻⁵ mol/L",
+   "Os dois são quase iguais, com cerca de 1,3×10⁻⁵ mol/L"
+  ],
+  "explanation": "Sendo s a solubilidade do AgCl, Ksp = s² e s = √(1,8×10⁻¹⁰) = 1,3×10⁻⁵ mol/L. No Ag2CrO4, para uma solubilidade s, [Ag⁺] = 2s e [CrO4²⁻] = s, então Ksp = (2s)²·s = 4s³ e s = (1,1×10⁻¹²/4)^(1/3) = 6,5×10⁻⁵ mol/L, cerca de 4,8 vezes a do AgCl. Para sais de fórmulas de tipos diferentes, não se pode comparar a solubilidade pelo tamanho do Ksp. O valor de cerca de 1,0×10⁻⁶ mol/L para o Ag2CrO4 é obtido ao tomar erradamente Ksp = s² e extrair a raiz quadrada. No método de Mohr, o fato de o AgCl precipitar primeiro também se deve à maior solubilidade do Ag2CrO4 e à baixa concentração do indicador CrO4²⁻."
+ },
+ "volumetric-012": {
+  "question": "Na titulação redox com permanganato de potássio KMnO4, qual é a razão correta para acidificar a solução com ácido sulfúrico diluído, e não com ácido clorídrico ou nítrico?",
+  "choices": [
+   "Só o ácido sulfúrico atua como redutor que reduz o MnO4⁻ a Mn²⁺, tornando nítida a mudança de cor no ponto final",
+   "Com ácido clorídrico ou nítrico, o Mn²⁺ forma um íon complexo violeta, a cor não some e não se vê o ponto final",
+   "O Cl⁻ é oxidado pelo MnO4⁻ e consome KMnO4 a mais, e o ácido nítrico é ele próprio um oxidante e reage com a amostra"
+  ],
+  "explanation": "Em meio ácido, o KMnO4 atua como oxidante forte, segundo MnO4⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H2O. Com ácido clorídrico, o Cl⁻ é oxidado a Cl2, consumindo KMnO4 a mais, e o volume titulado sai maior. O ácido nítrico é ele próprio um oxidante e oxida antes a amostra redutora, de modo que não se obtém a quantidade correta. O ácido sulfúrico dificilmente sofre oxidação ou redução e pode ser usado só para fornecer H⁺. O ácido sulfúrico não é redutor; o redutor é a amostra (íon oxalato, Fe²⁺ etc.). Além disso, o Mn²⁺ é quase incolor, e o ponto final é reconhecido pela cor rosa-violeta clara do MnO4⁻ que permanece após o ponto de equivalência (autoindicador); o tipo de ácido não impede a cor de desaparecer."
+ },
+ "volumetric-013": {
+  "question": "Dissolveram-se 0,1340 g de oxalato de sódio Na2C2O4 (massa molar 134,00 g/mol) em ácido sulfúrico diluído, aqueceu-se a cerca de 70 °C e titulou-se com solução aquosa de permanganato de potássio; foram necessários 20,00 mL até o ponto final. A reação é 2MnO4⁻ + 5C2O4²⁻ + 16H⁺ → 2Mn²⁺ + 10CO2 + 8H2O. Qual é a concentração da solução de KMnO4?",
+  "choices": [
+   "0,05000 mol/L",
+   "0,02000 mol/L",
+   "0,1250 mol/L"
+  ],
+  "explanation": "A quantidade de matéria de oxalato de sódio é 0,1340 g ÷ 134,00 g/mol = 1,000×10⁻³ mol. Pela equação, MnO4⁻ : C2O4²⁻ = 2 : 5, então o KMnO4 necessário é 1,000×10⁻³ × 2/5 = 4,000×10⁻⁴ mol, e a concentração é 4,000×10⁻⁴ mol ÷ 0,02000 L = 0,02000 mol/L. Pensando em número de elétrons, cada MnO4⁻ troca 5 elétrons e cada C2O4²⁻ troca 2 elétrons, o que dá a mesma razão. 0,05000 mol/L é o erro de supor reação 1 : 1, e 0,1250 mol/L é o erro de inverter a razão dos coeficientes (5/2). Aquece-se porque, à temperatura ambiente, a reação é lenta e a cor do ponto final é difícil de avaliar."
+ },
+ "volumetric-014": {
+  "question": "Na titulação com iodo em que o iodo I2 liberado é titulado com solução-padrão de tiossulfato de sódio Na2S2O3, qual é o momento mais adequado para adicionar a solução de amido?",
+  "choices": [
+   "Perto do ponto final, quando a titulação avançou e a cor marrom do iodo ficou amarelo-clara",
+   "Antes de começar a titulação, adicionando o amido desde o início à solução concentrada de iodo",
+   "Depois do ponto de equivalência, quando a solução ficou incolor, para confirmar que não aparece cor azul"
+  ],
+  "explanation": "Na reação I2 + 2S2O3²⁻ → 2I⁻ + S4O6²⁻, o amido forma com o iodo um composto de inclusão azul-violeta e detecta com nitidez até quantidades mínimas de iodo. No entanto, se for adicionado enquanto o iodo ainda está concentrado, o amido retém fortemente uma grande quantidade de iodo e demora a liberá-lo para reagir com o íon tiossulfato, de modo que a cor azul custa a sumir e o ponto final pode ser ultrapassado. Por isso, adiciona-se o amido quando a cor marrom fica amarelo-clara, e o ponto final é aquele em que a cor azul desaparece. Adicionar depois do ponto de equivalência não ajuda a determinar o ponto final, porque não se sabe quanto já foi adicionado em excesso. Como o amido é hidrolisado em meio fortemente ácido, atenção também às condições da solução."
+ },
+ "volumetric-015": {
+  "question": "Uma solução aquosa com hidróxido de sódio NaOH e carbonato de sódio Na2CO3 foi titulada com ácido clorídrico 0,1000 mol/L. Foram necessários 30,00 mL até o ponto final da fenolftaleína e, em seguida, adicionando alaranjado de metila, mais 10,00 mL até o ponto final dele (método de Warder). Qual era a quantidade de matéria de NaOH na solução?",
+  "choices": [
+   "1,000 mmol",
+   "3,000 mmol",
+   "2,000 mmol"
+  ],
+  "explanation": "Até o ponto final da fenolftaleína (pH cerca de 8,3), ocorrem a neutralização do NaOH e a primeira etapa do Na2CO3 (CO3²⁻ + H⁺ → HCO3⁻). O volume adicional até o ponto final do alaranjado de metila (pH cerca de 4) corresponde só à segunda etapa (HCO3⁻ + H⁺ → H2O + CO2). O HCl da segunda etapa tem a mesma quantidade de matéria que o Na2CO3: Na2CO3 = 0,1000 mol/L × 10,00 mL = 1,000 mmol, e a mesma quantidade também foi usada na primeira etapa. Logo, NaOH = 0,1000 × (30,00 − 10,00) = 2,000 mmol. 1,000 mmol é a quantidade de Na2CO3, e 3,000 mmol é o erro de considerar como NaOH todo o HCl gasto até o primeiro ponto final."
+ },
+ "volumetric-016": {
+  "question": "Na titulação de um ácido fraco HA com uma base forte, o que é correto sobre o pH no ponto em que se adicionou exatamente metade da base necessária até o ponto de equivalência (ponto de semiequivalência)?",
+  "choices": [
+   "O pH é 7, porque metade do ácido foi neutralizada e a solução fica neutra",
+   "O pH é metade do pKa, porque a base adicionada é metade da do ponto de equivalência e o pH também cai à metade",
+   "O pH é igual ao pKa, porque as concentrações do HA restante e do A⁻ formado ficam exatamente iguais"
+  ],
+  "explanation": "No ponto de semiequivalência, metade do HA inicial virou A⁻ e a outra metade continua como HA, então [HA] = [A⁻]. Na equação de Henderson-Hasselbalch, pH = pKa + log([A⁻]/[HA]), log 1 = 0 e pH = pKa. Para o ácido acético, cerca de 4,76. Nessa região, o efeito tampão é máximo e a inclinação da curva de titulação é mínima, por isso ela é usada para obter o pKa do ácido fraco a partir da curva de titulação. Mesmo com metade da neutralização feita, a solução é um tampão formado pelo ácido e sua base conjugada e não fica neutra. Tomar metade do pKa é o erro de supor o pH proporcional à quantidade de base adicionada; o pH é uma grandeza logarítmica e não é proporcional à quantidade de base. No entanto, para ácidos muito diluídos ou relativamente fortes, a dissociação do HA não pode ser desprezada, e o pH se afasta de pKa."
+ },
+ "volumetric-017": {
+  "question": "No método de Volhard para determinar íon cloreto, adiciona-se à amostra um excesso conhecido de nitrato de prata para precipitar o AgCl, e o Ag⁺ restante é titulado com solução-padrão de tiocianato de potássio KSCN. Qual característica desse método está correta?",
+  "choices": [
+   "É feito em meio ácido nítrico, com Fe³⁺ como indicador, e o ponto final é o íon complexo vermelho com SCN⁻",
+   "É feito em meio neutro, com cromato de potássio como indicador, e o ponto final é o precipitado marrom-avermelhado de cromato de prata",
+   "É feito em meio levemente básico, com amido como indicador, e o ponto final é o aparecimento do composto de inclusão azul-violeta"
+  ],
+  "explanation": "O método de Volhard é uma retrotitulação: do total de Ag⁺ adicionado subtrai-se o Ag⁺ restante titulado com SCN⁻, obtendo-se a quantidade que reagiu com o Cl⁻. Quando o Ag⁺ acaba, o excesso de SCN⁻ forma com o Fe³⁺ o [Fe(SCN)]²⁺ vermelho, que indica o ponto final. Como o Fe³⁺ precipita como hidróxido em meio neutro, o método é feito em meio ácido nítrico, e poder ser usado também em amostras ácidas é uma vantagem que o método de Mohr não tem. Porém, como o AgCl é mais solúvel que o AgSCN, para que o AgCl não reaja com o SCN⁻ durante a titulação, filtra-se o precipitado ou cobre-se com um solvente orgânico. Fazer em meio neutro a levemente básico com cromato de potássio como indicador é o método de Mohr. O amido é um indicador usado para detectar iodo e não indica o ponto final das titulações de precipitação com prata."
+ },
+ "volumetric-018": {
+  "question": "A 25 °C, o produto de solubilidade do AgCl é Ksp = 1,8×10⁻¹⁰ (mol/L)². Qual valor mais se aproxima da solubilidade molar do AgCl numa solução aquosa de cloreto de sódio 0,010 mol/L?",
+  "choices": [
+   "1,3×10⁻⁵ mol/L",
+   "1,8×10⁻⁸ mol/L",
+   "1,3×10⁻⁴ mol/L"
+  ],
+  "explanation": "Sendo s a solubilidade do AgCl, [Ag⁺] = s e [Cl⁻] = 0,010 + s ≈ 0,010 mol/L (s é muito menor que 0,010). De Ksp = s × 0,010 = 1,8×10⁻¹⁰, obtém-se s = 1,8×10⁻⁸ mol/L, cerca de 1/750 do valor em água pura, √(1,8×10⁻¹⁰) = 1,3×10⁻⁵ mol/L (efeito do íon comum). 1,3×10⁻⁵ mol/L é o erro de responder com o valor em água pura, sem considerar o Cl⁻ vindo do NaCl. 1,3×10⁻⁴ mol/L é o erro de extrair a raiz quadrada de Ksp/0,010, o que daria o resultado de o sal ser mais solúvel que em água pura. Na análise gravimétrica, adiciona-se um pequeno excesso de agente precipitante justamente para reduzir, por esse efeito, a perda de precipitado."
+ },
+ "volumetric-019": {
+  "question": "0,04903 g de dicromato de potássio K2Cr2O7 (massa molar 294,18 g/mol) reagiram em solução ácida com excesso de iodeto de potássio, e o iodo liberado foi titulado com solução aquosa de tiossulfato de sódio, sendo necessários 20,00 mL. As reações são Cr2O7²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I2 + 7H2O e I2 + 2S2O3²⁻ → 2I⁻ + S4O6²⁻. Qual é a concentração da solução de tiossulfato de sódio?",
+  "choices": [
+   "0,008333 mol/L",
+   "0,02500 mol/L",
+   "0,05000 mol/L"
+  ],
+  "explanation": "O K2Cr2O7 corresponde a 0,04903 g ÷ 294,18 g/mol = 1,667×10⁻⁴ mol. 1 mol de Cr2O7²⁻ gera 3 mol de I2, e 1 mol de I2 reage com 2 mol de S2O3²⁻, então Cr2O7²⁻ : S2O3²⁻ = 1 : 6. O íon tiossulfato é 1,667×10⁻⁴ × 6 = 1,000×10⁻³ mol, e a concentração é 1,000×10⁻³ mol ÷ 0,02000 L = 0,05000 mol/L. 0,008333 mol/L é o erro de tomar Cr2O7²⁻ e S2O3²⁻ como 1 : 1, e 0,02500 mol/L é o erro de tomar a quantidade de matéria de I2 formada diretamente como a de S2O3²⁻ (1 : 3)."
+ },
+ "volumetric-020": {
+  "question": "Na determinação de Al³⁺ com EDTA, em vez da titulação direta, costuma-se usar a retrotitulação: adiciona-se excesso de solução-padrão de EDTA, aquece-se e titula-se o EDTA restante com solução-padrão de Zn²⁺. Qual é a principal razão correta para isso?",
+  "choices": [
+   "A complexação de Al³⁺ com EDTA é lenta à temperatura ambiente, e o Al³⁺ se liga fortemente ao indicador e impede a viragem",
+   "O Al³⁺ se liga ao EDTA na proporção 1 : 3, e na titulação direta a razão entre as quantidades de matéria não fica definida",
+   "O complexo de Al³⁺ com EDTA é instável e não se forma sem a adição de Zn²⁺"
+  ],
+  "explanation": "No Al³⁺, a troca das moléculas de água coordenadas é lenta, e a complexação com EDTA avança só lentamente à temperatura ambiente. Além disso, o Al³⁺ se liga fortemente a indicadores como o negro de eriocromo T e não se solta com facilidade (bloqueio do indicador), de modo que a cor não muda no ponto final. Por isso, adiciona-se excesso de EDTA e aquece-se para complexar todo o Al³⁺, titula-se o EDTA que sobrou com Zn²⁺, que reage rapidamente, e obtém-se a quantidade de Al³⁺ pela diferença. O EDTA se liga aos íons metálicos na proporção 1 : 1, qualquer que seja a carga, e o Al³⁺ não é exceção, então 1 : 3 está errado. A constante de formação do complexo Al−EDTA é grande o suficiente (log K cerca de 16), e o Zn²⁺ é adicionado para medir o EDTA que sobrou, e não para ajudar a formar o complexo."
+ }
+}

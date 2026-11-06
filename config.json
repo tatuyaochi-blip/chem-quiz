@@ -35,6 +35,13 @@
       "htmlLang": "es",
       "locale": "es-ES",
       "label": "Español"
+    },
+    {
+      "code": "pt",
+      "path": "pt/",
+      "htmlLang": "pt-BR",
+      "locale": "pt-BR",
+      "label": "Português"
     }
   ],
   "mainLang": "ja",

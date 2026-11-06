@@ -306,6 +306,66 @@
           "a": "Sí. Para un tampón de amoniaco y cloruro de amonio, use el pKa del ion amonio, 9,25, e introduzca la concentración de amoniaco como [A⁻] y la del ion amonio como [HA]."
         }
       ]
+    },
+    "pt": {
+      "nav": "pH de soluções-tampão",
+      "card": "Calcule o pH de uma solução-tampão e a proporção de preparo pela equação de Henderson-Hasselbalch",
+      "title": "Calculadora de pH de soluções-tampão (equação de Henderson-Hasselbalch)",
+      "description": "Calcula o pH de uma solução-tampão pela equação de Henderson-Hasselbalch a partir do pKa de um ácido fraco e das concentrações do ácido fraco (HA) e da base conjugada (A⁻). Também obtém a razão [A⁻]/[HA] necessária para um pH desejado e a concentração de cada componente para uma concentração total definida.",
+      "h1": "Calculadora de pH de soluções-tampão",
+      "lead": "Obtenha o pH de uma solução-tampão preparada com um ácido fraco e seu sal e, ao contrário, calcule a proporção de mistura para chegar a um pH desejado. Os valores padrão correspondem a um tampão de ácido acético (pKa 4,76, 25 °C), com ácido acético 0,10 mol/L e acetato de sódio 0,15 mol/L.",
+      "in_heading": "Dados",
+      "pka": "pKa do ácido fraco",
+      "ha": "Ácido fraco [HA] (mol/L)",
+      "a": "Base conjugada [A⁻] (mol/L)",
+      "target": "pH desejado",
+      "total": "Concentração total [HA] + [A⁻] (mol/L)",
+      "out_heading": "Resultados",
+      "ph": "pH",
+      "range": "Capacidade tamponante (referência)",
+      "make_heading": "Para chegar ao pH desejado",
+      "ratio": "Razão necessária [A⁻]/[HA]",
+      "c_a": "Base conjugada [A⁻]",
+      "c_ha": "Ácido fraco [HA]",
+      "note": "É uma aproximação que considera os coeficientes de atividade iguais a 1 e despreza as variações de concentração devidas à autoionização da água e à ionização do próprio ácido fraco. Funciona bem com concentrações acima de cerca de 0,01 mol/L e pH na faixa pKa ± 1. Em soluções de força iônica alta, os valores medidos podem ser diferentes.",
+      "practice": "Resolver questões de ácidos e bases",
+      "related": "Termos relacionados",
+      "js": {
+        "inside": "Dentro de pKa ± 1 (capacidade tamponante suficiente)",
+        "outside": "Fora de pKa ± 1 (capacidade tamponante baixa)"
+      },
+      "sections": [
+        {
+          "h": "A equação de Henderson-Hasselbalch",
+          "p": "Tomando o logaritmo dos dois lados da constante de dissociação ácida Ka = [H⁺][A⁻]/[HA] do equilíbrio de ionização do ácido fraco HA ⇌ H⁺ + A⁻, obtém-se pH = pKa + log10([A⁻]/[HA]). Essa é a equação de Henderson-Hasselbalch. Com os valores padrão, ácido acético 0,10 mol/L e acetato de sódio 0,15 mol/L, pH = 4,76 + log10(1,5) ≈ 4,94. Quando [A⁻] = [HA], pH = pKa, o que mostra que o pH de uma solução-tampão não é determinado pelas concentrações em si, mas pela razão entre os dois componentes."
+        },
+        {
+          "h": "Ajustar a um pH desejado",
+          "p": "Rearranjando a equação, a razão necessária é [A⁻]/[HA] = 10^(pH − pKa). Para o pH desejado padrão de 5,00, 10^0,24 ≈ 1,74, e para uma concentração total de 0,10 mol/L misturam-se cerca de 0,0635 mol/L de acetato de sódio e cerca de 0,0365 mol/L de ácido acético. No preparo real, depois de misturar as quantidades calculadas, confere-se o pH com um pHmetro e ajusta-se adicionando um pouco de ácido forte ou base forte."
+        },
+        {
+          "h": "Capacidade tamponante e faixa de pH útil",
+          "p": "A capacidade de uma solução-tampão de contrabalançar variações de pH (capacidade tamponante) é máxima quando [A⁻] = [HA] (pH = pKa) e cai bruscamente fora da faixa pKa ± 1, em que a razão é 10 ou 1/10. Por isso, escolhe-se um ácido fraco com pKa próximo do pH desejado. Exemplos típicos são o ácido acético (pKa 4,76), a segunda dissociação do ácido fosfórico (pKa cerca de 7,2), o Tris (pKa cerca de 8,1) e o íon amônio (pKa 9,25). Aumentando a concentração total, a capacidade tamponante aumenta com a mesma razão."
+        },
+        {
+          "h": "Quando a aproximação deixa de valer",
+          "p": "Essa equação é uma aproximação que considera as concentrações adicionadas iguais às concentrações de equilíbrio. Quando as concentrações são muito baixas, ou quando o ácido ou a base são fortes, com pKa abaixo de 2 ou acima de 12, não se pode desprezar a ionização do próprio ácido fraco nem a da água, e para um resultado exato é preciso resolver em conjunto o balanço de cargas e o balanço de massas. Além disso, com força iônica alta, os coeficientes de atividade se afastam de 1, e o pH medido pode diferir do calculado em cerca de 0,1. Para tampões cujo pKa varia com a temperatura (o Tris, cerca de −0,03/°C), ajuste o pH na temperatura de uso."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quando se tem pH = pKa?",
+          "a": "Quando as concentrações do ácido fraco e de sua base conjugada são iguais. Como log10(1) = 0, pH = pKa, e nesse ponto a capacidade tamponante também é máxima. É também por isso que, ao titular um ácido fraco com uma base forte, o pH no ponto de semiequivalência é igual ao pKa."
+        },
+        {
+          "q": "O pH muda ao diluir uma solução-tampão com água?",
+          "a": "Pela equação de Henderson-Hasselbalch, a razão não muda e, portanto, o pH também não. Na prática, ao diluir, a força iônica diminui e os coeficientes de atividade mudam, então o pH varia ligeiramente. Com uma diluição extrema, a capacidade tamponante também desaparece."
+        },
+        {
+          "q": "Serve também para tampões básicos?",
+          "a": "Sim. Para um tampão de amônia e cloreto de amônio, use o pKa do íon amônio, 9,25, e informe a concentração de amônia como [A⁻] e a do íon amônio como [HA]."
+        }
+      ]
     }
   }
 }

@@ -338,6 +338,71 @@
           "a": "Se inyecta un componente que no quede retenido en absoluto por la fase estacionaria y se mide el tiempo que tarda en eluir. En HPLC en fase inversa se usan a menudo el uracilo o el nitrato de sodio, y en GC, el pico del metano o del aire."
         }
       ]
+    },
+    "pt": {
+      "nav": "Fator de retenção, resolução e pratos teóricos",
+      "card": "Calcule o fator de retenção, o fator de separação, a resolução e o número de pratos teóricos a partir de um cromatograma",
+      "title": "Calculadora de cromatografia (fator de retenção k, fator de separação α, resolução Rs, número de pratos teóricos N)",
+      "description": "Calcula o fator de retenção k, o fator de separação α, a resolução Rs, o número de pratos teóricos N e a altura equivalente a um prato teórico H a partir dos tempos de retenção e das larguras de pico de um cromatograma de HPLC ou GC. Também avalia se os dois picos estão completamente separados.",
+      "h1": "Calculadora de cromatografia",
+      "lead": "Calcule os indicadores da qualidade da separação a partir dos tempos de retenção e das larguras na linha de base de dois picos vizinhos e do tempo de saída de um componente não retido na coluna (t0). Os valores padrão são t0 = 1,0 min, tempos de retenção de 5,0 min e 5,8 min, larguras de pico de 0,40 min e 0,44 min e coluna de 150 mm.",
+      "in_heading": "Dados (todos os tempos na mesma unidade)",
+      "t0": "Tempo morto t0",
+      "tr1": "Tempo de retenção do pico 1, tR1",
+      "tr2": "Tempo de retenção do pico 2, tR2",
+      "w1": "Largura na linha de base do pico 1, W1",
+      "w2": "Largura na linha de base do pico 2, W2",
+      "len": "Comprimento da coluna L (mm)",
+      "out_heading": "Resultados",
+      "k1": "Fator de retenção k1",
+      "k2": "Fator de retenção k2",
+      "alpha": "Fator de separação α = k2/k1",
+      "sep_heading": "Separação",
+      "rs": "Resolução Rs",
+      "judge": "Avaliação",
+      "eff_heading": "Eficiência da coluna (calculada com o pico 2)",
+      "n": "Número de pratos teóricos N",
+      "h": "Altura equivalente a um prato teórico H",
+      "note": "A largura de pico é a distância entre os pontos em que as tangentes traçadas nos pontos de inflexão dos dois lados do pico cruzam a linha de base (largura na linha de base). Ao usar a largura à meia altura W½, N = 5,54(tR/W½)². Considera-se que os picos são gaussianos.",
+      "practice": "Resolver questões de cromatografia",
+      "related": "Termos relacionados",
+      "js": {
+        "full": "Separação completa (Rs ≥ 1,5)",
+        "partial": "Separação quase completa (1 ≤ Rs < 1,5, leve sobreposição)",
+        "poor": "Separação insuficiente (Rs < 1)"
+      },
+      "sections": [
+        {
+          "h": "Fator de retenção e fator de separação",
+          "p": "O fator de retenção k = (tR − t0)/t0 indica quantas vezes o tempo em que o componente fica retido na fase estacionária é maior que o tempo em que está na fase móvel. t0 é o tempo até a saída de um componente não retido na coluna. Com os valores padrão, k1 = (5,0 − 1,0)/1,0 = 4,0 e k2 = 4,8. Se k for pequeno demais (menor que 1), não há margem para a separação, e se for grande demais (acima de 10–20), a análise fica longa e os picos se alargam; por isso, em geral ajustam-se as condições da fase móvel para k ficar entre cerca de 2 e 10. O fator de separação α = k2/k1 é a diferença de retenção entre os dois componentes; com os valores padrão, é 1,2. Se α for 1, não há separação, por mais eficiente que seja a coluna."
+        },
+        {
+          "h": "Resolução",
+          "p": "A resolução Rs = 2(tR2 − tR1)/(W1 + W2) é a distância entre os centros dos dois picos dividida pela média das larguras dos picos. Com os valores padrão, 2 × 0,8/0,84 ≈ 1,90. Para picos gaussianos, a sobreposição é de cerca de 2 % com Rs = 1,0 e de cerca de 0,1 % com Rs = 1,5, e em geral considera-se separação na linha de base (separação completa) a partir de 1,5. Em métodos de ensaio de medicamentos, entre outros, às vezes se exige uma resolução mínima como critério de adequação do sistema."
+        },
+        {
+          "h": "Número de pratos teóricos e altura equivalente a um prato teórico",
+          "p": "O número de pratos teóricos N = 16(tR/W)² expressa a eficiência da coluna e depende de quão estreito é o pico em relação ao tempo de retenção. Para o pico 2 dos valores padrão, N = 16 × (5,8/0,44)² ≈ 2780. A altura equivalente a um prato teórico, H = L/N, o comprimento da coluna L dividido pelo número de pratos teóricos, indica maior eficiência quanto menor for; para a coluna padrão de 150 mm, é cerca de 54 µm. Quanto menor o tamanho de partícula do recheio, menor H, e como referência H fica em torno de 2–3 vezes o tamanho de partícula."
+        },
+        {
+          "h": "Como aumentar a resolução",
+          "p": "A resolução pode ser decomposta em três termos, de eficiência, seletividade e retenção, e escrita como Rs = (√N/4)·((α − 1)/α)·(k2/(1 + k2)) (equação de Purnell). Como quadruplicar N só dobra √N, muitas vezes é mais eficaz aumentar α mudando a composição da fase móvel ou o tipo de coluna do que alongar a coluna. Quando k é pequeno demais, enfraquecer a força eluente da fase móvel para aumentar a retenção melhora a resolução."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Qual resolução é suficiente?",
+          "a": "Se os picos têm alturas semelhantes e forma gaussiana, com Rs ≥ 1,5 a separação é praticamente completa. Na quantificação de impurezas em que um dos picos é muito pequeno, às vezes se exige 2,0 ou mais."
+        },
+        {
+          "q": "Como obter o número de pratos teóricos a partir da largura à meia altura?",
+          "a": "Use N = 5,54(tR/W½)². 5,54 é 8 ln 2. Como a largura na linha de base é cerca de 1,70 vez a largura à meia altura, para picos gaussianos as duas formas dão o mesmo N."
+        },
+        {
+          "q": "Como medir t0?",
+          "a": "Injeta-se um componente que não é retido pela fase estacionária e mede-se o tempo de saída. Na HPLC em fase reversa, usam-se muito uracila ou nitrato de sódio; na GC, o pico de metano ou de ar."
+        }
+      ]
     }
   }
 }

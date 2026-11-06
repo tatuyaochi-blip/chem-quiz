@@ -1,0 +1,182 @@
+{
+ "supramolecular-001": {
+  "question": "Qual é o objeto de estudo principal da química supramolecular?",
+  "choices": [
+   "Os métodos de síntese de uma única molécula de grande massa molar, unindo ligações covalentes uma a uma, e as propriedades e funções dessa própria molécula",
+   "As estruturas formadas pela reunião de várias moléculas por interações não covalentes, como ligações de hidrogênio e interações eletrostáticas, e suas funções",
+   "As estruturas em que os átomos se organizam regularmente em cristais por ligação metálica, e suas propriedades elétricas e magnéticas"
+  ],
+  "explanation": "A química supramolecular, que Lehn descreveu como a “química além da molécula”, trata de agregados de moléculas reunidas por interações não covalentes, como ligações de hidrogênio, interações eletrostáticas, interações π-π, forças de van der Waals e o efeito hidrofóbico. Seus temas centrais são o reconhecimento molecular, em que um hospedeiro seleciona e captura um hóspede, e a automontagem, em que os componentes se reúnem espontaneamente em uma estrutura definida. Cada interação é mais fraca que uma ligação covalente, mas a combinação de várias resulta em associação forte e seletiva, e, por ser reversível, ela se reorganiza conforme as condições. Construir moléculas grandes por ligações covalentes é a síntese de polímeros, e cristais com ligação metálica são objeto da química do estado sólido. Por pesquisas nesse campo, Pedersen, Lehn e Cram receberam o Prêmio Nobel de Química em 1987."
+ },
+ "supramolecular-002": {
+  "question": "Qual valor mais se aproxima da energia de uma única ligação de hidrogênio O−H···O típica entre moléculas neutras, como no dímero de água em fase gasosa?",
+  "choices": [
+   "Alguns a algumas dezenas de kJ/mol (cerca de 20 kJ/mol no dímero de água)",
+   "Algumas centenas de kJ/mol (cerca de 460 kJ/mol, igual à ligação covalente O−H)",
+   "Menos de 0,1 kJ/mol (muito menor que RT a 25 °C)"
+  ],
+  "explanation": "Ligações de hidrogênio entre moléculas neutras têm cerca de alguns a algumas dezenas de kJ/mol, e no dímero de água cerca de 20 kJ/mol. Esse é o valor da profundidade do poço de potencial De; a energia de dissociação D0, descontada a vibração do ponto zero, é de cerca de 13 kJ/mol, mas ambas estão nessa faixa. É mais de uma ordem de grandeza menor que a energia da ligação covalente O−H, cerca de 460 kJ/mol, e maior que as forças de dispersão (da ordem de alguns kJ/mol), uma força intermediária. Como RT a 25 °C é cerca de 2,5 kJ/mol, as ligações de hidrogênio se rompem e se formam pelo movimento térmico, mantendo uma fração constante, o que as torna adequadas para formar associações reversíveis. Com menos de 0,1 kJ/mol, seriam destruídas imediatamente pelo movimento térmico e não manteriam estruturas. Ligações de hidrogênio que envolvem íons, como F−H···F⁻, podem passar de 150 kJ/mol."
+ },
+ "supramolecular-003": {
+  "question": "Qual éter de coroa forma o complexo mais forte com o íon potássio K⁺ em metanol? Considere o raio iônico do K⁺ igual a cerca de 1,38 Å.",
+  "choices": [
+   "12-coroa-4",
+   "15-coroa-5",
+   "18-coroa-6"
+  ],
+  "explanation": "Os números no nome dos éteres de coroa indicam o número total de átomos do anel e o número de oxigênios. Os pares de elétrons não compartilhados dos oxigênios voltados para dentro do anel se coordenam ao cátion, e ligam-se fortemente aqueles em que o tamanho da cavidade corresponde ao do íon. Os diâmetros aproximados da cavidade são cerca de 1,2 a 1,5 Å para o 12-coroa-4, cerca de 1,7 a 2,2 Å para o 15-coroa-5 e cerca de 2,6 a 3,2 Å para o 18-coroa-6; o que corresponde ao diâmetro do K⁺, cerca de 2,8 Å, é o 18-coroa-6. Pelo tamanho, o 15-coroa-5 se aproxima do Na⁺ e o 12-coroa-4 do Li⁺; para o K⁺, suas cavidades são pequenas demais, e o íon não cabe no anel. No entanto, a seletividade não é determinada só pelo tamanho; em metanol, até o Na⁺ se liga mais fortemente ao 18-coroa-6 que ao 15-coroa-5."
+ },
+ "supramolecular-004": {
+  "question": "Qual explicação da estrutura da β-ciclodextrina está correta?",
+  "choices": [
+   "7 unidades de D-glicose ligadas em anel por ligações α-1,4; o interior da cavidade é relativamente hidrofóbico e o exterior é hidrofílico",
+   "6 unidades de D-glicose ligadas em anel por ligações β-1,4; grupos hidroxila revestem o interior da cavidade, que é hidrofílico",
+   "8 unidades de D-glicose ligadas em anel por ligações α-1,6; o interior e o exterior da cavidade são fortemente hidrofóbicos, e ela é insolúvel em água"
+  ],
+  "explanation": "As ciclodextrinas são oligossacarídeos cíclicos produzidos pela degradação enzimática do amido, com glicoses unidas por ligações glicosídicas α-1,4. As que têm 6 glicoses são chamadas α, as de 7, β, e as de 8, γ. A molécula tem a forma de um tronco de cone aberto em cima e embaixo; os grupos hidroxila primários e secundários se alinham nas duas bordas, de modo que o exterior é hidrofílico e a molécula se dissolve em água. Já o interior da cavidade, para onde apontam ligações C−H e os oxigênios das ligações glicosídicas, é um ambiente relativamente hidrofóbico e, em água, captura moléculas hidrofóbicas, formando compostos de inclusão. Seis é o número da α-ciclodextrina, e a ligação β-1,4 é a forma de ligação da celulose. A γ, com 8 unidades, também é ligada por α-1,4, e seu exterior é hidrofílico."
+ },
+ "supramolecular-005": {
+  "question": "Misturando benzeno C6H6 e hexafluorobenzeno C6F6 na proporção 1:1, forma-se um cristal de ponto de fusão mais alto que o de qualquer das substâncias puras (ambas com ponto de fusão de cerca de 5 °C), no qual os dois tipos de anel se empilham alternadamente, face a face. Qual é a principal razão correta para esse empilhamento?",
+  "choices": [
+   "Formam-se ligações covalentes entre os carbonos do benzeno e os flúores, unindo os dois anéis por ligações químicas",
+   "Os momentos de quadrupolo das duas moléculas têm sinais opostos, e a face rica em elétrons atrai eletrostaticamente a face pobre em elétrons",
+   "As duas moléculas têm grandes momentos de dipolo, e os dipolos se alinham em sentidos opostos e se atraem"
+  ],
+  "explanation": "O benzeno tem muitos elétrons π acima e abaixo do plano do anel e possui um quadrupolo com os hidrogênios da borda polarizados positivamente. Por isso, moléculas de benzeno se repelem quando as faces se sobrepõem frontalmente e adotam arranjos deslocados paralelos ou em forma de T, com os hidrogênios da borda voltados para a face da outra molécula. No C6F6, os flúores, muito eletronegativos, retiram elétrons, de modo que a face fica polarizada positivamente e a borda negativamente, e o sinal do quadrupolo é oposto ao do benzeno. Por isso, as duas moléculas se atraem quando as faces ficam frente a frente e formam um cristal com empilhamento alternado, e a mistura 1:1 funde a cerca de 24 °C. Ambas as moléculas são muito simétricas e têm momento de dipolo zero, de modo que a interação dipolo-dipolo não explica o fenômeno, e também não se formam ligações covalentes no cristal. A interação π-π é entendida como uma combinação de forças de dispersão e de interações eletrostáticas desse tipo."
+ },
+ "supramolecular-006": {
+  "question": "A constante de associação de um composto que forma dímeros por ligações de hidrogênio foi medida por RMN de ¹H: era grande em CDCl3, mas em DMSO-d6 quase não se observou associação. Qual é a principal razão correta para essa diferença?",
+  "choices": [
+   "O DMSO é mais viscoso que o CDCl3, de modo que as moléculas não se encontram e o equilíbrio não é atingido",
+   "O deutério do DMSO-d6 se troca com os hidrogênios N−H e O−H do composto, impedindo a formação de ligações de hidrogênio",
+   "O DMSO é um forte aceptor de ligação de hidrogênio; o solvente forma ligações de hidrogênio com N−H e O−H e compete com a associação do soluto"
+  ],
+  "explanation": "Na associação por ligações de hidrogênio, formam-se ligações de hidrogênio entre as moléculas de soluto, mas perdem-se as interações de cada uma com o solvente. O CDCl3 tem baixa capacidade de aceitar ligações de hidrogênio, de modo que as ligações entre solutos são favorecidas, e a constante de associação é grande. No DMSO, o oxigênio do S=O é um forte aceptor de ligação de hidrogênio, e as moléculas de solvente, em grande excesso, ocupam os N−H e O−H; por isso, a associação enfraquece muito. A viscosidade pode afetar a velocidade de associação, mas não determina a posição do equilíbrio. Os deutérios do DMSO-d6 estão ligados a carbono e se trocam com dificuldade; a troca é um problema em solventes com O−D, como CD3OD e D2O. As constantes de associação mudam várias ordens de grandeza conforme o solvente; por isso, os valores devem sempre ser comparados indicando solvente e temperatura."
+ },
+ "supramolecular-007": {
+  "question": "Em complexos unidos por três ligações de hidrogênio, representa-se a sequência das duas moléculas frente a frente indicando os sítios doadores de ligação de hidrogênio por D e os aceptores por A. Com o mesmo número de ligações de hidrogênio principais, considerando as interações secundárias entre sítios vizinhos (a ideia de Jorgensen e colaboradores), qual combinação tende a ter a associação mais forte?",
+  "choices": [
+   "ADA·DAD",
+   "AAD·DDA",
+   "AAA·DDD"
+  ],
+  "explanation": "Além das três ligações de hidrogênio principais, atuam interações diagonais (interações secundárias) entre sítios vizinhos. Se os sítios em diagonal são D e A, eles se atraem; se são D e D ou A e A, repelem-se eletrostaticamente. Em ADA·DAD, as quatro interações secundárias são todas repulsivas; em AAD·DDA, há duas atrações e duas repulsões; em AAA·DDD, as quatro são atrativas. Por isso, mesmo com o mesmo número de ligações de hidrogênio principais, AAA·DDD é a mais forte e ADA·DAD a mais fraca, e as constantes de associação em clorofórmio diferem em ordens de grandeza. É um exemplo de que o número de ligações de hidrogênio sozinho não permite comparar a força da associação, e serve de orientação para projetar hospedeiros e hóspedes que se associem de forma forte e seletiva."
+ },
+ "supramolecular-008": {
+  "question": "O criptando [2.2.2] N(CH2CH2OCH2CH2OCH2CH2)3N se liga ao K⁺ várias ordens de grandeza mais fortemente que o 18-coroa-6 no mesmo solvente. Qual é a principal razão correta?",
+  "choices": [
+   "Por ser uma molécula de cadeia aberta e flexível, sem anel, ela muda livremente de forma conforme o tamanho do K⁺ e o envolve sem deixar espaços",
+   "Ela envolve o K⁺ em uma cavidade em forma de gaiola, com os dois nitrogênios como cabeças de ponte, e a forma adequada à coordenação já está pré-organizada",
+   "Os nitrogênios formam ligações covalentes com o K⁺, que é incorporado como parte da molécula do criptando"
+  ],
+  "explanation": "O criptando [2.2.2] é um composto bicíclico em que dois nitrogênios são unidos por três cadeias de poliéter, com seis oxigênios e dois nitrogênios voltados para dentro da cavidade. O K⁺ entra nessa gaiola e forma um complexo (criptato); em comparação com o éter de coroa, que apenas o cerca com um anel plano, ele é coordenado por mais direções e fica isolado do solvente. Além disso, a forma adequada à coordenação já existe em certa medida antes da ligação (é pré-organizada), de modo que a entropia perdida na ligação e a energia necessária para mudar de forma são pequenas. Moléculas de cadeia aberta e flexíveis sofrem grande desvantagem por terem a forma fixada na ligação e, na verdade, ligam-se mais fracamente. A coordenação é uma interação não covalente, e o K⁺ é capturado ainda como íon."
+ },
+ "supramolecular-009": {
+  "question": "Na construção, por automontagem, de estruturas definidas como gaiolas e redes a partir de íons metálicos e ligantes, considera-se importante que a ligação metal-ligante seja moderadamente reversível. Qual é a razão correta?",
+  "choices": [
+   "Intermediários ligados de forma errada são religados (correção de erros), e o sistema pode chegar à estrutura termodinamicamente mais estável",
+   "Com ligações reversíveis, a reação fica sob controle cinético, e a primeira estrutura formada permanece intacta como produto final",
+   "Com ligações reversíveis, o produto se decompõe logo; como a estrutura não permanece em solução, há menos subprodutos e a pureza aumenta"
+  ],
+  "explanation": "Na automontagem de muitos componentes, formam-se no caminho muitos intermediários ligados de forma errada, além de oligômeros e polímeros. Se as ligações puderem se romper e se refazer, essas espécies se desfazem e se reorganizam, convergindo finalmente para a estrutura termodinamicamente mais estável (produto sob controle termodinâmico). Essa correção de erros é a chave para obter um único tipo de estrutura com alto rendimento. Se as ligações forem fortes demais para se romper, ocorre controle cinético, em que os agregados irregulares formados primeiro permanecem como estão, e a estrutura desejada é difícil de obter. Mesmo com ligações reversíveis, se o produto for estável, o equilíbrio fica fortemente deslocado para o lado do produto, e ele não se decompõe e some logo. São muito usadas ligações de coordenação de paládio(II) com ligantes piridínicos, ligações de hidrogênio e ligações covalentes dinâmicas, como iminas e dissulfetos."
+ },
+ "supramolecular-010": {
+  "question": "Em metanol a 25 °C, considere log K = 6,1 para a constante de associação do complexo de K⁺ com 18-coroa-6 e log K = 2,3 para o complexo com o poliéter de cadeia aberta CH3O(CH2CH2O)5CH3, que tem os mesmos 6 oxigênios. Qual valor mais se aproxima da diferença de energia de Gibbs padrão de complexação ΔΔG° (magnitude da estabilização) devida à estrutura macrocíclica? Considere R = 8,314 J/(K·mol) e T = 298 K.",
+  "choices": [
+   "9,4 kJ/mol",
+   "21,7 kJ/mol",
+   "5,2 kJ/mol"
+  ],
+  "explanation": "Como ΔG° = −RT ln K = −2,303RT log K, ΔΔG° = 2,303 × 8,314 × 298 × (6,1 − 2,3) J/mol ≈ 5,71 kJ/mol × 3,8 ≈ 21,7 kJ/mol. Em termos de razão entre as constantes de associação, a diferença é de cerca de 6300 vezes. 9,4 kJ/mol é o valor obtido tomando a diferença de log K como diferença de ln K, esquecendo o fator 2,303. 5,2 kJ/mol é o erro de converter 21,7 kJ/mol para kcal/mol e colocar a unidade kJ no número. Os hospedeiros macrocíclicos se ligam fortemente porque os oxigênios coordenantes já estão dispostos no anel e, ao contrário das moléculas de cadeia aberta, não perdem muitas conformações na ligação. Isso se chama efeito macrocíclico."
+ },
+ "supramolecular-011": {
+  "question": "Um hospedeiro H e um hóspede G que se associam na proporção 1:1 foram misturados, ambos com concentração inicial de 1,0×10⁻³ mol/L. Sendo a constante de associação K = 1,0×10³ L/mol, qual valor mais se aproxima da fração do hospedeiro associada ao hóspede no equilíbrio?",
+  "choices": [
+   "38 %",
+   "50 %",
+   "62 %"
+  ],
+  "explanation": "Sendo x a concentração de hospedeiro associado, K = x ÷ (1,0×10⁻³ − x)² = 1,0×10³. Fazendo y = x ÷ (1,0×10⁻³), como K × 1,0×10⁻³ = 1, tem-se (1 − y)² = y, ou seja, y² − 3y + 1 = 0, cuja solução com 0 < y < 1 é y = (3 − √5) ÷ 2 ≈ 0,38, isto é, 38 %. 50 % é o valor obtido supondo que a concentração do hóspede livre continua igual à inicial, igual à constante de dissociação 1/K = 1,0×10⁻³ mol/L, ignorando que o hóspede também é consumido na associação. 62 % é a fração do hospedeiro não associado. Para determinar constantes de associação com boa precisão, uma referência é medir em concentrações que abranjam a faixa de cerca de 20 a 80 % de associação."
+ },
+ "supramolecular-012": {
+  "question": "Mantendo constante a concentração total do hospedeiro H e do hóspede G e variando a fração molar, plotou-se a quantidade de complexo (gráfico de Job, método das variações contínuas). Se o máximo ocorre na fração molar do hospedeiro χH = 0,33, qual composição do complexo é a mais provável?",
+  "choices": [
+   "H2G (duas moléculas de hospedeiro e uma de hóspede)",
+   "HG (uma molécula de hospedeiro e uma de hóspede)",
+   "HG2 (uma molécula de hospedeiro e duas de hóspede)"
+  ],
+  "explanation": "Para um complexo de composição HmGn, a quantidade é máxima, com concentração total constante, em χH = m ÷ (m + n). Para HG é 0,50, para HG2 é 1 ÷ 3 ≈ 0,33 e para H2G é 2 ÷ 3 ≈ 0,67. χH = 0,33 é a proporção de mistura com o dobro de hóspede em relação ao hospedeiro, de modo que se considera HG2. Dizer H2G é o erro de confundir a fração molar do hospedeiro com a do hóspede. No entanto, já se apontou que, quando coexistem vários complexos, a posição do máximo se desloca no gráfico de Job, que tende a levar a conclusões erradas. Para determinar a composição, recomenda-se usar também o ajuste dos dados de titulação aos modelos 1:1 e 1:2, comparando os resíduos."
+ },
+ "supramolecular-013": {
+  "question": "A solubilidade de um fármaco pouco solúvel em água foi medida variando a concentração de β-ciclodextrina (método de solubilidade de fases). A solubilidade do fármaco aumentou linearmente com a concentração de ciclodextrina, com inclinação 0,20, e a solubilidade sem ciclodextrina S0 foi 2,0×10⁻³ mol/L. Supondo a formação de um composto de inclusão 1:1, qual valor mais se aproxima da constante de associação K obtida pela equação de Higuchi-Connors, K = inclinação ÷ [S0 × (1 − inclinação)]?",
+  "choices": [
+   "125 L/mol",
+   "100 L/mol",
+   "0,125 L/mol"
+  ],
+  "explanation": "K = 0,20 ÷ [2,0×10⁻³ × (1 − 0,20)] = 0,20 ÷ (1,6×10⁻³) = 125 L/mol. No diagrama de solubilidade de fases do tipo AL, com aumento linear, sempre há fármaco sólido remanescente, de modo que a concentração do fármaco livre permanece constante em S0, e o aumento corresponde ao composto de inclusão. A inclinação corresponde à fração da ciclodextrina adicionada que incluiu o fármaco, e 1 − inclinação é a fração de ciclodextrina vazia. 100 L/mol é o valor inclinação ÷ S0, esquecendo a correção (1 − inclinação). 0,125 L/mol é um erro de unidade, inserindo S0 com o valor numérico em mmol/L, 2,0; o correto é 0,125 L/mmol = 125 L/mol."
+ },
+ "supramolecular-014": {
+  "question": "Por calorimetria de titulação isotérmica (ITC), estudou-se a associação 1:1 de um hospedeiro e um hóspede a 25 °C, obtendo-se constante de associação K = 1,0×10⁵ L/mol e entalpia padrão de associação ΔH° = −40,0 kJ/mol. Qual valor mais se aproxima do termo entrópico da associação TΔS°? Considere R = 8,314 J/(K·mol) e T = 298 K.",
+  "choices": [
+   "+11,5 kJ/mol",
+   "−11,5 kJ/mol",
+   "−68,5 kJ/mol"
+  ],
+  "explanation": "Primeiro, ΔG° = −RT ln K = −8,314 × 298 × ln(1,0×10⁵) J/mol ≈ −28,5 kJ/mol. De ΔG° = ΔH° − TΔS°, TΔS° = ΔH° − ΔG° = −40,0 − (−28,5) = −11,5 kJ/mol; essa associação é impulsionada pela entalpia, e a entropia atua de forma desfavorável. +11,5 kJ/mol é o erro de inverter a subtração, fazendo ΔG° − ΔH°, e −68,5 kJ/mol é o erro de somar ΔH° e ΔG°. A ITC mede diretamente o calor liberado ou absorvido ao adicionar a solução do hóspede aos poucos e fornece, em uma única medida, K, ΔH° e a estequiometria, a partir dos quais também se obtêm ΔG° e TΔS°."
+ },
+ "supramolecular-015": {
+  "question": "Misturando em água, na proporção 1:1, o complexo de paládio quadrado planar [Pd(en)]²⁺ (en é etilenodiamina), que tem livres apenas duas posições cis, e o ligante ponte linear 4,4'-bipiridina, forma-se por automontagem principalmente um único tipo de complexo cíclico. Qual é a estrutura correta?",
+  "choices": [
+   "Um anel triangular formado por 3 paládios e 3 moléculas de 4,4'-bipiridina",
+   "Um anel formado por 2 paládios e 2 moléculas de 4,4'-bipiridina",
+   "Um anel quadrado formado por 4 paládios e 4 moléculas de 4,4'-bipiridina"
+  ],
+  "explanation": "No [Pd(en)]²⁺, a etilenodiamina ocupa dois sítios de coordenação, de modo que os dois restantes ficam em posição cis, formando um “canto” em que a direção dos ligantes se dobra cerca de 90°. A 4,4'-bipiridina linear é o “lado”, e unindo quatro cantos de 90° com quatro lados retos fecha-se um quadrado sem tensão. Assim, a formação com alto rendimento do quadrado molecular [{Pd(en)(4,4'-bipiridina)}4]⁸⁺ foi relatada por Fujita e colaboradores em 1990. Como os ângulos internos de um triângulo são de 60°, construí-lo com cantos de 90° gera tensão e é desfavorável. Um anel com dois de cada exigiria dobrar os lados retos em 180°, o que não é possível. Como a ligação Pd−piridina é moderadamente reversível, mesmo que se formem oligômeros ou polímeros, eles se reorganizam e convergem para o quadrado, a estrutura mais estável."
+ },
+ "supramolecular-016": {
+  "question": "O grupo trimetilamônio −N⁺(CH3)3 da acetilcolina se liga, nos sítios de ligação de receptores e enzimas, cercado por anéis aromáticos, como os do triptofano. Qual interação atua principalmente nessa ligação?",
+  "choices": [
+   "Uma interação em que os hidrogênios ligados ao N⁺ formam ligações de hidrogênio N−H···π com os elétrons π do anel aromático",
+   "Uma interação em que se forma uma ligação coordenada entre os carbonos do anel aromático e o N⁺, gerando um complexo de forte caráter covalente",
+   "A interação cátion-π, em que a face do anel aromático, rica em elétrons, e o cátion se atraem eletrostaticamente"
+  ],
+  "explanation": "Anéis aromáticos como o benzeno têm uma distribuição de carga (momento de quadrupolo) em que os elétrons π se espalham acima e abaixo do plano do anel, que fica negativo, enquanto o lado dos hidrogênios da borda fica positivo. Por isso, um cátion é atraído eletrostaticamente logo acima da face do anel; isso se chama interação cátion-π. Em fase gasosa, a energia de ligação entre K⁺ e benzeno chega a cerca de 80 kJ/mol, e mesmo em água ela é usada por resíduos de aminoácidos aromáticos das proteínas para reconhecer íons de amônio quaternário. O nitrogênio do grupo trimetilamônio não tem hidrogênios ligados, de modo que não pode formar ligações de hidrogênio N−H···π. Também não se forma ligação coordenada entre o anel aromático e o nitrogênio. Assim como no empilhamento de benzeno e C6F6, a chave é a interação eletrostática devida ao quadrupolo."
+ },
+ "supramolecular-017": {
+  "question": "Qual explicação sobre a interação em que o átomo de iodo do iodopentafluorobenzeno C6F5I atrai o nitrogênio da piridina na forma C−I···N (ligação de halogênio) está correta?",
+  "choices": [
+   "O iodo está carregado negativamente como um todo, e o par de elétrons não compartilhado do nitrogênio se aproxima e é atraído pelo lado da ligação C−I",
+   "Há uma região positiva (buraco σ) na superfície do iodo, no prolongamento da ligação C−I, e o arranjo C−I···N é quase linear",
+   "O iodo recebe um hidrogênio do nitrogênio, substituindo a ligação de hidrogênio, de modo que a força é maior para o flúor"
+  ],
+  "explanation": "Quando um átomo de halogênio X está ligado a um grupo retirador de elétrons, a densidade eletrônica diminui na superfície de X no prolongamento da ligação C−X, formando uma região de potencial eletrostático positivo chamada buraco σ. Já a direção perpendicular ao eixo da ligação (a lateral) está carregada negativamente. O par de elétrons não compartilhado da base de Lewis se aproxima desse buraco σ, de modo que o ângulo C−X···N fica próximo de 180°. Como o buraco σ é mais pronunciado em halogênios maiores e mais polarizáveis, a força da ligação de halogênio segue aproximadamente a ordem I > Br > Cl, e o flúor quase não forma ligações de halogênio. No C6F5I, os flúores retiram elétrons e aumentam o buraco σ do iodo. O iodo não está carregado negativamente como um todo, e também não há transferência de hidrogênio."
+ },
+ "supramolecular-018": {
+  "question": "Qual é a estrutura correta da molécula chamada rotaxano?",
+  "choices": [
+   "Uma molécula em forma de bastão passa por uma molécula em anel, e grupos volumosos nas duas pontas do bastão (rolhas) impedem que o anel saia",
+   "Duas ou mais moléculas em anel passam umas pelas outras como elos de uma corrente e não se separam sem romper ligações covalentes",
+   "Uma molécula hóspede entra na cavidade de uma molécula em anel, permanece só por ligações de hidrogênio e entra e sai rapidamente em solução"
+  ],
+  "explanation": "O rotaxano é uma estrutura em que uma molécula de cadeia linear que serve de eixo passa por uma molécula cíclica (anel), com rolhas volumosas nas duas pontas do eixo, de modo que o anel não sai. O anel e o eixo não estão unidos por ligações covalentes, mas não podem ser separados sem romper ligações covalentes; por isso, são chamados moléculas ligadas mecanicamente (moléculas entrelaçadas). Dois anéis que passam um pelo outro formam um catenano, que também é uma molécula entrelaçada, mas não um rotaxano. Um anel apenas atravessado por um eixo sem rolhas é um pseudorrotaxano, e em solução o anel sai e entra. Na síntese, o anel e o eixo são primeiro combinados por ligações de hidrogênio ou coordenação a metais (template), e depois as rolhas são colocadas para aprisioná-los. A pesquisa de máquinas moleculares que aproveitam o movimento do anel sobre o eixo foi objeto do Prêmio Nobel de Química de 2016."
+ },
+ "supramolecular-019": {
+  "question": "A associação entre um hospedeiro e um hóspede foi estudada por RMN de ¹H. A associação e a dissociação são suficientemente mais rápidas que a escala de tempo da RMN, e o sinal de um próton do hóspede aparece como um único sinal na posição média. O hóspede não associado aparece em δ 7,00, o hóspede totalmente associado em δ 7,80, e em certa solução de mistura o sinal estava em δ 7,30. Qual valor mais se aproxima da fração do hóspede associada ao hospedeiro nessa solução?",
+  "choices": [
+   "93,6 %",
+   "62,5 %",
+   "37,5 %"
+  ],
+  "explanation": "Em troca rápida, o deslocamento químico observado é a média dos deslocamentos das duas formas, ponderada pelas frações: δobs = (1 − f)δfree + fδbound. A fração associada é f = (δobs − δfree)/(δbound − δfree) = (7,30 − 7,00)/(7,80 − 7,00) = 0,30/0,80 = 0,375, ou seja, 37,5 %. 62,5 % é a fração não associada, (δbound − δobs)/(δbound − δfree). 93,6 % é o erro de tomar a razão dos próprios valores de deslocamento, como 7,30/7,80; a origem de δ (a posição da substância de referência) não tem significado nesse cálculo. Acompanhar δobs variando a concentração do hospedeiro e obter K por essa equação é a titulação por RMN."
+ },
+ "supramolecular-020": {
+  "question": "O 18-coroa-6 pode ser sintetizado ciclizando com base o trietilenoglicol e um composto em que suas duas pontas foram convertidas em grupos cloro ou similares. Considera-se que usar uma base de potássio (hidróxido de potássio ou terc-butóxido de potássio) favorece a formação do anel de 18 membros (efeito template). Qual é o papel correto do K⁺ nesse caso?",
+  "choices": [
+   "O K⁺ se coordena aos oxigênios do intermediário de cadeia aberta e aproxima as duas pontas, favorecendo a ciclização intramolecular sobre a polimerização intermolecular",
+   "O K⁺ forma ligações covalentes com o oxigênio do alcóxido e é incorporado como parte do anel do 18-coroa-6 formado",
+   "O K⁺ aumenta a força iônica da solução e o número de colisões entre os reagentes, acelerando o crescimento da cadeia por reações intermoleculares"
+  ],
+  "explanation": "Na síntese de éteres de coroa macrocíclicos, a reação intramolecular em que as duas pontas da cadeia se encontram (ciclização) compete com a reação intermolecular em que a cadeia reage com outra molécula e cresce (polimerização). Como o K⁺ corresponde ao tamanho da cavidade do 18-coroa-6, ele se coordena cercado pelos oxigênios do alcóxido de cadeia aberta prestes a ciclizar, enrolando a cadeia em forma de anel e aproximando as duas pontas. Esse favorecimento da ciclização por um íon metálico que serve de molde (template) chama-se efeito template. O K⁺ apenas se coordena, não forma ligações covalentes e não se torna parte do anel. Acelerar as reações intermoleculares, ao contrário, aumentaria os oligômeros de cadeia aberta. Na síntese de compostos macrocíclicos, também se usam com frequência condições de alta diluição para suprimir as reações intermoleculares."
+ }
+}

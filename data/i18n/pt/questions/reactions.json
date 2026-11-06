@@ -1,0 +1,182 @@
+{
+ "reactions-001": {
+  "question": "Qual é o produto principal da adição de brometo de hidrogênio, HBr, ao propeno, CH2=CHCH3 (sem peróxidos)?",
+  "choices": [
+   "1-Bromopropano, CH3CH2CH2Br",
+   "2-Bromopropano, CH3CHBrCH3",
+   "1,2-Dibromopropano, CH2BrCHBrCH3"
+  ],
+  "explanation": "Na adição de HBr, os elétrons π primeiro se ligam ao H⁺, formando um carbocátion. Se o H se liga ao carbono terminal, forma-se o carbocátion secundário CH3C⁺HCH3; se se liga ao carbono interno, forma-se um carbocátion primário instável. Por isso a reação passa pelo primeiro, o Br⁻ se liga a ele, e o 2-bromopropano é o produto principal. Essa é a razão da regra de Markovnikov (o H se liga ao carbono com mais hidrogênios). O 1-bromopropano é o produto principal da adição radicalar, que ocorre na presença de peróxidos, e o 1,2-dibromopropano é o produto da adição de Br2, e não de HBr."
+ },
+ "reactions-002": {
+  "question": "Qual é o produto principal da adição de HBr ao propeno, CH2=CHCH3, na presença de um peróxido ROOR?",
+  "choices": [
+   "1-Bromopropano, CH3CH2CH2Br",
+   "2-Bromopropano, CH3CHBrCH3",
+   "Mistura equimolar de 1-bromopropano e 2-bromopropano"
+  ],
+  "explanation": "Na presença de peróxidos, o radical alcoxila formado remove o hidrogênio do HBr, gerando o radical bromo Br·, e a reação passa a ser uma reação radicalar em cadeia. O Br· se adiciona ao carbono terminal da dupla ligação, formando o radical secundário CH3C·HCH2Br, mais estável, e esse radical remove o H do HBr, formando 1-bromopropano. Como a primeira espécie a se ligar é o Br·, e não o H⁺, ocorre uma adição anti-Markovnikov, com o bromo no carbono com mais hidrogênios. O 2-bromopropano é o produto do mecanismo iônico, sem peróxidos. Como a posição é determinada pela estabilidade do intermediário, os dois não se formam em quantidades iguais. Esse efeito é específico do HBr e em geral não ocorre com HCl ou HI."
+ },
+ "reactions-003": {
+  "question": "Qual é o produto principal da reação do 1-metilciclo-hexeno com BH3 (em THF) seguida de oxidação com peróxido de hidrogênio em meio básico?",
+  "choices": [
+   "1-Metilciclo-hexanol",
+   "cis-2-Metilciclo-hexanol",
+   "trans-2-Metilciclo-hexanol"
+  ],
+  "explanation": "Na hidroboração, a ligação B−H se adiciona de uma só vez à mesma face da dupla ligação (adição sin): o boro vai para o carbono menos substituído e estericamente mais livre (C2), e o hidrogênio vai para o C1, que tem a metila. Na oxidação seguinte, a ligação C−B é substituída por C−OH com retenção da estereoquímica; o resultado equivale a adicionar H e OH pela mesma face. No C1, o novo H fica do mesmo lado do OH; assim, a metila fica do lado oposto ao OH, e a metila e o OH ficam trans (racemato). O 1-metilciclo-hexanol é um produto do tipo Markovnikov, como o da hidratação catalisada por ácido, e a forma cis é um erro de interpretação do resultado da adição sin."
+ },
+ "reactions-004": {
+  "question": "Qual é o produto principal da adição de bromo, Br2 (em CH2Cl2), ao ciclo-hexeno?",
+  "choices": [
+   "cis-1,2-Dibromociclo-hexano",
+   "1,1-Dibromociclo-hexano",
+   "trans-1,2-Dibromociclo-hexano"
+  ],
+  "explanation": "Quando o bromo se aproxima da ligação π, forma-se um íon bromônio cíclico, um anel de três membros que abrange os dois carbonos. O Br⁻ evita esse bromo em ponte e ataca pela face oposta; os dois bromos ficam em lados opostos (adição anti), e obtém-se o trans-1,2-dibromociclo-hexano (racemato). A forma cis corresponderia a uma adição sin, com os dois bromos entrando pela mesma face, e quase não se forma nesta reação. O derivado 1,1-dibromo, com dois bromos no mesmo carbono, não se forma na adição de Br2 a alcenos. O desaparecimento da cor castanho-avermelhada do bromo é usado para detectar ligações insaturadas."
+ },
+ "reactions-005": {
+  "question": "Na nitração do tolueno, C6H5CH3, com mistura sulfonítrica (mistura de ácido nítrico concentrado e ácido sulfúrico concentrado), quais são os principais produtos?",
+  "choices": [
+   "o-Nitrotolueno e p-nitrotolueno",
+   "m-Nitrotolueno",
+   "Fenilnitrometano, C6H5CH2NO2"
+  ],
+  "explanation": "A metila é um grupo ativante que doa elétrons ao anel benzênico por efeito indutivo e por hiperconjugação, e a nitração é mais rápida que a do benzeno. Quando o eletrófilo NO2⁺ ataca a posição orto ou para, em uma das estruturas de ressonância do intermediário (complexo σ) a carga positiva fica no carbono que tem a metila, com estabilização especial como carbocátion terciário. No ataque à posição meta não há essa estrutura, e o produto meta se forma em pequena quantidade (da ordem de alguns %). A nitração com mistura sulfonítrica é uma substituição eletrofílica aromática de mecanismo iônico, e a metila da cadeia lateral não reage; por isso não se forma fenilnitrometano."
+ },
+ "reactions-006": {
+  "question": "Qual afirmação sobre a bromação do nitrobenzeno, C6H5NO2, com bromo e FeBr3 está correta?",
+  "choices": [
+   "É mais rápida que a do benzeno e forma principalmente o- e p-bromonitrobenzeno",
+   "É mais lenta que a do benzeno e forma principalmente m-bromonitrobenzeno",
+   "É mais lenta que a do benzeno e forma principalmente o- e p-bromonitrobenzeno"
+  ],
+  "explanation": "O grupo nitro é um forte grupo desativante, que retira elétrons do anel tanto por efeito indutivo quanto por efeito de ressonância, e a substituição eletrofílica fica muito mais lenta que a do benzeno. No ataque às posições orto ou para, em uma das estruturas de ressonância do complexo σ a carga positiva fica no carbono imediatamente vizinho ao nitrogênio do grupo nitro, que já tem carga positiva, o que desestabiliza fortemente o intermediário. No ataque à posição meta essa estrutura, a mais desfavorável, não aparece, e o produto meta é, comparativamente, o principal. Os grupos carbonila, ciano e sulfo também são desativantes orientadores meta. “Lento, mas orientador orto/para” é o caso dos halogênios."
+ },
+ "reactions-007": {
+  "question": "Qual afirmação sobre a substituição eletrofílica aromática do clorobenzeno, C6H5Cl, está correta?",
+  "choices": [
+   "Reage com mais dificuldade que o benzeno, mas é orientador orto/para",
+   "O cloro é ativante; reage mais facilmente que o benzeno e é orientador orto/para",
+   "Reage com mais dificuldade que o benzeno e é orientador meta"
+  ],
+  "explanation": "Os halogênios, por serem muito eletronegativos, retiram elétrons do anel por efeito indutivo e diminuem a reatividade do anel como um todo (desativação). Por outro lado, os pares não ligantes do cloro podem doar elétrons ao anel por ressonância, e, no complexo σ formado no ataque às posições orto ou para, há uma estrutura de ressonância em que a carga positiva se estende também ao cloro, o que estabiliza o intermediário. Assim, a velocidade da reação é determinada pelo efeito indutivo e a posição da substituição, pelo efeito de ressonância, o que leva à combinação característica dos halogênios: “desativante e orientador orto/para”. Ativante e orientador orto/para é a propriedade de grupos como a metila e o OH, e desativante e orientador meta, de grupos como o nitro."
+ },
+ "reactions-008": {
+  "question": "Na nitração do benzeno com mistura de ácido nítrico concentrado e ácido sulfúrico concentrado (mistura sulfonítrica), qual eletrófilo ataca o anel benzênico?",
+  "choices": [
+   "Íon nitrito, NO2⁻",
+   "Íon nitrato, NO3⁻",
+   "Íon nitrônio, NO2⁺"
+  ],
+  "explanation": "O ácido sulfúrico é mais forte que o ácido nítrico e protona o ácido nítrico, que perde água e forma o íon nitrônio, NO2⁺ (HNO3 + 2H2SO4 ⇌ NO2⁺ + H3O⁺ + 2HSO4⁻). O NO2⁺, linear, recebe os elétrons π do anel benzênico, rico em elétrons, formando um complexo σ; em seguida sai um H⁺, a aromaticidade é restaurada e forma-se o nitrobenzeno. NO2⁻ e NO3⁻ são ânions, doadores de elétrons, e não atuam como eletrófilos. O papel do ácido sulfúrico é gerar o NO2⁺ e capturar a água formada, mantendo o equilíbrio deslocado para o lado do NO2⁺."
+ },
+ "reactions-009": {
+  "question": "Que produto se obtém ao reagir brometo de metilmagnésio, CH3MgBr, com acetona, CH3COCH3, e depois tratar com água acidificada?",
+  "choices": [
+   "2-Propanol, (CH3)2CHOH",
+   "2-Metil-2-propanol, (CH3)3COH",
+   "2-Butanona, CH3COCH2CH3"
+  ],
+  "explanation": "A ligação carbono−magnésio do reagente de Grignard é muito polarizada, e a metila atua como um nucleófilo semelhante a um ânion de carbono. Quando a metila se adiciona ao carbono carbonílico da acetona, forma-se o alcóxido (CH3)3COMgBr, com um carbono a mais; tratado com água acidificada, ele é protonado e dá o álcool terciário 2-metil-2-propanol. O 2-propanol é o produto da redução da acetona com NaBH4 ou reagente semelhante (adição de hidreto). A adição a cetonas para no estágio do álcool, por isso não se formam cetonas como a 2-butanona. O formaldeído dá álcoois primários; os outros aldeídos, álcoois secundários; e as cetonas, álcoois terciários."
+ },
+ "reactions-010": {
+  "question": "Em reações com o reagente de Grignard CH3CH2MgBr, qual é o motivo correto de ser preciso remover bem a água do solvente (éter dietílico ou THF) e da vidraria?",
+  "choices": [
+   "A água oxida o reagente de Grignard e o converte em etanol, CH3CH2OH",
+   "A água protona o reagente de Grignard e o converte em etano, CH3CH3",
+   "A água reage com o éter e impede a dissolução do reagente de Grignard"
+  ],
+  "explanation": "O carbono do reagente de Grignard é uma base forte, próxima de um carbânion, e seu ácido conjugado, o etano (pKa cerca de 50), é um ácido muito fraco. A água (pKa 15,7) é um ácido muito mais forte; por isso a reação ácido-base CH3CH2MgBr + H2O → CH3CH3 + Mg(OH)Br ocorre rápida e quase completamente, e o reagente se perde. Álcoois, ácidos carboxílicos, alcinos terminais e N−H de aminas também atrapalham pelo mesmo motivo. A reação com a água é uma protonação, e não uma oxidação; não se forma etanol. O éter é um solvente que se coordena ao Mg e estabiliza o reagente; não reage com a água para impedir a dissolução."
+ },
+ "reactions-011": {
+  "question": "Deseja-se reagir 1 mol de benzoato de metila, C6H5COOCH3, com CH3MgBr e tratar com água acidificada para obter o álcool terciário C6H5C(CH3)2OH. Qual é a quantidade mínima teórica de CH3MgBr necessária?",
+  "choices": [
+   "1 mol",
+   "3 mol",
+   "2 mol"
+  ],
+  "explanation": "Quando a metila da primeira molécula se adiciona ao carbono carbonílico do éster, forma-se um intermediário tetraédrico, que perde o grupo metoxila e forma a cetona acetofenona, C6H5COCH3. Como as cetonas sofrem adição nucleofílica mais facilmente que os ésteres, uma segunda molécula de CH3MgBr se adiciona imediatamente, e, após o tratamento com ácido, obtém-se o 2-fenil-2-propanol. Assim, são necessários no mínimo 2 mol por 1 mol de éster; na prática, usa-se excesso. Com 1 mol, não é possível parar no estágio da cetona, e tende-se a obter uma mistura de éster não reagido e álcool terciário. 3 mol é o erro de pensar que o grupo metoxila liberado consome mais uma molécula; o grupo metoxila apenas se torna CH3OMgBr e não consome reagente."
+ },
+ "reactions-012": {
+  "question": "Qual é o principal produto da reação do acetaldeído, CH3CHO, em solução aquosa diluída de hidróxido de sódio, a baixa temperatura?",
+  "choices": [
+   "3-Hidroxibutanal, CH3CH(OH)CH2CHO",
+   "Etanol e íon acetato (produtos da reação de Cannizzaro)",
+   "2-Hidroxipropanonitrila, CH3CH(OH)CN"
+  ],
+  "explanation": "Quando a base remove um hidrogênio α do acetaldeído (hidrogênio do carbono vizinho à carbonila), forma-se um íon enolato. Ele atua como nucleófilo, adiciona-se ao carbono carbonílico de outra molécula de acetaldeído e, após protonação, forma o β-hidroxialdeído 3-hidroxibutanal (aldol). Com aquecimento, ele se desidrata ao aldeído conjugado 2-butenal, CH3CH=CHCHO. A reação de Cannizzaro é o desproporcionamento que ocorre em base concentrada com aldeídos sem hidrogênio α, como o formaldeído e o benzaldeído. A cianidrina 2-hidroxipropanonitrila é o produto da adição de HCN e não se forma nestas condições."
+ },
+ "reactions-013": {
+  "question": "Na hidrólise de ésteres, a reação com hidróxido de sódio (saponificação) se completa quase totalmente, enquanto a hidrólise catalisada por ácido para no equilíbrio. Qual é o principal motivo?",
+  "choices": [
+   "O íon hidróxido atua como catalisador e torna a constante de equilíbrio maior que com catálise ácida",
+   "Na catálise ácida, a protonação do oxigênio carbonílico impede o ataque nucleofílico ao carbono carbonílico",
+   "O ácido carboxílico formado na saponificação é logo desprotonado a íon carboxilato, que não sofre a reação inversa"
+  ],
+  "explanation": "A hidrólise catalisada por ácido, RCOOR' + H2O ⇌ RCOOH + R'OH, é a reação inversa da esterificação de Fischer, e a constante de equilíbrio não fica muito longe de 1 (a constante de equilíbrio da formação do acetato de etila é de cerca de 4). Na saponificação, o ácido carboxílico formado (pKa cerca de 4–5) sofre rapidamente reação ácido-base com o íon hidróxido ou com o alcóxido e se converte em íon carboxilato, que perde a eletrofilicidade e não sofre a reação inversa. Por isso o íon hidróxido é um reagente consumido em 1 equivalente, e não um catalisador. Um catalisador não altera a constante de equilíbrio, apenas a rapidez com que o equilíbrio é atingido. Na catálise ácida, a protonação do oxigênio carbonílico, na verdade, facilita o ataque nucleofílico."
+ },
+ "reactions-014": {
+  "question": "Aqueceram-se 1,0 mol de ácido acético e 2,0 mol de etanol com um pouco de ácido sulfúrico concentrado até atingir o equilíbrio. Sendo a constante de equilíbrio nessa temperatura K = [CH3COOCH2CH3][H2O]/([CH3COOH][CH3CH2OH]) = 4,0, qual valor mais se aproxima da quantidade de matéria de acetato de etila formada?",
+  "choices": [
+   "Cerca de 0,85 mol",
+   "Cerca de 0,67 mol",
+   "Cerca de 1,0 mol"
+  ],
+  "explanation": "Sendo x mol o acetato de etila formado, no equilíbrio há 1,0 − x de ácido acético, 2,0 − x de etanol e x mol de acetato de etila e de água (o volume se cancela). Rearranjando x² / ((1,0 − x)(2,0 − x)) = 4,0, obtém-se 3x² − 12x + 8 = 0, cuja solução com 0 < x < 1 é x = (12 − √48)/6 ≈ 0,845, cerca de 0,85 mol. Cerca de 0,67 mol é o valor quando se usa 1,0 mol de ácido acético e 1,0 mol de etanol; vê-se que o excesso de etanol desloca o equilíbrio para a direita (princípio de Le Chatelier). Cerca de 1,0 mol é o valor supondo que a reação se complete, o que não acontece em uma reação reversível."
+ },
+ "reactions-015": {
+  "question": "Qual é o produto principal da reação do 4-acetilbenzoato de metila, CH3CO−C6H4−COOCH3 (substituição para), com boroidreto de sódio, NaBH4, em metanol a 0 °C?",
+  "choices": [
+   "CH3CO−C6H4−CH2OH (só o éster é reduzido e a cetona permanece)",
+   "CH3CH(OH)−C6H4−COOCH3 (só a cetona é reduzida)",
+   "CH3CH(OH)−C6H4−CH2OH (a cetona e o éster são reduzidos)"
+  ],
+  "explanation": "O NaBH4 é um redutor de hidreto brando: reduz rapidamente aldeídos e cetonas à temperatura ambiente, mas quase não reduz ésteres, ácidos carboxílicos e amidas nessas condições. Isso porque o carbono carbonílico do éster é pouco eletrofílico, já que os pares não ligantes do oxigênio do grupo alcoxila doam elétrons por ressonância. Assim, apenas a cetona é reduzida a álcool secundário. Como o solvente é o mesmo álcool do éster (metanol), mesmo que ocorra transesterificação pelo alcóxido, o produto não muda. Para reduzir os dois grupos ao diol, usa-se o hidreto de alumínio e lítio, LiAlH4, mais forte (em éter anidro). Reduzir apenas o éster, deixando a cetona, não acontece com NaBH4."
+ },
+ "reactions-016": {
+  "question": "Qual é o método mais adequado para obter propilbenzeno, C6H5CH2CH2CH3, a partir do benzeno com bom rendimento?",
+  "choices": [
+   "Fazer uma alquilação de Friedel-Crafts com 1-cloropropano e AlCl3",
+   "Alquilar o benzeno com propeno e um catalisador ácido, como o ácido fosfórico",
+   "Acilar com cloreto de propanoíla e AlCl3 e reduzir a cetona formada"
+  ],
+  "explanation": "Na alquilação de Friedel-Crafts, a espécie semelhante a um carbocátion primário gerada a partir de 1-cloropropano e AlCl3 tende a se rearranjar, por deslocamento de hidreto, à forma isopropila secundária, mais estável, e muito isopropilbenzeno (cumeno) se mistura ao produto. Com propeno e catalisador ácido também se forma, conforme a regra de Markovnikov, um carbocátion secundário, e o produto principal é o cumeno. O íon acílio CH3CH2C≡O⁺ formado na acilação é estabilizado por ressonância e não se rearranja, e obtém-se a 1-fenil-1-propanona, C6H5COCH2CH3. Convertendo o C=O em CH2 por redução de Clemmensen (amálgama de zinco e ácido clorídrico) ou de Wolff-Kishner, obtém-se o propilbenzeno de cadeia linear. Como o grupo acila desativa o anel, há ainda a vantagem de as polissubstituições serem difíceis."
+ },
+ "reactions-017": {
+  "question": "O 2-metil-2-buteno, (CH3)2C=CHCH3, reagiu com ozônio, O3, e em seguida foi tratado com sulfeto de dimetila, (CH3)2S. Qual é a combinação de produtos obtida?",
+  "choices": [
+   "Acetona, CH3COCH3, e acetaldeído, CH3CHO",
+   "Acetona, CH3COCH3, e ácido acético, CH3COOH",
+   "2-Butanona, CH3COCH2CH3, e formaldeído, HCHO"
+  ],
+  "explanation": "Na ozonólise, a ligação C=C se rompe completamente, e cada carbono da dupla ligação passa a C=O. A parte (CH3)2C= dá acetona, e a parte =CHCH3, acetaldeído. Em tratamentos posteriores redutivos, com sulfeto de dimetila ou zinco e ácido acético, os aldeídos formados permanecem como estão. O ácido acético se forma no tratamento posterior oxidativo com peróxido de hidrogênio, em que os aldeídos são oxidados a ácidos carboxílicos. A 2-butanona e o formaldeído são os produtos da ozonólise do isômero 2-metil-1-buteno, CH2=C(CH3)CH2CH3, que tem CH2= terminal: a posição da dupla ligação foi confundida. Inversamente, examinando os compostos carbonílicos formados, pode-se determinar a posição da dupla ligação do alceno original."
+ },
+ "reactions-018": {
+  "question": "A reação de formação da imina (CH3)2C=NCH3 a partir de acetona e metilamina, CH3NH2, é mais rápida em meio levemente ácido (pH em torno de 4–5) e fica lenta tanto em meio fortemente ácido quanto em meio neutro a básico. Qual é a combinação correta de motivos?",
+  "choices": [
+   "Em meio fortemente ácido, o O carbonílico protonado retarda a adição; em meio básico, a amina é desprotonada a ânion",
+   "Em meio fortemente ácido, a amina protonada perde a nucleofilicidade; em meio neutro a básico, o OH do intermediário sai mal como água",
+   "Em meio fortemente ácido, a carbonila vira hidrato e não reage; em meio básico, a acetona vira enolato e não sofre adição"
+  ],
+  "explanation": "A imina se forma em duas etapas: a amina se adiciona ao carbono carbonílico, formando a carbinolamina (CH3)2C(OH)NHCH3, e o OH é protonado e sai como água. Em meio fortemente ácido, quase toda a metilamina (pKa do ácido conjugado cerca de 10,6) passa a CH3NH3⁺, perde o par não ligante e não pode se adicionar. Em meio neutro a básico, falta ácido para protonar o OH e convertê-lo em água, um bom grupo de saída, e a etapa de desidratação fica lenta. Do equilíbrio entre esses dois fatores, o ótimo fica em torno de pH 4–5. A protonação do oxigênio carbonílico, na verdade, acelera a adição, e o N−H da amina é um ácido muito fraco, que não forma ânion em solução aquosa. O hidrato e o enolato da acetona se formam em quantidades muito pequenas e não são a causa de a reação parar."
+ },
+ "reactions-019": {
+  "question": "A 1,362 g de um hidrocarboneto de fórmula molecular C10H16 (massa molar 136,2 g/mol) adicionou-se bromo, Br2 (massa molar 159,8 g/mol), no escuro, e a adição parou quando 3,20 g haviam sido consumidos. Quantas duplas ligações C=C há em uma molécula desse hidrocarboneto? Considere que não há anel aromático.",
+  "choices": [
+   "2",
+   "3",
+   "4"
+  ],
+  "explanation": "O hidrocarboneto corresponde a 1,362 g ÷ 136,2 g/mol = 0,01000 mol, e o Br2 consumido, a 3,20 g ÷ 159,8 g/mol = 0,0200 mol; portanto, cada molécula adicionou 2 moléculas de Br2. Como uma molécula de Br2 se adiciona a cada C=C, há 2 duplas ligações. O grau de insaturação do C10H16 é (2 × 10 + 2 − 16)/2 = 3, então a insaturação restante é um anel. O limoneno é um exemplo. 3 é o erro de considerar todo o grau de insaturação como duplas ligações; anéis não adicionam bromo. 4 é o valor obtido dividindo pela massa atômica do bromo, 79,9, para obter a quantidade de matéria de átomos de Br e confundindo-a com a de Br2."
+ },
+ "reactions-020": {
+  "question": "A 2-ciclo-hexen-1-ona (cetona de anel de seis membros com uma C=C conjugada à C=O) reagiu com dimetilcuprato de lítio, (CH3)2CuLi, e foi tratada com água acidificada. Qual é o produto principal?",
+  "choices": [
+   "1-Metil-2-ciclo-hexen-1-ol (metila adicionada ao carbono da C=O)",
+   "2-Metilciclo-hexanona (metila adicionada ao carbono α, vizinho à C=O)",
+   "3-Metilciclo-hexanona (metila adicionada ao carbono β da C=C)"
+  ],
+  "explanation": "Nas cetonas α,β-insaturadas, não só o carbono carbonílico, mas também o carbono β, polarizado positivamente por ressonância, é eletrofílico. Os reagentes de organocobre (reagentes de Gilman) se adicionam seletivamente ao carbono β (adição 1,4, adição conjugada), e o enolato formado é protonado pela água acidificada e regenera a cetona; obtém-se, assim, a 3-metilciclo-hexanona. O 1-metil-2-ciclo-hexen-1-ol, álcool terciário resultante da adição direta ao carbono carbonílico, é o produto da adição 1,2, formado principalmente com reagentes mais reativos, como CH3MgBr e CH3Li. O carbono α é a posição que atua como nucleófilo na forma de enolato, e não a posição em que se adiciona a metila, que é o nucleófilo. A escolha do reagente permite controlar a posição da adição."
+ }
+}

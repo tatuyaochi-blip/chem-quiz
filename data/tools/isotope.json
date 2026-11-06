@@ -299,6 +299,65 @@
           "a": "El flúor (¹⁹F) y el yodo (¹²⁷I) tienen un solo isótopo estable en la naturaleza, por lo que no dan pico M+2. Las moléculas con yodo no se reconocen por los picos isotópicos, sino por indicios como el I⁺ a m/z 127 o una pérdida de 127 unidades de masa."
         }
       ]
+    },
+    "pt": {
+      "nav": "Padrão isotópico (Cl, Br)",
+      "card": "Calcule as razões de intensidade dos picos M, M+2 e M+4 do espectro de massas a partir do número de átomos de cloro e bromo",
+      "title": "Calculadora de padrão isotópico em espectrometria de massas (M+2 e M+4 de cloro e bromo)",
+      "description": "Calcula, com as abundâncias isotópicas naturais, as razões de intensidade dos picos M, M+2, M+4… que aparecem na região do íon molecular do espectro de massas, a partir do número de átomos de cloro e de bromo da molécula. A partir do número de carbonos, também estima o tamanho do pico M+1 devido ao ¹³C.",
+      "h1": "Calculadora de padrão isotópico em espectrometria de massas",
+      "lead": "O cloro (³⁵Cl e ³⁷Cl) e o bromo (⁷⁹Br e ⁸¹Br) contêm em grande proporção isótopos que diferem em 2 unidades de massa, por isso os picos do íon molecular aparecem como M, M+2, M+4… Informe o número de átomos e veja as razões de intensidade, com o pico mais intenso igual a 100. Os valores padrão correspondem ao diclorometano, CH₂Cl₂ (M = m/z 84).",
+      "in_heading": "Dados",
+      "ncl": "Número de átomos de cloro (0–6)",
+      "nbr": "Número de átomos de bromo (0–6)",
+      "nc": "Número de átomos de carbono (para estimar M+1)",
+      "m": "m/z de M (molécula só com ³⁵Cl e ⁷⁹Br; 0 para não exibir)",
+      "out_heading": "Resultados",
+      "pat_heading": "Razões de intensidade (pico mais intenso = 100)",
+      "m0": "M",
+      "m2": "M+2",
+      "m4": "M+4",
+      "m6": "M+6",
+      "m8": "M+8",
+      "more": "M+10 em diante",
+      "c_heading": "Outras referências",
+      "base": "Pico mais intenso",
+      "m1": "Intensidade de M+1 (¹³C) em relação a M",
+      "note": "As abundâncias usadas são ³⁵Cl 75,76 %, ³⁷Cl 24,24 %, ⁷⁹Br 50,69 % e ⁸¹Br 49,31 % (valores representativos da IUPAC), com cálculo pela distribuição binomial. Os picos M+2 em diante não incluem as contribuições de ¹³C, ¹⁸O, ³⁴S e outros, então em moléculas com muitos carbonos ou com enxofre o M+2 medido é um pouco maior. O M+1 é uma estimativa obtida apenas a partir do ¹³C (1,07 %).",
+      "practice": "Resolver questões de RMN e espectrometria de massas",
+      "related": "Termos relacionados",
+      "sections": [
+        {
+          "h": "Por que aparecem picos isotópicos",
+          "p": "Na espectrometria de massas, uma mesma molécula forma íons de massas diferentes conforme a combinação de isótopos que contém, e cada um dá um pico separado. O cloro natural tem cerca de 75,8 % de ³⁵Cl e 24,2 % de ³⁷Cl, e o bromo, cerca de 50,7 % de ⁷⁹Br e 49,3 % de ⁸¹Br; nos dois casos, o isótopo pesado é 2 unidades de massa maior e é abundante. Por isso, uma molécula com um cloro mostra um par de picos evidente com M : M+2 ≈ 3 : 1, e com um bromo, cerca de 1 : 1, o que ajuda a saber se há halogênios e quantos. Por exemplo, o clorobenzeno, C₆H₅Cl, mostra m/z 112 e 114 na razão de cerca de 3 : 1."
+        },
+        {
+          "h": "Razões de intensidade pela distribuição binomial",
+          "p": "Considerando que cada átomo de halogênio escolhe seu isótopo de forma independente, as razões de intensidade de uma molécula com n cloros são os termos da expansão de (a + b)ⁿ (a e b são as abundâncias dos isótopos leve e pesado). Com dois cloros, a² : 2ab : b² dá M : M+2 : M+4 = 100 : 64,0 : 10,2 (cerca de 9 : 6 : 1); com dois bromos, 51,4 : 100 : 48,6 (cerca de 1 : 2 : 1). Com um cloro e um bromo, (a + b)(c + d) dá 77,4 : 100 : 24,1 (cerca de 3 : 4 : 1). Como no caso de dois bromos, o pico mais intenso pode ser M+2, e não M."
+        },
+        {
+          "h": "O pico M+1 e o número de carbonos",
+          "p": "O carbono contém cerca de 1,07 % de ¹³C, então em uma molécula com n carbonos o pico M+1, com um ¹³C, aparece com cerca de 1,1 % × n da intensidade de M. Para o clorobenzeno (6 carbonos), 1,1 % × 6 dá cerca de 6,6 % (o cálculo exato com a razão 1,07/98,93 em relação ao ¹²C dá 6,49 %). Ao contrário, é possível estimar o número de carbonos pela razão de intensidade M+1/M, mas há contribuições também do nitrogênio (¹⁵N 0,37 %) e do hidrogênio (²H), e o erro é grande quando M+1 é pequeno. Lembre-se de que os isótopos do cloro e do bromo diferem em 2 unidades de massa e, por isso, aparecem em M+2, e não em M+1."
+        },
+        {
+          "h": "Premissas e limitações do cálculo",
+          "p": "Esta ferramenta pressupõe que o íon molecular é bem observado e não se sobrepõe a picos de outros íons. O enxofre (³⁴S cerca de 4,2 %) e o silício (³⁰Si cerca de 3,1 %) também aumentam um pouco o M+2, mas bem menos que o cloro. As abundâncias isotópicas variam ligeiramente com a origem da amostra, e as intensidades medidas também têm dispersão, então os valores medidos podem diferir em alguns %. Os íons fragmento também mostram o mesmo tipo de padrão, conforme o número de cloros e bromos que restam no íon."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Se o M+2 é grande, pode-se concluir que há cloro ou bromo?",
+          "a": "Se M : M+2 é cerca de 3 : 1, pense primeiro em um cloro; se é cerca de 1 : 1, em um bromo. Quando M+2 é apenas alguns % de M, pode ser também uma molécula com enxofre ou com muitos carbonos. Medindo a massa exata por espectrometria de massas de alta resolução, a composição pode ser determinada com mais segurança."
+        },
+        {
+          "q": "Por que o pico mais intenso na região do íon molecular não é M?",
+          "a": "Quando a molécula contém vários átomos de um elemento com grande proporção do isótopo pesado, aumentam as combinações com um ou mais isótopos pesados. Com dois bromos há duas combinações ⁷⁹Br⁸¹Br, então M+2 é o mais intenso; com quatro cloros, M+2 também é o mais intenso."
+        },
+        {
+          "q": "Como ficam os picos isotópicos com iodo ou flúor?",
+          "a": "O flúor (¹⁹F) e o iodo (¹²⁷I) têm apenas um isótopo estável natural, então não geram pico M+2. Moléculas com iodo são reconhecidas não por picos isotópicos, mas pelo I⁺ em m/z 127 ou pela perda de massa 127, entre outros sinais."
+        }
+      ]
     }
   }
 }

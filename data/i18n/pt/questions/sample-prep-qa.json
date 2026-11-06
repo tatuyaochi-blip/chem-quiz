@@ -1,0 +1,182 @@
+{
+ "sample-prep-qa-001": {
+  "question": "Ao usar um cartucho de extração em fase sólida de fase reversa (sílica ligada a grupos octadecila, C18) para concentrar compostos orgânicos hidrofóbicos de uma amostra de água, qual ordem de operações é a mais adequada?",
+  "choices": [
+   "Condicionar com metanol e substituí-lo por água → passar a amostra → lavar com água → eluir com metanol",
+   "Passar a amostra no cartucho seco, sem condicionar → lavar com água → eluir com metanol",
+   "Condicionar com metanol e substituí-lo por água → passar a amostra → lavar com metanol → eluir com água"
+  ],
+  "explanation": "Na extração em fase sólida de fase reversa, primeiro se passa metanol ou solvente semelhante para solvatar as cadeias alquila da fase estacionária (condicionamento) e, em seguida, ele é substituído por água, para que a fase possa entrar em contato com a amostra aquosa. Depois, a amostra é passada para que os analitos hidrofóbicos fiquem retidos na fase estacionária, as interferências hidrofílicas são removidas com água (ou com uma solução com pouco solvente orgânico) e, por fim, os analitos são eluídos com um pequeno volume de metanol ou acetonitrila. Como os analitos passam de um grande volume de amostra para um pequeno volume de eluato, isso também os concentra. Se a amostra for passada no cartucho seco, as cadeias C18 não ficam molhadas pela água, a retenção é insuficiente e a recuperação cai. Lavar com metanol e eluir com água é a ordem invertida: os analitos são perdidos na lavagem, e a água não consegue eluí-los."
+ },
+ "sample-prep-qa-002": {
+  "question": "Você quer determinar por espectrometria de emissão óptica com ICP o teor total de metais em uma amostra de solo rica em minerais silicatados. Qual método de digestão ácida é o mais adequado para dissolver a amostra por completo?",
+  "choices": [
+   "Aquecer só com ácido clorídrico e filtrar o silicato não dissolvido antes de medir",
+   "Digerir com ácido nítrico e ácido fluorídrico e complexar o HF restante com ácido bórico ou removê-lo por aquecimento",
+   "Aquecer só com ácido sulfúrico e concentrar até fumos brancos para dissolver os silicatos"
+  ],
+  "explanation": "O ácido nítrico é fortemente oxidante, decompõe a matéria orgânica e converte muitos metais em nitratos solúveis em água, por isso é o ácido central da digestão ácida. No entanto, o esqueleto Si−O dos silicatos não é destruído pelo ácido nítrico nem pelo clorídrico, e os metais incorporados aos cristais dos minerais ficam sem dissolver. O ácido fluorídrico, HF, reage com o SiO2 formando SiF4 e outras espécies e decompõe os silicatos, por isso é indispensável na análise do teor total. O HF restante ataca as peças de vidro e quartzo do equipamento, por isso é complexado com ácido bórico ou removido por aquecimento. O ácido clorídrico sozinho não tem poder oxidante suficiente e também não dissolve os silicatos. O ácido sulfúrico forma sulfatos pouco solúveis com Pb, Ba, Ca e outros e os precipita, por isso não serve para a análise do teor total. O HF penetra na pele e causa lesões graves, por isso é manuseado com equipamento de proteção específico."
+ },
+ "sample-prep-qa-003": {
+  "question": "Qual é uma vantagem correta da digestão por micro-ondas em frasco fechado em comparação com a digestão ácida em chapa de aquecimento em sistema aberto?",
+  "choices": [
+   "A energia dos fótons de micro-ondas rompe diretamente as ligações químicas, de modo que a amostra pode ser digerida sem ácido",
+   "O frasco é aberto e os gases escapam, a pressão não sobe durante a digestão e não é preciso frasco resistente à pressão",
+   "Sob pressão, o ácido passa do ponto de ebulição normal, a digestão é mais rápida e há menos perda de voláteis e contaminação"
+  ],
+  "explanation": "Em um frasco fechado, um ácido como o ácido nítrico pode ser aquecido a cerca de 200 °C, acima de seu ponto de ebulição à pressão normal (cerca de 120 °C para o azeótropo ácido nítrico–água), o que aumenta muito a velocidade e a completude da digestão. Como o frasco está fechado, elementos voláteis como mercúrio, arsênio e selênio escapam com menos facilidade, e diminuem tanto a contaminação por poeira do ar quanto a quantidade de ácido usada. As micro-ondas aquecem a solução por dentro, movimentando moléculas polares e íons; a energia de seus fótons (cerca de 1×10⁻⁵ eV a 2,45 GHz) é pequena demais para romper ligações químicas, por isso o ácido continua sendo necessário. Além disso, a pressão sobe em um sistema fechado, e é preciso respeitar a pressão suportada pelo frasco e o limite de massa de amostra. A pressão não subir é uma característica dos sistemas abertos, e não uma vantagem do frasco fechado."
+ },
+ "sample-prep-qa-004": {
+  "question": "A razão de distribuição D (concentração na fase orgânica/concentração na fase aquosa) de um composto orgânico é 4,0. Ao extrair 100 mL de uma solução aquosa que o contém quatro vezes, com porções de 25 mL de solvente orgânico, qual valor mais se aproxima da fração total transferida para a fase orgânica? Considere a razão de distribuição constante, independente da concentração.",
+  "choices": [
+   "80 %",
+   "94 %",
+   "50 %"
+  ],
+  "explanation": "A fração que permanece na fase aquosa após uma extração é q = 1/(1 + D·Vo/Vw); com 25 mL, isso dá 1/(1 + 4,0 × 25/100) = 0,50. Após quatro repetições, a fração que permanece na fase aquosa é 0,50⁴ = 0,0625, então a fração extraída é 1 − 0,0625 = 0,9375, cerca de 94 %. O valor 80 % corresponde a uma única extração com 100 mL (permanece 1/(1 + 4,0) = 0,20 na fase aquosa), o que mostra que, com o mesmo volume total de solvente, várias extrações com porções menores são mais eficientes. O valor 50 % corresponde apenas à primeira extração. Na prática, mais extrações também significam mais trabalho e mais oportunidades de perda, por isso o número é escolhido a partir da recuperação necessária e da razão de distribuição."
+ },
+ "sample-prep-qa-005": {
+  "question": "Uma substância básica B (pKa do ácido conjugado BH⁺ 9,0) será extraída de uma fase aquosa para uma fase orgânica. Considere o coeficiente de partição da forma neutra B como KD = 50 e que a forma iônica BH⁺ não passa para a fase orgânica. Qual pH da fase aquosa é o mais adequado para que a razão de distribuição D seja pelo menos 99 % de KD?",
+  "choices": [
+   "pH 5",
+   "pH 9",
+   "pH 11"
+  ],
+  "explanation": "A razão de distribuição é KD multiplicado pela fração da substância na fase aquosa que está na forma neutra: D = KD/(1 + 10^(pKa − pH)). Em pH 11, 10^(9,0 − 11) = 0,01, então a fração neutra é 1/1,01 = 0,990 e D = 50 × 0,990 = 49,5, atingindo 99 % de KD. Em pH 9, igual ao pKa, metade está na forma neutra e D = 25; em pH 5 só cerca de 0,01 % está na forma neutra e D ≈ 0,005, e quase nada é extraído. Como regra prática, uma base é extraída quase toda na forma neutra em um pH pelo menos 2 unidades acima de seu pKa, e um ácido em um pH pelo menos 2 unidades abaixo de seu pKa. Inversamente, agitando o extrato orgânico com água ácida, a base volta para a fase aquosa (reextração)."
+ },
+ "sample-prep-qa-006": {
+  "question": "Em qual situação o método da adição de padrão é mais adequado que o método comum da curva de calibração (método do padrão externo)?",
+  "choices": [
+   "Quando a matriz da amostra altera a sensibilidade e não é possível preparar padrões com a mesma composição da amostra",
+   "Quando há muitas amostras e se quer o menor número possível de medidas por amostra",
+   "Quando a concentração do analito está acima da faixa da curva de calibração e precisa ser obtida estendendo a reta além dessa faixa"
+  ],
+  "explanation": "No método da adição de padrão, quantidades conhecidas do analito são adicionadas em etapas à própria amostra, e a concentração na amostra é obtida pelo modo como o sinal aumenta. Como os padrões são medidos na mesma matriz da amostra, o método corrige as mudanças de sensibilidade (inclinação) causadas por sais, viscosidade, supressão da ionização e outros fatores. Em compensação, é preciso preparar e medir várias soluções para cada amostra, o que dá trabalho, e o método do padrão externo é mais adequado para análises com muitas amostras. Quando a concentração é alta demais, o procedimento básico é diluir a amostra até a faixa da curva de calibração. O método da adição de padrão também estende a reta até o sinal zero para ler a concentração, mas isso não é uma forma de medir amostras de alta concentração fora da faixa, e pressupõe que a linearidade se mantém na faixa das adições."
+ },
+ "sample-prep-qa-007": {
+  "question": "Em espectrometria de absorção atômica, uma solução de amostra deu absorbância de 0,200. Ao adicionar à mesma solução uma quantidade de padrão que eleva a concentração do analito em 2,0 mg/L, a absorbância passou a 0,450. Se a variação de volume pela adição é desprezível e a absorbância é proporcional à concentração, qual é a concentração do analito na solução de amostra?",
+  "choices": [
+   "0,89 mg/L",
+   "3,6 mg/L",
+   "1,6 mg/L"
+  ],
+  "explanation": "Como a absorbância é proporcional à concentração, o aumento devido à adição, 0,450 − 0,200 = 0,250, corresponde a 2,0 mg/L, e a sensibilidade nessa amostra é 0,250/2,0 = 0,125 L/mg. Dividindo a absorbância da amostra, 0,200, por essa sensibilidade, obtém-se Cx = 0,200/0,125 = 1,6 mg/L. Em forma de fórmula, Cx = ΔC × S0/(S1 − S0). O valor 0,89 mg/L resulta do erro de tomar a razão com o sinal total após a adição, 0,200/0,450 × 2,0, e 3,6 mg/L do erro de dar a concentração da solução após a adição (1,6 + 2,0). Nas análises reais, em vez de um único ponto, traça-se uma reta com dois ou três níveis de adição e verifica-se a linearidade antes de obter a concentração."
+ },
+ "sample-prep-qa-008": {
+  "question": "Qual erro não pode ser corrigido nem mesmo pelo método da adição de padrão?",
+  "choices": [
+   "Um efeito em que sais presentes na amostra reduzem em 20 % a sensibilidade ao analito, uniformemente em todas as concentrações",
+   "A sobreposição espectral de componentes da amostra, que soma um sinal constante independente da concentração do analito",
+   "Uma perda de sensibilidade porque a amostra é viscosa e o nebulizador aspira uma quantidade menor dela"
+  ],
+  "explanation": "O método da adição de padrão pode corrigir efeitos proporcionais (multiplicativos), em que a matriz da amostra altera a inclinação (sensibilidade). Mesmo que a sensibilidade caia 20 %, o sinal do padrão adicionado cai na mesma proporção, e a concentração lida estendendo a reta até o sinal zero não muda. A redução da aspiração causada pela viscosidade também diminui a sensibilidade de modo uniforme e é corrigida. Por outro lado, um efeito aditivo, como a sobreposição espectral ou o fundo, que soma um sinal constante independente da concentração, apenas desloca a reta para cima, paralelamente. Por isso o ponto de sinal zero se desloca para a esquerda, e a concentração obtida sai alta demais. Esses efeitos são tratados à parte, com correção de fundo, mudança do comprimento de onda de medida, subtração do branco e outros recursos."
+ },
+ "sample-prep-qa-009": {
+  "question": "Determina-se cádmio, Cd, por ICP-MS. Índio, In, foi adicionado como padrão interno na mesma concentração a todas as soluções. Para o padrão de Cd de 10,0 µg/L, o sinal do Cd foi 50000 cps e o do In 100000 cps; para a solução de amostra, o Cd deu 36000 cps e o In 80000 cps. Se as sensibilidades para Cd e In mudam na mesma proporção na matriz da amostra e o branco é desprezível, qual é a concentração de Cd na solução de amostra?",
+  "choices": [
+   "9,0 µg/L",
+   "7,2 µg/L",
+   "5,8 µg/L"
+  ],
+  "explanation": "No método do padrão interno, a quantificação usa a razão entre os sinais do analito e do elemento padrão interno. A razão é 50000/100000 = 0,500 para o padrão e 36000/80000 = 0,450 para a amostra, então Cd = 10,0 × 0,450/0,500 = 9,0 µg/L. Na amostra, o sinal do In caiu para 80 % do sinal no padrão, o que mostra que o efeito de matriz reduziu a sensibilidade em 20 %. O valor 7,2 µg/L, calculado só com o sinal do Cd como 10,0 × 36000/50000, não corrige essa perda de sensibilidade. O valor 5,8 µg/L resulta do erro de aplicar a correção no sentido inverso, multiplicando ainda por 0,80 (7,2 × 0,80 = 5,76). Como padrão interno, escolhe-se um elemento ausente nas amostras, de número de massa próximo ao do analito e pouco sujeito a interferências."
+ },
+ "sample-prep-qa-010": {
+  "question": "Qual afirmação sobre a avaliação da linearidade de uma curva de calibração está correta?",
+  "choices": [
+   "Se o coeficiente de correlação r for 0,999 ou maior, pode-se considerar a curva linear em toda a faixa de concentração sem examinar os resíduos",
+   "Mesmo com o coeficiente de correlação r próximo de 1, uma curvatura pode estar escondida, por isso se verificam os resíduos em gráfico contra a concentração",
+   "Quanto mais próximo de 1 for o coeficiente de correlação r, maior a inclinação (sensibilidade) e mais baixas as concentrações medidas com exatidão"
+  ],
+  "explanation": "O coeficiente de correlação r indica o quanto os pontos se agrupam em torno de uma reta e, em uma faixa ampla de concentração, mesmo uma curva de calibração ligeiramente curva pode dar 0,999 ou mais. Por isso a linearidade não é julgada só por r; o resíduo de cada ponto é colocado em gráfico contra a concentração para verificar se há uma tendência sistemática (curvatura), como resíduos positivos nas duas extremidades e negativos no meio. Se houver curvatura, estreita-se a faixa de trabalho ou considera-se um modelo como o quadrático. O r não tem relação com o tamanho da inclinação; mesmo com inclinação pequena, r fica próximo de 1 se os pontos estiverem sobre uma reta. O critério r ≥ 0,999 às vezes é usado como referência, mas sozinho não comprova a linearidade."
+ },
+ "sample-prep-qa-011": {
+  "question": "Zinco em nível de traço em água de rio é determinado por ICP-MS após digestão ácida. Qual é o principal objetivo de medir um branco do procedimento (branco de todo o procedimento), preparado com água ultrapura no lugar da amostra, com os mesmos frascos, reagentes e procedimento?",
+  "choices": [
+   "Estimar o zinco introduzido por frascos, reagentes e poeira durante o preparo e subtraí-lo dos resultados das amostras",
+   "Corrigir a variação da sensibilidade do ICP-MS ao longo do tempo (deriva) a partir das mudanças observadas no sinal do branco",
+   "Corrigir o efeito da matriz da amostra sobre a sensibilidade pela razão entre o sinal da amostra e o da água ultrapura"
+  ],
+  "explanation": "Na análise de elementos-traço, elementos comuns no ambiente, como o zinco, entram durante o preparo da amostra vindos de frascos, ácidos, ponteiras de pipeta e poeira do ar do laboratório. O valor do branco do procedimento, em que se submete água ultrapura ao mesmo procedimento das amostras, é a soma dessa contaminação com as impurezas dos reagentes, por isso é subtraído dos valores das amostras. Sua dispersão também é usada para avaliar o limite de detecção. Se o branco for grande demais, revisam-se o grau de pureza dos reagentes e a limpeza dos materiais. A variação da sensibilidade do equipamento ao longo do tempo (deriva) é corrigida com padrão interno ou com a remedição periódica de padrões, e a mudança de sensibilidade causada pela matriz, com o método do padrão interno ou da adição de padrão; essas correções são diferentes do objetivo do branco do procedimento."
+ },
+ "sample-prep-qa-012": {
+  "question": "Entre os termos de precisão usados na validação de métodos analíticos, qual descreve a precisão quando a mesma amostra é analisada repetidamente no mesmo laboratório, variando o dia, o analista, o equipamento etc.?",
+  "choices": [
+   "Repetibilidade (precisão intracorrida)",
+   "Precisão intermediária (intralaboratorial)",
+   "Reprodutibilidade (interlaboratorial)"
+  ],
+  "explanation": "A precisão (o quão pequena é a dispersão) é dividida em três níveis, conforme o quanto se variam as condições de medida. A repetibilidade é a precisão quando o mesmo analista repete a medida no mesmo equipamento em um curto intervalo de tempo; como as condições são as mais uniformes, a dispersão é a menor. A precisão intermediária é a precisão quando se variam o dia, o analista, o equipamento etc. no mesmo laboratório, e é próxima da dispersão que realmente ocorre nas análises de rotina. A reprodutibilidade é a precisão quando laboratórios diferentes medem com o mesmo método, e é obtida em estudos colaborativos. Quanto mais condições são variadas, mais fontes de dispersão se somam, de modo que, em geral, o desvio padrão aumenta na ordem repetibilidade ≤ precisão intermediária ≤ reprodutibilidade."
+ },
+ "sample-prep-qa-013": {
+  "question": "Analisou-se um agrotóxico em um alimento. A amostra não fortificada deu resultado de 2,0 mg/kg. Quando a mesma amostra foi fortificada com uma quantidade de agrotóxico correspondente a 5,0 mg/kg e analisada pelo mesmo procedimento, o resultado foi 6,5 mg/kg. Qual é a recuperação da fortificação?",
+  "choices": [
+   "93 %",
+   "130 %",
+   "90 %"
+  ],
+  "explanation": "A recuperação da fortificação expressa quanto da quantidade adicionada foi recuperado na medida, e é calculada como (resultado da amostra fortificada − resultado da amostra não fortificada)/quantidade adicionada × 100. (6,5 − 2,0)/5,0 × 100 = 4,5/5,0 × 100 = 90 %. O valor 93 % toma a razão incluindo a quantidade presente desde o início, 6,5/(2,0 + 5,0) × 100 = 92,9 %, e 130 % é 6,5/5,0 × 100, esquecendo de subtrair o valor da amostra não fortificada. A recuperação é um indicador de veracidade que inclui as perdas no preparo da amostra e o viés da medida, e é avaliada comparando seu desvio em relação a 100 % com uma faixa de aceitação definida conforme o objetivo e a concentração (para resíduos de agrotóxicos usa-se muito 70–120 %)."
+ },
+ "sample-prep-qa-014": {
+  "question": "Um resultado quantitativo y é calculado por produtos e quocientes da pureza de um material de referência, da massa pesada, do volume da solução e de um valor medido. As incertezas padrão relativas dos fatores são 0,20 % para a pureza, 0,10 % para a massa, 0,15 % para o volume e 0,50 % para a repetição da medida, e não há correlação entre elas. Qual valor mais se aproxima da incerteza padrão combinada relativa de y?",
+  "choices": [
+   "0,57 %",
+   "0,95 %",
+   "0,50 %"
+  ],
+  "explanation": "Para produtos e quocientes de grandezas sem correlação entre si, a incerteza padrão combinada relativa é a raiz quadrada da soma dos quadrados das incertezas padrão relativas. √(0,20² + 0,10² + 0,15² + 0,50²) = √(0,04 + 0,01 + 0,0225 + 0,25) = √0,3225 = 0,568, cerca de 0,57 %. O valor 0,95 % é a soma simples, que superestima a incerteza. O valor 0,50 % considera apenas o maior fator, mas os demais também contribuem pela soma dos quadrados. Como o maior fator (a repetição) determina quase todo o total, aumentar o número de repetições é a forma eficaz de melhorar o resultado. Nos relatórios, é comum apresentar a incerteza expandida, multiplicada pelo fator de abrangência k = 2 (cerca de 1,1 %, com nível de confiança de cerca de 95 %)."
+ },
+ "sample-prep-qa-015": {
+  "question": "Uma amostra foi medida sete vezes, dando 10,2, 10,4, 10,1, 10,3, 10,2, 10,0 e 10,8 (mg/L). Verifica-se se o maior valor, 10,8, é um valor discrepante pela estatística do teste de Grubbs G = (xmax − x̄)/s (s é o desvio padrão amostral, dividindo por n − 1). Usando um teste bilateral (o valor discrepante pode estar no máximo ou no mínimo) e tomando o valor crítico para n = 7 ao nível de significância de 5 % como 2,02, qual conclusão está correta?",
+  "choices": [
+   "G ≈ 2,13, acima do valor crítico, então 10,8 é excluído como valor discrepante",
+   "G ≈ 4,2, acima do valor crítico, então 10,8 é excluído como valor discrepante",
+   "G ≈ 1,97, não acima do valor crítico, então 10,8 não pode ser considerado discrepante"
+  ],
+  "explanation": "A média dos sete valores é x̄ = 72,0/7 = 10,286 e o desvio padrão amostral é s = 0,261, então G = (10,8 − 10,286)/0,261 = 1,97. Esse valor não passa do valor crítico de 2,02, então, ao nível de significância de 5 %, 10,8 não pode ser julgado discrepante e permanece nos dados. G está tão perto do limite que o valor crítico do teste unilateral (cerca de 1,94) inverteria a conclusão, por isso o tipo de teste deve ser decidido de antemão. G ≈ 2,13 é o erro de usar o desvio padrão dividido por n (0,242), o que torna s menor e G correspondentemente maior. G ≈ 4,2 é o erro de calcular com a média, 10,2, e o desvio padrão, 0,141, dos seis valores sem o valor suspeito; no teste de Grubbs, x̄ e s são obtidos de todos os dados, incluindo o valor suspeito."
+ },
+ "sample-prep-qa-016": {
+  "question": "Em um método espectrofotométrico, o desvio padrão da absorbância em 10 medidas do branco foi σ = 0,0020, e a inclinação (sensibilidade) da curva de calibração foi S = 0,040 L/mg. Se o limite de quantificação é calculado como 10σ/S, qual é o seu valor?",
+  "choices": [
+   "0,165 mg/L",
+   "0,050 mg/L",
+   "0,50 mg/L"
+  ],
+  "explanation": "O limite de quantificação (LOQ) é a menor concentração que pode ser quantificada com precisão adequada e é estimado como 10σ/S, a concentração correspondente a um sinal dez vezes maior que a dispersão σ do branco. 10 × 0,0020/(0,040 L/mg) = 0,50 mg/L. O valor 0,165 mg/L corresponde ao limite de detecção (LOD) calculado como 3,3σ/S; nessa concentração é possível afirmar que o analito está presente, mas os resultados quantitativos têm dispersão grande demais. O valor 0,050 mg/L é apenas σ dividido por S, a concentração correspondente a um único desvio padrão do branco. Como a absorbância é adimensional, σ/S tem unidade de mg/L. Ao relatar um limite de quantificação, informe a fórmula (o fator) usada para obtê-lo."
+ },
+ "sample-prep-qa-017": {
+  "question": "A concentração de chumbo medida em uma amostra foi 5,00 mg/L, com incerteza padrão combinada uc = 0,12 mg/L. Ao relatar o resultado com a incerteza expandida usando fator de abrangência k = 2, qual combinação de expressão e significado está correta? Considere que a distribuição do resultado pode ser tratada como normal.",
+  "choices": [
+   "5,00 ± 0,24 mg/L; a probabilidade de este intervalo conter o valor do mensurando é cerca de 95 %",
+   "5,00 ± 0,12 mg/L; a probabilidade de este intervalo conter o valor do mensurando é cerca de 95 %",
+   "5,00 ± 0,24 mg/L; a probabilidade de este intervalo conter o valor do mensurando é cerca de 68 %"
+  ],
+  "explanation": "A incerteza expandida é U = k × uc, então, com k = 2, U = 2 × 0,12 = 0,24 mg/L. Quando a distribuição pode ser tratada como normal, o intervalo com k = 2, 5,00 ± 0,24 mg/L, representa a faixa que se espera conter o valor do mensurando com probabilidade de cerca de 95 %. ± 0,12 mg/L é a própria incerteza padrão combinada, e, para uma distribuição normal, a probabilidade de abrangência desse intervalo é de apenas cerca de 68 %. Atribuir cerca de 68 % a ± 0,24 mg/L é confundir os significados de k = 1 e k = 2. Com k = 3, a probabilidade de abrangência é cerca de 99,7 %. No relatório, informe o fator de abrangência k e a probabilidade de abrangência junto com o valor da incerteza expandida, para que o leitor possa voltar à incerteza padrão."
+ },
+ "sample-prep-qa-018": {
+  "question": "Metais em nível de traço (como chumbo e cobre) em água de rio serão determinados como teor total por ICP-MS em data posterior. Qual é o tratamento mais adequado para armazenar a amostra coletada?",
+  "choices": [
+   "Colocar em frasco de vidro e armazenar alcalinizada a cerca de pH 10 com hidróxido de sódio",
+   "Colocar em frasco de polietileno ou similar lavado com ácido e acidificar a pH 2 ou menos com ácido nítrico",
+   "Colocar em frasco de polietileno ou similar e armazenar como foi coletada, sem adicionar nada, para evitar contaminação"
+  ],
+  "explanation": "Se uma amostra com metais-traço é simplesmente deixada em repouso, os íons metálicos se adsorvem nas paredes do frasco, precipitam como hidróxidos e outras formas ou são absorvidos por microrganismos, e a concentração em solução diminui. Acidificar a pH 2 ou menos com ácido nítrico mantém os metais como íons dissolvidos e suprime a adsorção nas paredes. O ácido nítrico está disponível em alta pureza e pode ser usado diretamente nas soluções de medida do ICP-MS. Para evitar componentes que se dissolvem do vidro e a adsorção em sua superfície, usam-se frascos de polietileno ou similares, bem lavados com ácido. Alcalinizar a amostra precipita muitos metais como hidróxidos e também dissolve componentes do vidro. Não adicionar nada pode dar resultados baixos por adsorção e precipitação. Adicionar apenas uma pequena quantidade de ácido nítrico de alta pureza quase não causa contaminação."
+ },
+ "sample-prep-qa-019": {
+  "question": "Uma amostra de controle foi medida nas análises de cada dia, e construiu-se um gráfico de controle (gráfico de Shewhart) a partir de sua média e de seu desvio padrão σ. A linha central ±2σ são os limites de alerta e ±3σ os limites de ação. Qual é a resposta mais adequada quando, em certo dia, o valor da amostra de controle passa de +3σ?",
+  "choices": [
+   "Como valores além de ±3σ ocorrem por acaso com probabilidade de cerca de 5 %, apenas registrar e continuar analisando as amostras",
+   "Retirar o valor discrepante do gráfico, recalcular a média e σ para alargar os limites e continuar as análises do dia",
+   "Como valores além de ±3σ só ocorrem por acaso em cerca de 0,3 % das vezes, parar, investigar a causa e revisar as amostras do período"
+  ],
+  "explanation": "Se os valores da amostra de controle seguem uma distribuição normal, a probabilidade de cair fora da média ±2σ é cerca de 5 %, e fora de ±3σ, cerca de 0,3 %. Passar de ±3σ quase nunca acontece por acaso, por isso se conclui que algo deu errado no sistema de medida (defeito do equipamento, reagentes deteriorados, curva de calibração incorreta etc.), param-se as análises e investiga-se a causa. Para as amostras medidas depois da última amostra de controle normal, decide-se, depois de eliminada a causa, se devem ser medidas de novo. Cerca de 5 % é a probabilidade de cair fora de ±2σ e não se aplica a ±3σ. Retirar o valor discrepante e alargar os limites produz um gráfico de controle que deixa passar as anomalias. Um valor além de ±2σ é tratado como alerta, e a decisão é tomada observando, por exemplo, se ele volta a ser ultrapassado."
+ },
+ "sample-prep-qa-020": {
+  "question": "Um material de referência certificado com valor certificado de 50,0 mg/kg foi analisado cinco vezes, dando média de 51,2 mg/kg e desvio padrão s = 1,0 mg/kg (dividindo por n − 1). Verifica-se se a diferença entre a média e o valor certificado é significativa com t = |x̄ − μ|/(s/√n). Tomando o valor crítico de t para 4 graus de liberdade ao nível de significância bilateral de 5 % como 2,78, qual combinação do valor de t e da conclusão está correta? Despreze a incerteza do valor certificado.",
+  "choices": [
+   "t ≈ 6,0, acima do valor crítico, então há um viés significativo",
+   "t ≈ 2,68, não acima do valor crítico, então não se pode afirmar que há viés significativo",
+   "t ≈ 1,2, não acima do valor crítico, então não se pode afirmar que há viés significativo"
+  ],
+  "explanation": "O erro padrão da média é s/√n = 1,0/√5 ≈ 0,447 mg/kg, então t = (51,2 − 50,0)/0,447 ≈ 2,68. Esse valor fica abaixo do valor crítico de 2,78, então, ao nível de significância de 5 %, não se pode dizer que o método tem um viés sistemático. t ≈ 1,2 é a divisão só por s, sem usar √n; a conclusão é a mesma, mas o cálculo que a fundamenta está errado. t ≈ 6,0 é o erro de dividir por s/n em vez de s/√n. “Não significativo” não prova que não há viés; significa que cinco medidas não bastam para distinguir uma diferença desse tamanho. Se uma diferença desse tamanho importa na prática, aumente o número de medidas para verificar."
+ }
+}

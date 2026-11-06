@@ -1,0 +1,182 @@
+{
+ "kinetics-mechanism-001": {
+  "question": "Qual das afirmações a seguir sobre a relação entre a lei de velocidade de uma reação (a expressão que mostra como a velocidade da reação depende da concentração de cada substância) e os coeficientes da equação química está correta?",
+  "choices": [
+   "Mesmo em reações de várias etapas, a ordem de cada concentração na lei de velocidade sempre coincide com os coeficientes da equação global",
+   "A lei de velocidade tem a mesma forma da expressão da constante de equilíbrio, com as concentrações dos produtos no denominador",
+   "Em reações elementares a ordem coincide com a molecularidade, mas a lei de velocidade de reações de várias etapas é determinada experimentalmente"
+  ],
+  "explanation": "Uma reação elementar ocorre em um único evento, como uma colisão entre moléculas; por isso, a velocidade da reação bimolecular A + B → P é v = k[A][B], e a ordem coincide com o número de moléculas envolvidas (a molecularidade). No entanto, muitas reações consistem em várias reações elementares, e a velocidade global é determinada principalmente pela etapa determinante da velocidade e pelas etapas anteriores a ela; assim, ela não pode ser deduzida dos coeficientes da equação química global. Por exemplo, a velocidade de H2 + Br2 → 2HBr, no início da reação, é proporcional a [H2][Br2]^(1/2), com uma ordem fracionária de 1/2. A lei de velocidade é determinada por experimentos em que se variam as concentrações, e então se propõe um mecanismo de reação compatível com ela. A expressão da constante de equilíbrio representa o balanço entre a reação direta e a inversa e é algo distinto da lei de velocidade."
+ },
+ "kinetics-mechanism-002": {
+  "question": "A velocidade inicial v da reação A + B → P foi medida a temperatura constante, como segue. Com [A] = 0,10 mol/L e [B] = 0,10 mol/L, v = 2,0×10⁻⁴ mol/(L·s); com [A] = 0,20 mol/L e [B] = 0,10 mol/L, v = 8,0×10⁻⁴ mol/(L·s); com [A] = 0,10 mol/L e [B] = 0,20 mol/L, v = 4,0×10⁻⁴ mol/(L·s). Qual é a lei de velocidade correta?",
+  "choices": [
+   "v = k[A]²[B]",
+   "v = k[A][B]²",
+   "v = k[A][B]"
+  ],
+  "explanation": "No método das velocidades iniciais, a ordem em relação a uma substância é obtida pela variação da velocidade inicial quando apenas a concentração dessa substância é alterada. Com [B] constante, ao dobrar [A], v aumentou 8,0×10⁻⁴ ÷ 2,0×10⁻⁴ = 4 vezes; de 2ᵃ = 4, a reação é de segunda ordem em A. Com [A] constante, ao dobrar [B], v dobrou; logo, é de primeira ordem em B. Portanto v = k[A]²[B], de terceira ordem global, e k = 2,0×10⁻⁴ ÷ (0,10² × 0,10) = 0,20 L²/(mol²·s). v = k[A][B]² é o erro de trocar as ordens de A e B, e v = k[A][B] é o erro de determinar as ordens pelos coeficientes da equação química; nenhuma das duas é compatível com estes dados."
+ },
+ "kinetics-mechanism-003": {
+  "question": "A reação de dimerização 2A → A2 de uma substância A é de segunda ordem, com −d[A]/dt = k[A]², e a constante de velocidade a certa temperatura é k = 0,050 L/(mol·s). Quando a concentração inicial de A é 0,20 mol/L, qual é a meia-vida de A?",
+  "choices": [
+   "Cerca de 14 s",
+   "100 s",
+   "Cerca de 69 s"
+  ],
+  "explanation": "Integrando −d[A]/dt = k[A]², obtém-se 1/[A] = 1/[A]0 + kt; substituindo [A] = [A]0/2, a meia-vida é t½ = 1/(k[A]0) = 1/(0,050 × 0,20) = 100 s. A meia-vida de uma reação de segunda ordem é inversamente proporcional à concentração inicial e fica mais longa à medida que a reação avança. Por isso, verificar se a meia-vida é constante permite distinguir uma reação de primeira ordem de uma de segunda ordem. Cerca de 14 s é o erro de usar a fórmula de primeira ordem t½ = ln2/k = 0,693/0,050, o que também não é compatível com a unidade de k, L/(mol·s). Cerca de 69 s é o erro de multiplicar a fórmula de segunda ordem por ln2. Conforme k seja definido pela velocidade de consumo de A ou pela velocidade da reação, o valor pode diferir por um fator de 2; por isso, confira também a definição."
+ },
+ "kinetics-mechanism-004": {
+  "question": "Um éster (concentração inicial 1,0×10⁻³ mol/L) foi hidrolisado em solução aquosa de hidróxido de sódio 0,10 mol/L. A velocidade é dada por v = k[éster][OH⁻], e a concentração do éster diminuiu como em uma reação de primeira ordem com constante de velocidade aparente k' = 3,0×10⁻³ s⁻¹. Qual é a constante de velocidade de segunda ordem k?",
+  "choices": [
+   "3,0×10⁻² L/(mol·s)",
+   "3,0×10⁻⁴ L/(mol·s)",
+   "3,0 L/(mol·s)"
+  ],
+  "explanation": "Como o OH⁻ está em excesso de 100 vezes em relação ao éster, [OH⁻] praticamente não muda, mesmo ao final da reação, e é possível tratá-la como uma reação de primeira ordem: v = k[OH⁻][éster] = k'[éster]. Isso se chama reação de pseudoprimeira ordem, e k' = k[OH⁻]. Logo, k = k' ÷ [OH⁻] = 3,0×10⁻³ s⁻¹ ÷ 0,10 mol/L = 3,0×10⁻² L/(mol·s). 3,0×10⁻⁴ é o erro de multiplicar k' por [OH⁻], e 3,0 é o erro de dividir pela concentração inicial do éster. Medindo k' com vários valores de [OH⁻] e verificando que k' é proporcional a [OH⁻], também se confirma que a reação é de primeira ordem em OH⁻."
+ },
+ "kinetics-mechanism-005": {
+  "question": "A constante de velocidade de uma reação ficou 2,0 vezes maior quando a temperatura foi elevada de 25 °C para 35 °C. Supondo que a equação de Arrhenius k = A exp(−Ea/RT) seja válida e que o fator pré-exponencial A não dependa da temperatura, qual valor mais se aproxima da energia de ativação Ea? Considere R = 8,314 J/(mol·K) e 0 °C = 273,15 K.",
+  "choices": [
+   "Cerca de 0,50 kJ/mol",
+   "Cerca de 23,0 kJ/mol",
+   "Cerca de 52,9 kJ/mol"
+  ],
+  "explanation": "Da razão entre as equações nas duas temperaturas, ln(k2/k1) = (Ea/R)(1/T1 − 1/T2). Como T1 = 298,15 K e T2 = 308,15 K, 1/T1 − 1/T2 = 1,088×10⁻⁴ K⁻¹, e Ea = 8,314 × 0,693 ÷ 1,088×10⁻⁴ = 5,29×10⁴ J/mol, ou seja, cerca de 52,9 kJ/mol. Cerca de 23,0 kJ/mol é o erro de usar o logaritmo decimal log2 = 0,301 em vez de ln2 = 0,693. Cerca de 0,50 kJ/mol é o erro de calcular com 1/25 − 1/35, sem converter as temperaturas para kelvin. A regra de que “a velocidade dobra a cada 10 °C” é apenas uma estimativa para reações com Ea de cerca de 50 kJ/mol."
+ },
+ "kinetics-mechanism-006": {
+  "question": "A dependência da constante de velocidade de uma reação bimolecular com a temperatura foi analisada pela equação de Eyring, e a entropia de ativação ΔS‡ resultou em um valor negativo grande, de cerca de −140 J/(K·mol). Qual é a interpretação mais adequada desse resultado?",
+  "choices": [
+   "O estado de transição é mais desordenado que os reagentes, e a reação segue um mecanismo dissociativo em que a quebra de ligação ocorre primeiro",
+   "A reação passa por um estado de transição ordenado, em que as duas moléculas se associam e perdem graus de liberdade de translação e rotação",
+   "A entalpia de ativação também é negativa, de modo que a reação fica mais lenta quanto mais se eleva a temperatura"
+  ],
+  "explanation": "Na equação de Eyring, k = (kBT/h) exp(ΔS‡/R) exp(−ΔH‡/RT), ΔS‡ representa a variação da desordem na passagem dos reagentes ao estado de transição. Em uma reação bimolecular, duas moléculas se reúnem em um único estado de transição, perdendo graus de liberdade de translação e rotação, e ΔS‡ fica negativo. Em reações que passam por um estado de transição cíclico, com sobreposição em orientação definida, como a reação de Diels-Alder, os valores costumam ser mais negativos que −100 J/(K·mol), o que é evidência de um estado de transição associativo e ordenado. Em mecanismos dissociativos, ΔS‡ tende a ser próximo de 0 ou positivo. O sinal de ΔS‡ não determina o sinal de ΔH‡; se ΔH‡ é positivo, a reação fica mais rápida quando a temperatura é elevada."
+ },
+ "kinetics-mechanism-007": {
+  "question": "O (2-bromoetil)benzeno C6H5CH2CH2Br reagiu com etóxido de sódio em etanol, dando estireno. Com C6H5CD2CH2Br, em que os hidrogênios benzílicos foram substituídos por deutério, a reação ficou mais lenta, e a razão entre as constantes de velocidade kH/kD foi de cerca de 7. Qual é a conclusão mais adequada a partir desse resultado?",
+  "choices": [
+   "A quebra da ligação C−H benzílica ocorre na etapa determinante da velocidade, o que é compatível com o mecanismo E2",
+   "A formação do carbocátion é a etapa determinante e a quebra de C−H ocorre em uma etapa rápida posterior, o que é compatível com o mecanismo E1",
+   "Mostra que a molécula deuterada, por ter massa maior, colide com o etóxido com uma frequência cerca de 7 vezes menor"
+  ],
+  "explanation": "A ligação C−D tem energia vibracional do ponto zero menor que a da ligação C−H; por isso, em reações em que essa ligação se quebra na etapa determinante da velocidade, kH/kD assume valores grandes, de cerca de 2 a 7, à temperatura ambiente (efeito isotópico cinético primário). Aqui a ligação que se quebra é a C−H benzílica (posição β), o que é compatível com o mecanismo E2, em que a base remove o hidrogênio β ao mesmo tempo que o Br⁻ sai. No mecanismo E1, a etapa determinante seria a formação do carbocátion pela quebra de C−Br; como a C−H não se quebra nessa etapa, kH/kD seria próximo de 1. A massa total da molécula muda muito pouco, e uma diferença na frequência de colisões não explica uma diferença de 7 vezes."
+ },
+ "kinetics-mechanism-008": {
+  "question": "Considere que os números de onda da vibração de estiramento das ligações C−H e C−D sejam 3000 cm⁻¹ e 2200 cm⁻¹, respectivamente. Supondo que essa vibração de estiramento desapareça totalmente no estado de transição e que o efeito isotópico se deva apenas à diferença entre as energias do ponto zero do estiramento nos reagentes, qual valor mais se aproxima de kH/kD a 298 K? A 298 K, kBT/(hc) = 207,1 cm⁻¹.",
+  "choices": [
+   "Cerca de 1,4",
+   "Cerca de 7",
+   "Cerca de 48"
+  ],
+  "explanation": "A energia do ponto zero de uma vibração é (1/2)hcν̃; assim, a diferença entre as energias do ponto zero de C−H e C−D, em número de onda, é (1/2)(3000 − 2200) = 400 cm⁻¹. Se essa vibração desaparece no estado de transição, a energia de ativação da molécula com C−D é maior exatamente por essa diferença, e kH/kD = exp(400 ÷ 207,1) = exp(1,93) ≈ 6,9, ou seja, cerca de 7. Essa é a estimativa do limite superior do efeito isotópico cinético primário. Cerca de 48 é o erro de esquecer o fator 1/2 da energia do ponto zero e calcular com uma diferença de 800 cm⁻¹. Cerca de 1,4 é o erro de tomar diretamente como razão de velocidades a raiz quadrada da razão de massas, √2, ou a razão dos números de onda, 3000/2200 = 1,36. Os valores reais costumam ser menores que esse."
+ },
+ "kinetics-mechanism-009": {
+  "question": "Benzeno C6H6 e benzeno deuterado C6D6 foram nitrados com mistura sulfonítrica nas mesmas condições, e a razão entre as constantes de velocidade kH/kD foi praticamente 1. Qual é a conclusão mais adequada a partir desse resultado?",
+  "choices": [
+   "A quebra da ligação C−H do anel aromático é a etapa determinante, e a adição do íon nitrônio ocorre depois dela",
+   "Mesmo em reações em que a ligação C−H se quebra, o efeito isotópico é sempre próximo de 1, e nada se pode saber sobre o mecanismo",
+   "A etapa determinante é a formação do íon arênio pela adição de NO2⁺, e a quebra de C−H ocorre em uma etapa rápida posterior"
+  ],
+  "explanation": "A substituição eletrofílica aromática ocorre em duas etapas: a adição do eletrófilo NO2⁺ ao anel aromático, formando um íon arênio, e a saída de um próton desse íon, restaurando a aromaticidade. A primeira etapa é lenta porque a aromaticidade é perdida, e a segunda é rápida porque a aromaticidade é recuperada. Como a ligação C−H se quebra na segunda etapa, que é rápida, trocar o hidrogênio por deutério quase não altera a velocidade global, e kH/kD ≈ 1. Se a quebra de C−H fosse a etapa determinante da velocidade, kH/kD deveria ter valores grandes, de cerca de 2 a 7. Um efeito isotópico próximo de 1 é uma informação valiosa para avaliar o mecanismo: mostra que a C−H não se quebra na etapa determinante da velocidade."
+ },
+ "kinetics-mechanism-010": {
+  "question": "As velocidades de hidrólise por íon hidróxido de benzoatos de etila substituídos X−C6H4−COOCH2CH3 (X é um substituinte em meta ou para) foram analisadas pela equação de Hammett log(kX/kH) = ρσ, e a constante de reação ρ resultou em cerca de +2,5. Qual interpretação desse resultado está correta?",
+  "choices": [
+   "No estado de transição da etapa determinante, a carga negativa no centro reativo aumenta, por isso grupos retiradores de elétrons aceleram a reação",
+   "No estado de transição da etapa determinante, surge carga positiva no centro reativo, por isso grupos doadores de elétrons aceleram a reação",
+   "ρ é uma medida do volume do substituinte, e um valor positivo indica que a reação é mais rápida quanto mais volumoso for o substituinte"
+  ],
+  "explanation": "A constante do substituinte σ é definida tomando como referência (ρ = 1) a ionização do ácido benzoico em água a 25 °C; é positiva para grupos retiradores de elétrons e negativa para grupos doadores. Reações com ρ positivo ficam mais rápidas com grupos retiradores de σ grande, e nelas surge ou aumenta carga negativa no estado de transição. Na hidrólise de ésteres, a etapa determinante é o ataque do OH⁻ ao carbono carbonílico, formando um intermediário tetraédrico com carga negativa; como os grupos retiradores estabilizam essa carga, ρ é positivo. Em reações em que surge carga positiva, ρ é negativo. A equação de Hammett descreve os efeitos eletrônicos de substituintes em meta e para, onde os efeitos estéricos não atuam, e não trata substituintes em orto nem o efeito do volume."
+ },
+ "kinetics-mechanism-011": {
+  "question": "Para uma reação com constante de reação ρ = +2,50, cerca de quantas vezes a constante de velocidade de um substrato com grupo nitro em para (σp = 0,78) é maior que a do substrato não substituído? Suponha válida a equação de Hammett log(kX/kH) = ρσ.",
+  "choices": [
+   "Cerca de 1,95 vez",
+   "Cerca de 7,0 vezes",
+   "Cerca de 89 vezes"
+  ],
+  "explanation": "Pela equação de Hammett, log(kX/kH) = ρσ = 2,50 × 0,78 = 1,95; logo, kX/kH = 10^1,95 ≈ 89 vezes. O grupo nitro retira elétrons fortemente, tanto por efeito indutivo quanto por ressonância; por isso σp é grande e acelera muito as reações com ρ positivo. Cerca de 1,95 vez é o erro de tomar o valor do log como a própria razão de velocidades. Cerca de 7,0 vezes é o erro de confundir a equação de Hammett, definida com logaritmo decimal, com o logaritmo natural, calculando e^1,95. Quanto maior o valor absoluto de ρ, mais a reação é sensível aos substituintes; com ρ = 2,5, uma diferença de apenas 0,4 em σ muda a velocidade em 10 vezes."
+ },
+ "kinetics-mechanism-012": {
+  "question": "As velocidades de solvólise (SN1) de 2-aril-2-cloropropanos substituídos X−C6H4−C(CH3)2Cl foram analisadas pela equação de Hammett com σ⁺, e ρ foi de cerca de −4,5. Qual interpretação desse resultado está correta?",
+  "choices": [
+   "Surge carga negativa na etapa determinante, por isso o substrato com o grupo nitro retirador de elétrons em para reage mais rápido",
+   "Surge uma grande carga positiva na posição benzílica na etapa determinante, e o substrato com grupo metóxi em para reage mais rápido",
+   "Como o valor absoluto de ρ é grande, os substituintes quase não afetam a velocidade, e todos os substratos reagem quase igualmente rápido"
+  ],
+  "explanation": "Um ρ negativo indica que surge carga positiva na etapa determinante da velocidade e que grupos doadores de elétrons aceleram a reação. A etapa determinante desta reação é a quebra da ligação C−Cl, formando um carbocátion benzílico terciário, cuja carga positiva se espalha por ressonância até a posição para do anel aromático. Por isso, usando σ⁺, que incorpora a ressonância direta entre o substituinte em para e a carga positiva, obtém-se uma boa correlação linear. O grupo metóxi em para tem σp⁺ de cerca de −0,78, um valor negativo grande, e estabiliza fortemente o cátion por ressonância; por isso reage mais rápido. Um valor absoluto de ρ grande, de 4,5, significa que a reação é muito fortemente afetada pelos substituintes, e o substrato com grupo nitro fica muito mais lento."
+ },
+ "kinetics-mechanism-013": {
+  "question": "Suponha que a reação A + B → P ocorra em duas etapas, A ⇌ I (direta k1, inversa k−1) e I + B → P (k2), e que a aproximação do estado estacionário se aplique ao intermediário reativo I. Em condições em que k2[B] é muito maior que k−1, como se expressa a velocidade de formação do produto v?",
+  "choices": [
+   "v = k1[A], de ordem zero em B",
+   "v = (k1k2/k−1)[A][B], de primeira ordem em B",
+   "v = k2[B], de ordem zero em A"
+  ],
+  "explanation": "Na aproximação do estado estacionário, considera-se que a concentração do intermediário I é pequena e praticamente constante, e faz-se d[I]/dt = k1[A] − k−1[I] − k2[I][B] = 0. Daí, v = k2[I][B] = k1k2[A][B]/(k−1 + k2[B]). Se k2[B] ≫ k−1, o denominador pode ser tomado como k2[B], e v = k1[A]; a primeira etapa, de formação de I, é a determinante da velocidade, e a concentração de B não afeta a velocidade. É o que ocorre quando a velocidade de uma reação SN1 não depende da concentração do nucleófilo. (k1k2/k−1)[A][B] é a expressão válida na condição oposta, k−1 ≫ k2[B], quando I está em equilíbrio rápido com A. v = k2[B] é o erro de ignorar a concentração de I."
+ },
+ "kinetics-mechanism-014": {
+  "question": "Uma reação ocorre por um pré-equilíbrio rápido A + B ⇌ C (entalpia padrão de reação ΔH° = −20 kJ/mol), seguido de uma etapa lenta C → P (energia de ativação Ea2 = 50 kJ/mol). Sendo a constante de velocidade observada kobs = K·k2 (K é a constante do pré-equilíbrio), qual é a energia de ativação aparente obtida do gráfico de Arrhenius?",
+  "choices": [
+   "50 kJ/mol",
+   "70 kJ/mol",
+   "30 kJ/mol"
+  ],
+  "explanation": "A variação da constante de equilíbrio com a temperatura é dada pela equação de van 't Hoff, d(ln K)/d(1/T) = −ΔH°/R, e a da constante de velocidade pela equação de Arrhenius, d(ln k2)/d(1/T) = −Ea2/R. Como ln kobs = ln K + ln k2, a energia de ativação aparente é Ea,app = ΔH° + Ea2 = −20 + 50 = 30 kJ/mol. Quando o pré-equilíbrio é exotérmico, a fração de C diminui ao se elevar a temperatura; por isso a energia de ativação aparente fica menor que a da etapa lenta e pode até ser negativa se o valor absoluto de ΔH° for maior que Ea2. 50 kJ/mol é o valor que ignora a dependência do pré-equilíbrio com a temperatura, e 70 kJ/mol é o valor obtido somando ΔH° com o sinal trocado."
+ },
+ "kinetics-mechanism-015": {
+  "question": "Um composto existe como dois confôrmeros A e B que se interconvertem rapidamente, e no equilíbrio há 3 vezes mais B que A. A forma o produto PA e B forma o produto PB, cada um em uma única etapa, e ambas as reações são muito mais lentas que a interconversão dos confôrmeros. Se a energia livre do estado de transição que leva a PA é 5,7 kJ/mol menor que a do estado de transição que leva a PB, qual razão PA : PB a 298 K é a mais próxima? Considere R = 8,314 J/(mol·K).",
+  "choices": [
+   "Cerca de 1 : 3",
+   "Cerca de 10 : 1",
+   "Cerca de 3,3 : 1"
+  ],
+  "explanation": "Quando a interconversão dos confôrmeros é muito mais rápida que as reações, pelo princípio de Curtin-Hammett a razão dos produtos é determinada apenas pela diferença de energia livre entre os dois estados de transição, e não depende da proporção dos confôrmeros do material de partida. PA : PB = exp(ΔΔG‡/RT) = exp(5700 ÷ (8,314 × 298)) = exp(2,30) ≈ 10, ou seja, cerca de 10 : 1. Cerca de 1 : 3 é o erro de supor que a proporção dos confôrmeros se torna diretamente a razão dos produtos. Cerca de 3,3 : 1 é o erro de multiplicar a proporção 1 : 3 pelo fator 10 : 1 devido à diferença entre os estados de transição; o efeito da proporção dos confôrmeros já está incluído na diferença de energia livre dos estados de transição. Não é raro que o produto principal se forme a partir do confôrmero minoritário."
+ },
+ "kinetics-mechanism-016": {
+  "question": "A constante de velocidade de uma reação de primeira ordem é k = 2,0×10⁻³ s⁻¹ a temperatura constante. Qual valor mais se aproxima do tempo necessário para que 90 % do reagente reaja? Considere ln 10 = 2,303 e ln 2 = 0,693.",
+  "choices": [
+   "3,5×10² s",
+   "1,2×10³ s",
+   "4,5×10² s"
+  ],
+  "explanation": "Em uma reação de primeira ordem vale ln([A]₀/[A]) = kt. Quando 90 % reagiram, restam 10 %, então [A]₀/[A] = 10 e t = ln 10/k = 2,303/(2,0×10⁻³ s⁻¹) ≈ 1,15×10³ s, ou seja, cerca de 1,2×10³ s (cerca de 19 minutos). 3,5×10² s é a meia-vida ln 2/k ≈ 347 s, que é apenas o tempo para o reagente cair à metade; para que 90 % reajam, é preciso cerca de 3,3 vezes a meia-vida. 4,5×10² s é o erro de supor que o reagente diminui proporcionalmente ao tempo, usando 0,90/k; em uma reação de primeira ordem, a velocidade também cai à medida que o reagente diminui. Em reações de primeira ordem, o tempo para reagir qualquer porcentagem não depende da concentração inicial, por isso a resposta é determinada mesmo sem a concentração inicial."
+ },
+ "kinetics-mechanism-017": {
+  "question": "A constante de velocidade de uma reação unimolecular é k = 1,0×10⁻³ s⁻¹ a 298 K. Usando a equação de Eyring k = (kBT/h) exp(−ΔG‡/RT), qual valor mais se aproxima da energia de Gibbs de ativação ΔG‡? Considere, a 298 K, kBT/h = 6,21×10¹² s⁻¹, R = 8,314 J/(mol·K) e coeficiente de transmissão igual a 1.",
+  "choices": [
+   "39 kJ/mol",
+   "73 kJ/mol",
+   "90 kJ/mol"
+  ],
+  "explanation": "Rearranjando a equação de Eyring, ΔG‡ = RT ln[(kBT/h)/k]. Como (kBT/h)/k = 6,21×10¹²/1,0×10⁻³ = 6,21×10¹⁵, cujo logaritmo natural é cerca de 36,4, ΔG‡ = 8,314 × 298 × 36,4 J/mol ≈ 90 kJ/mol. 39 kJ/mol é o erro de usar o logaritmo decimal (cerca de 15,8) em vez do natural. 73 kJ/mol é o valor obtido usando só ln(kBT/h), esquecendo de dividir por k, e corresponde a uma reação com k = 1 s⁻¹. Como referência, a 298 K a velocidade cai para cerca de um décimo a cada aumento de cerca de 5,7 kJ/mol em ΔG‡, e uma reação com ΔG‡ de cerca de 90 kJ/mol tem meia-vida da ordem de 10 minutos."
+ },
+ "kinetics-mechanism-018": {
+  "question": "Segundo o postulado de Hammond, o estado de transição de uma etapa endotérmica que forma um intermediário de alta energia tem estrutura parecida com o quê? Considere como exemplo a etapa determinante da reação SN1 de um haleto de alquila terciário, em que se forma o carbocátion.",
+  "choices": [
+   "Com o carbocátion formado, e os fatores que estabilizam o carbocátion também estabilizam o estado de transição",
+   "Com o haleto de alquila de partida, e a estabilidade do carbocátion não afeta a energia do estado de transição",
+   "Exatamente intermediária entre o material de partida e o carbocátion, sempre a mesma, qualquer que seja a variação de energia da reação"
+  ],
+  "explanation": "O postulado de Hammond é a ideia de que dois estados de energia próxima também têm estruturas semelhantes. Em uma etapa endotérmica, a energia do estado de transição é próxima da do lado dos produtos (aqui, o carbocátion), de modo que sua estrutura também se parece com a do carbocátion: é um “estado de transição tardio”. Por isso, fatores que estabilizam o carbocátion, como a hiperconjugação dos grupos alquila e a solvatação por solventes polares, estabilizam o estado de transição quase da mesma forma e aceleram a reação. Isso explica por que a reação SN1 é mais rápida para substratos terciários. Um “estado de transição precoce”, parecido com o material de partida, ocorre em etapas exotérmicas. Como a posição do estado de transição muda com a variação de energia da etapa, ele também não fica sempre no meio."
+ },
+ "kinetics-mechanism-019": {
+  "question": "Para investigar o mecanismo de um rearranjo em que um grupo acila migra para outra posição dentro da molécula, misturou-se um substrato marcado com deutério tanto no grupo que migra quanto no esqueleto que permanece com uma quantidade igual de substrato não marcado, e reagiu-se a mistura no mesmo frasco. Nos produtos só foram encontradas moléculas com marcação em dois locais e moléculas sem marcação, e não se observaram produtos com marcação em um só local (produtos cruzados). Qual é a conclusão mais adequada a partir desse resultado?",
+  "choices": [
+   "O grupo que migra se separa totalmente da molécula, passa para a solução e também se transfere para outras moléculas",
+   "O substrato marcado com deutério reage pouco por causa do efeito isotópico, e só o substrato não marcado sofre o rearranjo",
+   "O grupo que migra se move dentro da mesma molécula e não é trocado com outras moléculas durante a reação"
+  ],
+  "explanation": "Em um experimento de cruzamento, misturam-se dois substratos e verifica-se se fragmentos são trocados entre as moléculas durante a reação. Se o grupo que migra se separasse da molécula e se movesse pela solução, fragmentos marcados e não marcados se encontrariam, formando produtos cruzados com marcação em um só local. A ausência de produtos cruzados mostra que a reação é intramolecular, em que o grupo migra sem se separar da molécula original. Como há produtos com marcação em dois locais, o substrato marcado também reagiu. O efeito isotópico do deutério pode alterar um pouco a velocidade, mas não a ponto de determinar se a reação ocorre ou não. Observe ainda que, quando os fragmentos se separam e se recombinam logo em seguida dentro da gaiola de solvente, o cruzamento também é pouco provável; essa possibilidade deve ser considerada na interpretação."
+ },
+ "kinetics-mechanism-020": {
+  "question": "O oxigênio da ligação simples do lado do grupo etila do propanoato de etila CH3CH2C(=O)−O−CH2CH3 foi marcado com ¹⁸O, e o éster foi hidrolisado com solução aquosa de hidróxido de sódio. O ¹⁸O foi encontrado apenas no etanol, e não no íon propanoato. Qual conclusão a partir desse resultado está correta?",
+  "choices": [
+   "O íon hidróxido ataca o carbono do grupo etila pelo lado oposto, e a reação ocorre por mecanismo do tipo SN2 com quebra da ligação alquila−oxigênio",
+   "O íon hidróxido se adiciona ao carbono carbonílico, e a reação ocorre por um intermediário tetraédrico com quebra da ligação acila−oxigênio",
+   "O éster primeiro se dissocia em cátion etila e íon propanoato, e a reação ocorre pela adição de água ao cátion etila"
+  ],
+  "explanation": "Qual ligação se quebra na hidrólise pode ser descoberto pelo destino do oxigênio marcado. O fato de o ¹⁸O ter permanecido no etanol mostra que a ligação quebrada foi a ligação acila−oxigênio, entre o carbono carbonílico e o ¹⁸O, e que a ligação entre o grupo etila e o ¹⁸O foi mantida. Isso é compatível com o mecanismo de adição-eliminação, em que o OH⁻ se adiciona ao carbono carbonílico formando um intermediário tetraédrico, do qual sai o etóxido. Se o carbono do grupo etila fosse atacado e a ligação alquila−oxigênio se quebrasse, o ¹⁸O deveria ir para o íon propanoato. Também em uma dissociação que formasse o cátion etila, o ¹⁸O ficaria no lado do íon carboxilato. Além disso, é muito improvável que se forme um cátion a partir de um grupo etila primário."
+ }
+}
