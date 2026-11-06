@@ -10,6 +10,7 @@
     "i18n:stale": "node tools/i18n-stale.js",
     "check:content": "node tools/check-content.js",
     "check:site": "node tools/check-site.js",
-    "test": "node tools/validate.js && node tools/check-content.js --strict && node tools/check-learn.js --strict && node tools/i18n-stale.js"
+    "test:calc": "node tools/test-calc.js",
+    "test": "node tools/validate.js && node tools/test-calc.js && node tools/check-content.js --strict && node tools/check-learn.js --strict && node tools/i18n-stale.js"
   }
 }

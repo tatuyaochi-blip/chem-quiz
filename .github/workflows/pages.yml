@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: 22
       - run: node tools/validate.js
+      - run: node tools/test-calc.js
       - run: node tools/build.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
