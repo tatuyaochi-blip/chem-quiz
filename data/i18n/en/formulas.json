@@ -419,7 +419,7 @@
    ],
    "when": "For an electrode with Nernstian response. Real slopes are often slightly below theory, so they are found by calibrating with two or more standards. The slope is proportional to temperature, so temperature compensation is needed.",
    "miss": "Mixing up RT/F (25.7 mV, per natural-log unit) with the slope per decade. Using 59 mV for a divalent ion such as Ca²⁺.",
-   "ex": "z = 1 at 25 °C (298.15 K): S = 2.3026 × 8.3145 × 298.15/96 485 = 59.16 mV. At 37 °C it is 61.54 mV; for z = 2, 29.58 mV (25 °C).",
+   "ex": "z = 1 at 25 °C (298.15 K): S = 2.3026 × 8.314 × 298.15/96 485 = 59.16 mV (R = 8.314 as in the calculation drill; the CODATA R also gives 59.16 mV). At 37 °C it is 61.54 mV; for z = 2, 29.58 mV (25 °C).",
    "kw": "Nernstian slope ion-selective electrode pH electrode glass electrode calibration 59 mV"
   },
   "dg-e": {
