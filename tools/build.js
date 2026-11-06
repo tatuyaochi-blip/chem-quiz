@@ -133,6 +133,402 @@ const tools = exists('data/tools') ? fs.readdirSync(path.join(root, 'data/tools'
   .map(f => readJSON(`data/tools/${f}`)).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)) : [];
 const toolsIn = code => tools.filter(x => x.text[code]);
 const compares = readOpt('data/compare.json', []); // 用語の違い比較ページ(/compare/{slug}/)。英語などの訳は data/i18n/{言語}/compare.json
+// 比較ページが1つでもある言語(ない言語へは /compare/ の言語切り替え・hreflang を出さない)
+const cmpLangCodes = new Set(langs.filter(x => x.code === defLang || compares.some(e => readOpt(`data/i18n/${x.code}/compare.json`, {})[e.slug])).map(x => x.code));
+// 破損解析(/failure/ の診断ナビと /failure/{slug}/ の事故事例)。data/failure.json(既定言語の文章・点数表・事例)と、
+// 訳 data/i18n/{言語}/failure.json(文章だけ。点数表・リンク先・出典のURLは既定言語のものを使う)。
+// その言語の src/i18n に nav_failure があり、文章の訳もある言語でだけ作る(訳のない言語に既定言語の文を出さない)。ファイルがなければ何も作らない
+const failureBase = readOpt('data/failure.json', null);
+const failureTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/failure.json`, null));
+const failureOn = code => !!failureBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_failure') && (code === defLang || !!failureTr(code)?.navi);
+const failureCaseOn = (code, slug) => failureOn(code) && (code === defLang || !!failureTr(code)?.cases?.[slug]);
+// 訳を既定言語のデータに重ねる。足りない訳があれば止める(半端な訳のページを出さない)
+function failureText(code) {
+  const d = failureBase;
+  const T = failureTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/failure.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  const tn = T.navi;
+  const navi = {
+    ...d.navi,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(tn[k], `navi.${k}`)])),
+    faq: tn.faq ?? [],
+    questions: d.navi.questions.map(q => {
+      const tq = need(tn.questions?.[q.id], `navi.questions.${q.id}`);
+      return { ...q, label: need(tq.label, `navi.questions.${q.id}.label`), help: need(tq.help, `navi.questions.${q.id}.help`),
+        options: q.options.map(o => ({ ...o, label: need(tq.options?.[o.id], `navi.questions.${q.id}.options.${o.id}`) })) };
+    }),
+    combos: d.navi.combos.map(c => ({ ...c, label: need(tn.combos?.[c.if.join('+')], `navi.combos.${c.if.join('+')}`) })),
+    modes: d.navi.modes.map(m => {
+      const tm = need(tn.modes?.[m.id], `navi.modes.${m.id}`);
+      const k = x => `navi.modes.${m.id}.${x}`;
+      return { ...m, name: need(tm.name, k('name')), abbr: need(tm.abbr, k('abbr')), short: need(tm.short, k('short')),
+        look: need(tm.look, k('look')), tests: need(tm.tests, k('tests')), confusions: need(tm.confusions, k('confusions')),
+        measures: Object.fromEntries(Object.keys(m.measures).map(x => [x, need(tm.measures?.[x], k(`measures.${x}`))])) };
+    }),
+  };
+  const cases = d.cases.filter(c => T.cases?.[c.slug]).map(c => {
+    const tc = T.cases[c.slug];
+    const k = x => `cases.${c.slug}.${x}`;
+    return {
+      ...c,
+      ...Object.fromEntries(['title', 'description', 'lead', 'facts', 'happened', 'chainTitle', 'mechanism', 'presetNote', 'changes', 'lessons'].map(x => [x, need(tc[x], k(x))])),
+      note: c.note ? need(tc.note, k('note')) : undefined,
+      chain: same(c.chain, tc.chain, k('chain')).map((s, i) => ({ ...c.chain[i], lines: need(s.lines, k(`chain[${i}].lines`)), sub: c.chain[i].sub ? need(s.sub, k(`chain[${i}].sub`)) : undefined })),
+      clues: same(c.clues, tc.clues, k('clues')).map((x, i) => ({ ...c.clues[i], text: need(x, k(`clues[${i}]`)) })),
+      sources: c.sources.map((x, i) => ({ ...x, name: tc.sources?.[i] ?? x.name })),
+    };
+  });
+  return { navi, cases };
+}
+// 組織の見分け方アトラス(/atlas/)。data/atlas.json(既定言語の文章・図の描き方・出典)と、訳 data/i18n/{言語}/atlas.json(文章だけ)。
+// 模式図は src/js/micro.js が描く(ページでは atlas.js がその場で描き、build はここで全種類が描けることを確かめる)。
+// その言語の src/i18n に nav_atlas があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない(micro.js も読み込まない)
+const atlasBase = readOpt('data/atlas.json', null);
+const micro = atlasBase ? await import(pathToFileURL(path.join(root, 'src/js/micro.js')).href) : null;
+const atlasTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/atlas.json`, null));
+const atlasOn = code => !!atlasBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_atlas') && (code === defLang || !!atlasTr(code)?.structures);
+// 訳を既定言語のデータに重ねる。足りない訳・数の合わない訳があれば止める
+function atlasText(code) {
+  const d = atlasBase;
+  const T = atlasTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/atlas.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(T[k], k)])),
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    structures: d.structures.map(s => {
+      const ts = need(T.structures?.[s.id], `structures.${s.id}`);
+      const k = x => `structures.${s.id}.${x}`;
+      const list = x => same(s[x], need(ts[x], k(x)), k(x)).map((v, i) => need(v, k(`${x}[${i}]`)));
+      return {
+        ...s, name: need(ts.name, k('name')), short: need(ts.short, k('short')),
+        ...Object.fromEntries(['see', 'shade', 'etch', 'forms', 'clues'].map(x => [x, list(x)])),
+        props: same(s.props, ts.props, k('props')).map((v, i) => ({ ...s.props[i], t: need(v, k(`props[${i}]`)) })),
+        confuse: same(s.confuse, ts.confuse, k('confuse')).map((v, i) => ({ ...s.confuse[i], how: need(v, k(`confuse[${i}]`)) })),
+      };
+    }),
+    grain: {
+      ...d.grain, lead: need(T.grain?.lead, 'grain.lead'), note: need(T.grain?.note, 'grain.note'),
+      methods: same(d.grain.methods, T.grain.methods, 'grain.methods').map((m, i) => [need(m[0], `grain.methods[${i}][0]`), need(m[1], `grain.methods[${i}][1]`)]),
+      formulas: same(d.grain.formulas, T.grain.formulas, 'grain.formulas').map((f, i) => need(f, `grain.formulas[${i}]`)),
+    },
+    faq: T.faq ?? [],
+    sources: Object.fromEntries(Object.entries(d.sources).map(([k, v]) => [k, { ...v, name: T.sources?.[k] ?? v.name }])),
+  };
+}
+// 計算ドリル(/drill/)。data/drill.json(既定言語の文章・数値の範囲・データ)と、訳 data/i18n/{言語}/drill.json(文章だけ)。
+// 問題を作る計算と判定は src/js/drill.js(物性値は計算ツールのデータ集をそのまま読む)。build は型がそろっていることと文章の {…} を確かめる。
+// その言語の src/i18n に nav_drill があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const drillBase = readOpt('data/drill.json', null);
+const drillTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/drill.json`, null));
+const drillOn = code => !!drillBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_drill') && (code === defLang || !!drillTr(code)?.types);
+// 訳を既定言語のデータに重ねる。足りない訳、場合分けや {…} の違う訳があれば止める(埋まらない文を出さない)
+function drillText(code) {
+  const d = drillBase;
+  const T = drillTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/drill.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  const keysOf = s => [...new Set([...s.matchAll(/\{(\w+)\}/g)].map(m => m[1]))].sort().join(', ');
+  // 既定言語の a と同じ形(文字・配列・{ 場合: … })で、同じ {…} を使う訳 b
+  const like = (a, b, k) => {
+    need(b, k);
+    if (typeof a === 'string') {
+      if (typeof b !== 'string') throw new Error(`${where}: ${k} は文字で書いてください`);
+      if (keysOf(a) !== keysOf(b)) throw new Error(`${where}: ${k} の {…} が既定言語と違います(既定言語: ${keysOf(a)} / 訳: ${keysOf(b)})`);
+      return b;
+    }
+    if (Array.isArray(a)) return same(a, b, k).map((x, i) => like(x, b[i], `${k}[${i}]`));
+    const ka = Object.keys(a).sort().join(', '), kb = Object.keys(b).sort().join(', ');
+    if (ka !== kb) throw new Error(`${where}: ${k} の場合分け(${kb})を既定言語(${ka})とそろえてください`);
+    return Object.fromEntries(Object.keys(a).map(x => [x, like(a[x], b[x], `${k}.${x}`)]));
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(T[k], k)])),
+    lowerNames: !!T.lowerNames, mat: T.mat ?? {}, units: T.units ?? {},
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    names: { x: like(d.names.x, T.names?.x, 'names.x'), diff: like(d.names.diff, T.names?.diff, 'names.diff') },
+    guide: same(d.guide, T.guide, 'guide').map((s, i) => ({ ...s, h: need(T.guide[i].h, `guide[${i}].h`), p: like(s.p, T.guide[i].p, `guide[${i}].p`) })),
+    faq: T.faq ?? [],
+    sources: same(d.sources, T.sources, 'sources').map((s, i) => ({ ...s, name: need(T.sources[i].name, `sources[${i}].name`), text: need(T.sources[i].text, `sources[${i}].text`) })),
+    types: d.types.map(x => {
+      const tt = need(T.types?.[x.id], `types.${x.id}`);
+      const k = y => `types.${x.id}.${y}`;
+      return { ...x, name: need(tt.name, k('name')), short: need(tt.short, k('short')), formula: need(tt.formula, k('formula')),
+        q: like(x.q, tt.q, k('q')), steps: like(x.steps, tt.steps, k('steps')), mistakes: like(x.mistakes, tt.mistakes, k('mistakes')) };
+    }),
+  };
+}
+// 材料データ集(/materials/)。data/materials.json(既定言語の文章・値・出典。値は review の scripts/extract.mjs が計算ツールから抜き出したもの)と、
+// 訳 data/i18n/{言語}/materials.json(文章だけ)。検索・表・換算・並べ比べ・CSV は src/js/materials.js(動きのない表もそこの tableHTML で作る)。
+// その言語の src/i18n に nav_materials があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない(materials.js も読み込まない)
+const matBase = readOpt('data/materials.json', null);
+const matJs = matBase ? await import(pathToFileURL(path.join(root, 'src/js/materials.js')).href) : null;
+const matTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/materials.json`, null));
+const matOn = code => !!matBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_materials') && (code === defLang || !!matTr(code)?.materials);
+// 訳を既定言語のデータに重ねる。足りない訳や {…} の違う訳があれば止める
+function matText(code) {
+  const d = matBase;
+  const T = matTr(code);
+  if (!T) return { ...d, materials: d.materials.map(m => ({ ...m, sub: m.en })) };
+  const where = `data/i18n/${code}/materials.json`;
+  const need = (v, k) => { if (v == null || v === '') throw new Error(`${where}: ${k} の訳がありません`); return v; };
+  const keysOf = s => [...s.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort().join(',');
+  // 既定言語の a と同じ鍵・同じ {…} の訳(値が空の文字は空のままでよい: 単位のない性質)
+  const like = (a, b, k) => {
+    if (typeof a === 'string') { if (a === '') return b ?? ''; need(b, k); if (keysOf(a) !== keysOf(b)) throw new Error(`${where}: ${k} の {…} が既定言語と違います`); return b; }
+    if (Array.isArray(a)) { if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`); return a.map((x, i) => like(x, b[i], `${k}[${i}]`)); }
+    return Object.fromEntries(Object.keys(a).map(x => [x, like(a[x], b?.[x], `${k}.${x}`)]));
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(T[k], k)])),
+    classes: d.classes.map(c => ({ ...c, name: need(T.classes?.[c.id], `classes.${c.id}`) })),
+    props: d.props.map(p => ({ ...p, name: need(T.props?.[p.id]?.name, `props.${p.id}`), sym: T.props[p.id].sym ?? p.sym })),
+    kinds: like(d.kinds, T.kinds, 'kinds'), conds: like(d.conds, T.conds, 'conds'), structs: like(d.structs, T.structs, 'structs'), mpNotes: like(d.mpNotes, T.mpNotes, 'mpNotes'),
+    tr: like(d.tr, T.tr, 'tr'), units: like(d.units, T.units, 'units'),
+    sources: d.sources.map(s => ({ ...s, name: need(T.sources?.[s.id], `sources.${s.id}`) })),
+    materials: d.materials.map(m => {
+      const x = need(T.materials?.[m.id], `materials.${m.id}`);
+      return { ...m, name: need(x.name, `materials.${m.id}.name`), al: x.al ?? [], sub: null, ...(m.note ? { note: need(x.note, `materials.${m.id}.note`) } : {}), ...(m.trn ? { trn: need(x.trn, `materials.${m.id}.trn`) } : {}),
+        vars: like(m.vars, x.vars ?? {}, `materials.${m.id}.vars`) };
+    }),
+    guide: like(d.guide.map(g => ({ h: g.h, p: g.p })), T.guide?.map(g => ({ h: g.h, p: g.p })), 'guide').map((g, i) => ({ ...g, id: d.guide[i].id })),
+    faq: T.faq ?? [],
+  };
+}
+// 公式集(/formulas/)。data/formulas.json(既定言語の文章・式・記号・次元・例・出典)と、訳 data/i18n/{言語}/formulas.json(文章だけ。式・記号・単位・次元は言語によらない)。
+// 式の次元と例の数値は、データを作るときに機械で確かめたもの(作り方は data/formulas.json の外)。build は式の id・分野・リンク先がそろっていることを確かめる。
+// 検索・絞り込み・式を選ぶ・選んだ式だけ印刷・共有の URL(?f=)は src/js/formulas.js。
+// その言語の src/i18n に nav_formulas があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const fmlBase = readOpt('data/formulas.json', null);
+const fmlTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/formulas.json`, null));
+const fmlOn = code => !!fmlBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_formulas') && (code === defLang || !!fmlTr(code)?.formulas);
+// 訳を既定言語のデータに重ねる。足りない訳や数の合わない訳があれば止める
+function fmlText(code) {
+  const d = fmlBase;
+  const T = fmlTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/formulas.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note', 'units_h', 'units_lead', 'const_h', 'const_lead', 'sources_h'].map(k => [k, need(T[k], k)])),
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    guide: (same(d.guide, T.guide, 'guide'), d.guide).map((s, i) => ({ ...s, h: need(T.guide[i].h, `guide[${i}].h`), p: same(s.p, T.guide[i].p, `guide[${i}].p`).map((x, j) => need(x, `guide[${i}].p[${j}]`)) })),
+    units: same(d.units, T.units, 'units').map((u, i) => ({ a: need(T.units[i].a, `units[${i}].a`), b: need(T.units[i].b, `units[${i}].b`), q: need(T.units[i].q, `units[${i}].q`) })),
+    constants: (same(d.constants, T.constants, 'constants'), d.constants).map((c, i) => ({ ...c, n: need(T.constants[i], `constants[${i}]`) })),
+    faq: T.faq ?? [],
+    refs: d.refs.map(r => ({ ...r, s: need(T.refs?.[r.k], `refs.${r.k}`) })),
+    formulas: d.formulas.map(f => {
+      const x = need(T.formulas?.[f.id], `formulas.${f.id}`);
+      const k = y => `formulas.${f.id}.${y}`;
+      const l = same(f.f, x.l, k('l'));
+      const m = same(f.sym, x.m, k('m'));
+      return { ...f, name: need(x.name, k('name')), when: need(x.when, k('when')), miss: need(x.miss, k('miss')), ex: need(x.ex, k('ex')), kw: need(x.kw, k('kw')),
+        f: f.f.map((y, i) => ({ ...y, ...(y.l ? { l: need(l[i], `${k('l')}[${i}]`) } : {}) })), sym: f.sym.map((y, i) => ({ ...y, m: need(m[i], `${k('m')}[${i}]`) })) };
+    }),
+  };
+}
+// 分析・評価手法ナビ(/methods/)。data/methods.json(既定言語の文章・目的・試料の条件の段階 x・リンク・出典)と、訳 data/i18n/{言語}/methods.json(文章だけ。段階・リンクは言語によらない)。
+// 絞り込みの判定・並べ方・比べる表・条件の URL は src/js/methods.js(judge と rank は build の検査でも使う)。
+// その言語の src/i18n に nav_methods があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const mtdBase = readOpt('data/methods.json', null);
+const mtdTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/methods.json`, null));
+const mtdOn = code => !!mtdBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_methods') && (code === defLang || !!mtdTr(code)?.methods);
+const mtdJs = mtdBase ? await import(pathToFileURL(path.join(root, 'src/js/methods.js')).href) : null;
+const MTD_TEXT = ['name', 'abbr', 'what', 'how', 'rl', 'rd', 'dl', 'vol', 'el', 'q', 'size', 'cond', 'vac', 'ds', 'prep', 'time', 'cost', 'miss', 'std'];
+// 訳を既定言語のデータに重ねる。足りない訳や数の合わない訳があれば止める
+function mtdText(code) {
+  const d = mtdBase;
+  const T = mtdTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/methods.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note', 'sources_h'].map(k => [k, need(T[k], k)])),
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    needs: d.needs.map(n => ({ ...n, name: need(T.needs?.[n.id], `needs.${n.id}`) })),
+    guide: (same(d.guide, T.guide, 'guide'), d.guide).map((s, i) => ({ ...s, h: need(T.guide[i].h, `guide[${i}].h`), p: same(s.p, T.guide[i].p, `guide[${i}].p`).map((x, j) => need(x, `guide[${i}].p[${j}]`)) })),
+    faq: T.faq ?? [],
+    refs: d.refs.map(r => ({ ...r, s: need(T.refs?.[r.k], `refs.${r.k}`) })),
+    methods: d.methods.map(m => {
+      const x = need(T.methods?.[m.id], `methods.${m.id}`);
+      const k = y => `methods.${m.id}.${y}`;
+      // 略号(abbr)は、既定言語で空なら訳も空でよい
+      return { ...m, ...Object.fromEntries(MTD_TEXT.map(y => [y, Array.isArray(m[y]) ? same(m[y], x[y], k(y)).map((v, i) => need(v, `${k(y)}[${i}]`)) : y === 'abbr' && !m.abbr ? '' : need(x[y], k(y))])) };
+    }),
+  };
+}
+// 試料調製・エッチングガイド(/prep/)。data/prep.json(既定言語の文章・材料・腐食液・危険・不具合と原因の重み・リンク・出典)と、
+// 訳 data/i18n/{言語}/prep.json(文章だけ。id・重み・性質・リンクは言語によらない)。
+// 「失敗から原因を探す」の順位と条件の URL は src/js/prep.js(rank は build の検査でも使う)。
+// その言語の src/i18n に nav_prep があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const prpBase = readOpt('data/prep.json', null);
+const prpTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/prep.json`, null));
+const prpOn = code => !!prpBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_prep') && (code === defLang || !!prpTr(code)?.materials);
+const prpJs = prpBase ? await import(pathToFileURL(path.join(root, 'src/js/prep.js')).href) : null;
+// 訳を既定言語のデータに重ねる。足りない訳や数の合わない訳があれば止める
+function prpText(code) {
+  const d = prpBase;
+  const T = prpTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/prep.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  // 文の形(文字列・文字列の並び・鍵つきの文)を既定言語にそろえて重ねる
+  const tx = (a, b, k) => {
+    if (typeof a === 'string') return a === '' ? '' : need(b, k);
+    if (Array.isArray(a)) {
+      if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+      return a.map((v, i) => tx(v, b[i], `${k}[${i}]`));
+    }
+    return Object.fromEntries(Object.keys(a).map(y => [y, tx(a[y], b?.[y], `${k}.${y}`)]));
+  };
+  const pick = (o, keys) => Object.fromEntries(keys.map(y => [y, o[y]]));
+  const over = (list, tr, name, keys) => list.map(x => ({ ...x, ...tx(pick(x, keys), need(tr?.[x.id], `${name}.${x.id}`), `${name}.${x.id}`) }));
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note', 'safety', 'sources_h'].map(k => [k, need(T[k], k)])),
+    refs: d.refs.map(r => ({ ...r, ...tx({ s: r.s, full: r.full }, need(T.refs?.[r.k], `refs.${r.k}`), `refs.${r.k}`) })),
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    traits: d.traits.map(g => ({ ...g, name: need(T.traits?.[g.id], `traits.${g.id}`) })),
+    flow: over(d.flow, T.flow, 'flow', ['name', 'p']),
+    materials: d.materials.map(m => {
+      const x = need(T.materials?.[m.id], `materials.${m.id}`), k = `materials.${m.id}`;
+      const steps = tx(m.steps.map(r => r.t), x.steps, `${k}.steps`);
+      return { ...m, ...tx(pick(m, ['name', 'hard', 'note', 'see', 'miss', 'fx', 'std']), x, k), steps: m.steps.map((r, i) => ({ ...r, t: steps[i] })) };
+    }),
+    hazards: over(d.hazards, T.hazards, 'hazards', ['name', 'short', 'p']),
+    not_listed: tx(d.not_listed, T.not_listed, 'not_listed'),
+    etchants: over(d.etchants, T.etchants, 'etchants', ['name', 'aka', 'comp', 'use', 'see', 'nb']),
+    defects: d.defects.map(f => {
+      const x = need(T.defects?.[f.id], `defects.${f.id}`), k = `defects.${f.id}`;
+      return { ...f, ...tx({ name: f.name, look: f.look }, x, k), causes: f.causes.map(c => ({ ...c, ...tx({ t: c.t, fix: c.fix }, x.causes?.[c.id], `${k}.causes.${c.id}`) })) };
+    }),
+    guide: tx(d.guide.map(g => ({ h: g.h, p: g.p })), T.guide, 'guide').map((g, i) => ({ ...d.guide[i], ...g })),
+    faq: T.faq ?? [],
+  };
+}
+// 組織写真の計測室(/measure/)。data/measure.json(既定言語の文章・数え方の決まり・式・粒度番号の表・相の名前の候補・読み物・リンク・出典)と、
+// 訳 data/i18n/{言語}/measure.json(文章だけ。重み・式・表の数・リンクは言語によらない)。
+// 計測の道具(画像・スケール・切断法・面積法・点算法・合成組織・答え合わせ・書き出し)は src/js/measure.js(式と統計は build の検査でも使う)。
+// その言語の src/i18n に nav_measure があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const msrBase = readOpt('data/measure.json', null);
+const msrTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/measure.json`, null));
+const msrOn = code => !!msrBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_measure') && (code === defLang || !!msrTr(code)?.rules);
+const msrJs = msrBase ? await import(pathToFileURL(path.join(root, 'src/js/measure.js')).href) : null;
+// 訳を既定言語のデータに重ねる。足りない訳や数の合わない訳があれば止める
+function msrText(code) {
+  const d = msrBase;
+  const T = msrTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/measure.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b.map((x, i) => need(x, `${k}[${i}]`));
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note', 'privacy', 'sources_h'].map(k => [k, need(T[k], k)])),
+    refs: d.refs.map(r => ({ ...r, s: need(T.refs?.[r.k]?.s, `refs.${r.k}.s`), full: need(T.refs?.[r.k]?.full, `refs.${r.k}.full`) })),
+    rules: d.rules.map(r => {
+      const x = need(T.rules?.[r.id], `rules.${r.id}`), k = `rules.${r.id}`;
+      const items = same(r.items, x.items, `${k}.items`);
+      return { ...r, h: need(x.h, `${k}.h`), items: r.items.map(([w], i) => [w, items[i]]), p: same(r.p, x.p, `${k}.p`) };
+    }),
+    formulas: d.formulas.map(f => {
+      const x = need(T.formulas?.[f.id], `formulas.${f.id}`), k = `formulas.${f.id}`;
+      const sym = same(f.sym, x.sym, `${k}.sym`);
+      return { ...f, h: need(x.h, `${k}.h`), sym: f.sym.map(([y], i) => [y, sym[i]]) };
+    }),
+    presets: (n => d.presets.map((x, i) => ({ ...x, name: n[i] })))(same(d.presets, T.presets, 'presets')),
+    guide: (same(d.guide, T.guide, 'guide'), d.guide).map((g, i) => ({ ...g, h: need(T.guide[i].h, `guide[${i}].h`), p: same(g.p, T.guide[i].p, `guide[${i}].p`) })),
+    faq: T.faq ?? [],
+  };
+}
+// 材料英語の表現集(/phrases/)。data/phrases.json(既定言語の文型・例文・注意・誤りの例・点検の規則の文・読み物・画面の文言 ui)と、
+// 訳 data/i18n/{言語}/phrases.json(日本語の文だけ。英語の文型・例文・誤りの例は言語によらない)。
+// 既定言語だけで作るサービスなので、画面の文言も src/i18n でなくデータの ui に持つ。訳のファイルがある言語でだけ作る。ファイルがなければ何も作らない。
+// 検索・絞り込み・お気に入り・差し込み欄・コピー・印刷・英文の点検は src/js/phrases.js(点検の規則の id は data の rules とそろえる)
+const phrBase = readOpt('data/phrases.json', null);
+const phrTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/phrases.json`, null));
+const phrOn = code => !!phrBase && (code === defLang || !!phrTr(code)?.phrases);
+const phrJs = phrBase ? await import(pathToFileURL(path.join(root, 'src/js/phrases.js')).href) : null;
+// 訳を既定言語のデータに重ねる。足りない訳や数の合わない訳があれば止める
+function phrText(code) {
+  const d = phrBase;
+  const T = phrTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/phrases.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note', 'sources_h'].map(k => [k, need(T[k], k)])),
+    ui: Object.fromEntries(Object.keys(d.ui).map(k => [k, need(T.ui?.[k], `ui.${k}`)])),
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id]?.name, `groups.${g.id}.name`), lead: need(T.groups?.[g.id]?.lead, `groups.${g.id}.lead`) })),
+    phrases: d.phrases.map(p => ({ ...p, ja: need(T.phrases?.[p.id]?.ja, `phrases.${p.id}.ja`), note: need(T.phrases[p.id].note, `phrases.${p.id}.note`), kw: T.phrases[p.id].kw ?? '' })),
+    check: { ...d.check, h: need(T.check?.h, 'check.h'), lead: same(d.check.lead, T.check.lead, 'check.lead'), privacy: need(T.check.privacy, 'check.privacy'), rules_lead: need(T.check.rules_lead, 'check.rules_lead') },
+    rules: d.rules.map(r => ({ ...r, ...Object.fromEntries(['name', 'why', 'fix'].map(k => [k, need(T.rules?.[r.id]?.[k], `rules.${r.id}.${k}`)])) })),
+    guide: (same(d.guide, T.guide, 'guide'), d.guide).map((g, i) => ({ ...g, h: need(T.guide[i].h, `guide[${i}].h`), p: same(g.p, T.guide[i].p, `guide[${i}].p`) })),
+    faq: T.faq ?? [],
+    refs: d.refs.map(r => ({ ...r, s: need(T.refs?.[r.k], `refs.${r.k}`) })),
+  };
+}
 // ニュースに出た用語(/news-terms/)。用語集の語に「なぜ今話題なのか」などを足す。訳は data/i18n/{言語}/news-terms.json
 const newsTerms = readOpt('data/news-terms.json', []);
 const figs = figures();
@@ -152,6 +548,30 @@ const figSize = svg => (svg.match(/viewBox="[\d.]+ [\d.]+ ([\d.]+) ([\d.]+)"/) |
 function standaloneSvg(svg) {
   const [w, h] = figSize(svg);
   return svg.replace(/^(<svg[^>]*>)/, `$1<style>${figStyle}</style><rect width="${w}" height="${h}" style="fill:var(--surface)"/>`);
+}
+// 原因の連鎖の図(破損解析の事例)。上から下へ箱を矢印でつなぐ縦長の SVG(幅360で、スマートフォンでも文字が小さくなりすぎない)。
+// 色は .fig のクラス(ok: ふつうの箱、ng: 最後の結果)なのでダークモードでも切り替わる。行は data に書いた区切りのまま出し、幅を超える行は止める
+function chainSvg(title, steps, where) {
+  const W = 360, BW = 320, X = 20, LH = 22, SH = 19, GAP = 28;
+  const width = (s, px) => [...s].reduce((n, ch) => n + (/[⺀-￿]/.test(ch) ? px : /[A-Z0-9]/.test(ch) ? px * 0.62 : px * 0.52), 0);
+  const parts = [];
+  let y = 6;
+  steps.forEach((s, i) => {
+    const sub = s.sub ?? [];
+    for (const l of s.lines) if (width(l, 15) > BW - 16) throw new Error(`${where}: 図の行「${l}」が長すぎます(箱の幅を超えます)`);
+    for (const l of sub) if (width(l, 13) > BW - 16) throw new Error(`${where}: 図の行「${l}」が長すぎます(箱の幅を超えます)`);
+    const h = 16 + s.lines.length * LH + sub.length * SH;
+    parts.push(`<rect x="${X}" y="${y}" width="${BW}" height="${h}" rx="10" class="${s.end ? 'ng' : 'ok'}"/>`);
+    let ty = y + 8 + 16;
+    for (const l of s.lines) { parts.push(`<text x="${W / 2}" y="${ty}" text-anchor="middle"${s.end ? ' font-weight="700"' : ''}>${esc(l)}</text>`); ty += LH; }
+    for (const l of sub) { parts.push(`<text x="${W / 2}" y="${ty - 3}" text-anchor="middle" class="sm m">${esc(l)}</text>`); ty += SH; }
+    y += h;
+    if (i < steps.length - 1) {
+      parts.push(`<line x1="${W / 2}" y1="${y + 3}" x2="${W / 2}" y2="${y + GAP - 9}" class="ln"/><path d="M${W / 2 - 6} ${y + GAP - 11}L${W / 2} ${y + GAP - 3}L${W / 2 + 6} ${y + GAP - 11}Z" class="ink"/>`);
+      y += GAP;
+    }
+  });
+  return `<svg viewBox="0 0 ${W} ${y + 6}" role="img"><title>${esc(title)}</title>${parts.join('')}</svg>`;
 }
 const layout = read('src/templates/layout.html');
 const catTpl = read('src/templates/category.html');
@@ -187,7 +607,7 @@ const adsenseTag = config.adsenseClient
   : '';
 const ga4Tag = config.ga4Id
   ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(config.ga4Id)}"></script>
-<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '${esc(config.ga4Id)}');</script>`
+<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '${esc(config.ga4Id)}', { page_location: location.href.split('#')[0] });</script>`
   : '';
 const loc = (v, code) => (v && typeof v === 'object' ? v[code] ?? v[defLang] : v);
 
@@ -236,6 +656,24 @@ function buildLang(L) {
   const catT = tr('categories');
   const gloT = tr('glossary');
   const figT = tr('figures');
+  // 破損解析(この言語で作るときだけ。訳を重ねた文章)
+  const fail = failureOn(code) ? failureText(code) : null;
+  // 組織の見分け方アトラス(この言語で作るときだけ。訳を重ねた文章)
+  const atl = atlasOn(code) ? atlasText(code) : null;
+  // 計算ドリル(この言語で作るときだけ。訳を重ねた文章)
+  const drl = drillOn(code) ? drillText(code) : null;
+  // 材料データ集(この言語で作るときだけ。訳を重ねた文章)
+  const mtl = matOn(code) ? matText(code) : null;
+  // 公式集(この言語で作るときだけ。訳を重ねた文章)
+  const fml = fmlOn(code) ? fmlText(code) : null;
+  // 分析・評価手法ナビ(この言語で作るときだけ。訳を重ねた文章)
+  const mtd = mtdOn(code) ? mtdText(code) : null;
+  // 試料調製・エッチングガイド(この言語で作るときだけ。訳を重ねた文章)
+  const prp = prpOn(code) ? prpText(code) : null;
+  // 組織写真の計測室(この言語で作るときだけ。訳を重ねた文章)
+  const msr = msrOn(code) ? msrText(code) : null;
+  // 材料英語の表現集(この言語で作るときだけ。訳を重ねた文章)
+  const phr = phrOn(code) ? phrText(code) : null;
   // ニュース用語: 日付・問題・リンク先は既定言語のファイルのものを使い、文章だけ訳で置き換える(訳がなければその言語では出さない)
   const nwT = tr('news-terms');
   const news = newsTerms.filter(e => isDef || nwT[e.term]).map(e => {
@@ -386,6 +824,7 @@ function buildLang(L) {
     ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
     ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
     ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
+    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}${mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : ''}${fml ? feature(`${home}formulas/`, S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length }), 'home_feat_formulas') : ''}${mtd ? feature(`${home}methods/`, S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length }), 'home_feat_methods') : ''}${prp ? feature(`${home}prep/`, S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length }), 'home_feat_prep') : ''}${msr ? feature(`${home}measure/`, S.nav_measure, t('home_feat_measure_desc'), 'home_feat_measure') : ''}${phr ? feature(`${home}phrases/`, phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length), 'home_feat_phrases') : ''}
     ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
     ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
     ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
@@ -611,13 +1050,36 @@ function buildLang(L) {
   const searchItems = [
     ...learnArts.map(a => ({ t: 'l', n: a.title, u: `learn/${a.slug}/`, x: a.description })),
     ...cmp.map(e => ({ t: 'c', n: e.title, u: `compare/${e.slug}/`, x: `${e.description} ${e.items.join(' ')}` })),
+    ...(fail ? [{ t: 'x', n: fail.navi.h1, u: 'failure/', x: `${fail.navi.description} ${fail.navi.modes.map(m => m.name).join(' ')}` },
+      ...fail.cases.map(e => ({ t: 'x', n: e.title, u: `failure/${e.slug}/`, x: e.description }))] : []),
+    ...(atl ? [{ t: 'a', n: atl.h1, u: 'atlas/', x: atl.description },
+      ...atl.structures.map(e => ({ t: 'a', n: e.name, u: `atlas/?s=${e.id}#s-${e.id}`, x: e.short })),
+      { t: 'a', n: t('atlas_grain_h'), u: 'atlas/#grain', x: atl.grain.lead }] : []),
+    ...(drl ? [{ t: 'd', n: drl.h1, u: 'drill/', x: drl.description },
+      ...drl.types.map(x => ({ t: 'd', n: x.name, u: `drill/?t=${x.id}`, x: x.short }))] : []),
+    ...(fml ? [{ t: 'e', n: fml.h1, u: 'formulas/', x: fml.description },
+      ...fml.formulas.map(f => ({ t: 'e', n: f.name, u: `formulas/#f-${f.id}`, x: `${f.f.map(y => y.t).join(' ').replace(/[_{}^]/g, '')} ${f.kw}` }))] : []),
+    ...(mtd ? [{ t: 'v', n: mtd.h1, u: 'methods/', x: mtd.description },
+      ...mtd.methods.map(m => ({ t: 'v', n: m.abbr ? `${m.name} / ${m.abbr}` : m.name, u: `methods/#m-${m.id}`, x: m.what }))] : []),
+    ...(prp ? [{ t: 'r', n: prp.h1, u: 'prep/', x: prp.description },
+      ...prp.materials.map(m => ({ t: 'r', n: m.name, u: `prep/#p-${m.id}`, x: m.see.join(' ') })),
+      ...prp.etchants.map(e => ({ t: 'r', n: e.name, u: `prep/#e-${e.id}`, x: `${e.comp.join(' ')} ${e.see}` })),
+      ...prp.defects.map(f => ({ t: 'r', n: f.name, u: `prep/#f-${f.id}`, x: f.look }))] : []),
+    ...(msr ? [{ t: 'u', n: msr.h1, u: 'measure/', x: msr.description },
+      ...(Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'measure_calc_h') ? [{ t: 'u', n: S.measure_calc_h, u: 'measure/#calc', x: S.measure_calc_lead }, { t: 'u', n: S.measure_conv_h, u: 'measure/#conv', x: S.measure_conv_lead }] : []),
+      ...msr.rules.map(r => ({ t: 'u', n: r.h, u: `measure/#rules-${r.id}`, x: r.items.map(i => i[1]).join(' ') })),
+      ...msr.guide.map(g => ({ t: 'u', n: g.h, u: `measure/#${g.id}`, x: g.p[0] }))] : []),
+    ...(phr ? [{ t: 'p', n: phr.h1, u: 'phrases/', x: phr.description },
+      ...phr.phrases.map(x => ({ t: 'p', n: x.ja, u: `phrases/#p-${x.id}`, x: `${x.en} ${x.kw}` }))] : []),
+    ...(mtl ? [{ t: 'm', n: mtl.h1, u: 'materials/', x: mtl.description },
+      ...mtl.materials.map(m => ({ t: 'm', n: m.name, u: `materials/?m=${m.id}#md-card`, x: [m.sub, m.sym, ...m.codes, ...m.al].filter(Boolean).join(' ') }))] : []),
     ...terms.map(g => ({ t: 't', n: g.term, u: `term/${termSlug[g.key]}/`, x: g.desc, ...(isDef ? {} : { k: g.key }) })),
     ...live.map(c => ({ t: 'k', n: c.name, u: `c/${c.id}/`, x: c.description })),
     ...figList.map(x => ({ t: 'f', n: x.title, u: figPage(x.id) ? `figures/${x.id}/` : `figures/#fig-${x.id}`, x: '' })),
     ...live.flatMap(c => qs[c.id].map(q => ({ t: 'q', n: q.question, u: `q/${c.id}/${q.id}/`, x: c.name }))),
   ];
   write(`data/${code}/search.json`, JSON.stringify({
-    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}) },
+    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}), ...(mtl ? { search_g_m: S.nav_materials } : {}), ...(fml ? { search_g_e: S.nav_formulas } : {}), ...(mtd ? { search_g_v: S.nav_methods } : {}), ...(prp ? { search_g_r: S.nav_prep } : {}), ...(msr ? { search_g_u: S.nav_measure } : {}), ...(phr ? { search_g_p: phr.ui.nav } : {}) },
     items: searchItems,
   }));
 
@@ -661,6 +1123,15 @@ function buildLang(L) {
     // サイトについて: 中身のあるコンテンツだけを並べる
     // 項目名と説明の区切りは、日本語・中国語は全角のコロン、ほかの言語(韓国語も)は「: 」(固定ページの項目と同じ書き方)
     aboutCompare: cmp.length ? `  <li><strong><a href="${home}compare/">${esc(S.nav_compare)}</a></strong>${itemSep}${esc(t('about_compare'))}</li>\n` : '',
+    aboutFailure: fail ? `  <li><strong><a href="${home}failure/">${esc(S.nav_failure)}</a></strong>${itemSep}${esc(t('about_failure'))}</li>\n` : '',
+    aboutAtlas: atl ? `  <li><strong><a href="${home}atlas/">${esc(S.nav_atlas)}</a></strong>${itemSep}${esc(t('about_atlas'))}</li>\n` : '',
+    aboutDrill: drl ? `  <li><strong><a href="${home}drill/">${esc(S.nav_drill)}</a></strong>${itemSep}${esc(t('about_drill'))}</li>\n` : '',
+    aboutMaterials: mtl ? `  <li><strong><a href="${home}materials/">${esc(S.nav_materials)}</a></strong>${itemSep}${esc(t('about_materials'))}</li>\n` : '',
+    aboutFormulas: fml ? `  <li><strong><a href="${home}formulas/">${esc(S.nav_formulas)}</a></strong>${itemSep}${esc(t('about_formulas'))}</li>\n` : '',
+    aboutMethods: mtd ? `  <li><strong><a href="${home}methods/">${esc(S.nav_methods)}</a></strong>${itemSep}${esc(t('about_methods'))}</li>\n` : '',
+    aboutPrep: prp ? `  <li><strong><a href="${home}prep/">${esc(S.nav_prep)}</a></strong>${itemSep}${esc(t('about_prep'))}</li>\n` : '',
+    aboutMeasure: msr ? `  <li><strong><a href="${home}measure/">${esc(S.nav_measure)}</a></strong>${itemSep}${esc(t('about_measure'))}</li>\n` : '',
+    aboutPhrases: phr ? `  <li><strong><a href="${home}phrases/">${esc(phr.ui.nav)}</a></strong>${itemSep}${esc(phr.ui.about)}</li>\n` : '',
     aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
     courseHint: liveCourses.length ? `<p class="hero-note"><a href="#courses">${esc(t('home_course_hint'))} → ${esc(t('course_heading'))}</a></p>` : '',
@@ -726,15 +1197,36 @@ function buildLang(L) {
       : alt[x.code] != null
         ? `<a href="${base}${alt[x.code]}" hreflang="${x.htmlLang}" lang="${x.htmlLang}" data-lang="${x.code}">${esc(x.label)}</a>`
         : `<a href="${base}${fallback(x)}" lang="${x.htmlLang}" data-lang="${x.code}">${esc(x.label)}</a>`).join('');
-    // ヘッダーのナビ(いまいるページには aria-current を付ける)。
-    // PC: Topics / 用語集 / 比較 / 図解 / 計算ツール / Progress。スマートフォン: ホームを加えて Menu に縦に並べる
-    const navLink = ([sub, label]) => `<a href="${home}${sub}"${p === L.path + sub ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
-    const resources = [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
-      ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : []),
-      ...(toolsIn(code).length ? [['tools/', S.nav_tools]] : [])];
-    // 用語集・比較・図解・計算ツールはそれぞれ独立した項目として並べる(PC ではホームはロゴから戻る)
-    const headerNav = [['c/', S.nav_topics], ...resources, ['stats/', S.nav_stats]].map(navLink).join('');
-    const navMenu = [['', S.nav_home], ['c/', S.nav_topics], ...resources, ['stats/', S.nav_stats]].map(navLink).join('');
+    // ヘッダーのナビ: サービスを使う目的でグループにまとめる(学ぶ・練習する・調べる/計算する)。この言語・このサイトにあるサービスだけを入れる
+    // 項目: [行き先, 名前, 説明(トップの「できること」の文言), このページの下にあるほかのパス]
+    // いまいるページのリンクには aria-current="page"、その下のページ(用語・記事など)では "true"、それを含むグループの見出しにも "true" を付ける
+    const navGroups = [
+      ['learn', S.nav_group_learn, [['c/', S.nav_topics, t('home_feat_topics_desc', { n: live.length }), ['q/', 'course/']],
+        ...(learnArts.length ? [['learn/', LT.nav, LT.card]] : []), ['glossary/', S.nav_glossary, t('home_feat_glossary_desc'), ['term/']],
+        ...(cmp.length ? [['compare/', S.nav_compare, t('home_feat_compare_desc')]] : []), ...(atl ? [['atlas/', S.nav_atlas, t('home_feat_atlas_desc')]] : []),
+        ...(figList.length ? [['figures/', S.footer_figures, t('home_feat_figures_desc')]] : [])]],
+      ['practice', S.nav_group_practice, [...(drl ? [['drill/', S.nav_drill, t('home_feat_drill_desc')]] : []), ['stats/', S.nav_stats]]],
+      ['lookup', S.nav_group_lookup, [...(toolsIn(code).length ? [['tools/', S.nav_tools, t('home_feat_tools_desc')]] : []),
+        ...(mtl ? [['materials/', S.nav_materials, t('home_feat_materials_desc')]] : []), ...(fml ? [['formulas/', S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length })]] : []),
+        ...(phr ? [['phrases/', phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length)]] : []),
+        ...(mtd ? [['methods/', S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length })]] : []),
+        ...(prp ? [['prep/', S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length })]] : []),
+        ...(msr ? [['measure/', S.nav_measure, t('home_feat_measure_desc')]] : []),
+        ...(fail ? [['failure/', S.nav_failure, t('home_feat_failure_desc')]] : []), ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : [])]],
+    ].filter(g => g[2].length);
+    const here = ([sub, , , also = []]) => (p === L.path + sub ? 'page' : [sub, ...also].some(s => s && p.startsWith(L.path + s)) ? 'true' : '');
+    const cur = it => (here(it) ? ` aria-current="${here(it)}"` : '');
+    const navLink = it => `<a href="${home}${it[0]}"${cur(it)}>${esc(it[1])}</a>`;
+    // 項目が5つまでのサイト(兄弟サイトなど)はグループにせず、前と同じようにリンクを並べる(成績は最後)
+    const navAll = navGroups.flatMap(g => g[2]), flat = navAll.length <= 5 && [...navAll.filter(it => it[0] !== 'stats/'), ...navAll.filter(it => it[0] === 'stats/')];
+    // PC: グループは <details> で開く(JS なしでも開閉できる。name が同じなので1つ開くとほかは閉じる)。中身が1つだけのグループはリンクにする。ホームはロゴから戻る
+    // 説明は aria-describedby で読ませ、リンクの名前に重ならないよう aria-hidden にする
+    const headerNav = flat ? flat.map(navLink).join('') : navGroups.map(([id, name, items]) => (items.length === 1 ? navLink(items[0])
+      : `<details class="menu nav-group" name="nav-group"><summary${items.some(here) ? ' aria-current="true"' : ''}>${esc(name)}</summary><div class="menu-panel">${items.map((it, i) =>
+        `<a href="${home}${it[0]}"${cur(it)}${it[2] ? ` aria-describedby="nd-${id}-${i}"` : ''}><strong>${esc(it[1])}</strong>${it[2] ? `<small id="nd-${id}-${i}" aria-hidden="true">${esc(it[2])}</small>` : ''}</a>`).join('')}</div></details>`)).join('');
+    // スマートフォン: Menu の中に、ホームのあと同じグループを見出しつきで縦に並べる(1つだけのグループも区切り線で分け、前のグループの項目に見えないようにする)
+    const navMenu = [navLink(['', S.nav_home]), ...(flat ? flat.map(navLink) : navGroups.map(([id, name, items]) => (items.length === 1 ? `<div class="menu-group">${navLink(items[0])}</div>`
+      : `<div class="menu-group" role="group" aria-labelledby="mg-${id}"><p class="menu-head" id="mg-${id}">${esc(name)}</p>${items.map(navLink).join('')}</div>`)))].join('');
     // 既定言語以外のページ: ブラウザの言語がこのページの言語でない人に、既定言語版への案内を出す(閉じたら以後出さない)
     const mainHref = langBanner && code !== mainLang ? base + (alt[mainLang] ?? fallback(mainL)) : null;
     const bannerHtml = mainHref ? `<div class="lang-banner" lang="${mainL.htmlLang}" hidden><div class="wrap"><a href="${mainHref}" hreflang="${mainL.htmlLang}">${esc(mainS.lang_banner)}</a><button type="button" aria-label="${esc(mainS.lang_banner_close)}">×</button></div></div>
@@ -768,7 +1260,7 @@ function buildLang(L) {
     if ((name === 'compare' && !cmp.length) || (name === 'figures' && !figList.length)) continue;
     const src = cond(read(`src/pages/${code}/${name}.html`), pageFlags);
     const m = src.match(/^<!--\s*(\{[\s\S]*?\})\s*-->/);
-    const alt = Object.fromEntries(langs.filter(x => pageNames(x.code).includes(name)).map(x => [x.code, pagePath(x, name)]));
+    const alt = Object.fromEntries(langs.filter(x => pageNames(x.code).includes(name) && (name !== 'compare' || cmpLangCodes.has(x.code))).map(x => [x.code, pagePath(x, name)]));
     // トップ: 検索結果のサイト名になる WebSite(各言語のサイト名を別名として添える)
     // あわせて運営者の Organization(サイト名で検索した人にトップを示し、ロゴを伝える)
     // 別名は公開している言語(config.languages)のサイト名だけ(siteName に先に書いた、まだ公開していない言語の名前は入れない)
@@ -1245,16 +1737,19 @@ ${x.faq?.length ? `<section class="faq">
   const select = (name, label, options, value) => `<label class="dy-field"><span>${esc(label)}</span><select name="${name}">${options.map(([v, text]) => `<option value="${v}"${v === value ? ' selected' : ''}>${esc(text)}</option>`).join('')}</select></label>`;
   const stat = (key, label) => `<div><dt>${esc(label)}</dt><dd data-out="${key}">–</dd></div>`;
   // 入力欄と結果の枠を data/tools/{ID}.json の form から作る(toolBody に専用の形がないツール)。
-  // form: { id, fields: [{ name, value, attrs?, options?: [値…] }], outputs: [{ heading?, stats: [名前…] }], note? }
+  // form: { id, fields: [{ name, value, attrs?, options?: [値…], type?: 'text' }], outputs: [{ heading?, stats: [名前…], box?: 名前 }], note? }
+  // type 'text' は文字の入力欄(記号の読み方など)。box は JS が中身を書く枠(表や説明の並び)
   // 文言は text の name(入力)・stat 名の - を _ にしたもの(結果)・{name}_{値}(選択肢)・heading と note のキー。
   // JS で使う文言は text.js に書くと、form の data-text に入る
   const formBody = (f, x) => `<form id="${f.id}" class="dy-form"${x.js ? ` data-text="${esc(JSON.stringify(x.js))}"` : ''}>
     <h2>${esc(x.in_heading)}</h2>
-    ${f.fields.map(y => (y.options ? select(y.name, x[y.name], y.options.map(v => [v, x[`${y.name}_${v}`] ?? v]), y.value) : field(y.name, x[y.name], y.value, y.attrs ?? ''))).join('\n    ')}
+    ${f.fields.map(y => (y.options ? select(y.name, x[y.name], y.options.map(v => [v, x[`${y.name}_${v}`] ?? v]), y.value)
+      : y.type === 'text' ? `<label class="dy-field"><span>${esc(x[y.name])}</span><input name="${y.name}" type="text" value="${esc(y.value)}" autocomplete="off" spellcheck="false" ${y.attrs ?? ''}></label>`
+      : field(y.name, x[y.name], y.value, y.attrs ?? ''))).join('\n    ')}
   </form>
   <section class="dy-out" aria-live="polite">
     <h2>${esc(x.out_heading)}</h2>${f.outputs.map(o => `${o.heading ? `\n    <h3>${esc(x[o.heading])}</h3>` : ''}
-    <dl class="dy-stats">${o.stats.map(k => stat(k, x[k.replaceAll('-', '_')])).join('')}</dl>`).join('')}${f.svg ? `
+    ${o.stats?.length ? `<dl class="dy-stats">${o.stats.map(k => stat(k, x[k.replaceAll('-', '_')])).join('')}</dl>` : ''}${o.box ? `<div class="dy-box" data-out="${o.box}"></div>` : ''}`).join('')}${f.svg ? `
     <svg id="${f.svg}" class="sta-chart" viewBox="0 0 600 320" role="img" aria-label="${esc(x.chart_label ?? x.h1)}"></svg>` : ''}${f.note ? `
     <p class="muted">${esc(x[f.note])}</p>` : ''}
   </section>`;
@@ -2437,6 +2932,8 @@ ${x.faq?.length ? `<section class="faq">
     // 関連する図解と比較ページ(この言語で出せるものだけ)
     const tf = (tool.figures ?? []).map(id => figList.find(f => f.id === id)).filter(Boolean);
     const tcmp = (tool.compares ?? []).map(slug => cmp.find(e => e.slug === slug)).filter(Boolean);
+    // 公式集でこのツールを挙げている式
+    const tfm = (fml?.formulas ?? []).filter(f => (f.tools ?? []).some(y => y.id === tool.id));
     page({
       path: toolPath(tool, L),
       alt: Object.fromEntries(langs.filter(y => tool.text[y.code]).map(y => [y.code, toolPath(tool, y)])),
@@ -2493,6 +2990,10 @@ ${tf.length ? `<section>
   <ul class="tool-figs">${tf.map(f => `<li><a href="${figHref(f.id)}"><img src="${base}img/${code}/${f.id}.svg" alt="" width="${f.size[0]}" height="${f.size[1]}" loading="lazy"><span>${esc(f.title)}</span></a></li>`).join('')}</ul>
 </section>` : ''}
 ${cmpSection(t('tool_rel_compare'), tcmp)}
+${tfm.length ? `<section>
+  <h2>${esc(S.nav_formulas)}</h2>
+  <p class="term-chips">${tfm.map(f => `<a class="chip" href="${home}formulas/#f-${f.id}">${esc(f.name)}</a>`).join(' ')}</p>
+</section>` : ''}
 ${toolsIn(code).length > 1 ? `<section>
   <h2>${esc(t('figure_tools'))}</h2>
   <div class="mode-grid compact">${relatedTools(tool).map(y => `<a class="mode-card" href="${home}tools/${y.slug}/"><strong>${esc(y.text[code].h1)}</strong><span>${esc(y.text[code].card)}</span></a>`).join('')}</div>
@@ -2588,7 +3089,7 @@ ${used.length ? `<section>
       page({
         path: `${L.path}compare/${e.slug}/`,
         alt: Object.fromEntries(cmpLangs(e.slug).map(x => [x.code, `${x.path}compare/${e.slug}/`])),
-        fallback: x => `${x.path}compare/`,
+        fallback: x => (cmpLangCodes.has(x.code) ? `${x.path}compare/` : x.path),
         title: e.title,
         description: e.description,
         scripts: ['compare.js', 'answer.js'],
@@ -2641,6 +3142,1758 @@ ${keyTerms.length ? `<section>
   </dl>
 </section>` : ''}
 ${cmpSection(t('compare_more'), relatedCmp(e))}`,
+      });
+    }
+  }
+
+  // 組織の見分け方アトラス: /atlas/(一覧・組織ごとの見分け方・結晶粒度・見分ける練習。動きは atlas.js、図は micro.js)
+  if (atl) buildAtlas();
+  function buildAtlas() {
+    const A = atl;
+    const where = 'data/atlas.json';
+    const ids = new Set(A.structures.map(s => s.id));
+    const groupIds = new Set(A.groups.map(g => g.id));
+    // 既定言語のデータで決まる検査(どの言語でも同じ結果になる)
+    for (const [k, v] of Object.entries(A.sources)) if (!/^https:\/\//.test(v.url ?? '')) throw new Error(`${where}: 出典 ${k} の URL(https)がありません`);
+    for (const s of A.structures) {
+      const w = `${where}: 組織 ${s.id}`;
+      if (!/^[a-z0-9-]+$/.test(s.id)) throw new Error(`${w}: id は英小文字・数字・ハイフンだけにしてください`);
+      if (!groupIds.has(s.group)) throw new Error(`${w}: 存在しない区分 ${s.group}`);
+      if (!micro.kinds.includes(s.draw?.kind)) throw new Error(`${w}: micro.js に描き方のない図 ${s.draw?.kind}`);
+      // 倍率の目安は「図を幅10 cmで見たときの倍率」= 100 mm ÷ 図の幅
+      if (!(s.draw.field > 0) || Math.abs(s.draw.mag - 1e5 / s.draw.field) > s.draw.mag * 0.01) throw new Error(`${w}: 倍率 ×${s.draw.mag} が図の幅 ${s.draw.field} µm(×${1e5 / s.draw.field})と合いません`);
+      for (const x of ['see', 'shade', 'etch', 'forms', 'clues']) if (!s[x]?.length) throw new Error(`${w}: ${x} がありません`);
+      if (!s.confuse?.length) throw new Error(`${w}: 見まちがえやすい組織(confuse)がありません`);
+      for (const c of s.confuse) if (!ids.has(c.id) || c.id === s.id) throw new Error(`${w}: confuse の組織 ${c.id} がありません`);
+      for (const k of s.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${w}: 用語集にない語 ${k}`);
+      for (const id of s.questions ?? []) if (isDef && !qById.has(id)) throw new Error(`${w}: 存在しない問題 ${id}`);
+      for (const x of s.tools ?? []) {
+        if (!tools.some(y => y.slug === x.slug)) throw new Error(`${w}: 存在しない計算ツール ${x.slug}`);
+        for (const [, p] of (x.q ?? '').matchAll(/\{(\w+)\}/g)) if (p !== s.lever?.param) throw new Error(`${w}: ツール ${x.slug} の {${p}} はつまみ(lever.param)にありません`);
+      }
+      const keys = [...s.src, ...s.props.flatMap(p => p.s)];
+      if (!s.src.length) throw new Error(`${w}: 出典(src)がありません`);
+      for (const k of keys) if (!A.sources[k]) throw new Error(`${w}: 出典の鍵 ${k} が sources にありません`);
+      if (s.lever) {
+        const v = s.lever;
+        if (!/^[a-z]+$/.test(v.param) || ['s', 'g', 'p', 'a', 'std'].includes(v.param)) throw new Error(`${w}: lever.param「${v.param}」は使えません`);
+        if (!(v.lo < v.min && v.min <= v.def && v.def <= v.max && v.max < v.hi) || !['hypo', 'hyper'].includes(v.kind)) throw new Error(`${w}: lever の値の並び(lo < min ≤ def ≤ max < hi)か kind が正しくありません`);
+        if (v.pmin != null && !(v.min <= v.pmin && v.pmin <= v.max)) throw new Error(`${w}: lever.pmin(練習で出す炭素量の下限)は min〜max の中にしてください`);
+      }
+      // 図が描けること(描けない図をページに出さない)
+      micro.drawMicro({ kind: s.draw.kind, seed: 1, field: s.draw.field, mag: s.draw.mag, f: s.lever ? micro.leverFrac(s.lever, s.lever.def) : undefined });
+    }
+    for (const k of A.grain.src) if (!A.sources[k]) throw new Error(`${where}: 結晶粒度の出典の鍵 ${k} が sources にありません`);
+    if (new Set(A.structures.map(s => s.lever?.param).filter(Boolean)).size !== A.structures.filter(s => s.lever).length) throw new Error(`${where}: lever.param が重なっています`);
+
+    const aHome = `${home}atlas/`;
+    const aPath = l => `${l.path}atlas/`;
+    const aAlt = Object.fromEntries(langs.filter(x => atlasOn(x.code)).map(x => [x.code, aPath(x)]));
+    const num = (v, d = 2) => Number(v.toFixed(d)).toLocaleString(L.htmlLang, { useGrouping: !/^de/.test(L.htmlLang) });
+    const width = um => (um >= 1000 ? `${num(um / 1000)} mm` : `${num(um)} µm`);
+    const termChips = keys => keys.map(k => terms.find(x => x.key === k)).filter(Boolean).map(x => `<a class="chip" href="${home}term/${termSlug[x.key]}/">${esc(x.term)}</a>`).join(' ');
+    const fill = (q, s) => (s.lever ? q.replaceAll(`{${s.lever.param}}`, String(s.lever.def)) : q);
+    const toolLink = (x, s) => {
+      const y = tools.find(z => z.slug === x.slug);
+      if (!y.text[code]) return '';
+      const href = `${home}tools/${x.slug}/${x.q ? `?${fill(x.q, s)}` : ''}`;
+      return `<a href="${esc(href)}"${x.q && s.lever ? ` data-tq="${esc(`${home}tools/${x.slug}/?${x.q}`)}"` : ''}>${esc(y.text[code].h1)}</a>`;
+    };
+    const fracText = (s, v) => t(s.lever.kind === 'hypo' ? 'atlas_frac_hypo' : 'atlas_frac_hyper', { c: num(v), p: num(micro.leverFrac(s.lever, v) * 100, 1) });
+    const thumb = s => `<span class="at-thumb fig" data-thumb="${s.id}" aria-hidden="true"></span>`;
+    const cards = list => `<ul class="at-gallery">${list.map(s => `
+  <li><a class="at-card" href="?s=${s.id}#s-${s.id}" data-s="${s.id}">${thumb(s)}<strong>${esc(s.name)}</strong><span>${esc(s.short)}</span></a></li>`).join('')}
+</ul>`;
+    const li = list => `<ul>${list.map(x => `<li>${linked(x)}</li>`).join('')}</ul>`;
+    const entry = s => {
+      const keys = [...new Set([...s.src, ...s.props.flatMap(p => p.s)])];
+      const ref = k => `<a class="at-ref" href="#src-${s.id}-${keys.indexOf(k) + 1}">[${keys.indexOf(k) + 1}]</a>`;
+      const qs2 = (s.questions ?? []).map(id => qById.get(id)).filter(Boolean);
+      const tl = (s.tools ?? []).map(x => toolLink(x, s)).filter(Boolean);
+      const byId = id => A.structures.find(x => x.id === id);
+      return `
+  <details class="at-entry" id="s-${s.id}" data-id="${s.id}">
+    <summary><strong>${esc(s.name)}</strong><span>${esc(s.short)}</span></summary>
+    <div class="at-body">
+    <figure class="fig at-fig">
+      <div class="at-svg" data-draw="${s.id}"></div>
+      <figcaption>${esc(t('atlas_fig_cap', { m: num(s.draw.mag, 0), w: width(s.draw.field) }))} <button type="button" class="btn btn-ghost btn-small" data-redraw="${s.id}">${esc(t('atlas_redraw'))}</button></figcaption>
+    </figure>${s.lever ? `
+    <div class="at-lever">
+      <label for="lv-${s.id}">${esc(t('atlas_c_label'))} <output id="lv-${s.id}-out" for="lv-${s.id}">${num(s.lever.def)}</output> %</label>
+      <input type="range" id="lv-${s.id}" data-lever="${s.id}" min="${s.lever.min}" max="${s.lever.max}" step="${s.lever.step}" value="${s.lever.def}">
+      <p class="at-frac" data-frac="${s.id}">${esc(fracText(s, s.lever.def))}</p>
+    </div>` : ''}
+    <h3>${esc(t('atlas_see'))}</h3>
+    ${li(s.see)}
+    <h3>${esc(t('atlas_shade'))}</h3>
+    ${li(s.shade)}
+    <h3>${esc(t('atlas_etch'))}</h3>
+    ${li(s.etch)}
+    <h3>${esc(t('atlas_forms'))}</h3>
+    ${li(s.forms)}
+    <h3>${esc(t('atlas_props'))}</h3>
+    <ul>${s.props.map(p => `<li>${linked(p.t)} ${p.s.map(ref).join('')}</li>`).join('')}</ul>
+    <h3>${esc(t('atlas_confuse'))}</h3>
+    <ul class="at-confuse">${s.confuse.map(c => `<li><a href="?s=${c.id}#s-${c.id}" data-s="${c.id}">${esc(byId(c.id).name)}</a>: ${linked(c.how)}</li>`).join('')}</ul>
+    <h3>${esc(t('atlas_clues'))}</h3>
+    <ul class="at-clues">${s.clues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    ${s.terms?.length ? `<p class="term-chips"><span class="muted">${esc(t('atlas_terms'))}:</span> ${termChips(s.terms)}</p>` : ''}
+    ${tl.length ? `<p class="at-tools"><span class="muted">${esc(t('atlas_tools'))}:</span> ${tl.join(' / ')}</p>` : ''}
+    ${qs2.length ? `<p class="fn-qlinks"><span class="muted">${esc(t('atlas_check_q'))}:</span></p>${qLinks(qs2)}` : ''}
+    <div class="fn-sources at-sources"><h3>${esc(t('atlas_sources'))}</h3><ol>${keys.map((k, i) => `<li id="src-${s.id}-${i + 1}"><a href="${esc(A.sources[k].url)}" rel="noopener" target="_blank">${esc(A.sources[k].name)}</a></li>`).join('')}</ol></div>
+    <div class="cmp-tools"><button type="button" class="btn btn-ghost" data-copy="s=${s.id}" data-hash="s-${s.id}" data-done="${esc(t('compare_link_copied'))}">${esc(t('atlas_link'))}</button></div>
+    </div>
+  </details>`;
+    };
+    const G = A.grain;
+    const grainHtml = `<section class="at-grain" id="grain">
+  <h2>${esc(t('atlas_grain_h'))}</h2>
+  <p>${linked(G.lead)}</p>
+  <div class="at-grain-box">
+    <figure class="fig at-fig"><div class="at-svg" data-grain></div><figcaption class="at-gcap" aria-live="polite"></figcaption></figure>
+    <div class="at-gctl">
+      <fieldset class="at-std"><legend>${esc(t('atlas_grain_std'))}</legend>
+        <label><input type="radio" name="std" value="jis" checked> JIS G 0551</label>
+        <label><input type="radio" name="std" value="astm"> ASTM E112</label>
+      </fieldset>
+      <label for="g-num">${esc(t('atlas_grain_g'))} <output id="g-out" for="g-num">5</output></label>
+      <input type="range" id="g-num" min="0" max="12" step="0.5" value="5">
+      <dl class="at-gout" aria-live="polite"></dl>
+      <div class="cmp-tools">
+        <button type="button" class="btn btn-ghost" data-count aria-pressed="false">${esc(t('atlas_g_count'))}</button>
+        <button type="button" class="btn btn-ghost" data-redraw-grain>${esc(t('atlas_redraw'))}</button>
+        <button type="button" class="btn btn-ghost" data-copy="g" data-hash="grain" data-done="${esc(t('compare_link_copied'))}">${esc(t('atlas_link_grain'))}</button>
+      </div>
+      <div class="at-count" aria-live="polite" hidden></div>
+    </div>
+  </div>
+  <h3>${esc(t('atlas_grain_cmp'))}</h3>
+  <p class="muted">${esc(t('atlas_grain_cmp_lead'))}</p>
+  <div class="at-cmp" data-cmp></div>
+  <h3>${esc(t('atlas_grain_methods'))}</h3>
+  <dl class="fn-measures at-methods">${G.methods.map(([n, x]) => `<div><dt>${esc(n)}</dt><dd>${linked(x)}</dd></div>`).join('')}</dl>
+  <h3>${esc(t('atlas_grain_formulas'))}</h3>
+  <ul class="at-formulas">${G.formulas.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
+  <p class="muted">${linked(G.note)}</p>
+  <div class="fn-sources"><h3>${esc(t('atlas_sources'))}</h3><ol>${G.src.map(k => `<li><a href="${esc(A.sources[k].url)}" rel="noopener" target="_blank">${esc(A.sources[k].name)}</a></li>`).join('')}</ol></div>
+</section>`;
+    const practiceHtml = `<section class="at-practice" id="practice">
+  <h2>${esc(t('atlas_practice_h'))}</h2>
+  <p>${esc(t('atlas_practice_lead'))}</p>
+  <div class="at-pbox">
+    <figure class="fig at-fig"><div class="at-svg" data-practice></div></figure>
+    <div class="at-pside">
+      <p class="at-pq"><strong>${esc(t('atlas_p_q'))}</strong></p>
+      <div class="at-opts" role="group" aria-label="${esc(t('atlas_p_q'))}"></div>
+      <div class="at-pres" aria-live="polite"></div>
+      <div class="cmp-tools">
+        <button type="button" class="btn btn-primary" data-next>${esc(t('atlas_p_next'))}</button>
+        <button type="button" class="btn btn-ghost" data-copy="p" data-hash="practice" data-done="${esc(t('compare_link_copied'))}">${esc(t('atlas_p_share'))}</button>
+      </div>
+      <label class="at-weak-mode"><input type="checkbox" data-weak> ${esc(t('atlas_p_weak_mode'))}</label>
+      <div class="at-stats" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="muted fn-note">${esc(t('atlas_url_note'))}</p>
+</section>`;
+    // atlas.js に渡すデータ(図の描き方・練習の手がかり・画面の文言)
+    const jsData = {
+      s: A.structures.map(s => ({ id: s.id, name: s.name, k: s.draw.kind, f: s.draw.field, m: s.draw.mag, lever: s.lever ?? null, clues: s.clues, conf: s.confuse })),
+      t: Object.fromEntries(['atlas_mag_label', 'atlas_fig_title', 'atlas_frac_hypo', 'atlas_frac_hyper', 'atlas_frac_fig', 'atlas_g_cap', 'atlas_g_na', 'atlas_g_area', 'atlas_g_d', 'atlas_g_l', 'atlas_g_n100',
+        'atlas_g_other', 'atlas_g_count', 'atlas_g_count_hide', 'atlas_g_jeff', 'atlas_g_icpt', 'atlas_g_count_note', 'atlas_g_cmp_item', 'atlas_p_fig', 'atlas_p_ok', 'atlas_p_ng', 'atlas_p_clues',
+        'atlas_p_diff', 'atlas_p_chosen', 'atlas_p_detail', 'atlas_p_streak', 'atlas_p_score', 'atlas_p_weak', 'atlas_p_weak_none', 'atlas_p_reset', 'atlas_p_shared', 'atlas_p_nostore'].map(k => [k, S[k]])),
+    };
+    const relCats = ['metals', 'phase-diagram', 'heat-treatment', 'characterization', 'crystal', 'mechanical'].map(catOf).filter(c => c && live.includes(c));
+    page({
+      path: aPath(L),
+      alt: aAlt,
+      title: A.title,
+      fullTitle: `${A.title} | ${siteName}`,
+      description: A.description,
+      scripts: ['atlas.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_atlas, aHome]),
+        { '@context': 'https://schema.org', '@type': 'WebApplication', name: A.h1, description: A.description, url: abs(aHome), inLanguage: L.htmlLang,
+          applicationCategory: 'EducationalApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+        ...(A.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: A.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(A.h1)}</h1>
+<p class="lead">${esc(A.lead)}</p>
+<p class="fn-caution">${esc(A.note)}</p>
+<noscript><p class="muted">${esc(t('atlas_noscript'))}</p></noscript>
+<nav class="at-toc" aria-label="${esc(t('atlas_toc'))}"><a class="chip" href="#list">${esc(t('atlas_list_h'))}</a> <a class="chip" href="#grain">${esc(t('atlas_grain_h'))}</a> <a class="chip" href="#practice">${esc(t('atlas_practice_h'))}</a></nav>
+<section id="list">
+  <h2>${esc(t('atlas_list_h'))}</h2>
+  <p class="muted">${esc(t('atlas_list_lead', { n: A.structures.length }))}</p>${A.groups.map(g => `
+  <h3>${esc(g.name)}</h3>
+  ${cards(A.structures.filter(s => s.group === g.id))}`).join('')}
+</section>
+<section class="at-entries" id="entries">
+  <h2>${esc(t('atlas_entries_h'))}</h2>
+  <p class="muted">${esc(t('atlas_entries_lead'))}</p>${A.groups.map(g => `
+  <h3 class="at-group">${esc(g.name)}</h3>${A.structures.filter(s => s.group === g.id).map(entry).join('')}`).join('')}
+</section>
+${grainHtml}
+${practiceHtml}
+<script type="application/json" id="at-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+<div data-ad="compare"></div>
+${A.faq.length ? `<section class="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${A.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('atlas_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+  }
+
+  // 計算ドリル: /drill/(問題を選ぶ・解く・判定と途中式・記録。動きは drill.js)
+  if (drl) buildDrill();
+  function buildDrill() {
+    const D = drl;
+    const where = 'data/drill.json';
+    // drill.js の TYPES に型があるか(計算は drill.js にだけ書く)
+    const js = read('src/js/drill.js');
+    const typesSrc = js.slice(js.indexOf('export const TYPES = {'));
+    const gIds = new Set(D.groups.map(g => g.id));
+    for (const g of D.groups) if (!catOf(g.cat) && isDef) throw new Error(`${where}: 分野 ${g.id} の存在しない分類 ${g.cat}`);
+    const seen = new Set();
+    for (const x of D.types) {
+      if (!/^[a-z0-9-]+$/.test(x.id) || seen.has(x.id)) throw new Error(`${where}: 型の id「${x.id}」は英小文字・数字・ハイフンで、重ならないように`);
+      seen.add(x.id);
+      if (!new RegExp(`\\n  (?:'${x.id}'|${x.id}): \\{`).test(typesSrc)) throw new Error(`${where}: 型 ${x.id} の計算が src/js/drill.js の TYPES にありません`);
+      if (!gIds.has(x.group)) throw new Error(`${where}: 型 ${x.id} の存在しない分野 ${x.group}`);
+      if (!(x.tol > 0 && x.tol <= 0.05) || !(x.sig >= 2 && x.sig <= 5)) throw new Error(`${where}: 型 ${x.id} の tol(0〜0.05)か sig(2〜5)がおかしい`);
+      for (const k of x.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: 型 ${x.id} の用語集にない語 ${k}`);
+      for (const id of x.tools ?? []) if (!tools.some(y => y.id === id)) throw new Error(`${where}: 型 ${x.id} の存在しないツール ${id}`);
+      if (isDef) for (const s of x.learn ?? []) if (!learnArts.some(a => a.slug === s)) throw new Error(`${where}: 型 ${x.id} の存在しない記事 ${s}`);
+      for (const [k, v] of Object.entries(x.v ?? {})) {
+        const ok = Array.isArray(v) ? v.length === 3 && v[0] <= v[1] && v[2] > 0 : (v.sig >= 1 && Array.isArray(v.log ?? v.lin) && (v.log ?? v.lin)[0] < (v.log ?? v.lin)[1]);
+        if (!ok) throw new Error(`${where}: 型 ${x.id} の範囲 ${k} は [下限, 上限, 刻み] か { sig, log|lin: [下限, 上限] } で`);
+      }
+    }
+    // 名前: 元素は周期表ツール、材料は材料選びチャートの文言(言語ごと)。英語などは文の途中に入るので頭を小文字にできる
+    const low = s => (D.lowerNames && /^[A-Z][a-z]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s);
+    const toolText = id => tools.find(y => y.id === id)?.text[code] ?? {};
+    const pick = (o, pre) => Object.fromEntries(Object.entries(o).filter(([k]) => k.startsWith(pre)).map(([k, v]) => [k.slice(pre.length), v]));
+    const names = {
+      el: Object.fromEntries(Object.entries(pick(toolText('ptable'), 'el_')).map(([k, v]) => [k, low(v.replace(/^\d+\s+\S+\s+/, ''))])),
+      mat: Object.fromEntries(Object.entries({ ...pick(toolText('ashby'), 'mat_'), ...D.mat }).map(([k, v]) => [k, low(v)])),
+      x: D.names.x, diff: D.names.diff,
+    };
+    for (const x of D.types) for (const [k, list] of Object.entries(x.pick ?? {})) {
+      const book = { mat: /^[A-Z]/.test(list[0]) ? names.el : names.mat, film: names.mat, sub: names.mat, matrix: names.mat }[k];
+      if (book) for (const id of list) if (!book[id]) throw new Error(`${where}: 型 ${x.id} の ${id} の名前がツールの文言(${code})にありません`);
+    }
+    for (const p of D.data.diff) if (!names.diff[p.id]) throw new Error(`${where}: 拡散の系 ${p.id} の名前がありません`);
+    const dHome = `${home}drill/`;
+    const dPath = l => `${l.path}drill/`;
+    const dAlt = Object.fromEntries(langs.filter(x => drillOn(x.code)).map(x => [x.code, dPath(x)]));
+    const typeTools = x => Object.fromEntries((x.tools ?? []).map(id => tools.find(y => y.id === id)).filter(y => y?.text[code])
+      .map(y => [y.id, { n: y.text[code].nav, u: `${home}tools/${y.slug}/` }]));
+    const typeTerms = x => (x.terms ?? []).map(k => terms.find(g => g.key === k)).filter(Boolean).map(g => ({ n: g.term, u: `${home}term/${termSlug[g.key]}/` }));
+    const typeLearn = x => (x.learn ?? []).map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => ({ n: a.title, u: `${home}learn/${a.slug}/` }));
+    // 公式集でこの型を挙げている式(公式集のある言語だけ)
+    const typeFml = x => (fml?.formulas ?? []).filter(f => (f.drill ?? []).includes(x.id)).map(f => ({ n: f.name, u: `${home}formulas/#f-${f.id}` }));
+    const pct = tol => { const s = String(+(tol * 100).toPrecision(2)); return /^de/.test(code) ? s.replace('.', ',') : s; };
+    const tolText = x => t('drill_tol', { tol: [pct(x.tol), ...Object.values(x.tolv ?? {}).map(pct)].filter((v, i, a) => a.indexOf(v) === i).join(' / ') });
+    // drill.js に渡すデータ(型・数値のデータ・名前・画面の文言)
+    const jsData = {
+      t: Object.fromEntries(['drill_all_types', 'drill_n_of', 'drill_answer_in', 'drill_unit_none', 'drill_bad_input', 'drill_bad_unit', 'drill_correct', 'drill_incorrect', 'drill_shown',
+        'drill_answer_is', 'drill_you', 'drill_h_sign', 'drill_h_unit', 'drill_h_pow', 'drill_h_close', 'drill_h_either', 'drill_steps', 'drill_tool_lead', 'drill_related', 'drill_next', 'drill_to_summary',
+        'drill_score', 'drill_retry_type', 'drill_rec_empty', 'drill_rec_group', 'drill_rec_done', 'drill_rec_rate', 'drill_rec_weak', 'drill_rec_clear_q'].map(k => [k, need(k)]).concat(fml ? [['nav_formulas', S.nav_formulas]] : [])),
+      data: D.data, names,
+      groups: D.groups.map(g => ({ id: g.id, name: g.name })),
+      unitLabels: D.units,
+      types: D.types.map(x => ({ id: x.id, group: x.group, name: x.name, q: x.q, steps: x.steps, mistakes: x.mistakes, tol: x.tol, tolv: x.tolv, sig: x.sig,
+        v: x.v, pick: x.pick, data: x.data, tools: typeTools(x), terms: typeTerms(x), learn: typeLearn(x), fml: typeFml(x) })),
+    };
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));
+    const opt = (v, label, sel) => `<option value="${esc(v)}"${sel ? ' selected' : ''}>${esc(label)}</option>`;
+    const guideIds = D.guide.map(g => g.id);
+    page({
+      path: dPath(L),
+      alt: dAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['drill.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_drill, dHome]),
+        { '@context': 'https://schema.org', '@type': 'WebApplication', name: D.h1, description: D.description, url: abs(dHome), inLanguage: L.htmlLang,
+          applicationCategory: 'EducationalApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(t('drill_noscript'))}</p></noscript>
+<nav class="at-toc" aria-label="${esc(t('drill_toc'))}"><a class="chip" href="#types">${esc(t('drill_types_h', { n: D.types.length }))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''}</nav>
+<div id="dr-app" class="dr-app" hidden>
+  <form id="dr-pick" class="dr-pick" autocomplete="off">
+    <h2>${esc(t('drill_pick_h'))}</h2>
+    <div class="dr-pick-row">
+      <label>${esc(t('drill_group'))}<select name="group">${opt('', t('drill_all_groups'))}${D.groups.map(g => opt(g.id, g.name)).join('')}</select></label>
+      <label>${esc(t('drill_type'))}<select name="type">${opt('', t('drill_all_types'))}</select></label>
+      <label>${esc(t('drill_count'))}<select name="n">${opt(1, t('drill_n1'))}${opt(5, t('drill_n5'), true)}${opt(10, t('drill_n10'))}</select></label>
+    </div>
+    <div class="dr-pick-go">
+      <label class="dr-weak"><input type="checkbox" name="weak"> ${esc(t('drill_weak'))}</label>
+      <button type="submit" class="btn btn-primary">${esc(t('drill_start'))}</button>
+    </div>
+  </form>
+  <section id="dr-card" class="dr-card" hidden>
+    <p class="dr-meta"></p>
+    <p class="dr-q"></p>
+    <form id="dr-ans" class="dr-ans" autocomplete="off">
+      <label for="dr-input">${esc(t('drill_answer_label'))}</label>
+      <div class="dr-ans-row">
+        <input id="dr-input" name="ans" type="text" inputmode="text" enterkeyhint="done" spellcheck="false" autocomplete="off" autocapitalize="off">
+        <select name="unit" aria-label="${esc(t('drill_unit_label'))}"></select><span class="dr-unit-one"></span>
+        <button type="submit" class="btn btn-primary">${esc(t('drill_check'))}</button>
+      </div>
+      <p class="dr-ask muted"></p>
+      <p class="dr-msg" role="alert" hidden></p>
+    </form>
+    <div class="dr-res" aria-live="polite" hidden>
+      <p class="dr-verdict"></p>
+      <p class="dr-hint" hidden></p>
+      <div class="dr-steps"></div>
+      <div class="dr-links"></div>
+    </div>
+    <div class="cmp-tools dr-actions">
+      <button type="button" class="btn btn-ghost" data-give>${esc(t('drill_give_up'))}</button>
+      <button type="button" class="btn btn-primary" data-next hidden>${esc(t('drill_next'))}</button>
+      <button type="button" class="btn btn-ghost" data-again>${esc(t('drill_again'))}</button>
+      <button type="button" class="btn btn-ghost" data-share data-done="${esc(t('compare_link_copied'))}">${esc(t('drill_share'))}</button>
+    </div>
+    <p class="muted fn-note">${esc(t('drill_url_note'))}</p>
+  </section>
+  <section id="dr-sum" class="dr-sum" hidden>
+    <h2>${esc(t('drill_sum_h'))}</h2>
+    <p class="dr-score"></p>
+    <h3 class="dr-miss-h" hidden>${esc(t('drill_miss_h'))}</h3>
+    <ul class="dr-miss"></ul>
+    <p><button type="button" class="btn btn-primary" data-sum-again>${esc(t('drill_sum_again'))}</button></p>
+  </section>
+  <section class="dr-rec">
+    <h2>${esc(t('drill_rec_h'))}</h2>
+    <div class="dr-rec-body"></div>
+    <p><button type="button" class="btn btn-ghost btn-small" data-clear hidden>${esc(t('drill_rec_clear'))}</button></p>
+  </section>
+</div>
+<script type="application/json" id="dr-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+<section id="types" class="dr-types">
+  <h2>${esc(t('drill_types_h', { n: D.types.length }))}</h2>
+  <p class="muted">${esc(t('drill_types_lead'))}</p>${D.groups.map(g => `
+  <h3 id="g-${g.id}"><a href="?g=${g.id}#dr-pick">${esc(g.name)}</a></h3>
+  <ul class="dr-type-list">${D.types.filter(x => x.group === g.id).map(x => `
+    <li><a href="?t=${x.id}" data-drill-type="${x.id}">${esc(x.name)}</a> <span class="dr-tol">${esc(tolText(x))}</span><span class="dr-short">${esc(x.short)}</span><code class="dr-formula">${esc(x.formula)}</code></li>`).join('')}
+  </ul>`).join('')}
+</section>
+${D.guide.map(g => `<section id="${g.id}" class="dr-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+</section>`).join('\n')}
+<section class="fn-sources dr-sources">
+  <h2>${esc(t('drill_sources_h'))}</h2>
+  <dl>${D.sources.map(s => `<div><dt>${esc(s.name)}</dt><dd>${esc(s.text)}</dd></div>`).join('')}</dl>
+</section>
+<div data-ad="compare"></div>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('drill_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+    if (guideIds.some(id => ['types', 'faq', 'dr-pick', 'dr-card'].includes(id))) throw new Error(`${where}: guide の id が重なります`);
+  }
+  // 公式集: /formulas/(式のカード・検索・分野で絞る・式を選んで印刷・共有の URL。動きは formulas.js。ページは1つだけ)
+  if (fml) buildFormulas();
+  function buildFormulas() {
+    const D = fml;
+    const where = 'data/formulas.json';
+    // データの検査(どの言語でも同じ結果。訳の欠けは fmlText が止める)
+    const gIds = new Set(D.groups.map(g => g.id)), refIds = new Set(D.refs.map(r => r.k)), seen = new Set();
+    for (const g of D.groups) if (!catOf(g.cat) && isDef) throw new Error(`${where}: 分野 ${g.id} の存在しない分類 ${g.cat}`);
+    for (const f of D.formulas) {
+      const at = `${where}: 式 ${f.id}`;
+      if (!/^[a-z0-9-]+$/.test(f.id) || seen.has(f.id)) throw new Error(`${at}: id は英小文字・数字・ハイフンで、重ならないように`);
+      seen.add(f.id);
+      if (!gIds.has(f.g)) throw new Error(`${at} の存在しない分野 ${f.g}`);
+      if (!f.f.length || !f.sym.length || f.f.some(y => !y.t || !y.d)) throw new Error(`${at} の式か記号か次元がありません`);
+      for (const id of f.drill) if (drillBase && !drillBase.types.some(x => x.id === id)) throw new Error(`${at} の計算ドリルにない型 ${id}`);
+      for (const y of f.tools) if (!tools.some(x => x.id === y.id)) throw new Error(`${at} の存在しないツール ${y.id}`);
+      for (const k of f.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${at} の用語集にない語 ${k}`);
+      if (isDef) for (const s of f.learn) if (!learnArts.some(a => a.slug === s)) throw new Error(`${at} の存在しない記事 ${s}`);
+      for (const s of f.src) if (!refIds.has(s.k)) throw new Error(`${at} の出典 ${s.k} が refs にありません`);
+    }
+    if (D.guide.some(g => ['fm-app', 'fm-list', 'units', 'constants', 'sources', 'faq'].includes(g.id) || g.id.startsWith('f-') || g.id.startsWith('g-'))) throw new Error(`${where}: guide の id が重なります`);
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const fHome = `${home}formulas/`;
+    const fPath = l => `${l.path}formulas/`;
+    const fAlt = Object.fromEntries(langs.filter(x => fmlOn(x.code)).map(x => [x.code, fPath(x)]));
+    // 式の文字: 「_x」「_{…}」は下付き、「^{…}」「^x」は上付き(ほかは Unicode のまま。「^(」はそのまま残す)
+    const ss = h => h.replace(/_([A-Za-z0-9Ͱ-Ͽ]+)/g, '<sub>$1</sub>').replace(/_\{([^{}]*)\}/g, '<sub>$1</sub>').replace(/\^\{([^{}]*)\}/g, '<sup>$1</sup>').replace(/\^([A-Za-z0-9]+)/g, '<sup>$1</sup>');
+    const fx = s => ss(esc(s));
+    // ドイツ語では式と定数の値の小数点もコンマにする(並びのコンマは「; 」にして紛れないように)
+    const dec = v => (/^de/.test(code) && /\d\.\d/.test(v) ? v.replace(/(\d), /g, '$1; ').replace(/(\d)\.(\d)/g, '$1,$2') : v);
+    const fxLinked = s => linked(s).replace(/(^|>)([^<]+)/g, (m, a, b) => a + ss(b)); // 用語のリンクをつけた文(タグの外だけ変える)
+    const plain = s => s.replace(/[_{}^]/g, '');
+    // 検索の文字: どの言語の名前・語でも引ける(訳のファイルの名前・語も入れる)。正規化は formulas.js
+    const trs = langs.map(x => fmlTr(x.code)).filter(Boolean);
+    const baseOf = id => fmlBase.formulas.find(x => x.id === id);
+    const termOf = k => terms.find(g => g.key === k);
+    const keyOf = f => [f.id, f.name, f.kw, baseOf(f.id).name, baseOf(f.id).kw, ...trs.flatMap(x => [x.formulas?.[f.id]?.name, x.formulas?.[f.id]?.kw]),
+      ...f.f.map(y => plain(y.t)), ...f.sym.map(y => plain(y.s)), ...f.terms.map(k => termOf(k)?.term ?? k)].filter(Boolean).join(' ');
+    const ref = Object.fromEntries(D.refs.map(r => [r.k, r]));
+    const srcText = f => f.src.map(s => `${ref[s.k].s}${s.ch != null ? ` ${t('formulas_ch', { n: s.ch })}` : ''}`).join('; ');
+    const toolOf = y => { const x = tools.find(z => z.id === y.id); return x?.text[code] ? `<a href="${home}tools/${x.slug}/${y.mode ? `?mode=${y.mode}` : ''}">${esc(x.text[code].nav)}</a>` : ''; };
+    const drillOf = id => { const x = drl?.types.find(z => z.id === id); return x ? `<a href="${home}drill/?t=${id}">${esc(x.name)}</a>` : ''; };
+    const linkRow = (label, items) => (items.length ? `<span class="fm-ln"><b>${esc(label)}</b> ${items.join(' ')}</span>` : '');
+    const card = f => {
+      const tl = [...new Map(f.tools.map(y => [`${y.id}:${y.mode ?? ''}`, toolOf(y)])).values()].filter(Boolean);
+      const dl = f.drill.map(drillOf).filter(Boolean);
+      const tm = f.terms.map(termOf).filter(Boolean).map(g => `<a class="chip" href="${home}term/${termSlug[g.key]}/">${esc(g.term)}</a>`);
+      const ln = [...f.learn.map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => `<a href="${home}learn/${a.slug}/">${esc(a.title)}</a>`),
+        ...(f.atlas && atl ? [`<a href="${home}atlas/#grain">${esc(S.nav_atlas)}</a>`] : [])];
+      const links = [linkRow(t('formulas_drill'), dl), linkRow(t('formulas_tool'), tl), linkRow(t('formulas_learn'), ln)].filter(Boolean).join('');
+      return `
+  <article class="fm-card" id="f-${f.id}" data-id="${f.id}" data-g="${f.g}" data-k="${esc(keyOf(f))}">
+    <div class="fm-head"><h3><a href="#f-${f.id}">${esc(f.name)}</a></h3><label class="fm-pick"><input type="checkbox" data-pick="${f.id}"> ${esc(t('formulas_pick'))}</label></div>
+    <div class="fm-eqs">${f.f.map(y => `
+      <p class="fm-eq"><span class="fm-f">${fx(dec(y.t))}</span>${y.l ? `<span class="fm-l">${fx(y.l)}</span>` : ''}<span class="fm-d" title="${esc(t('formulas_dim'))}">[${esc(y.d)}]</span></p>`).join('')}
+    </div>
+    <details class="mt-more fm-x"><summary>${['formulas_sym', 'formulas_when', 'formulas_miss', 'formulas_ex'].map(k => esc(t(k))).join(' · ')}</summary>
+    <table class="fm-sym"><thead><tr><th scope="col">${esc(t('formulas_sym'))}</th><th scope="col">${esc(t('formulas_meaning'))}</th><th scope="col">${esc(t('formulas_unit'))}</th></tr></thead><tbody>${f.sym.map(y => `
+      <tr><td class="fm-s">${fx(y.s)}</td><td>${fx(y.m)}</td><td class="fm-u">${esc(y.u)}</td></tr>`).join('')}
+    </tbody></table>
+    <p class="fm-dim"><b>${esc(t('formulas_dim'))}</b> ${esc(t('formulas_dim_ok'))}${f.nd.length ? ` · ${fx(t('formulas_dim_nd', { list: f.nd.join(', ') }))}` : ''}</p>
+    <dl class="fm-more">
+      <div><dt>${esc(t('formulas_when'))}</dt><dd>${fx(f.when)}</dd></div>
+      <div><dt>${esc(t('formulas_miss'))}</dt><dd>${fx(f.miss)}</dd></div>
+      <div><dt>${esc(t('formulas_ex'))}</dt><dd>${fx(f.ex)}</dd></div>
+    </dl>
+    </details>
+    ${links ? `<p class="fm-links">${links}</p>` : ''}${tm.length ? `
+    <p class="fm-terms term-chips"><b>${esc(t('formulas_terms'))}</b> ${tm.join(' ')}</p>` : ''}
+    <p class="fm-src">${esc(t('formulas_src'))}: ${esc(srcText(f))}</p>
+  </article>`;
+    };
+    const jsText = Object.fromEntries(['formulas_count', 'formulas_picked', 'formulas_pick_first', 'compare_link_copied'].map(k => [k, need(k)]));
+    const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));
+    const nOf = g => D.formulas.filter(f => f.g === g.id).length;
+    page({
+      path: fPath(L),
+      alt: fAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['formulas.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_formulas, fHome]),
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(t('formulas_noscript'))}</p></noscript>
+<nav class="at-toc" aria-label="${esc(t('formulas_toc'))}">${D.groups.map(g => `<a class="chip" href="#g-${g.id}">${esc(g.name)}</a>`).join(' ')}${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')} <a class="chip" href="#units">${esc(D.units_h)}</a> <a class="chip" href="#constants">${esc(D.const_h)}</a>${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''}</nav>
+<div id="fm-app" class="fm-app" data-t="${esc(JSON.stringify(jsText))}" hidden>
+  <div class="fm-find">
+    <label class="fm-q"><span>${esc(t('formulas_search_label'))}</span><input id="fm-q" type="search" placeholder="${esc(t('formulas_search_ph'))}" autocomplete="off" spellcheck="false" enterkeyhint="search"></label>
+    <div class="fm-chips" role="group" aria-label="${esc(t('formulas_groups_label'))}"><button type="button" class="chip" data-g="" aria-pressed="true">${esc(t('formulas_all'))}</button>${D.groups.map(g => `<button type="button" class="chip" data-g="${g.id}" aria-pressed="false">${esc(g.name)}</button>`).join('')}</div>
+    <p class="fm-count muted" aria-live="polite"></p>
+  </div>
+  <div class="fm-sel">
+    <p class="fm-sel-n"></p>
+    <div class="fm-sel-opts">
+      <label><input type="checkbox" id="fm-only"> ${esc(t('formulas_only_picked'))}</label>
+      <label><input type="checkbox" id="fm-more"> ${esc(t('formulas_print_more'))}</label>
+    </div>
+    <div class="fm-sel-btns">
+      <button type="button" class="btn btn-primary btn-small" data-print>${esc(t('formulas_print'))}</button>
+      <button type="button" class="btn btn-ghost btn-small" data-share>${esc(t('formulas_share'))}</button>
+      <button type="button" class="btn btn-ghost btn-small" data-clear>${esc(t('formulas_clear'))}</button>
+    </div>
+    <p class="fm-msg" role="status" hidden></p>
+    <p class="muted fn-note">${esc(t('formulas_sel_note'))}</p>
+  </div>
+</div>
+<p class="fm-none muted" hidden>${esc(t('formulas_none'))}</p>
+<div id="fm-list" class="fm-list">${D.groups.map(g => `
+<section class="fm-group" id="g-${g.id}" data-g="${g.id}">
+  <h2>${esc(g.name)} <span class="fm-n">${nOf(g)}</span></h2>${D.formulas.filter(f => f.g === g.id).map(card).join('')}
+</section>`).join('')}
+</div>
+<div data-ad="compare"></div>
+${D.guide.map(g => `<section id="${g.id}" class="fm-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${fxLinked(p)}</p>`).join('')}
+</section>`).join('\n')}
+<section id="units" class="fm-table">
+  <h2>${esc(D.units_h)}</h2>
+  <p>${esc(D.units_lead)}</p>
+  <div class="fm-scroll"><table><thead><tr><th scope="col">${esc(t('formulas_units_a'))}</th><th scope="col">${esc(t('formulas_units_b'))}</th><th scope="col">${esc(t('formulas_units_q'))}</th></tr></thead><tbody>${D.units.map(u => `
+    <tr><td class="fm-nw">${esc(u.a)}</td><td>${esc(u.b)}</td><td>${esc(u.q)}</td></tr>`).join('')}
+  </tbody></table></div>
+</section>
+<section id="constants" class="fm-table">
+  <h2>${esc(D.const_h)}</h2>
+  <p>${esc(D.const_lead)}</p>
+  <div class="fm-scroll"><table><thead><tr><th scope="col">${esc(t('formulas_const_s'))}</th><th scope="col">${esc(t('formulas_const_n'))}</th><th scope="col">${esc(t('formulas_const_v'))}</th><th scope="col">${esc(t('formulas_const_u'))}</th><th scope="col">${esc(t('formulas_const_x'))}</th></tr></thead><tbody>${D.constants.map(c => `
+    <tr><td class="fm-nw">${fx(c.s)}</td><td>${fx(c.n)}</td><td class="fm-num">${esc(dec(c.v))}</td><td class="fm-nw">${esc(c.u)}</td><td>${c.x ? '✓' : ''}</td></tr>`).join('')}
+  </tbody></table></div>
+</section>
+<section id="sources" class="fn-sources fm-refs">
+  <h2>${esc(D.sources_h)}</h2>
+  <ul>${D.refs.map(r => `
+    <li><b>${esc(r.s)}</b>: ${esc(r.full)}</li>`).join('')}
+  </ul>
+</section>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${fxLinked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('formulas_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+  }
+
+  // 分析・評価手法ナビ: /methods/(条件での絞り込み・並べて比べる・条件の URL は methods.js。手法のカードと一覧表は JS なしでも読める。ページは1つだけ)
+  if (mtd) buildMethods();
+  function buildMethods() {
+    const D = mtd;
+    const where = 'data/methods.json';
+    // データの検査(既定言語のデータで決まるので、どの言語でも同じ結果になる。訳の欠けは mtdText が止める)
+    const gIds = new Set(D.groups.map(g => g.id)), nIds = new Set(D.needs.map(n => n.id)), refIds = new Set(D.refs.map(r => r.k)), mIds = new Set(D.methods.map(m => m.id));
+    if (mIds.size !== D.methods.length) throw new Error(`${where}: 手法の id が重なっています`);
+    for (const g of D.groups) if (!catOf(g.cat) && isDef) throw new Error(`${where}: 群 ${g.id} の存在しない分類 ${g.cat}`);
+    const lv = (v, a, b) => Number.isInteger(v) && v >= a && v <= b;
+    for (const m of D.methods) {
+      const at = `${where}: 手法 ${m.id}`;
+      const x = m.x, L2 = m.links;
+      if (!/^[a-z0-9-]+$/.test(m.id)) throw new Error(`${at}: id は英小文字・数字・ハイフンで`);
+      if (!gIds.has(m.g)) throw new Error(`${at} の存在しない群 ${m.g}`);
+      for (const [k, v] of Object.entries(m.need)) if (!nIds.has(k) || ![1, 2].includes(v)) throw new Error(`${at} の目的 ${k}: ${v}(目的は needs に、強さは 1 か 2)`);
+      if (!Object.values(m.need).includes(2)) throw new Error(`${at}: 主に使う目的(2)がありません`);
+      if (!(x.rl === null || x.rl > 0) || typeof x.avg !== 'boolean' || !(x.dlx === null || Number.isFinite(x.dlx)) || ['h', 'li', 'cno'].some(k => !(x[k] === null || lv(x[k], 0, 2)))
+        || !x.dp.length || x.dp.some(z => !['s', 'n', 'm', 'b'].includes(z)) || !lv(x.ds, 0, 2) || x.sz.length !== 2 || !lv(x.sz[0], 0, 2) || !lv(x.sz[1], x.sz[0], 2)
+        || !lv(x.cd, 0, 3) || !lv(x.vac, 0, 2) || !lv(x.t, 1, 3) || !lv(x.c, 1, 3) || !lv(x.p, 0, 2)) throw new Error(`${at} の試料の条件の段階 x の値が正しくありません`);
+      // 目的・深さごとの上書き(dsBy・dsZ・moBy・moS)と、深さごとの注意(dpNb)
+      for (const [k, v] of Object.entries(x.dsBy ?? {})) if (!(k in m.need) || !lv(v, 0, 2) || v <= x.ds) throw new Error(`${at} の dsBy.${k}: 使う目的で、x.ds より大きい 0〜2 の値に`);
+      for (const [k, v] of Object.entries(x.dsZ ?? {})) if (!x.dp.includes(k) || !lv(v, 0, 2) || v <= x.ds) throw new Error(`${at} の dsZ.${k}: 見られる深さで、x.ds より大きい 0〜2 の値に`);
+      if (x.mo != null && !lv(x.mo, 0, 2)) throw new Error(`${at} の mo は 0〜2`);
+      for (const [k, v] of Object.entries(x.moBy ?? {})) if (!(k in m.need) || !lv(v, 0, 2)) throw new Error(`${at} の moBy.${k}: 使う目的で 0〜2 の値に`);
+      for (const [k, v] of Object.entries(x.moS ?? {})) if (!(k in m.need) || !lv(v, 0, 2) || !x.dp.includes('s')) throw new Error(`${at} の moS.${k}: 最表面を見られる手法の、使う目的で 0〜2 の値に`);
+      for (const [k, v] of Object.entries(x.dpNb ?? {})) if (!x.dp.includes(k) || !['dpS', 'dpM', 'layer', 'coarse'].includes(v)) throw new Error(`${at} の dpNb.${k}: 見られる深さで、注意は dpS・dpM・layer・coarse`);
+      if (x.only != null && (!Array.isArray(x.only) || !x.only.length || x.only.some(y => !['h', 'li', 'cno'].includes(y) || !(x[y] > 0)))) throw new Error(`${at} の only: 測れる元素(h・li・cno のうち x の値が 1 以上のもの)の並び`);
+      if (x.mark != null && (typeof x.mark !== 'boolean' || x.ds !== 0)) throw new Error(`${at} の mark は ds 0 の手法の true か false`);
+      for (const id of m.pair) if (!mIds.has(id) || id === m.id) throw new Error(`${at} の一緒に使う手法 ${id} がありません`);
+      if (!m.src.length) throw new Error(`${at} の出典がありません`);
+      for (const s of m.src) if (!refIds.has(s)) throw new Error(`${at} の出典 ${s} が refs にありません`);
+      for (const k of L2.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${at} の用語集にない語 ${k}`);
+      for (const s of L2.compare ?? []) if (!compares.some(e => e.slug === s)) throw new Error(`${at} の存在しない比較 ${s}`);
+      for (const s of L2.atlas ?? []) if (s !== 'grain' && !atlasBase?.structures.some(e => e.id === s)) throw new Error(`${at} の組織アトラスにない組織 ${s}`);
+      for (const s of L2.formulas ?? []) if (!fmlBase?.formulas.some(f => f.id === s)) throw new Error(`${at} の公式集にない式 ${s}`);
+      for (const y of L2.tools ?? []) if (!tools.some(z => z.id === y.id)) throw new Error(`${at} の存在しないツール ${y.id}`);
+      if (isDef) for (const s of L2.learn ?? []) if (!learnArts.some(a => a.slug === s)) throw new Error(`${at} の存在しない記事 ${s}`);
+      for (const s of L2.failure ?? []) if (!failureBase?.navi.modes.some(e => e.id === s)) throw new Error(`${at} の破損解析にない形態 ${s}`);
+      if (MTD_TEXT.some(k => m[k] == null || (k !== 'abbr' && k !== 'std' && !m[k].length))) throw new Error(`${at} の文章が足りません`);
+    }
+    for (const n of D.needs) if (!D.methods.some(m => m.need[n.id] === 2)) throw new Error(`${where}: 目的 ${n.id} に主に使う手法がありません`);
+    // 判定の自己検査: どの目的でも、条件なしなら主に使う手法が合う側に出る
+    for (const n of D.needs) if (!mtdJs.rank(D.methods, { n: n.id, e: [] }).fit.some(r => r.k === 2)) throw new Error(`${where}: 目的 ${n.id} の判定が空です`);
+    const reserved = ['mt-app', 'mt-list', 'finder', 'compare', 'table', 'sources', 'faq'];
+    if (D.guide.some(g => reserved.includes(g.id) || g.id.startsWith('m-') || g.id.startsWith('g-'))) throw new Error(`${where}: guide の id が重なります`);
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const mHome = `${home}methods/`;
+    const mPath = l => `${l.path}methods/`;
+    const mAlt = Object.fromEntries(langs.filter(x => mtdOn(x.code)).map(x => [x.code, mPath(x)]));
+    const ref = Object.fromEntries(D.refs.map(r => [r.k, r]));
+    const byId = Object.fromEntries(D.methods.map(m => [m.id, m]));
+    const needName = Object.fromEntries(D.needs.map(n => [n.id, n.name]));
+    const termOf = k => terms.find(g => g.key === k);
+    const toolOf = y => { const x = tools.find(z => z.id === y.id); return x?.text[code] ? `<a href="${home}tools/${x.slug}/${y.mode ? `?mode=${y.mode}` : ''}">${esc(x.text[code].nav)}</a>` : ''; };
+    const atlasOf = id => (!atl ? '' : id === 'grain' ? `<a href="${home}atlas/#grain">${esc(t('atlas_grain_h'))}</a>`
+      : (s => (s ? `<a href="${home}atlas/?s=${s.id}#s-${s.id}">${esc(s.name)}</a>` : ''))(atl.structures.find(e => e.id === id)));
+    const linkRow = (label, items) => (items.filter(Boolean).length ? `<span class="fm-ln"><b>${esc(label)}</b> ${items.filter(Boolean).join(' ')}</span>` : '');
+    const lvText = (k, v, text) => {
+      const lab = t(`methods_${k}${v}`);
+      const rest = text.startsWith(lab) ? text.slice(lab.length).replace(/^[、。,.:：;\s]+/, '') : text; // 本文の頭が札と同じなら重ねない
+      return `<span class="mt-lv mt-lv${v}">${esc(lab)}</span>${rest ? ` ${esc(rest)}` : ''}`;
+    };
+    const card = m => {
+      const L2 = m.links;
+      const tm = (L2.terms ?? []).map(termOf).filter(Boolean).map(g => `<a class="chip" href="${home}term/${termSlug[g.key]}/">${esc(g.term)}</a>`);
+      const links = [
+        linkRow(S.nav_compare, (L2.compare ?? []).map(s => cmp.find(e => e.slug === s)).filter(Boolean).map(e => `<a href="${home}compare/${e.slug}/">${esc(e.title)}</a>`)),
+        linkRow(S.nav_atlas, (L2.atlas ?? []).map(atlasOf)),
+        linkRow(S.nav_failure, (L2.failure ?? []).map(id => fail?.navi.modes.find(e => e.id === id)).filter(Boolean).map(e => `<a href="${home}failure/#mode-${e.id}">${esc(e.name)}</a>`)),
+        linkRow(S.nav_tools, [...new Map((L2.tools ?? []).map(y => [`${y.id}:${y.mode ?? ''}`, toolOf(y)])).values()]),
+        linkRow(S.nav_formulas, (L2.formulas ?? []).map(id => fml?.formulas.find(f => f.id === id)).filter(Boolean).map(f => `<a href="${home}formulas/#f-${f.id}">${esc(f.name)}</a>`)),
+        ...(LT ? [linkRow(LT.nav, (L2.learn ?? []).map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => `<a href="${home}learn/${a.slug}/">${esc(a.title)}</a>`))] : []),
+      ].filter(Boolean).join('');
+      const needs = Object.entries(m.need).sort((a, b) => b[1] - a[1]).map(([id, v]) => `<span class="mt-need mt-k${v}">${esc(needName[id])}</span>`).join(' ');
+      const row = (f, html) => `<div><dt>${esc(t(`methods_${f}`))}</dt><dd data-f="${f}">${html}</dd></div>`;
+      return `
+  <article class="mt-card" id="m-${m.id}" data-id="${m.id}">
+    <div class="mt-head"><h3><a href="#m-${m.id}">${esc(m.name)}</a>${m.abbr ? ` <span class="mt-abbr">${esc(m.abbr)}</span>` : ''}</h3></div>
+    <p class="mt-what" data-f="what">${esc(m.what)}</p>
+    <p class="mt-how"><b>${esc(t('methods_how'))}</b> ${esc(m.how)}</p>
+    <p class="mt-needs"><b>${esc(t('methods_needs'))}</b> ${needs}</p>
+    <details class="mt-more"><summary>${['methods_num_h', 'methods_sample_h', 'methods_miss'].map(k => esc(t(k))).join(' · ')}</summary>
+    <h4>${esc(t('methods_num_h'))}</h4>
+    <dl class="mt-dl">${['rl', 'rd', 'dl', 'vol', 'el', 'q'].map(f => row(f, esc(m[f]))).join('')}</dl>
+    <h4>${esc(t('methods_sample_h'))}</h4>
+    <dl class="mt-dl">${['size', 'cond', 'vac'].map(f => row(f, esc(m[f]))).join('')}${row('ds', lvText('ds', m.x.ds, m.ds))}${row('prep', lvText('p', m.x.p, m.prep))}${row('time', lvText('t', m.x.t, m.time))}${row('cost', lvText('c', m.x.c, m.cost))}</dl>
+    <h4>${esc(t('methods_miss'))}</h4>
+    <ul class="mt-miss" data-f="miss">${m.miss.map(s => `<li>${esc(s)}</li>`).join('')}</ul>
+    <p class="mt-pair"><b>${esc(t('methods_pair'))}</b> <span data-f="pair">${m.pair.map(id => `<a href="#m-${id}">${esc(byId[id].abbr || byId[id].name)}</a>`).join(' · ')}</span></p>${m.std.length ? `
+    <p class="mt-std"><b>${esc(t('methods_std'))}</b> ${m.std.map(esc).join(' / ')}</p>` : ''}
+    </details>${links ? `
+    <p class="fm-links">${links}</p>` : ''}${tm.length ? `
+    <p class="fm-terms term-chips"><b>${esc(t('methods_terms'))}</b> ${tm.join(' ')}</p>` : ''}
+    <p class="fm-src">${esc(t('methods_src'))}: ${esc(m.src.map(s => ref[s].s).join('; '))}</p>
+  </article>`;
+    };
+    const jsKeys = Object.keys(S).filter(k => /^methods_(why|nb)_/.test(k)).concat(['methods_count', 'methods_count_all', 'methods_main', 'methods_sub', 'methods_note_h', 'methods_out_h',
+      'methods_cmp_add', 'methods_cmp_empty', 'methods_cmp_one', 'methods_cmp_max', 'methods_cmp_item', 'compare_link_copied',
+      ...['what', 'rl', 'rd', 'dl', 'vol', 'el', 'q', 'size', 'cond', 'vac', 'ds', 'prep', 'time', 'cost', 'miss', 'pair'].map(f => `methods_${f}`)]);
+    // 理由と注意の文言は judge が返すものがそろっていること
+    for (const k of ['ds1', 'ds1by', 'ds2', 'small', 'big', 'cond', 'ferro', 'nometal', 'vac', 'noel', 'noH', 'noLi', 'nocno', 'only', 'dl', 'avg', 'resna', 'res', 'depth']) need(`methods_why_${k}`);
+    for (const k of ['cutout', 'coat', 'nometal1', 'lowvac', 'H1', 'Li1', 'cno1', 'dl4', 'mark', 'only', 'dpS', 'dpM', 'layer', 'coarse']) need(`methods_nb_${k}`);
+    const jsText = Object.fromEntries(jsKeys.map(k => [k, need(k)]));
+    const jsData = D.methods.map(m => ({ id: m.id, name: m.name, abbr: m.abbr, need: m.need, x: m.x }));
+    const opt = (k, vals) => `<label class="mt-sel"><span>${esc(t(`methods_${k}_label`))}</span><select name="${k}"><option value="">${esc(t(`methods_${k}_any`))}</option>${vals.map(v => `<option value="${v}">${esc(t(`methods_${k}_${v}`))}</option>`).join('')}</select></label>`;
+    const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));
+    const nOf = g => D.methods.filter(m => m.g === g.id).length;
+    const lvCell = (k, v) => `<td class="mt-nw"><span class="mt-lv mt-lv${v}">${esc(t(`methods_${k}${v}`))}</span></td>`;
+    page({
+      path: mPath(L),
+      alt: mAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['methods.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_methods, mHome]),
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(t('methods_noscript'))}</p></noscript>
+<section id="mt-app" class="mt-app" data-t="${esc(JSON.stringify(jsText))}" data-m="${esc(JSON.stringify(jsData))}" data-n="${esc(JSON.stringify(D.needs.map(n => n.id)))}" hidden>
+  <h2 id="finder">${esc(t('methods_find_h'))}</h2>
+  <form class="mt-form">
+    <fieldset class="mt-fs">
+      <legend>${esc(t('methods_need_label'))}</legend>
+      <div class="mt-chips"><label class="mt-chip"><input type="radio" name="n" value="" checked> ${esc(t('methods_need_any'))}</label>${D.needs.map(n => `<label class="mt-chip"><input type="radio" name="n" value="${n.id}"> ${esc(n.name)}</label>`).join('')}</div>
+    </fieldset>
+    <fieldset class="mt-fs">
+      <legend>${esc(t('methods_cons_h'))}</legend>
+      <div class="mt-grid">
+        ${opt('d', ['cut', 'none'])}
+        ${opt('s', ['p', 's', 'l'])}
+        ${opt('m', ['fe', 'metal', 'ins'])}
+        ${opt('r', ['10u', '1u', '10n', 'atom'])}
+        ${opt('z', ['s', 'n', 'm', 'b'])}
+      </div>
+      <p class="mt-checks"><span class="mt-checks-h">${esc(t('methods_e_label'))}</span>${['h', 'li', 'cno', 'trace'].map(v => `<label class="mt-chip"><input type="checkbox" name="e" value="${v}"> ${esc(t(`methods_e_${v}`))}</label>`).join('')}</p>
+      <p class="mt-checks"><label class="mt-chip"><input type="checkbox" name="v" value="1"> ${esc(t('methods_v'))}</label></p>
+    </fieldset>
+    <div class="fm-sel-btns">
+      <button type="button" class="btn btn-ghost btn-small" data-share>${esc(t('methods_share'))}</button>
+      <button type="button" class="btn btn-ghost btn-small" data-reset>${esc(t('methods_reset'))}</button>
+    </div>
+    <p class="fm-msg mt-msg" role="status" hidden></p>
+  </form>
+  <h3>${esc(t('methods_result_h'))}</h3>
+  <p class="mt-count muted" aria-live="polite"></p>
+  <p class="mt-none muted" hidden>${esc(t('methods_none'))}</p>
+  <ol class="mt-res"></ol>
+  <div class="mt-out" hidden></div>
+</section>
+<section id="compare" class="mt-cmp-sec" hidden>
+  <h2>${esc(t('methods_cmp_h'))}</h2>
+  <p class="fm-msg mt-cmp-msg" role="status" hidden></p>
+  <div class="mt-cmp-body"></div>
+  <p><button type="button" class="btn btn-ghost btn-small" data-cmp-clear hidden>${esc(t('methods_cmp_clear'))}</button></p>
+</section>
+<nav class="at-toc" aria-label="${esc(t('methods_toc'))}">${D.groups.map(g => `<a class="chip" href="#g-${g.id}">${esc(g.name)}</a>`).join(' ')} <a class="chip" href="#table">${esc(t('methods_table_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')} <a class="chip" href="#sources">${esc(D.sources_h)}</a>${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''}</nav>
+<div id="mt-list" class="mt-list">${D.groups.map(g => `
+<section class="mt-group" id="g-${g.id}">
+  <h2>${esc(g.name)} <span class="fm-n">${nOf(g)}</span></h2>${D.methods.filter(m => m.g === g.id).map(card).join('')}
+</section>`).join('')}
+</div>
+<div data-ad="compare"></div>
+<section id="table" class="fm-table">
+  <h2>${esc(t('methods_table_h'))}</h2>
+  <p>${esc(t('methods_table_lead'))}</p>
+  <div class="fm-scroll mt-scroll"><table class="mt-tbl"><thead><tr><th scope="col">${esc(t('methods_table_m'))}</th>${['rl', 'rd', 'dl', 'ds', 'prep', 'time', 'cost'].map(f => `<th scope="col">${esc(t(`methods_${f}`))}</th>`).join('')}</tr></thead><tbody>${D.groups.map(g => `
+    <tr class="mt-grp"><th colspan="8" scope="colgroup">${esc(g.name)}</th></tr>${D.methods.filter(m => m.g === g.id).map(m => `
+    <tr><th scope="row"><a href="#m-${m.id}">${esc(m.abbr || m.name)}</a></th><td>${esc(m.rl)}</td><td>${esc(m.rd)}</td><td>${esc(m.dl)}</td>${lvCell('ds', m.x.ds)}${lvCell('p', m.x.p)}${lvCell('t', m.x.t)}${lvCell('c', m.x.c)}</tr>`).join('')}`).join('')}
+  </tbody></table></div>
+</section>
+${D.guide.map(g => `<section id="${g.id}" class="fm-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+</section>`).join('\n')}
+<section id="sources" class="fn-sources fm-refs">
+  <h2>${esc(D.sources_h)}</h2>
+  <ul>${D.refs.map(r => `
+    <li><b>${esc(r.s)}</b>: ${esc(r.full)}</li>`).join('')}
+  </ul>
+</section>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('methods_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+  }
+
+  // 試料調製・エッチングガイド: /prep/(共通の流れ・材料ごとの手順・安全・腐食液・失敗の表は JS なしでも読める。「失敗から原因を探す」と条件の URL は prep.js。ページは1つだけ)
+  if (prp) buildPrep();
+  function buildPrep() {
+    const D = prp;
+    const where = 'data/prep.json';
+    // データの検査(既定言語のデータで決まるので、どの言語でも同じ結果になる。訳の欠けは prpText が止める)
+    const idsOf = list => list.map(x => x.id);
+    const uniq = (list, name) => {
+      const ids = idsOf(list);
+      if (new Set(ids).size !== ids.length) throw new Error(`${where}: ${name} の id が重なっています`);
+      for (const id of ids) if (!/^[a-z0-9-]+$/.test(id)) throw new Error(`${where}: ${name} の id ${id} は英小文字・数字・ハイフンで`);
+      return new Set(ids);
+    };
+    const gIds = uniq(D.groups, 'groups'), trIds = uniq(D.traits, 'traits'), stIds = uniq(D.flow, 'flow'), mIds = uniq(D.materials, 'materials'),
+      eIds = uniq(D.etchants, 'etchants'), hIds = uniq(D.hazards, 'hazards'), fIds = uniq(D.defects, 'defects');
+    uniq(D.guide, 'guide');
+    const refIds = new Set(D.refs.map(r => r.k));
+    if (refIds.size !== D.refs.length) throw new Error(`${where}: refs の k が重なっています`);
+    for (const r of D.refs) if (!/^https:\/\//.test(r.url ?? '')) throw new Error(`${where}: 出典 ${r.k} の url がありません`);
+    const srcOk = (list, at) => {
+      if (!list?.length) throw new Error(`${at} の出典がありません`);
+      for (const s of list) if (!refIds.has(s)) throw new Error(`${at} の出典 ${s} が refs にありません`);
+    };
+    for (const g of D.groups) if (!catOf(g.cat) && isDef) throw new Error(`${where}: 群 ${g.id} の存在しない分類 ${g.cat}`);
+    if (!hIds.has('general')) throw new Error(`${where}: どの液にも共通の注意(hazards の general)がありません`);
+    for (const f of D.flow) {
+      for (const id of f.f) if (!fIds.has(id)) throw new Error(`${where}: 流れ ${f.id} の存在しない不具合 ${id}`);
+      srcOk(f.src, `${where}: 流れ ${f.id}`);
+    }
+    for (const m of D.materials) {
+      const at = `${where}: 材料 ${m.id}`;
+      if (!gIds.has(m.g)) throw new Error(`${at} の存在しない群 ${m.g}`);
+      for (const k of m.tr) if (!trIds.has(k)) throw new Error(`${at} の存在しない性質 ${k}`);
+      if (!m.steps.length || m.steps.some(r => !['g', 'p', 'f'].includes(r.s) || r.t.length !== 4)) throw new Error(`${at} の段(steps)が正しくありません`);
+      for (const id of m.etch) if (!eIds.has(id)) throw new Error(`${at} の存在しない腐食液 ${id}`);
+      for (const id of Object.keys(m.fx)) if (!fIds.has(id)) throw new Error(`${at} の fx の存在しない不具合 ${id}`);
+      for (const s of m.atlas) if (!atlasBase?.structures.some(e => e.id === s)) throw new Error(`${at} の組織アトラスにない組織 ${s}`);
+      for (const s of m.methods) if (!mtdBase?.methods.some(e => e.id === s)) throw new Error(`${at} の手法ナビにない手法 ${s}`);
+      for (const k of m.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${at} の用語集にない語 ${k}`);
+      if (!m.name || !m.hard.length || !m.note || !m.see.length) throw new Error(`${at} の文章が足りません`);
+      srcOk(m.src, at);
+    }
+    for (const e of D.etchants) {
+      const at = `${where}: 腐食液 ${e.id}`;
+      if (!e.comp.length || !e.use.length || !e.see) throw new Error(`${at} の組成・使い方・見えるものが足りません`);
+      if (!e.mat.length) throw new Error(`${at} の材料がありません`);
+      if (!e.hz.length) throw new Error(`${at} の危険(hz)がありません(どの液にも 1 つ以上)`);
+      for (const id of e.mat) if (!mIds.has(id)) throw new Error(`${at} の存在しない材料 ${id}`);
+      for (const id of e.hz) if (!hIds.has(id) || id === 'general') throw new Error(`${at} の危険 ${id}(general 以外の hazards の id)`);
+      srcOk(e.src, at);
+    }
+    for (const h of D.hazards) srcOk(h.src, `${where}: 危険 ${h.id}`);
+    // 番手の換算表: [米国 ANSI/CAMI, FEPA P, µm]。粗い順で、どちらの番号も増え、粒は小さくなる
+    if (!D.grit?.length || D.grit.some((r, i) => r.length !== 3 || !r.every(x => x > 0) || (i && !(r[0] > D.grit[i - 1][0] && r[1] > D.grit[i - 1][1] && r[2] < D.grit[i - 1][2])))) throw new Error(`${where}: grit(番手の換算表)が正しくありません`);
+    for (const f of D.defects) {
+      const at = `${where}: 不具合 ${f.id}`;
+      if (!stIds.has(f.step)) throw new Error(`${at} の存在しない段 ${f.step}`);
+      if (new Set(f.causes.map(c => c.id)).size !== f.causes.length) throw new Error(`${at} の原因の id が重なっています`);
+      for (const c of f.causes) {
+        if (!Number.isInteger(c.w) || c.w < 0) throw new Error(`${at} の原因 ${c.id} の重み w は 0 以上の整数`);
+        for (const [k, v] of Object.entries(c.up)) if (!trIds.has(k) || !Number.isInteger(v) || v <= 0) throw new Error(`${at} の原因 ${c.id} の加点 ${k}: ${v}`);
+        if (c.only && (!c.only.length || c.only.some(k => !trIds.has(k)))) throw new Error(`${at} の原因 ${c.id} の only`);
+        if (c.w === 0 && !Object.keys(c.up).length) throw new Error(`${at} の原因 ${c.id} は重み 0 で加点もありません`);
+      }
+      if (!f.causes.some(c => c.w > 0)) throw new Error(`${at}: 材料によらない原因(重み 1 以上)がありません`);
+      srcOk(f.src, at);
+    }
+    for (const g of D.guide) srcOk(g.src, `${where}: 読み物 ${g.id}`);
+    // 順位の自己検査: どの材料・どの不具合でも、確からしい原因が 1 つ以上出て、材料の fx の不具合でも同じ
+    for (const f of D.defects) {
+      if (prpJs.rank(f, null).hits.length !== f.causes.length) throw new Error(`${where}: 不具合 ${f.id} の順位(材料なし)が原因の数と合いません`);
+      for (const m of D.materials) if (!prpJs.rank(f, m.tr).hits.length) throw new Error(`${where}: 不具合 ${f.id} を材料 ${m.id} で選ぶと原因が空です`);
+    }
+    // ページの中の id が重ならないこと
+    const reserved = ['pp-app', 'flow', 'grit', 'defects', 'materials', 'safety', 'not-listed', 'etchants', 'sources', 'faq'];
+    if (D.guide.some(g => reserved.includes(g.id) || /^(p|e|f|hz|st|g)-/.test(g.id))) throw new Error(`${where}: guide の id が重なります`);
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const pHome = `${home}prep/`;
+    const pPath = l => `${l.path}prep/`;
+    const pAlt = Object.fromEntries(langs.filter(x => prpOn(x.code)).map(x => [x.code, pPath(x)]));
+    const ref = Object.fromEntries(D.refs.map(r => [r.k, r]));
+    const mOf = Object.fromEntries(D.materials.map(m => [m.id, m]));
+    const eOf = Object.fromEntries(D.etchants.map(e => [e.id, e]));
+    const hOf = Object.fromEntries(D.hazards.map(h => [h.id, h]));
+    const fOf = Object.fromEntries(D.defects.map(f => [f.id, f]));
+    const stOf = Object.fromEntries(D.flow.map(f => [f.id, f]));
+    const trName = Object.fromEntries(D.traits.map(x => [x.id, x.name]));
+    const termOf = k => terms.find(g => g.key === k);
+    const src = list => `<p class="fm-src">${esc(need('prep_src'))}: ${esc(list.map(s => ref[s].s).join('; '))}</p>`;
+    const linkRow = (label, items) => (items.filter(Boolean).length ? `<span class="fm-ln"><b>${esc(label)}</b> ${items.filter(Boolean).join(' ')}</span>` : '');
+    const atlasOf = id => (s => (s ? `<a href="${home}atlas/?s=${s.id}#s-${s.id}">${esc(s.name)}</a>` : ''))(atl?.structures.find(e => e.id === id));
+    const mtdOf = id => (m => (m ? `<a href="${home}methods/#m-${m.id}">${esc(m.abbr || m.name)}</a>` : ''))(mtd?.methods.find(e => e.id === id));
+    const fLink = id => `<a href="#f-${id}">${esc(fOf[id].name)}</a>`;
+    const eLink = id => `<a href="#e-${id}">${esc(eOf[id].name)}</a>`;
+    const mLink = id => `<a href="#p-${id}">${esc(mOf[id].name)}</a>`;
+    const hzTags = ids => ids.map(id => `<a class="pp-hzb" href="#hz-${id}">${esc(hOf[id].short)}</a>`).join(' ');
+    const ul = (list, cls = 'mt-miss') => `<ul class="${cls}">${list.map(s => `<li>${esc(s)}</li>`).join('')}</ul>`;
+    // 原因は基本の重みの順(同じ重みはデータの順)。重み 0 は材料によって起きる原因で、その性質を添える
+    const byW = f => f.causes.map((c, i) => [c, i]).sort((a, b) => b[0].w - a[0].w || a[1] - b[1]).map(x => x[0]);
+    const byTr = c => [...new Set([...(c.only ?? []), ...Object.keys(c.up)])].map(k => trName[k]).join(need('prep_sep'));
+    const tips = f => D.materials.filter(m => m.fx[f.id]);
+    const flowHtml = D.flow.map((f, i) => `
+  <li class="pp-st" id="st-${f.id}">
+    <h3>${i + 1}. ${esc(f.name)}</h3>${f.p.map(p => `
+    <p>${linked(p)}</p>`).join('')}
+    <p class="pp-ff"><b>${esc(need('prep_flow_fail'))}</b> ${f.f.map(fLink).join(' · ')}</p>${f.id === 'grind' ? `
+    <div class="fm-scroll pp-scroll" id="grit"><table class="pp-tbl pp-grit"><caption>${esc(need('prep_grit_h'))}</caption><thead><tr>${['grit_p', 'grit_us', 'grit_um'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${D.grit.map(([us, pg, um]) => `
+      <tr><td>P${pg}</td><td>${us}</td><td>${um}</td></tr>`).join('')}
+    </tbody></table></div>` : ''}
+    ${src(f.src)}
+  </li>`).join('');
+    const defCard = f => `
+  <article class="mt-card pp-def" id="f-${f.id}">
+    <div class="mt-head"><h3><a href="#f-${f.id}">${esc(f.name)}</a></h3></div>
+    <p class="pp-look">${esc(f.look)}</p>
+    <p class="mt-std"><b>${esc(need('prep_def_step'))}</b> <a href="#st-${f.step}">${esc(stOf[f.step].name)}</a></p>
+    <h4>${esc(need('prep_causes_h'))}</h4>
+    <ol class="pp-causes">${byW(f).map(c => `
+      <li data-c="${c.id}"><p class="pp-c">${esc(c.t)}</p><p class="pp-fix"><b>${esc(need('prep_fix'))}</b> ${esc(c.fix)}</p>${c.w === 0 ? `<p class="pp-by muted">${esc(t('prep_by_tr', { t: byTr(c) }))}</p>` : ''}</li>`).join('')}
+    </ol>${tips(f).length ? `
+    <h4>${esc(need('prep_tips_h'))}</h4>
+    <ul class="mt-miss pp-tips">${tips(f).map(m => `<li data-p="${m.id}"><b>${mLink(m.id)}</b> <span class="pp-tt">${esc(m.fx[f.id])}</span></li>`).join('')}</ul>` : ''}
+    ${src(f.src)}
+  </article>`;
+    const stage = s => esc(need(`prep_stage_${s}`));
+    const matCard = m => {
+      const tm = m.terms.map(termOf).filter(Boolean).map(g => `<a class="chip" href="${home}term/${termSlug[g.key]}/">${esc(g.term)}</a>`);
+      const links = [linkRow(S.nav_atlas, m.atlas.map(atlasOf)), ...(mtd ? [linkRow(S.nav_methods, m.methods.map(mtdOf))] : [])].filter(Boolean).join('');
+      return `
+  <article class="mt-card pp-mat" id="p-${m.id}">
+    <div class="mt-head"><h3><a href="#p-${m.id}">${esc(m.name)}</a></h3></div>${m.tr.length ? `
+    <p class="mt-needs"><b>${esc(need('prep_traits'))}</b> ${m.tr.map(k => `<span class="mt-need">${esc(trName[k])}</span>`).join(' ')}</p>` : ''}
+    <h4>${esc(need('prep_hard'))}</h4>
+    ${ul(m.hard)}
+    <h4>${esc(need('prep_steps_h'))}</h4>
+    <div class="fm-scroll pp-scroll"><table class="pp-tbl pp-steps"><thead><tr>${['stage', 'abr', 'surf', 'lub', 'time'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${m.steps.map(r => `
+      <tr><td class="pp-sg">${stage(r.s)}</td>${r.t.map((x, i) => (i === 0 ? `<th scope="row">${esc(x)}</th>` : `<td data-l="${esc(need(`prep_${['abr', 'surf', 'lub', 'time'][i]}`))}">${esc(x)}</td>`)).join('')}</tr>`).join('')}
+    </tbody></table></div>
+    <p class="pp-note"><b>${esc(need('prep_cond'))}</b> ${esc(m.note)}</p>
+    <h4>${esc(need('prep_etch'))}</h4>
+    <p class="pp-etl">${m.etch.map(id => `${eLink(id)}${eOf[id].hz.length ? ` ${hzTags(eOf[id].hz)}` : ''}`).join(' · ')}</p>
+    ${ul(m.see)}${Object.keys(m.fx).length ? `
+    <h4>${esc(need('prep_fx_h'))}</h4>
+    <ul class="mt-miss">${Object.entries(m.fx).map(([id, x]) => `<li><b>${fLink(id)}</b> ${esc(x)}</li>`).join('')}</ul>` : ''}${m.miss.length ? `
+    <h4>${esc(need('prep_miss'))}</h4>
+    ${ul(m.miss)}` : ''}${m.std.length ? `
+    <p class="mt-std"><b>${esc(need('prep_std'))}</b> ${m.std.map(esc).join(' / ')}</p>` : ''}${links ? `
+    <p class="fm-links">${links}</p>` : ''}${tm.length ? `
+    <p class="fm-terms term-chips"><b>${esc(need('prep_terms'))}</b> ${tm.join(' ')}</p>` : ''}
+    ${src(m.src)}
+    <p class="pp-try"><a href="?p=${m.id}#pp-app" data-pp-try="${m.id}" hidden>${esc(need('prep_try'))}</a></p>
+  </article>`;
+    };
+    const etCard = e => `
+  <article class="mt-card pp-et" id="e-${e.id}">
+    <div class="mt-head"><h3><a href="#e-${e.id}">${esc(e.name)}</a>${e.aka ? ` <span class="mt-abbr">${esc(e.aka)}</span>` : ''}</h3></div>${e.hz.length ? `
+    <p class="pp-hz"><b>${esc(need('prep_et_hz'))}</b> ${hzTags(e.hz)}</p>` : ''}
+    <dl class="mt-dl pp-dl">
+      <div><dt>${esc(need('prep_comp'))}</dt><dd>${ul(e.comp)}</dd></div>
+      <div><dt>${esc(need('prep_use'))}</dt><dd>${ul(e.use)}</dd></div>
+      <div><dt>${esc(need('prep_see'))}</dt><dd>${esc(e.see)}</dd></div>
+      <div><dt>${esc(need('prep_et_mat'))}</dt><dd>${e.mat.map(mLink).join(' · ')}</dd></div>
+    </dl>${e.nb.length ? `
+    <h4>${esc(need('prep_nb'))}</h4>
+    ${ul(e.nb)}` : ''}
+    ${src(e.src)}
+  </article>`;
+    const jsText = Object.fromEntries(['prep_pick', 'prep_count', 'prep_count_m', 'prep_up', 'prep_by_mat', 'prep_low_h', 'prep_low_only', 'prep_low_zero', 'prep_tip_h', 'prep_mat_link', 'prep_sep', 'compare_link_copied'].map(k => [k, need(k)]));
+    const jsD = D.defects.map(f => ({ id: f.id, causes: f.causes.map(({ id, w, up, only }) => ({ id, w, up, ...(only ? { only } : {}) })) }));
+    const jsM = D.materials.map(m => ({ id: m.id, tr: m.tr }));
+    const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));
+    const nOf = g => D.materials.filter(m => m.g === g.id).length;
+    const gen = hOf.general;
+    page({
+      path: pPath(L),
+      alt: pAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['prep.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_prep, pHome]),
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="mt-nb pp-safe"><b>${esc(need('prep_safety_h'))}</b> ${esc(D.safety)} <a href="#safety">${esc(need('prep_safety_link'))}</a></p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(need('prep_noscript'))}</p></noscript>
+<section id="pp-app" class="mt-app" data-t="${esc(JSON.stringify(jsText))}" data-d="${esc(JSON.stringify(jsD))}" data-m="${esc(JSON.stringify(jsM))}" data-tr="${esc(JSON.stringify(trName))}" hidden>
+  <h2>${esc(need('prep_find_h'))}</h2>
+  <form class="mt-form">
+    <fieldset class="mt-fs">
+      <legend>${esc(need('prep_f_label'))}</legend>
+      <div class="mt-chips">${D.defects.map(f => `<label class="mt-chip"><input type="radio" name="f" value="${f.id}"> ${esc(f.name)}</label>`).join('')}</div>
+    </fieldset>
+    <div class="mt-grid pp-grid">
+      <label class="mt-sel"><span>${esc(need('prep_p_label'))}</span><select name="p"><option value="">${esc(need('prep_p_any'))}</option>${D.groups.map(g => `<optgroup label="${esc(g.name)}">${D.materials.filter(m => m.g === g.id).map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join('')}</optgroup>`).join('')}</select></label>
+    </div>
+    <div class="fm-sel-btns">
+      <button type="button" class="btn btn-ghost btn-small" data-share>${esc(need('prep_share'))}</button>
+      <button type="button" class="btn btn-ghost btn-small" data-reset>${esc(need('prep_reset'))}</button>
+    </div>
+    <p class="fm-msg pp-msg" role="status" hidden></p>
+  </form>
+  <h3>${esc(need('prep_result_h'))}</h3>
+  <div class="pp-out" aria-live="polite"></div>
+</section>
+<nav class="at-toc" aria-label="${esc(need('prep_toc'))}"><a class="chip" href="#flow">${esc(need('prep_flow_h'))}</a> <a class="chip" href="#defects">${esc(need('prep_def_h'))}</a> <a class="chip" href="#materials">${esc(need('prep_mat_h'))}</a> <a class="chip" href="#safety">${esc(need('prep_safety_h'))}</a> <a class="chip" href="#etchants">${esc(need('prep_et_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')} <a class="chip" href="#sources">${esc(D.sources_h)}</a>${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''}</nav>
+<section id="flow" class="pp-flow-sec">
+  <h2>${esc(need('prep_flow_h'))}</h2>
+  <ol class="pp-flow">${flowHtml}
+  </ol>
+</section>
+<section id="defects" class="pp-defs">
+  <h2>${esc(need('prep_def_h'))} <span class="fm-n">${D.defects.length}</span></h2>
+  <p>${esc(need('prep_def_lead'))}</p>
+  <div class="fm-scroll pp-scroll"><table class="pp-tbl pp-ftbl"><thead><tr>${['def_name', 'def_look', 'def_main', 'def_step'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${D.defects.map(f => `
+    <tr><th scope="row">${fLink(f.id)}</th><td>${esc(f.look)}</td><td>${esc(byW(f)[0].t)}</td><td><a href="#st-${f.step}">${esc(stOf[f.step].name)}</a></td></tr>`).join('')}
+  </tbody></table></div>${D.defects.map(defCard).join('')}
+</section>
+<div data-ad="compare"></div>
+<section id="materials" class="pp-mats">
+  <h2>${esc(need('prep_mat_h'))} <span class="fm-n">${D.materials.length}</span></h2>
+  <p>${esc(need('prep_mat_lead'))}</p>
+  <nav class="at-toc" aria-label="${esc(need('prep_mat_h'))}">${D.groups.map(g => `<a class="chip" href="#g-${g.id}">${esc(g.name)}</a>`).join(' ')}</nav>${D.groups.map(g => `
+  <section class="mt-group" id="g-${g.id}">
+    <h3 class="pp-gh">${esc(g.name)} <span class="fm-n">${nOf(g)}</span></h3>${D.materials.filter(m => m.g === g.id).map(matCard).join('')}
+  </section>`).join('')}
+</section>
+<section id="safety" class="pp-safety">
+  <h2>${esc(need('prep_safety_h'))}</h2>
+  <p class="fn-caution">${esc(D.safety)}</p>
+  ${D.hazards.map(h => `<section class="pp-hz-sec" id="hz-${h.id}">
+    <h3>${esc(h.name)}</h3>${h.p.map(p => `
+    <p>${esc(p)}</p>`).join('')}
+    ${src(h.src)}
+  </section>`).join('\n  ')}
+  <section class="pp-hz-sec" id="not-listed">
+    <h3>${esc(need('prep_not_h'))}</h3>
+    <p>${esc(need('prep_not_lead'))}</p>
+    ${ul(D.not_listed)}
+  </section>
+</section>
+<section id="etchants" class="pp-ets">
+  <h2>${esc(need('prep_et_h'))} <span class="fm-n">${D.etchants.length}</span></h2>
+  <p>${esc(need('prep_et_lead'))} <a href="#hz-${gen.id}">${esc(gen.name)}</a></p>
+  <div class="fm-scroll pp-scroll"><table class="pp-tbl"><thead><tr>${['et_name', 'et_mat', 'et_hz'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${D.etchants.map(e => `
+    <tr><th scope="row">${eLink(e.id)}</th><td>${e.mat.map(mLink).join(' · ')}</td><td>${e.hz.length ? hzTags(e.hz) : '—'}</td></tr>`).join('')}
+  </tbody></table></div>${D.etchants.map(etCard).join('')}
+</section>
+${D.guide.map(g => `<section id="${g.id}" class="fm-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+  ${src(g.src)}
+</section>`).join('\n')}
+<section id="sources" class="fn-sources fm-refs">
+  <h2>${esc(D.sources_h)}</h2>
+  <ul>${D.refs.map(r => `
+    <li><b>${esc(r.s)}</b>: <a href="${esc(r.url)}" rel="noopener" target="_blank">${esc(r.full)}</a></li>`).join('')}
+  </ul>
+</section>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(need('prep_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+  }
+
+  // 組織写真の計測室: /measure/(数え方の決まり・式・粒度番号の表・読み物・FAQ・つながるページは JS なしでも読める。計測の道具は measure.js。ページは1つだけ)
+  if (msr) buildMeasure();
+  function buildMeasure() {
+    const D = msr;
+    const where = 'data/measure.json';
+    // データの検査(既定言語のデータで決まるので、どの言語でも同じ結果になる。訳の欠けは msrText が止める)
+    const refIds = new Set(D.refs.map(r => r.k));
+    if (refIds.size !== D.refs.length) throw new Error(`${where}: refs の k が重なっています`);
+    for (const r of D.refs) if (!/^https:\/\//.test(r.url ?? '')) throw new Error(`${where}: 出典 ${r.k} の url がありません`);
+    const srcOk = (list, at) => {
+      if (!list?.length) throw new Error(`${at} の出典がありません`);
+      for (const s of list) if (!refIds.has(s)) throw new Error(`${at} の出典 ${s} が refs にありません`);
+    };
+    if (D.rules.map(r => r.id).join(',') !== 'icpt,plan,pt') throw new Error(`${where}: rules は icpt・plan・pt の順に`);
+    for (const r of D.rules) { if (!r.items.length || r.items.some(x => x.length !== 2 || !x[1])) throw new Error(`${where}: rules ${r.id} の items`); srcOk(r.src, `${where}: 決まり ${r.id}`); }
+    for (const f of D.formulas) { if (!f.f.length || !f.sym.length) throw new Error(`${where}: 式 ${f.id} の式か記号がありません`); srcOk(f.src, `${where}: 式 ${f.id}`); }
+    for (const g of D.guide) { if (!/^[a-z0-9-]+$/.test(g.id)) throw new Error(`${where}: guide の id ${g.id}`); srcOk(g.src, `${where}: 読み物 ${g.id}`); }
+    const reserved = ['ms-app', 'rules', 'formulas', 'gtable', 'related', 'sources', 'faq', 'ms-panel', 'calc', 'conv', 'ms-calc', 'ms-cpanel'];
+    if (new Set(D.guide.map(g => g.id)).size !== D.guide.length || D.guide.some(g => reserved.includes(g.id) || /^(rules|fml)-/.test(g.id))) throw new Error(`${where}: guide の id が重なります`);
+    // 粒度番号の表: measure.js の式で計算した値が、E112 の表の値(出典に載った桁)と合うこと
+    srcOk(D.gtable.src, `${where}: gtable`);
+    const near = (a, b) => Math.abs(a - b) <= Math.max(Math.abs(b) * 0.003, 6e-5);
+    for (const [g, na, d, l] of D.gtable.rows) {
+      const cNa = msrJs.naFromG(g), cL = msrJs.lFromG(g), cD = 1 / Math.sqrt(cNa);
+      if (!near(cNa, na) || !near(cL, l) || !near(cD, d)) throw new Error(`${where}: 粒度番号の表 G = ${g} が式と合いません(N_A ${cNa}・ℓ̄ ${cL}・d̄ ${cD})`);
+      if (Math.abs(msrJs.gFromL(l) - g) > 0.02 || Math.abs(msrJs.gFromNA(na) - g) > 0.02) throw new Error(`${where}: 粒度番号の表 G = ${g} の逆の換算が合いません`);
+    }
+    // 換算(数から計算の欄): 表 4 の n(100 倍の 1 平方インチ当たり)と Ā(µm²)が、measure.js の convert で G から出した値と合うこと。どの量から入れても G に戻ること
+    for (const [g, , , , n100, aUm] of D.gtable.rows) {
+      const r = msrJs.convert('g', g);
+      if (n100 == null || aUm == null || !near(r.n100, n100) || !near(r.abar, aUm) || Math.abs(2 ** (g - 1) / r.n100 - 1) > 0.003) throw new Error(`${where}: 粒度番号の表 G = ${g} の n・Ā が換算と合いません(n ${r.n100}・Ā ${r.abar})`);
+      for (const k of msrJs.CONV_IN) if (Math.abs(msrJs.convert(k, r[k]).g - g) > 1e-9) throw new Error(`src/js/measure.js: convert(${k}) が G = ${g} に戻りません`);
+    }
+    // リンク先が存在すること(組織アトラス・試料調製ガイド・手法ナビ・公式集・用語集)
+    const has = (list, id) => (list ?? []).some(e => e.id === id);
+    for (const p of D.presets) if (!has(atlasBase?.structures, p.atlas)) throw new Error(`${where}: 相の候補 ${p.name} の組織アトラスにない組織 ${p.atlas}`);
+    const Lk = D.links;
+    for (const id of Lk.atlas) if (!has(atlasBase?.structures, id)) throw new Error(`${where}: links.atlas の組織アトラスにない組織 ${id}`);
+    for (const id of Lk.prep_e) if (!has(prpBase?.etchants, id)) throw new Error(`${where}: links.prep_e の試料調製ガイドにない腐食液 ${id}`);
+    for (const id of Lk.prep_f) if (!has(prpBase?.defects, id)) throw new Error(`${where}: links.prep_f の試料調製ガイドにない不具合 ${id}`);
+    for (const id of Lk.prep_g) if (!has(prpBase?.guide, id)) throw new Error(`${where}: links.prep_g の試料調製ガイドにない読み物 ${id}`);
+    for (const id of Lk.methods) if (!has(mtdBase?.methods, id)) throw new Error(`${where}: links.methods の手法ナビにない手法 ${id}`);
+    for (const id of Lk.formulas) if (!has(fmlBase?.formulas, id)) throw new Error(`${where}: links.formulas の公式集にない式 ${id}`);
+    for (const k of Lk.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: links.terms の用語集にない語 ${k}`);
+    // 計測の道具は通信しない: measure.js に通信の関数がないこと。画面の文言の鍵がこの言語の src/i18n にあること
+    const jsSrc = read('src/js/measure.js');
+    const net = jsSrc.match(/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|EventSource|\bimport\s*\(|RTCPeerConnection|\.src\s*=\s*['"`]https?:|window\.open\s*\(/);
+    if (net) throw new Error(`src/js/measure.js: 通信の関数(${net[0]})は使わない約束です`);
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const dyn = [...msrJs.SYN.kinds.map(k => `measure_syn_${k}`), ...['count', 'move'].map(k => `measure_mode_${k}`), ...['bar', 'px', 'mag', 'fov'].map(k => `measure_scale_${k}`),
+      ...['icpt', 'plan', 'pt'].flatMap(k => [`measure_m_${k}`, `measure_h_${k}`]), ...msrJs.PATS.map(k => `measure_pat_${k}`), ...['x', 'j', 't', 'e', 'in', 'cut', 'del'].map(k => `measure_k_${k}`)];
+    // measure.js は、画像の計測(前半)と、数から計算・換算(後半)の 2 つの画面を持つ。後半の文言は、その言語の src/i18n に measure_calc_h があるときだけ使う
+    // (訳がまだない言語のページは、数から計算・換算の欄なしで、今までと同じに作る)
+    const calcMark = '// ================================================================ 数から計算・換算';
+    if (!jsSrc.includes(calcMark)) throw new Error('src/js/measure.js: 数から計算の部分の目印がありません');
+    const [imgSrc, calcSrc] = jsSrc.split(calcMark);
+    const keysIn = x => [...new Set([...x.matchAll(/'(measure_[a-z0-9_]+)'/g)].map(m => m[1]))];
+    const jsKeys = [...new Set([...[...imgSrc.matchAll(/\bt\('(measure_[a-z0-9_]+)'/g)].map(m => m[1]), ...keysIn(imgSrc), ...dyn, 'measure_csv_cols'])];
+    const jsText = Object.fromEntries([...jsKeys, 'compare_link_copied'].map(k => [k, need(k)]));
+    const calcOn = Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'measure_calc_h');
+    const calcDyn = [...Object.values(msrJs.CALC_COLS).flat().map(k => `measure_calc_c_${k.toLowerCase()}`).filter(k => k !== 'measure_calc_c_l'), 'measure_calc_c_l_mm', 'measure_calc_c_l_um',
+      ...['icpt', 'plan', 'pt'].flatMap(k => [`measure_calc_how_${k}`, `measure_m_${k}`]), ...['pos', 'neg', 'int', 'half', 'over', 'bad'].map(k => `measure_calc_e_${k}`),
+      ...msrJs.CONV_IN.map(k => `measure_conv_in_${k}`), ...['dcirc', 'nl', 'gjis'].map(k => `measure_conv_${k}`)];
+    const calcText = calcOn ? Object.fromEntries([...new Set([...keysIn(calcSrc), ...calcDyn])].map(k => [k, need(k)])) : null;
+    // 式の一覧の小数点: de はコンマ(計測の道具の途中の式 dec() と同じ。式そのものは言語によらない)
+    const decL = x => (/^de/.test(code) ? String(x).replace(/(\d)\.(\d)/g, '$1,$2') : x);
+    // 換算の式(言語によらない)
+    const convEqs = ['G = −6.643856 log₁₀ ℓ̄ − 3.288', 'G = 3.321928 log₁₀ N_A − 2.954', 'n = 0.064516 × N_A = 2^(G − 1)', 'Ā = 1 / N_A', 'd̄ = √Ā', '√(4Ā / π)', 'N_L = 1 / ℓ̄', 'G_JIS = log₂(N_A / 8) = G − 0.046'];
+    const calcEqs = { icpt: ['L = L′ / M', 'ℓ = L / P', 'ℓ̄ = Σ ℓ_i / n', 'G = −6.643856 log₁₀ ℓ̄ − 3.288'], plan: ['A = A′ / M²', 'N = N_in + ½ N_cut (+ 1)', 'N_A = N / A', 'G = 3.321928 log₁₀ N_A − 2.954'], pt: ['P_P = P_α / P_T', 'V_V ≈ P̄_P', '95 % CI = t · s / √n', '%RA = 100 × CI / x̄'] };
+    const pHome = `${home}measure/`;
+    const pPath = l => `${l.path}measure/`;
+    const pAlt = Object.fromEntries(langs.filter(x => msrOn(x.code)).map(x => [x.code, pPath(x)]));
+    const ref = Object.fromEntries(D.refs.map(r => [r.k, r]));
+    const src = list => `<p class="fm-src">${esc(need('measure_src'))}: ${esc(list.map(s => ref[s].s).join('; '))}</p>`;
+    const atlasOf = id => (x => (x ? { url: `${home}atlas/?s=${x.id}#s-${x.id}`, name: x.name } : null))(atl?.structures.find(e => e.id === id));
+    const jsData = {
+      rules: Object.fromEntries(D.rules.map(r => [r.id, [...r.items, ...r.p.map(x => ['', x])]])),
+      presets: D.presets.map(p => ({ name: p.name, ...(atlasOf(p.atlas) ? { url: atlasOf(p.atlas).url, atlasName: atlasOf(p.atlas).name } : {}) })),
+    };
+    // 切断法の数え方の図(数字だけの図。説明は図の下の文)
+    const fig = `<figure class="ms-fig">
+    <svg viewBox="0 0 360 150" role="img" aria-label="${esc(need('measure_fig_cap'))}">
+      <g class="ms-fig-gb" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M60 10 L80 140"/><path d="M150 75 L140 10 M150 75 L118 140 M150 75 L200 140"/><path d="M226 10 L234 140"/><path d="M255 140 Q285 10 315 140"/><path d="M336 10 L344 140"/>
+      </g>
+      <path class="ms-fig-line" d="M20 75 L340 75" stroke-width="3.2" stroke-linecap="round"/>
+      <g stroke="#fff" stroke-width="1.5"><circle cx="70" cy="75" r="6" fill="#f03e3e"/><path d="M150 67 L158 81 L142 81 Z" fill="#f59f00"/><circle cx="230" cy="75" r="6" fill="#f03e3e"/><path d="M285 67 L293 75 L285 83 L277 75 Z" fill="#7048e8"/><circle cx="340" cy="75" r="6" fill="#2f9e44"/></g>
+      <g class="ms-fig-t" font-size="15" font-weight="700" text-anchor="middle"><text x="76" y="58">1</text><text x="164" y="58">1.5</text><text x="240" y="58">1</text><text x="285" y="58">1</text><text x="340" y="104">½</text></g>
+    </svg>
+    <figcaption>${esc(need('measure_fig_cap'))}</figcaption>
+  </figure>`;
+    const ruleSec = r => `<section class="ms-rule" id="rules-${r.id}">
+    <h3>${esc(r.h)}</h3>${r.id === 'icpt' ? `\n    ${fig}` : ''}
+    <div class="fm-scroll"><table class="pp-tbl ms-rule-tbl"><thead><tr><th scope="col">${esc(need('measure_rule_what'))}</th><th scope="col">${esc(need('measure_rule_w'))}</th></tr></thead><tbody>${r.items.map(([w, x]) => `
+      <tr><td>${esc(x)}</td><td class="ms-w">${esc(w)}</td></tr>`).join('')}
+    </tbody></table></div>
+    <ul class="mt-miss">${r.p.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    ${src(r.src)}
+  </section>`;
+    const fmlCard = f => `<article class="mt-card ms-fml" id="fml-${f.id}">
+    <div class="mt-head"><h3><a href="#fml-${f.id}">${esc(f.h)}</a></h3></div>
+    <ul class="ms-eqs">${f.f.map(x => `<li><code>${esc(decL(x))}</code></li>`).join('')}</ul>
+    <div class="fm-scroll"><table class="pp-tbl ms-sym"><thead><tr><th scope="col">${esc(need('measure_sym'))}</th><th scope="col">${esc(need('measure_sym_m'))}</th></tr></thead><tbody>${f.sym.map(([y, m]) => `
+      <tr><th scope="row"><code>${esc(y)}</code></th><td>${esc(m)}</td></tr>`).join('')}
+    </tbody></table></div>
+    ${src(f.src)}
+  </article>`;
+    const num = (x, d) => new Intl.NumberFormat(L.locale, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: !/^de/.test(L.locale) }).format(x);
+    const gRows = D.gtable.rows.map(([g]) => { const na = msrJs.naFromG(g); return [g, na, msrJs.lFromG(g) * 1000, 1000 / Math.sqrt(na)]; });
+    const fmlPage = id => (fml?.formulas.find(f => f.id === id));
+    const chip = (href, text) => `<a class="chip" href="${href}">${esc(text)}</a>`;
+    const termOf = k => terms.find(g => g.key === k);
+    const prpOf = (list, id) => prp?.[list]?.find(e => e.id === id);
+    const rel = [
+      atl ? [S.nav_atlas, [...Lk.atlas.map(atlasOf).filter(Boolean).map(x => chip(x.url, x.name)), chip(`${home}atlas/#grain`, t('atlas_grain_h'))]] : null,
+      prp ? [S.nav_prep, [...Lk.prep_e.map(id => chip(`${home}prep/#e-${id}`, prpOf('etchants', id).name)), ...Lk.prep_f.map(id => chip(`${home}prep/#f-${id}`, prpOf('defects', id).name)), ...Lk.prep_g.map(id => chip(`${home}prep/#${id}`, prpOf('guide', id).h))]] : null,
+      mtd ? [S.nav_methods, Lk.methods.map(id => mtd.methods.find(e => e.id === id)).filter(Boolean).map(m => chip(`${home}methods/#m-${m.id}`, m.abbr || m.name))] : null,
+      fml ? [S.nav_formulas, Lk.formulas.map(fmlPage).filter(Boolean).map(f => chip(`${home}formulas/#f-${f.id}`, f.name))] : null,
+      [S.nav_glossary, Lk.terms.map(termOf).filter(Boolean).map(g => chip(`${home}term/${termSlug[g.key]}/`, g.term))],
+    ].filter(x => x && x[1].length);
+    page({
+      path: pPath(L),
+      alt: pAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['measure.js'],
+      // 広告を出さない: 利用者が自分の画像を開いて数える道具のページなので、第三者の広告のスクリプト(と、その通信)をここでは読み込まない。
+      // アクセス解析(GA4)はほかのページと同じく残す。ページの privacy の文に、閲覧の記録はあり、画像・印・数は送らないと書いてある
+      ads: false,
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_measure, pHome]),
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>${calcOn ? `
+<nav class="ms-entry" aria-label="${esc(need('measure_entry'))}"><a class="ms-entry-a" href="#calc">${esc(need('measure_entry_calc'))}</a><a class="ms-entry-a" href="#conv">${esc(need('measure_entry_conv'))}</a><a class="ms-entry-a" href="#ms-app">${esc(need('measure_entry_img'))}</a></nav>` : ''}
+<p class="lead">${esc(D.lead)}</p>
+<p class="ms-privacy">${esc(D.privacy)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+${calcOn ? `<section id="calc" class="mt-app ms-calc-sec">
+  <h2>${esc(need('measure_calc_h'))}</h2>
+  <p>${esc(need('measure_calc_lead'))}</p>
+  <noscript><p class="mt-nb">${esc(need('measure_calc_noscript'))} <a href="#gtable">${esc(need('measure_gtab_h'))}</a></p></noscript>
+  <div id="ms-calc" class="ms-calc" data-t="${esc(JSON.stringify(calcText))}" hidden><div class="ms-calc-root"></div></div>
+  <div class="ms-ceqs">
+    <h3>${esc(need('measure_calc_eq_h'))}</h3>
+    <div class="ms-ceqs-grid">${['icpt', 'plan', 'pt'].map(m => `
+      <div><h4>${esc(need(`measure_m_${m}`))}</h4><ul class="ms-eqs">${calcEqs[m].map(x => `<li><code>${esc(decL(x))}</code></li>`).join('')}</ul></div>`).join('')}
+    </div>
+    <p class="ms-cnote">${esc(need('measure_calc_eq_lead'))}</p>
+    ${src(['umich-e112', 'umich-e562', 'iteh-e112'])}
+  </div>
+</section>
+<section id="conv" class="mt-app ms-conv-sec">
+  <h2>${esc(need('measure_conv_h'))}</h2>
+  <p>${esc(need('measure_conv_lead'))}</p>
+  <noscript><p class="mt-nb">${esc(need('measure_conv_noscript'))} <a href="#gtable">${esc(need('measure_gtab_h'))}</a></p></noscript>
+  <div class="ms-conv-js" hidden><div class="ms-conv-root"></div></div>
+  <ul class="ms-eqs ms-cveqs">${convEqs.map(x => `<li><code>${esc(decL(x))}</code></li>`).join('')}</ul>
+  <p class="ms-cnote">${esc(need('measure_conv_eq_note'))}</p>
+  <p class="ms-cnote">${esc(need('measure_conv_diam'))} <a href="#diam">${esc(D.guide.find(g => g.id === 'diam')?.h ?? '')}</a></p>
+  ${src(['umich-e112', 'niigata', 'iso-643'])}
+</section>
+` : ''}<noscript><p class="mt-nb">${esc(need('measure_noscript'))}</p></noscript>
+<section id="ms-app" class="mt-app ms-app" data-t="${esc(JSON.stringify(jsText))}" data-d="${esc(JSON.stringify(jsData))}" hidden>
+  <h2>${esc(need('measure_app_h'))}</h2>
+  <div class="ms-root"></div>
+</section>
+<nav class="at-toc" aria-label="${esc(need('measure_toc'))}">${calcOn ? `<a class="chip" href="#calc">${esc(need('measure_entry_calc'))}</a> <a class="chip" href="#conv">${esc(need('measure_entry_conv'))}</a> ` : ''}<a class="chip" href="#rules">${esc(need('measure_rules_h'))}</a> <a class="chip" href="#formulas">${esc(need('measure_fml_h'))}</a> <a class="chip" href="#gtable">${esc(need('measure_gtab_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''} <a class="chip" href="#related">${esc(need('measure_rel_h'))}</a> <a class="chip" href="#sources">${esc(D.sources_h)}</a></nav>
+<section id="rules" class="ms-rules-sec">
+  <h2>${esc(need('measure_rules_h'))}</h2>
+  <p>${esc(need('measure_rules_lead'))}</p>
+  ${D.rules.map(ruleSec).join('\n  ')}
+</section>
+<section id="formulas" class="ms-fml-sec">
+  <h2>${esc(need('measure_fml_h'))}</h2>
+  <p>${esc(need('measure_fml_lead'))}${fmlPage('grain-size') ? ` <a href="${home}formulas/#f-grain-size">${esc(fmlPage('grain-size').name)}</a>` : ''}</p>
+  ${D.formulas.map(fmlCard).join('\n  ')}
+</section>
+<section id="gtable" class="ms-gtab-sec">
+  <h2>${esc(need('measure_gtab_h'))}</h2>
+  <p>${esc(need('measure_gtab_lead'))}${calcOn ? ` ${esc(need('measure_gtab_more'))}` : ''}</p>
+  <div class="fm-scroll"><table class="pp-tbl ms-gtab"><thead><tr>${['g', 'na', 'l', 'd', ...(calcOn ? ['n100', 'abar'] : [])].map(k => `<th scope="col">${esc(need(`measure_gtab_${k}`))}</th>`).join('')}</tr></thead><tbody>${gRows.map(([g, na, l, d]) => `
+    <tr><th scope="row">${g}</th><td>${num(na, na < 100 ? 2 : na < 1000 ? 1 : 0)}</td><td>${num(l, 1)}</td><td>${num(d, 1)}</td>${calcOn ? (r => `<td>${num(r.n100, r.n100 < 10 ? 2 : r.n100 < 100 ? 1 : 0)}</td><td>${num(r.abar, 0)}</td>`)(msrJs.convert('g', g)) : ''}</tr>`).join('')}
+  </tbody></table></div>
+  ${src(D.gtable.src)}
+</section>
+${D.guide.map(g => `<section id="${g.id}" class="fm-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+  ${src(g.src)}
+</section>`).join('\n')}
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+<section id="related" class="ms-rel">
+  <h2>${esc(need('measure_rel_h'))}</h2>
+  <p>${esc(need('measure_rel_lead'))}</p>${rel.map(([h, list]) => `
+  <h3>${esc(h)}</h3>
+  <p class="term-chips">${list.join(' ')}</p>`).join('')}
+</section>
+<section id="sources" class="fn-sources fm-refs">
+  <h2>${esc(D.sources_h)}</h2>
+  <ul>${D.refs.map(r => `
+    <li><b>${esc(r.s)}</b>: <a href="${esc(r.url)}" rel="noopener" target="_blank">${esc(r.full)}</a></li>`).join('')}
+  </ul>
+</section>`,
+    });
+  }
+
+  // 材料英語の表現集: /phrases/(表現のカード・検索・場面で絞る・お気に入り・差し込み欄・印刷・英文の点検。動きは phrases.js。ページは1つだけ)
+  if (phr) buildPhrases();
+  function buildPhrases() {
+    const D = phr;
+    const U = D.ui;
+    const where = 'data/phrases.json';
+    // データの検査(どの言語でも同じ結果。訳の欠けは phrText が止める)
+    const gIds = new Set(D.groups.map(g => g.id)), seen = new Set();
+    for (const p of D.phrases) {
+      const at = `${where}: 表現 ${p.id}`;
+      if (!/^[a-z0-9-]+$/.test(p.id) || seen.has(p.id)) throw new Error(`${at}: id は英小文字・数字・ハイフンで、重ならないように`);
+      seen.add(p.id);
+      if (!gIds.has(p.g)) throw new Error(`${at} の存在しない場面 ${p.g}`);
+      const slots = phrJs.slotsOf(p.en);
+      if (slots.join('|') !== Object.keys(p.v).join('|') || /[{}]/.test(phrJs.fill(p.en, p.v))) throw new Error(`${at}: 文型の {…} と例文の値 v がそろっていません`);
+      if (!p.ja || !p.note || !p.bad || !p.good) throw new Error(`${at}: 日本語・注意・誤りの例がありません`);
+      for (const k of p.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${at} の用語集にない語 ${k}`);
+    }
+    const jsIds = phrJs.RULES.map(r => r.id).join(','), dataIds = D.rules.map(r => r.id).join(',');
+    if (jsIds !== dataIds) throw new Error(`${where}: rules の id(${dataIds})が src/js/phrases.js の RULES(${jsIds})とそろっていません`);
+    if (D.rules.some(r => !['error', 'style', 'hint'].includes(r.level))) throw new Error(`${where}: rules の level は error・style・hint のどれか`);
+    if (D.guide.some(g => ['ph-app', 'ph-list', 'ph-check', 'check', 'rules', 'sources', 'faq', 'related'].includes(g.id) || g.id.startsWith('p-') || g.id.startsWith('g-'))) throw new Error(`${where}: guide の id が重なります`);
+    const pHome = `${home}phrases/`;
+    const pPath = l => `${l.path}phrases/`;
+    const pAlt = Object.fromEntries(langs.filter(x => phrOn(x.code)).map(x => [x.code, pPath(x)]));
+    const termOf = k => terms.find(g => g.key === k);
+    const gName = Object.fromEntries(D.groups.map(g => [g.id, g.name]));
+    // 検索の文字: 日本語・文型・例文・検索語・場面の名前・用語・正の文(正規化は phrases.js)
+    const keyOf = p => [p.id, p.ja, p.en, phrJs.fill(p.en, p.v), p.kw, gName[p.g], p.good, ...p.terms.map(k => termOf(k)?.term ?? k), ...Object.keys(p.v)].filter(Boolean).join(' ');
+    const slotHtml = s => esc(s).replace(/\{([^{}]+)\}/g, '<span class="ph-slot">{$1}</span>');
+    const card = p => {
+      const ex = phrJs.fill(p.en, p.v);
+      const tm = p.terms.map(termOf).filter(Boolean).map(g => `<a class="chip" href="${home}term/${termSlug[g.key]}/">${esc(g.term)}</a>`);
+      const hasSlot = Object.keys(p.v).length > 0;
+      return `
+  <article class="ph-card" id="p-${p.id}" data-id="${p.id}" data-g="${p.g}" data-k="${esc(keyOf(p))}" data-en="${esc(p.en)}" data-v="${esc(JSON.stringify(p.v))}">
+    <div class="ph-head"><h3><a href="#p-${p.id}">${esc(p.ja)}</a></h3><button type="button" class="ph-fav" data-fav="${p.id}" aria-pressed="false"><span class="ph-star" aria-hidden="true">☆</span> ${esc(U.fav)}</button></div>
+    <p class="ph-pat"><span class="ph-lab">${esc(U.pattern)}</span> <span lang="en">${slotHtml(p.en)}</span></p>
+    <p class="ph-ex"><span class="ph-lab">${esc(U.example)}</span> <span class="ph-ex-en" lang="en">${esc(ex)}</span></p>
+    <div class="ph-tools"><button type="button" class="btn btn-ghost btn-small" data-copy="ex">${esc(U.copy_ex)}</button>${hasSlot ? `<button type="button" class="btn btn-ghost btn-small" data-fill aria-expanded="false">${esc(U.fill)}</button>` : ''}<span class="ph-copied" role="status" hidden></span></div>
+    ${hasSlot ? '<div class="ph-fill" hidden></div>' : ''}
+    <dl class="ph-more">
+      <div><dt>${esc(U.note)}</dt><dd>${esc(p.note)}</dd></div>
+      <div><dt>${esc(U.mistake)}</dt><dd class="ph-mis"><span class="ph-w"><b>${esc(U.wrong)}</b> <span lang="en">${esc(p.bad)}</span></span><span class="ph-r"><b>${esc(U.right)}</b> <span lang="en">${esc(p.good)}</span></span></dd></div>
+    </dl>${tm.length ? `
+    <p class="ph-terms term-chips"><b>${esc(U.terms)}</b> ${tm.join(' ')}</p>` : ''}
+  </article>`;
+    };
+    const jsText = Object.fromEntries(['count', 'fav_n', 'copied', 'copy_fail', 'made', 'copy_made', 'reset', 'fav_first', 'check_empty', 'check_n', 'check_none', 'level_error', 'level_style', 'level_hint', 'check_how', 'check_delete', 'show_rest'].map(k => [k, U[k]]));
+    const ruleJson = JSON.stringify(Object.fromEntries(D.rules.map(r => [r.id, { name: r.name, level: r.level, why: r.why, fix: r.fix }]))).replace(/</g, '\\u003c');
+    const nOf = g => D.phrases.filter(p => p.g === g.id).length;
+    const lvBadge = l => `<span class="ph-lv ph-lv-${l}">${esc(U[`level_${l}`])}</span>`;
+    const rel = [['glossary/', S.nav_glossary], ...(fml ? [['formulas/', S.nav_formulas]] : []), ...(mtl ? [['materials/', S.nav_materials]] : []), ...(toolsIn(code).length ? [['tools/', S.nav_tools]] : [])];
+    page({
+      path: pPath(L),
+      alt: pAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['phrases.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [U.nav, pHome]),
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(U.noscript)}</p></noscript>
+<nav class="at-toc" aria-label="${esc(U.toc)}">${D.groups.map(g => `<a class="chip" href="#g-${g.id}">${esc(g.name)}</a>`).join(' ')} <a class="chip" href="#check">${esc(D.check.h)}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(U.faq_h)}</a>` : ''}</nav>
+<div id="ph-app" class="ph-app" data-t="${esc(JSON.stringify(jsText))}" hidden>
+  <div class="ph-find">
+    <label class="ph-q"><span>${esc(U.search_label)}</span><input id="ph-q" type="search" placeholder="${esc(U.search_ph)}" autocomplete="off" spellcheck="false" enterkeyhint="search"></label>
+    <div class="ph-chips" role="group" aria-label="${esc(U.groups_label)}"><button type="button" class="chip" data-g="" aria-pressed="true">${esc(U.all)}</button>${D.groups.map(g => `<button type="button" class="chip" data-g="${g.id}" aria-pressed="false">${esc(g.name)}</button>`).join('')}</div>
+    <p class="ph-count muted" aria-live="polite"></p>
+  </div>
+  <div class="ph-sel">
+    <p class="ph-fav-n"></p>
+    <label class="ph-only"><input type="checkbox" id="ph-only"> ${esc(U.only_fav)}</label>
+    <div class="ph-sel-btns">
+      <button type="button" class="btn btn-primary btn-small" data-print="fav">${esc(U.print_fav)}</button>
+      <button type="button" class="btn btn-ghost btn-small" data-print="shown">${esc(U.print_shown)}</button>
+      <button type="button" class="btn btn-ghost btn-small" data-clear>${esc(U.clear_fav)}</button>
+    </div>
+    <p class="ph-msg" role="status" hidden></p>
+    <p class="muted fn-note">${esc(U.fav_note)}</p>
+  </div>
+</div>
+<p class="ph-none muted" hidden>${esc(U.none)}</p>
+<div id="ph-list" class="ph-list">${D.groups.map(g => `
+<section class="ph-group" id="g-${g.id}" data-g="${g.id}">
+  <h2>${esc(g.name)} <span class="ph-n">${nOf(g)}</span></h2>
+  <p class="ph-glead">${esc(g.lead)}</p>${D.phrases.filter(p => p.g === g.id).map(card).join('')}
+</section>`).join('')}
+</div>
+<div data-ad="compare"></div>
+<section id="check" class="ph-check-sec">
+  <h2>${esc(D.check.h)}</h2>${D.check.lead.map(x => `
+  <p>${esc(x)}</p>`).join('')}
+  <p class="ph-privacy">${esc(D.check.privacy)}</p>
+  <noscript><p class="muted">${esc(U.check_noscript)}</p></noscript>
+  <div id="ph-check" class="ph-check">
+    <div class="ph-check-ui" hidden>
+      <label class="ph-text-label" for="ph-text">${esc(U.check_label)}</label>
+      <textarea id="ph-text" rows="6" lang="en" spellcheck="false" autocomplete="off" placeholder="${esc(U.check_ph)}" data-sample="${esc(D.check.sample)}"></textarea>
+      <div class="ph-check-btns">
+        <button type="button" class="btn btn-primary btn-small" data-run>${esc(U.check_run)}</button>
+        <button type="button" class="btn btn-ghost btn-small" data-sample>${esc(U.check_sample)}</button>
+        <button type="button" class="btn btn-ghost btn-small" data-clear-text>${esc(U.check_clear)}</button>
+      </div>
+      <p class="ph-check-msg" role="status" aria-live="polite"></p>
+      <div class="ph-marked" lang="en" aria-label="${esc(U.check_marked)}" hidden></div>
+      <ol class="ph-res" aria-label="${esc(U.check_list)}"></ol>
+      <div class="ph-fixed" hidden>
+        <h3>${esc(U.check_fixed)}</h3>
+        <p class="ph-fixed-text" lang="en"></p>
+        <button type="button" class="btn btn-ghost btn-small" data-copy-fixed>${esc(U.check_copy_fixed)}</button> <span class="ph-fixed-msg" role="status" hidden></span>
+      </div>
+    </div>
+  </div>
+  <h3 id="rules">${esc(U.rules_h)}</h3>
+  <p>${esc(D.check.rules_lead)}</p>
+  <div class="fm-scroll"><table class="ph-rules"><thead><tr><th scope="col">${esc(U.rule_name)}</th><th scope="col">${esc(U.rule_ex)}</th><th scope="col">${esc(U.rule_why)}</th></tr></thead><tbody>${D.rules.map(r => `
+    <tr id="r-${r.id}"><td>${lvBadge(r.level)} <b>${esc(r.name)}</b></td><td class="ph-rule-ex" data-h="${esc(U.rule_ex)}"><span lang="en">${esc(r.bad)}</span> → <span lang="en">${esc(r.good)}</span></td><td data-h="${esc(U.rule_why)}">${esc(r.why)} ${esc(r.fix)}</td></tr>`).join('')}
+  </tbody></table></div>
+</section>
+<script type="application/json" id="ph-rules">${ruleJson}</script>
+${D.guide.map(g => `<section id="${g.id}" class="fm-guide ph-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(x => `
+  <p>${linked(x)}</p>`).join('')}
+</section>`).join('\n')}
+<section id="sources" class="fn-sources fm-refs">
+  <h2>${esc(D.sources_h)}</h2>
+  <ul>${D.refs.map(r => `
+    <li><b>${esc(r.s)}</b>: ${esc(r.full)}${r.url ? ` <a href="${esc(r.url)}" rel="noopener" target="_blank">${esc(new URL(r.url).hostname)}</a>` : ''}</li>`).join('')}
+  </ul>
+</section>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(U.faq_h)}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+<section id="related">
+  <h2>${esc(U.rel_h)}</h2>
+  <p class="term-chips">${rel.map(([u, n]) => `<a class="chip" href="${home}${u}">${esc(n)}</a>`).join(' ')}</p>
+</section>`,
+    });
+  }
+
+  // 材料データ集: /materials/(探す・一覧表・カード・並べ比べ・図・CSV。動きは materials.js。ページは1つだけ)
+  if (mtl) buildMaterials();
+  function buildMaterials() {
+    const D = mtl;
+    const where = 'data/materials.json';
+    // データの検査(どの言語でも同じ結果。訳の欠けは matText が止める)
+    const P = Object.fromEntries(D.props.map(p => [p.id, p]));
+    const clsIds = new Set(D.classes.map(c => c.id)), srcIds = new Set(D.sources.map(s => s.id));
+    const toolIds = new Set([...tools.map(y => y.id), 'added', 'drill']); // drill: 計算ドリルのデータ(導体の抵抗率・原子量)
+    for (const p of D.props) for (const u of p.us ?? []) if (!matJs.UNIT[u] || D.units[u] == null) throw new Error(`${where}: 性質 ${p.id} の単位 ${u} が materials.js の UNIT か units にありません`);
+    const ids = new Set();
+    for (const m of D.materials) {
+      const at = `${where}: ${m.id}`;
+      if (ids.has(m.id)) throw new Error(`${at} が2つあります`);
+      ids.add(m.id);
+      if (!clsIds.has(m.cls)) throw new Error(`${at} の種類 ${m.cls} がありません`);
+      for (const v of m.v) {
+        const p = P[v.p];
+        if (!p) throw new Error(`${at} の性質 ${v.p} がありません`);
+        if (p.text ? v.x == null : (v.v == null && !v.r && v.x == null)) throw new Error(`${at} ${v.p} の値がありません`);
+        if (v.u && !p.us?.includes(v.u) && matJs.UNIT[v.u]?.[0] !== matJs.UNIT[p.u]?.[0]) throw new Error(`${at} ${v.p} の単位 ${v.u} は ${p.u} と換算できません`);
+        if (!v.s?.length || v.s.some(k => !srcIds.has(k))) throw new Error(`${at} ${v.p} の出典がないか、出典の一覧にありません`);
+        if (!v.t?.length || v.t.some(x => !toolIds.has(x))) throw new Error(`${at} ${v.p} のツールがありません`);
+        for (const c of v.c ?? []) {
+          if (D.conds[c] == null) throw new Error(`${at} ${v.p} の条件 ${c} が conds にありません`);
+          for (const [, k] of D.conds[c].matchAll(/\{(\w+)\}/g)) if (v.cp?.[k] == null) throw new Error(`${at} ${v.p} の条件 ${c} の {${k}} がありません`);
+        }
+        if (v.k && !D.kinds[v.k]) throw new Error(`${at} ${v.p} の強さの種類 ${v.k} がありません`);
+        if (v.g && !m.vars?.[v.g]) throw new Error(`${at} ${v.p} の銘柄・状態 ${v.g} が vars にありません`);
+        if (v.p === 'struct' && !D.structs[v.x]) throw new Error(`${at} の構造 ${v.x} の名前がありません`);
+        if (v.p === 'tr' && v.x[1] !== 'meta' && !D.tr.st[v.x[3]]) throw new Error(`${at} の変態の構造 ${v.x[3]} の名前がありません`);
+      }
+      for (const l of m.tl) if (!tools.some(y => y.id === l.tool)) throw new Error(`${at} のツール ${l.tool} がありません`);
+      for (const k of m.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${at} の用語集にない語 ${k}`);
+      if (isDef) for (const s of m.learn) if (!learnArts.some(a => a.slug === s)) throw new Error(`${at} の存在しない記事 ${s}`);
+    }
+    const mHome = `${home}materials/`;
+    const mPath = l => `${l.path}materials/`;
+    const mAlt = Object.fromEntries(langs.filter(x => matOn(x.code)).map(x => [x.code, mPath(x)]));
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const tKeys = Object.keys(S).filter(k => k.startsWith('md_'));
+    for (const k of ['md_csv_name', 'md_rep_short', 'md_count', 'md_chart_cap', 'md_cmp_lead2', 'md_tool_added', 'md_src_tool']) need(k);
+    // 検索の文字: どの言語の名前・別名でも引ける(訳のファイルの名前・別名も入れる)
+    const trs = langs.map(x => matTr(x.code)).filter(Boolean);
+    const keyOf = m => matJs.norm([m.id, m.name, m.en, m.sym, m.el, ...m.codes, matBase.materials.find(x => x.id === m.id).name, ...matBase.materials.find(x => x.id === m.id).al, ...trs.flatMap(x => [x.materials?.[m.id]?.name, ...(x.materials?.[m.id]?.al ?? [])]), ...m.al].filter(Boolean).join('|'));
+    const toolLink = id => { if (id === 'drill') return drl ? { n: S.nav_drill, u: `${home}drill/` } : null; const y = tools.find(x => x.id === id); return y?.text[code] ? { n: y.text[code].nav, u: `${home}tools/${y.slug}/` } : null; };
+    const usedTools = [...new Set(D.materials.flatMap(m => [...m.tl.map(l => l.tool), ...m.v.flatMap(v => v.t)]))].filter(id => id !== 'added');
+    const jsData = {
+      t: { ...Object.fromEntries(tKeys.map(k => [k, S[k]])) },
+      lang: L.htmlLang,
+      defCols: ['rho', 'E', 's', 'k', 'a', 'mp'],
+      classes: D.classes, props: D.props, units: D.units, kinds: D.kinds, conds: D.conds, structs: D.structs, mpNotes: D.mpNotes, tr: D.tr,
+      sources: D.sources.map(s => ({ id: s.id, name: s.name, url: s.url, tool: s.tool })),
+      materials: D.materials.map(m => ({ id: m.id, cls: m.cls, name: m.name, ...(m.sub ? { sub: m.sub } : {}), ...(m.sym ? { sym: m.sym } : {}), ...(m.z ? { z: m.z } : {}), codes: m.codes, al: m.al,
+        ...(m.note ? { note: m.note } : {}), ...(m.trn ? { trn: m.trn } : {}), vars: m.vars, v: m.v, tl: m.tl, terms: m.terms, learn: m.learn, k: keyOf(m) })),
+      tools: Object.fromEntries(usedTools.map(id => [id, toolLink(id)]).filter(([, x]) => x)),
+      terms: Object.fromEntries([...new Set(D.materials.flatMap(m => m.terms))].map(k => terms.find(g => g.key === k)).filter(Boolean).map(g => [g.key, { n: g.term, u: `${home}term/${termSlug[g.key]}/` }])),
+      learn: Object.fromEntries([...new Set(D.materials.flatMap(m => m.learn))].map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => [a.slug, { n: a.title, u: `${home}learn/${a.slug}/` }])),
+    };
+    jsData.t.md_tool_added = S.md_tool_added;
+    const st0 = { cols: jsData.defCols, units: {}, sort: null, cmp: [] };
+    const opt = (v, label) => `<option value="${esc(v)}">${esc(label)}</option>`;
+    const nCls = id => D.materials.filter(m => m.cls === id).length;
+    const toolOf = s => (s.tool === 'added' ? S.md_tool_added : s.tool === 'drill' ? S.nav_drill : tools.find(y => y.id === s.tool)?.text[code]?.nav ?? s.tool);
+    if (D.guide.some(g => ['find', 'list', 'md-card', 'md-cmp', 'md-chart', 'export', 'sources', 'faq'].includes(g.id))) throw new Error(`${where}: guide の id が重なります`);
+    page({
+      path: mPath(L),
+      alt: mAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['materials.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_materials, mHome]),
+        { '@context': 'https://schema.org', '@type': 'Dataset', name: D.h1, description: D.description, url: abs(mHome), inLanguage: L.htmlLang, isAccessibleForFree: true,
+          variableMeasured: D.props.filter(p => !p.card).map(p => p.name), citation: D.sources.map(s => s.name) },
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(need('md_noscript'))}</p></noscript>
+<nav class="at-toc" aria-label="${esc(need('md_toc'))}"><a class="chip" href="#list">${esc(need('md_table_h'))}</a> <a class="chip" href="#md-cmp">${esc(need('md_cmp_h'))}</a> <a class="chip" href="#md-chart">${esc(need('md_chart_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''} <a class="chip" href="#sources">${esc(need('md_sources_h'))}</a></nav>
+<div id="md-app" class="md-app" hidden>
+  <form id="md-find" class="md-find" role="search" autocomplete="off">
+    <h2 id="find">${esc(need('md_find_h'))}</h2>
+    <div class="md-find-row">
+      <label class="md-q">${esc(need('md_q'))}<input name="q" type="search" placeholder="${esc(need('md_q_ph'))}" enterkeyhint="search" spellcheck="false" autocapitalize="off"></label>
+      <label>${esc(need('md_cls'))}<select name="c">${opt('', need('md_cls_all'))}${D.classes.filter(c => nCls(c.id)).map(c => opt(c.id, `${c.name}(${nCls(c.id)})`)).join('')}</select></label>
+      <label>${esc(need('md_has'))}<select name="h">${opt('', need('md_has_any'))}${D.props.filter(p => !p.card).map(p => opt(p.id, p.name)).join('')}</select></label>
+    </div>
+    <details class="md-more-opts"><summary>${esc(need('md_cols'))}</summary><div class="md-cols"></div></details>
+    <details class="md-more-opts"><summary>${esc(need('md_units'))}</summary><div class="md-units"></div></details>
+    <div class="cmp-tools">
+      <button type="button" class="btn btn-ghost" data-share>${esc(need('md_share'))}</button>
+      <button type="button" class="btn btn-ghost" data-reset>${esc(need('md_reset'))}</button>
+    </div>
+    <p class="muted fn-note">${esc(need('md_share_note'))}</p>
+  </form>
+  <p class="md-count" aria-live="polite"></p>
+  <p class="md-empty muted" hidden>${esc(need('md_empty'))}</p>
+  <p class="visually-hidden md-live" aria-live="polite"></p>
+</div>
+<section id="list" class="md-list">
+  <h2>${esc(need('md_table_h'))}</h2>
+  <p class="muted md-lead">${esc(need('md_table_lead'))}</p>
+  <p class="muted md-static-note">${esc(need('md_static_note'))}</p>
+  <div class="table-wrap md-table-wrap"><table id="md-table" class="md-table">${matJs.tableHTML(jsData, jsData.materials, st0)}</table></div>
+</section>
+<section id="export" class="md-export" hidden>
+  <h2>${esc(need('md_export_h'))}</h2>
+  <fieldset class="md-csv-mode"><legend class="visually-hidden">${esc(need('md_export_h'))}</legend>
+    <label><input type="radio" name="csv" value="wide" checked> ${esc(need('md_csv_wide'))}</label>
+    <label><input type="radio" name="csv" value="long"> ${esc(need('md_csv_long'))}</label>
+  </fieldset>
+  <div class="cmp-tools"><button type="button" class="btn btn-ghost" data-csv-copy>${esc(need('md_csv_copy'))}</button><button type="button" class="btn btn-ghost" data-csv-save>${esc(need('md_csv_save'))}</button></div>
+  <p class="muted fn-note">${esc(need('md_csv_note'))}</p>
+</section>
+<section id="md-card" class="md-card" aria-labelledby="md-card-h" hidden></section>
+<section id="md-cmp" class="md-cmp" hidden>
+  <h2>${esc(need('md_cmp_h'))}</h2>
+  <p class="muted">${esc(need('md_cmp_lead'))}</p>
+  <div class="md-cmp-body"></div>
+  <div class="cmp-tools"><button type="button" class="btn btn-ghost" data-cmp-clear hidden>${esc(need('md_cmp_clear'))}</button></div>
+</section>
+<section id="md-chart" class="md-chart" hidden>
+  <h2>${esc(need('md_chart_h'))}</h2>
+  <p class="muted">${esc(need('md_chart_lead'))}</p>
+  <div class="md-chart-ctl"><label>${esc(need('md_chart_prop'))}<select name="ch"></select></label><label class="md-chk"><input type="checkbox" name="lg"> ${esc(need('md_chart_log'))}</label></div>
+  <div class="md-chart-box"></div>
+  <p class="muted md-chart-cap"></p>
+</section>
+<script type="application/json" id="md-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+${D.guide.map(g => `<section id="${g.id}" class="dr-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+</section>`).join('\n')}
+<div data-ad="compare"></div>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+<section id="sources" class="fn-sources md-sources">
+  <h2>${esc(need('md_sources_h'))}</h2>
+  <p class="muted">${esc(need('md_sources_lead'))}</p>
+  <ol>${D.sources.map((s, i) => `<li id="src-${i + 1}">${s.url ? `<a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.name)}</a>` : esc(s.name)} <span class="muted">(${esc(t('md_src_tool', { t: toolOf(s) }))})</span></li>`).join('')}</ol>
+</section>`,
+    });
+  }
+
+  // 破損解析: 診断ナビ /failure/ と事故事例 /failure/{slug}/(動きは failure.js)
+  if (fail) buildFailure();
+  function buildFailure() {
+    const F = fail.navi;
+    const where = 'data/failure.json';
+    const modeIds = new Set(F.modes.map(m => m.id));
+    const optKey = new Set(F.questions.flatMap(q => q.options.map(o => `${q.id}.${o.id}`)));
+    // 点数表とリンク先の検査(既定言語のデータで決まるので、どの言語でも同じ結果になる)
+    for (const q of F.questions) for (const o of q.options) for (const id of Object.keys(o.s)) if (!modeIds.has(id)) throw new Error(`${where}: ${q.id}.${o.id} の点に存在しない形態 ${id}`);
+    for (const c of F.combos) {
+      for (const k of c.if) if (!optKey.has(k)) throw new Error(`${where}: combos の条件 ${k} が質問にありません`);
+      for (const id of Object.keys(c.s)) if (!modeIds.has(id)) throw new Error(`${where}: combos に存在しない形態 ${id}`);
+    }
+    for (const m of F.modes) {
+      for (const k of m.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: 形態 ${m.id} の用語集にない語 ${k}`);
+      for (const id of m.questions ?? []) if (isDef && !qById.has(id)) throw new Error(`${where}: 形態 ${m.id} の存在しない問題 ${id}`);
+      for (const s of m.cases ?? []) if (!failureBase.cases.some(c => c.slug === s)) throw new Error(`${where}: 形態 ${m.id} の存在しない事例 ${s}`);
+      for (const k of ['material', 'design', 'environment', 'manufacturing']) if (!m.measures?.[k]) throw new Error(`${where}: 形態 ${m.id} の対策 ${k} がありません`);
+    }
+    const presetOk = p => Object.entries(p).every(([qid, v]) => (Array.isArray(v) ? v : [v]).every(o => optKey.has(`${qid}.${o}`)));
+    for (const c of fail.cases) {
+      if (!/^[a-z0-9-]+$/.test(c.slug)) throw new Error(`${where}: slug「${c.slug}」は英小文字・数字・ハイフンだけにしてください`);
+      for (const k of c.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: 事例 ${c.slug} の用語集にない語 ${k}`);
+      for (const id of c.questions ?? []) if (isDef && !qById.has(id)) throw new Error(`${where}: 事例 ${c.slug} の存在しない問題 ${id}`);
+      for (const x of c.clues) if (!F.questions.some(q => q.id === x.q) || (x.o && !optKey.has(`${x.q}.${x.o}`))) throw new Error(`${where}: 事例 ${c.slug} の手がかりの質問 ${x.q}.${x.o ?? ''} がありません`);
+      if (!presetOk(c.preset)) throw new Error(`${where}: 事例 ${c.slug} の preset に存在しない答えがあります`);
+      if (!c.sources?.length || c.sources.some(x => !/^https:\/\//.test(x.url))) throw new Error(`${where}: 事例 ${c.slug} の出典(https の URL)がありません`);
+    }
+    const fHome = `${home}failure/`;
+    const fPath = (l, slug = '') => `${l.path}failure/${slug ? `${slug}/` : ''}`;
+    const fAlt = slug => Object.fromEntries(langs.filter(x => (slug ? failureCaseOn(x.code, slug) : failureOn(x.code))).map(x => [x.code, fPath(x, slug)]));
+    const presetUrl = p => `${fHome}?${Object.entries(p).map(([k, v]) => `${k}=${(Array.isArray(v) ? v : [v]).join(',')}`).join('&amp;')}`;
+    const modeOf = id => F.modes.find(m => m.id === id);
+    const optLabel = (qid, oid) => F.questions.find(q => q.id === qid).options.find(o => o.id === oid).label;
+    const pts = n => (n > 0 ? `+${n}` : String(n).replace('-', '−'));
+    const termChips = keys => keys.map(k => terms.find(x => x.key === k)).filter(Boolean).map(x => `<a class="chip" href="${home}term/${termSlug[x.key]}/">${esc(x.term)}</a>`).join(' ');
+    const caseCards = list => `<ul class="cmp-list fn-cases">${list.map(e => `
+  <li><a class="cmp-card" href="${fHome}${e.slug}/"><strong>${esc(e.title)}</strong><span>${esc(short(e.description, 120))}</span></a></li>`).join('')}
+</ul>`;
+    const li = list => `<ul>${list.map(x => `<li>${linked(x)}</li>`).join('')}</ul>`;
+    // 形態ごとの、点が入る手がかり・点が下がる手がかり(点数表から作る)
+    const clueList = (id, sign) => [
+      ...F.questions.flatMap(q => q.options.filter(o => Math.sign(o.s[id] ?? 0) === sign).map(o => ({ n: o.s[id], label: o.label }))),
+      ...F.combos.filter(c => Math.sign(c.s[id] ?? 0) === sign).map(c => ({ n: c.s[id], label: c.label })),
+    ].sort((a, b) => Math.abs(b.n) - Math.abs(a.n));
+    const MEAS = ['material', 'design', 'environment', 'manufacturing'];
+    const modeHtml = m => {
+      const qs2 = (m.questions ?? []).map(id => qById.get(id)).filter(Boolean);
+      const cs = (m.cases ?? []).map(s => fail.cases.find(c => c.slug === s)).filter(Boolean);
+      return `
+  <details class="fn-mode" id="mode-${m.id}">
+    <summary><strong>${esc(m.name)}</strong><span>${esc(m.short)}</span></summary>
+    <div class="fn-mode-body">
+    <h3>${esc(t('failure_look'))}</h3>
+    ${li(m.look)}
+    <h3>${esc(t('failure_tests'))}</h3>
+    ${li(m.tests)}
+    <h3>${esc(t('failure_confusions'))}</h3>
+    ${li(m.confusions)}
+    <h3>${esc(t('failure_measures'))}</h3>
+    <dl class="fn-measures">${MEAS.map(k => `<div><dt>${esc(t(`failure_m_${k}`))}</dt><dd>${linked(m.measures[k])}</dd></div>`).join('')}</dl>
+    <h3>${esc(t('failure_score_for'))}</h3>
+    <p class="fn-score-list"><span class="fn-plus">${clueList(m.id, 1).map(x => `<span>${esc(x.label)} <b>${pts(x.n)}</b></span>`).join('')}</span>${clueList(m.id, -1).length ? `<span class="fn-minus">${clueList(m.id, -1).map(x => `<span>${esc(x.label)} <b>${pts(x.n)}</b></span>`).join('')}</span>` : ''}</p>
+    ${m.terms?.length ? `<p class="term-chips"><span class="muted">${esc(t('failure_terms'))}:</span> ${termChips(m.terms)}</p>` : ''}
+    ${qs2.length ? `<p class="fn-qlinks"><span class="muted">${esc(t('failure_check_q'))}:</span></p>${qLinks(qs2)}` : ''}
+    ${cs.length ? `<p><span class="muted">${esc(t('failure_cases'))}:</span> ${cs.map(c => `<a href="${fHome}${c.slug}/">${esc(c.title)}</a>`).join(' / ')}</p>` : ''}
+    </div>
+  </details>`;
+    };
+    const qHtml = (q, i) => `
+  <fieldset class="fn-q" id="q-${q.id}">
+    <legend><span class="fn-qn">${i + 1}</span>${esc(q.label)}${q.multi ? ` <small>${esc(t('failure_multi'))}</small>` : ''}</legend>
+    <p class="fn-help">${esc(q.help)}</p>
+    <div class="fn-opts">${q.options.map(o => `
+      <label class="fn-opt"><input type="${q.multi ? 'checkbox' : 'radio'}" name="${q.id}" value="${o.id}"><span>${esc(o.label)}</span></label>`).join('')}
+      <label class="fn-opt fn-unknown"><input type="${q.multi ? 'checkbox' : 'radio'}" name="${q.id}" value="" checked><span>${esc(t('failure_unknown'))}</span></label>
+    </div>
+  </fieldset>`;
+    // 点数表(質問の答え × 形態)。横に長いので表の枠の中だけで横にスクロールする
+    const cell = n => (n ? `<td class="${n > 0 ? 'fn-p' : 'fn-n'}">${pts(n)}</td>` : '<td></td>');
+    const scoreTable = `<div class="table-wrap fn-table-wrap"><table class="fn-table">
+      <thead><tr><th scope="col">${esc(t('failure_table_clue'))}</th>${F.modes.map(m => `<th scope="col"><a href="#mode-${m.id}">${esc(m.abbr)}</a></th>`).join('')}</tr></thead>
+      <tbody>${F.questions.map(q => `
+        <tr class="fn-tq"><th scope="rowgroup" colspan="${F.modes.length + 1}">${esc(q.label)}</th></tr>${q.options.map(o => `
+        <tr><th scope="row">${esc(o.label)}</th>${F.modes.map(m => cell(o.s[m.id])).join('')}</tr>`).join('')}`).join('')}
+        <tr class="fn-tq"><th scope="rowgroup" colspan="${F.modes.length + 1}">${esc(t('failure_table_combo'))}</th></tr>${F.combos.map(c => `
+        <tr><th scope="row">${esc(c.label)}</th>${F.modes.map(m => cell(c.s[m.id])).join('')}</tr>`).join('')}
+      </tbody>
+    </table></div>`;
+    // failure.js に渡すデータ(点数表と表示の文言)
+    const jsData = {
+      q: F.questions.map(q => ({ id: q.id, multi: !!q.multi, label: q.label, o: q.options.map(o => ({ id: o.id, label: o.label, s: o.s })) })),
+      combos: F.combos,
+      modes: F.modes.map(m => ({ id: m.id, name: m.name })),
+      t: Object.fromEntries(['failure_empty', 'failure_n_answered', 'failure_points', 'failure_for', 'failure_against', 'failure_next', 'failure_unlikely', 'failure_top', 'failure_to_result', 'failure_details', 'failure_none_fit'].map(k => [k, S[k]])),
+    };
+    const relCats = ['fracture-fatigue', 'mechanical', 'corrosion', 'high-temperature', 'tribology', 'polymers'].map(catOf).filter(c => c && live.includes(c));
+    const modified = p => lastmodPrev[p]?.date ?? new Date().toLocaleDateString('sv-SE');
+    page({
+      path: fPath(L),
+      alt: fAlt(),
+      title: F.title,
+      fullTitle: `${F.title} | ${siteName}`,
+      description: F.description,
+      scripts: ['failure.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_failure, fHome]),
+        { '@context': 'https://schema.org', '@type': 'WebApplication', name: F.h1, description: F.description, url: abs(fHome), inLanguage: L.htmlLang,
+          applicationCategory: 'EducationalApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+        ...(F.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: F.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(F.h1)}</h1>
+<p class="lead">${esc(F.lead)}</p>
+<p class="fn-caution">${esc(F.note)}</p>
+<noscript><p class="muted">${esc(t('failure_noscript'))}</p></noscript>
+<form class="fn-form" id="fn-form" autocomplete="off">${F.questions.map(qHtml).join('')}
+</form>
+<section class="fn-result" id="fn-result" aria-live="polite">
+  <h2>${esc(t('failure_result'))}</h2>
+  <p class="fn-summary">${esc(t('failure_empty'))}</p>
+  <ol class="fn-cands"></ol>
+  <p class="fn-next" hidden></p>
+  <details class="fn-unlikely" hidden><summary>${esc(t('failure_unlikely'))}</summary><ul></ul></details>
+  <div class="cmp-tools">
+    <button type="button" class="btn btn-ghost" data-share data-done="${esc(t('compare_link_copied'))}">${esc(t('failure_share'))}</button>
+    <button type="button" class="btn btn-ghost" data-reset>${esc(t('failure_reset'))}</button>
+  </div>
+  <p class="muted fn-note">${esc(t('failure_url_note'))}</p>
+</section>
+<a class="fn-float" href="#fn-result" hidden></a>
+<script type="application/json" id="fn-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+<section class="fn-modes" id="modes">
+  <h2>${esc(t('failure_modes_h'))}</h2>
+  <p class="muted">${esc(t('failure_modes_lead', { n: F.modes.length }))}</p>${F.modes.map(modeHtml).join('')}
+</section>
+${fail.cases.length ? `<section id="cases">
+  <h2>${esc(t('failure_cases_h'))}</h2>
+  <p class="muted">${esc(t('failure_cases_lead'))}</p>
+  ${caseCards(fail.cases)}
+</section>` : ''}
+<section id="table">
+  <h2>${esc(t('failure_table_h'))}</h2>
+  <p class="muted">${esc(t('failure_table_lead'))}</p>
+  <details class="fn-table-box"><summary>${esc(t('failure_table_open'))}</summary>
+  ${scoreTable}
+  </details>
+</section>
+<div data-ad="compare"></div>
+${F.faq.length ? `<section class="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${F.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('failure_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+
+    // 事故事例 /failure/{slug}/
+    for (const e of fail.cases) {
+      const url = `${fHome}${e.slug}/`;
+      const quiz = (e.questions ?? []).map(id => qById.get(id)).filter(Boolean);
+      const mini = quiz.filter(q => !q.code).slice(0, 4);
+      const svg = chainSvg(e.chainTitle, e.chain, `${where} ${e.slug}(${code})`);
+      const others = fail.cases.filter(x => x !== e);
+      const relModes = F.modes.filter(m => (m.cases ?? []).includes(e.slug));
+      page({
+        path: fPath(L, e.slug),
+        alt: fAlt(e.slug),
+        fallback: x => (failureOn(x.code) ? fPath(x) : x.path),
+        title: e.title,
+        description: e.description,
+        scripts: ['answer.js'],
+        jsonld: [
+          crumbs([t('breadcrumb_top'), home], [S.nav_failure, fHome], [e.title, url]),
+          { '@context': 'https://schema.org', '@type': 'Article', headline: e.title, description: e.description, inLanguage: L.htmlLang,
+            datePublished: e.updated, dateModified: modified(fPath(L, e.slug)), mainEntityOfPage: abs(url),
+            citation: e.sources.map(x => x.url),
+            author: { '@type': 'Organization', name: siteName }, publisher: { '@type': 'Organization', name: siteName } },
+        ],
+        content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a> <span>›</span> <a href="${fHome}">${esc(S.nav_failure)}</a></nav>
+<article class="prose fn-case">
+<h1>${esc(e.title)}</h1>
+<p class="lead">${esc(e.lead)}</p>
+<h2>${esc(t('failure_case_facts'))}</h2>
+<dl class="fn-facts">${e.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+<h2>${esc(t('failure_case_happened'))}</h2>
+${e.happened.map(p => `<p>${linked(p)}</p>`).join('\n')}
+<h2>${esc(t('failure_case_chain'))}</h2>
+<figure class="fig fn-chain">${svg}<figcaption class="fig-cap">${esc(e.chainTitle)}</figcaption></figure>
+${e.mechanism.map(p => `<p>${linked(p)}</p>`).join('\n')}
+${e.note ? `<p class="fn-caution">${esc(e.note)}</p>` : ''}
+<h2>${esc(t('failure_case_clues'))}</h2>
+<ul class="fn-clues">${e.clues.map(x => `<li>${esc(x.text)} <a class="chip" href="${fHome}${x.o ? `?${x.q}=${x.o}` : ''}#q-${x.q}">${esc(F.questions.find(q => q.id === x.q).label)}${x.o ? `: ${esc(short(optLabel(x.q, x.o), 26))}` : ''}</a></li>`).join('')}</ul>
+<p><a class="btn btn-primary" href="${presetUrl(e.preset)}">${esc(t('failure_open_preset'))}</a></p>
+<p class="muted">${esc(e.presetNote)}</p>
+${relModes.length ? `<p>${esc(t('failure_case_modes'))}: ${relModes.map(m => `<a href="${fHome}#mode-${m.id}">${esc(m.name)}</a>`).join(' / ')}</p>` : ''}
+<h2>${esc(t('failure_case_changes'))}</h2>
+${li(e.changes)}
+<h2>${esc(t('failure_case_lessons'))}</h2>
+${li(e.lessons)}
+</article>
+<div data-ad="compare"></div>
+${quiz.length ? `<section>
+  <h2>${esc(t('failure_case_check'))}</h2>${mini.map(miniQ).join('')}
+  ${quiz.length > mini.length ? qLinks(quiz.filter(q => !mini.includes(q))) : ''}
+</section>` : ''}
+${(e.terms ?? []).some(k => terms.some(x => x.key === k)) ? `<section>
+  <h2>${esc(t('failure_terms'))}</h2>
+  <p class="term-chips">${termChips(e.terms)}</p>
+</section>` : ''}
+<section class="fn-sources">
+  <h2>${esc(t('failure_case_sources'))}</h2>
+  <ol>${e.sources.map(x => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a></li>`).join('')}</ol>
+  <p class="muted">${esc(t('failure_case_sources_note'))}</p>
+</section>
+${others.length ? `<section>
+  <h2>${esc(t('failure_case_more'))}</h2>
+  ${caseCards(others)}
+</section>` : ''}
+<p><a class="btn btn-ghost" href="${fHome}">${esc(t('failure_back'))}</a></p>`,
       });
     }
   }
@@ -2845,7 +5098,7 @@ fs.writeFileSync(lastmodFile, '{\n' + Object.entries(lastmod).map(([k, v]) => ` 
 // /sitemap.xml の場所は変えないので、Search Console と robots.txt はそのままでよい
 const SITEMAP_MAX = 40000;
 const langOfUrl = url => [...langs].sort((a, b) => b.path.length - a.path.length).find(x => pageKey(url).startsWith(x.path)).code; // 既定言語(path が空)は最後に当たる
-const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools']; // これ以外(トップ・分野・図解集など)は other にまとめる
+const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill', 'materials', 'formulas', 'methods', 'prep', 'measure', 'phrases']; // これ以外(トップ・分野・図解集など)は other にまとめる
 const typeOfUrl = url => {
   const L = langs.find(x => x.code === langOfUrl(url));
   const first = pageKey(url).slice(L.path.length).split('/')[0];

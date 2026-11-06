@@ -15,7 +15,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="logo" href="{{home}}"><span class="logo-mark" aria-hidden="true"></span><span>{{siteName}}<small>{{t_logo_sub}}</small></span></a>
-    <nav class="header-nav">{{headerNav}}</nav>
+    <nav class="header-nav" aria-label="{{t_nav_menu}}">{{headerNav}}</nav>
     <form class="site-search" role="search" action="{{home}}search/" method="get"><input type="search" name="q" placeholder="{{t_search_placeholder}}" aria-label="{{t_search_label}}" autocomplete="off"></form>
     <a class="icon-btn search-link" href="{{home}}search/" aria-label="{{t_search_label}}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
     <details class="menu lang-menu"{{langMenuHidden}}>
@@ -28,7 +28,14 @@
     </details>
   </div>
 </header>
-<script>(() => { const menus = () => document.querySelectorAll('details.menu[open]'); document.addEventListener('click', e => menus().forEach(d => d.contains(e.target) || (d.open = false))); document.addEventListener('keydown', e => e.key === 'Escape' && menus().forEach(d => (d.open = false))); })();</script>
+<script>(() => {
+  // メニュー(details.menu): 外をクリックしたとき・フォーカスが外へ出たとき・ほかのメニューを開いたときに閉じる。Esc で閉じて、中にあったフォーカスを見出しに戻す
+  const menus = () => document.querySelectorAll('details.menu[open]'), shut = t => menus().forEach(d => d.contains(t) || (d.open = false));
+  document.addEventListener('click', e => shut(e.target));
+  document.addEventListener('focusin', e => shut(e.target));
+  document.addEventListener('toggle', e => e.target.matches?.('details.menu[open]') && shut(e.target), true);
+  document.addEventListener('keydown', e => e.key === 'Escape' && menus().forEach(d => { const f = d.contains(document.activeElement); d.open = false; f && d.querySelector('summary').focus(); }));
+})();</script>
 <script>(() => {
   // 言語の選択を覚える。既定言語のトップ(/)に来たときだけ、選んだ言語のトップへ移る(言語別のURLはそのまま表示する)
   const k = 'langChoice', h = document.documentElement;

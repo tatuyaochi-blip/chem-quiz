@@ -1,7 +1,7 @@
 // 操作できる図解。静的な図(SVG)と説明はそのまま残し、その下の [data-fig-live] に、スライダーで動かせる図を描く。
 // 文言は data-text(JSON)、計算ツールへのリンクは [data-tool-link](今の値をクエリに付ける)
 const lang = document.documentElement.lang || 'en';
-const fmt = (x, d = 3) => (Number.isFinite(x) ? x.toLocaleString(lang, { maximumSignificantDigits: d }) : '–');
+const fmt = (x, d = 3) => (Number.isFinite(x) ? x.toLocaleString(lang, { maximumSignificantDigits: d, useGrouping: !/^de/.test(lang) }) : '–');
 const sup = n => String(n).replace(/[-\d]/g, c => '⁻⁰¹²³⁴⁵⁶⁷⁸⁹'['-0123456789'.indexOf(c)]);
 const pow10 = x => { const e = Math.floor(Math.log10(x) + 1e-9), m = Number((x / 10 ** e).toPrecision(2)); return m === 1 ? `10${sup(e)}` : `${fmt(m, 2)}×10${sup(e)}`; };
 const fill = (s, vars) => s.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
