@@ -1,0 +1,1502 @@
+{
+ "title": "Chemistry formula sheet (symbols, units, conditions, worked examples)",
+ "description": "75 formulas for organic and analytical chemistry, from pH, buffers and solubility products, the Nernst equation, Faraday’s law and the Beer–Lambert law to chemical shift, degree of unsaturation, isotope patterns, retention factor and resolution, plate number, integrated rate laws, Arrhenius and Eyring, ΔG° = −RT ln K, the Carothers equation, Bragg and Scherrer, detection limits, uncertainty, atom economy and the E factor, each with symbols and units, conditions of use, common mistakes and a numerical example. Print only the formulas you pick on A4.",
+ "h1": "Formula sheet",
+ "lead": "The formulas used in organic and analytical chemistry courses, exams and the lab, grouped by topic. Each one lists symbols with units, conditions and range, common mistakes and a numerical example, and the dimensions of both sides have all been checked by machine. Links lead to calculators that use the same formula.",
+ "note": "Example values are this site’s calculator defaults or match the practice questions and textbooks (sources are given per formula). Some property values, such as standard potentials, pKa values and molar absorption coefficients, are given only for the example. For experiments and reports, check values against the literature or standards.",
+ "groups": {
+  "acid": "Acid–base, titration and solubility",
+  "electro": "Electrochemistry",
+  "spec": "Spectroscopy (UV-Vis, IR, fluorescence)",
+  "nmrms": "NMR and mass spectrometry",
+  "chrom": "Chromatography",
+  "kin": "Kinetics and thermodynamics",
+  "poly": "Polymers",
+  "xray": "Thermal analysis, X-rays and surfaces",
+  "qa": "Sample preparation and quality control",
+  "green": "Synthesis and process metrics"
+ },
+ "guide": [
+  {
+   "h": "How to use",
+   "p": [
+    "Type a formula name, symbol or term (“Nernst”, “t_R”, “resolution”) in the search box to keep only the matching formulas, or narrow them with the topic buttons. Each heading has a link (#f-…) that jumps straight to that formula.",
+    "Tick “Pick” on a formula to add it to your own formula sheet. “Print picked only” prints the formulas and symbol tables of the picked items on A4 in two columns (10–15 formulas fit on one or two pages). Tick “Also print conditions and examples” to include those as well.",
+    "“Copy link to picked” gives a URL (?f=…) that opens the same selection. Picks are also kept in this browser (localStorage) and never sent to a server. If your browser blocks storage, the URL still restores them."
+   ]
+  },
+  {
+   "h": "How dimensions and examples were checked",
+   "p": [
+    "For every formula, a program converted the units in the symbol table to SI base units (kg, m, s, A, K, mol) and confirmed that both sides of each line have equal dimensions and that the arguments of exp, ln and log are dimensionless. Logarithms of concentrations (pH, pK_a, the Nernst equation) are treated as dimensionless quantities divided by the standard concentration c° = 1 mol/L.",
+    "All numerical examples were also recalculated by a separate program and matched with the values on this page, using CODATA 2022 constants. For quantities whose units depend on order, such as rate constants, the [ ] shows a representative case (for example first order)."
+   ]
+  }
+ ],
+ "units_h": "Unit conversions",
+ "units_lead": "Conversions for units common in chemistry, for making units consistent before using a formula (after NIST SP 811 and the SI Brochure, 9th ed.; numbers calculated from CODATA 2022 constants).",
+ "units": [
+  {
+   "a": "1 mol/L (M)",
+   "b": "10³ mol/m³ = 1 mmol/mL",
+   "q": "molar concentration"
+  },
+  {
+   "a": "1 mmol/L",
+   "b": "1 mol/m³",
+   "q": "formulas used in SI, e.g. Randles–Ševčík"
+  },
+  {
+   "a": "1 mg/L",
+   "b": "10⁻³ kg/m³ = 1 g/m³",
+   "q": "mass concentration"
+  },
+  {
+   "a": "mg/L → mol/L",
+   "b": "c [mol/L] = c [mg/L]/(1000 M [g/mol]) (Cd, 112.41 g/mol: 1.00 mg/L = 8.90 µmol/L)",
+   "q": "mass and molar concentration"
+  },
+  {
+   "a": "1 ppm",
+   "b": "10⁻⁶ (by mass 1 mg/kg; about 1 mg/L in dilute water)",
+   "q": "trace levels (state what ratio)"
+  },
+  {
+   "a": "1 ppb",
+   "b": "10⁻⁹ (1 µg/kg; about 1 µg/L in dilute water)",
+   "q": "ultratrace, e.g. ICP-MS"
+  },
+  {
+   "a": "1 % (w/v)",
+   "b": "1 g/100 mL = 10 g/L",
+   "q": "solution preparation"
+  },
+  {
+   "a": "1 L",
+   "b": "10⁻³ m³ = 1 dm³ (1 mL = 1 cm³)",
+   "q": "volume"
+  },
+  {
+   "a": "1 L/(mol·cm)",
+   "b": "0.1 m²/mol",
+   "q": "molar absorption coefficient"
+  },
+  {
+   "a": "ν̃ [cm⁻¹] → λ",
+   "b": "λ [nm] = 10⁷/ν̃, λ [µm] = 10⁴/ν̃ (1715 cm⁻¹ = 5.831 µm)",
+   "q": "IR and Raman"
+  },
+  {
+   "a": "λ [nm] → E [eV]",
+   "b": "E = 1239.84/λ (254 nm = 4.881 eV)",
+   "q": "UV-Vis and photochemistry"
+  },
+  {
+   "a": "1 cm⁻¹",
+   "b": "1.239 84×10⁻⁴ eV = 11.963 J/mol",
+   "q": "vibrational energy"
+  },
+  {
+   "a": "1 eV (per particle)",
+   "b": "96.485 kJ/mol",
+   "q": "energy conversion"
+  },
+  {
+   "a": "1 kcal/mol",
+   "b": "4.184 kJ/mol (thermochemical calorie)",
+   "q": "thermodynamic data in older literature"
+  },
+  {
+   "a": "2.303RT (25 °C)",
+   "b": "5.708 kJ/mol = 1.364 kcal/mol",
+   "q": "ΔG° per unit of log₁₀ K"
+  },
+  {
+   "a": "1 atm",
+   "b": "101 325 Pa = 1.013 25 bar = 760 Torr",
+   "q": "pressure"
+  },
+  {
+   "a": "1 bar",
+   "b": "10⁵ Pa (standard-state pressure p°)",
+   "q": "standard state"
+  },
+  {
+   "a": "1 Torr",
+   "b": "101 325/760 Pa = 133.322 Pa",
+   "q": "vacuum and vapor pressure"
+  },
+  {
+   "a": "t [°C] → T [K]",
+   "b": "T = t + 273.15 (a difference of 1 °C = 1 K)",
+   "q": "all thermodynamic and kinetic formulas"
+  },
+  {
+   "a": "1 Å",
+   "b": "0.1 nm = 10⁻¹⁰ m",
+   "q": "bond lengths and d-spacings"
+  },
+  {
+   "a": "1 Da (= 1 u)",
+   "b": "1.660 539 069×10⁻²⁷ kg (corresponds to 1 g/mol)",
+   "q": "mass spectrometry and polymers"
+  }
+ ],
+ "const_h": "Physical constants",
+ "const_lead": "CODATA 2022 recommended values (Mohr et al., Rev. Mod. Phys. 97, 025002 (2025); physics.nist.gov/cuu). “Exact” marks constants fixed by the 2019 SI and quantities derived from them. Figures in parentheses are the standard uncertainty in the last digits. The examples use these values (some calculators use rounded values such as R = 8.314).",
+ "constants": [
+  "speed of light in vacuum",
+  "Planck constant",
+  "elementary charge",
+  "Boltzmann constant",
+  "Avogadro constant",
+  "molar gas constant N_A k_B",
+  "Faraday constant N_A e",
+  "Nernstian slope (298.15 K)",
+  "Eyring pre-factor (298.15 K)",
+  "photon energy–wavelength conversion",
+  "atomic mass constant (1 Da)",
+  "proton mass",
+  "proton gyromagnetic ratio/2π (unshielded)"
+ ],
+ "faq": [
+  [
+   "Should I use activities or concentrations?",
+   "The Nernst equation, equilibrium constants and the definition of pH are properly written with activities. Concentrations are fine only for dilute solutions where the ionic strength is low and activity coefficients are about 1. In salty solutions or with di- and trivalent ions the difference grows, so estimate activity coefficients with the Debye–Hückel equation, or use concentration-based equilibrium constants or formal potentials determined at the same ionic strength."
+  ],
+  [
+   "Should I measure peak width at the baseline or at half height?",
+   "Either gives the same answer for Gaussian peaks as long as the coefficient matches. With the baseline width W (= 4σ), N = 16(t_R/W)² and R_s = 2Δt_R/(W₁ + W₂). With the half-height width W_{½} (= 2.355σ), N = 5.54(t_R/W_{½})² and R_s = 1.18Δt_R/(W_{½,1} + W_{½,2}). Check which width your data system reports and never mix the coefficients. For tailing peaks the two methods disagree."
+  ],
+  [
+   "Do I divide by n or n − 1 for the standard deviation?",
+   "When estimating the spread of a population from a few measurements, as in chemical analysis, divide by n − 1 (sample standard deviation s). Dividing by n underestimates it (by about 11 % for n = 5). Tables for confidence intervals, t tests and Grubbs’ test assume s. Calculators and spreadsheets offer both functions, so check which one you used."
+  ],
+  [
+   "What is the difference between 3σ and 3.3σ/S for the detection limit?",
+   "Both convert into concentration the signal, as a multiple of the blank noise, above which the analyte cannot be said to be absent. Analytical chemistry textbooks (Harris and others) often use 3s/S, three times the blank standard deviation divided by the sensitivity; pharmaceutical method validation (ICH Q2(R2), 2023, as in the earlier Q2(R1)) gives 3.3σ/S. How σ is obtained also varies: replicate blanks, residuals of the calibration line, or the standard deviation of the intercept. The quantification limit is usually 10σ/S in both. State the factor and the source of σ when you report."
+  ],
+  [
+   "Why do second-order rate constants for 2A → P differ by a factor of 2 between books?",
+   "Because the rate is defined differently. IUPAC defines the rate of reaction as v = −(1/ν)d[A]/dt (ν the stoichiometric coefficient), so for 2A → P, v = −½ d[A]/dt = k[A]². Many books instead define k by the loss of A, −d[A]/dt = k[A]², as do this site’s kinetics calculator and this formula sheet. The two k values differ by a factor of 2, so check the definition before using literature values."
+  ],
+  [
+   "Which formulas use ln and which use log?",
+   "The Arrhenius and Eyring equations, ΔG° = −RT ln K, the van ’t Hoff equation and first-order integrated rate laws use the natural log ln. pH, pK_a, absorbance, Henderson–Hasselbalch, the Hammett equation and the 25 °C Nernst equation (0.05916 V) use log₁₀. Since ln x = 2.303 log₁₀ x, a mix-up gives an error of a factor of 2.303."
+  ],
+  [
+   "What is the [ ] to the right of each formula?",
+   "The dimensions of both sides of that line in SI base units (kg, m, s, A, K, mol). Potential, for example, is kg·m²·s⁻³·A⁻¹ (= V), molar concentration is m⁻³·mol (= mol/m³; 1 mol/L = 10³ mol/m³), and dimensionless quantities show 1. Formulas that use customary units such as mol/L, cm or °C are still checked in SI. Use it to check the unit of your answer."
+  ],
+  [
+   "Can the example values differ slightly from the calculators?",
+   "Examples that use the calculator defaults (buffer, Beer–Lambert, chromatography, isotope pattern, kinetics) match what the calculators show. The kinetics calculator uses R = 8.314 J/(mol·K) while this page uses the CODATA value of R, so activation energies differ in the fifth digit (52.946 versus 52.949 kJ/mol). The calculator shows four significant figures, so both appear as 52.95 kJ/mol."
+  ]
+ ],
+ "sources_h": "Main sources",
+ "refs": {
+  "harris": "Harris 10th ed.",
+  "skoog": "Skoog 7th ed.",
+  "atkins": "Atkins 11th ed.",
+  "clayden": "Clayden 2nd ed.",
+  "silverstein": "Silverstein 8th ed.",
+  "odian": "Odian 4th ed.",
+  "anslyn": "Anslyn & Dougherty",
+  "bard": "Bard & Faulkner 2nd ed.",
+  "lakowicz": "Lakowicz 3rd ed.",
+  "cullity": "Cullity & Stock 3rd ed.",
+  "watts": "Watts & Wolstenholme",
+  "miller": "Miller & Miller 7th ed.",
+  "gum": "JCGM 100:2008 (GUM)",
+  "ich": "ICH Q2(R2)",
+  "goldbook": "IUPAC Gold Book",
+  "codata": "CODATA 2022",
+  "meija": "IUPAC isotopic compositions 2013",
+  "ame": "AME2020",
+  "hansch": "Hansch et al. 1991",
+  "trost": "Trost 1991",
+  "anastas": "Anastas & Warner",
+  "sheldon": "Sheldon 2007",
+  "jimenez": "Jiménez-González et al. 2011",
+  "curzons": "Curzons et al. 2001",
+  "stoessel": "Stoessel"
+ },
+ "formulas": {
+  "ph": {
+   "name": "pH and pOH",
+   "l": [
+    "",
+    "pK_w = 14.00 at 25 °C"
+   ],
+   "m": [
+    "hydrogen-ion and hydroxide-ion exponents",
+    "activity of the hydrogen ion",
+    "hydrogen-ion concentration",
+    "standard concentration, 1 mol/L (makes the log argument dimensionless)",
+    "ion product of water, a(H⁺)a(OH⁻)"
+   ],
+   "when": "Aqueous solutions. The concentration form is an approximation for dilute solutions where activity coefficients can be taken as 1 (low ionic strength). pK_w depends on temperature; 14.00 is the value at 25 °C.",
+   "miss": "Using the natural log ln. Taking the pH of 1.0×10⁻⁸ mol/L HCl as 8 (this ignores the dissociation of water; the real value is about 6.98, still acidic). Using pH + pOH = 14 at temperatures other than 25 °C.",
+   "ex": "0.050 mol/L NaOH (25 °C, activity coefficients 1): pOH = −log₁₀ 0.050 = 1.30, so pH = 14.00 − 1.30 = 12.70.",
+   "kw": "pH pOH hydrogen ion ion product of water Kw activity"
+  },
+  "ka": {
+   "name": "Acid dissociation constant Ka and pKa",
+   "l": [
+    "",
+    "",
+    "conjugate acid and base"
+   ],
+   "m": [
+    "acid dissociation constant (in concentrations)",
+    "equilibrium concentrations of the weak acid, its conjugate base and H⁺",
+    "standard concentration, 1 mol/L",
+    "base dissociation exponent of the conjugate base",
+    "exponent of the ion product of water (14.00 at 25 °C)"
+   ],
+   "when": "Dilute aqueous solution at constant temperature. The thermodynamic K_a is written with activities and is dimensionless; the concentration form shifts slightly with ionic strength.",
+   "miss": "Reading the pK_a of 9.25 for ammonia as a property of NH₃ (it is the pK_a of the conjugate acid NH₄⁺; NH₃ has pK_b = 4.75). Thinking a larger pK_a means a stronger acid (it is the opposite).",
+   "ex": "NH₄⁺ has pK_a = 9.25, so K_a = 10^{−9.25} = 5.62×10⁻¹⁰ mol/L. At 25 °C, NH₃ has pK_b = 14.00 − 9.25 = 4.75 and K_b = 1.78×10⁻⁵ mol/L.",
+   "kw": "acid dissociation constant Ka pKa pKb conjugate base"
+  },
+  "weak-acid": {
+   "name": "pH of a weak acid solution",
+   "l": [
+    "",
+    "degree of dissociation"
+   ],
+   "m": [
+    "hydrogen-ion concentration",
+    "acid dissociation constant",
+    "total (formal) concentration of the weak acid",
+    "degree of dissociation (fraction ionized)"
+   ],
+   "when": "When the degree of dissociation is small (about 5 % or less) so that C − [H⁺] ≈ C. If the solution is so dilute that water dissociation matters, or K_a is large, solve the quadratic [H⁺]²/(C − [H⁺]) = K_a.",
+   "miss": "Dropping the square root ([H⁺] = K_a C). Using pH = pK_a for a plain weak acid solution (it holds only when [HA] = [A⁻]).",
+   "ex": "0.10 mol/L acetic acid (K_a = 1.8×10⁻⁵ mol/L): [H⁺] ≈ √(1.8×10⁻⁶) = 1.34×10⁻³ mol/L, pH = 2.87 and α = 1.3 %. Solving the quadratic gives [H⁺] = 1.33×10⁻³ mol/L and pH = 2.88, so the approximation is close.",
+   "kw": "weak acid pH degree of dissociation acetic acid approximation quadratic"
+  },
+  "henderson": {
+   "name": "Henderson–Hasselbalch equation",
+   "l": [
+    "",
+    "ratio for a target pH"
+   ],
+   "m": [
+    "pH of the buffer",
+    "acid dissociation exponent of the weak acid",
+    "concentration of the conjugate base (salt)",
+    "concentration of the weak acid"
+   ],
+   "when": "An approximation with activity coefficients of 1 that ignores the change in concentrations from dissociation of the acid itself and of water. It works well for concentrations above about 0.01 mol/L and pH within pK_a ± 1.",
+   "miss": "Inverting the ratio ([HA]/[A⁻]). Using ln instead of log. Forgetting that only the ratio matters, so dilution leaves the pH (approximately) unchanged.",
+   "ex": "Acetic acid 0.10 mol/L with sodium acetate 0.15 mol/L (pK_a 4.76): pH = 4.76 + log₁₀ 1.5 = 4.94. For pH 5.00 the ratio is 10^{0.24} = 1.74; with a total of 0.10 mol/L that is 0.0635 mol/L sodium acetate and 0.0365 mol/L acetic acid.",
+   "kw": "Henderson Hasselbalch buffer ratio"
+  },
+  "fraction": {
+   "name": "Fractions of the acid and base forms",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "fractions of the total present as conjugate base and as acid",
+    "acid dissociation constant",
+    "hydrogen-ion concentration (set by the pH)"
+   ],
+   "when": "Monoprotic acids, with the pH fixed by a buffer and not changed by the dissolved substance. Polyprotic acids need the expressions with stepwise K_a values.",
+   "miss": "Forgetting that pH − pK_a = 1 means 90 % and 2 means 99 %, and assuming half-and-half at any pH. For a base (BH⁺/B) the fraction of B corresponds to α(A⁻).",
+   "ex": "A weak acid with pK_a 4.76 at pH 7.40: α(HA) = 1/(1 + 10^{2.64}) = 0.0023, so 0.23 % is in the neutral form.",
+   "kw": "fraction neutral form ionized form dissociation alpha speciation"
+  },
+  "buffer-capacity": {
+   "name": "Buffer capacity",
+   "l": [
+    "",
+    "at pH = pK_a"
+   ],
+   "m": [
+    "buffer capacity (strong base per liter needed to change the pH by 1)",
+    "concentration of added strong base",
+    "total buffer concentration [HA] + [A⁻]",
+    "acid dissociation constant",
+    "hydrogen-ion concentration"
+   ],
+   "when": "A monoprotic buffer. The contribution of water itself, 2.303([H⁺] + [OH⁻]), is left out (add it in strongly acidic or basic solutions, or for dilute buffers). 0.576 = 2.303/4.",
+   "miss": "Assuming the capacity is the same outside pK_a ± 1. Forgetting that doubling the total concentration at the same ratio leaves the pH unchanged but doubles the capacity.",
+   "ex": "C = 0.10 mol/L: at pH = pK_a, β = 0.0576 mol/L per pH unit. At pH = pK_a ± 1 it is 2.303 × 0.10 × 10/121 = 0.0190 mol/L, 33 % of the maximum.",
+   "kw": "buffer capacity buffer index"
+  },
+  "activity": {
+   "name": "Activity and ionic strength (Debye–Hückel)",
+   "l": [
+    "",
+    "ionic strength",
+    "limiting law; A ≈ 0.509 in water at 25 °C"
+   ],
+   "m": [
+    "activity of ion i",
+    "activity coefficient",
+    "concentration of ion i",
+    "charge number of the ion",
+    "ionic strength",
+    "Debye–Hückel constant (0.509 for water at 25 °C)"
+   ],
+   "when": "The limiting law only fits very dilute solutions. At higher concentrations use forms that include the ion size, such as the extended Debye–Hückel equation. Strictly the concentrations are molalities (mol/kg), nearly equal to mol/L in dilute water.",
+   "miss": "Forgetting z² in the ionic strength (a divalent ion counts four times). Taking the salt concentration as the ionic strength (1 mol/L Na₂SO₄ has an ionic strength of 3 mol/L).",
+   "ex": "1.0×10⁻³ mol/L Na₂SO₄: I = ½(2.0×10⁻³ × 1 + 1.0×10⁻³ × 4) = 3.0×10⁻³ mol/L. For SO₄²⁻, log₁₀ γ = −0.509 × 4 × √0.0030, so γ = 0.77; for Na⁺, γ = 0.94.",
+   "kw": "activity activity coefficient ionic strength Debye Huckel"
+  },
+  "titration": {
+   "name": "Titration stoichiometry",
+   "l": [
+    "",
+    "equivalence point"
+   ],
+   "m": [
+    "amount of substance",
+    "concentrations of analyte and titrant",
+    "their volumes",
+    "stoichiometric coefficients in the reaction"
+   ],
+   "when": "The reaction goes to completion with the stated stoichiometry and the end point matches the equivalence point (indicator error is estimated separately).",
+   "miss": "Swapping the coefficients (with 2MnO₄⁻ + 5C₂O₄²⁻, MnO₄⁻ is 2/5 of C₂O₄²⁻). Mixing mL and L. Forgetting the purity and drying of the primary standard used for standardization.",
+   "ex": "Potassium hydrogen phthalate 0.4084 g (204.22 g/mol) = 2.000×10⁻³ mol needs 20.40 mL of NaOH, so c = 0.09803 mol/L. If 1.000×10⁻³ mol sodium oxalate takes 20.00 mL KMnO₄, MnO₄⁻ is 2/5 of that, 4.000×10⁻⁴ mol, giving 0.02000 mol/L.",
+   "kw": "titration equivalence point standardization neutralization redox stoichiometry"
+  },
+  "ksp": {
+   "name": "Solubility product and molar solubility",
+   "l": [
+    "salt MₘXₓ",
+    "in pure water"
+   ],
+   "m": [
+    "solubility product (concentrations divided by c°)",
+    "cation and anion concentrations in the saturated solution",
+    "subscripts in the formula",
+    "molar solubility",
+    "standard concentration, 1 mol/L"
+   ],
+   "when": "Activity coefficients of 1, and ions that do not hydrolyze or form complexes. With a common ion present, include its concentration (solubility drops).",
+   "miss": "Comparing salts of different stoichiometry by K_sp alone (Ag₂CrO₄ has a smaller K_sp than AgCl but is more soluble). Forgetting the factor m^{m} x^{x}.",
+   "ex": "AgCl (K_sp = 1.8×10⁻¹⁰): s = √(1.8×10⁻¹⁰) = 1.34×10⁻⁵ mol/L. Ag₂CrO₄ (1.1×10⁻¹²): s = (1.1×10⁻¹²/4)^{1/3} = 6.50×10⁻⁵ mol/L, more soluble than AgCl.",
+   "kw": "solubility product Ksp solubility precipitation common ion"
+  },
+  "nernst": {
+   "name": "Nernst equation",
+   "l": [
+    "",
+    "25 °C"
+   ],
+   "m": [
+    "electrode potential (written for the reduction half-reaction)",
+    "standard electrode potential",
+    "gas constant",
+    "absolute temperature",
+    "number of electrons transferred",
+    "Faraday constant",
+    "reaction quotient in activities (reduced/oxidized)"
+   ],
+   "when": "A reversible electrode reaction at equilibrium, with essentially no current flowing (potentiometry). Written with concentrations, it is off by the activity coefficients (a formal potential E°′ absorbs this).",
+   "miss": "Dropping n (for two electrons the factor halves to 0.0296 V). Inverting Q and getting the sign wrong. Using 0.05916 at temperatures other than 25 °C.",
+   "ex": "Cu²⁺ + 2e⁻ ⇌ Cu (E° = +0.340 V) with a(Cu²⁺) = 1.0×10⁻³: E = 0.340 − (0.05916/2) log₁₀(1/1.0×10⁻³) = 0.340 − 0.0887 = +0.251 V.",
+   "kw": "Nernst electrode potential standard potential reaction quotient"
+  },
+  "nernst-slope": {
+   "name": "Slope of ion-selective and pH electrodes",
+   "l": [
+    "per tenfold change in activity",
+    "pH glass electrode"
+   ],
+   "m": [
+    "Nernstian slope (theoretical)",
+    "charge number of the measured ion (opposite sign for anions)",
+    "gas constant",
+    "absolute temperature",
+    "Faraday constant",
+    "measured cell potential",
+    "constant fixed by calibration"
+   ],
+   "when": "For an electrode with Nernstian response. Real slopes are often slightly below theory, so they are found by calibrating with two or more standards. The slope is proportional to temperature, so temperature compensation is needed.",
+   "miss": "Mixing up RT/F (25.7 mV, per natural-log unit) with the slope per decade. Using 59 mV for a divalent ion such as Ca²⁺.",
+   "ex": "z = 1 at 25 °C (298.15 K): S = 2.3026 × 8.3145 × 298.15/96 485 = 59.16 mV. At 37 °C it is 61.54 mV; for z = 2, 29.58 mV (25 °C).",
+   "kw": "Nernstian slope ion-selective electrode pH electrode glass electrode calibration 59 mV"
+  },
+  "dg-e": {
+   "name": "Cell potential, Gibbs energy and equilibrium constant",
+   "l": [
+    "",
+    "",
+    "25 °C"
+   ],
+   "m": [
+    "standard reaction Gibbs energy",
+    "standard cell potential E°(right) − E°(left)",
+    "electrons transferred per unit of reaction",
+    "Faraday constant",
+    "equilibrium constant",
+    "gas constant, absolute temperature"
+   ],
+   "when": "Relations between standard-state quantities. With the left electrode of the cell diagram as anode (oxidation) and the right as cathode (reduction), E° = E°(right) − E°(left).",
+   "miss": "Doubling E° when a half-reaction is doubled (E° is intensive and stays the same; ΔG° doubles). Mixing kJ and J in ΔG°.",
+   "ex": "A cell with n = 2 and E° = 1.100 V: ΔG° = −2 × 96 485 × 1.100 = −212.3 kJ/mol and log₁₀ K = 2 × 1.100/0.05916 = 37.19 (K = 1.5×10³⁷).",
+   "kw": "cell potential emf Gibbs energy equilibrium constant standard potential"
+  },
+  "faraday": {
+   "name": "Faraday’s law of electrolysis",
+   "l": [
+    "constant current",
+    ""
+   ],
+   "m": [
+    "charge passed",
+    "current",
+    "time",
+    "mass deposited or dissolved",
+    "molar mass",
+    "electrons per formula unit",
+    "Faraday constant"
+   ],
+   "when": "Current efficiency of 100 % (no side reactions). With current efficiency η, multiply m by η. Coulometric titration and coulometry use the same relation.",
+   "miss": "Dropping z (2 for Cu²⁺). Mixing mA with A or minutes with seconds.",
+   "ex": "10.0 mA for 965 s: Q = 9.65 C, electrons 9.65/96 485 = 1.000×10⁻⁴ mol, so Cu is 5.00×10⁻⁵ mol, 3.18 mg (63.55 g/mol).",
+   "kw": "Faraday electrolysis charge coulometry current efficiency"
+  },
+  "randles-sevcik": {
+   "name": "Randles–Ševčík equation (CV peak current)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "peak current",
+    "number of electrons",
+    "Faraday constant",
+    "electrode area",
+    "bulk concentration (1 mmol/L = 1 mol/m³)",
+    "scan rate",
+    "diffusion coefficient",
+    "gas constant, absolute temperature"
+   ],
+   "when": "A reversible, diffusion-controlled system at a planar electrode with semi-infinite diffusion. At 25 °C in cm-based units, i_p = 2.69×10⁵ n^{3/2} A D^{1/2} C v^{1/2} (A in cm², D in cm²/s, C in mol/cm³). Quasi-reversible and irreversible systems have different coefficients.",
+   "miss": "Putting mol/L into the 2.69×10⁵ form (it needs mol/cm³). Expecting i_p ∝ v (it goes as √v). Forgetting that adsorbed species give i_p ∝ v.",
+   "ex": "n = 1, a 3.0 mm diameter electrode (A = 7.07×10⁻⁶ m²), C = 1.0 mmol/L, taking D = 1.0×10⁻⁹ m²/s, v = 0.100 V/s, 25 °C: i_p = 1.90×10⁻⁵ A = 19.0 µA. Quadrupling v doubles it.",
+   "kw": "Randles Sevcik cyclic voltammetry CV peak current scan rate"
+  },
+  "beer": {
+   "name": "Beer–Lambert law",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "absorbance",
+    "molar absorption coefficient (1 L/(mol·cm) = 0.1 m²/mol)",
+    "path length",
+    "molar concentration"
+   ],
+   "when": "Monochromatic light, dilute solution (no interactions or association between molecules), negligible scattering and fluorescence. On most instruments the error is smallest for absorbance of about 0.1–1.",
+   "miss": "Entering the path length in mm (with ε in L/(mol·cm) it must be cm). Putting % transmittance straight into A. Forcing a straight line through a calibration curve bent by high concentration or stray light.",
+   "ex": "NADH (340 nm, ε = 6220 L/(mol·cm)) in a 1 cm cell with A = 0.45: c = 0.45/6220 = 7.23×10⁻⁵ mol/L = 72.3 µmol/L.",
+   "kw": "Beer Lambert absorbance molar absorption coefficient path length quantitation"
+  },
+  "absorbance": {
+   "name": "Absorbance and transmittance",
+   "l": [
+    "",
+    "",
+    ""
+   ],
+   "m": [
+    "transmittance (%T is 100 times it)",
+    "incident intensity (blank)",
+    "transmitted intensity",
+    "absorbance"
+   ],
+   "when": "Absorbance is defined with the decimal log (a “Napierian absorbance” with ln also exists but is rarely used in analytical chemistry). I₀ is measured on a blank with solvent and cell.",
+   "miss": "Taking the log of %T without dividing by 100. Thinking absorbance 2 means twice the absorption (it transmits 1 %, a tenth of the light at absorbance 1).",
+   "ex": "A = 0.45 means %T = 100 × 10^{−0.45} = 35.48 %. A = 1 is 10 %, A = 2 is 1 %.",
+   "kw": "absorbance transmittance log percent"
+  },
+  "beer-mix": {
+   "name": "Additivity of absorbance for mixtures",
+   "l": [
+    ""
+   ],
+   "m": [
+    "absorbance at wavelength λ",
+    "molar absorption coefficient of component i at that wavelength",
+    "concentration of component i",
+    "path length"
+   ],
+   "when": "Components that do not react or associate and each follow the Beer–Lambert law. For n components, measure at n or more wavelengths and solve the simultaneous equations. Choosing wavelengths where the ε values differ strongly keeps errors small.",
+   "miss": "Trying to determine two components from a single wavelength. Using ε values that were not measured at the same wavelengths.",
+   "ex": "l = 1.00 cm, 2000x + 500y = 0.60 at λ₁ and 200x + 1000y = 0.44 at λ₂ (ε in L/(mol·cm)): x = 2.0×10⁻⁴ mol/L and y = 4.0×10⁻⁴ mol/L.",
+   "kw": "additivity multicomponent simultaneous equations mixture absorbance"
+  },
+  "wavenumber": {
+   "name": "Wavenumber, wavelength and photon energy",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "wavenumber (1 cm⁻¹ = 100 m⁻¹)",
+    "wavelength in vacuum",
+    "energy of one photon",
+    "frequency",
+    "Planck constant",
+    "speed of light in vacuum"
+   ],
+   "when": "Vacuum values. The wavelength in air is shorter by the refractive index (about 1.0003), which routine spectroscopy usually ignores. λ [µm] = 10⁴/ν̃ [cm⁻¹], λ [nm] = 10⁷/ν̃ [cm⁻¹], E [eV] = 1239.84/λ [nm].",
+   "miss": "Using cm⁻¹ in hcν̃ without converting to m⁻¹ (a factor of 100). Treating wavenumber and frequency as the same thing. Mixing per molecule and per mole (multiply by N_A).",
+   "ex": "1715 cm⁻¹ (C=O stretch): λ = 10⁴/1715 = 5.831 µm, E = hcν̃ = 3.407×10⁻²⁰ J = 0.2126 eV, or 20.52 kJ/mol. A 254 nm photon is 4.881 eV.",
+   "kw": "wavenumber wavelength cm-1 photon energy eV infrared IR"
+  },
+  "oscillator": {
+   "name": "Harmonic-oscillator vibrational wavenumber",
+   "l": [
+    "",
+    "reduced mass"
+   ],
+   "m": [
+    "vibrational wavenumber",
+    "speed of light",
+    "bond force constant",
+    "reduced mass (multiply values in u by 1.660 54×10⁻²⁷ kg)",
+    "masses of the two atoms"
+   ],
+   "when": "Treats a diatomic (or a bond whose stretch involves essentially two atoms) as a harmonic oscillator. Anharmonicity and coupling to other vibrations shift real molecules slightly.",
+   "miss": "Using the lighter mass instead of the reduced mass. Mixing c in cm/s and m/s. Expecting deuteration to halve the wavenumber (it is about √2; C–D is about 1/1.36).",
+   "ex": "C–H at 3000 cm⁻¹ (taking C = 12, H = 1, D = 2): μ(C–H) = 0.923 u and μ(C–D) = 1.714 u, so C–D is at 3000 × √(0.923/1.714) = 2201 cm⁻¹. The force constant is k = (2πcν̃)²μ = 489 N/m.",
+   "kw": "reduced mass force constant stretching vibration isotope deuterium infrared"
+  },
+  "fl-qy": {
+   "name": "Fluorescence quantum yield (relative method)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "quantum yields of sample and reference",
+    "integrated fluorescence intensities under the same conditions",
+    "absorbances at the excitation wavelength",
+    "refractive indices of the solvents"
+   ],
+   "when": "Same excitation wavelength, slits and detection settings; keep absorbance low to avoid inner-filter effects and reabsorption. Valid where intensity is proportional to absorbance (strictly, the ratio of 1 − 10^{−A}).",
+   "miss": "Inverting the absorbance ratio (more absorbed light means more emission, so divide by A). Forgetting the refractive-index correction with different solvents. Comparing peak heights instead of integrated intensities.",
+   "ex": "Φ_R = 0.55, A_R = 0.050, A = 0.040, F/F_R = 0.60, same solvent: Φ = 0.55 × 0.60 × (0.050/0.040) = 0.41.",
+   "kw": "fluorescence quantum yield relative method reference standard refractive index"
+  },
+  "stern-volmer": {
+   "name": "Stern–Volmer equation (quenching)",
+   "l": [
+    "",
+    "dynamic quenching"
+   ],
+   "m": [
+    "fluorescence intensity without and with quencher",
+    "Stern–Volmer constant",
+    "quencher concentration",
+    "bimolecular quenching rate constant",
+    "fluorescence lifetime without quencher"
+   ],
+   "when": "A straight line when one quenching mechanism (dynamic or static) acts. With both, the plot curves upward. Dynamic quenching also shortens the lifetime (τ₀/τ = F₀/F); static quenching does not change it.",
+   "miss": "Dropping the “1 +”. Swapping F/F₀ and F₀/F.",
+   "ex": "K_SV = 150 L/mol, [Q] = 0.020 mol/L: F₀/F = 1 + 3.0 = 4.0, so the intensity is 25 %. With τ₀ = 5.0 ns, k_q = 3.0×10¹⁰ L/(mol·s), above the diffusion limit (about 10¹⁰), which points to static quenching.",
+   "kw": "Stern Volmer quenching fluorescence lifetime"
+  },
+  "chem-shift": {
+   "name": "Chemical shift",
+   "l": [
+    "ppm"
+   ],
+   "m": [
+    "chemical shift (ppm)",
+    "frequency offset from the reference (TMS)",
+    "spectrometer frequency (e.g. 400 MHz)"
+   ],
+   "when": "TMS is set to δ = 0. δ does not depend on the magnetic field, whereas the offset in Hz scales with the field and J couplings stay constant in Hz.",
+   "miss": "Getting the MHz and Hz orders wrong (Hz divided by MHz gives ppm directly). Thinking δ grows at higher field.",
+   "ex": "2920 Hz from TMS at 400 MHz: δ = 2920/400 = 7.30 ppm. At 600 MHz the same δ is 4380 Hz.",
+   "kw": "chemical shift ppm TMS shielding NMR"
+  },
+  "larmor": {
+   "name": "Larmor frequency",
+   "l": [
+    ""
+   ],
+   "m": [
+    "resonance frequency",
+    "gyromagnetic ratio (¹H: γ/2π = 42.577 MHz/T)",
+    "static magnetic flux density"
+   ],
+   "when": "Bare-nucleus value. Nuclei in molecules are shielded by electrons and resonate lower by parts per million (the chemical shift).",
+   "miss": "Confusing γ with γ/2π (a factor of 2π). Forgetting that γ differs between nuclei and assuming ¹³C resonates at the ¹H frequency (it is about a quarter).",
+   "ex": "¹H at B₀ = 9.4 T: ν₀ = 42.577 × 9.4 = 400.2 MHz (a “400 MHz instrument”). At 14.1 T it is 600.3 MHz.",
+   "kw": "Larmor resonance frequency gyromagnetic ratio magnetic field NMR"
+  },
+  "multiplicity": {
+   "name": "Multiplicity from spin–spin coupling",
+   "l": [
+    "",
+    "I = ½ (¹H, ¹³C, ¹⁹F, ³¹P)"
+   ],
+   "m": [
+    "number of lines",
+    "number of equivalent coupled neighboring nuclei",
+    "spin quantum number of those nuclei (1 for ²H)"
+   ],
+   "when": "First-order spectra (chemical-shift difference Δν much larger than J) with all neighbors coupled by the same J. For I = ½ the intensities follow Pascal’s triangle.",
+   "miss": "Counting the proton’s own H. Lumping two sets of neighbors with different J into one (it gives a doublet of doublets). Forgetting that exchange of OH or NH can remove the coupling.",
+   "ex": "The CH₂ of CH₃CH₂Br has three neighboring H, so 4 lines (1 : 3 : 3 : 1). The ¹³C of CDCl₃ couples to one D (I = 1): 2 × 1 × 1 + 1 = 3 lines (1 : 1 : 1).",
+   "kw": "n+1 rule spin coupling splitting multiplet Pascal"
+  },
+  "dbe": {
+   "name": "Degree of unsaturation (rings plus double bonds)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "degree of unsaturation (rings + π bonds)",
+    "numbers of C, H and N atoms",
+    "number of halogen atoms"
+   ],
+   "when": "Neutral molecules made of C, H, N, O, S and halogens (O and S are not counted). A triple bond counts 2 and a benzene ring 4.",
+   "miss": "Counting O. Forgetting that halogens count like H. Not suspecting an ion (even-electron ion) or a wrong formula when the answer is a half-integer.",
+   "ex": "C₈H₈O₂: U = 8 − 4 + 1 = 5 (for example a benzene ring, 4, plus a C=O). C₆H₅Cl: 6 − 2.5 − 0.5 + 1 = 4. C₄H₁₁N: 4 − 5.5 + 0.5 + 1 = 0.",
+   "kw": "degree of unsaturation DBE double bond equivalent rings molecular formula"
+  },
+  "isotope": {
+   "name": "Chlorine and bromine isotope patterns",
+   "l": [
+    "peak at M + 2k"
+   ],
+   "m": [
+    "fraction of molecules with k heavy isotopes",
+    "number of Cl or Br atoms",
+    "light and heavy isotope abundances (³⁵Cl 0.7576, ³⁷Cl 0.2424, ⁷⁹Br 0.5069, ⁸¹Br 0.4931)"
+   ],
+   "when": "Each atom picks its isotope independently, giving a binomial distribution. With both Cl and Br, convolve the two distributions (expand (a + b)ⁿ(c + d)ᵐ). Contributions from ¹³C, ³⁴S and others are not included.",
+   "miss": "Swapping the rules (Cl is about 3 : 1, Br about 1 : 1). Expecting the peak at M+1 (the mass difference is 2, so M+2).",
+   "ex": "CH₂Cl₂ (two Cl): M : M+2 : M+4 = 100 : 64.0 : 10.2. Br₂: 51.4 : 100 : 48.6 (M+2 is the strongest).",
+   "kw": "isotope pattern chlorine bromine M+2 M+4 binomial mass spectrometry"
+  },
+  "m-plus-1": {
+   "name": "M+1 peak and number of carbons",
+   "l": [
+    ""
+   ],
+   "m": [
+    "intensity of M+1 relative to M",
+    "number of carbon atoms",
+    "abundances of ¹³C and ¹²C (%)"
+   ],
+   "when": "An estimate from ¹³C alone (about 1.08 % per carbon). ¹⁵N, ²H, oxygen and sulfur add a little. The ¹³C abundance varies slightly between samples.",
+   "miss": "Dividing M+1 by the base peak or the total instead of M. Applying it when the molecular ion is weak or overlaps with [M+H]⁺.",
+   "ex": "Six carbons (e.g. chlorobenzene): 6 × 1.07/98.93 × 100 = 6.49 %. The “1.1 % × n” rule of thumb gives 6.6 %.",
+   "kw": "M+1 carbon count 13C isotope peak mass spectrometry"
+  },
+  "mass-error": {
+   "name": "Mass error (ppm) and protonated ions",
+   "l": [
+    "ppm",
+    "[M+zH]^{z+}"
+   ],
+   "m": [
+    "mass error (ppm)",
+    "measured and calculated (from the formula) values",
+    "monoisotopic mass of the neutral molecule",
+    "proton mass, 1.007 276 u",
+    "charge number"
+   ],
+   "when": "Confirming elemental formulas by high-resolution MS. Use exact masses of the most abundant isotopes (¹H 1.007 825 03, ¹²C 12, ¹⁴N 14.003 074 00, ¹⁶O 15.994 914 62 u).",
+   "miss": "Adding the hydrogen-atom mass (1.007 825) for [M+H]⁺ (the cation lacks an electron, 0.000 549 u, about 3 ppm near m/z 200). Calculating with average atomic weights (H 1.008 and so on).",
+   "ex": "Caffeine C₈H₁₀N₄O₂: M = 194.080 376, [M+H]⁺ = 195.087 652. A measured 195.0870 is −3.3 ppm. Adding the hydrogen-atom mass instead would give −6.2 ppm.",
+   "kw": "mass error ppm exact mass high resolution protonated ESI monoisotopic"
+  },
+  "retention-factor": {
+   "name": "Retention factor",
+   "l": [
+    ""
+   ],
+   "m": [
+    "retention factor (formerly capacity factor k′)",
+    "retention time",
+    "hold-up time (time for an unretained solute)"
+   ],
+   "when": "Constant conditions (isocratic, isothermal) with retention by partitioning between stationary and mobile phases. k is the ratio of time spent in the stationary phase to time in the mobile phase.",
+   "miss": "Using t_R − t₀ without dividing by t₀. Dividing t_R by t₀ (that is 1 + k). Applying it to gradient chromatograms.",
+   "ex": "t₀ = 1.50 min, t_R = 6.00 min: k = 4.50/1.50 = 3.00. With the calculator defaults (t₀ 1.0 min, 5.0 and 5.8 min), k₁ = 4.0 and k₂ = 4.8.",
+   "kw": "retention factor capacity factor retention time hold-up time t0 HPLC GC"
+  },
+  "selectivity": {
+   "name": "Separation factor (selectivity)",
+   "l": [
+    "k₂ ≥ k₁"
+   ],
+   "m": [
+    "separation factor (selectivity)",
+    "retention factors of the earlier and later peaks"
+   ],
+   "when": "Two adjacent components. α is set by the stationary phase, mobile phase and temperature, not by column length or flow. With α = 1 no number of plates will separate them.",
+   "miss": "Taking the ratio of retention times t_R2/t_R1 as α (it is the ratio of retention factors, after subtracting t₀).",
+   "ex": "k₁ = 4.0, k₂ = 4.8: α = 1.20, not the ratio of retention times 5.8/5.0 = 1.16.",
+   "kw": "separation factor selectivity alpha"
+  },
+  "resolution": {
+   "name": "Resolution",
+   "l": [
+    "baseline widths",
+    "widths at half height (Gaussian)"
+   ],
+   "m": [
+    "resolution",
+    "retention times of the two peaks",
+    "baseline widths (between the tangents at the inflection points, = 4σ)",
+    "width at half height (= 2.355σ)"
+   ],
+   "when": "For Gaussian peaks both forms give the same value (1.18 = 2 × 2.355/4). For peaks of similar height, R_s ≥ 1.5 is essentially baseline separation.",
+   "miss": "Putting half-height widths into the factor-2 formula (R_s comes out about 1.7 times too large). Mixing minutes and seconds between times and widths.",
+   "ex": "Calculator defaults: 2 × (5.8 − 5.0)/(0.40 + 0.44) = 1.90. For 8.0 and 8.6 min with widths of 0.40 min each, 1.5.",
+   "kw": "resolution Rs baseline width half height width"
+  },
+  "plates": {
+   "name": "Plate number",
+   "l": [
+    "baseline width",
+    "width at half height; 5.54 = 8 ln 2"
+   ],
+   "m": [
+    "number of theoretical plates",
+    "retention time",
+    "standard deviation of the peak (time)",
+    "baseline width",
+    "width at half height"
+   ],
+   "when": "Gaussian peaks, isocratic and isothermal. The value differs between components. Tailing peaks give low values (use moments or similar). 8 ln 2 = 5.545; 5.54 is the rounded value.",
+   "miss": "Using 16 with the half-height width or 5.54 with the baseline width. Subtracting t₀ from t_R (that gives the effective plate number, a different quantity).",
+   "ex": "t_R = 10.0 min, W = 0.40 min: N = 16 × 25² = 10 000. t_R = 8.00 min, W_{½} = 0.160 min: N = 5.54 × 50² = 13 850. Peak 2 of the calculator defaults: 16 × (5.8/0.44)² = 2780.",
+   "kw": "plate number theoretical plates column efficiency half height baseline width"
+  },
+  "hetp": {
+   "name": "Plate height (HETP)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "plate height (column length per plate)",
+    "column length",
+    "plate number"
+   ],
+   "when": "Valid for the conditions under which N was measured (same compound, flow and temperature). Smaller packing particles give smaller H.",
+   "miss": "Getting the mm–µm conversion wrong. Thinking a larger H is better (smaller is more efficient).",
+   "ex": "L = 150 mm, N = 13 850: H = 0.0108 mm = 10.8 µm. Calculator defaults (N = 2780): 54.0 µm.",
+   "kw": "plate height HETP column length"
+  },
+  "purnell": {
+   "name": "Purnell resolution equation",
+   "l": [
+    "",
+    "required plates"
+   ],
+   "m": [
+    "resolution",
+    "plate number",
+    "separation factor",
+    "retention factor of the later peak"
+   ],
+   "when": "Two adjacent peaks of nearly equal width. It splits resolution into efficiency (N), selectivity (α) and retention (k) to show which change helps most.",
+   "miss": "Expecting R_s to double when N doubles (it rises by √2). Mixing up k₁ and k₂. Some textbooks use the average k, which gives slightly different numbers.",
+   "ex": "For α = 1.10 and k₂ = 4.0 to reach R_s = 1.5: √N = 4 × 1.5 × 11 × 1.25 = 82.5, so N = 6806 (about 6.8×10³ plates).",
+   "kw": "Purnell resolution equation required plates efficiency selectivity retention"
+  },
+  "van-deemter": {
+   "name": "van Deemter equation",
+   "l": [
+    "",
+    "minimum H",
+    ""
+   ],
+   "m": [
+    "plate height",
+    "linear velocity of mobile phase (L/t₀)",
+    "multipath (eddy) diffusion term",
+    "longitudinal diffusion term",
+    "mass-transfer term"
+   ],
+   "when": "An approximation with A, B and C independent of flow. B scales with the diffusion coefficient in the mobile phase, so it is large in GC and small in HPLC.",
+   "miss": "Mixing volumetric flow (mL/min) with linear velocity (m/s). Thinking higher u is always better (the C term raises H).",
+   "ex": "Taking A = 5.0 µm, B = 4.0×10⁻⁹ m²/s and C = 4.0×10⁻³ s: u_opt = √(10⁻⁶) = 1.0 mm/s and H_min = 5.0 + 2 × 4.0 = 13 µm.",
+   "kw": "van Deemter linear velocity optimum flow eddy diffusion mass transfer"
+  },
+  "rf": {
+   "name": "Rf value (thin-layer chromatography)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "retardation factor (0–1)",
+    "distance from origin to the center of the spot",
+    "distance from origin to the solvent front"
+   ],
+   "when": "Same plate, same eluent and a saturated chamber. It changes with plate activity, humidity and temperature, so run standards on the same plate.",
+   "miss": "Measuring from the bottom edge of the plate (measure from the origin). Measuring to the leading edge of the spot (use the center).",
+   "ex": "Origin 1.0 cm from the bottom, solvent front at 8.5 cm, spot at 4.0 cm: R_f = 3.0/7.5 = 0.40.",
+   "kw": "Rf TLC thin-layer chromatography"
+  },
+  "kovats": {
+   "name": "Kováts retention index",
+   "l": [
+    "isothermal"
+   ],
+   "m": [
+    "retention index",
+    "carbon number of the earlier bracketing n-alkane",
+    "adjusted retention times t_R − t₀ (analyte and bracketing n-alkanes)"
+   ],
+   "when": "Isothermal GC with the analyte eluting between two n-alkanes. For temperature-programmed runs use the linear form without logarithms (van den Dool–Kratz).",
+   "miss": "Taking logs without subtracting t₀. Comparing temperature-programmed indices directly with isothermal ones.",
+   "ex": "t₀ = 1.00 min, C8 at 5.00 min, C9 at 9.00 min, analyte at 6.66 min: I = 100 × [8 + (log 5.66 − log 4.00)/(log 8.00 − log 4.00)] = 850.",
+   "kw": "Kovats retention index GC alkane"
+  },
+  "internal-std": {
+   "name": "Internal standard method",
+   "l": [
+    "from a standard mixture",
+    "sample"
+   ],
+   "m": [
+    "relative response factor",
+    "peak areas of analyte and internal standard",
+    "concentrations of analyte and internal standard (same units)"
+   ],
+   "when": "Detector response proportional to concentration, an internal standard absent from the sample and eluting near but separated from the analyte. It cancels variations in injection volume and preparation losses.",
+   "miss": "Treating the area ratio as the concentration ratio (skipping F). Not using the right c_S when the internal-standard level differs between sample and standards.",
+   "ex": "A standard (X 10.0 mg/L, internal standard 20.0 mg/L) with an area ratio of 0.600 gives F = 1.20. A sample (internal standard 20.0 mg/L) with ratio 0.900 gives c_X = 0.900 × 20.0/1.20 = 15.0 mg/L.",
+   "kw": "internal standard response factor relative response peak area ratio"
+  },
+  "rate-law": {
+   "name": "Integrated rate laws (zero, first, second order)",
+   "l": [
+    "zero order",
+    "first order",
+    "second order"
+   ],
+   "m": [
+    "concentration of A at time t and initially",
+    "rate constant (zero order mol/(L·s), first s⁻¹, second L/(mol·s))",
+    "time"
+   ],
+   "when": "Rate defined as −d[A]/dt = k[A]ⁿ, constant temperature, no reverse or side reactions. Second order means 2A → P, or A + B → P with equal initial concentrations. With B in large excess, A decays pseudo-first-order (k′ = k[B]₀).",
+   "miss": "Using a k defined with the IUPAC rate v = −½ d[A]/dt for 2A → P in −d[A]/dt = k[A]² (they differ by a factor of 2). Running the zero-order law past [A] = 0.",
+   "ex": "First order, [A]₀ = 0.10 mol/L, k = 2.0×10⁻³ s⁻¹, t = 600 s: [A] = 0.10 e^{−1.2} = 0.0301 mol/L, 69.9 % reacted. Second order, [A]₀ = 0.20 mol/L, k = 0.050 L/(mol·s), t = 100 s: [A] = 0.10 mol/L.",
+   "kw": "rate law integrated first order second order zero order pseudo-first-order rate constant"
+  },
+  "half-life": {
+   "name": "Half-life and time for 90 % reaction",
+   "l": [
+    "zero order",
+    "first order",
+    "second order"
+   ],
+   "m": [
+    "half-life",
+    "time for 90 % reaction",
+    "initial concentration",
+    "rate constant (units depend on order)"
+   ],
+   "when": "From the integrated forms of −d[A]/dt = k[A]ⁿ. Only first order is independent of initial concentration. For second order t₉₀ = 9/(k[A]₀); for zero order 0.9[A]₀/k.",
+   "miss": "Using ln 2/k for every order. Forgetting that second-order half-lives lengthen as the reaction proceeds.",
+   "ex": "First order, k = 2.0×10⁻³ s⁻¹: t_{½} = 0.6931/0.0020 = 347 s, t₉₀ = 2.3026/0.0020 = 1151 s. Second order, k = 0.050 L/(mol·s), [A]₀ = 0.20 mol/L: t_{½} = 100 s.",
+   "kw": "half-life t1/2 90% conversion reaction order"
+  },
+  "arrhenius": {
+   "name": "Arrhenius equation",
+   "l": [
+    "first-order k shown",
+    "from two temperatures"
+   ],
+   "m": [
+    "rate constants (any order, compared in the same units)",
+    "pre-exponential factor (same units as k)",
+    "activation energy",
+    "gas constant",
+    "absolute temperature"
+   ],
+   "when": "Over a range where E_a and A can be taken as temperature-independent. A plot of ln k against 1/T has slope −E_a/R.",
+   "miss": "Entering temperatures in °C. Using log₁₀ instead of ln (a factor of 2.303). Mixing kJ and J in E_a.",
+   "ex": "Rate doubles from 25 °C to 35 °C (298.15 K → 308.15 K): E_a = 8.3145 × 0.6931/1.0884×10⁻⁴ = 52.95 kJ/mol (the calculator, with R = 8.314, gets 52.946 kJ/mol and also shows 52.95 kJ/mol).",
+   "kw": "Arrhenius activation energy pre-exponential factor temperature dependence"
+  },
+  "eyring": {
+   "name": "Eyring equation (transition-state theory)",
+   "l": [
+    "unimolecular",
+    "",
+    "unimolecular, in solution"
+   ],
+   "m": [
+    "rate constant",
+    "transmission coefficient (usually 1)",
+    "Boltzmann constant",
+    "Planck constant",
+    "Gibbs energy and enthalpy of activation",
+    "entropy of activation",
+    "absolute temperature"
+   ],
+   "when": "For bimolecular reactions with k in concentration units, the right side gains (c°)⁻¹ and ΔG‡ refers to the standard concentration (1 mol/L). A plot of ln(k/T) against 1/T has slope −ΔH‡/R.",
+   "miss": "Using log₁₀ instead of ln. Treating E_a and ΔH‡ as equal (they differ by RT ≈ 2.5 kJ/mol). Reading a large negative ΔS‡ only as “slow” (it indicates an associative, ordered transition state).",
+   "ex": "At 298.15 K, k_B T/h = 6.212×10¹² s⁻¹. For k = 1.0×10⁻³ s⁻¹, ΔG‡ = RT ln(6.212×10¹⁵) = 90.1 kJ/mol.",
+   "kw": "Eyring transition state theory Gibbs energy of activation enthalpy entropy of activation"
+  },
+  "hammett": {
+   "name": "Hammett equation",
+   "l": [
+    ""
+   ],
+   "m": [
+    "rate constants with substituent X and unsubstituted (same units)",
+    "reaction constant (electronic demand of the reaction)",
+    "substituent constant (σ_m, σ_p; defined from benzoic acid ionization)"
+   ],
+   "when": "Meta and para substituents on a benzene ring. Ortho substituents fall off because of steric effects. Reactions with direct resonance interaction use σ⁺ or σ⁻. The same form applies to equilibrium constants (log(K_X/K_H) = ρσ).",
+   "miss": "Reversing the meaning of the sign of ρ (ρ > 0 means negative charge builds up in the transition state, so electron-withdrawing groups accelerate). Using ln instead of log₁₀.",
+   "ex": "ρ = +2.50 and p-NO₂ (σ_p = 0.78): log₁₀(k_X/k_H) = 1.95, so 89 times faster.",
+   "kw": "Hammett substituent constant reaction constant sigma rho linear free-energy relationship"
+  },
+  "kie": {
+   "name": "Kinetic isotope effect (zero-point energy)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "ratio of rate constants for H and D substrates",
+    "C–H and C–D stretching wavenumbers",
+    "Planck constant, speed of light, Boltzmann constant",
+    "absolute temperature"
+   ],
+   "when": "An upper estimate for a primary isotope effect, assuming the stretch is completely lost in the transition state and only zero-point energy matters. Tunneling can push values higher.",
+   "miss": "Dropping the ½ in the zero-point energy ½hcν̃ (squaring the result). Not converting cm⁻¹ to m⁻¹ (hc/k_B = 1.4388 cm·K is convenient).",
+   "ex": "ν̃_H = 3000 cm⁻¹, ν̃_D = 2200 cm⁻¹, 298.15 K: 1.4388 × 800/(2 × 298.15) = 1.930, so k_H/k_D = 6.9.",
+   "kw": "kinetic isotope effect KIE deuterium zero-point energy kH/kD"
+  },
+  "gibbs-k": {
+   "name": "Standard Gibbs energy and equilibrium constant",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "standard reaction Gibbs energy",
+    "equilibrium constant (dimensionless, in activities)",
+    "gas constant",
+    "absolute temperature"
+   ],
+   "when": "K refers to standard states (c° = 1 mol/L in solution, p° = 1 bar for gases). It also gives conformer and isomer populations, and product ratios (with ΔΔG‡, same form, under kinetic control).",
+   "miss": "Mixing ln and log (ΔG° = −2.303RT log₁₀ K; at 25 °C, 2.303RT = 5.708 kJ/mol). Taking the log of a K that still carries units (L/mol, etc.).",
+   "ex": "Methylcyclohexane, equatorial more stable by 7.3 kJ/mol, 25 °C: K = e^{7300/(8.3145 × 298.15)} = 19.0, so 95.0 % equatorial.",
+   "kw": "Gibbs energy equilibrium constant ΔG RT lnK population conformer"
+  },
+  "gibbs": {
+   "name": "Gibbs energy, enthalpy and entropy",
+   "l": [
+    ""
+   ],
+   "m": [
+    "Gibbs energy change",
+    "enthalpy change",
+    "entropy change",
+    "absolute temperature"
+   ],
+   "when": "Constant temperature and pressure. Where ΔH and ΔS change little with temperature, the direction of spontaneity switches at T = ΔH/ΔS, where ΔG = 0.",
+   "miss": "Subtracting ΔS in J from ΔH in kJ (a factor of 1000). Entering °C.",
+   "ex": "Association constant K = 1.0×10⁵ L/mol (referred to c°), ΔH° = −40.0 kJ/mol, 25 °C: ΔG° = −RT ln K = −28.5 kJ/mol, so TΔS° = ΔH° − ΔG° = −11.5 kJ/mol (enthalpy-driven).",
+   "kw": "Gibbs enthalpy entropy spontaneity ΔG ΔH ΔS"
+  },
+  "vant-hoff": {
+   "name": "van ’t Hoff equation (temperature dependence of K)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "equilibrium constants at T₁ and T₂",
+    "standard reaction enthalpy",
+    "gas constant",
+    "absolute temperatures"
+   ],
+   "when": "Over a range where ΔH° is roughly constant. A plot of ln K against 1/T has slope −ΔH°/R.",
+   "miss": "Expecting K to rise with temperature for an exothermic reaction (ΔH° < 0; it falls). Reversing the order in 1/T₂ − 1/T₁.",
+   "ex": "ΔH° = −20 kJ/mol and K = 10 at 25 °C: at 50 °C, ln(K₂/10) = −0.624, so K₂ = 5.36.",
+   "kw": "van t Hoff equilibrium constant temperature reaction enthalpy"
+  },
+  "mn-mw": {
+   "name": "Number- and weight-average molar mass, dispersity",
+   "l": [
+    "",
+    "",
+    ""
+   ],
+   "m": [
+    "number- and weight-average molar mass",
+    "amount of chains with molar mass M_i",
+    "their mass",
+    "molar mass of each fraction",
+    "dispersity (formerly polydispersity index, PDI)"
+   ],
+   "when": "Definitions valid for any distribution. M_w ≥ M_n, equal only for a monodisperse sample. Osmometry and end-group analysis give M_n, light scattering gives M_w. GPC often gives values relative to polystyrene standards.",
+   "miss": "Taking the mass-weighted mean Σw_iM_i/Σw_i as M_n (it is M_w). Mixing masses and amounts in the averages.",
+   "ex": "1.0 g each of polymers with 1.0×10⁴ and 3.0×10⁴: M_n = 2.0 g/(1.333×10⁻⁴ mol) = 1.5×10⁴, M_w = (1.0×10⁴ + 3.0×10⁴)/2 = 2.0×10⁴, Đ = 1.33.",
+   "kw": "number-average weight-average molar mass dispersity PDI polydispersity Mn Mw"
+  },
+  "carothers": {
+   "name": "Carothers equation",
+   "l": [
+    "stoichiometric balance",
+    "functional-group ratio r ≤ 1"
+   ],
+   "m": [
+    "number-average degree of polymerization (structural units)",
+    "extent of reaction (of the minority group)",
+    "ratio of functional groups (minority/majority)"
+   ],
+   "when": "Step-growth polymerization of bifunctional monomers, without cyclization or side reactions and with reactivity independent of chain length.",
+   "miss": "Taking X_n directly as the number of repeat units (in AA–BB polymers two structural units make one repeat unit). Taking r as majority/minority.",
+   "ex": "p = 0.99: X_n = 100. With r = 0.98 and p = 0.99: X_n = 1.98/(1.98 − 1.9404) = 50.0, halved by a small imbalance.",
+   "kw": "Carothers degree of polymerization step-growth polycondensation extent of reaction"
+  },
+  "flory-dist": {
+   "name": "Most-probable distribution in step growth (Flory)",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "weight- and number-average degree of polymerization",
+    "extent of reaction",
+    "dispersity"
+   ],
+   "when": "Linear step growth with equal reactivity and stoichiometric balance (Flory’s most-probable distribution). As p → 1, Đ → 2.",
+   "miss": "Applying 2 to chain-growth polymers (termination mode changes it, e.g. 1.5–2).",
+   "ex": "p = 0.99: X_w = 1.99/0.01 = 199 and Đ = 1.99.",
+   "kw": "most probable distribution Flory dispersity step growth"
+  },
+  "ceiling": {
+   "name": "Ceiling temperature",
+   "l": [
+    "",
+    "[M] = c° = 1 mol/L"
+   ],
+   "m": [
+    "ceiling temperature (polymerization and depolymerization balance)",
+    "enthalpy of polymerization (negative)",
+    "standard entropy of polymerization (negative)",
+    "equilibrium monomer concentration",
+    "gas constant"
+   ],
+   "when": "ΔH_p and ΔS°_p independent of temperature. Above T_c long chains do not form. Lower monomer concentration lowers T_c.",
+   "miss": "Dividing kJ by J. Losing a sign and getting a negative temperature. Not checking which standard state (1 mol/L or neat monomer) the ΔS° refers to.",
+   "ex": "ΔH_p = −35.0 kJ/mol, ΔS°_p = −104 J/(mol·K): T_c = 336.5 K (63.4 °C). At [M] = 0.10 mol/L it falls to 284.2 K.",
+   "kw": "ceiling temperature depolymerization enthalpy of polymerization entropy"
+  },
+  "mayo-lewis": {
+   "name": "Copolymer composition (Mayo–Lewis)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "mole fraction of M₁ in the copolymer formed",
+    "mole fractions of monomers in the feed (f₁ + f₂ = 1)",
+    "reactivity ratios r₁ = k₁₁/k₁₂, r₂ = k₂₂/k₂₁"
+   ],
+   "when": "Terminal model (reactivity set only by the last unit of the growing chain), at low conversion while the feed composition is unchanged.",
+   "miss": "Assuming F₁ equals the feed composition. Reading r₁ ≈ r₂ ≈ 0 as “does not copolymerize” (each chain end adds the other monomer, giving an alternating copolymer).",
+   "ex": "r₁ = 2.0, r₂ = 0.5, f₁ = 0.5: F₁ = (0.5 + 0.25)/(0.5 + 0.5 + 0.125) = 0.667.",
+   "kw": "copolymerization Mayo Lewis reactivity ratio copolymer composition"
+  },
+  "living": {
+   "name": "Degree of polymerization in living polymerization",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "number-average degree of polymerization",
+    "monomer conversion",
+    "initial monomer and initiator concentrations (or amounts)",
+    "molar mass of the monomer unit",
+    "combined molar mass of the end groups"
+   ],
+   "when": "No termination or chain transfer, initiation much faster than propagation, and each initiator starting one chain (a bifunctional initiator gives one chain growing at both ends). The distribution is narrow and Đ is close to 1.",
+   "miss": "Forgetting initiator efficiency or deactivation by impurities. Ignoring end groups when comparing (they matter for short chains).",
+   "ex": "1.00 mmol sec-butyllithium fully polymerizing 10.4 g styrene (0.100 mol, 104 g/mol): X_n = 100, M_n = 100 × 104 + 58 = 1.05×10⁴ g/mol (end groups sec-butyl 57 and H 1).",
+   "kw": "living polymerization anionic initiator degree of polymerization molar mass control"
+  },
+  "bragg": {
+   "name": "Bragg’s law",
+   "l": [
+    ""
+   ],
+   "m": [
+    "order of diffraction",
+    "X-ray wavelength (Cu Kα₁ 0.154 06 nm)",
+    "interplanar spacing",
+    "Bragg angle (between beam and planes; diffractometers read 2θ)"
+   ],
+   "when": "The diffraction condition, treating the planes as mirrors. Higher orders are usually treated as first order from planes with spacing d/n.",
+   "miss": "Using 2θ as θ. Mixing degrees and radians.",
+   "ex": "Si(111), Cu Kα₁, 2θ = 28.44°: d = 0.154 06/(2 sin 14.22°) = 0.3136 nm.",
+   "kw": "Bragg diffraction interplanar spacing XRD 2theta"
+  },
+  "cubic-d": {
+   "name": "Interplanar spacing in cubic crystals",
+   "l": [
+    ""
+   ],
+   "m": [
+    "spacing of (hkl) planes",
+    "lattice parameter",
+    "Miller indices"
+   ],
+   "when": "Cubic crystals only. Extinction rules: fcc shows only reflections with h, k, l all odd or all even; bcc only those with h + k + l even (diamond structure has extra restrictions).",
+   "miss": "Using it for tetragonal or hexagonal crystals. Dropping the square root.",
+   "ex": "From Si(111) with d = 0.313 58 nm (the Bragg example), a = 0.313 58 × √3 = 0.5431 nm. For Cu(111) with d = 0.2087 nm, a = 0.3615 nm.",
+   "kw": "interplanar spacing lattice parameter Miller indices cubic extinction"
+  },
+  "scherrer": {
+   "name": "Scherrer equation (crystallite size)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "crystallite size",
+    "shape factor (about 0.9 with FWHM)",
+    "X-ray wavelength",
+    "line broadening from crystallite size (FWHM in radians, instrument broadening removed)",
+    "Bragg angle"
+   ],
+   "when": "Crystallites below roughly 100 nm with little strain broadening (separate strain with a Williamson–Hall plot or similar). It gives the size of coherently diffracting domains, not the particle size.",
+   "miss": "Using β in degrees. Mixing up the 2θ width and θ (β is the width measured in 2θ). Not subtracting instrumental broadening.",
+   "ex": "2θ = 40.0°, β = 0.40° (= 6.98×10⁻³ rad), K = 0.9, λ = 0.154 nm: D = 0.9 × 0.154/(6.98×10⁻³ × cos 20.0°) = 21.1 nm.",
+   "kw": "Scherrer crystallite size line broadening FWHM XRD"
+  },
+  "xps": {
+   "name": "XPS binding energy",
+   "l": [
+    ""
+   ],
+   "m": [
+    "binding energy (relative to the Fermi level)",
+    "X-ray energy (Al Kα 1486.6 eV, Mg Kα 1253.6 eV)",
+    "measured kinetic energy of the photoelectron",
+    "spectrometer work function"
+   ],
+   "when": "Conductive samples in electrical contact with the spectrometer. Insulators charge and shift, so correct with C 1s (e.g. 284.8 eV) and state the reference used.",
+   "miss": "Using the sample’s work function (it is the spectrometer’s). Reading kinetic energy as binding energy.",
+   "ex": "Al Kα, E_K = 1197.4 eV, φ = 4.4 eV: E_B = 1486.6 − 1197.4 − 4.4 = 284.8 eV (C 1s).",
+   "kw": "XPS binding energy photoelectron work function kinetic energy ESCA"
+  },
+  "imfp": {
+   "name": "XPS sampling depth (inelastic mean free path)",
+   "l": [
+    "",
+    "95 % of the signal"
+   ],
+   "m": [
+    "fraction of signal from depths up to z",
+    "inelastic mean free path",
+    "emission angle from the surface normal",
+    "depth giving 95 % of the signal"
+   ],
+   "when": "Composition uniform with depth, elastic scattering ignored. λ depends on electron kinetic energy and material; for XPS it is a few nm.",
+   "miss": "Measuring the angle from the surface instead of the normal. Taking λ itself as the sampling depth (λ gives 63 %; 95 % needs 3λ).",
+   "ex": "λ = 2.0 nm, normal emission: 1 − e^{−3} = 0.950, so 95 % comes from the top 6.0 nm. At 45°, 4.24 nm.",
+   "kw": "sampling depth inelastic mean free path IMFP angle-resolved XPS surface sensitivity"
+  },
+  "dsc-xc": {
+   "name": "Crystallinity from DSC",
+   "l": [
+    ""
+   ],
+   "m": [
+    "crystallinity (mass fraction)",
+    "measured enthalpy of melting",
+    "enthalpy of cold crystallization during heating",
+    "enthalpy of melting of 100 % crystalline polymer (literature value)"
+   ],
+   "when": "A heating scan. Subtracting cold crystallization gives the crystallinity before the measurement. Literature ΔH°_m values vary, so state the one used. For composites, divide by the polymer mass fraction.",
+   "miss": "Forgetting to subtract cold crystallization. Mixing J/g and J/mol (per repeat unit).",
+   "ex": "PET with ΔH_cc = 20.0 J/g, ΔH_m = 50.0 J/g and taking ΔH°_m = 140 J/g: X_c = 30.0/140 = 21.4 %.",
+   "kw": "crystallinity DSC differential scanning calorimetry enthalpy of melting cold crystallization"
+  },
+  "mean-sd": {
+   "name": "Mean, standard deviation and RSD",
+   "l": [
+    "",
+    "",
+    "%"
+   ],
+   "m": [
+    "measured values (mg/L in the example)",
+    "number of measurements",
+    "mean",
+    "sample standard deviation",
+    "relative standard deviation (%, same as CV)"
+   ],
+   "when": "Divide by n − 1 (degrees of freedom) when estimating the population standard deviation from a finite sample. Divide by n only for a complete population.",
+   "miss": "Using the calculator’s σ key (divides by n). Forgetting to express RSD in %. Confusing the standard deviation with the standard error of the mean s/√n.",
+   "ex": "10.1, 10.3, 9.9, 10.2, 10.0 mg/L: x̄ = 10.1, s = √(0.10/4) = 0.158 mg/L, RSD = 1.6 % (dividing by n gives 0.141, 1.4 %).",
+   "kw": "mean standard deviation relative standard deviation RSD CV coefficient of variation n-1 repeatability"
+  },
+  "ci": {
+   "name": "Confidence interval of the mean",
+   "l": [
+    ""
+   ],
+   "m": [
+    "population mean (estimate of the true value)",
+    "mean",
+    "t value for n − 1 degrees of freedom (two-sided, at the chosen level)",
+    "sample standard deviation",
+    "number of measurements"
+   ],
+   "when": "Normally distributed results without systematic error. The interval covers random error only, not bias.",
+   "miss": "Using t for n instead of n − 1 degrees of freedom. Forgetting to divide by √n. Using a one-sided t value.",
+   "ex": "n = 4, x̄ = 10.20 mg/L, s = 0.10 mg/L, two-sided 95 % t for 3 degrees of freedom = 3.182: 10.20 ± 3.182 × 0.050 = 10.20 ± 0.16 mg/L.",
+   "kw": "confidence interval t distribution standard error 95% degrees of freedom"
+  },
+  "t-test": {
+   "name": "t test (mean versus a reference value)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "t statistic (compared with the critical t)",
+    "mean",
+    "reference value (e.g. certified value)",
+    "sample standard deviation",
+    "number of measurements"
+   ],
+   "when": "Normally distributed results. If t exceeds the critical value for n − 1 degrees of freedom, the difference is significant (bias). Comparing two means needs a different formula depending on whether variances are equal.",
+   "miss": "Reading “not significant” as “no difference” (it only cannot be detected with this n). Mixing one- and two-sided critical values.",
+   "ex": "Certified 50.0 mg/kg, five results with x̄ = 51.2 and s = 1.0: t = 1.2 × √5/1.0 = 2.68, below the two-sided 5 % critical value for 4 degrees of freedom (2.776), so the difference is not significant.",
+   "kw": "t test significance certified reference material bias trueness"
+  },
+  "lod-loq": {
+   "name": "Limit of detection and limit of quantification",
+   "l": [
+    "3σ of the blank",
+    "ICH Q2(R2) convention",
+    ""
+   ],
+   "m": [
+    "limits of detection and quantification (concentration)",
+    "standard deviation of the blank signal (or low-level samples, or regression residuals; absorbance in the example)",
+    "slope of the calibration line (sensitivity)"
+   ],
+   "when": "A calibration line that stays linear at low concentration, with normally distributed blank noise. The factors (3, 3.3, 10) and the way σ is taken (blank, residuals, intercept) differ by guideline and field, so state the convention. Here the signal is divided by the slope to give a concentration.",
+   "miss": "Mixing the LOD in signal (blank mean + 3s) with the LOD in concentration (3s/S). Reporting values near the LOD as quantitative results (quantify above the LOQ).",
+   "ex": "σ = 0.0020 (absorbance), S = 0.050 L/mg: 3σ/S = 0.12 mg/L, 3.3σ/S = 0.13 mg/L, 10σ/S = 0.40 mg/L.",
+   "kw": "limit of detection LOD limit of quantification LOQ 3 sigma 3.3 sigma 10 sigma blank sensitivity"
+  },
+  "recovery": {
+   "name": "Spike recovery",
+   "l": [
+    "%"
+   ],
+   "m": [
+    "recovery (%)",
+    "result for the spiked sample",
+    "result for the unspiked sample",
+    "amount added (as concentration, same units)"
+   ],
+   "when": "When the added analyte is extracted and measured like the native analyte (spikes may not bind to the matrix like native analyte, which can make recovery look high).",
+   "miss": "Dividing the spiked result by (native + added) instead of subtracting the native amount.",
+   "ex": "Unspiked 2.0 mg/kg, 6.5 mg/kg after adding 5.0 mg/kg: R = (6.5 − 2.0)/5.0 × 100 = 90 % (6.5/7.0 = 93 % is wrong).",
+   "kw": "recovery spike recovery trueness matrix"
+  },
+  "uncertainty": {
+   "name": "Combined and expanded uncertainty",
+   "l": [
+    "products and quotients, uncorrelated",
+    "expanded uncertainty"
+   ],
+   "m": [
+    "combined standard uncertainty of the result y",
+    "relative standard uncertainty of each input",
+    "expanded uncertainty",
+    "coverage factor (2 for about 95 % with a normal distribution)"
+   ],
+   "when": "When y is a product or quotient of uncorrelated inputs (for sums and differences, add absolute uncertainties in quadrature). In general, multiply by sensitivity coefficients ∂f/∂x_i and add in quadrature (GUM).",
+   "miss": "Adding uncertainties linearly. Mixing relative and absolute values. Reporting an expanded uncertainty without stating k.",
+   "ex": "Relative standard uncertainties 0.20 %, 0.10 %, 0.15 % and 0.50 %: √(0.04 + 0.01 + 0.0225 + 0.25) = 0.57 %. For a result of 5.00 mg/L, u_c = 5.00 × 0.0057 = 0.028 mg/L and, with k = 2, U = 0.057 mg/L (5.00 ± 0.06 mg/L).",
+   "kw": "measurement uncertainty combined standard uncertainty expanded uncertainty coverage factor GUM propagation"
+  },
+  "std-addition": {
+   "name": "Standard addition",
+   "l": [
+    "negligible volume change",
+    "with volume change"
+   ],
+   "m": [
+    "analyte concentration in the sample solution",
+    "signal before and after the addition (e.g. absorbance)",
+    "concentration increase from the spike",
+    "concentration and volume of the standard added",
+    "volume of the sample solution"
+   ],
+   "when": "Signal proportional to concentration (through the origin) and the same matrix effect for sample and spike. Subtract the blank signal first. In practice, several additions and the x-intercept of the line are more reliable.",
+   "miss": "Dividing by A₂ (divide by the difference A₂ − A₁). Forgetting the dilution of the sample by the standard’s volume.",
+   "ex": "A₁ = 0.200, and A₂ = 0.450 after a spike raising the concentration by 2.0 mg/L: c_x = 2.0 × 0.200/0.250 = 1.6 mg/L. With 0.100 mL of 200 mg/L added to 10.0 mL of sample and the same signals, c_x = 1.57 mg/L.",
+   "kw": "standard addition matrix effect spike extrapolation atomic absorption"
+  },
+  "extraction": {
+   "name": "Solvent extraction (repeated)",
+   "l": [
+    "fraction left in water",
+    "fraction extracted"
+   ],
+   "m": [
+    "fraction remaining in water after n extractions",
+    "volumes of water and of organic solvent per extraction",
+    "distribution ratio (total organic/total aqueous concentration)",
+    "number of extractions"
+   ],
+   "when": "D independent of concentration, equilibrium reached each time and clean phase separation.",
+   "miss": "Confusing D with the partition coefficient K_D (D is what changes with pH). Multiplying the first extraction by n.",
+   "ex": "D = 4.0, 100 mL water extracted four times with 25 mL: q = (100/200)⁴ = 0.0625, so 93.75 % extracted. One 100 mL extraction gives 80 %.",
+   "kw": "solvent extraction distribution ratio repeated extraction liquid-liquid extraction"
+  },
+  "distribution": {
+   "name": "Distribution ratio and pH",
+   "l": [
+    "weak acid HA",
+    "weak base B (K_a of BH⁺)"
+   ],
+   "m": [
+    "distribution ratio",
+    "partition coefficient of the neutral form",
+    "acid dissociation constant",
+    "hydrogen-ion concentration in the aqueous phase"
+   ],
+   "when": "The ionic form does not enter the organic phase, and there is no association or complexation. Drug log D at pH 7.4 uses the same idea.",
+   "miss": "Using the acid formula for a base (a base extracts better at higher pH). Confusing K_D with D.",
+   "ex": "To extract a base B (pK_a of BH⁺ 9.0) at 99 % of K_D or more, [H⁺] ≤ K_a/99, i.e. pH ≥ 9.0 + log₁₀ 99 = 11.0.",
+   "kw": "distribution ratio partition coefficient pH logD logP extraction ionization"
+  },
+  "yield": {
+   "name": "Yield",
+   "l": [
+    "%"
+   ],
+   "m": [
+    "yield (%)",
+    "amount of product obtained",
+    "amount of limiting reagent",
+    "mol of product per mol of limiting reagent (ratio of coefficients)"
+   ],
+   "when": "Based on the limiting reagent (the one smallest after dividing by its coefficient). Use purity-corrected amounts.",
+   "miss": "Basing it on an excess reagent. Dividing masses directly (compare amounts when molar masses differ). Thinking 100 % yield means no waste (atom economy is separate).",
+   "ex": "12.0 g of product (150.2 g/mol) from 0.100 mol of limiting reagent: 0.0799 mol, a 79.9 % yield.",
+   "kw": "yield limiting reagent theoretical yield isolated yield"
+  },
+  "ee": {
+   "name": "Enantiomeric excess",
+   "l": [
+    "%",
+    "optical purity"
+   ],
+   "m": [
+    "enantiomeric excess (%)",
+    "amounts of each enantiomer",
+    "specific rotations of the sample and of the pure enantiomer"
+   ],
+   "when": "Estimating ee from optical purity requires specific rotation proportional to ee (non-linear effects break it). Accurate ee comes from chiral HPLC or GC, or NMR.",
+   "miss": "Taking ee as the major fraction (80 : 20 is 60 % ee). Mixing ee and de (diastereomeric excess).",
+   "ex": "R 80.0 %, S 20.0 %: ee = 60.0 %. If the pure R enantiomer is −50.0°, the specific rotation is −30.0°. At 75 % ee the major enantiomer is (100 + 75)/2 = 87.5 %.",
+   "kw": "enantiomeric excess ee enantiomer optical purity asymmetric synthesis"
+  },
+  "specific-rotation": {
+   "name": "Specific rotation",
+   "l": [
+    "l in dm, c in g/mL"
+   ],
+   "m": [
+    "specific rotation (customarily written in degrees; strictly deg·mL·g⁻¹·dm⁻¹)",
+    "observed rotation (degrees)",
+    "cell length",
+    "concentration"
+   ],
+   "when": "Report the wavelength λ (e.g. the sodium D line), temperature T, solvent and concentration. Specific rotation varies with solvent and concentration.",
+   "miss": "Using l in cm or c in g/100 mL (factors of 10 and 100). Confusing observed rotation with specific rotation.",
+   "ex": "5.00 g in 100 mL (c = 0.0500 g/mL), 20.0 cm (2.00 dm) cell, α = +1.30°: [α] = 1.30/(2.00 × 0.0500) = +13.0.",
+   "kw": "specific rotation optical rotation polarimeter sodium D line chiral"
+  },
+  "atom-economy": {
+   "name": "Atom economy",
+   "l": [
+    "%"
+   ],
+   "m": [
+    "atom economy (%)",
+    "molar mass of the desired product (times its coefficient)",
+    "molar mass of reactant i (times its coefficient)"
+   ],
+   "when": "A theoretical value set by the equation alone (no yield, solvent or work-up). Catalysts are not counted. For multistep routes, include the reactants of all steps.",
+   "miss": "Counting by-products as product and getting 100 %. Forgetting coefficients. Treating it as the same as yield.",
+   "ex": "BHC synthesis of ibuprofen (206.3 ÷ (134.2 + 102.1 + 2.0 + 28.0)): AE = 77.5 %.",
+   "kw": "atom economy atom efficiency green chemistry"
+  },
+  "e-factor": {
+   "name": "E factor and process mass intensity",
+   "l": [
+    "",
+    "",
+    "when E includes all water and solvent"
+   ],
+   "m": [
+    "E factor (kg waste per kg product)",
+    "process mass intensity (kg input per kg product)",
+    "masses of waste, total input and product"
+   ],
+   "when": "Conventions for E differ on whether water is included and how recycled solvent is counted, so state the scope. PMI counts all reactants, reagents, solvents and water (as used in the pharmaceutical industry).",
+   "miss": "Counting recovered and reused solvent as waste (subtract what is recovered). Treating E and PMI as the same number (PMI is one larger).",
+   "ex": "Product 50 kg, raw materials and reagents 120 kg, solvent 900 kg (80 % recovered), water excluded: waste 70 + 180 = 250 kg, so E = 5.0. Product 5.0 kg from 30 kg reactants and reagents, 400 kg solvent and 170 kg water: PMI = 600/5.0 = 120.",
+   "kw": "E factor PMI process mass intensity waste green chemistry"
+  },
+  "rme": {
+   "name": "Reaction mass efficiency (RME)",
+   "l": [
+    "%"
+   ],
+   "m": [
+    "reaction mass efficiency (%)",
+    "mass of product obtained",
+    "total mass of reactants actually used (including excess)"
+   ],
+   "when": "Combines atom economy, yield and reagent excess in one number. Solvents, catalysts and work-up materials are usually excluded.",
+   "miss": "Using stoichiometric amounts (count the excess actually charged). Confusing it with atom economy.",
+   "ex": "Acetic acid 6.00 g (0.100 mol) and ethanol 9.20 g (0.200 mol, twofold) giving 7.04 g of ethyl acetate: RME = 7.04/15.20 × 100 = 46.3 %. Counting only the stoichiometric 4.60 g of ethanol would give 66.4 %, ignoring the excess.",
+   "kw": "reaction mass efficiency RME mass efficiency green chemistry"
+  },
+  "adiabatic": {
+   "name": "Adiabatic temperature rise",
+   "l": [
+    "",
+    "on cooling failure"
+   ],
+   "m": [
+    "adiabatic temperature rise",
+    "reaction enthalpy (negative for exothermic)",
+    "amount of limiting reagent reacting",
+    "mass of reaction mixture",
+    "specific heat capacity",
+    "maximum temperature of the synthesis reaction",
+    "process temperature",
+    "fraction of unreacted reagent accumulated at the time of failure"
+   ],
+   "when": "No heat loss (adiabatic) and c_p independent of temperature. The vessel’s heat capacity is not included (including it lowers the value slightly). Compare MTSR with decomposition onset and boiling point to rate the risk.",
+   "miss": "Mixing kJ and J or kg and g. Forgetting that in semi-batch only the accumulated fraction counts.",
+   "ex": "Δ_rH = −120 kJ/mol, 1.5 mol per kg, c_p = 1.8 kJ/(kg·K): ΔT_ad = 120 × 1.5/1.8 = 100 K. Running at 60 °C with 35 % accumulated gives MTSR = 60 + 35 = 95 °C.",
+   "kw": "adiabatic temperature rise MTSR runaway process safety accumulation semi-batch"
+  }
+ }
+}
