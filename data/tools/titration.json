@@ -1,0 +1,627 @@
+{
+  "id": "titration",
+  "order": 6,
+  "slug": "acid-base-titration-curve",
+  "cats": [
+    "volumetric",
+    "bonding-acidbase"
+  ],
+  "cat": "volumetric",
+  "terms": [
+    "当量点",
+    "pH指示薬",
+    "pKa",
+    "ヘンダーソン・ハッセルバルヒの式",
+    "電位差滴定"
+  ],
+  "questions": [
+    "volumetric-006",
+    "volumetric-016",
+    "volumetric-003"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "ti-form",
+    "fields": [
+      {
+        "name": "type",
+        "value": "wa",
+        "options": [
+          "sa",
+          "wa",
+          "sb",
+          "wb"
+        ]
+      },
+      {
+        "name": "c",
+        "value": 0.1,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "v",
+        "value": 25,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "pk",
+        "value": 4.76,
+        "attrs": "step=\"0.01\""
+      },
+      {
+        "name": "ct",
+        "value": 0.1,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "vt",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "veq",
+          "ph0",
+          "phhalf",
+          "pheq",
+          "jump",
+          "ind"
+        ]
+      },
+      {
+        "box": "chart"
+      },
+      {
+        "heading": "v_heading",
+        "stats": [
+          "phv",
+          "region"
+        ]
+      },
+      {
+        "heading": "pt_heading",
+        "box": "points"
+      },
+      {
+        "heading": "ind_heading",
+        "box": "inds"
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "滴定曲線",
+      "card": "酸・塩基の中和滴定の曲線を描き、当量点のpHと適した指示薬を求める",
+      "title": "滴定曲線の計算ツール(中和滴定のpH・当量点・指示薬)",
+      "description": "強酸・弱酸・強塩基・弱塩基を強塩基か強酸で滴定したときの滴定曲線(pHと滴下量)を、水の電離を含む電荷収支から計算して描きます。当量点の体積、滴定前・半当量点・当量点のpH、教科書の近似式との比較、適した指示薬も求めます。",
+      "h1": "酸塩基の滴定曲線ツール",
+      "lead": "一塩基の酸か塩基の水溶液を強塩基か強酸で滴定したときのpHの変化を、近似式を使わずに計算してグラフにします。既定値は、0.100 mol/L 酢酸(pKa 4.76、25 ℃)25.0 mLを0.100 mol/L 水酸化ナトリウム水溶液で滴定する例です。",
+      "in_heading": "入力",
+      "type": "試料と滴定剤",
+      "type_sa": "強酸(HCl など)を強塩基で",
+      "type_wa": "弱酸(酢酸など)を強塩基で",
+      "type_sb": "強塩基(NaOH など)を強酸で",
+      "type_wb": "弱塩基(アンモニアなど)を強酸で",
+      "c": "試料の濃度 C (mol/L)",
+      "v": "試料の体積 V₀ (mL)",
+      "pk": "弱酸の pKa / 弱塩基の pKb",
+      "ct": "滴定剤の濃度 (mol/L)",
+      "vt": "加えた滴定剤の体積 V (mL)",
+      "out_heading": "結果",
+      "veq": "当量点までの体積",
+      "ph0": "滴定前の pH",
+      "phhalf": "半当量点の pH",
+      "pheq": "当量点の pH",
+      "jump": "当量点 ±0.1 % の pH",
+      "ind": "適した指示薬",
+      "v_heading": "体積 V を加えたとき",
+      "phv": "pH(電荷収支から)",
+      "region": "滴定曲線の領域",
+      "pt_heading": "厳密な値と教科書の近似式",
+      "ind_heading": "指示薬の選び方(変色域の中央で止めたときの誤差)",
+      "note": "pHは、水の自己解離(Kw = 1.0×10⁻¹⁴、25 ℃)を含む電荷収支の式を数値で解いた値で、活量係数は1としています。近似式の Ct は滴定剤の濃度、Veq は当量点までの体積、Cs は当量点での塩の濃度です。グラフの破線は適した指示薬の変色域、点は半当量点と当量点です。一塩基の酸・塩基だけを扱い、空気中の二酸化炭素の吸収や温度によるKwの変化は考えていません。",
+      "practice": "容量分析の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "pka": "弱酸の pKa",
+        "pkb": "弱塩基の pKb",
+        "chart_label": "滴定曲線(pHと加えた滴定剤の体積)",
+        "xlabel": "加えた滴定剤の体積 V (mL)",
+        "m_half": "半当量点",
+        "m_eq": "当量点",
+        "p_start": "滴定前",
+        "p_half": "半当量点",
+        "p_eq": "当量点",
+        "p_v": "入力した V",
+        "col_point": "点",
+        "col_exact": "pH(厳密)",
+        "col_formula": "教科書の近似式",
+        "col_approx": "pH(近似)",
+        "col_ind": "指示薬",
+        "col_range": "変色域 (pH)",
+        "col_err": "終点の誤差",
+        "col_judge": "判定",
+        "ind_mo": "メチルオレンジ",
+        "ind_mr": "メチルレッド",
+        "ind_btb": "ブロモチモールブルー",
+        "ind_pp": "フェノールフタレイン",
+        "ind_none": "なし(誤差が1 %を超える)",
+        "j_best": "最適",
+        "j_ok": "使える(誤差0.1 %以下)",
+        "j_warn": "誤差0.1〜1 %",
+        "j_ng": "不適(誤差1 %超)",
+        "j_before": "不適(滴定前に変色している)",
+        "j_never": "不適(変色しない)",
+        "r_start": "滴定前",
+        "r_buffer": "緩衝域(当量点の前)",
+        "r_before": "当量点の前(強酸・強塩基が残る)",
+        "r_eq": "当量点",
+        "r_after": "当量点の後(滴定剤が過剰)"
+      },
+      "sections": [
+        {
+          "h": "滴定曲線の形と4つの領域",
+          "p": "弱酸を強塩基で滴定すると、pHは次のように変わります。滴定前は弱酸だけの水溶液で、既定値の0.100 mol/L 酢酸では pH 2.88 です。塩基を加え始めると、残った酢酸と生じた酢酸イオンの緩衝液になり、pHはゆっくり上がります。当量点の半分の量を加えた半当量点では [HA] = [A⁻] なので、pH = pKa = 4.76 です。当量点(25.0 mL)では溶液は酢酸ナトリウムだけになり、酢酸イオンの加水分解で pH 8.73 の塩基性になります。当量点の前後 ±0.1 % の間に pH は約7.75から9.70へ急に上がり(pHジャンプ)、その後は過剰の水酸化物イオンの濃度で決まります。"
+        },
+        {
+          "h": "電荷収支から厳密に解く",
+          "p": "このツールは近似式を使わず、溶液全体の電荷のつり合い [H⁺] + [Na⁺] = [OH⁻] + [A⁻] を解いてpHを求めます。[Na⁺] は加えたNaOHの物質量を全体積で割った値、[A⁻] は薄まったあとの酸の全濃度に Ka/(Ka + [H⁺]) を掛けた値、[OH⁻] は Kw/[H⁺] です。左辺から右辺を引いた値は [H⁺] について単調に増えるので、二分法で確実に解が求まります。こうすると領域ごとに式を使い分ける必要がなく、水の電離も自動的に入ります。たとえば1.0×10⁻⁸ mol/L の塩酸は、水の電離を無視するとpH 8 になってしまいますが、電荷収支から解くと6.98です。"
+        },
+        {
+          "h": "教科書の近似式とその限界",
+          "p": "結果の表では、教科書が各領域で使う近似式の値を、厳密な値と並べています。滴定前の弱酸は [H⁺] ≈ √(KaC)、緩衝域はヘンダーソン・ハッセルバルヒの式 pH = pKa + log(V/(Veq − V))、当量点は塩の加水分解 [OH⁻] = √(KwCs/Ka)、当量点の後は過剰の塩基の濃度を使います。0.1 mol/L 程度ならどれもよく合いますが、ヘンダーソン・ハッセルバルヒの式は滴定の始めで合わなくなります。既定値で V = 1.0 mL のとき、近似は pH 3.38、厳密には3.42です。濃度をどちらも0.001 mol/L にすると差は広がり、V = 1.0 mL で近似3.38に対して厳密3.99、半当量点も4.80となって pKa からずれます。"
+        },
+        {
+          "h": "当量点のpHと指示薬の選び方",
+          "p": "指示薬は、変色域が当量点付近のpHジャンプの中に入るものを選びます。このツールは、変色域の中央のpHで滴定を止めたとき当量点からどれだけずれるか(終点の誤差)を電荷収支から計算し、誤差が最も小さいものを勧めます。0.100 mol/L の強酸と強塩基では当量点が pH 7.00、ジャンプが約4.30〜9.70と広いので、メチルレッド・ブロモチモールブルー・フェノールフタレインのどれでも誤差は0.1 %以下です。酢酸のような弱酸では当量点が塩基性(8.73)なのでフェノールフタレイン、アンモニアのような弱塩基では酸性(5.28)なのでメチルレッドが適します。ホウ酸(pKa 9.24)のように弱すぎる酸や非常に薄い溶液ではジャンプがほとんどなく、指示薬では終点が決まらないので、電位差滴定などを使います。"
+        },
+        {
+          "h": "よくある間違い",
+          "p": "最も多いのは、当量点を中性(pH 7)と思い込むことです。pH 7 になるのは強酸と強塩基の組み合わせだけで、弱酸の滴定では塩基性、弱塩基の滴定では酸性になります。次に多いのは、当量点での塩の濃度に薄まりを入れ忘れることです。酢酸の例で塩の濃度を0.100 mol/L のまま計算すると pH 8.88 となりますが、全体積は50.0 mL なので正しくは0.0500 mol/L で8.73です(Ka = 1.8×10⁻⁵ とすると8.72)。ほかに、ヘンダーソン・ハッセルバルヒの式を滴定前や当量点で使う(log 0 や0での割り算になる)、アンモニアの pKb 4.75 を pKa と取り違える(NH₄⁺ の pKa は14.00 − 4.75 = 9.25)、mL と L を混ぜる、といった誤りもよくあります。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "当量点と終点はどう違いますか?",
+          "a": "当量点は、加えた滴定剤が試料と反応式どおり過不足なく反応した点で、計算で決まります。終点は、指示薬の色が変わるなどして実際に滴定を止める点です。両者の差が滴定誤差で、変色域が当量点付近のpHジャンプに入る指示薬を選ぶと小さくなります。"
+        },
+        {
+          "q": "半当量点で pH = pKa にならないのはどんなときですか?",
+          "a": "pH = pKa は、弱酸自身の電離と水の電離を無視できるときの近似です。pKa が小さい(酸が比較的強い)ときや濃度が薄いときはずれます。0.100 mol/L で pKa 2.00 の酸なら半当量点の pH は約2.18、0.001 mol/L の酢酸なら約4.80です。滴定曲線から pKa を読み取るときは、この点に注意してください。"
+        },
+        {
+          "q": "弱酸を弱塩基で滴定しないのはなぜですか?",
+          "a": "当量点の前後でpHが少しずつしか変わらず、はっきりしたpHジャンプができないため、指示薬でも電位差でも終点を正確に決めにくいからです。そのため、滴定剤には強塩基(NaOH)か強酸(HCl)の標準液を使います。このツールも、滴定剤は強塩基か強酸に限っています。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Titration curves",
+      "card": "Plot acid–base titration curves and find the equivalence-point pH and a suitable indicator",
+      "title": "Acid–Base Titration Curve Calculator (pH, Equivalence Point, Indicator)",
+      "description": "Calculate and plot the titration curve (pH vs volume added) of a strong or weak acid titrated with a strong base, or a strong or weak base titrated with a strong acid, by solving the charge balance including the autoionization of water. It also gives the equivalence volume, the pH before titration and at the half-equivalence and equivalence points, a comparison with the textbook approximations and a suitable indicator.",
+      "h1": "Acid–Base Titration Curve Calculator",
+      "lead": "Calculate how the pH changes when a monoprotic acid or base is titrated with a strong base or strong acid, without textbook approximations, and see it on a graph. The defaults are 25.0 mL of 0.100 mol/L acetic acid (pKa 4.76, 25 °C) titrated with 0.100 mol/L sodium hydroxide.",
+      "in_heading": "Inputs",
+      "type": "Analyte and titrant",
+      "type_sa": "Strong acid (e.g. HCl) with strong base",
+      "type_wa": "Weak acid (e.g. acetic acid) with strong base",
+      "type_sb": "Strong base (e.g. NaOH) with strong acid",
+      "type_wb": "Weak base (e.g. ammonia) with strong acid",
+      "c": "Analyte concentration C (mol/L)",
+      "v": "Analyte volume V₀ (mL)",
+      "pk": "pKa of the weak acid / pKb of the weak base",
+      "ct": "Titrant concentration (mol/L)",
+      "vt": "Volume of titrant added V (mL)",
+      "out_heading": "Results",
+      "veq": "Equivalence volume",
+      "ph0": "pH before titration",
+      "phhalf": "pH at half-equivalence",
+      "pheq": "pH at equivalence",
+      "jump": "pH at equivalence ±0.1%",
+      "ind": "Suitable indicator",
+      "v_heading": "After adding volume V",
+      "phv": "pH (from the charge balance)",
+      "region": "Region of the curve",
+      "pt_heading": "Exact values and textbook approximations",
+      "ind_heading": "Choosing an indicator (error when stopping at the middle of the transition range)",
+      "note": "The pH is found by solving the charge balance numerically, including the autoionization of water (Kw = 1.0×10⁻¹⁴ at 25 °C), with activity coefficients taken as 1. In the approximate formulas, Ct is the titrant concentration, Veq the equivalence volume and Cs the salt concentration at the equivalence point. On the graph, the dashed lines show the transition range of the suitable indicator and the dots mark the half-equivalence and equivalence points. Only monoprotic acids and bases are covered; absorption of carbon dioxide from the air and the temperature dependence of Kw are not considered.",
+      "practice": "Practice titrimetric analysis questions",
+      "related": "Related terms",
+      "js": {
+        "pka": "pKa of the weak acid",
+        "pkb": "pKb of the weak base",
+        "chart_label": "Titration curve (pH vs volume of titrant added)",
+        "xlabel": "Volume of titrant added V (mL)",
+        "m_half": "Half-equivalence",
+        "m_eq": "Equivalence",
+        "p_start": "Before titration",
+        "p_half": "Half-equivalence",
+        "p_eq": "Equivalence point",
+        "p_v": "Your V",
+        "col_point": "Point",
+        "col_exact": "pH (exact)",
+        "col_formula": "Textbook approximation",
+        "col_approx": "pH (approx.)",
+        "col_ind": "Indicator",
+        "col_range": "Transition range (pH)",
+        "col_err": "End-point error",
+        "col_judge": "Assessment",
+        "ind_mo": "Methyl orange",
+        "ind_mr": "Methyl red",
+        "ind_btb": "Bromothymol blue",
+        "ind_pp": "Phenolphthalein",
+        "ind_none": "None (error above 1%)",
+        "j_best": "Best",
+        "j_ok": "Usable (error ≤ 0.1%)",
+        "j_warn": "Error 0.1–1%",
+        "j_ng": "Unsuitable (error > 1%)",
+        "j_before": "Unsuitable (already changed before titration)",
+        "j_never": "Unsuitable (never changes)",
+        "r_start": "Before titration",
+        "r_buffer": "Buffer region (before equivalence)",
+        "r_before": "Before equivalence (strong acid or base left)",
+        "r_eq": "Equivalence point",
+        "r_after": "After equivalence (excess titrant)"
+      },
+      "sections": [
+        {
+          "h": "The shape of a titration curve and its four regions",
+          "p": "When a weak acid is titrated with a strong base, the pH changes as follows. Before titration the solution contains only the weak acid; for the default 0.100 mol/L acetic acid the pH is 2.88. As base is added, the remaining acetic acid and the acetate formed make a buffer, and the pH rises slowly. At the half-equivalence point, where half the equivalent amount of base has been added, [HA] = [A⁻], so pH = pKa = 4.76. At the equivalence point (25.0 mL) the solution contains only sodium acetate, and hydrolysis of acetate makes it basic, pH 8.73. Within ±0.1% of the equivalence point the pH jumps from about 7.75 to 9.70 (the pH jump), and after that it is set by the excess hydroxide."
+        },
+        {
+          "h": "Solving the charge balance exactly",
+          "p": "Instead of approximations, this calculator finds the pH by solving the charge balance of the whole solution, [H⁺] + [Na⁺] = [OH⁻] + [A⁻]. [Na⁺] is the amount of NaOH added divided by the total volume, [A⁻] is the total (diluted) acid concentration multiplied by Ka/(Ka + [H⁺]), and [OH⁻] is Kw/[H⁺]. The left side minus the right side increases steadily with [H⁺], so bisection always finds the root. This removes the need to switch formulas between regions, and the autoionization of water is included automatically. For example, 1.0×10⁻⁸ mol/L hydrochloric acid would have pH 8 if water were ignored, but the charge balance gives 6.98."
+        },
+        {
+          "h": "Textbook approximations and their limits",
+          "p": "The results table shows the value of the approximation that textbooks use in each region next to the exact value. Before titration the weak acid uses [H⁺] ≈ √(KaC); the buffer region uses the Henderson–Hasselbalch equation pH = pKa + log(V/(Veq − V)); the equivalence point uses hydrolysis of the salt, [OH⁻] = √(KwCs/Ka); and after equivalence the concentration of excess base. At around 0.1 mol/L they all agree well, but the Henderson–Hasselbalch equation fails at the very start of the titration. With the defaults at V = 1.0 mL, the approximation gives pH 3.38 and the exact value is 3.42. If both concentrations are 0.001 mol/L the gap widens: at V = 1.0 mL the approximation gives 3.38 against an exact 3.99, and even the half-equivalence pH is 4.80, away from the pKa."
+        },
+        {
+          "h": "Equivalence-point pH and choosing an indicator",
+          "p": "Choose an indicator whose transition range falls within the pH jump near the equivalence point. This calculator uses the charge balance to work out how far from the equivalence point the titration stops if it is stopped at the pH in the middle of each transition range (the end-point error), and suggests the indicator with the smallest error. For 0.100 mol/L strong acid and strong base, the equivalence point is at pH 7.00 and the jump is wide, about 4.30 to 9.70, so methyl red, bromothymol blue and phenolphthalein all give errors of 0.1% or less. For a weak acid such as acetic acid the equivalence point is basic (8.73), so phenolphthalein suits; for a weak base such as ammonia it is acidic (5.28), so methyl red suits. For acids that are too weak, such as boric acid (pKa 9.24), or very dilute solutions, there is hardly any jump and no indicator gives a sharp end point, so potentiometric titration or a similar method is used."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "The most common mistake is to assume the equivalence point is neutral (pH 7). That is only true for a strong acid with a strong base; titrating a weak acid gives a basic equivalence point and titrating a weak base an acidic one. The next most common is forgetting dilution in the salt concentration at the equivalence point. In the acetic acid example, keeping the salt at 0.100 mol/L gives pH 8.88, but the total volume is 50.0 mL, so the correct concentration is 0.0500 mol/L and the pH is 8.73 (8.72 with Ka = 1.8×10⁻⁵). Other frequent errors are using the Henderson–Hasselbalch equation before titration or at the equivalence point (where it gives log 0 or division by zero), mixing up the pKb of ammonia, 4.75, with a pKa (the pKa of NH₄⁺ is 14.00 − 4.75 = 9.25), and mixing mL with L."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the difference between the equivalence point and the end point?",
+          "a": "The equivalence point is where the titrant added has reacted exactly with the analyte according to the reaction equation; it is fixed by calculation. The end point is where the titration is actually stopped, for example when the indicator changes color. The difference between them is the titration error, and it is small when the indicator's transition range falls within the pH jump near the equivalence point."
+        },
+        {
+          "q": "When is the pH at half-equivalence not equal to the pKa?",
+          "a": "pH = pKa is an approximation that holds when the dissociation of the weak acid itself and the autoionization of water can be neglected. It breaks down when the pKa is small (a fairly strong acid) or the solution is dilute. For a 0.100 mol/L acid with pKa 2.00 the half-equivalence pH is about 2.18, and for 0.001 mol/L acetic acid about 4.80. Keep this in mind when reading a pKa from a titration curve."
+        },
+        {
+          "q": "Why is a weak acid not titrated with a weak base?",
+          "a": "Near the equivalence point the pH changes only gradually, with no clear pH jump, so the end point is hard to locate accurately with either an indicator or a potential measurement. For this reason the titrant is a standard solution of a strong base (NaOH) or a strong acid (HCl). This calculator also limits the titrant to a strong base or strong acid."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "滴定曲線",
+      "card": "繪製酸鹼中和滴定的曲線，求當量點的pH與適合的指示劑",
+      "title": "滴定曲線計算工具（中和滴定的pH、當量點、指示劑）",
+      "description": "以強鹼或強酸滴定強酸、弱酸、強鹼、弱鹼時的滴定曲線（pH與滴入體積），由包含水解離的電荷平衡計算並繪製。也能求出當量點的體積、滴定前・半當量點・當量點的pH、與教科書近似式的比較，以及適合的指示劑。",
+      "h1": "酸鹼滴定曲線工具",
+      "lead": "以強鹼或強酸滴定單質子酸或鹼的水溶液時，不使用近似式計算pH的變化並繪成圖。預設值是以0.100 mol/L 氫氧化鈉水溶液滴定0.100 mol/L 乙酸（pKa 4.76，25 ℃）25.0 mL的例子。",
+      "in_heading": "輸入",
+      "type": "試樣與滴定劑",
+      "type_sa": "以強鹼滴定強酸（HCl 等）",
+      "type_wa": "以強鹼滴定弱酸（乙酸等）",
+      "type_sb": "以強酸滴定強鹼（NaOH 等）",
+      "type_wb": "以強酸滴定弱鹼（氨等）",
+      "c": "試樣的濃度 C (mol/L)",
+      "v": "試樣的體積 V₀ (mL)",
+      "pk": "弱酸的 pKa / 弱鹼的 pKb",
+      "ct": "滴定劑的濃度 (mol/L)",
+      "vt": "加入之滴定劑的體積 V (mL)",
+      "out_heading": "結果",
+      "veq": "到當量點的體積",
+      "ph0": "滴定前的 pH",
+      "phhalf": "半當量點的 pH",
+      "pheq": "當量點的 pH",
+      "jump": "當量點 ±0.1 % 的 pH",
+      "ind": "適合的指示劑",
+      "v_heading": "加入體積 V 時",
+      "phv": "pH（由電荷平衡）",
+      "region": "滴定曲線的區域",
+      "pt_heading": "精確值與教科書的近似式",
+      "ind_heading": "指示劑的選擇（在變色範圍中央停止時的誤差）",
+      "note": "pH是以數值方法解出包含水的自解離（Kw = 1.0×10⁻¹⁴，25 ℃）之電荷平衡式所得的值，活性係數設為1。近似式中的 Ct 是滴定劑的濃度，Veq 是到當量點的體積，Cs 是當量點時鹽的濃度。圖中的虛線是適合之指示劑的變色範圍，點為半當量點與當量點。只處理單質子的酸與鹼，未考慮吸收空氣中的二氧化碳，以及Kw隨溫度的變化。",
+      "practice": "練習容量分析的題目",
+      "related": "相關名詞",
+      "js": {
+        "pka": "弱酸的 pKa",
+        "pkb": "弱鹼的 pKb",
+        "chart_label": "滴定曲線（pH與加入之滴定劑的體積）",
+        "xlabel": "加入之滴定劑的體積 V (mL)",
+        "m_half": "半當量點",
+        "m_eq": "當量點",
+        "p_start": "滴定前",
+        "p_half": "半當量點",
+        "p_eq": "當量點",
+        "p_v": "輸入的 V",
+        "col_point": "點",
+        "col_exact": "pH（精確）",
+        "col_formula": "教科書的近似式",
+        "col_approx": "pH（近似）",
+        "col_ind": "指示劑",
+        "col_range": "變色範圍 (pH)",
+        "col_err": "終點的誤差",
+        "col_judge": "判定",
+        "ind_mo": "甲基橙",
+        "ind_mr": "甲基紅",
+        "ind_btb": "溴瑞香草酚藍",
+        "ind_pp": "酚酞",
+        "ind_none": "無（誤差超過1 %）",
+        "j_best": "最適合",
+        "j_ok": "可用（誤差0.1 %以下）",
+        "j_warn": "誤差0.1～1 %",
+        "j_ng": "不適合（誤差超過1 %）",
+        "j_before": "不適合（滴定前已變色）",
+        "j_never": "不適合（不會變色）",
+        "r_start": "滴定前",
+        "r_buffer": "緩衝區（當量點之前）",
+        "r_before": "當量點之前（強酸或強鹼殘留）",
+        "r_eq": "當量點",
+        "r_after": "當量點之後（滴定劑過量）"
+      },
+      "sections": [
+        {
+          "h": "滴定曲線的形狀與4個區域",
+          "p": "以強鹼滴定弱酸時，pH如下變化。滴定前只是弱酸的水溶液，預設值的0.100 mol/L 乙酸為 pH 2.88。開始加入鹼後，殘留的乙酸與生成的乙酸根離子形成緩衝溶液，pH緩慢上升。加入當量點一半之量的半當量點，[HA] = [A⁻]，所以 pH = pKa = 4.76。在當量點（25.0 mL）溶液只剩乙酸鈉，由於乙酸根離子的水解而成為 pH 8.73 的鹼性。在當量點前後 ±0.1 % 之間，pH由約7.75急遽升到9.70（pH躍升），之後由過量的氫氧根離子濃度決定。"
+        },
+        {
+          "h": "由電荷平衡精確求解",
+          "p": "本工具不使用近似式，而是解整個溶液的電荷平衡 [H⁺] + [Na⁺] = [OH⁻] + [A⁻] 求pH。[Na⁺] 是加入之NaOH的物質量除以總體積的值，[A⁻] 是稀釋後酸的總濃度乘以 Ka/(Ka + [H⁺]) 的值，[OH⁻] 是 Kw/[H⁺]。左邊減右邊的值隨 [H⁺] 單調增加，所以用二分法一定能求出解。如此就不必在各區域分別使用不同的式子，水的解離也自動納入。例如1.0×10⁻⁸ mol/L 的鹽酸，忽略水的解離會得到 pH 8，但由電荷平衡求解是6.98。"
+        },
+        {
+          "h": "教科書的近似式與其限制",
+          "p": "結果的表格把教科書在各區域使用的近似式之值與精確值並列。滴定前的弱酸用 [H⁺] ≈ √(KaC)，緩衝區用韓德森-哈塞爾巴赫方程式 pH = pKa + log(V/(Veq − V))，當量點用鹽的水解 [OH⁻] = √(KwCs/Ka)，當量點之後用過量鹼的濃度。約0.1 mol/L 時都相當吻合，但韓德森-哈塞爾巴赫方程式在滴定剛開始時不吻合。預設值在 V = 1.0 mL 時，近似為 pH 3.38，精確值為3.42。若兩者濃度都設為0.001 mol/L，差距會擴大，V = 1.0 mL 時近似3.38而精確值3.99，半當量點也成為4.80而偏離 pKa。"
+        },
+        {
+          "h": "當量點的pH與指示劑的選擇",
+          "p": "指示劑要選擇變色範圍落在當量點附近pH躍升之內者。本工具由電荷平衡計算在各變色範圍中央的pH停止滴定時，偏離當量點多少（終點的誤差），並推薦誤差最小者。0.100 mol/L 的強酸與強鹼，當量點為 pH 7.00，躍升約4.30～9.70而寬廣，所以甲基紅、溴瑞香草酚藍、酚酞的誤差都在0.1 %以下。像乙酸這樣的弱酸，當量點偏鹼性（8.73），適合用酚酞；像氨這樣的弱鹼，當量點偏酸性（5.28），適合用甲基紅。像硼酸（pKa 9.24）這樣太弱的酸或非常稀的溶液，幾乎沒有躍升，無法以指示劑決定終點，所以使用電位滴定等方法。"
+        },
+        {
+          "h": "常見的錯誤",
+          "p": "最常見的是認定當量點是中性（pH 7）。只有強酸與強鹼的組合才是 pH 7，滴定弱酸時偏鹼性，滴定弱鹼時偏酸性。其次是忘了把稀釋納入當量點時鹽的濃度。在乙酸的例子中，若鹽的濃度仍以0.100 mol/L 計算會得到 pH 8.88，但總體積是50.0 mL，正確應為0.0500 mol/L，pH 8.73（若 Ka = 1.8×10⁻⁵ 則為8.72）。此外，在滴定前或當量點使用韓德森-哈塞爾巴赫方程式（會變成 log 0 或除以0）、把氨的 pKb 4.75 誤當成 pKa（NH₄⁺ 的 pKa 為14.00 − 4.75 = 9.25）、混用 mL 與 L 等也是常見的錯誤。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "當量點與終點有什麼不同？",
+          "a": "當量點是加入的滴定劑與試樣依反應式恰好完全反應的點，由計算決定。終點是指示劑變色等而實際停止滴定的點。兩者的差就是滴定誤差，選擇變色範圍落在當量點附近pH躍升之內的指示劑，誤差就會變小。"
+        },
+        {
+          "q": "什麼情況下半當量點的 pH 不等於 pKa？",
+          "a": "pH = pKa 是可以忽略弱酸本身的解離與水的解離時的近似。pKa 小（酸較強）或濃度稀時會偏離。0.100 mol/L、pKa 2.00 的酸，半當量點的 pH 約為2.18；0.001 mol/L 的乙酸約為4.80。從滴定曲線讀取 pKa 時要注意這一點。"
+        },
+        {
+          "q": "為什麼不用弱鹼滴定弱酸？",
+          "a": "因為在當量點前後pH只會逐漸變化，不會形成明顯的pH躍升，無論用指示劑或電位都難以準確決定終點。因此滴定劑使用強鹼（NaOH）或強酸（HCl）的標準溶液。本工具的滴定劑也限於強鹼或強酸。"
+        }
+      ]
+    },
+    "es": {
+      "nav": "Curvas de valoración",
+      "card": "Trace la curva de una valoración ácido-base y obtenga el pH en el punto de equivalencia y un indicador adecuado",
+      "title": "Calculadora de curvas de valoración ácido-base (pH, punto de equivalencia e indicador)",
+      "description": "Calcula y traza la curva de valoración (pH frente al volumen añadido) de un ácido fuerte o débil valorado con una base fuerte, o de una base fuerte o débil valorada con un ácido fuerte, resolviendo el balance de carga con la autoionización del agua incluida. También obtiene el volumen de equivalencia, el pH antes de la valoración y en los puntos de semiequivalencia y de equivalencia, la comparación con las aproximaciones de los libros de texto y un indicador adecuado.",
+      "h1": "Calculadora de curvas de valoración ácido-base",
+      "lead": "Calcule, sin las aproximaciones de los libros de texto, cómo cambia el pH al valorar un ácido o una base monopróticos con una base fuerte o un ácido fuerte, y véalo en una gráfica. Los valores predeterminados corresponden a 25,0 mL de ácido acético 0,100 mol/L (pKa 4,76, 25 °C) valorados con hidróxido de sodio 0,100 mol/L.",
+      "in_heading": "Datos",
+      "type": "Analito y valorante",
+      "type_sa": "Ácido fuerte (p. ej., HCl) con base fuerte",
+      "type_wa": "Ácido débil (p. ej., ácido acético) con base fuerte",
+      "type_sb": "Base fuerte (p. ej., NaOH) con ácido fuerte",
+      "type_wb": "Base débil (p. ej., amoníaco) con ácido fuerte",
+      "c": "Concentración del analito C (mol/L)",
+      "v": "Volumen del analito V₀ (mL)",
+      "pk": "pKa del ácido débil / pKb de la base débil",
+      "ct": "Concentración del valorante (mol/L)",
+      "vt": "Volumen de valorante añadido V (mL)",
+      "out_heading": "Resultados",
+      "veq": "Volumen de equivalencia",
+      "ph0": "pH antes de la valoración",
+      "phhalf": "pH en la semiequivalencia",
+      "pheq": "pH en la equivalencia",
+      "jump": "pH en la equivalencia ±0,1 %",
+      "ind": "Indicador adecuado",
+      "v_heading": "Tras añadir el volumen V",
+      "phv": "pH (del balance de carga)",
+      "region": "Zona de la curva",
+      "pt_heading": "Valores exactos y aproximaciones de los libros de texto",
+      "ind_heading": "Elección del indicador (error al detenerse en el centro del intervalo de viraje)",
+      "note": "El pH se obtiene resolviendo numéricamente el balance de carga, con la autoionización del agua incluida (Kw = 1,0×10⁻¹⁴ a 25 °C) y coeficientes de actividad iguales a 1. En las fórmulas aproximadas, Ct es la concentración del valorante, Veq el volumen de equivalencia y Cs la concentración de la sal en el punto de equivalencia. En la gráfica, las líneas discontinuas marcan el intervalo de viraje del indicador adecuado y los puntos señalan la semiequivalencia y la equivalencia. Solo se tratan ácidos y bases monopróticos; no se consideran la absorción de dióxido de carbono del aire ni la variación de Kw con la temperatura.",
+      "practice": "Resolver preguntas de análisis volumétrico",
+      "related": "Términos relacionados",
+      "js": {
+        "pka": "pKa del ácido débil",
+        "pkb": "pKb de la base débil",
+        "chart_label": "Curva de valoración (pH frente al volumen de valorante añadido)",
+        "xlabel": "Volumen de valorante añadido V (mL)",
+        "m_half": "Semiequivalencia",
+        "m_eq": "Equivalencia",
+        "p_start": "Antes de valorar",
+        "p_half": "Semiequivalencia",
+        "p_eq": "Punto de equivalencia",
+        "p_v": "Su V",
+        "col_point": "Punto",
+        "col_exact": "pH (exacto)",
+        "col_formula": "Aproximación de los libros de texto",
+        "col_approx": "pH (aprox.)",
+        "col_ind": "Indicador",
+        "col_range": "Intervalo de viraje (pH)",
+        "col_err": "Error del punto final",
+        "col_judge": "Evaluación",
+        "ind_mo": "Naranja de metilo",
+        "ind_mr": "Rojo de metilo",
+        "ind_btb": "Azul de bromotimol",
+        "ind_pp": "Fenolftaleína",
+        "ind_none": "Ninguno (error superior al 1 %)",
+        "j_best": "El mejor",
+        "j_ok": "Utilizable (error ≤ 0,1 %)",
+        "j_warn": "Error del 0,1 al 1 %",
+        "j_ng": "No adecuado (error > 1 %)",
+        "j_before": "No adecuado (ya ha virado antes de valorar)",
+        "j_never": "No adecuado (no llega a virar)",
+        "r_start": "Antes de la valoración",
+        "r_buffer": "Zona tampón (antes de la equivalencia)",
+        "r_before": "Antes de la equivalencia (queda ácido o base fuerte)",
+        "r_eq": "Punto de equivalencia",
+        "r_after": "Después de la equivalencia (exceso de valorante)"
+      },
+      "sections": [
+        {
+          "h": "Forma de la curva de valoración y sus cuatro zonas",
+          "p": "Al valorar un ácido débil con una base fuerte, el pH cambia de la siguiente manera. Antes de la valoración la disolución solo contiene el ácido débil; con el ácido acético 0,100 mol/L predeterminado, el pH es 2,88. Al empezar a añadir base, el ácido acético que queda y el acetato formado constituyen una disolución tampón, y el pH sube lentamente. En el punto de semiequivalencia, cuando se ha añadido la mitad de la base equivalente, [HA] = [A⁻], de modo que pH = pKa = 4,76. En el punto de equivalencia (25,0 mL) solo queda acetato de sodio, y la hidrólisis del acetato hace que la disolución sea básica, de pH 8,73. Dentro de ±0,1 % del punto de equivalencia, el pH sube bruscamente de aproximadamente 7,75 a 9,70 (salto de pH) y, a partir de ahí, lo fija el exceso de hidróxido."
+        },
+        {
+          "h": "Resolución exacta del balance de carga",
+          "p": "En lugar de aproximaciones, esta calculadora obtiene el pH resolviendo el balance de carga de toda la disolución, [H⁺] + [Na⁺] = [OH⁻] + [A⁻]. [Na⁺] es la cantidad de NaOH añadida dividida entre el volumen total; [A⁻], la concentración total del ácido (ya diluida) multiplicada por Ka/(Ka + [H⁺]); y [OH⁻], Kw/[H⁺]. El primer miembro menos el segundo aumenta de forma monótona con [H⁺], así que el método de bisección siempre encuentra la raíz. De este modo no hace falta cambiar de fórmula según la zona, y la autoionización del agua queda incluida automáticamente. Por ejemplo, el ácido clorhídrico 1,0×10⁻⁸ mol/L tendría pH 8 si se despreciara el agua, pero el balance de carga da 6,98."
+        },
+        {
+          "h": "Aproximaciones de los libros de texto y sus límites",
+          "p": "La tabla de resultados muestra, junto al valor exacto, el valor de la aproximación que los libros de texto usan en cada zona. Antes de la valoración, el ácido débil se trata con [H⁺] ≈ √(KaC); la zona tampón, con la ecuación de Henderson-Hasselbalch pH = pKa + log(V/(Veq − V)); el punto de equivalencia, con la hidrólisis de la sal, [OH⁻] = √(KwCs/Ka); y después de la equivalencia, con la concentración de base en exceso. Con concentraciones de alrededor de 0,1 mol/L todas concuerdan bien, pero la ecuación de Henderson-Hasselbalch falla al comienzo de la valoración. Con los valores predeterminados y V = 1,0 mL, la aproximación da pH 3,38 y el valor exacto es 3,42. Si ambas concentraciones son 0,001 mol/L, la diferencia aumenta: con V = 1,0 mL la aproximación da 3,38 frente a un valor exacto de 3,99, e incluso el pH de semiequivalencia, 4,80, se aleja del pKa."
+        },
+        {
+          "h": "pH en el punto de equivalencia y elección del indicador",
+          "p": "Se elige un indicador cuyo intervalo de viraje quede dentro del salto de pH cerca del punto de equivalencia. Esta calculadora usa el balance de carga para calcular cuánto se aleja del punto de equivalencia una valoración que se detiene en el pH central de cada intervalo de viraje (el error del punto final), y recomienda el indicador con el menor error. Con ácido fuerte y base fuerte 0,100 mol/L, el punto de equivalencia está a pH 7,00 y el salto es amplio, de aproximadamente 4,30 a 9,70, así que el rojo de metilo, el azul de bromotimol y la fenolftaleína dan errores de 0,1 % o menos. Con un ácido débil como el ácido acético, el punto de equivalencia es básico (8,73) y conviene la fenolftaleína; con una base débil como el amoníaco es ácido (5,28) y conviene el rojo de metilo. Con ácidos demasiado débiles, como el ácido bórico (pKa 9,24), o con disoluciones muy diluidas apenas hay salto y ningún indicador da un punto final nítido, por lo que se recurre a la valoración potenciométrica u otro método similar."
+        },
+        {
+          "h": "Errores frecuentes",
+          "p": "El error más frecuente es suponer que el punto de equivalencia es neutro (pH 7). Eso solo ocurre con un ácido fuerte y una base fuerte; al valorar un ácido débil el punto de equivalencia es básico, y al valorar una base débil, ácido. El siguiente es olvidar la dilución al calcular la concentración de la sal en el punto de equivalencia. En el ejemplo del ácido acético, si se mantiene la sal en 0,100 mol/L se obtiene pH 8,88, pero el volumen total es de 50,0 mL, así que la concentración correcta es 0,0500 mol/L y el pH es 8,73 (8,72 con Ka = 1,8×10⁻⁵). Otros errores habituales son usar la ecuación de Henderson-Hasselbalch antes de la valoración o en el punto de equivalencia (donde da log 0 o una división entre cero), confundir el pKb del amoníaco, 4,75, con un pKa (el pKa del NH₄⁺ es 14,00 − 4,75 = 9,25) y mezclar mL con L."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿En qué se diferencian el punto de equivalencia y el punto final?",
+          "a": "El punto de equivalencia es aquel en el que el valorante añadido ha reaccionado exactamente con el analito según la ecuación de la reacción; se determina por cálculo. El punto final es donde realmente se detiene la valoración, por ejemplo cuando cambia el color del indicador. La diferencia entre ambos es el error de valoración, que es pequeño si el intervalo de viraje del indicador queda dentro del salto de pH cerca del punto de equivalencia."
+        },
+        {
+          "q": "¿Cuándo el pH en la semiequivalencia no es igual al pKa?",
+          "a": "pH = pKa es una aproximación válida cuando pueden despreciarse la disociación del propio ácido débil y la autoionización del agua. Deja de cumplirse cuando el pKa es pequeño (un ácido relativamente fuerte) o la disolución está diluida. Para un ácido 0,100 mol/L con pKa 2,00, el pH de semiequivalencia es de aproximadamente 2,18, y para ácido acético 0,001 mol/L, de aproximadamente 4,80. Conviene tenerlo en cuenta al leer el pKa en una curva de valoración."
+        },
+        {
+          "q": "¿Por qué no se valora un ácido débil con una base débil?",
+          "a": "Cerca del punto de equivalencia el pH cambia solo de forma gradual, sin un salto de pH claro, de modo que es difícil localizar con exactitud el punto final, tanto con un indicador como midiendo el potencial. Por eso el valorante es una disolución patrón de una base fuerte (NaOH) o de un ácido fuerte (HCl). Esta calculadora también limita el valorante a una base fuerte o un ácido fuerte."
+        }
+      ]
+    },
+    "pt": {
+      "nav": "Curvas de titulação",
+      "card": "Trace a curva de uma titulação ácido-base e obtenha o pH no ponto de equivalência e um indicador adequado",
+      "title": "Calculadora de curvas de titulação ácido-base (pH, ponto de equivalência e indicador)",
+      "description": "Calcula e traça a curva de titulação (pH em função do volume adicionado) de um ácido forte ou fraco titulado com base forte, ou de uma base forte ou fraca titulada com ácido forte, resolvendo o balanço de cargas com a autoionização da água incluída. Também obtém o volume de equivalência, o pH antes da titulação e nos pontos de semiequivalência e de equivalência, a comparação com as aproximações dos livros-texto e um indicador adequado.",
+      "h1": "Calculadora de curvas de titulação ácido-base",
+      "lead": "Calcule, sem as aproximações dos livros-texto, como o pH varia ao titular um ácido ou uma base monopróticos com uma base forte ou um ácido forte, e veja o resultado em um gráfico. Os valores padrão correspondem a 25,0 mL de ácido acético 0,100 mol/L (pKa 4,76, 25 °C) titulados com hidróxido de sódio 0,100 mol/L.",
+      "in_heading": "Dados",
+      "type": "Amostra e titulante",
+      "type_sa": "Ácido forte (ex.: HCl) com base forte",
+      "type_wa": "Ácido fraco (ex.: ácido acético) com base forte",
+      "type_sb": "Base forte (ex.: NaOH) com ácido forte",
+      "type_wb": "Base fraca (ex.: amônia) com ácido forte",
+      "c": "Concentração da amostra C (mol/L)",
+      "v": "Volume da amostra V₀ (mL)",
+      "pk": "pKa do ácido fraco / pKb da base fraca",
+      "ct": "Concentração do titulante (mol/L)",
+      "vt": "Volume de titulante adicionado V (mL)",
+      "out_heading": "Resultados",
+      "veq": "Volume de equivalência",
+      "ph0": "pH antes da titulação",
+      "phhalf": "pH na semiequivalência",
+      "pheq": "pH na equivalência",
+      "jump": "pH na equivalência ±0,1 %",
+      "ind": "Indicador adequado",
+      "v_heading": "Após adicionar o volume V",
+      "phv": "pH (pelo balanço de cargas)",
+      "region": "Região da curva",
+      "pt_heading": "Valores exatos e aproximações dos livros-texto",
+      "ind_heading": "Escolha do indicador (erro ao parar no meio da faixa de viragem)",
+      "note": "O pH é obtido resolvendo numericamente o balanço de cargas, com a autoionização da água incluída (Kw = 1,0×10⁻¹⁴ a 25 °C) e coeficientes de atividade iguais a 1. Nas fórmulas aproximadas, Ct é a concentração do titulante, Veq o volume de equivalência e Cs a concentração do sal no ponto de equivalência. No gráfico, as linhas tracejadas indicam a faixa de viragem do indicador adequado e os pontos marcam a semiequivalência e a equivalência. Só são tratados ácidos e bases monopróticos; não se consideram a absorção de dióxido de carbono do ar nem a variação de Kw com a temperatura.",
+      "practice": "Resolver questões de análise volumétrica",
+      "related": "Termos relacionados",
+      "js": {
+        "pka": "pKa do ácido fraco",
+        "pkb": "pKb da base fraca",
+        "chart_label": "Curva de titulação (pH em função do volume de titulante adicionado)",
+        "xlabel": "Volume de titulante adicionado V (mL)",
+        "m_half": "Semiequivalência",
+        "m_eq": "Equivalência",
+        "p_start": "Antes da titulação",
+        "p_half": "Semiequivalência",
+        "p_eq": "Ponto de equivalência",
+        "p_v": "Seu V",
+        "col_point": "Ponto",
+        "col_exact": "pH (exato)",
+        "col_formula": "Aproximação dos livros-texto",
+        "col_approx": "pH (aprox.)",
+        "col_ind": "Indicador",
+        "col_range": "Faixa de viragem (pH)",
+        "col_err": "Erro do ponto final",
+        "col_judge": "Avaliação",
+        "ind_mo": "Alaranjado de metila",
+        "ind_mr": "Vermelho de metila",
+        "ind_btb": "Azul de bromotimol",
+        "ind_pp": "Fenolftaleína",
+        "ind_none": "Nenhum (erro acima de 1 %)",
+        "j_best": "O melhor",
+        "j_ok": "Utilizável (erro ≤ 0,1 %)",
+        "j_warn": "Erro de 0,1 a 1 %",
+        "j_ng": "Inadequado (erro > 1 %)",
+        "j_before": "Inadequado (já virou antes da titulação)",
+        "j_never": "Inadequado (não chega a virar)",
+        "r_start": "Antes da titulação",
+        "r_buffer": "Região tampão (antes da equivalência)",
+        "r_before": "Antes da equivalência (resta ácido ou base forte)",
+        "r_eq": "Ponto de equivalência",
+        "r_after": "Depois da equivalência (excesso de titulante)"
+      },
+      "sections": [
+        {
+          "h": "Forma da curva de titulação e suas quatro regiões",
+          "p": "Quando um ácido fraco é titulado com uma base forte, o pH varia da seguinte forma. Antes da titulação, a solução contém só o ácido fraco; com o ácido acético 0,100 mol/L padrão, o pH é 2,88. Ao começar a adicionar a base, o ácido acético restante e o acetato formado constituem uma solução-tampão, e o pH sobe lentamente. No ponto de semiequivalência, em que foi adicionada metade da base equivalente, [HA] = [A⁻], de modo que pH = pKa = 4,76. No ponto de equivalência (25,0 mL), resta apenas acetato de sódio, e a hidrólise do acetato torna a solução básica, com pH 8,73. Dentro de ±0,1 % do ponto de equivalência, o pH sobe bruscamente de cerca de 7,75 para 9,70 (salto de pH) e, a partir daí, é determinado pelo excesso de hidróxido."
+        },
+        {
+          "h": "Resolução exata do balanço de cargas",
+          "p": "Em vez de aproximações, esta calculadora obtém o pH resolvendo o balanço de cargas de toda a solução, [H⁺] + [Na⁺] = [OH⁻] + [A⁻]. [Na⁺] é a quantidade de NaOH adicionada dividida pelo volume total; [A⁻], a concentração total do ácido (já diluída) multiplicada por Ka/(Ka + [H⁺]); e [OH⁻], Kw/[H⁺]. O lado esquerdo menos o lado direito cresce de forma monotônica com [H⁺], então o método da bisseção sempre encontra a raiz. Assim, não é preciso trocar de fórmula conforme a região, e a autoionização da água entra automaticamente. Por exemplo, o ácido clorídrico 1,0×10⁻⁸ mol/L teria pH 8 se a água fosse desprezada, mas o balanço de cargas dá 6,98."
+        },
+        {
+          "h": "Aproximações dos livros-texto e seus limites",
+          "p": "A tabela de resultados mostra, ao lado do valor exato, o valor da aproximação que os livros-texto usam em cada região. Antes da titulação, o ácido fraco é tratado com [H⁺] ≈ √(KaC); a região tampão, com a equação de Henderson-Hasselbalch pH = pKa + log(V/(Veq − V)); o ponto de equivalência, com a hidrólise do sal, [OH⁻] = √(KwCs/Ka); e, depois da equivalência, com a concentração da base em excesso. Com concentrações em torno de 0,1 mol/L todas concordam bem, mas a equação de Henderson-Hasselbalch falha no início da titulação. Com os valores padrão e V = 1,0 mL, a aproximação dá pH 3,38 e o valor exato é 3,42. Se as duas concentrações forem 0,001 mol/L, a diferença aumenta: com V = 1,0 mL a aproximação dá 3,38 contra um valor exato de 3,99, e até o pH de semiequivalência, 4,80, se afasta do pKa."
+        },
+        {
+          "h": "pH no ponto de equivalência e escolha do indicador",
+          "p": "Escolhe-se um indicador cuja faixa de viragem fique dentro do salto de pH perto do ponto de equivalência. Esta calculadora usa o balanço de cargas para calcular quanto uma titulação interrompida no pH central de cada faixa de viragem se afasta do ponto de equivalência (o erro do ponto final) e recomenda o indicador com o menor erro. Com ácido forte e base forte 0,100 mol/L, o ponto de equivalência fica em pH 7,00 e o salto é amplo, de cerca de 4,30 a 9,70, então o vermelho de metila, o azul de bromotimol e a fenolftaleína dão erros de 0,1 % ou menos. Com um ácido fraco como o ácido acético, o ponto de equivalência é básico (8,73) e convém a fenolftaleína; com uma base fraca como a amônia, ele é ácido (5,28) e convém o vermelho de metila. Com ácidos fracos demais, como o ácido bórico (pKa 9,24), ou com soluções muito diluídas, quase não há salto e nenhum indicador dá um ponto final nítido, por isso se usa a titulação potenciométrica ou um método semelhante."
+        },
+        {
+          "h": "Erros comuns",
+          "p": "O erro mais comum é supor que o ponto de equivalência é neutro (pH 7). Isso só vale para ácido forte com base forte; ao titular um ácido fraco o ponto de equivalência é básico, e ao titular uma base fraca, ácido. O segundo é esquecer a diluição ao calcular a concentração do sal no ponto de equivalência. No exemplo do ácido acético, manter o sal em 0,100 mol/L dá pH 8,88, mas o volume total é 50,0 mL, então a concentração correta é 0,0500 mol/L e o pH é 8,73 (8,72 com Ka = 1,8×10⁻⁵). Outros erros frequentes são usar a equação de Henderson-Hasselbalch antes da titulação ou no ponto de equivalência (onde dá log 0 ou divisão por zero), confundir o pKb da amônia, 4,75, com um pKa (o pKa do NH₄⁺ é 14,00 − 4,75 = 9,25) e misturar mL com L."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Qual é a diferença entre o ponto de equivalência e o ponto final?",
+          "a": "O ponto de equivalência é aquele em que o titulante adicionado reagiu exatamente com a amostra, conforme a equação da reação; ele é determinado por cálculo. O ponto final é onde a titulação é de fato interrompida, por exemplo quando o indicador muda de cor. A diferença entre os dois é o erro de titulação, que é pequeno quando a faixa de viragem do indicador fica dentro do salto de pH perto do ponto de equivalência."
+        },
+        {
+          "q": "Quando o pH na semiequivalência não é igual ao pKa?",
+          "a": "pH = pKa é uma aproximação válida quando a ionização do próprio ácido fraco e a autoionização da água podem ser desprezadas. Ela deixa de valer quando o pKa é pequeno (um ácido relativamente forte) ou a solução é diluída. Para um ácido 0,100 mol/L com pKa 2,00, o pH na semiequivalência é de cerca de 2,18, e para ácido acético 0,001 mol/L, de cerca de 4,80. Leve isso em conta ao ler o pKa em uma curva de titulação."
+        },
+        {
+          "q": "Por que não se titula um ácido fraco com uma base fraca?",
+          "a": "Perto do ponto de equivalência, o pH varia só aos poucos, sem um salto de pH claro, e é difícil localizar com exatidão o ponto final, tanto com indicador quanto medindo o potencial. Por isso, o titulante é uma solução-padrão de base forte (NaOH) ou de ácido forte (HCl). Esta calculadora também limita o titulante a uma base forte ou um ácido forte."
+        }
+      ]
+    }
+  }
+}
