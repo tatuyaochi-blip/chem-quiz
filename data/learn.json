@@ -1,0 +1,10 @@
+{
+ "series": [
+  {
+   "id": "everyday-chemistry",
+   "name": { "ja": "身近な化学のふしぎ", "en": "Everyday chemistry", "zh-hant": "身邊化學的奧祕", "es": "Química cotidiana", "pt": "Química do dia a dia" },
+   "desc": { "ja": "酢の酸っぱさ、指示薬の色、インクのにじみなど、身の回りで起きる化学のしくみです。", "en": "The chemistry behind sour vinegar, color-changing indicators and running ink.", "zh-hant": "醋的酸味、指示劑的顏色、墨水的暈染等身邊化學現象的原理。", "es": "La química detrás del vinagre ácido, los indicadores que cambian de color y la tinta que se corre.", "pt": "A química por trás do vinagre azedo, dos indicadores que mudam de cor e da tinta que se espalha." }
+  }
+ ],
+ "extra": []
+}
