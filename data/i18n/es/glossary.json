@@ -1934,7 +1934,7 @@
    },
    {
     "h": "Cómo elegir el electrodo según la reacción",
-    "p": "Como electrodo indicador se usa el electrodo de vidrio para pH en las valoraciones ácido-base, el electrodo de plata en las valoraciones de precipitación con ion plata y el electrodo de platino en las valoraciones redox. En las valoraciones complexométricas y en la determinación del ion fluoruro también se usan electrodos selectivos de iones. Como electrodo de referencia es habitual el de plata-cloruro de plata, de potencial estable. Lo básico es elegir un electrodo que responda al ion cuya actividad cambia mucho en la reacción de interés, y en casos como cuando sería un problema que se liberara ion plata en una muestra que contiene ion cloruro, se usa un electrodo de referencia de doble unión."
+    "p": "Como electrodo indicador se usa el electrodo de vidrio para pH en las valoraciones ácido-base, el electrodo de plata en las valoraciones de precipitación con ion plata y el electrodo de platino en las valoraciones redox. En las valoraciones complexométricas y en la determinación del ion fluoruro también se usan electrodos selectivos de iones. Como electrodo de referencia es habitual el de plata-cloruro de plata, de potencial estable. Lo básico es elegir un electrodo que responda al ion cuya actividad cambia mucho en la reacción de interés, y cuando sería un problema que el ion cloruro del electrodo de referencia pasara a la muestra, se usa un electrodo de referencia de doble unión."
    },
    {
     "h": "Cómo determinar el punto final y ejemplo de cálculo",
@@ -2622,7 +2622,7 @@
    },
    {
     "h": "Selectividad E/Z",
-    "p": "La configuración E/Z del alqueno formado depende, a grandes rasgos, del tipo de iluro. Con los iluros no estabilizados, que solo llevan grupos alquilo, tiende a predominar el isómero Z a baja temperatura. Con los iluros estabilizados, en los que la carga negativa está estabilizada por el carbonilo de un éster o una cetona, predomina el isómero E. Con los iluros intermedios, que llevan por ejemplo un grupo fenilo, se obtiene a menudo una mezcla de E y Z. Cuando se quiere el isómero E, se usa a menudo la reacción de Horner-Wadsworth-Emmons, que emplea un carbanión derivado de un éster fosfórico."
+    "p": "La configuración E/Z del alqueno formado depende, a grandes rasgos, del tipo de iluro. Con los iluros no estabilizados, que solo llevan grupos alquilo, tiende a predominar el isómero Z a baja temperatura. Con los iluros estabilizados, en los que la carga negativa está estabilizada por el carbonilo de un éster o una cetona, predomina el isómero E. Con los iluros intermedios, que llevan por ejemplo un grupo fenilo, se obtiene a menudo una mezcla de E y Z. Cuando se quiere el isómero E, se usa a menudo la reacción de Horner-Wadsworth-Emmons, que emplea un carbanión derivado de un éster fosfónico (fosfonato)."
    },
    {
     "h": "Precauciones experimentales e inconvenientes",
