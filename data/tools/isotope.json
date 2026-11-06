@@ -101,7 +101,7 @@
         },
         {
           "h": "M+1 ピークと炭素の数",
-          "p": "炭素には ¹³C が約1.07% 含まれるので、炭素を n 個もつ分子では、¹³C を1個含む M+1 のピークが M の約 1.1% × n の強さで現れます。クロロベンゼン(炭素6個)なら約6.5% です。逆に M+1 と M の強度比から炭素数を見積もることもできますが、窒素(¹⁵N 0.37%)や水素(²H)の寄与もあり、M+1 が小さいと誤差が大きくなります。塩素や臭素の同位体は質量差が2なので、M+1 ではなく M+2 に現れることに注意します。"
+          "p": "炭素には ¹³C が約1.07% 含まれるので、炭素を n 個もつ分子では、¹³C を1個含む M+1 のピークが M の約 1.1% × n の強さで現れます。クロロベンゼン(炭素6個)なら 1.1% × 6 で約6.6% です(¹²C との比 1.07/98.93 で正確に計算すると 6.49%)。逆に M+1 と M の強度比から炭素数を見積もることもできますが、窒素(¹⁵N 0.37%)や水素(²H)の寄与もあり、M+1 が小さいと誤差が大きくなります。塩素や臭素の同位体は質量差が2なので、M+1 ではなく M+2 に現れることに注意します。"
         },
         {
           "h": "計算の前提と限界",
@@ -160,7 +160,7 @@
         },
         {
           "h": "The M+1 peak and the number of carbons",
-          "p": "Carbon contains about 1.07% ¹³C, so in a molecule with n carbons the M+1 peak, from molecules containing one ¹³C, appears at about 1.1% × n of M. For chlorobenzene (6 carbons) it is about 6.5%. Conversely, the carbon count can be estimated from the M+1 to M intensity ratio, but nitrogen (¹⁵N, 0.37%) and hydrogen (²H) also contribute, and the error is large when M+1 is small. Note that the chlorine and bromine isotopes differ in mass by 2, so they appear at M+2, not M+1."
+          "p": "Carbon contains about 1.07% ¹³C, so in a molecule with n carbons the M+1 peak, from molecules containing one ¹³C, appears at about 1.1% × n of M. For chlorobenzene (6 carbons) this gives 1.1% × 6, about 6.6% (calculated exactly with the ratio to ¹²C, 1.07/98.93, it is 6.49%). Conversely, the carbon count can be estimated from the M+1 to M intensity ratio, but nitrogen (¹⁵N, 0.37%) and hydrogen (²H) also contribute, and the error is large when M+1 is small. Note that the chlorine and bromine isotopes differ in mass by 2, so they appear at M+2, not M+1."
         },
         {
           "h": "Assumptions and limitations",
@@ -219,7 +219,7 @@
         },
         {
           "h": "M+1 峰與碳數",
-          "p": "碳含有約1.07% 的 ¹³C，所以含 n 個碳的分子，含1個 ¹³C 的 M+1 峰會以 M 的約 1.1% × n 的強度出現。氯苯（6個碳）約為6.5%。反之也能由 M+1 與 M 的強度比估計碳數，但氮（¹⁵N 0.37%）與氫（²H）也有貢獻，M+1 小時誤差會變大。要注意氯與溴同位素的質量差為2，所以出現在 M+2 而非 M+1。"
+          "p": "碳含有約1.07% 的 ¹³C，所以含 n 個碳的分子，含1個 ¹³C 的 M+1 峰會以 M 的約 1.1% × n 的強度出現。氯苯（6個碳）以 1.1% × 6 約為6.6%（用與 ¹²C 的比 1.07/98.93 精確計算則為 6.49%）。反之也能由 M+1 與 M 的強度比估計碳數，但氮（¹⁵N 0.37%）與氫（²H）也有貢獻，M+1 小時誤差會變大。要注意氯與溴同位素的質量差為2，所以出現在 M+2 而非 M+1。"
         },
         {
           "h": "計算的前提與限制",
