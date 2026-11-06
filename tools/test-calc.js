@@ -2,6 +2,10 @@
 // 期待値は手計算(python3 で別に計算)で出したもの。出典の欄は、その値がどこから来たか。
 import * as C from '../src/js/chemcalc.js';
 
+// 滴定の例: 0.100 mol/L 酢酸 25.0 mL を 0.100 mol/L NaOH で、0.100 mol/L アンモニア 25.0 mL を 0.100 mol/L HCl で
+const HAc = { base: false, strong: false, c: 0.1, v: 25, pk: 4.76, ct: 0.1 };
+const NH3 = { base: true, strong: false, c: 0.1, v: 25, pk: 4.75, ct: 0.1 };
+
 const cases = [
   // [名前, 計算した値, 期待値, 許す相対誤差, 出典]
   ['緩衝液 酢酸 pKa 4.76、[A⁻]=[HA]', C.bufferPH(4.76, 0.10, 0.10), 4.76, 1e-9, 'pH = pKa(比が1)'],
@@ -30,6 +34,26 @@ const cases = [
   ['0次 濃度は0で止まる', C.conc(0, 1, 0.1, 50), 0, 0, '[A] ≥ 0'],
   ['1次 90 % 反応する時間 k = 0.1', C.t90(1, 1, 0.1), 23.026, 1e-4, 'ln10/k'],
   ['アレニウス 25→35 ℃ で速度2倍の Ea (J/mol)', C.arrhenius(298.15, 1, 308.15, 2).ea, 52946, 1e-4, '定番の「10 ℃で2倍 ≈ 53 kJ/mol」'],
+  // 滴定曲線(電荷収支を数値で解いた値。期待値は python3 で電荷収支の3次式を別に解いた値と教科書の値)
+  ['滴定 酢酸 0.100 M 25.0 mL(pKa 4.76)の滴定前', C.titrationPH(HAc, 0), 2.883, 2e-4, '教科書 2.88(√(KaC))'],
+  ['滴定 酢酸 半当量点 = pKa', C.titrationPH(HAc, 12.5), 4.7605, 1e-4, 'pH = pKa 4.76(電荷収支では 4.7605)'],
+  ['滴定 酢酸 当量点(pKa 4.76)', C.titrationPH(HAc, 25), 8.7295, 1e-4, '7 + ½(pKa + log 0.0500) = 8.73'],
+  ['滴定 酢酸 当量点(Ka 1.8×10⁻⁵)', C.titrationPH({ ...HAc, pk: -Math.log10(1.8e-5) }, 25), 8.722, 2e-4, '問題 volumetric-006(8.72)'],
+  ['滴定 酢酸 当量体積', C.titrEqVol(HAc), 25, 1e-12, 'cV/c_t'],
+  ['滴定 酢酸 NaOH 30.0 mL(過剰)', C.titrationPH(HAc, 30), 11.959, 1e-4, '14 + log(0.100×5.0/55.0)'],
+  ['滴定 酢酸 の指示薬はフェノールフタレイン', C.bestIndicator(C.indicatorErrors(HAc)).id === 'pp' ? 1 : 0, 1, 0, '問題 volumetric-002'],
+  ['滴定 強酸−強塩基 0.100 M の当量点', C.titrationPH({ ...HAc, strong: true }, 25), 7.0, 1e-9, '問題 volumetric-001(7.00)'],
+  ['滴定 HCl 0.100 M の滴定前', C.titrationPH({ ...HAc, strong: true }, 0), 1.0, 1e-9, '−log 0.100'],
+  ['滴定 HCl 当量点の 0.1 % 前', C.titrationPH({ ...HAc, strong: true }, 24.975), 4.3008, 1e-4, '−log(2.5×10⁻⁶ mol/49.975 mL)'],
+  ['滴定 1.0×10⁻⁸ M HCl(水の電離を含む)', C.titrationPH({ ...HAc, strong: true, c: 1e-8 }, 0), 6.978, 1e-4, '公式集 pH の例(約 6.98)'],
+  ['滴定 NH3 0.100 M(pKb 4.75)の滴定前', C.titrationPH(NH3, 0), 11.122, 1e-4, '14 − ½(4.75 − log 0.100) = 11.125(近似)'],
+  ['滴定 NH3 半当量点 = 14 − pKb', C.titrationPH(NH3, 12.5), 9.2495, 1e-4, 'pKa(NH4⁺) 9.25'],
+  ['滴定 NH3 当量点', C.titrationPH(NH3, 25), 5.2755, 1e-4, '½(9.25 − log 0.0500) = 5.28'],
+  ['滴定 NH3 の指示薬はメチルレッド', C.bestIndicator(C.indicatorErrors(NH3)).id === 'mr' ? 1 : 0, 1, 0, '問題 volumetric-003'],
+  ['滴定 NaOH 0.100 M を HCl で 当量点', C.titrationPH({ ...NH3, strong: true }, 25), 7.0, 1e-9, '強塩基−強酸'],
+  ['滴定 pH から体積へ戻す(酢酸 10.0 mL)', C.titrationVol(HAc, C.titrationPH(HAc, 10)), 10, 1e-9, '電荷収支の逆算'],
+  ['滴定 近似 酢酸の当量点', C.titrationApprox(HAc, 25).ph, 8.7295, 1e-4, '7 + ½(pKa + log Cs)'],
+  ['滴定 近似 NH3 の緩衝域 V = 5.0 mL', C.titrationApprox(NH3, 5).ph, 9.852, 1e-4, '9.25 + log(20.0/5.0)'],
 ];
 
 let bad = 0;

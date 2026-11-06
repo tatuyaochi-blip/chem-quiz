@@ -44,3 +44,69 @@ export function arrhenius(T1, k1, T2, k2) {
   const ea = T1 > 0 && T2 > 0 && k1 > 0 && k2 > 0 && inv !== 0 ? (R * Math.log(k2 / k1)) / inv : NaN;
   return { ea, A: k1 * Math.exp(ea / (R * T1)) };
 }
+
+// 酸塩基の滴定曲線: 一塩基の酸(または塩基)を強塩基(または強酸)で滴定する。
+// t = { base: 塩基を滴定するか, strong: 強酸・強塩基か, c: 試料の濃度 mol/L, v: 試料の体積 mL, pk: 弱酸の pKa(塩基なら pKb), ct: 滴定剤の濃度 mol/L }
+// pH は電荷収支(水の電離 Kw を含む)を数値で解いた厳密な値。活量係数は 1、Kw は 25 ℃ の 1.0×10⁻¹⁴
+export const KW = 1e-14;
+export const titrEqVol = t => (t.c * t.v) / t.ct;
+// 電荷収支の(正の電荷 − 負の電荷)。[H⁺] = h について単調に増える
+function titrBalance(t, V, h, kw) {
+  const vt = t.v + V, ca = (t.c * t.v) / vt, cx = (t.ct * V) / vt; // 試料の全濃度と滴定剤のイオンの濃度(薄まったあと)
+  if (!t.base) { // 酸: [H⁺] + [Na⁺] = [OH⁻] + [A⁻]
+    const a = t.strong ? 1 : 1 / (1 + h / 10 ** -t.pk);
+    return h + cx - kw / h - ca * a;
+  }
+  // 塩基: [H⁺] + [BH⁺] = [OH⁻] + [Cl⁻]。BH⁺ の Ka = Kw/Kb
+  const b = t.strong ? 1 : 1 / (1 + kw / 10 ** -t.pk / h);
+  return h + ca * b - kw / h - cx;
+}
+// 滴定剤を V mL 加えたときの pH(pH −3〜17 を二分法で)
+export function titrationPH(t, V, kw = KW) {
+  if (!(t.c > 0 && t.v > 0 && t.ct > 0 && V >= 0)) return NaN;
+  let lo = -3, hi = 17; // lo では収支が正、hi では負
+  for (let i = 0; i < 64; i++) {
+    const mid = (lo + hi) / 2;
+    if (titrBalance(t, V, 10 ** -mid, kw) > 0) lo = mid; else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+// 逆に、pH になるまでに要る滴定剤の体積 V mL(電荷収支を V について解いた式)。滴定前にすでにその pH を越えていれば負、届かなければ NaN
+export function titrationVol(t, pH, kw = KW) {
+  const h = 10 ** -pH, d = h - kw / h;
+  if (!t.base) {
+    const a = t.strong ? 1 : 1 / (1 + h / 10 ** -t.pk);
+    return t.ct + d > 0 ? (t.v * (a * t.c - d)) / (t.ct + d) : NaN;
+  }
+  const b = t.strong ? 1 : 1 / (1 + kw / 10 ** -t.pk / h);
+  return t.ct - d > 0 ? (t.v * (b * t.c + d)) / (t.ct - d) : NaN;
+}
+// 教科書の近似式。領域 region: 'start'(滴定前)・'buffer'(弱酸・弱塩基の当量点前)・'before'(強酸・強塩基の当量点前)・'eq'・'after'
+// f は式の名前(画面で式の文字に置き換える)。pKw = 14.00
+export function titrationApprox(t, V, kw = KW) {
+  const veq = titrEqVol(t), pkw = -Math.log10(kw), lg = Math.log10;
+  const p = t.base ? x => pkw - x : x => x; // 塩基は pOH で計算して pH に直す
+  const eqTol = veq * 1e-9;
+  if (V <= 0) return t.strong ? { region: 'start', f: 'strong0', ph: p(-lg(t.c)) } : { region: 'start', f: 'weak0', ph: p((t.pk - lg(t.c)) / 2) };
+  if (V < veq - eqTol) {
+    if (t.strong) return { region: 'before', f: 'strongBefore', ph: p(-lg((t.c * t.v - t.ct * V) / (t.v + V))) };
+    return { region: 'buffer', f: 'hh', ph: p(t.pk + lg(V / (veq - V))) };
+  }
+  if (V <= veq + eqTol) {
+    if (t.strong) return { region: 'eq', f: 'strongEq', ph: pkw / 2 };
+    const cs = (t.c * t.v) / (t.v + veq); // 当量点の共役塩基(共役酸)の濃度
+    return { region: 'eq', f: 'weakEq', ph: p(pkw - (pkw - t.pk - lg(cs)) / 2) };
+  }
+  return { region: 'after', f: 'after', ph: pkw - p(-lg((t.ct * (V - veq)) / (t.v + V))) };
+}
+// 指示薬の変色域(pH)。変色域の中央で滴定を止めたときの終点の誤差 (V終点 − V当量点)/V当量点 を % で
+export const INDICATORS = [['mo', 3.1, 4.4], ['mr', 4.2, 6.2], ['btb', 6.0, 7.6], ['pp', 8.0, 9.8]];
+export function indicatorErrors(t, kw = KW) {
+  const veq = titrEqVol(t);
+  return INDICATORS.map(([id, lo, hi]) => {
+    const v = titrationVol(t, (lo + hi) / 2, kw);
+    return { id, lo, hi, err: Number.isFinite(v) && v >= 0 ? (100 * (v - veq)) / veq : NaN, before: v < 0 };
+  });
+}
+// 終点の誤差が最も小さい指示薬
+export const bestIndicator = list => list.filter(x => Number.isFinite(x.err)).reduce((a, b) => (!a || Math.abs(b.err) < Math.abs(a.err) ? b : a), null);

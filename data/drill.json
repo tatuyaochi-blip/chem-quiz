@@ -493,6 +493,9 @@
           "hcn"
         ]
       },
+      "tools": [
+        "titration"
+      ],
       "terms": [
         "pKa"
       ]
@@ -634,6 +637,9 @@
           25.0
         ]
       },
+      "tools": [
+        "titration"
+      ],
       "terms": [
         "当量点",
         "標定",
