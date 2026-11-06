@@ -3400,7 +3400,7 @@ ${relCats.length ? `<section>
     const typeLearn = x => (x.learn ?? []).map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => ({ n: a.title, u: `${home}learn/${a.slug}/` }));
     // 公式集でこの型を挙げている式(公式集のある言語だけ)
     const typeFml = x => (fml?.formulas ?? []).filter(f => (f.drill ?? []).includes(x.id)).map(f => ({ n: f.name, u: `${home}formulas/#f-${f.id}` }));
-    const pct = tol => { const s = String(+(tol * 100).toPrecision(2)); return /^de/.test(code) ? s.replace('.', ',') : s; };
+    const pct = tol => { const s = String(+(tol * 100).toPrecision(2)); return /^(de|es|pt|fr|nl)/.test(code) ? s.replace('.', ',') : s; };
     const tolText = x => t('drill_tol', { tol: [pct(x.tol), ...Object.values(x.tolv ?? {}).map(pct)].filter((v, i, a) => a.indexOf(v) === i).join(' / ') });
     // drill.js に渡すデータ(型・数値のデータ・名前・画面の文言)
     const jsData = {
