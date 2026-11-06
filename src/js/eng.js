@@ -4,7 +4,9 @@ const PREFIX = [[1e9, 'G'], [1e6, 'M'], [1e3, 'k'], [1, ''], [1e-3, 'm'], [1e-6,
 
 // 負の数はハイフンでなくマイナス記号「−」で出す(丸めて 0 になる −0.0001 などは「0」)
 const minus = t => (/^-0(?:[.,]0*)?$/.test(t) ? t.slice(1) : t.replace(/^-/, '−'));
-export const num = (x, d = 3) => (Number.isFinite(x) ? minus(x.toLocaleString(lang, { maximumSignificantDigits: d })) : '–');
+// ドイツ語では桁区切りの点(1.000)を使わない(小数点のコンマと紛れるため)
+const grouping = !/^de/.test(lang);
+export const num = (x, d = 3) => (Number.isFinite(x) ? minus(x.toLocaleString(lang, { maximumSignificantDigits: d, useGrouping: grouping })) : '–');
 
 // 値に合う接頭辞を選んで「数値 接頭辞単位」にする(丸めて 1000 になるときは次の接頭辞へ)
 export function si(x, unit, d = 3) {
@@ -38,5 +40,6 @@ export const sci = (x, d = 4) => {
   if (!Number.isFinite(x)) return '–';
   if (x === 0) return '0';
   const [m, e] = x.toExponential(d - 1).split('e');
-  return Number(e) === 0 ? minus(m) : `${minus(m)} × 10${String(Number(e)).replace(/./g, c => SUP[c])}`;
+  const t = minus(Number(m).toLocaleString(lang, { minimumSignificantDigits: d, maximumSignificantDigits: d })); // 小数点はその言語の書き方(de は 5,913)
+  return Number(e) === 0 ? t : `${t} × 10${String(Number(e)).replace(/./g, c => SUP[c])}`;
 };
